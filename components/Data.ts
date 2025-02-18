@@ -1245,6 +1245,7 @@ const potentialList = [
   { name: "地属性マスボーナス3倍", stat: null, value: 3 },
   { name: "スタン耐性+50", stat: null, value: 50 },
   { name: "移動時スキル継続", stat: null, value: 1 },
+  { name: "火傷の敵へ与ダメ1.2倍", stat: null, value: 1 },
 ] as const satisfies PotentialEffect[];
 export type Potential = typeof potentialList[number]["name"]
 export const Potential = {

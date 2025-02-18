@@ -508,8 +508,8 @@ export default class Unit implements TableSource<Keys> {
       this.supplements = s;
     }
     this.features = [
-      ...Feature.getCommonFeatures(),
       ...(classData?.features ?? []),
+      ...Feature.getCommonFeatures(),
       ...Feature.parseList(src.features ?? [])
     ];
     this.formationBuffs = Data.JsonFormationBuff.parse(src.formationBuffs ?? []);

@@ -4263,7 +4263,7 @@
     "TODO_STAT_INFERRED": true,
     "id": 119,
     "unitName": "【四天王】グランベリア",
-    "unitShortName": "グランベリアTODO→攻撃速度",
+    "unitShortName": "グランベリア",
     "rarity": "L",
     "class": "バーバリアン",
     "element": "火",
@@ -4290,17 +4290,23 @@
       {
         "featureName": "common-block1",
         "isConditionalBuff": true,
-        "damageFactor": 110
+        "damageFactor": 110,
+        "attackSpeedBuff": 117,
+        "delayMul": 90
       },
       {
         "featureName": "common-block2",
         "isConditionalBuff": true,
-        "damageFactor": 120
+        "damageFactor": 120,
+        "attackSpeedBuff": 134,
+        "delayMul": 80
       },
       {
         "featureName": "common-block3",
         "isConditionalBuff": true,
-        "damageFactor": 130
+        "damageFactor": 130,
+        "attackSpeedBuff": 150,
+        "delayMul": 70
       }
     ],
     "isEventUnit": true,
@@ -8001,7 +8007,7 @@
     "TODO_STAT_INFERRED": true,
     "id": 228,
     "unitName": "【うさ耳ロボ】ブリュンヒルデ",
-    "unitShortName": "ブリュンヒルデTODO→攻撃速度/射程",
+    "unitShortName": "ブリュンヒルデ",
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "地",
@@ -8013,6 +8019,7 @@
     "exSkill1": {
       "skillName": "ヒルデの秘密兵器…",
       "attackMul": 260,
+      "attackMotionMul": 155,
       "block": 0,
       "laser": true,
       "rangeMul": 120,
@@ -8151,9 +8158,10 @@
   },
   {
     "TODO_STAT_INFERRED": true,
+    "TODO_BUFF": "delay-20%→sk1-射程内味方",
     "id": 239,
     "unitName": "【パズズ娘】シィール",
-    "unitShortName": "シィール→TODO delaycut",
+    "unitShortName": "シィール",
     "rarity": "L",
     "class": "エアスカウト",
     "element": "風",
@@ -8189,7 +8197,8 @@
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "delayMul": 80
   },
   {
     "id": 242,
@@ -9605,5 +9614,77 @@
     ],
     "costAdd": 3,
     "hpMul": 120
+  },
+  {
+    "id": 310,
+    "unitName": "【メルカバー娘】アナ",
+    "unitShortName": "アナ",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "火",
+    "hp": 2686,
+    "attack": 669,
+    "defense": 312,
+    "resist": 203,
+    "moveType": "飛行",
+    "supplements": [
+      "火傷付与(稀)",
+      "火傷付与(高)/CRI時"
+    ],
+    "exSkill1": {
+      "skillName": "ラヴァーレッド・シグマ",
+      "attackMul": 160,
+      "targetAdd": 4,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      {
+        "criChanceLimitAdd": 40,
+        "potentialBonus": {
+          "criChanceLimitAdd": 45
+        }
+      },
+      {
+        "featureName": "proper-burn",
+        "annotations": [
+          "火傷特効"
+        ],
+        "conditions": [
+          "特"
+        ]
+      },
+      {
+        "featureName": "proper-burn",
+        "hasPotentials": [
+          "火傷の敵へ与ダメ1.2倍"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "proper-burn",
+        "skill": 1,
+        "isBuffSkill": true,
+        "damageFactor": 140
+      },
+      {
+        "featureName": "class-proper",
+        "annotations": [
+          "飛行特効"
+        ]
+      }
+    ],
+    "criChanceAdd": 40,
+    "potentialBonus": {
+      "criChanceAdd": 45
+    }
   }
 ]

@@ -10383,19 +10383,6 @@
   {
     "unitId": 292,
     "features": [
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 292,
-    "skill": 1,
-    "features": [
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 292,
-    "features": [
       "proper-burn"
     ]
   },
@@ -10404,6 +10391,19 @@
     "skill": 1,
     "features": [
       "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-proper"
     ]
   },
   {
@@ -10438,21 +10438,6 @@
     "unitId": 292,
     "features": [
       "class-action",
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 292,
-    "skill": 1,
-    "features": [
-      "class-action",
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 292,
-    "features": [
-      "class-action",
       "proper-burn"
     ]
   },
@@ -10462,6 +10447,21 @@
     "features": [
       "class-action",
       "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
     ]
   },
   {
@@ -10969,6 +10969,158 @@
     "skill": -1,
     "features": [
       "class-action"
+    ]
+  },
+  {
+    "unitId": 310
+  },
+  {
+    "unitId": 310,
+    "skill": 1
+  },
+  {
+    "unitId": 310,
+    "hasPotentials": [
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "features": [
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 310,
+    "hasPotentials": [
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 310,
+    "hasPotentials": [
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      "class-action",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 310,
+    "hasPotentials": [
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 310,
+    "isGeneralProper": true,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "isGeneralProper": true,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 310,
+    "isGeneralProperAction": true,
+    "features": [
+      "class-action",
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 310,
+    "skill": 1,
+    "isGeneralProperAction": true,
+    "features": [
+      "class-action",
+      "common-burn-dot"
     ]
   }
 ]

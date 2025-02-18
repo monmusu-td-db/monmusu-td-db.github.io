@@ -1049,6 +1049,15 @@ export default class Situation implements TableSource<Keys> {
       }
     }
 
+    if (statType === stat.attack) {
+      const factor = this.getBuffDamageFactor(setting);
+      if (factor !== undefined) {
+        if (factor > 100)
+          return Data.tableColorAlias.positiveStrong;
+        if (factor < 100)
+          return Data.tableColorAlias.negativeStrong;
+      }
+    }
     const b = this.getBuffMultiFactor(setting, statType);
     if (b !== undefined) {
       if (b > 100)
@@ -1249,6 +1258,12 @@ export default class Situation implements TableSource<Keys> {
     const skillBuffs = this.getFeature(setting).skillBuffs;
     if (skillBuffs === undefined) return 0;
     return this.calculateAddFactor(setting, statType, skillBuffs);
+  }
+
+  private getBuffDamageFactor(setting: Setting): number | undefined {
+    const skillBuffs = this.getFeature(setting).skillBuffs;
+    if (skillBuffs === undefined) return 0;
+    return skillBuffs.damageFactor;
   }
 
   private getFeatureMultiFactor(setting: Setting, statType: Data.BaseStatType): number | undefined {
