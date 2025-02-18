@@ -1,0 +1,26 @@
+.search {
+  position: absolute;
+  left: 50%;
+  width: 280px;
+  margin-left: -140px;
+}
+
+.navbar {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+.navbarToggler {
+  margin-right: 0 !important;
+}
+
+.modal {
+  max-width: 800px !important;
+  width: 90vw
+}
+
+@media (min-width:1024px) {
+  .textNowrap {
+    white-space: nowrap !important;
+  }
+}

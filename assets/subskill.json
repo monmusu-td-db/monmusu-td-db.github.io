@@ -1,0 +1,1975 @@
+[
+  {
+    "name": "HP強化 I",
+    "rarity": "C",
+    "group": "防御",
+    "class": "HP強化",
+    "desc": "HP+15%",
+    "isGeneral": true,
+    "hp": 15
+  },
+  {
+    "name": "HP強化 II",
+    "rarity": "R",
+    "group": "防御",
+    "class": "HP強化",
+    "desc": "HP+20%",
+    "isGeneral": true,
+    "hp": 20
+  },
+  {
+    "name": "HP強化 III",
+    "rarity": "E",
+    "group": "防御",
+    "class": "HP強化",
+    "desc": "HP+25%",
+    "isGeneral": true,
+    "hp": 25
+  },
+  {
+    "name": "攻撃力強化 I",
+    "rarity": "C",
+    "group": "攻撃",
+    "class": "攻撃力強化",
+    "desc": "攻撃力+10%",
+    "isGeneral": true,
+    "attack": 10
+  },
+  {
+    "name": "攻撃力強化 II",
+    "rarity": "R",
+    "group": "攻撃",
+    "class": "攻撃力強化",
+    "desc": "攻撃力+15%",
+    "isGeneral": true,
+    "attack": 15
+  },
+  {
+    "name": "攻撃力強化 III",
+    "rarity": "E",
+    "group": "攻撃",
+    "class": "攻撃力強化",
+    "desc": "攻撃力+20%",
+    "isGeneral": true,
+    "attack": 20
+  },
+  {
+    "name": "物理防御強化 I",
+    "rarity": "C",
+    "group": "防御",
+    "class": "物理防御強化",
+    "desc": "物理防御+10%",
+    "isGeneral": true,
+    "defense": 10
+  },
+  {
+    "name": "物理防御強化 II",
+    "rarity": "R",
+    "group": "防御",
+    "class": "物理防御強化",
+    "desc": "物理防御+15%",
+    "isGeneral": true,
+    "defense": 15
+  },
+  {
+    "name": "物理防御強化 III",
+    "rarity": "E",
+    "group": "防御",
+    "class": "物理防御強化",
+    "desc": "物理防御+20%",
+    "isGeneral": true,
+    "defense": 20
+  },
+  {
+    "name": "魔法防御強化 I",
+    "rarity": "C",
+    "group": "防御",
+    "class": "魔法防御強化",
+    "desc": "魔法防御+10%",
+    "isGeneral": true,
+    "resist": 10
+  },
+  {
+    "name": "魔法防御強化 II",
+    "rarity": "R",
+    "group": "防御",
+    "class": "魔法防御強化",
+    "desc": "魔法防御+15%",
+    "isGeneral": true,
+    "resist": 15
+  },
+  {
+    "name": "魔法防御強化 III",
+    "rarity": "E",
+    "group": "防御",
+    "class": "魔法防御強化",
+    "desc": "魔法防御+20%",
+    "isGeneral": true,
+    "resist": 20
+  },
+  {
+    "name": "リジェネレーション I",
+    "rarity": "C",
+    "group": "支援",
+    "class": "リジェネレーション",
+    "desc": "HPが1秒ごとに30回復する",
+    "isGeneral": true,
+    "regenerate": 30
+  },
+  {
+    "name": "リジェネレーション II",
+    "rarity": "R",
+    "group": "支援",
+    "class": "リジェネレーション",
+    "desc": "HPが1秒ごとに40回復する",
+    "isGeneral": true,
+    "regenerate": 40
+  },
+  {
+    "name": "リジェネレーション III",
+    "rarity": "E",
+    "group": "支援",
+    "class": "リジェネレーション",
+    "desc": "HPが1秒ごとに50回復する",
+    "isGeneral": true,
+    "regenerate": 50
+  },
+  {
+    "name": "物理攻撃回避 I",
+    "rarity": "C",
+    "group": "防御",
+    "class": "物理攻撃回避",
+    "desc": "20%の確率で物理攻撃を回避",
+    "isGeneral": true,
+    "physicalEvasion": 20
+  },
+  {
+    "name": "物理攻撃回避 II",
+    "rarity": "R",
+    "group": "防御",
+    "class": "物理攻撃回避",
+    "desc": "25%の確率で物理攻撃を回避",
+    "isGeneral": true,
+    "physicalEvasion": 25
+  },
+  {
+    "name": "物理攻撃回避 III",
+    "rarity": "E",
+    "group": "防御",
+    "class": "物理攻撃回避",
+    "desc": "30%の確率で物理攻撃を回避",
+    "isGeneral": true,
+    "physicalEvasion": 30
+  },
+  {
+    "name": "魔法攻撃回避 I",
+    "rarity": "C",
+    "group": "防御",
+    "class": "魔法攻撃回避",
+    "desc": "20%の確率で魔法攻撃を回避",
+    "isGeneral": true,
+    "magicalEvasion": 20
+  },
+  {
+    "name": "魔法攻撃回避 II",
+    "rarity": "R",
+    "group": "防御",
+    "class": "魔法攻撃回避",
+    "desc": "25%の確率で魔法攻撃を回避",
+    "isGeneral": true,
+    "magicalEvasion": 25
+  },
+  {
+    "name": "魔法攻撃回避 III",
+    "rarity": "E",
+    "group": "防御",
+    "class": "魔法攻撃回避",
+    "desc": "30%の確率で魔法攻撃を回避",
+    "isGeneral": true,
+    "magicalEvasion": 30
+  },
+  {
+    "name": "移動速度上昇 I",
+    "rarity": "C",
+    "group": "支援",
+    "class": "移動速度上昇",
+    "desc": "移動速度+30%",
+    "isGeneral": true,
+    "moveSpeed": 30
+  },
+  {
+    "name": "移動速度上昇 II",
+    "rarity": "R",
+    "group": "支援",
+    "class": "移動速度上昇",
+    "desc": "移動速度+50%",
+    "isGeneral": true,
+    "moveSpeed": 50
+  },
+  {
+    "name": "移動速度上昇 III",
+    "rarity": "E",
+    "group": "支援",
+    "class": "移動速度上昇",
+    "desc": "移動速度+70%",
+    "isGeneral": true,
+    "moveSpeed": 70
+  },
+  {
+    "name": "クリティカル I",
+    "rarity": "C",
+    "group": "攻撃",
+    "class": "クリティカル",
+    "desc": "クリティカル率+15%",
+    "isGeneral": true,
+    "criChanceAdd": 15
+  },
+  {
+    "name": "クリティカル II",
+    "rarity": "R",
+    "group": "攻撃",
+    "class": "クリティカル",
+    "desc": "クリティカル率+20%",
+    "isGeneral": true,
+    "criChanceAdd": 20
+  },
+  {
+    "name": "クリティカル III",
+    "rarity": "E",
+    "group": "攻撃",
+    "class": "クリティカル",
+    "desc": "クリティカル率+25%",
+    "isGeneral": true,
+    "criChanceAdd": 25
+  },
+  {
+    "name": "再出撃時間短縮 I",
+    "rarity": "C",
+    "group": "支援",
+    "class": "再出撃時間短縮",
+    "desc": "再出撃までの時間を30%短縮",
+    "isGeneral": true,
+    "redeployTimeCut": 30
+  },
+  {
+    "name": "再出撃時間短縮 II",
+    "rarity": "R",
+    "group": "支援",
+    "class": "再出撃時間短縮",
+    "desc": "再出撃までの時間を40%短縮",
+    "isGeneral": true,
+    "redeployTimeCut": 40
+  },
+  {
+    "name": "再出撃時間短縮 III",
+    "rarity": "E",
+    "group": "支援",
+    "class": "再出撃時間短縮",
+    "desc": "再出撃までの時間を50%短縮",
+    "isGeneral": true,
+    "redeployTimeCut": 50
+  },
+  {
+    "name": "生命力吸収 I",
+    "rarity": "C",
+    "group": "支援",
+    "class": "生命力吸収",
+    "desc": "攻撃時、HPが最大値の1%回復",
+    "isGeneral": true,
+    "absorb": 1
+  },
+  {
+    "name": "生命力吸収 II",
+    "rarity": "R",
+    "group": "支援",
+    "class": "生命力吸収",
+    "desc": "攻撃時、HPが最大値の2%回復",
+    "isGeneral": true,
+    "absorb": 2
+  },
+  {
+    "name": "生命力吸収 III",
+    "rarity": "E",
+    "group": "支援",
+    "class": "生命力吸収",
+    "desc": "攻撃時、HPが最大値の3%回復",
+    "isGeneral": true,
+    "absorb": 3
+  },
+  {
+    "name": "攻撃待機時間短縮 I",
+    "rarity": "C",
+    "group": "攻撃",
+    "class": "攻撃待機時間短縮",
+    "desc": "攻撃後の待機時間を15%短縮",
+    "isGeneral": true,
+    "delayCut": 15
+  },
+  {
+    "name": "攻撃待機時間短縮 II",
+    "rarity": "R",
+    "group": "攻撃",
+    "class": "攻撃待機時間短縮",
+    "desc": "攻撃後の待機時間を20%短縮",
+    "isGeneral": true,
+    "delayCut": 20
+  },
+  {
+    "name": "攻撃待機時間短縮 III",
+    "rarity": "E",
+    "group": "攻撃",
+    "class": "攻撃待機時間短縮",
+    "desc": "攻撃後の待機時間を25%短縮",
+    "isGeneral": true,
+    "delayCut": 25
+  },
+  {
+    "name": "貫通攻撃 I",
+    "rarity": "C",
+    "group": "攻撃",
+    "class": "貫通攻撃",
+    "desc": "10%の確率で敵の防御力を無視する",
+    "isGeneral": true,
+    "penetration": 10
+  },
+  {
+    "name": "貫通攻撃 II",
+    "rarity": "R",
+    "group": "攻撃",
+    "class": "貫通攻撃",
+    "desc": "15%の確率で敵の防御力を無視する",
+    "isGeneral": true,
+    "penetration": 15
+  },
+  {
+    "name": "貫通攻撃 III",
+    "rarity": "E",
+    "group": "攻撃",
+    "class": "貫通攻撃",
+    "desc": "20%の確率で敵の防御力を無視する",
+    "isGeneral": true,
+    "penetration": 20
+  },
+  {
+    "name": "底力(攻撃) I",
+    "rarity": "C",
+    "group": "攻撃",
+    "class": "底力(攻撃)",
+    "desc": "HP減少量に応じて攻撃力が上昇する(最大30%)",
+    "isGeneral": true,
+    "attackMul": 30
+  },
+  {
+    "name": "底力(攻撃) II",
+    "rarity": "R",
+    "group": "攻撃",
+    "class": "底力(攻撃)",
+    "desc": "HP減少量に応じて攻撃力が上昇する(最大40%)",
+    "isGeneral": true,
+    "attackMul": 40
+  },
+  {
+    "name": "底力(攻撃) III",
+    "rarity": "E",
+    "group": "攻撃",
+    "class": "底力(攻撃)",
+    "desc": "HP減少量に応じて攻撃力が上昇する(最大50%)",
+    "isGeneral": true,
+    "attackMul": 50
+  },
+  {
+    "name": "底力(物理防御) I",
+    "rarity": "C",
+    "group": "防御",
+    "class": "底力(物理防御)",
+    "desc": "HP減少量に応じて物理防御力が上昇する(最大30%)",
+    "isGeneral": true,
+    "defenseMul": 30
+  },
+  {
+    "name": "底力(物理防御) II",
+    "rarity": "R",
+    "group": "防御",
+    "class": "底力(物理防御)",
+    "desc": "HP減少量に応じて物理防御力が上昇する(最大40%)",
+    "isGeneral": true,
+    "defenseMul": 40
+  },
+  {
+    "name": "底力(物理防御) III",
+    "rarity": "E",
+    "group": "防御",
+    "class": "底力(物理防御)",
+    "desc": "HP減少量に応じて物理防御力が上昇する(最大50%)",
+    "isGeneral": true,
+    "defenseMul": 50
+  },
+  {
+    "name": "撤退時コスト回復 I",
+    "rarity": "C",
+    "group": "支援",
+    "class": "撤退時コスト回復",
+    "desc": "撤退時のコスト回復量が70%になる",
+    "isGeneral": true,
+    "redeployCostReturn": 70
+  },
+  {
+    "name": "撤退時コスト回復 II",
+    "rarity": "R",
+    "group": "支援",
+    "class": "撤退時コスト回復",
+    "desc": "撤退時のコスト回復量が80%になる",
+    "isGeneral": true,
+    "redeployCostReturn": 80
+  },
+  {
+    "name": "撤退時コスト回復 III",
+    "rarity": "E",
+    "group": "支援",
+    "class": "撤退時コスト回復",
+    "desc": "撤退時のコスト回復量が90%になる",
+    "isGeneral": true,
+    "redeployCostReturn": 90
+  },
+  {
+    "name": "アイアンボディ",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "物理ダメージを25%減少",
+    "isGeneral": true,
+    "physicalDamageCut": 25
+  },
+  {
+    "name": "ファストチャージャー",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル使用後、再発動までの時間を3秒短くする",
+    "isGeneral": true,
+    "cooldown": -3
+  },
+  {
+    "name": "オートパニッシャー",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "敵の攻撃力の10%を反射しダメージを与える",
+    "isGeneral": true
+  },
+  {
+    "name": "エレメンタルブースト",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "同属性マスに配置したボーナスが1.5倍",
+    "fieldBuffFactor": 50
+  },
+  {
+    "name": "フェニックスの加護",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "HPが1秒ごとに45回復し、再出撃時間を40%短縮",
+    "regenerate": 45,
+    "redeployTimeCut": 40
+  },
+  {
+    "name": "騎士の心得",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "物理防御+15%、ガーディアン系クラスにセット時追加でHP+500",
+    "defense": 15,
+    "features": [
+      {
+        "require": [
+          "ガーディアン"
+        ],
+        "hpAdd": 500
+      }
+    ]
+  },
+  {
+    "name": "霧を晴らす列車",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "移動速度+40%、移動消費コスト-1",
+    "moveSpeed": 40,
+    "moveCostCut": 1
+  },
+  {
+    "name": "巨鎧騎士の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+650、斧装備クラスにセット時追加で攻撃力+100",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "バーバリアン"
+        ],
+        "attackAdd": 100
+      }
+    ]
+  },
+  {
+    "name": "黄金岩晶の討伐証",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "移動速度+60%、剣装備クラスにセット時追加で物理防御+100",
+    "moveSpeed": 60,
+    "features": [
+      {
+        "require": [
+          "シールドナイト"
+        ],
+        "defenseAdd": 100
+      }
+    ]
+  },
+  {
+    "name": "フルハートハイビート",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "HPが最大状態の時、4秒毎にスキル準備時間-1秒",
+    "isHighBeat": true
+  },
+  {
+    "name": "双角王者の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "物理防御+40、オーブ装備クラスにセット時追加で魔法防御+40",
+    "defenseAdd": 40,
+    "features": [
+      {
+        "require": [
+          "ハーミット"
+        ],
+        "resistAdd": 40
+      }
+    ]
+  },
+  {
+    "name": "純白ヴェール",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "魔法防御力+40、魔法ダメージを5%減少",
+    "resistAdd": 40,
+    "magicalDamageCut": 5
+  },
+  {
+    "name": "攻撃+物理防御強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力と物理防御力+17%",
+    "isGeneral": true,
+    "attack": 17,
+    "defense": 17
+  },
+  {
+    "name": "攻撃+魔法防御強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力と魔法防御力+17%",
+    "isGeneral": true,
+    "attack": 17,
+    "resist": 17
+  },
+  {
+    "name": "HP+物理防御強化",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "HP+20%、物理防御力+17%",
+    "isGeneral": true,
+    "hp": 20,
+    "defense": 17
+  },
+  {
+    "name": "HP+魔法防御強化",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "HP+20%、魔法防御力+17%",
+    "isGeneral": true,
+    "hp": 20,
+    "resist": 17
+  },
+  {
+    "name": "冥途の置き土産",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "場から離れる時に爆発し、周囲の敵に攻撃力の2倍ダメージ",
+    "isGeneral": true
+  },
+  {
+    "name": "捨て身の一撃",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "与ダメージが1.2倍になるが、攻撃ヒット時に最大HP3%の反動ダメージを受ける",
+    "isGeneral": true,
+    "damageFactor": 20
+  },
+  {
+    "name": "物理防御+魔法防御強化",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "物理防御力と魔法防御力+17%",
+    "isGeneral": true,
+    "defense": 17,
+    "resist": 17
+  },
+  {
+    "name": "HP強化+出撃コスト減少",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "HP+20%、出撃コスト-1",
+    "isGeneral": true,
+    "hp": 20,
+    "cost": -1
+  },
+  {
+    "name": "聖なる祈り",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル使用後10秒間、全味方(トークン含)のHPを1秒ごとに75回復させる",
+    "isGeneral": true,
+    "regenerate": 75,
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "regenerate": 75
+      }
+    ]
+  },
+  {
+    "name": "竜騎士の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+650、扇装備クラスにセット時追加で攻撃力+80",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "エアスカウト"
+        ],
+        "attackAdd": 80
+      }
+    ]
+  },
+  {
+    "name": "結石竜の討伐証",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、石化状態の敵に与えるダメージ1.1倍",
+    "attack": 17,
+    "damageFactor": 10
+  },
+  {
+    "name": "スタートチャージャー",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル初回使用までの時間を10秒短くする",
+    "initialTimeCut": 10
+  },
+  {
+    "name": "魔導の心得",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+12%、ソーサラー系クラスにセット時追加で射程+10",
+    "attack": 12,
+    "features": [
+      {
+        "require": [
+          "ソーサラー"
+        ],
+        "rangeAdd": 10
+      }
+    ]
+  },
+  {
+    "name": "攻撃強化+出撃コスト減少",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、出撃コスト-1",
+    "isGeneral": true,
+    "attack": 17,
+    "cost": -1
+  },
+  {
+    "name": "物理防御強化+物理攻撃回避",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "物理防御+17%、物理攻撃を20%の確率で回避",
+    "isGeneral": true,
+    "defense": 17,
+    "physicalEvasion": 20
+  },
+  {
+    "name": "リミットブレイク",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "スキル中与ダメージが1.3倍になるが、スキル終了時最大HP60%の反動ダメージ",
+    "isGeneral": true,
+    "isLimitBreak": true
+  },
+  {
+    "name": "ゴブリンパーティ！",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "ゴブリン戦士トークンを5体まで使役可能"
+  },
+  {
+    "name": "高貴なる狩人",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+12%、スナイパー系クラスにセット時追加で射程+5",
+    "attack": 12,
+    "features": [
+      {
+        "require": [
+          "スナイパー"
+        ],
+        "rangeAdd": 5
+      }
+    ]
+  },
+  {
+    "name": "魔導艦の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+650、鈍器装備クラスにセット時追加で攻撃力+120",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "デストロイヤー"
+        ],
+        "attackAdd": 120
+      }
+    ]
+  },
+  {
+    "name": "古代艦の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+600、槍装備クラスにセット時追加で攻撃力+100",
+    "hpAdd": 600,
+    "features": [
+      {
+        "require": [
+          "ランサー"
+        ],
+        "attackAdd": 100
+      }
+    ]
+  },
+  {
+    "name": "皇女の誇り",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、ヒーラー系クラスにセット時追加で攻撃力+70",
+    "attack": 17,
+    "features": [
+      {
+        "require": [
+          "ヒーラー"
+        ],
+        "attackAdd": 70
+      }
+    ]
+  },
+  {
+    "name": "ぐねぐねスライムくん（緑）",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "緑スライムトークンを2体まで使役可能"
+  },
+  {
+    "name": "攻撃強化+リジェネレーション",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、HPが1秒ごとに20回復する",
+    "isGeneral": true,
+    "attack": 17,
+    "regenerate": 20
+  },
+  {
+    "name": "物理防御強化+出撃コスト減少",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "物理防御力+17%、出撃コスト-1",
+    "isGeneral": true,
+    "defense": 17,
+    "cost": -1
+  },
+  {
+    "name": "タクティクスガード",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "配置中、全味方の物理防御力+4%",
+    "isGeneral": true,
+    "defenseMul": 4,
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "defenseMul": 4
+      }
+    ]
+  },
+  {
+    "name": "常夏巨兵の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+650、剣装備クラスにセット時追加で物理防御+120",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "シールドナイト"
+        ],
+        "defenseAdd": 120
+      }
+    ]
+  },
+  {
+    "name": "まったり充電寝正月",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "非スキル中通常の攻撃を行わなくなるが1秒毎にスキル準備時間-1秒",
+    "isRecharge": true
+  },
+  {
+    "name": "攻撃強化+貫通攻撃",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、8%の確率で敵の防御力を無視する",
+    "isGeneral": true,
+    "attack": 17,
+    "penetration": 8
+  },
+  {
+    "name": "生命力吸収+攻撃待機短縮",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "攻撃時、HPが最大値の2%回復、攻撃後の待機時間を20%短縮",
+    "absorb": 2,
+    "delayCut": 20
+  },
+  {
+    "name": "HP強化+リジェネレーション",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "HP+20%、HPが1秒ごとに20回復する",
+    "isGeneral": true,
+    "hp": 20,
+    "regenerate": 20
+  },
+  {
+    "name": "物理攻撃+魔法攻撃回避",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "15%の確率で物理攻撃と魔法攻撃を回避",
+    "isGeneral": true,
+    "physicalEvasion": 15,
+    "magicalEvasion": 15
+  },
+  {
+    "name": "疾風怒濤",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "移動中、攻撃力+100%",
+    "isGeneral": true,
+    "features": [
+      {
+        "require": [
+          "移動中"
+        ],
+        "attackMul": 100
+      }
+    ]
+  },
+  {
+    "name": "先手必勝！",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "配置してから30秒間、与ダメージ1.5倍",
+    "isGeneral": true,
+    "damageFactor": 50
+  },
+  {
+    "name": "ポイズンボム",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "配置時に周囲の敵に攻撃力2.5倍のダメージを与え、高確率で猛毒状態にする",
+    "isGeneral": true
+  },
+  {
+    "name": "41ストーン",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP+0721\n物理防御力+45、魔法防御力+45",
+    "hpAdd": 721,
+    "defenseAdd": 45,
+    "resistAdd": 45
+  },
+  {
+    "name": "究極機将の討伐証",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力15%、斧装備クラスにセット時追加で物理防御力+120",
+    "attack": 15,
+    "features": [
+      {
+        "require": [
+          "バーバリアン"
+        ],
+        "defenseAdd": 120
+      }
+    ]
+  },
+  {
+    "name": "攻撃強化+クリティカル",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、クリティカル率+17%",
+    "isGeneral": true,
+    "attack": 17,
+    "criChanceAdd": 17
+  },
+  {
+    "name": "穴鏡触手の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "敵の攻撃力の8%を反射しダメージを与える\n剣装備クラスにセット時追加で物防魔防+30",
+    "features": [
+      {
+        "require": [
+          "シールドナイト"
+        ],
+        "defenseAdd": 30,
+        "resistAdd": 30
+      }
+    ]
+  },
+  {
+    "name": "1st Anniversaryの祝福",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP+1111、攻撃力+111\n物理防御力+111、魔法防御力+111",
+    "hpAdd": 1111,
+    "attackAdd": 111,
+    "defenseAdd": 111,
+    "resistAdd": 111
+  },
+  {
+    "name": "プロトバリア",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル発動時、自身に戦闘前の攻撃力の200%のバリアを付与",
+    "isGeneral": true
+  },
+  {
+    "name": "アタッチヒール",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル発動時、自身のHPを20%回復",
+    "isGeneral": true
+  },
+  {
+    "name": "屍山血河",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "敵を攻撃で倒すごとに攻撃力が1%上昇\n(最大50回/死亡撤退時リセット)",
+    "isGeneral": true,
+    "attackMul": 50
+  },
+  {
+    "name": "恩愛触手の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "魔法防御力+100、本装備クラスにセット時追加で攻撃力+100",
+    "resistAdd": 100,
+    "features": [
+      {
+        "require": [
+          "コンジャラー"
+        ],
+        "attackAdd": 100
+      }
+    ]
+  },
+  {
+    "name": "暗躍する影",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+15%、短剣装備クラスにセット時追加で背後からの攻撃時与ダメージ1.2倍",
+    "attack": 15,
+    "features": [
+      {
+        "require": [
+          "チーフアサシン"
+        ],
+        "damageFactor": 20
+      }
+    ]
+  },
+  {
+    "name": "HP強化 IV",
+    "rarity": "L",
+    "group": "防御",
+    "class": "HP強化",
+    "desc": "HP+35%",
+    "isGeneral": true,
+    "hp": 35
+  },
+  {
+    "name": "攻撃力強化 IV",
+    "rarity": "L",
+    "group": "攻撃",
+    "class": "攻撃力強化",
+    "desc": "攻撃力+27%",
+    "isGeneral": true,
+    "attack": 27
+  },
+  {
+    "name": "物理防御強化 IV",
+    "rarity": "L",
+    "group": "防御",
+    "class": "物理防御強化",
+    "desc": "物理防御+27%",
+    "isGeneral": true,
+    "defense": 27
+  },
+  {
+    "name": "魔法防御強化 IV",
+    "rarity": "L",
+    "group": "防御",
+    "class": "魔法防御強化",
+    "desc": "魔法防御+27%",
+    "isGeneral": true,
+    "resist": 27
+  },
+  {
+    "name": "ポイズンエンチャント",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃時、低確率で毒を付与\n毒状態の敵へ与ダメージ1.2倍",
+    "isGeneral": true,
+    "damageFactor": 20
+  },
+  {
+    "name": "ガードプロテクト",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "配置中、全味方が受ける物理ダメージ15%減少",
+    "isGeneral": true,
+    "physicalDamageCut": 15,
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "physicalDamageCut": 15
+      }
+    ]
+  },
+  {
+    "name": "パワフルリジェネ",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "HPが1秒ごとに60回復する\nスキル発動後10秒間回復量3倍",
+    "isGeneral": true,
+    "regenerate": 180
+  },
+  {
+    "name": "オールレジスト",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "毒、石化、スタン耐性+50",
+    "isGeneral": true
+  },
+  {
+    "name": "アサルトチャージ",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "移動中、攻撃力+120%\n移動速度+100",
+    "isGeneral": true,
+    "moveSpeedAdd": 100,
+    "features": [
+      {
+        "require": [
+          "移動中"
+        ],
+        "attackMul": 120
+      }
+    ]
+  },
+  {
+    "name": "MAXマッスル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "HPが100%以上の時与ダメージ1.3倍",
+    "isGeneral": true,
+    "damageFactor": 30
+  },
+  {
+    "name": "きらめきの星騎士",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "魔法ダメージを5%軽減\n全味方のHPを1秒毎に15回復する",
+    "magicalDamageCut": 5,
+    "regenerate": 15,
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "regenerate": 15
+      }
+    ]
+  },
+  {
+    "name": "触手も付けとくでぇ！",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル発動時、被ダメージを半分肩代わりする触手トークンを自身のマスに召喚"
+  },
+  {
+    "name": "ハイテンションサマー",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "HPが80%以上の時、攻撃速度が上昇し攻撃後の待機時間50%減少",
+    "features": [
+      {
+        "require": [
+          "HP80%以上"
+        ],
+        "attackSpeedBuff": 30,
+        "delayCut": 50
+      }
+    ]
+  },
+  {
+    "name": "灼熱噴然の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "物理ダメージを5%軽減\n地属性ユニットにセット時追加でHP+700",
+    "physicalDamageCut": 5,
+    "features": [
+      {
+        "require": [
+          "地"
+        ],
+        "hpAdd": 700
+      }
+    ]
+  },
+  {
+    "name": "テッパンツンデレ皇女",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "セット時、全モンスター娘の攻撃力+5%\nカティナをトークンとして使役可能",
+    "formationAttack": 5
+  },
+  {
+    "name": "おっとりお姉ちゃん皇女",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "セット時、全モンスター娘の最大HP+10%\nリンデンハートをトークンとして使役可能",
+    "formationHp": 10
+  },
+  {
+    "name": "魔法防御強化+魔法攻撃回避",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "魔法防御+17%、魔法攻撃を20%の確率で回避",
+    "isGeneral": true,
+    "resist": 17,
+    "magicalEvasion": 20
+  },
+  {
+    "name": "逆境の力",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "HP50%以下の時、与ダメージが1.5倍",
+    "isGeneral": true,
+    "damageFactor": 50
+  },
+  {
+    "name": "マジックボディ",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "魔法ダメージを25%減少",
+    "isGeneral": true,
+    "magicalDamageCut": 25
+  },
+  {
+    "name": "快適快速",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "移動時物理、魔法攻撃を20%の確率で回避 移動消費コスト-5",
+    "moveCostCut": 5,
+    "features": [
+      {
+        "require": [
+          "移動中"
+        ],
+        "physicalEvasion": 20,
+        "magicalEvasion": 20
+      }
+    ]
+  },
+  {
+    "name": "グレイトコンダクト",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "自身の使役するトークンの\n与えるダメージが1.3倍",
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "damageFactor": 30
+      }
+    ]
+  },
+  {
+    "name": "魔導傑作の討伐証",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+15%、杖クラス装備時射程+10",
+    "attack": 15,
+    "features": [
+      {
+        "require": [
+          "ウォーロック"
+        ],
+        "rangeAdd": 10
+      }
+    ]
+  },
+  {
+    "name": "再出撃時間短縮+撤退時コスト回復",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "再出撃までの時間を45%短縮\n撤退時のコスト回復量が70%になる",
+    "redeployTimeCut": 45,
+    "redeployCostReturn": 70
+  },
+  {
+    "name": "再出撃時間短縮 IV",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "再出撃までの時間を60%短縮",
+    "isGeneral": true,
+    "redeployTimeCut": 60
+  },
+  {
+    "name": "貫通攻撃 IV",
+    "rarity": "L",
+    "group": "攻撃",
+    "class": "貫通攻撃",
+    "desc": "27%の確率で敵の防御力を無視する",
+    "isGeneral": true,
+    "penetration": 27
+  },
+  {
+    "name": "ラピッドチャージャー",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル初回使用までの時間を4秒短くする\nスキル再発動までの時間を4秒短くする",
+    "isGeneral": true,
+    "initialTimeCut": 4,
+    "cooldown": -4
+  },
+  {
+    "name": "ウィンドエクステンド",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "編成時風属性モンスター娘のHPと攻撃力+10%",
+    "isGeneral": true,
+    "features": [
+      {
+        "require": [
+          "風"
+        ],
+        "formationHp": 10,
+        "formationAttack": 10
+      }
+    ]
+  },
+  {
+    "name": "決死の一撃",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "与ダメージが1.6倍になるが、攻撃ヒット時に最大HP10%の反動ダメージを受ける",
+    "isGeneral": true,
+    "damageFactor": 60
+  },
+  {
+    "name": "メデューサソウル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "石化、毒状態の敵への与ダメージ1.3倍\nメデューサ(原種)をトークンとして使役可能",
+    "isGeneral": true,
+    "damageFactor": 30
+  },
+  {
+    "name": "麗しき藝術家",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "配置時、マップ上のマスをランダムで\n火水風属性に変更する(各属性最大3マス)"
+  },
+  {
+    "name": "聖女の加護",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP+20%、錫杖装備クラスにセット時追加で射程+10",
+    "hp": 20,
+    "features": [
+      {
+        "require": [
+          "プリースト"
+        ],
+        "rangeAdd": 10
+      }
+    ]
+  },
+  {
+    "name": "クリティカル+貫通攻撃",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "クリティカル率+22%\n18%の確率で敵の防御力を無視する",
+    "criChanceAdd": 22,
+    "penetration": 18
+  },
+  {
+    "name": "1.5th Anniversaryの恩恵",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP、攻撃力、防御力+15%\n再出撃までの時間を15%短縮",
+    "hp": 15,
+    "attack": 15,
+    "defense": 15,
+    "resist": 15,
+    "redeployTimeCut": 15
+  },
+  {
+    "name": "怪幹呑獣の討伐証",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "HP+650、霊枝装備クラスにセット時\nHPが1秒ごとに最大値の1%回復",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "シャーマン"
+        ],
+        "regenerateMul": 1
+      }
+    ]
+  },
+  {
+    "name": "一級ご主人証明書",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP、攻撃力+18%\n出撃コスト-2",
+    "hp": 18,
+    "attack": 18,
+    "cost": -2
+  },
+  {
+    "name": "クリティカルダメージ強化 II",
+    "rarity": "R",
+    "group": "攻撃",
+    "class": "クリティカルダメージ強化",
+    "desc": "クリティカルダメージ+30%",
+    "isGeneral": true,
+    "criDamageAdd": 30
+  },
+  {
+    "name": "クリティカルダメージ強化 III",
+    "rarity": "E",
+    "group": "攻撃",
+    "class": "クリティカルダメージ強化",
+    "desc": "クリティカルダメージ+40%",
+    "isGeneral": true,
+    "criDamageAdd": 40
+  },
+  {
+    "name": "ライフブロック",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP+15%、ブロックしている敵1体につき最大HP+8%",
+    "isGeneral": true,
+    "hp": 15,
+    "isLifeBlock": true
+  },
+  {
+    "name": "タクティクスMガード",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "配置中、全味方の魔法防御力+4%",
+    "isGeneral": true,
+    "resistMul": 4,
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "resistMul": 4
+      }
+    ]
+  },
+  {
+    "name": "クリティカル+CRIダメージ強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "クリティカル率+15%\nクリティカルダメージ+30%",
+    "criChanceAdd": 15,
+    "criDamageAdd": 30
+  },
+  {
+    "name": "スキルエクステンド",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "非スキル中、攻撃力と防御力+15%\nスキル中、攻撃力と防御力+30%",
+    "features": [
+      {
+        "require": [
+          "非スキル"
+        ],
+        "attackMul": 15,
+        "defenseMul": 15,
+        "resistMul": 15
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "attackMul": 30,
+        "defenseMul": 30,
+        "resistMul": 30
+      }
+    ]
+  },
+  {
+    "name": "攻撃強化+生命力吸収",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%\n攻撃時、HPが最大値の2%回復",
+    "attack": 17,
+    "absorb": 2
+  },
+  {
+    "name": "クリティカル IV",
+    "rarity": "L",
+    "group": "攻撃",
+    "class": "クリティカル",
+    "desc": "クリティカル率+32%",
+    "isGeneral": true,
+    "criChanceAdd": 32
+  },
+  {
+    "name": "クリティカルダメージ強化 IV",
+    "rarity": "L",
+    "group": "攻撃",
+    "class": "クリティカルダメージ強化",
+    "desc": "クリティカルダメージ+50%",
+    "isGeneral": true,
+    "criDamageAdd": 50
+  },
+  {
+    "name": "マッスルチャレンジャー",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HPが30%以上の時回復効果を受けられなくなるが、最大HP+60%",
+    "isGeneral": true,
+    "hp": 60
+  },
+  {
+    "name": "オーバードーピング",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "出撃コスト+10になるが\n攻撃力、物理防御、魔法防御+30%",
+    "isGeneral": true,
+    "cost": 10,
+    "attack": 30,
+    "defense": 30,
+    "resist": 30
+  },
+  {
+    "name": "ラッキーヒール",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "クリティカル時、全味方のHPを160回復",
+    "isGeneral": true
+  },
+  {
+    "name": "ケルベロスソウル",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+33%\nケルベロス(闇原種)をトークンとして使役可能",
+    "isGeneral": true,
+    "hp": 33
+  },
+  {
+    "name": "膨大巨嚢の討伐証",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+15%、場から離れる時に爆発し、周囲の敵に攻撃力分のダメージ",
+    "attack": 15
+  },
+  {
+    "name": "妖怪島探検家",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、妖怪にセット時出撃コスト-2",
+    "attack": 17,
+    "features": [
+      {
+        "require": [
+          "妖怪"
+        ],
+        "cost": -2
+      }
+    ]
+  },
+  {
+    "name": "攻撃待機短縮+出撃コスト減少",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "攻撃後の待機時間を20%短縮、出撃コスト-1",
+    "delayCut": 20,
+    "cost": -1
+  },
+  {
+    "name": "来たる福女！",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "クリティカル率+20%、移動速度+100\nクリティカル時、攻撃速度が10秒間10%増加",
+    "criChanceAdd": 20,
+    "moveSpeedAdd": 100,
+    "attackSpeedBuff": 10
+  },
+  {
+    "name": "煩悶淫竜の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "魔法防御力+100、弓装備クラスにセット時追加で攻撃力+100、魔法防御力+30",
+    "resistAdd": 100,
+    "features": [
+      {
+        "require": [
+          "アーチャー"
+        ],
+        "attackAdd": 100,
+        "resistAdd": 130
+      }
+    ]
+  },
+  {
+    "name": "捕獲！自信に満ちた女勇者",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "全ウォリアー系クラスの攻撃力+15%\n自信に満ちた女勇者をトークンとして使役可",
+    "features": [
+      {
+        "require": [
+          "ウォリアー"
+        ],
+        "formationAttack": 15
+      }
+    ]
+  },
+  {
+    "name": "捕獲！二丁使いの女海賊",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "全スナイパー系クラスの攻撃速度が15%増加\n二丁使いの女海賊をトークンとして使役可",
+    "features": [
+      {
+        "require": [
+          "スナイパー"
+        ],
+        "attackSpeedBuff": 15
+      }
+    ]
+  },
+  {
+    "name": "豪華絢爛",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+90、扇装備クラスにセット時追加で射程+10",
+    "attackAdd": 90,
+    "features": [
+      {
+        "require": [
+          "エアスカウト"
+        ],
+        "rangeAdd": 10
+      }
+    ]
+  },
+  {
+    "name": "攻撃強化+HP強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、HP+20%",
+    "hp": 20,
+    "attack": 17
+  },
+  {
+    "name": "再出撃時間+出撃コスト減少",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "再出撃までの時間を45%短縮\n出撃コスト-1",
+    "cost": -1,
+    "redeployTimeCut": 45
+  },
+  {
+    "name": "戦意継承",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "再出撃までの時間を40%短縮 自身の死亡時、味方全員の攻撃力を10秒間100%上昇",
+    "isGeneral": true,
+    "redeployTimeCut": 40,
+    "attackMul": 100
+  },
+  {
+    "name": "パートナーチアー",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "配置中の自身の使役しているトークンの\n攻撃力と物理防御力+60%",
+    "isGeneral": true,
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "attackMul": 60,
+        "defenseMul": 60
+      }
+    ]
+  },
+  {
+    "name": "攻撃強化+攻撃待機短縮",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、攻撃後の待機時間を20%短縮",
+    "attack": 17,
+    "delayCut": 20
+  },
+  {
+    "name": "ムッツリ妄想フルパワー",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "物理防御+85、魔法防御+85 鈍器装備クラスに追加で攻撃力+19%、CRI率+19%",
+    "defenseAdd": 85,
+    "resistAdd": 85,
+    "features": [
+      {
+        "require": [
+          "デストロイヤー"
+        ],
+        "attack": 19,
+        "criChanceAdd": 19
+      }
+    ]
+  },
+  {
+    "name": "2nd Anniversaryの恩寵",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+22%　クリティカル率+22%\nクリティカルダメージ+22%",
+    "attack": 22,
+    "criChanceAdd": 22,
+    "criDamageAdd": 22
+  },
+  {
+    "name": "魔法攻撃回避 IV",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "35%の確率で魔法攻撃を回避",
+    "isGeneral": true,
+    "magicalEvasion": 35
+  },
+  {
+    "name": "生命力吸収 IV",
+    "rarity": "L",
+    "group": "支援",
+    "class": "生命力吸収",
+    "desc": "攻撃時、HPが最大値の4%回復",
+    "isGeneral": true,
+    "absorb": 4
+  },
+  {
+    "name": "パワードバリア",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル発動時、自身のHPを25%回復し、自身に戦闘前の攻撃力の250%のバリアを付与",
+    "isGeneral": true
+  },
+  {
+    "name": "鉄壁の守り",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "与ダメージが30%減少するが、\n自身が受ける物理魔法ダメージが30%減少",
+    "isGeneral": true,
+    "damageFactor": -30,
+    "physicalDamageCut": 30,
+    "magicalDamageCut": 30
+  },
+  {
+    "name": "ファイアエクステンド",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "編成時火属性モンスター娘のHPと攻撃力+10%",
+    "isGeneral": true,
+    "features": [
+      {
+        "require": [
+          "火"
+        ],
+        "formationHp": 10,
+        "formationAttack": 10
+      }
+    ]
+  },
+  {
+    "name": "ミノタウロスソウル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "ブロック中の敵への与ダメージ1.2倍\nミノタウロス(原種)をトークンとして使役可能",
+    "isGeneral": true,
+    "features": [
+      {
+        "require": [
+          "ブロック"
+        ],
+        "damageFactor": 20
+      }
+    ]
+  },
+  {
+    "name": "被検体R13",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "【改造リザードマン娘】サウラをトークンとして使役可能"
+  },
+  {
+    "name": "暗部の聖衣",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP+18% ヒーラー系クラスにセット時、追加で物理と魔法ダメージを5%軽減",
+    "hp": 18,
+    "features": [
+      {
+        "require": [
+          "ヒーラー"
+        ],
+        "physicalDamageCut": 5,
+        "magicalDamageCut": 5
+      }
+    ]
+  },
+  {
+    "name": "愛造暴玩の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "物理ダメージを10%減少 ガーディアン系クラスにセット時追加で物理ダメージを20%減少",
+    "physicalDamageCut": 10,
+    "features": [
+      {
+        "require": [
+          "ガーディアン"
+        ],
+        "physicalDamageCut": 30
+      }
+    ]
+  },
+  {
+    "name": "エンジョイサマーリゾート",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "配置時、マップ上のマスをランダムで\n水地光属性に変更する(各属性最大3マス)"
+  },
+  {
+    "name": "アセンションバケーション",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "非スキル中通常の攻撃を行わなくなるが\nスキル中の与えるダメージが1.4倍",
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "exclude": [
+          "サポーター"
+        ],
+        "damageFactor": 40
+      }
+    ]
+  },
+  {
+    "name": "攻撃強化+底力(攻撃)",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、配置中HP減少量に応じて攻撃力が上昇する（最大40%）",
+    "attack": 17,
+    "attackMul": 40
+  },
+  {
+    "name": "クラスアクション強化（攻撃）",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "クラスアクション中、攻撃力+30%",
+    "features": [
+      {
+        "require": [
+          "ACT"
+        ],
+        "attackMul": 30
+      }
+    ]
+  },
+  {
+    "name": "マジックリダクション",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HPが50%以上の時、魔法ダメージを40%減少",
+    "features": [
+      {
+        "require": [
+          "HP50%以上"
+        ],
+        "magicalDamageCut": 40
+      }
+    ]
+  },
+  {
+    "name": "被検体T42",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "【改造ローパー娘】ネルをトークンとして使役可能"
+  },
+  {
+    "name": "巨擬嶺の討伐証",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "配置してから30秒間、与ダメージ1.15倍 水属性にセット時追加でHPが1秒ごとに100回復",
+    "damageFactor": 15,
+    "features": [
+      {
+        "require": [
+          "水"
+        ],
+        "regenerate": 100
+      }
+    ]
+  },
+  {
+    "name": "爆食爆漢の討伐証",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+17% ウォリアー系セット時、ブロック中の敵に攻撃力15%の継続ダメージを与える",
+    "attack": 17
+  },
+  {
+    "name": "攻撃待機短縮+貫通攻撃",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃後の待機時間を20%短縮、10%の確率で敵の防御力を無視する",
+    "penetration": 10,
+    "delayCut": 20
+  },
+  {
+    "name": "物理攻撃回避 IV",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "35%の確率で物理攻撃を回避",
+    "isGeneral": true,
+    "physicalEvasion": 35
+  },
+  {
+    "name": "攻撃待機時間短縮 IV",
+    "rarity": "L",
+    "group": "攻撃",
+    "class": "攻撃待機時間短縮",
+    "desc": "攻撃後の待機時間を32%短縮",
+    "isGeneral": true,
+    "delayCut": 32
+  },
+  {
+    "name": "アサルトクリティカル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "クリティカル発生時、攻撃力+2%\n(最大50回/死亡撤退時リセット)",
+    "isGeneral": true,
+    "attackMul": 100
+  },
+  {
+    "name": "マジックプロテクト",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "配置中、全味方が受ける魔法ダメージ15%減少",
+    "isGeneral": true,
+    "magicalDamageCut": 15,
+    "features": [
+      {
+        "require": [
+          "トークン"
+        ],
+        "magicalDamageCut": 15
+      }
+    ]
+  },
+  {
+    "name": "リカバリームーブ",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "移動コスト-1 18%の確率で物理魔法回避 配置移動後15秒間、HPが200回復/s",
+    "isGeneral": true,
+    "physicalEvasion": 18,
+    "magicalEvasion": 18,
+    "moveCostCut": 1,
+    "regenerate": 200
+  },
+  {
+    "name": "ターロスソウル",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "物理防御力と魔法防御力+22% ターロス（原種）をトークンとして使役可能",
+    "isGeneral": true,
+    "defense": 22,
+    "resist": 22
+  },
+  {
+    "name": "2.5th Anniversaryの恵愛",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+25%、クリティカル率+25%",
+    "attack": 25,
+    "criChanceAdd": 25
+  },
+  {
+    "name": "被検体O8",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "【改造オーク娘】ポデルをトークンとして使役可能"
+  },
+  {
+    "name": "盛大鏡開き",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HPが-50%になるが、15秒毎にHP50%分のバリアを付与する",
+    "hp": -50
+  },
+  {
+    "name": "ゆく年くる年",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "移動速度+50% 配置、移動完了後5秒間、攻撃速度が少し増加する",
+    "attackSpeedBuff": 10,
+    "delayCut": 10,
+    "moveSpeed": 50
+  }
+]

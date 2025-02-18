@@ -1,0 +1,238 @@
+[
+  {
+    "hasPotentials": [
+      "物理攻撃回避40%"
+    ],
+    "supplements": [
+      "物理攻撃回避40%"
+    ]
+  },
+  {
+    "hasPotentials": [
+      "魔法攻撃回避40%"
+    ],
+    "supplements": [
+      "魔法攻撃回避40%"
+    ]
+  },
+  {
+    "hasPotentials": [
+      "物理攻撃回避40%",
+      "魔法攻撃回避40%"
+    ],
+    "supplements": [
+      "物理魔法回避40%"
+    ],
+    "deleteSupplements": [
+      "物理攻撃回避40%",
+      "魔法攻撃回避40%"
+    ]
+  },
+  {
+    "hasPotentials": [
+      "物理ダメージ20%軽減"
+    ],
+    "supplements": [
+      "物理被Dmg-20%"
+    ]
+  },
+  {
+    "isNotAbility": true,
+    "hasPotentials": [
+      "配置時バリア1500"
+    ],
+    "supplements": [
+      "配置時バリア1500付与"
+    ]
+  },
+  {
+    "featureName": "common-fire-field",
+    "fieldElements": [
+      "火"
+    ],
+    "annotations": [
+      "火マス配置時"
+    ]
+  },
+  {
+    "featureName": "common-block0",
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "featureName": "common-block1",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "featureName": "common-block2",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "featureName": "common-block3",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "featureName": "common-charge-attack",
+    "isConditionalBuff": true,
+    "isMoving": true,
+    "conditions": [
+      "突"
+    ],
+    "interval": null
+  },
+  {
+    "featureName": "common-team-buff1",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "featureName": "common-team-buff2",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "featureName": "common-team-buff3",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "featureName": "common-potential-regenerate-3%",
+    "isAbility": true,
+    "annotations": [
+      "潜在覚醒特性"
+    ],
+    "conditions": [
+      "再"
+    ],
+    "staticDamage": {
+      "key": "hp",
+      "value": 3
+    },
+    "interval": 30,
+    "target": "自分",
+    "rounds": 1,
+    "duration": "常時",
+    "damageType": "再生",
+    "supplements": [
+      "回復3%/s"
+    ]
+  },
+  {
+    "featureName": "common-potential-absorb-1%",
+    "isAbility": true,
+    "annotations": [
+      "潜在覚醒特性"
+    ],
+    "conditions": [
+      "吸"
+    ],
+    "staticDamage": {
+      "key": "hp",
+      "value": 1
+    },
+    "target": "自分",
+    "flagRangeIsVisible": true,
+    "damageType": "吸収",
+    "supplements": [
+      "回復1%/攻撃"
+    ]
+  },
+  {
+    "featureName": "common-regenerate-2%",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "conditions": [
+      "再"
+    ],
+    "staticDamage": {
+      "key": "hp",
+      "value": 2
+    },
+    "interval": 30,
+    "target": "自分",
+    "rounds": 1,
+    "duration": "常時",
+    "damageType": "再生",
+    "supplements": [
+      "回復2%/s"
+    ]
+  },
+  {
+    "featureName": "common-regenerate-3%",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "conditions": [
+      "再"
+    ],
+    "staticDamage": {
+      "key": "hp",
+      "value": 3
+    },
+    "interval": 30,
+    "target": "自分",
+    "rounds": 1,
+    "duration": "常時",
+    "damageType": "再生",
+    "supplements": [
+      "回復3%/s"
+    ]
+  },
+  {
+    "featureName": "common-burn-dot",
+    "isAbility": true,
+    "isExtraDamage": true,
+    "annotations": [
+      "火傷継続ダメージ"
+    ],
+    "staticDamage": {
+      "key": "attack",
+      "value": 10
+    },
+    "interval": 90,
+    "target": "命中",
+    "rounds": 1,
+    "duration": 30,
+    "damageType": "貫通"
+  }
+]

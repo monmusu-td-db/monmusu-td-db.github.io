@@ -1,0 +1,782 @@
+[
+  {
+    "className": "ブレイダー",
+    "cost": 15,
+    "attackSpeed": 100,
+    "delay": 20,
+    "block": 2,
+    "target": "ブロック",
+    "moveSpeed": 130,
+    "damageType": "物理",
+    "placement": "近",
+    "features": [
+      {
+        "featureName": "class-charge-normal",
+        "isConditionalBuff": true,
+        "isNotSustainable": true,
+        "target": 1,
+        "splash": true
+      },
+      {
+        "featureName": "class-charge1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 210
+          }
+        ],
+        "attackMul": 210
+      },
+      {
+        "featureName": "class-charge2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 320
+          }
+        ],
+        "attackMul": 320
+      },
+      {
+        "featureName": "class-charge3",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 430
+          }
+        ],
+        "attackMul": 430,
+        "criChanceAdd": 100,
+        "criChanceLimitAdd": 50
+      }
+    ]
+  },
+  {
+    "className": "ランサー",
+    "cost": 13,
+    "attackSpeed": 122,
+    "delay": 20,
+    "block": 2,
+    "lancerTarget": true,
+    "range": 120,
+    "moveSpeed": 200,
+    "penetration": 33.3,
+    "damageType": "物理",
+    "placement": "近",
+    "features": [
+      {
+        "initialTimeCut": 5
+      },
+      {
+        "featureName": "class-normal",
+        "supplements": [
+          "対地限定攻撃"
+        ]
+      }
+    ]
+  },
+  {
+    "className": "バーバリアン",
+    "cost": 15,
+    "attackSpeed": 100,
+    "delay": 18,
+    "block": 2,
+    "moveSpeed": 200,
+    "damageType": "物理",
+    "placement": "近",
+    "features": [
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "バーサーク"
+        ],
+        "damageFactor": 150,
+        "damageCut": -20,
+        "duration": 20
+      },
+      {
+        "featureName": "class-action",
+        "supplements": [
+          "スタン耐性+50",
+          "被Dmg+20%"
+        ]
+      },
+      {
+        "featureName": "class-attack-add",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 1000
+          }
+        ],
+        "attackAdd": 1000
+      }
+    ]
+  },
+  {
+    "className": "モンク",
+    "cost": 14,
+    "attackSpeed": 122,
+    "delay": 18,
+    "block": 2,
+    "rounds": 2,
+    "moveSpeed": 250,
+    "damageType": "物理",
+    "placement": "近",
+    "features": [
+      {
+        "initialTimeCut": 5
+      },
+      {
+        "featureName": "class-attack",
+        "isNotSustainable": true,
+        "annotations": [
+          "配置時攻撃"
+        ],
+        "damageFactor": 600,
+        "interval": null,
+        "target": "射程内",
+        "rounds": 1,
+        "splash": false,
+        "range": 200,
+        "supplements": [
+          "スタン付与100%"
+        ]
+      },
+      {
+        "featureName": "class-proper",
+        "isConditionalBuff": true,
+        "conditions": [
+          "特"
+        ],
+        "damageFactor": 110
+      }
+    ]
+  },
+  {
+    "className": "シールドナイト",
+    "cost": 23,
+    "attackSpeed": 100,
+    "delay": 30,
+    "block": 5,
+    "moveSpeed": 180,
+    "damageType": "物理",
+    "placement": "近",
+    "supplements": [
+      "バリア2000付与/45s"
+    ],
+    "features": [
+      {
+        "featureName": "class-melee",
+        "conditions": [
+          "近"
+        ],
+        "damageCut": 25,
+        "supplements": [
+          "被Dmg-25%"
+        ]
+      },
+      {
+        "featureName": "class-ranged",
+        "conditions": [
+          "遠"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "プロテクション"
+        ],
+        "physicalDamageCut": 60,
+        "magicalDamageCut": 60,
+        "duration": 15,
+        "supplements": [
+          "物理魔法被Dmg-60%"
+        ]
+      }
+    ]
+  },
+  {
+    "className": "デストロイヤー",
+    "cost": 26,
+    "attackSpeed": 90,
+    "delay": 30,
+    "block": 4,
+    "moveSpeed": 180,
+    "damageType": "物理",
+    "placement": "近",
+    "supplements": [
+      "スタン付与20%"
+    ],
+    "features": [
+      {
+        "featureName": "class-ranged",
+        "conditions": [
+          "遠"
+        ]
+      },
+      {
+        "featureName": "class-melee",
+        "conditions": [
+          "近"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "class-action",
+        "isAbility": true,
+        "isAction": true,
+        "conditions": [
+          "再"
+        ],
+        "annotations": [
+          "ハイタフネス"
+        ],
+        "hpMul": 150,
+        "staticDamage": {
+          "key": "hp",
+          "value": 5
+        },
+        "interval": 30,
+        "target": "自分",
+        "rounds": 1,
+        "duration": 15,
+        "damageType": "再生",
+        "supplements": [
+          "回復5%/s"
+        ]
+      },
+      {
+        "featureName": "class-action-base",
+        "isAction": true,
+        "annotations": [
+          "ハイタフネス"
+        ],
+        "hpMul": 150,
+        "duration": 15
+      }
+    ]
+  },
+  {
+    "className": "サムライ",
+    "cost": 29,
+    "attackSpeed": 90,
+    "delay": 30,
+    "block": 3,
+    "target": "ブロック",
+    "moveSpeed": 250,
+    "damageType": "物理",
+    "placement": "近",
+    "features": [
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "剣気解放"
+        ],
+        "target": 1,
+        "laser": true,
+        "range": 250,
+        "moveSpeedMul": 150,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "className": "アーチャー",
+    "cost": 12,
+    "attackSpeed": 134,
+    "delay": 25,
+    "rounds": [
+      {
+        "ratio": 2,
+        "value": 1
+      },
+      {
+        "ratio": 1,
+        "value": 4
+      }
+    ],
+    "range": 262,
+    "moveSpeed": 160,
+    "damageType": "物理",
+    "placement": "遠",
+    "features": [
+      {
+        "featureName": "class-proper",
+        "conditions": [
+          "特"
+        ],
+        "damageFactor": 200
+      },
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "クリティカルスナイピング"
+        ],
+        "criChanceAdd": 25,
+        "rangeAdd": 100,
+        "duration": 20
+      }
+    ]
+  },
+  {
+    "className": "ガンナー",
+    "cost": 14,
+    "attackSpeed": 90,
+    "delay": 31,
+    "range": 300,
+    "moveSpeed": 160,
+    "penetration": 33.3,
+    "damageType": "魔法",
+    "placement": "遠",
+    "supplements": [
+      "回避無視30%"
+    ]
+  },
+  {
+    "className": "ウォーロック",
+    "cost": 22,
+    "attackSpeed": 85,
+    "delay": 26,
+    "splash": true,
+    "range": 220,
+    "moveSpeed": 140,
+    "damageType": "魔法",
+    "placement": "遠",
+    "features": [
+      {
+        "resistDebuff": 300
+      },
+      {
+        "featureName": "class-attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 110
+          }
+        ],
+        "attackMul": 110
+      },
+      {
+        "featureName": "class-attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 120
+          }
+        ],
+        "attackMul": 120
+      }
+    ]
+  },
+  {
+    "className": "コンジャラー",
+    "cost": 18,
+    "attackSpeed": 90,
+    "delay": 26,
+    "target": 3,
+    "range": 230,
+    "moveSpeed": 140,
+    "damageType": "魔法",
+    "placement": "遠",
+    "supplements": [
+      "鈍足→射程内"
+    ],
+    "features": [
+      {
+        "featureName": "class-enemy1",
+        "conditions": [
+          {
+            "key": "敵",
+            "value": 1
+          }
+        ],
+        "damageFactor": 150,
+        "fixedTarget": 1
+      },
+      {
+        "featureName": "class-enemy2",
+        "conditions": [
+          {
+            "key": "敵",
+            "value": 2
+          }
+        ],
+        "damageFactor": 125,
+        "fixedTarget": 2
+      },
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "マジックバンプ"
+        ],
+        "rangeAdd": 75,
+        "duration": 20,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ]
+  },
+  {
+    "className": "パペッティア",
+    "cost": 17,
+    "attackSpeed": 102,
+    "delay": 26,
+    "target": 2,
+    "range": 216,
+    "moveSpeed": 140,
+    "damageType": "魔法",
+    "placement": "遠",
+    "features": [
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "カースドテリトリー"
+        ]
+      }
+    ]
+  },
+  {
+    "className": "プリースト",
+    "cost": 16,
+    "attackSpeed": 90,
+    "delay": 20,
+    "range": 250,
+    "moveSpeed": 160,
+    "damageType": "回復",
+    "placement": "遠",
+    "features": [
+      {
+        "featureName": "class-heal",
+        "conditions": [
+          "癒"
+        ]
+      },
+      {
+        "featureName": "class-proper",
+        "conditions": [
+          "特"
+        ],
+        "damageFactor": 130
+      }
+    ]
+  },
+  {
+    "className": "ハーミット",
+    "cost": 18,
+    "attackSpeed": 80,
+    "delay": 20,
+    "target": "射程内",
+    "range": 273,
+    "moveSpeed": 160,
+    "damageType": "回復",
+    "placement": "遠",
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "rangeMul": 120
+      },
+      {
+        "featureName": "class-heal",
+        "conditions": [
+          "癒"
+        ]
+      },
+      {
+        "featureName": "class-regenerate",
+        "isAbility": true,
+        "annotations": [
+          "クラス特性"
+        ],
+        "conditions": [
+          "再all"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 10
+        },
+        "interval": 30,
+        "target": "全体",
+        "duration": "常時",
+        "damageType": "再生"
+      }
+    ]
+  },
+  {
+    "className": "チーフアサシン",
+    "cost": 9,
+    "attackSpeed": 142,
+    "delay": 20,
+    "range": 190,
+    "moveSpeed": 270,
+    "damageType": "物理",
+    "placement": "両",
+    "supplements": [
+      "激毒付与(稀)"
+    ],
+    "features": [
+      {
+        "featureName": "class-attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 170
+          }
+        ],
+        "attackMul": 170
+      },
+      {
+        "featureName": "class-attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 240
+          }
+        ],
+        "attackMul": 240
+      }
+    ]
+  },
+  {
+    "className": "エアスカウト",
+    "cost": 13,
+    "attackSpeed": 100,
+    "delay": 25,
+    "block": 0,
+    "range": 230,
+    "moveSpeed": 350,
+    "damageType": "物理",
+    "moveType": "飛行",
+    "placement": "両",
+    "supplements": [
+      "鈍足(中)→命中"
+    ],
+    "features": [
+      {
+        "featureName": "class-delay-buff",
+        "annotations": [
+          "移動後攻撃待機時間短縮"
+        ],
+        "delayMul": 80
+      }
+    ]
+  },
+  {
+    "className": "ニンジャ",
+    "cost": 12,
+    "attackSpeed": 138,
+    "delay": 20,
+    "rounds": 3,
+    "range": 200,
+    "moveSpeed": 320,
+    "damageType": "物理",
+    "placement": "両",
+    "features": [
+      {
+        "featureName": "class-fire-field",
+        "isConditionalBuff": true,
+        "fieldElements": [
+          "火"
+        ],
+        "annotations": [
+          "火マス配置時"
+        ],
+        "damageFactor": 140
+      },
+      {
+        "featureName": "class-water-field",
+        "isAbility": true,
+        "fieldElements": [
+          "水"
+        ],
+        "annotations": [
+          "水マス配置時"
+        ],
+        "conditions": [
+          "追"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 100
+        },
+        "target": "命中",
+        "damageType": "魔法"
+      },
+      {
+        "featureName": "class-earth-field",
+        "isAbility": true,
+        "fieldElements": [
+          "地"
+        ],
+        "annotations": [
+          "地マス配置時"
+        ],
+        "conditions": [
+          "追"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 100
+        },
+        "target": "命中",
+        "damageType": "物理"
+      },
+      {
+        "featureName": "class-wind-field",
+        "isConditionalBuff": true,
+        "fieldElements": [
+          "風"
+        ],
+        "annotations": [
+          "風マス配置時"
+        ],
+        "attackSpeedBuff": 150,
+        "delayMul": 50
+      },
+      {
+        "featureName": "class-field-stealth",
+        "isConditionalBuff": true,
+        "fieldElements": [
+          "光",
+          "闇"
+        ],
+        "annotations": [
+          "光/闇マス配置時"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ]
+  },
+  {
+    "className": "シャーマン",
+    "cost": 18,
+    "target": "射程内",
+    "range": 240,
+    "moveSpeed": 120,
+    "placement": "両",
+    "supplements": [
+      "コスト回復加速"
+    ],
+    "features": [
+      {
+        "featureName": "class-buff",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "クラス特性(70秒経過後)"
+        ],
+        "conditions": [
+          "援"
+        ],
+        "staticDamage": {
+          "key": "static",
+          "value": 350
+        },
+        "staticDefense": {
+          "key": "static",
+          "value": 350
+        },
+        "staticResist": {
+          "key": "static",
+          "value": 350
+        },
+        "target": "射程内"
+      }
+    ]
+  },
+  {
+    "className": "バード",
+    "cost": 23,
+    "target": "射程内",
+    "range": 265,
+    "moveSpeed": 80,
+    "placement": "遠",
+    "features": [
+      {
+        "featureName": "class-buff",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "クラス特性",
+          "加算バフ"
+        ],
+        "conditions": [
+          "援"
+        ],
+        "staticDamage": {
+          "key": "static",
+          "value": 120
+        },
+        "staticDefense": {
+          "key": "static",
+          "value": 120
+        },
+        "staticResist": {
+          "key": "static",
+          "value": 120
+        },
+        "target": "他者"
+      },
+      {
+        "featureName": "class-buff-proper",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "クラス特性",
+          "加算バフ"
+        ],
+        "conditions": [
+          "特",
+          "援"
+        ],
+        "staticDamage": {
+          "key": "static",
+          "value": 170
+        },
+        "staticDefense": {
+          "key": "static",
+          "value": 170
+        },
+        "staticResist": {
+          "key": "static",
+          "value": 170
+        },
+        "target": "他者"
+      },
+      {
+        "featureName": "class-debuff",
+        "isAbility": true,
+        "annotations": [
+          "クラス特性",
+          "射程内攻撃デバフ"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": -50
+        },
+        "interval": null,
+        "target": "射程内",
+        "damageType": null
+      }
+    ]
+  }
+]

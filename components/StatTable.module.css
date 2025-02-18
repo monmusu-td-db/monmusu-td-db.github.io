@@ -1,0 +1,47 @@
+.table {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60svh;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table> :not(caption)>*>* {
+  border-width: 0px 1px 1px 0px;
+}
+
+.table> :not(caption)>*>th {
+  border-top-width: 1px;
+  border-bottom-width: 2px;
+}
+
+.table> :not(caption)>*>*:first-child {
+  border-left-width: 1px;
+}
+
+.table>thead {
+  position: sticky;
+  top: 56px;
+}
+
+@media (min-width:1024px) {
+  .table {
+    font-size: .845em;
+  }
+}
+
+@media (max-width:1023px) {
+  .table {
+    font-size: .72em;
+  }
+
+  .table> :not(caption)>*>* {
+    padding: 0.05rem;
+  }
+
+}
+
+.table-border-double>* {
+  border-top: double var(--bs-dark) !important
+}

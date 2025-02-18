@@ -1,0 +1,10974 @@
+[
+  {
+    "unitId": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 1,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "weapon-freeze"
+    ]
+  },
+  {
+    "unitId": 1,
+    "skill": 2,
+    "features": [
+      "class-heal",
+      "weapon-freeze"
+    ]
+  },
+  {
+    "unitId": 1,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 1,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "class-proper",
+      "weapon-freeze"
+    ]
+  },
+  {
+    "unitId": 1,
+    "skill": 2,
+    "features": [
+      "class-heal",
+      "class-proper",
+      "weapon-freeze"
+    ]
+  },
+  {
+    "unitId": 1,
+    "isGeneral": true,
+    "features": [
+      "dot"
+    ]
+  },
+  {
+    "unitId": 1,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "dot",
+      "skill1-dot"
+    ]
+  },
+  {
+    "unitId": 1,
+    "skill": 2,
+    "isGeneral": true,
+    "features": [
+      "dot"
+    ]
+  },
+  {
+    "unitId": 4,
+    "features": [
+      "class-normal"
+    ]
+  },
+  {
+    "unitId": 4,
+    "skill": 1
+  },
+  {
+    "unitId": 8
+  },
+  {
+    "unitId": 8,
+    "skill": 1,
+    "isGeneral": true
+  },
+  {
+    "unitId": 8,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 8,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 8,
+    "skill": -1,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 8,
+    "features": [
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 8,
+    "skill": -1,
+    "features": [
+      "attack-mul",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 8,
+    "features": [
+      "attack-mul",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 8,
+    "skill": -1,
+    "features": [
+      "attack-mul",
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 8,
+    "features": [
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 8,
+    "skill": -1,
+    "isGeneralProper": true,
+    "features": [
+      "token-limit",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 80001,
+    "isGeneral": true
+  },
+  {
+    "unitId": 80001,
+    "skill": -1,
+    "isGeneral": true,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-melee",
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-melee",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-melee",
+      "class-action",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "class-action",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "class-action",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-ranged",
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-ranged",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 9,
+    "features": [
+      "class-ranged",
+      "class-action",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "class-action",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 9,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "class-action",
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 90001,
+    "isGeneral": true
+  },
+  {
+    "unitId": 90001,
+    "isGeneral": true,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 90002,
+    "isGeneral": true
+  },
+  {
+    "unitId": 90002,
+    "isGeneral": true,
+    "features": [
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 10,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 2,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 10,
+    "features": [
+      "class-melee",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 10,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 2,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 10,
+    "features": [
+      "class-ranged",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 10,
+    "skill": -1,
+    "isGeneral": true,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-melee",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-melee",
+      "class-action",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "class-action",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "class-action",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-ranged",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 13,
+    "features": [
+      "class-ranged",
+      "class-action",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "class-action",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 13,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "class-action",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 14,
+    "features": [
+      "class-melee",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "skill1-phase1",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "skill1-phase5",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 14,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "class-melee",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "class-melee",
+      "skill1-phase1",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "class-melee",
+      "skill1-phase5",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 2,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "class-melee",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 14,
+    "features": [
+      "block0",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 1,
+    "features": [
+      "block0",
+      "class-ranged",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 1,
+    "features": [
+      "block0",
+      "class-ranged",
+      "skill1-phase5"
+    ]
+  },
+  {
+    "unitId": 14,
+    "skill": 2,
+    "features": [
+      "block0",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 14,
+    "features": [
+      "block1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "features": [
+      "block1",
+      "skill1-phase1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "features": [
+      "block1",
+      "skill1-phase5",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block4",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block4",
+      "skill1-phase1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block4",
+      "skill1-phase5",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block0",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block0",
+      "skill1-phase1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 14,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block0",
+      "skill1-phase5",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 17
+  },
+  {
+    "unitId": 17,
+    "skill": 1
+  },
+  {
+    "unitId": 17,
+    "skill": 2
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-action",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 20
+  },
+  {
+    "unitId": 20,
+    "skill": 1
+  },
+  {
+    "unitId": 20,
+    "skill": 2
+  },
+  {
+    "unitId": 20,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 20,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 20,
+    "skill": 2,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 20,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 20,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 20,
+    "skill": 2,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 20,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 20,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 20,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 22
+  },
+  {
+    "unitId": 22,
+    "skill": 1
+  },
+  {
+    "unitId": 22,
+    "skill": 2
+  },
+  {
+    "unitId": 22,
+    "skill": -1,
+    "features": [
+      "attack-debuff"
+    ]
+  },
+  {
+    "unitId": 27
+  },
+  {
+    "unitId": 27,
+    "skill": 1
+  },
+  {
+    "unitId": 27,
+    "skill": 2
+  },
+  {
+    "unitId": 27,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 1,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 2,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 1,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 2,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 27,
+    "features": [
+      "class-enemy1",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 1,
+    "features": [
+      "class-enemy1",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 2,
+    "features": [
+      "class-enemy1",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 1,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 2,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 27,
+    "features": [
+      "class-enemy2",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 1,
+    "features": [
+      "class-enemy2",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 2,
+    "features": [
+      "class-enemy2",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 2,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 27,
+    "features": [
+      "class-action",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 27,
+    "skill": -1,
+    "features": [
+      "proper",
+      "proper-absorb"
+    ]
+  },
+  {
+    "unitId": 30
+  },
+  {
+    "unitId": 30,
+    "skill": 1
+  },
+  {
+    "unitId": 30,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": 1,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": 1,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 30,
+    "features": [
+      "class-enemy1",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": 1,
+    "features": [
+      "class-enemy1",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": 1,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 30,
+    "features": [
+      "class-enemy2",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": 1,
+    "features": [
+      "class-enemy2",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 30,
+    "features": [
+      "class-action",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 30,
+    "skill": -1,
+    "isGeneral": true,
+    "features": [
+      "proper",
+      "proper-absorb"
+    ]
+  },
+  {
+    "unitId": 32
+  },
+  {
+    "unitId": 32,
+    "skill": 1
+  },
+  {
+    "unitId": 32,
+    "skill": 2
+  },
+  {
+    "unitId": 32,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 1,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 2,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 32,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 1,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 2,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 32,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 2,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 32,
+    "isGeneral": true,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 32,
+    "skill": 2,
+    "isGeneral": true,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 33,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 33,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 33,
+    "skill": 2,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 33,
+    "features": [
+      "barrier"
+    ]
+  },
+  {
+    "unitId": 33,
+    "skill": 1,
+    "features": [
+      "barrier-skill"
+    ]
+  },
+  {
+    "unitId": 33,
+    "skill": 2,
+    "features": [
+      "barrier-skill"
+    ]
+  },
+  {
+    "unitId": 33,
+    "skill": -1,
+    "features": [
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 34,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 34,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 34,
+    "skill": 2,
+    "features": [
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 34,
+    "features": [
+      "class-heal",
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 34,
+    "skill": -1,
+    "features": [
+      "deploy-heal"
+    ]
+  },
+  {
+    "unitId": 34,
+    "skill": -1,
+    "features": [
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 35,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 35,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 35,
+    "features": [
+      "class-heal",
+      "skill-buff"
+    ]
+  },
+  {
+    "unitId": 35,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "skill-buff"
+    ]
+  },
+  {
+    "unitId": 35,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 35,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 35,
+    "features": [
+      "class-heal",
+      "class-proper",
+      "skill-buff"
+    ]
+  },
+  {
+    "unitId": 35,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "class-proper",
+      "skill-buff"
+    ]
+  },
+  {
+    "unitId": 37,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 37,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 37,
+    "skill": 2,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 37,
+    "skill": -1,
+    "features": [
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 38,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 38,
+    "skill": 1
+  },
+  {
+    "unitId": 38,
+    "skill": -1,
+    "features": [
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 39,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 39,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 39,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 43
+  },
+  {
+    "unitId": 43,
+    "skill": 1
+  },
+  {
+    "unitId": 43,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper"
+    ]
+  },
+  {
+    "unitId": 43,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper"
+    ]
+  },
+  {
+    "unitId": 43,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 43,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 43,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 43,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 43,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 43,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 43,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 43,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 430001
+  },
+  {
+    "unitId": 430001,
+    "skill": 1
+  },
+  {
+    "unitId": 430001,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 430001,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "weapon-proper",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 46
+  },
+  {
+    "unitId": 46,
+    "skill": 1
+  },
+  {
+    "unitId": 46,
+    "skill": 2
+  },
+  {
+    "unitId": 46,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 460001
+  },
+  {
+    "unitId": 460001,
+    "features": [
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 49,
+    "features": [
+      "class-melee",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 49,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "class-melee",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": 1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "class-melee",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": 2,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "class-melee",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 49,
+    "features": [
+      "block0",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": 1,
+    "features": [
+      "block0",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": 2,
+    "features": [
+      "block0",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": -1,
+    "features": [
+      "block1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": -1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block4",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 49,
+    "skill": -1,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "block0",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 52,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 52,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 52,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 52,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "normal"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1
+  },
+  {
+    "unitId": 58,
+    "skill": 2
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "normal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "normal",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1,
+    "features": [
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "proper-petrify"
+    ]
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "normal",
+      "class-proper",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-proper",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-proper",
+      "proper-petrify"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-proper",
+      "proper-poison",
+      "proper-petrify"
+    ]
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "normal",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "class-action",
+      "normal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "class-action",
+      "normal",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "proper-petrify"
+    ]
+  },
+  {
+    "unitId": 58,
+    "features": [
+      "class-action",
+      "normal",
+      "class-proper",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-petrify"
+    ]
+  },
+  {
+    "unitId": 58,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-poison",
+      "proper-petrify"
+    ]
+  },
+  {
+    "unitId": 60
+  },
+  {
+    "unitId": 60,
+    "skill": 1,
+    "features": [
+      "skill1"
+    ]
+  },
+  {
+    "unitId": 60,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 60,
+    "skill": 1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 63
+  },
+  {
+    "unitId": 63,
+    "skill": 1
+  },
+  {
+    "unitId": 63,
+    "skill": 2
+  },
+  {
+    "unitId": 63,
+    "features": [
+      "class-charge-normal",
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 63,
+    "skill": 1,
+    "features": [
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 63,
+    "skill": 2,
+    "features": [
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 63,
+    "features": [
+      "class-charge-normal",
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 63,
+    "skill": 1,
+    "features": [
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 63,
+    "skill": 2,
+    "features": [
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 63,
+    "features": [
+      "class-charge-normal",
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 63,
+    "skill": 1,
+    "features": [
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 63,
+    "skill": 2,
+    "features": [
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 65
+  },
+  {
+    "unitId": 65,
+    "skill": 1
+  },
+  {
+    "unitId": 65,
+    "skill": 2
+  },
+  {
+    "unitId": 65,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 65,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 65,
+    "skill": 2,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 65,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 65,
+    "skill": 1,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 65,
+    "skill": 2,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 65,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 65,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 65,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 65,
+    "skill": -1,
+    "isGeneral": true,
+    "require": [
+      "weapon"
+    ],
+    "features": [
+      "common-regenerate-2%"
+    ]
+  },
+  {
+    "unitId": 68,
+    "features": [
+      "proper-ground"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 1,
+    "features": [
+      "proper-ground"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 2,
+    "features": [
+      "proper-ground",
+      "skill2-proper"
+    ]
+  },
+  {
+    "unitId": 68,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 2,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 68,
+    "features": [
+      "class-action",
+      "proper-ground"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper-ground"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "proper-ground",
+      "skill2-proper"
+    ]
+  },
+  {
+    "unitId": 68,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 68,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 69
+  },
+  {
+    "unitId": 69,
+    "skill": 1
+  },
+  {
+    "unitId": 69,
+    "skill": -1,
+    "features": [
+      "debuff-defense"
+    ]
+  },
+  {
+    "unitId": 69,
+    "features": [
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 690001
+  },
+  {
+    "unitId": 70,
+    "features": [
+      "class-normal"
+    ]
+  },
+  {
+    "unitId": 70,
+    "skill": 1
+  },
+  {
+    "unitId": 70,
+    "skill": 2,
+    "features": [
+      "skill2-1hit"
+    ]
+  },
+  {
+    "unitId": 70,
+    "skill": 2,
+    "features": [
+      "skill2-2hits"
+    ]
+  },
+  {
+    "unitId": 70,
+    "skill": 2,
+    "features": [
+      "skill2-3hits"
+    ]
+  },
+  {
+    "unitId": 71
+  },
+  {
+    "unitId": 71,
+    "skill": 1
+  },
+  {
+    "unitId": 71,
+    "skill": 2
+  },
+  {
+    "unitId": 71,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 71,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 71,
+    "skill": 2,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 71,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 71,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 71,
+    "skill": 2,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 71,
+    "skill": -1,
+    "isGeneral": true,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 710001
+  },
+  {
+    "unitId": 710001,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 710001,
+    "features": [
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 74
+  },
+  {
+    "unitId": 74,
+    "skill": 1
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "features": [
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "features": [
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "common-charge-attack",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "common-charge-attack",
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "common-charge-attack",
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "common-charge-attack",
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "common-charge-attack",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "features": [
+      "class-action",
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "common-charge-attack",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "common-charge-attack",
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "common-charge-attack",
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "common-charge-attack",
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "common-charge-attack",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "features": [
+      "class-attack-add",
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "features": [
+      "class-attack-add",
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "common-charge-attack"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase2"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase3"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase4"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "common-charge-attack",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 74,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "skill1-heal"
+    ]
+  },
+  {
+    "unitId": 75
+  },
+  {
+    "unitId": 75,
+    "skill": 1
+  },
+  {
+    "unitId": 75,
+    "skill": 2
+  },
+  {
+    "unitId": 75,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 75,
+    "skill": 1,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 75,
+    "skill": 2,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 75,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 75,
+    "skill": 1,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 75,
+    "skill": 2,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 75,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 75,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 75,
+    "skill": 2,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 77
+  },
+  {
+    "unitId": 77,
+    "skill": 1
+  },
+  {
+    "unitId": 77,
+    "skill": 2
+  },
+  {
+    "unitId": 77,
+    "features": [
+      "class-charge-normal",
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 1,
+    "features": [
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 2,
+    "features": [
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 77,
+    "features": [
+      "class-charge-normal",
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 1,
+    "features": [
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 2,
+    "features": [
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 77,
+    "features": [
+      "class-charge-normal",
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 1,
+    "features": [
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 2,
+    "features": [
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 77,
+    "features": [
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 2,
+    "features": [
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 77,
+    "features": [
+      "class-charge-normal",
+      "class-charge1",
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 2,
+    "features": [
+      "class-charge1",
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 77,
+    "features": [
+      "class-charge-normal",
+      "class-charge2",
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 2,
+    "features": [
+      "class-charge2",
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 77,
+    "features": [
+      "class-charge-normal",
+      "class-charge3",
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 77,
+    "skill": 2,
+    "features": [
+      "class-charge3",
+      "skill2-buff"
+    ]
+  },
+  {
+    "unitId": 79
+  },
+  {
+    "unitId": 79,
+    "skill": 1
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "features": [
+      "ranged"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "features": [
+      "melee"
+    ]
+  },
+  {
+    "unitId": 79,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "features": [
+      "ranged",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 79,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "features": [
+      "ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "features": [
+      "melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "features": [
+      "ranged",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "isGeneralProper": true,
+    "features": [
+      "ranged",
+      "absorb"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "isGeneralProperAction": true,
+    "features": [
+      "ranged",
+      "absorb",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "isGeneralAction": true,
+    "features": [
+      "melee",
+      "absorb"
+    ]
+  },
+  {
+    "unitId": 79,
+    "isGeneral": true,
+    "features": [
+      "common-regenerate-2%"
+    ]
+  },
+  {
+    "unitId": 79,
+    "skill": 2,
+    "isGeneral": true,
+    "features": [
+      "common-regenerate-2%"
+    ]
+  },
+  {
+    "unitId": 80
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "skill1-1hit",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "skill1-2hits",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "skill1-3hits",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "features": [
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "features": [
+      "skill1-phase5"
+    ]
+  },
+  {
+    "unitId": 80,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1",
+      "skill1-1hit",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1",
+      "skill1-2hits",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1",
+      "skill1-3hits",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2",
+      "skill1-1hit",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2",
+      "skill1-2hits",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 80,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2",
+      "skill1-3hits",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 81,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 2,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 81,
+    "features": [
+      "class-melee",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 81,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 2,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 81,
+    "features": [
+      "class-ranged",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": 2,
+    "features": [
+      "skill2-heal"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 81,
+    "skill": -1,
+    "features": [
+      "class-action",
+      "revived"
+    ]
+  },
+  {
+    "unitId": 82
+  },
+  {
+    "unitId": 82,
+    "skill": 1
+  },
+  {
+    "unitId": 82,
+    "skill": 2
+  },
+  {
+    "unitId": 82,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 82,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 82,
+    "skill": 2,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 82,
+    "features": [
+      "normal",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 82,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 82,
+    "skill": 2,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 82,
+    "skill": -1,
+    "isGeneral": true,
+    "features": [
+      "debuff-defense"
+    ]
+  },
+  {
+    "unitId": 84
+  },
+  {
+    "unitId": 84,
+    "skill": 1
+  },
+  {
+    "unitId": 84,
+    "skill": 1,
+    "features": [
+      "skill1-regenerate"
+    ]
+  },
+  {
+    "unitId": 84,
+    "skill": -1,
+    "features": [
+      "deploy-heal"
+    ]
+  },
+  {
+    "unitId": 84,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 84,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 84,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 84,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill1-phase1",
+      "skill1-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill1-phase5"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill1-phase5",
+      "skill1-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill2-phase1",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill2-phase5",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill1-phase1",
+      "skill1-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill1-phase5"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill1-phase5",
+      "skill1-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill2-phase1",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill2-phase5",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill1-phase1",
+      "skill1-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill1-phase5"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill1-phase5",
+      "skill1-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill2-phase1"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill2-phase1",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill2-phase5"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill2-phase5",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill1-phase1",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill1-phase1",
+      "skill1-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill1-phase5",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill1-phase5",
+      "skill1-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill2-phase1",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill2-phase1",
+      "skill2-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill",
+      "skill2-phase5",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block0",
+      "skill2-phase5",
+      "skill2-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill1-phase1",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill1-phase1",
+      "skill1-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill1-phase5",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill1-phase5",
+      "skill1-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill2-phase1",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill2-phase1",
+      "skill2-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill",
+      "skill2-phase5",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block1",
+      "skill2-phase5",
+      "skill2-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill1-phase1",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill1-phase1",
+      "skill1-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 1,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill1-phase5",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill1-phase5",
+      "skill1-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill2-phase1",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill2-phase1",
+      "skill2-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "skill": 2,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill",
+      "skill2-phase5",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 85,
+    "features": [
+      "class-normal",
+      "block3",
+      "skill2-phase5",
+      "skill2-normal",
+      "proper-human"
+    ]
+  },
+  {
+    "unitId": 89,
+    "features": [
+      "normal"
+    ]
+  },
+  {
+    "unitId": 89,
+    "skill": 1,
+    "features": [
+      "skill"
+    ]
+  },
+  {
+    "unitId": 89,
+    "skill": 2,
+    "features": [
+      "skill"
+    ]
+  },
+  {
+    "unitId": 89,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 89,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 89,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 89,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 89,
+    "skill": 2,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 1,
+    "features": [
+      "normal",
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 2,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "defense-mul",
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 1,
+    "features": [
+      "normal",
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "defense-mul",
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 1,
+    "features": [
+      "normal",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 2,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "defense-mul",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 1,
+    "features": [
+      "normal",
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 93,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 93,
+    "features": [
+      "normal",
+      "defense-mul",
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 94
+  },
+  {
+    "unitId": 94,
+    "skill": 1
+  },
+  {
+    "unitId": 94,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 94,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 94,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 94,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "proper-poison",
+      "proper-extra"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "proper-poison",
+      "proper-extra"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "proper-poison",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "proper-poison",
+      "proper-extra",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "proper-poison",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "proper-poison",
+      "proper-extra",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "proper-poison",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 95,
+    "features": [
+      "normal",
+      "proper-poison",
+      "proper-extra",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "proper-poison",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 95,
+    "skill": 1,
+    "features": [
+      "proper-poison",
+      "proper-extra",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 96
+  },
+  {
+    "unitId": 96,
+    "skill": 1
+  },
+  {
+    "unitId": 96,
+    "features": [
+      "attack-mul1"
+    ]
+  },
+  {
+    "unitId": 96,
+    "skill": 1,
+    "features": [
+      "attack-mul1"
+    ]
+  },
+  {
+    "unitId": 96,
+    "features": [
+      "attack-mul2"
+    ]
+  },
+  {
+    "unitId": 96,
+    "skill": 1,
+    "features": [
+      "attack-mul2"
+    ]
+  },
+  {
+    "unitId": 960001
+  },
+  {
+    "unitId": 960001,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 101
+  },
+  {
+    "unitId": 101,
+    "skill": 1
+  },
+  {
+    "unitId": 101,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 101,
+    "skill": 1,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 101,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 101,
+    "skill": 1,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 101,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 101,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 104
+  },
+  {
+    "unitId": 104,
+    "skill": 1
+  },
+  {
+    "unitId": 104,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 104,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 104,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 104,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 1040001
+  },
+  {
+    "unitId": 1040001,
+    "skill": 1
+  },
+  {
+    "unitId": 1040001,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 1040001,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 1040001,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 1040001,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 105
+  },
+  {
+    "unitId": 105,
+    "skill": 1
+  },
+  {
+    "unitId": 105,
+    "features": [
+      "token-buff"
+    ]
+  },
+  {
+    "unitId": 105,
+    "skill": 1,
+    "features": [
+      "token-buff"
+    ]
+  },
+  {
+    "unitId": 105,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 105,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 105,
+    "features": [
+      "token-buff",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 105,
+    "skill": 1,
+    "features": [
+      "token-buff",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 105,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 105,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 105,
+    "features": [
+      "token-buff",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 105,
+    "skill": 1,
+    "features": [
+      "token-buff",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 1050001
+  },
+  {
+    "unitId": 109
+  },
+  {
+    "unitId": 109,
+    "skill": 1
+  },
+  {
+    "unitId": 109,
+    "skill": -1,
+    "features": [
+      "flying-attack"
+    ]
+  },
+  {
+    "unitId": 109,
+    "features": [
+      "class-charge-normal",
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 109,
+    "skill": 1,
+    "features": [
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 109,
+    "skill": -1,
+    "features": [
+      "flying-attack",
+      "class-charge1"
+    ]
+  },
+  {
+    "unitId": 109,
+    "features": [
+      "class-charge-normal",
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 109,
+    "skill": 1,
+    "features": [
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 109,
+    "skill": -1,
+    "features": [
+      "flying-attack",
+      "class-charge2"
+    ]
+  },
+  {
+    "unitId": 109,
+    "features": [
+      "class-charge-normal",
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 109,
+    "skill": 1,
+    "features": [
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 109,
+    "skill": -1,
+    "features": [
+      "flying-attack",
+      "class-charge3"
+    ]
+  },
+  {
+    "unitId": 111
+  },
+  {
+    "unitId": 111,
+    "skill": 1
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff4"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff4"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff1",
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff1",
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff4",
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff4",
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff1",
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff1",
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff4",
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff4",
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 111,
+    "features": [
+      "token-buff4",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 111,
+    "skill": 1,
+    "features": [
+      "token-buff4",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 1110001,
+    "isGeneral": true,
+    "features": [
+      "token-buff1"
+    ]
+  },
+  {
+    "unitId": 1110001,
+    "isGeneral": true,
+    "features": [
+      "token-buff1",
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 1110001,
+    "isGeneral": true,
+    "features": [
+      "token-buff4"
+    ]
+  },
+  {
+    "unitId": 1110001,
+    "isGeneral": true,
+    "features": [
+      "token-buff4",
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 114,
+    "features": [
+      "normal"
+    ]
+  },
+  {
+    "unitId": 114,
+    "skill": 1,
+    "features": [
+      "skill",
+      "skill1-normal"
+    ]
+  },
+  {
+    "unitId": 114,
+    "features": [
+      "normal",
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 114,
+    "skill": 1,
+    "features": [
+      "skill",
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 114,
+    "features": [
+      "normal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 114,
+    "skill": 1,
+    "features": [
+      "skill",
+      "skill1-normal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 114,
+    "features": [
+      "normal",
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 114,
+    "skill": 1,
+    "features": [
+      "skill",
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 116
+  },
+  {
+    "unitId": 116,
+    "skill": 1
+  },
+  {
+    "unitId": 116,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 116,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 116,
+    "skill": 1,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 116,
+    "skill": 1,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 116,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 116,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 116,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 116,
+    "features": [
+      "deploy-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 116,
+    "skill": 1,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 116,
+    "skill": 1,
+    "features": [
+      "deploy-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 117,
+    "features": [
+      "normal",
+      "normal2"
+    ]
+  },
+  {
+    "unitId": 117,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 117,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 117,
+    "skill": 1,
+    "features": [
+      "dot"
+    ]
+  },
+  {
+    "unitId": 117,
+    "features": [
+      "normal",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 117,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block0"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block0"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block1"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block1"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block2"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block2"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block3"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block3"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block0",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block0",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block2",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block2",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block3",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block3",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block0",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block0",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block1",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block1",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block2",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block2",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block3",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block3",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block0",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block0",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block1",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block1",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block2",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block2",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "features": [
+      "common-block3",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 119,
+    "skill": 1,
+    "features": [
+      "common-block3",
+      "class-attack-add",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 128,
+    "features": [
+      "hp-over-100%"
+    ]
+  },
+  {
+    "unitId": 128,
+    "skill": 1,
+    "features": [
+      "skill1-normal",
+      "hp-over-100%"
+    ]
+  },
+  {
+    "unitId": 128,
+    "features": [
+      "hp-99%"
+    ]
+  },
+  {
+    "unitId": 128,
+    "skill": 1,
+    "features": [
+      "skill1-normal",
+      "hp-99%"
+    ]
+  },
+  {
+    "unitId": 128,
+    "features": [
+      "hp-over-100%",
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 128,
+    "skill": 1,
+    "features": [
+      "hp-over-100%",
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 128,
+    "features": [
+      "hp-over-100%",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 128,
+    "skill": 1,
+    "features": [
+      "skill1-normal",
+      "hp-over-100%",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 128,
+    "features": [
+      "hp-99%",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 128,
+    "skill": 1,
+    "features": [
+      "skill1-normal",
+      "hp-99%",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 128,
+    "features": [
+      "hp-over-100%",
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 128,
+    "skill": 1,
+    "features": [
+      "hp-over-100%",
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 128,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 128,
+    "skill": 1,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 133,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 133,
+    "features": [
+      "class-melee",
+      "skill1-beat-20"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "skill1-beat-20"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 2,
+    "features": [
+      "class-melee",
+      "skill2-attack"
+    ]
+  },
+  {
+    "unitId": 133,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 133,
+    "features": [
+      "class-ranged",
+      "skill1-beat-20"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "skill1-beat-20"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "skill2-normal"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": 2,
+    "features": [
+      "class-ranged",
+      "skill2-attack"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 133,
+    "skill": -1,
+    "features": [
+      "class-action",
+      "skill1-beat-20"
+    ]
+  },
+  {
+    "unitId": 134
+  },
+  {
+    "unitId": 134,
+    "skill": 1
+  },
+  {
+    "unitId": 134,
+    "skill": 1,
+    "features": [
+      "skill1-debuff"
+    ]
+  },
+  {
+    "unitId": 134,
+    "skill": -1,
+    "features": [
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 134,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 134,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 134,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 134,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 135
+  },
+  {
+    "unitId": 135,
+    "skill": 1
+  },
+  {
+    "unitId": 135,
+    "features": [
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "features": [
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 135,
+    "features": [
+      "class-proper",
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 135,
+    "features": [
+      "class-action",
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 135,
+    "features": [
+      "class-proper",
+      "class-action",
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "class-action",
+      "enemy1"
+    ]
+  },
+  {
+    "unitId": 135,
+    "isGeneral": true,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 135,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 136,
+    "features": [
+      "class-heal",
+      "normal",
+      "normal-supplement"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "skill1-dot"
+    ]
+  },
+  {
+    "unitId": 136,
+    "features": [
+      "class-heal",
+      "normal",
+      "normal-supplement",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "skill1-dot",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 136,
+    "features": [
+      "class-heal",
+      "normal",
+      "normal-supplement",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "skill1-dot",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 136,
+    "features": [
+      "class-heal",
+      "normal",
+      "normal-supplement",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": 1,
+    "features": [
+      "skill1-dot",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 136,
+    "skill": -1,
+    "features": [
+      "normal",
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 137
+  },
+  {
+    "unitId": 137,
+    "skill": 1
+  },
+  {
+    "unitId": 137,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 137,
+    "skill": 1,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 137,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 137,
+    "skill": 1,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 137,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 137,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 137,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 137,
+    "skill": 1,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 1370001
+  },
+  {
+    "unitId": 1370001,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 1370001,
+    "features": [
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 1370001,
+    "features": [
+      "common-fire-field",
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 138
+  },
+  {
+    "unitId": 138,
+    "skill": 1
+  },
+  {
+    "unitId": 138,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 138,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 138,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 138,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 138,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 138,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 140
+  },
+  {
+    "unitId": 140,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 140,
+    "skill": 1
+  },
+  {
+    "unitId": 140,
+    "skill": 1,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 142
+  },
+  {
+    "unitId": 142,
+    "skill": 1
+  },
+  {
+    "unitId": 142,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 142,
+    "skill": 1,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 143
+  },
+  {
+    "unitId": 143,
+    "skill": 1
+  },
+  {
+    "unitId": 143,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 143,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 143,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 143,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 143,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 143,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 1430001
+  },
+  {
+    "unitId": 144,
+    "features": [
+      "normal"
+    ]
+  },
+  {
+    "unitId": 144,
+    "skill": 1
+  },
+  {
+    "unitId": 146
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1
+  },
+  {
+    "unitId": 146,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 146,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "class-attack",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "deploy-attack",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 146,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "proper",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "features": [
+      "deploy-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "class-attack",
+      "proper",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "deploy-attack",
+      "proper",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 146,
+    "skill": 1,
+    "features": [
+      "deploy-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 156,
+    "features": [
+      "class-heal",
+      "normal"
+    ]
+  },
+  {
+    "unitId": 156,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 156,
+    "skill": -1,
+    "features": [
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 158
+  },
+  {
+    "unitId": 158,
+    "skill": 1
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-fire-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-fire-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-water-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-water-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-wind-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-wind-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-earth-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-earth-field"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-field-stealth"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-field-stealth"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-fire-field",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-fire-field",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-wind-field",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-wind-field",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "features": [
+      "class-field-stealth",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": 1,
+    "features": [
+      "class-field-stealth",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 158,
+    "skill": -1,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 163
+  },
+  {
+    "unitId": 163,
+    "skill": 1
+  },
+  {
+    "unitId": 163,
+    "features": [
+      "ability-damage"
+    ]
+  },
+  {
+    "unitId": 163,
+    "skill": 1,
+    "features": [
+      "ability-damage"
+    ]
+  },
+  {
+    "unitId": 163,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 163,
+    "features": [
+      "class-buff-proper",
+      "buff-proper"
+    ]
+  },
+  {
+    "unitId": 163,
+    "features": [
+      "class-buff",
+      "buff-species"
+    ]
+  },
+  {
+    "unitId": 163,
+    "features": [
+      "class-buff-proper",
+      "buff-proper",
+      "buff-proper-species"
+    ]
+  },
+  {
+    "unitId": 163,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 163,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 163,
+    "skill": -1,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 165
+  },
+  {
+    "unitId": 165,
+    "skill": 1
+  },
+  {
+    "unitId": 165,
+    "skill": 1,
+    "features": [
+      "skill-earth-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "features": [
+      "class-fire-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "skill": 1,
+    "features": [
+      "class-fire-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "features": [
+      "class-water-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "skill": 1,
+    "features": [
+      "class-water-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "features": [
+      "class-wind-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "skill": 1,
+    "features": [
+      "class-wind-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "skill": 1,
+    "features": [
+      "class-wind-field",
+      "skill-earth-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "features": [
+      "class-earth-field"
+    ]
+  },
+  {
+    "unitId": 165,
+    "features": [
+      "class-field-stealth"
+    ]
+  },
+  {
+    "unitId": 165,
+    "skill": 1,
+    "features": [
+      "class-field-stealth"
+    ]
+  },
+  {
+    "unitId": 166,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 166,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 166,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 166,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 166,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 166,
+    "skill": 1,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 166,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 166,
+    "skill": 1,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 166,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 166,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-over-80%"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-over-80%",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase1",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase2",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase3",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-over-80%",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase2",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase3",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-over-80%",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase1",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase2",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase3",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-79%"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-79%",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase1",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase2",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase3",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-79%",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase2",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase3",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-79%",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase1",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase2",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase3",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": -1,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": -1,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": -1,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": -1,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 169,
+    "features": [
+      "fire-field-normal",
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 169,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 169,
+    "features": [
+      "fire-field-normal",
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 169,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 169,
+    "features": [
+      "fire-field-normal",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 169,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 169,
+    "features": [
+      "fire-field-normal",
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 169,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 169,
+    "isGeneral": true,
+    "features": [
+      "dot"
+    ]
+  },
+  {
+    "unitId": 169,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "dot"
+    ]
+  },
+  {
+    "unitId": 171,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 171,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 171,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 171,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 171,
+    "skill": -1,
+    "features": [
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 172,
+    "features": [
+      "team-buff1"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 1,
+    "features": [
+      "skill1",
+      "team-buff1"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff1",
+      "skill2-1hit"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff1",
+      "skill2-2hits"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff1",
+      "skill2-3hits"
+    ]
+  },
+  {
+    "unitId": 172,
+    "features": [
+      "team-buff5"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 1,
+    "features": [
+      "skill1",
+      "team-buff5"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff5",
+      "skill2-1hit"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff5",
+      "skill2-2hits"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff5",
+      "skill2-3hits"
+    ]
+  },
+  {
+    "unitId": 172,
+    "features": [
+      "team-buff9"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 1,
+    "features": [
+      "skill1",
+      "team-buff9"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff9",
+      "skill2-1hit"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff9",
+      "skill2-2hits"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 2,
+    "features": [
+      "team-buff9",
+      "skill2-3hits"
+    ]
+  },
+  {
+    "unitId": 172,
+    "skill": 1,
+    "features": [
+      "skill1-regenerate"
+    ]
+  },
+  {
+    "unitId": 1720001,
+    "features": [
+      "team-buff5"
+    ]
+  },
+  {
+    "unitId": 1720001,
+    "features": [
+      "team-buff5",
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 1720001,
+    "features": [
+      "team-buff9"
+    ]
+  },
+  {
+    "unitId": 1720001,
+    "features": [
+      "team-buff9",
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 1720001,
+    "features": [
+      "skill1-regenerate"
+    ]
+  },
+  {
+    "unitId": 175
+  },
+  {
+    "unitId": 175,
+    "skill": 1
+  },
+  {
+    "unitId": 175,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 175,
+    "skill": 1,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 175,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 175,
+    "skill": 1,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 175,
+    "features": [
+      "charge-attack",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 175,
+    "skill": 1,
+    "features": [
+      "charge-attack",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 176
+  },
+  {
+    "unitId": 176,
+    "skill": 1
+  },
+  {
+    "unitId": 176,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 176,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 176,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 176,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 1760001,
+    "isGeneral": true
+  },
+  {
+    "unitId": 1760001,
+    "isGeneral": true,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 179
+  },
+  {
+    "unitId": 179,
+    "skill": 1
+  },
+  {
+    "unitId": 179,
+    "features": [
+      "support"
+    ]
+  },
+  {
+    "unitId": 179,
+    "skill": 1,
+    "features": [
+      "support"
+    ]
+  },
+  {
+    "unitId": 179,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 179,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 179,
+    "features": [
+      "support",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 179,
+    "skill": 1,
+    "features": [
+      "support",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 179,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 179,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 179,
+    "features": [
+      "support",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 179,
+    "skill": 1,
+    "features": [
+      "support",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 179,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "skill1-heal"
+    ]
+  },
+  {
+    "unitId": 179,
+    "skill": -1,
+    "isGeneral": true,
+    "hasPotentials": [
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      "common-potential-absorb-1%"
+    ]
+  },
+  {
+    "unitId": 181,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 181,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 181,
+    "skill": -1,
+    "features": [
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 1810001
+  },
+  {
+    "unitId": 182
+  },
+  {
+    "unitId": 182,
+    "skill": 1
+  },
+  {
+    "unitId": 182,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 182,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 182,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 182,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 1820001
+  },
+  {
+    "unitId": 183,
+    "features": [
+      "normal"
+    ]
+  },
+  {
+    "unitId": 183,
+    "skill": 1
+  },
+  {
+    "unitId": 183,
+    "features": [
+      "normal",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 183,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 183,
+    "features": [
+      "normal",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 183,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 185
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "skill1-phase1",
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "skill1-phase1",
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "skill1-phase2",
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "skill1-phase2",
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "skill1-phase3",
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "skill1-phase3",
+      "regenerate"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "class-debuff",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "class-debuff",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "class-debuff",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "class-debuff",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 185,
+    "skill": 1,
+    "features": [
+      "class-debuff",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 185,
+    "features": [
+      "class-debuff",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 1850001
+  },
+  {
+    "unitId": 1850001,
+    "skill": 1
+  },
+  {
+    "unitId": 1850001,
+    "skill": -1,
+    "features": [
+      "support"
+    ]
+  },
+  {
+    "unitId": 188
+  },
+  {
+    "unitId": 188,
+    "skill": 1,
+    "features": [
+      "skill1-1hit"
+    ]
+  },
+  {
+    "unitId": 188,
+    "skill": 1,
+    "features": [
+      "skill1-2hits"
+    ]
+  },
+  {
+    "unitId": 188,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 188,
+    "skill": 1,
+    "features": [
+      "skill1-1hit",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 188,
+    "skill": 1,
+    "features": [
+      "skill1-2hits",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 188,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 188,
+    "skill": 1,
+    "features": [
+      "skill1-1hit",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 188,
+    "skill": 1,
+    "features": [
+      "skill1-2hits",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 189
+  },
+  {
+    "unitId": 189,
+    "skill": 1
+  },
+  {
+    "unitId": 189,
+    "isGeneralProper": true,
+    "features": [
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 189,
+    "isGeneralProper": true,
+    "skill": 1,
+    "features": [
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 189,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 189,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 189,
+    "isGeneralProper": true,
+    "features": [
+      "attack-mul",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 189,
+    "isGeneralProper": true,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 190
+  },
+  {
+    "unitId": 190,
+    "skill": 1
+  },
+  {
+    "unitId": 190,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 190,
+    "skill": 1,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 190,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 190,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 190,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 190,
+    "skill": 1,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 191
+  },
+  {
+    "unitId": 191,
+    "skill": 1
+  },
+  {
+    "unitId": 191,
+    "features": [
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "features": [
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 191,
+    "features": [
+      "class-action",
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "features": [
+      "class-attack-add",
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "features": [
+      "class-attack-add",
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add",
+      "attack-add"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": -1,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 191,
+    "isGeneral": true,
+    "features": [
+      "support"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "support"
+    ]
+  },
+  {
+    "unitId": 191,
+    "isGeneral": true,
+    "hasPotentials": [
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      "common-potential-absorb-1%"
+    ]
+  },
+  {
+    "unitId": 191,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "skill1-absorb"
+    ]
+  },
+  {
+    "unitId": 195
+  },
+  {
+    "unitId": 195,
+    "skill": 1
+  },
+  {
+    "unitId": 198
+  },
+  {
+    "unitId": 198,
+    "skill": 1
+  },
+  {
+    "unitId": 198,
+    "features": [
+      "class-fire-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "skill": 1,
+    "features": [
+      "class-fire-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "features": [
+      "class-water-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "skill": 1,
+    "features": [
+      "class-water-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "features": [
+      "class-wind-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "skill": 1,
+    "features": [
+      "class-wind-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "features": [
+      "class-earth-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "skill": 1,
+    "features": [
+      "class-earth-field"
+    ]
+  },
+  {
+    "unitId": 198,
+    "features": [
+      "class-field-stealth"
+    ]
+  },
+  {
+    "unitId": 198,
+    "skill": 1,
+    "features": [
+      "class-field-stealth"
+    ]
+  },
+  {
+    "unitId": 199
+  },
+  {
+    "unitId": 199,
+    "skill": 1,
+    "features": [
+      "skill1-dot"
+    ]
+  },
+  {
+    "unitId": 199,
+    "skill": -1,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 199,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 199,
+    "skill": 1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 199,
+    "skill": -1,
+    "features": [
+      "support1"
+    ]
+  },
+  {
+    "unitId": 199,
+    "skill": -1,
+    "features": [
+      "support5"
+    ]
+  },
+  {
+    "unitId": 199,
+    "skill": -1,
+    "features": [
+      "support10"
+    ]
+  },
+  {
+    "unitId": 200
+  },
+  {
+    "unitId": 200,
+    "skill": 1
+  },
+  {
+    "unitId": 200,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 200,
+    "skill": 1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 200,
+    "features": [
+      "token-limit"
+    ]
+  },
+  {
+    "unitId": 2000001
+  },
+  {
+    "unitId": 2000001,
+    "skill": -1,
+    "features": [
+      "support"
+    ]
+  },
+  {
+    "unitId": 201,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 201,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 201,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 201,
+    "skill": 1,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 201,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 201,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 201,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 212
+  },
+  {
+    "unitId": 212,
+    "skill": 1
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "skill1-enemy1"
+    ]
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "skill1-enemy2"
+    ]
+  },
+  {
+    "unitId": 212,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1",
+      "skill1-enemy1"
+    ]
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1",
+      "skill1-enemy2"
+    ]
+  },
+  {
+    "unitId": 212,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2",
+      "skill1-enemy1"
+    ]
+  },
+  {
+    "unitId": 212,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2",
+      "skill1-enemy2"
+    ]
+  },
+  {
+    "unitId": 213
+  },
+  {
+    "unitId": 213,
+    "skill": 1
+  },
+  {
+    "unitId": 214,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 214,
+    "skill": 1,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 214,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 214,
+    "skill": 1,
+    "features": [
+      "class-heal",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 2140001
+  },
+  {
+    "unitId": 2140001,
+    "skill": 1
+  },
+  {
+    "unitId": 2140001,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 2140001,
+    "skill": 1,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 215
+  },
+  {
+    "unitId": 215,
+    "skill": 1
+  },
+  {
+    "unitId": 215,
+    "features": [
+      "dot"
+    ]
+  },
+  {
+    "unitId": 215,
+    "skill": 1,
+    "features": [
+      "dot"
+    ]
+  },
+  {
+    "unitId": 215,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 215,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 215,
+    "features": [
+      "dot",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 215,
+    "skill": 1,
+    "features": [
+      "dot",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 215,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 215,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 215,
+    "features": [
+      "dot",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 215,
+    "skill": 1,
+    "features": [
+      "dot",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 215,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "over-charge"
+    ]
+  },
+  {
+    "unitId": 215,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "support"
+    ]
+  },
+  {
+    "unitId": 216
+  },
+  {
+    "unitId": 216,
+    "skill": 1
+  },
+  {
+    "unitId": 216,
+    "features": [
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 216,
+    "skill": 1,
+    "features": [
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 216,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 216,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 216,
+    "features": [
+      "attack-mul",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 216,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 216,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 216,
+    "skill": 1,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 216,
+    "features": [
+      "attack-mul",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 216,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 216,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 216,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 216,
+    "features": [
+      "attack-mul",
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 216,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 2160001
+  },
+  {
+    "unitId": 217,
+    "features": [
+      "class-ranged",
+      "block0"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block0"
+    ]
+  },
+  {
+    "unitId": 217,
+    "features": [
+      "class-melee",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 217,
+    "features": [
+      "class-ranged",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block1"
+    ]
+  },
+  {
+    "unitId": 217,
+    "features": [
+      "class-melee",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 217,
+    "features": [
+      "class-ranged",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block4"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block0",
+      "token-1hit"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block0",
+      "token-2hits"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "block1",
+      "token-1hit",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "block1",
+      "token-2hits",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block1",
+      "token-1hit",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block1",
+      "token-2hits",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "block4",
+      "token-1hit",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "block4",
+      "token-2hits",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block4",
+      "token-1hit",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "block4",
+      "token-2hits",
+      "token-block"
+    ]
+  },
+  {
+    "unitId": 217,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 2170001
+  },
+  {
+    "unitId": 2170001,
+    "skill": 1
+  },
+  {
+    "unitId": 220,
+    "features": [
+      "melee"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "0-sec"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "10-sec"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "20-sec"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "30-sec"
+    ]
+  },
+  {
+    "unitId": 220,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 220,
+    "features": [
+      "melee",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "0-sec",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "10-sec",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "20-sec",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "melee",
+      "30-sec",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 220,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "debuff-defense"
+    ]
+  },
+  {
+    "unitId": 220,
+    "isGeneral": true,
+    "features": [
+      "ranged"
+    ]
+  },
+  {
+    "unitId": 220,
+    "isGeneral": true,
+    "features": [
+      "melee",
+      "weaken"
+    ]
+  },
+  {
+    "unitId": 220,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "melee",
+      "weaken"
+    ]
+  },
+  {
+    "unitId": 220,
+    "isGeneral": true,
+    "features": [
+      "ranged",
+      "weaken"
+    ]
+  },
+  {
+    "unitId": 224
+  },
+  {
+    "unitId": 224,
+    "skill": 1,
+    "features": [
+      "skill1-attack"
+    ]
+  },
+  {
+    "unitId": 224,
+    "skill": 1,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 224,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 224,
+    "skill": 1,
+    "features": [
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 224,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 224,
+    "skill": 1,
+    "features": [
+      "skill1-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 224,
+    "skill": 1,
+    "features": [
+      "extra-damage",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 224,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 224,
+    "skill": 1,
+    "features": [
+      "class-attack",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 224,
+    "skill": 1,
+    "isGeneral": true,
+    "features": [
+      "skill1-heal"
+    ]
+  },
+  {
+    "unitId": 224,
+    "skill": -1,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 225,
+    "features": [
+      "class-heal"
+    ]
+  },
+  {
+    "unitId": 225,
+    "skill": 1
+  },
+  {
+    "unitId": 225,
+    "skill": -1,
+    "features": [
+      "class-regenerate"
+    ]
+  },
+  {
+    "unitId": 228,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 228,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 228,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 228,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 232
+  },
+  {
+    "unitId": 232,
+    "skill": 1
+  },
+  {
+    "unitId": 232,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 232,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 232,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 232,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 235,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 235,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 235,
+    "features": [
+      "class-action",
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 235,
+    "features": [
+      "class-action",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 235,
+    "skill": 1,
+    "isGeneral": true
+  },
+  {
+    "unitId": 239
+  },
+  {
+    "unitId": 239,
+    "skill": 1
+  },
+  {
+    "unitId": 242
+  },
+  {
+    "unitId": 242,
+    "skill": 1
+  },
+  {
+    "unitId": 242,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 242,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 242,
+    "skill": 1,
+    "isGeneralAction": true,
+    "features": [
+      "skill1-dot"
+    ]
+  },
+  {
+    "unitId": 242,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 242,
+    "skill": 1,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 242,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 242,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 242,
+    "skill": 1,
+    "isGeneralProperAction": true,
+    "features": [
+      "skill1-dot",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 242,
+    "skill": -1,
+    "features": [
+      "attack-debuff"
+    ]
+  },
+  {
+    "unitId": 243
+  },
+  {
+    "unitId": 243,
+    "skill": 1
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "attack-mul"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "attack-mul",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "attack-mul",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "attack-mul",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 248
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "skill1-phase4"
+    ]
+  },
+  {
+    "unitId": 248,
+    "features": [
+      "class-enemy1"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy1",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy1",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy1",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy1",
+      "skill1-phase4"
+    ]
+  },
+  {
+    "unitId": 248,
+    "features": [
+      "class-enemy2"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy2",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy2",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy2",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-enemy2",
+      "skill1-phase4"
+    ]
+  },
+  {
+    "unitId": 248,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "skill1-phase1"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "skill1-phase2"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "skill1-phase3"
+    ]
+  },
+  {
+    "unitId": 248,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "skill1-phase4"
+    ]
+  },
+  {
+    "unitId": 250
+  },
+  {
+    "unitId": 250,
+    "skill": 1
+  },
+  {
+    "unitId": 250,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 250,
+    "skill": 1,
+    "features": [
+      "proper"
+    ]
+  },
+  {
+    "unitId": 250,
+    "features": [
+      "proper",
+      "proper-double"
+    ]
+  },
+  {
+    "unitId": 250,
+    "skill": 1,
+    "features": [
+      "proper",
+      "proper-double"
+    ]
+  },
+  {
+    "unitId": 250,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 250,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 250,
+    "features": [
+      "class-action",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 250,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper"
+    ]
+  },
+  {
+    "unitId": 250,
+    "features": [
+      "class-action",
+      "proper",
+      "proper-double"
+    ]
+  },
+  {
+    "unitId": 250,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper",
+      "proper-double"
+    ]
+  },
+  {
+    "unitId": 256
+  },
+  {
+    "unitId": 256,
+    "skill": 1
+  },
+  {
+    "unitId": 256,
+    "features": [
+      "common-team-buff1"
+    ]
+  },
+  {
+    "unitId": 256,
+    "skill": 1,
+    "features": [
+      "common-team-buff1"
+    ]
+  },
+  {
+    "unitId": 256,
+    "features": [
+      "common-team-buff2"
+    ]
+  },
+  {
+    "unitId": 256,
+    "skill": 1,
+    "features": [
+      "common-team-buff2"
+    ]
+  },
+  {
+    "unitId": 256,
+    "features": [
+      "common-team-buff3"
+    ]
+  },
+  {
+    "unitId": 256,
+    "skill": 1,
+    "features": [
+      "common-team-buff3"
+    ]
+  },
+  {
+    "unitId": 2560001
+  },
+  {
+    "unitId": 2560001,
+    "skill": 1
+  },
+  {
+    "unitId": 259
+  },
+  {
+    "unitId": 259,
+    "skill": 1
+  },
+  {
+    "unitId": 259,
+    "features": [
+      "water-field",
+      "water-field-annotations"
+    ]
+  },
+  {
+    "unitId": 259,
+    "skill": 1,
+    "features": [
+      "water-field",
+      "water-field-annotations"
+    ]
+  },
+  {
+    "unitId": 259,
+    "features": [
+      "water-field",
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 259,
+    "skill": 1,
+    "features": [
+      "water-field",
+      "class-attack"
+    ]
+  },
+  {
+    "unitId": 263,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "team-buff1"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "team-buff5"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "team-buff10"
+    ]
+  },
+  {
+    "unitId": 263,
+    "features": [
+      "class-melee",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "team-buff1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "team-buff5",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "team-buff10",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "team-buff1"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "team-buff5"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "team-buff10"
+    ]
+  },
+  {
+    "unitId": 263,
+    "features": [
+      "class-ranged",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "team-buff1",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "team-buff5",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "team-buff10",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 263,
+    "isGeneral": true,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "isGeneral": true,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%",
+      "team-buff1"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "isGeneral": true,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%",
+      "team-buff5"
+    ]
+  },
+  {
+    "unitId": 263,
+    "skill": 1,
+    "isGeneral": true,
+    "hasPotentials": [
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      "common-potential-regenerate-3%",
+      "team-buff10"
+    ]
+  },
+  {
+    "unitId": 266,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 266,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 266,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 266,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 266,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 266,
+    "skill": 1,
+    "features": [
+      "common-regenerate-3%"
+    ]
+  },
+  {
+    "unitId": 266,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 266,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 269
+  },
+  {
+    "unitId": 269,
+    "skill": 1
+  },
+  {
+    "unitId": 269,
+    "skill": 1,
+    "features": [
+      "skill1-beat-20"
+    ]
+  },
+  {
+    "unitId": 275
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-1hit"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-2hits"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-3hits"
+    ]
+  },
+  {
+    "unitId": 275,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-1hit",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-2hits",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-3hits",
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 275,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-1hit",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-2hits",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 275,
+    "skill": 1,
+    "features": [
+      "skill1-3hits",
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 276
+  },
+  {
+    "unitId": 276,
+    "skill": 1
+  },
+  {
+    "unitId": 276,
+    "skill": -1,
+    "features": [
+      "class-buff"
+    ]
+  },
+  {
+    "unitId": 276,
+    "skill": -1,
+    "features": [
+      "class-buff-proper"
+    ]
+  },
+  {
+    "unitId": 276,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 276,
+    "skill": 1,
+    "features": [
+      "class-debuff"
+    ]
+  },
+  {
+    "unitId": 281
+  },
+  {
+    "unitId": 281,
+    "skill": 1
+  },
+  {
+    "unitId": 281,
+    "skill": 1,
+    "features": [
+      "proper-poison"
+    ]
+  },
+  {
+    "unitId": 281,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 281,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 289
+  },
+  {
+    "unitId": 289,
+    "skill": 1
+  },
+  {
+    "unitId": 289,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 289,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 289,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 289,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 290
+  },
+  {
+    "unitId": 290,
+    "skill": 1
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "charge-attack"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "charge-attack",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "charge-attack",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "extra-damage",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "extra-damage",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "charge-attack",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "charge-attack",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "extra-damage",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "extra-damage",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "charge-attack",
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "charge-attack",
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "features": [
+      "extra-damage",
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 290,
+    "skill": 1,
+    "features": [
+      "extra-damage",
+      "class-action",
+      "class-attack-add"
+    ]
+  },
+  {
+    "unitId": 292
+  },
+  {
+    "unitId": 292,
+    "skill": 1
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-action",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-proper",
+      "proper-burn"
+    ]
+  },
+  {
+    "unitId": 292,
+    "isGeneralProper": true,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "isGeneralProper": true,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 292,
+    "isGeneralProperAction": true,
+    "features": [
+      "class-action",
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "isGeneralProperAction": true,
+    "features": [
+      "class-action",
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "isGeneralProper": true,
+    "features": [
+      "skill1-heal"
+    ]
+  },
+  {
+    "unitId": 292,
+    "skill": 1,
+    "isGeneralProperAction": true,
+    "features": [
+      "class-action",
+      "skill1-heal"
+    ]
+  },
+  {
+    "unitId": 294
+  },
+  {
+    "unitId": 294,
+    "skill": 1
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1"
+    ]
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "class-attack-mul1",
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1",
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "class-attack-mul1",
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "class-attack-mul1",
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2"
+    ]
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "class-attack-mul2",
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2",
+      "extra-damage"
+    ]
+  },
+  {
+    "unitId": 294,
+    "features": [
+      "class-attack-mul2",
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 294,
+    "skill": 1,
+    "features": [
+      "class-attack-mul2",
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 302
+  },
+  {
+    "unitId": 302,
+    "skill": 1
+  },
+  {
+    "unitId": 302,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 302,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 302,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 302,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 302,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 302,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 302,
+    "isGeneralProper": true,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 302,
+    "skill": 1,
+    "isGeneralProper": true,
+    "features": [
+      "common-burn-dot"
+    ]
+  },
+  {
+    "unitId": 302,
+    "isGeneralProperAction": true,
+    "features": [
+      "common-burn-dot",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 302,
+    "skill": 1,
+    "isGeneralProperAction": true,
+    "features": [
+      "common-burn-dot",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307
+  },
+  {
+    "unitId": 307,
+    "skill": 1
+  },
+  {
+    "unitId": 307,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 307,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "features": [
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 307,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-proper"
+    ]
+  },
+  {
+    "unitId": 307,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "features": [
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 3070001,
+    "isGeneral": true
+  },
+  {
+    "unitId": 3070001,
+    "isGeneral": true,
+    "features": [
+      "skill1-buff"
+    ]
+  },
+  {
+    "unitId": 3070001,
+    "isGeneral": true,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 3070001,
+    "isGeneral": true,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "skill1-buff",
+      "common-fire-field"
+    ]
+  },
+  {
+    "unitId": 308,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 308,
+    "skill": 1,
+    "features": [
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 308,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 308,
+    "skill": 1,
+    "features": [
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 308,
+    "skill": 1,
+    "features": [
+      "skill1-absorb"
+    ]
+  },
+  {
+    "unitId": 308,
+    "features": [
+      "class-action-base",
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 308,
+    "skill": 1,
+    "features": [
+      "class-action-base",
+      "class-melee"
+    ]
+  },
+  {
+    "unitId": 308,
+    "features": [
+      "class-action-base",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 308,
+    "skill": 1,
+    "features": [
+      "class-action-base",
+      "class-ranged"
+    ]
+  },
+  {
+    "unitId": 308,
+    "skill": 1,
+    "features": [
+      "class-action-base",
+      "skill1-absorb"
+    ]
+  },
+  {
+    "unitId": 308,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  }
+]

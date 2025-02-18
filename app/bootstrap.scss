@@ -1,0 +1,116 @@
+@import "~bootstrap/scss/mixins/banner";
+@include bsBanner("");
+
+
+// scss-docs-start import-stack
+// Configuration
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+
+$custom-table-bg-scale: -15%;
+$custom-table-variants: (
+  "c-red": shift-color($red-200, $custom-table-bg-scale),
+  "c-blue": shift-color($blue-200, $custom-table-bg-scale),
+  "c-orange": shift-color($orange-200, $custom-table-bg-scale),
+  "c-green": shift-color($green-200, $custom-table-bg-scale),
+  "c-yellow": shift-color($yellow-200, $custom-table-bg-scale),
+  "c-indigo": shift-color($indigo-200, $custom-table-bg-scale),
+  "c-red-100": shift-color($red-100, $custom-table-bg-scale),
+  "c-red-300": shift-color($red-300, $custom-table-bg-scale),
+  "c-red-500": shift-color($red-500, $custom-table-bg-scale),
+  "c-red-700": shift-color($red-700, $custom-table-bg-scale),
+  "c-red-900": shift-color($red-900, $custom-table-bg-scale),
+  "c-blue-100": shift-color($blue-100, $custom-table-bg-scale),
+  "c-blue-300": shift-color($blue-300, $custom-table-bg-scale),
+  "c-blue-500": shift-color($blue-500, $custom-table-bg-scale),
+  "c-blue-700": shift-color($blue-700, $custom-table-bg-scale),
+  "c-blue-900": shift-color($blue-900, $custom-table-bg-scale),
+  "c-green-100": shift-color($green-100, $custom-table-bg-scale),
+  "c-green-300": shift-color($green-300, $custom-table-bg-scale),
+  "c-green-500": shift-color($green-500, $custom-table-bg-scale),
+  "c-green-700": shift-color($green-700, $custom-table-bg-scale),
+  "c-green-900": shift-color($green-900, $custom-table-bg-scale),
+  "c-yellow-100": shift-color($yellow-100, $custom-table-bg-scale),
+  "c-yellow-300": shift-color($yellow-300, $custom-table-bg-scale),
+  "c-yellow-500": shift-color($yellow-500, $custom-table-bg-scale),
+  "c-yellow-600": shift-color($yellow-600, $custom-table-bg-scale),
+  "c-yellow-800": shift-color($yellow-800, $custom-table-bg-scale),
+);
+$table-variants: map-merge($custom-table-variants, $table-variants);
+
+$table-cell-padding-y-sm: .175rem;
+$table-cell-padding-x-sm: .175rem;
+
+$popover-max-width: 500px;
+$popover-bg: $body-bg-dark;
+$popover-body-color: $body-color-dark;
+$popover-header-bg: $body-secondary-bg-dark;
+$popover-header-color: $body-color-dark;
+$popover-border-color: $border-color-translucent-dark;
+
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/placeholders";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
+
+
+// custom
+.text-dark-teal {
+  color: $teal !important;
+}
+
+.text-dark-indigo {
+  color: $indigo-200 !important;
+}
+
+.text-dark-cyan {
+  color: $cyan !important;
+}
+
+.text-dark-red {
+  color: $red-400 !important;
+}
+
+.text-dark-earth {
+  color: $orange-200 !important;
+}

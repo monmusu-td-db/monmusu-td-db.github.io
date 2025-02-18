@@ -1,0 +1,49 @@
+.disabled {
+  user-select: none;
+  pointer-events: none;
+}
+
+.button {
+  width: 16.5rem;
+  height: 4.7rem;
+  font-size: 0.86rem;
+  background-color: color-mix(in srgb,
+      var(--bs-table-bg) var(--mix-percentage),
+      #fff calc(100% - var(--mix-percentage)));
+}
+
+.button-normal {
+  --mix-percentage: 65%;
+  --header-mix-percentage: 100%;
+}
+
+.button-light {
+  --mix-percentage: 20%;
+  --header-mix-percentage: 40%;
+}
+
+.button>[class="card-header"] {
+  padding: 0.125rem 0.5rem;
+  color: #000;
+  background-color: color-mix(in srgb,
+      var(--bs-table-bg) var(--header-mix-percentage),
+      #fff calc(100% - var(--header-mix-percentage)));
+}
+
+.button>[class="card-body"] {
+  padding: 0.125rem 0.5rem;
+  color: #000;
+}
+
+.selector-modal {
+  z-index: calc(var(--bs-modal-zindex) + 20);
+}
+
+.selector-backdrop {
+  z-index: calc(var(--bs-backdrop-zindex) + 20);
+}
+
+.selector-dialog {
+  max-width: 875px !important;
+  width: 92vw
+}
