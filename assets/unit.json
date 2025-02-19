@@ -8707,7 +8707,62 @@
     "attackMul": 120,
     "potentialBonus": {
       "attackMul": 128
-    }
+    },
+    "situations": [
+      {
+        "exclude": [
+          "class-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "exclude": [
+          "class-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "water-field",
+          "water-field-annotations"
+        ]
+      },
+      {
+        "skill": 1,
+        "exclude": [
+          "class-attack"
+        ],
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "water-field",
+          "water-field-annotations"
+        ]
+      },
+      {
+        "depend": [
+          "class-attack"
+        ],
+        "features": [
+          "water-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "depend": [
+          "class-attack"
+        ],
+        "features": [
+          "water-field"
+        ]
+      }
+    ]
   },
   {
     "id": 263,

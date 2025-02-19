@@ -9818,43 +9818,6 @@
     "skill": 1
   },
   {
-    "unitId": 259
-  },
-  {
-    "unitId": 259,
-    "skill": 1
-  },
-  {
-    "unitId": 259,
-    "features": [
-      "water-field",
-      "water-field-annotations"
-    ]
-  },
-  {
-    "unitId": 259,
-    "skill": 1,
-    "features": [
-      "water-field",
-      "water-field-annotations"
-    ]
-  },
-  {
-    "unitId": 259,
-    "features": [
-      "water-field",
-      "class-attack"
-    ]
-  },
-  {
-    "unitId": 259,
-    "skill": 1,
-    "features": [
-      "water-field",
-      "class-attack"
-    ]
-  },
-  {
     "unitId": 263,
     "features": [
       "class-melee"

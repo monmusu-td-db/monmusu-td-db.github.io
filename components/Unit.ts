@@ -79,6 +79,9 @@ type JsonPotentialBonus = Readonly<Partial<{
 
 interface JsonUnitSituation {
   skill: number
+  depend: readonly string[]
+  exclude: readonly string[]
+  require: readonly string[]
   features: readonly string[]
 }
 type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[]
@@ -534,10 +537,16 @@ export default class Unit implements TableSource<Keys> {
       const arr: Partial<JsonUnitSituation>[] = [];
 
       classData?.situations?.forEach(classSituation => {
+        const classFeatures = classSituation.features ?? [];
+
         src.situations?.forEach(unitSituation => {
+          if (unitSituation.exclude?.some(v => classFeatures.includes(v))
+            || unitSituation.depend?.some(v => !classFeatures.includes(v))
+          ) return;
+
           const features: string[] = [
             ...unitSituation.features ?? [],
-            ...classSituation.features ?? []
+            ...classFeatures
           ];
           arr.push({
             ...unitSituation,
