@@ -20,7 +20,13 @@ interface JsonClass {
   placement: Data.JsonPlacement
   supplements?: string[]
   features?: JsonFeature[]
+  situations?: JsonClassSituations
 }
+
+interface JsonClassSituation {
+  features: readonly string[]
+}
+type JsonClassSituations = readonly Readonly<Partial<JsonClassSituation>>[]
 
 class Class {
   readonly className: string;
@@ -40,6 +46,7 @@ class Class {
   readonly placement: Data.Placement;
   readonly supplements: ReadonlySet<string>;
   readonly features: readonly Readonly<FeatureOutput>[];
+  readonly situations: JsonClassSituations | undefined;
 
   constructor(src: Readonly<JsonClass>) {
     this.className = src.className;
@@ -59,6 +66,11 @@ class Class {
     this.placement = Data.JsonPlacement.parse(src.placement);
     this.supplements = new Set(src.supplements);
     this.features = Feature.parseList(src.features ?? []);
+    this.situations = src.situations;
+  }
+
+  static getItem(value: string): Class | undefined {
+    return Class.list.find(v => v.className === value);
   }
 
   static get list(): readonly Class[] {

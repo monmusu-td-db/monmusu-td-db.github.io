@@ -137,7 +137,6 @@ export default class Situation implements TableSource<Keys> {
     this.unitId = new Stat.Root({
       statType: stat.unitId,
       calculater: s => this.unit?.unitId.getValue(s),
-      comparer: s => this.situationId.getSortOrder(s),
     });
 
     this.situationId = new Stat.Root({
@@ -2184,6 +2183,28 @@ export default class Situation implements TableSource<Keys> {
 
 }
 
-const situations = jsonSituations.map((item, index) => {
-  return new Situation(item, index);
-});
+function getSituations(): readonly Situation[] {
+  const ret: Situation[] = [];
+  let index = 0;
+
+  const create = (item: JsonSituation) => {
+    ret.push(new Situation(item, index++));
+  };
+
+  Unit.list.forEach(unit => {
+    if (unit.situations !== undefined) {
+      unit.situations.forEach(src => {
+        create({
+          ...src,
+          unitId: unit.id
+        });
+      });
+    }
+  });
+
+  jsonSituations.forEach(item => create(item));
+
+  return ret;
+}
+
+const situations = getSituations();

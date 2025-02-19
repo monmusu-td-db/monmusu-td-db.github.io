@@ -9618,6 +9618,73 @@
     ]
   },
   {
+    "unitId": 249,
+    "features": [
+      "class-melee",
+      "hp-over-80%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "hp-over-80%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "features": [
+      "class-melee",
+      "hp-79%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "skill": 1,
+    "features": [
+      "class-melee",
+      "hp-79%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "features": [
+      "class-ranged",
+      "hp-over-80%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "hp-over-80%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "features": [
+      "class-ranged",
+      "hp-79%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "skill": 1,
+    "features": [
+      "class-ranged",
+      "hp-79%"
+    ]
+  },
+  {
+    "unitId": 249,
+    "skill": -1,
+    "features": [
+      "class-action"
+    ]
+  },
+  {
     "unitId": 250
   },
   {

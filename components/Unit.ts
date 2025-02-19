@@ -62,6 +62,7 @@ interface JsonUnit {
   moveSpeedAdd?: number
   moveSpeedMul?: number
   potentialBonus?: JsonPotentialBonus
+  situations?: JsonUnitSituations
 }
 type JsonPotentialBonus = Readonly<Partial<{
   costAdd: number
@@ -75,6 +76,12 @@ type JsonPotentialBonus = Readonly<Partial<{
   moveSpeedAdd: number
   moveSpeedMul: number
 }>>
+
+interface JsonUnitSituation {
+  skill: number
+  features: readonly string[]
+}
+type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[]
 
 const keys = [
   "unitId",
@@ -155,6 +162,7 @@ export default class Unit implements TableSource<Keys> {
   readonly resistMul: number | undefined;
   readonly fixedDelay: number | undefined;
   readonly potentialBonus: JsonPotentialBonus | undefined;
+  readonly situations: JsonUnitSituations;
 
   private tokenParent: Unit | undefined;
   private cacheSubskill = new Data.Cache<[Subskill | undefined, Subskill | undefined]>();
@@ -205,7 +213,7 @@ export default class Unit implements TableSource<Keys> {
         comparer: () => comparer
       });
     }
-    const classData = Class.list.find(v => v.className === className);
+    const classData = className === undefined ? undefined : Class.getItem(className);
 
     const element = Data.Element.parse(src.element);
     {
@@ -522,6 +530,24 @@ export default class Unit implements TableSource<Keys> {
     this.fixedDelay = src.fixedDelay;
     this.potentialBonus = src.potentialBonus;
 
+    {
+      const arr: Partial<JsonUnitSituation>[] = [];
+
+      classData?.situations?.forEach(classSituation => {
+        src.situations?.forEach(unitSituation => {
+          const features: string[] = [
+            ...unitSituation.features ?? [],
+            ...classSituation.features ?? []
+          ];
+          arr.push({
+            ...unitSituation,
+            features
+          });
+        });
+      });
+
+      this.situations = arr;
+    }
   }
 
   getTokenParent(): Unit | undefined {

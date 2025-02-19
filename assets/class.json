@@ -156,6 +156,25 @@
         ],
         "damageFactor": 110
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-attack"
+        ]
+      },
+      {
+        "features": [
+          "class-proper"
+        ]
+      },
+      {
+        "features": [
+          "class-attack",
+          "class-proper"
+        ]
+      }
     ]
   },
   {
