@@ -3,26 +3,22 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import { Setting } from "../States";
 import { StatTooltip, Tooltip as T } from "./StatTooltip";
-import type { StatProps } from "./StatRoot";
+import type { StatHandler, StatProps } from "./StatRoot";
 
 const sign = T.sign;
 
 type StatFactors = Data.DeploymentFactors | undefined
-
-export type BaseStatProps<TStat, TFactors> = {
-  statType: Data.BaseStatType
-} & StatProps<TStat, TFactors>
 
 export class BaseStat<
   TStat extends number | undefined = number | undefined,
   TFactors extends StatFactors = StatFactors
 >
   extends StatTooltip<TStat, TFactors> {
-  override readonly statType: Data.BaseStatType;
 
-  constructor(props: BaseStatProps<TStat, TFactors>) {
+  override isEnabled: StatHandler<boolean> = s => this.getFactors(s) !== undefined;
+
+  constructor(props: StatProps<TStat, TFactors>) {
     super(props);
-    this.statType = props.statType;
   }
 
   protected override getTooltipBody(setting: Setting): ReactNode {
@@ -63,6 +59,11 @@ export class BaseStat<
                     </T.Value>
                   </T.Multiply>
                 )}
+                <T.Plus enabled={f.baseAdd !== 0}>
+                  <T.Value isPositive={f.baseAdd >= 0}>
+                    {d ? "加算値" : f.baseAdd}
+                  </T.Value>
+                </T.Plus>
                 <T.Multiply enabled={ssMulEnabled || !!f.weaponBaseBuff}>
                   <T.Brackets enabled={ssMulEnabled && !!f.weaponBaseBuff}>
                     {ssMulEnabled && (
@@ -112,11 +113,19 @@ export class BaseStat<
                     {d ? "編成バフ" : f.formationBuff + sign.PERCENT}
                   </T.Value>
                 </T.Multiply>
-                <T.Multiply enabled={f.beastFormationBuff !== 100}>
-                  <T.Info>
-                    {d ? "獣神編成バフ" : f.beastFormationBuff + sign.PERCENT}
-                  </T.Info>
-                </T.Multiply>
+                {Data.Beast.isFormationFactorAdd(this.statType) ? (
+                  <T.Plus enabled={f.beastFormationBuff !== 0}>
+                    <T.Info>
+                      {d ? "獣神編成バフ" : f.beastFormationBuff}
+                    </T.Info>
+                  </T.Plus>
+                ) : (
+                  <T.Multiply enabled={f.beastFormationBuff !== 100}>
+                    <T.Info>
+                      {d ? "獣神編成バフ" : f.beastFormationBuff + sign.PERCENT}
+                    </T.Info>
+                  </T.Multiply>
+                )}
                 <T.Plus enabled={f.beastPossAmount !== 0}>
                   <T.Info>
                     {d ? "獣神バフ" : f.beastPossAmount}

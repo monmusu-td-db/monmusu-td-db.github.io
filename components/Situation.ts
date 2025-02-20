@@ -526,8 +526,6 @@ export default class Situation implements TableSource<Keys> {
         ) return;
         if (f.range === null) return;
         const sk = this.getSkill(s);
-        const fr = sk?.fixedRange;
-        if (fr !== undefined) return fr;
         const r = f.range ?? sk?.range ?? (() => {
           const a = this.unit?.range.getValue(s);
           if (a === undefined) return;
@@ -552,7 +550,6 @@ export default class Situation implements TableSource<Keys> {
         const u = this.unit?.range.getValue(s) ?? 0;
         const r = f.range === null ? undefined : skill?.range;
         const sk = f.range !== undefined ? u : Math.round(r ?? u * this.getRangeMulFactor(s) / 100);
-        const fr = skill?.fixedRange;
         const skillBuff = f.skillBuffs?.rangeMul;
 
         if (skillBuff !== undefined) {
@@ -560,14 +557,6 @@ export default class Situation implements TableSource<Keys> {
             return Data.tableColorAlias.positiveStrong;
           if (skillBuff < 100)
             return Data.tableColorAlias.negativeStrong;
-        }
-
-        if (f.range !== null && fr !== undefined) {
-          if (fr > u)
-            return Data.tableColorAlias.positive;
-          if (fr < u)
-            return Data.tableColorAlias.negative;
-          return;
         }
 
         if (sk > u)

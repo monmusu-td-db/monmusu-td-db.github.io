@@ -143,7 +143,7 @@ export default class Unit implements TableSource<Keys> {
   readonly target: Stat.Target;
   readonly rounds: Stat.Root<Data.Rounds>;
   readonly splash: Stat.Root<boolean>;
-  readonly range: Stat.Root<number | undefined>;
+  readonly range: Stat.Base;
   readonly damageType: Stat.Root<Data.DamageType | undefined>;
   readonly moveSpeed: Stat.Root<number | undefined, Data.MoveSpeedFactors>;
   readonly moveType: Stat.Root<Data.MoveType>;
@@ -164,6 +164,7 @@ export default class Unit implements TableSource<Keys> {
   readonly defenseMul: number | undefined;
   readonly resistMul: number | undefined;
   readonly fixedDelay: number | undefined;
+  readonly rangeAdd: number | undefined;
   readonly potentialBonus: JsonPotentialBonus | undefined;
   readonly situations: JsonUnitSituations;
 
@@ -405,21 +406,17 @@ export default class Unit implements TableSource<Keys> {
       calculater: () => splash
     });
 
-    this.range = new Stat.Root({
+    this.range = new Stat.Base({
       statType: stat.range,
-      calculater: s => {
-        const r = src.range ?? classData?.range;
-        if (r === undefined) return;
-        let a;
-        if (this.isPotentialApplied(s))
-          a = src.potentialBonus?.rangeAdd;
-        a ??= src.rangeAdd ?? 0;
-        let b;
-        if (Data.Weapon.isApplied(s))
-          b = this.weapon?.range;
-        return this.calculateStat(s, stat.range, r + a + (b ?? 0));
-      },
-      isReversed: true
+      calculater: s => this.range.getFactors(s)?.deploymentResult,
+      isReversed: true,
+      factors: s => {
+        const base = src.range ?? classData?.range;
+        if (base === undefined)
+          return;
+
+        return this.getDeploymentFactors(s, stat.range, base);
+      }
     });
 
     this.damageType = new Stat.Root({
@@ -531,6 +528,7 @@ export default class Unit implements TableSource<Keys> {
     this.defenseMul = src.defenseMul;
     this.resistMul = src.resistMul;
     this.fixedDelay = src.fixedDelay;
+    this.rangeAdd = src.rangeAdd;
     this.potentialBonus = src.potentialBonus;
 
     {
@@ -599,6 +597,7 @@ export default class Unit implements TableSource<Keys> {
       weaponUpgrade: this.getWeaponUpgradeFactor(setting, statType),
       weaponBaseBuff: this.getWeaponBaseBuff(setting, statType),
       baseBuff: this.getBaseBuff(setting, statType),
+      baseAdd: this.getBaseAdd(setting, statType),
       subskillMul: this.getSubskillMultiFactor(setting, statType),
       subskillAdd: this.getSubskillAddFactor(setting, statType),
     };
@@ -611,9 +610,10 @@ export default class Unit implements TableSource<Keys> {
   private calculateBarrackResult(factors: Data.BarrackFactorsBase): number {
     const a = factors.base + factors.potential;
     const b = Percent.multiply(a, factors.baseBuff);
-    const c = Percent.sum(factors.subskillMul, factors.weaponBaseBuff);
-    const d = Percent.multiply(b, c);
-    return d + factors.subskillAdd + factors.weaponBase + factors.weaponUpgrade;
+    const c = b + factors.baseAdd;
+    const d = Percent.sum(factors.subskillMul, factors.weaponBaseBuff);
+    const e = Percent.multiply(c, d);
+    return e + factors.subskillAdd + factors.weaponBase + factors.weaponUpgrade;
   }
 
   private getDeploymentFactors(
@@ -643,7 +643,7 @@ export default class Unit implements TableSource<Keys> {
       return res;
     const a = Percent.multiply(res, factors.formationBuff);
     let b;
-    if (this.isFormationFactorAdd(statType))
+    if (Data.Beast.isFormationFactorAdd(statType))
       b = Math.max(0, a + factors.beastFormationBuff);
     else
       b = Percent.multiply(a, factors.beastFormationBuff);
@@ -715,14 +715,24 @@ export default class Unit implements TableSource<Keys> {
     }
   }
 
-  private getBaseBuff(setting: Setting, key: Data.MainStatType): number | undefined {
-    if (Data.BaseStatType.isKey(key)) {
+  private getBaseBuff(setting: Setting, statType: Data.MainStatType): number | undefined {
+    if (Data.BaseStatType.isKey(statType)) {
       const p = this.potentialBonus;
       if (p !== undefined && this.isPotentialApplied(setting)) {
-        const m = p[Data.BaseStatType.mulKey[key]];
+        const m = p[Data.BaseStatType.mulKey[statType]];
         if (m !== undefined) return m;
       }
-      return this[Data.BaseStatType.mulKey[key]];
+      return this[Data.BaseStatType.mulKey[statType]];
+    }
+  }
+
+  private getBaseAdd(setting: Setting, statType: Data.MainStatType): number {
+    const p = this.isPotentialApplied(setting);
+    switch (statType) {
+      case stat.range:
+        return (p ? this.potentialBonus?.rangeAdd : undefined) ?? this.rangeAdd ?? 0;
+      default:
+        return 0;
     }
   }
 
@@ -884,16 +894,6 @@ export default class Unit implements TableSource<Keys> {
     if (key === undefined)
       return 100;
     return this.getBeastFactor(setting, key);
-  }
-
-  private isFormationFactorAdd(statType: Data.StatType): boolean {
-    switch (statType) {
-      case stat.cost:
-      case stat.range:
-      case stat.moveSpeed:
-        return true;
-    }
-    return false;
   }
 
   getSubskills(setting: Setting): [Subskill | undefined, Subskill | undefined] {

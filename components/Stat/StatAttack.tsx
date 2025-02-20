@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 
 import * as Data from "../Data";
 import { Setting } from "../States";
-import type { BaseStatProps } from "./BaseStat";
 import { SituationBaseStat } from "./SituationBaseStat";
 import { Level, Positive, Result } from "../Util";
+import type { StatProps } from "./StatRoot";
 
 export type Factors = Data.ActualAttackFactors | undefined
 
 export class StatAttack extends SituationBaseStat<Factors> {
-  constructor(props: BaseStatProps<number | undefined, Factors>) {
+  constructor(props: StatProps<number | undefined, Factors>) {
     super(props);
   }
 

@@ -510,7 +510,6 @@ interface SkillBase {
   laser?: boolean
   range?: number
   rangeMul?: number
-  fixedRange?: number
   duration: number | typeof Duration.single
   cooldown: number
   damageType?: DamageType | null | undefined
@@ -1293,6 +1292,7 @@ export const Weapon = {
       stat.defense,
       stat.resist,
       stat.block,
+      stat.range,
     ];
     return list.findIndex(v => v === key) !== -1;
   },
@@ -1377,6 +1377,7 @@ export interface BarrackFactorsBase {
   readonly weaponUpgrade: number
   readonly weaponBaseBuff: number | undefined
   readonly baseBuff: number | undefined
+  readonly baseAdd: number
   readonly subskillMul: number
   readonly subskillAdd: number
 }
@@ -1472,6 +1473,12 @@ export interface TargetFactors {
   readonly lancerTarget: boolean
   readonly laser: boolean
   readonly color?: TableColor | undefined
+}
+
+export interface RangeFactor {
+  readonly base: number
+  readonly potential: number
+  readonly result: number
 }
 
 export interface LimitFactors {
@@ -1582,5 +1589,16 @@ export const Beast = {
       }
     })() + 100;
   },
+
+  isFormationFactorAdd(statType: StatType): boolean {
+    switch (statType) {
+      case stat.cost:
+      case stat.range:
+      case stat.moveSpeed:
+        return true;
+    }
+    return false;
+  },
+
 } as const;
 

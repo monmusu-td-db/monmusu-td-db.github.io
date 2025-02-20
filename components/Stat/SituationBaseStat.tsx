@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 
 import * as Data from "../Data";
 import { Setting } from "../States";
-import { BaseStat, type BaseStatProps } from "./BaseStat";
+import { BaseStat } from "./BaseStat";
 import { Tooltip as T } from "./StatTooltip";
+import type { StatProps } from "./StatRoot";
 
 const sign = T.sign;
 
@@ -11,7 +12,7 @@ export type StatFactors = Data.InBattleFactors | undefined
 
 export class SituationBaseStat<TFactors extends StatFactors = StatFactors>
   extends BaseStat<number | undefined, TFactors> {
-  constructor(props: BaseStatProps<number | undefined, TFactors>) {
+  constructor(props: StatProps<number | undefined, TFactors>) {
     super(props);
   }
 
