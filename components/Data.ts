@@ -10,6 +10,7 @@ TODOリスト
   配置数に含まれるかどうか
   フィルター状況を見やすく(例：飛行特効)
   situationをunitにまとめてリジェネや吸収を自動表示できるようにする
+  condition 特効の内容を表示
 */
 
 // Const
@@ -1033,13 +1034,16 @@ export const Target = {
   },
 
   getString(value: Target): string {
+    const getStr = (value: number) => `${value}体`;
     switch (value) {
       case Infinity:
         return target.inRange;
       default:
         if (typeof value === "number")
-          return `${value}体`;
-        return value.toString();
+          return getStr(value);
+        if (Array.isArray(value))
+          return value.map(n => getStr(n)).join(" or ");
+        return value;
     }
   }
 } as const;

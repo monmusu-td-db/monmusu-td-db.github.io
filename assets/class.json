@@ -571,6 +571,19 @@
         ],
         "attackMul": 240
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "class-attack-mul2"
+        ]
+      }
     ]
   },
   {

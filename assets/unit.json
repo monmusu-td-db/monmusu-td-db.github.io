@@ -4398,6 +4398,81 @@
     }
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 129,
+    "unitName": "【女教師メデューサ娘】ローレン",
+    "unitShortName": "ローレン/学園",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "地",
+    "hp": 4335,
+    "attack": 550,
+    "defense": 423,
+    "resist": 123,
+    "target": [
+      1,
+      3
+    ],
+    "exSkill1": {
+      "skillName": "そこに立ってなさい",
+      "attackMul": 240,
+      "target": 5,
+      "rangeMul": 140,
+      "duration": 15,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "石化付与10%→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "石化付与20%→命中"
+        ]
+      },
+      {
+        "featureName": "proper",
+        "conditions": [
+          "特"
+        ],
+        "damageFactor": 180,
+        "potentialBonus": {
+          "damageFactor": 200
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "proper"
+        ]
+      }
+    ]
+  },
+  {
     "id": 133,
     "unitName": "【サンドワーム娘】ヘディア",
     "unitShortName": "ヘディア",
@@ -9193,6 +9268,7 @@
     "rarity": "L",
     "class": "モンク",
     "element": "地",
+    "species": "妖怪",
     "hp": 6173,
     "attack": 891,
     "defense": 357,
