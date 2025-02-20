@@ -1367,7 +1367,7 @@ export interface ColorFactor<T = number> {
   readonly result: T
   readonly conditionPoint: number
   readonly skillPoint: number
-  readonly buffPoint: number
+  readonly buffPoint?: number
 }
 
 export interface BarrackFactorsBase {
@@ -1471,6 +1471,7 @@ export interface TargetFactors {
   readonly rounds: Rounds
   readonly lancerTarget: boolean
   readonly laser: boolean
+  readonly color?: TableColor | undefined
 }
 
 export interface LimitFactors {

@@ -92,9 +92,9 @@ export default class Situation implements TableSource<Keys> {
   readonly interval: Stat.Interval;
   readonly block: Stat.Root;
   readonly target: Stat.Target;
-  readonly rounds: Stat.Root<Data.Rounds, Data.ColorFactor>;
+  readonly rounds: Stat.Root<Data.Rounds, Data.ColorFactor<Data.Rounds>>;
   readonly hits: Stat.Root<Data.Rounds>;
-  readonly splash: Stat.Root<boolean | undefined>;
+  readonly splash: Stat.Root<boolean | undefined, Data.ColorFactor<boolean | undefined>>;
   readonly range: Stat.Root;
   readonly criticalChance: Stat.Root<number, Data.CriticalFactors>;
   readonly criticalDamage: Stat.Root<number, Data.CriticalFactors>;
@@ -345,58 +345,96 @@ export default class Situation implements TableSource<Keys> {
     this.target = new Stat.Target({
       statType: stat.target,
       calculater: s => this.target.getFactors(s)?.target,
-      color: s => { // TODO 書き直す
-        const f = this.getFeature(s);
-        if (f.fixedTarget !== undefined)
-          return Data.tableColorAlias.warning;
-        const sp = this.splash.getColor(s);
-        const round = this.rounds.getColor(s);
-        const skill = this.getSkill(s);
-        if (f.target === undefined) {
-          const b = this.block.getValue(s);
-          const t1 = Data.Target.getBlockTarget(this.unit?.target.getValue(s), b);
-          const t2 = Data.Target.getBlockTarget(skill?.target, b) ?? t1;
-          if (typeof t1 === "number" && typeof t2 === "number") {
-            const r = Util.getTableColor(t2 + (skill?.targetAdd ?? 0), t1);
-            if (sp || round || r)
-              return Util.getPriorTableColor(sp, round, r);
-            if (f.cond?.targetAdd !== undefined) {
-              if (f.cond.targetAdd > 0)
-                return Data.tableColorAlias.positiveWeak;
-              if (f.cond.targetAdd < 0)
-                return Data.tableColorAlias.negativeWeak;
-            }
-          } else {
-            // if (t1 !== Data.Target.piercing && t2 === Data.Target.piercing)
-            //   return Data.tableColorAlias.positive;
-            // if (t1 === Data.Target.piercing && t2 !== Data.Target.piercing)
-            //   return Data.tableColorAlias.negative;
-
-            if (sp || round)
-              return Util.getPriorTableColor(sp, round);
-          }
-        }
-      },
+      color: s => this.target.getFactors(s)?.color,
       factors: s => {
         const u = this.unit?.target.getFactors(s);
-        const f = this.getFeature(s);
+        const fea = this.getFeature(s);
         const sk = this.getSkill(s);
 
-        const isFixed = f.fixedTarget !== undefined;
-        const tbase = isFixed ? f.fixedTarget
-          : f.target ?? sk?.target ?? (u?.isBlock ? Data.Target.block : u?.target);
-        if (tbase === undefined) return;
-        const isBlock = tbase === Data.Target.block;
+        const isFixed = fea.fixedTarget !== undefined;
+        const targetBase = isFixed ? fea.fixedTarget
+          : fea.target ?? sk?.target ?? (u?.isBlock ? Data.Target.block : u?.target);
+        if (targetBase === undefined) return;
+        const isBlock = targetBase === Data.Target.block;
 
-        const target = isBlock ? this.block.getValue(s)
-          : isFixed ? tbase : Data.Target.sum(tbase, sk?.targetAdd ?? 0, f.targetAdd ?? 0);
+        const block = this.block.getValue(s);
+        const target = isBlock ? block
+          : isFixed ? targetBase : Data.Target.sum(targetBase, sk?.targetAdd ?? 0, fea.targetAdd ?? 0);
         if (target === undefined) return;
 
         const splash = this.splash.getValue(s) ?? false;
         const rounds = this.rounds.getValue(s);
-        if (rounds === undefined) return;
-        const lancerTarget = f.lancerTarget ?? u?.lancerTarget ?? false;
-        const laser = f.laser ?? sk?.laser ?? false;
+        const lancerTarget = fea.lancerTarget ?? u?.lancerTarget ?? false;
+        const laser = fea.laser ?? sk?.laser ?? false;
+
+        const color: Data.TableColor | undefined = (() => {
+          if (typeof target !== "number")
+            return;
+          if (isFixed)
+            return Data.tableColorAlias.warning;
+
+          const average = (arg: Data.Target) => {
+            if (Array.isArray(arg)) {
+              if (arg.length === 0) return 0;
+              return arg.reduce((a, c) => a + c) / arg.length;
+            }
+            return arg;
+          };
+          const base = average(u?.target ?? 1);
+          if (typeof base !== "number")
+            return;
+
+          const calcBlock = (arg: Data.TargetBase | undefined) =>
+            arg === Data.Target.block ? block : arg;
+          const sum = (target: Data.Target | undefined, ...values: number[]) => {
+            if (target === undefined) return;
+            return Data.Target.sum(target, ...values);
+          };
+          const getPoint = (v: Data.Target | undefined) => {
+            if (typeof v !== "number")
+              return 0;
+            if (v > base)
+              return 1;
+            if (v < base)
+              return -1;
+            return 0;
+          };
+          const calcPoints = (...values: number[]) => {
+            if (values.some(v => v > 0))
+              return 1;
+            if (values.some(v => v < 0))
+              return -1;
+            return 0;
+          };
+          const splashFactor = this.splash.getFactors(s);
+          const roundsFactor = this.rounds.getFactors(s);
+
+          const skillNum = sum(calcBlock(sk?.target), sk?.targetAdd ?? 0);
+          const skillPointBase = getPoint(skillNum);
+          const skillPoint = calcPoints(
+            skillPointBase,
+            splashFactor.skillPoint,
+            roundsFactor.skillPoint,
+            sk?.laser ? 1 : 0,
+          );
+          if (skillPoint > 0)
+            return Data.tableColorAlias.positive;
+          if (skillPoint < 0)
+            return Data.tableColorAlias.negative;
+
+          const condNum = sum(calcBlock(fea.cond?.target), fea.cond?.targetAdd ?? 0);
+          const conditionPointBase = getPoint(condNum);
+          const conditionPoint = calcPoints(
+            conditionPointBase,
+            splashFactor.conditionPoint,
+            roundsFactor.conditionPoint,
+            fea.cond?.laser ? 1 : 0,
+          );
+          if (conditionPoint > 0)
+            return Data.tableColorAlias.positiveWeak;
+          if (conditionPoint < 0)
+            return Data.tableColorAlias.negativeWeak;
+        })();
 
         return {
           target,
@@ -405,41 +443,36 @@ export default class Situation implements TableSource<Keys> {
           rounds,
           lancerTarget,
           laser,
+          color,
         };
       }
     });
 
     this.rounds = new Stat.Root({
       statType: stat.round,
-      calculater: s =>
-        this.getFeature(s).rounds ??
-        this.getSkill(s)?.rounds ??
-        this.unit?.rounds.getValue(s) ?? 1,
-      color: s => {
-        const u = Data.Round.average(this.unit?.rounds.getValue(s));
-        const sk = Data.Round.average(this.getSkill(s)?.rounds);
-        if (u !== undefined && sk !== undefined) {
-          if (sk > u)
-            return Data.tableColorAlias.positive;
-          if (sk < u)
-            return Data.tableColorAlias.negative;
-        }
-      },
-      factors: s => { // TODO
+      calculater: s => this.rounds.getFactors(s).result,
+      factors: s => {
         const fea = this.getFeature(s);
-        const skill = this.getSkill(s);
+        const sk = this.getSkill(s);
 
-        const skillResult = skill?.rounds ?? this.unit?.rounds.getValue(s) ?? 1;
-        const result = fea.rounds ?? skillResult;
+        const base = this.unit?.rounds.getValue(s) ?? 1;
+        const result = fea.rounds ?? sk?.rounds ?? base;
 
-        const condResult = fea.cond?.rounds ?? skillResult;
-        const conditionPoint = Data.Round.average(condResult) - Data.Round.average(skillResult);
+        const baseNum = Data.Round.average(base);
+        const condNum = Data.Round.average(fea.cond?.rounds);
+        const skillNum = Data.Round.average(sk?.rounds);
+        // const buffNum = Data.Round.average(fea.skillBuffs?.rounds);
+
+        const fn = (v: number) => v > baseNum ? 1 : (v < baseNum ? -1 : 0);
+        const conditionPoint = fn(condNum ?? 1);
+        const skillPoint = fn(skillNum ?? 1);
+        // const buffPoint = fn(buffNum ?? 1);
 
         return {
-          result: 0,
-          conditionPoint: 0,
-          skillPoint: 0,
-          buffPoint: 0,
+          result,
+          conditionPoint,
+          skillPoint,
+          // buffPoint,
         };
       }
     });
@@ -451,27 +484,25 @@ export default class Situation implements TableSource<Keys> {
 
     this.splash = new Stat.Root({
       statType: stat.splash,
-      calculater: s =>
-        this.getFeature(s).splash ??
-        this.getSkill(s)?.splash ??
-        this.unit?.splash.getValue(s),
-      color: s => {
-        const f = this.getFeature(s);
-        const sp = f.splash !== undefined ? undefined : this.getSkill(s)?.splash;
-        if (sp !== undefined) {
-          const r = Util.getTableColor(
-            sp ? 1 : 0,
-            this.unit?.splash.getValue(s) ? 1 : 0
-          );
-          if (r) return r;
-        }
+      calculater: s => this.splash.getFactors(s).result,
+      factors: s => {
+        const fea = this.getFeature(s);
+        const sk = this.getSkill(s);
 
-        if (f.cond?.splash !== undefined) {
-          if (f.cond.splash)
-            return Data.tableColorAlias.positiveWeak;
-          else
-            return Data.tableColorAlias.negativeWeak;
-        }
+        const base = this.unit?.splash.getValue(s);
+        const result = fea.splash ?? sk?.splash ?? base;
+
+        const fn = (arg: boolean | undefined) => arg && !base ? 1 : (arg === false && base ? -1 : 0);
+        const conditionPoint = fn(fea.cond?.splash);
+        const skillPoint = fn(sk?.splash);
+        // const buffPoint = fn(fea.skillBuffs?.splash);
+
+        return {
+          result,
+          conditionPoint,
+          skillPoint,
+          // buffPoint,
+        };
       }
     });
 
