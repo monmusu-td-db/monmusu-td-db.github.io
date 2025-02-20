@@ -463,9 +463,17 @@ export default class Situation implements TableSource<Keys> {
         const skillNum = Data.Round.average(sk?.rounds);
         // const buffNum = Data.Round.average(fea.skillBuffs?.rounds);
 
-        const fn = (v: number) => v > baseNum ? 1 : (v < baseNum ? -1 : 0);
-        const conditionPoint = fn(condNum ?? 1);
-        const skillPoint = fn(skillNum ?? 1);
+        const fn = (v: number | undefined) => {
+          if (v === undefined)
+            return 0;
+          if (v > baseNum)
+            return 1;
+          if (v < baseNum)
+            return -1;
+          return 0;
+        };
+        const conditionPoint = fn(condNum);
+        const skillPoint = fn(skillNum);
         // const buffPoint = fn(buffNum ?? 1);
 
         return {
