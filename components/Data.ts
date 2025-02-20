@@ -1475,9 +1475,11 @@ export interface TargetFactors {
   readonly color?: TableColor | undefined
 }
 
-export interface RangeFactor {
-  readonly base: number
-  readonly potential: number
+export interface RangeFactor extends DeploymentFactors {
+  readonly fixedRange: number | undefined
+  readonly multiply: number
+  readonly addition: number
+  readonly subtotal: number
   readonly result: number
 }
 

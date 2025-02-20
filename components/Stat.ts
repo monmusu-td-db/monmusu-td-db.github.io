@@ -8,6 +8,7 @@ import { StatAttackSpeed } from "./Stat/StatAttackSpeed";
 import { StatDelay } from "./Stat/StatDelay";
 import { StatInterval } from "./Stat/StatInterval";
 import { StatTarget } from "./Stat/StatTarget";
+import { StatRange } from "./Stat/StatRange";
 import { StatLimit } from "./Stat/StatLimit";
 import { StatDps } from "./Stat/StatDps";
 
@@ -21,5 +22,6 @@ export { StatAttackSpeed as AttackSpeed };
 export { StatDelay as Delay };
 export { StatInterval as Interval };
 export { StatTarget as Target };
+export { StatRange as Range };
 export { StatLimit as Limit };
 export { StatDps as Dps };

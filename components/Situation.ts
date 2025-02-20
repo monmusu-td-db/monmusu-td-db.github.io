@@ -95,7 +95,7 @@ export default class Situation implements TableSource<Keys> {
   readonly rounds: Stat.Root<Data.Rounds, Data.ColorFactor<Data.Rounds>>;
   readonly hits: Stat.Root<Data.Rounds>;
   readonly splash: Stat.Root<boolean | undefined, Data.ColorFactor<boolean | undefined>>;
-  readonly range: Stat.Root;
+  readonly range: Stat.Range;
   readonly criticalChance: Stat.Root<number, Data.CriticalFactors>;
   readonly criticalDamage: Stat.Root<number, Data.CriticalFactors>;
   readonly criticalChanceLimit: Stat.Root<number>;
@@ -514,9 +514,11 @@ export default class Situation implements TableSource<Keys> {
       }
     });
 
-    this.range = new Stat.Root({ // TODO Factorありで書き直す
+    this.range = new Stat.Range({ // TODO Factorありで書き直す
       statType: stat.range,
       calculater: s => {
+        return this.range.getFactors(s)?.result;
+
         const f = this.getFeature(s);
         const t = this.target.getValue(s);
         if (!Data.Target.isNumber(t)
@@ -571,6 +573,40 @@ export default class Situation implements TableSource<Keys> {
           if (u > cond)
             return Data.tableColorAlias.negativeWeak;
         }
+      },
+      factors: s => {
+        const unitFactor = this.unit?.range.getFactors(s);
+        if (unitFactor === undefined)
+          return;
+
+        const fea = this.getFeature(s);
+        const sk = this.getSkill(s);
+        const target = this.target.getValue(s);
+
+        if (typeof target === "string"
+          && target !== Data.Target.hit
+          && !fea.flagRangeIsVisible
+        ) return;
+        if (fea.range === null)
+          return;
+
+        const fixedRange = fea.range ?? sk?.range;
+
+        const field = this.getFieldElementFactor(s, stat.range);
+        const multiply = Percent.sum(sk?.rangeMul, fea.rangeMul) + field;
+        const addition = fea.rangeAdd ?? 0;
+        const subtotal = Math.round(unitFactor.deploymentResult * multiply / 100 + addition);
+
+        const result = fixedRange ?? subtotal;
+
+        return {
+          ...unitFactor,
+          fixedRange,
+          multiply,
+          addition,
+          subtotal,
+          result,
+        };
       }
     });
 

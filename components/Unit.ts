@@ -982,6 +982,8 @@ export default class Unit implements TableSource<Keys> {
         return fn(keys.defenseAdd);
       case stat.resist:
         return fn(keys.resistAdd);
+      case stat.range:
+        return fn(keys.rangeAdd);
       default:
         return 0;
     }
