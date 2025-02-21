@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, type SetStateAction } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type SetStateAction } from "react";
 import * as Data from "./Data";
 
 // Constants
@@ -638,6 +638,18 @@ const defaultUISetting = {
   subskillSortReversed: false as boolean,
   subskillIsGeneral: true as boolean,
 } as const;
+
+
+// Contexts
+
+export const QueryContext = createContext("");
+export const SetQueryContext = createContext<(query: string) => void>(() => { });
+export function useQueryContext() {
+  return useContext(QueryContext);
+}
+export function useSetQueryContext() {
+  return useContext(SetQueryContext);
+}
 
 
 // Hook

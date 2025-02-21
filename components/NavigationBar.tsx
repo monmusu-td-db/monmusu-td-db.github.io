@@ -1,3 +1,5 @@
+"use client";
+
 import Styles from "./styles.module.css";
 import { useRef, useState } from "react";
 import { Container, Form, FormControl, InputGroup, Nav, Navbar } from "react-bootstrap";
@@ -54,6 +56,7 @@ export default function NavigationBar(props: {
 
           <Nav className="me-auto">
             <Nav.Link href="./unit" as={Link}>ユニット一覧</Nav.Link>
+            <Nav.Link href="./buff" as={Link}>バフ</Nav.Link>
           </Nav>
 
           <button className={`navbar-toggler ms-auto ${Styles.navbarToggler}`} onClick={handleShowPanel}>
