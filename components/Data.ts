@@ -1475,12 +1475,13 @@ export interface TargetFactors {
   readonly color?: TableColor | undefined
 }
 
-export interface RangeFactor extends DeploymentFactors {
+export interface RangeFactor extends Partial<DeploymentFactors> {
   readonly fixedRange: number | undefined
   readonly multiply: number
   readonly addition: number
   readonly subtotal: number
   readonly result: number
+  readonly color: TableColor | undefined
 }
 
 export interface LimitFactors {

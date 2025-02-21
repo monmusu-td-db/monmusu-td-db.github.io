@@ -514,71 +514,13 @@ export default class Situation implements TableSource<Keys> {
       }
     });
 
-    this.range = new Stat.Range({ // TODO Factorありで書き直す
+    this.range = new Stat.Range({
       statType: stat.range,
-      calculater: s => {
-        return this.range.getFactors(s)?.result;
-
-        const f = this.getFeature(s);
-        const t = this.target.getValue(s);
-        if (!Data.Target.isNumber(t)
-          && t !== Data.Target.hit
-          && !f.flagRangeIsVisible
-          && !Array.isArray(t)
-        ) return;
-        if (f.range === null) return;
-        const sk = this.getSkill(s);
-        const r = f.range ?? sk?.range ?? (() => {
-          const a = this.unit?.range.getValue(s);
-          if (a === undefined) return;
-          const ss = this.getSubskillFactor(s, ssKeys.rangeAdd);
-          const b = this.getRangeMulFactor(s) + this.getFieldElementFactor(s, stat.range);
-          return Math.round((a + ss) * b / 100);
-        })();
-        if (r === undefined) return;
-        const add = f.rangeAdd ?? 0;
-        return r + add;
-      },
+      calculater: s => this.range.getFactors(s)?.result,
       isReversed: true,
-      color: s => {
-        const f = this.getFeature(s);
-        const t = this.target.getValue(s);
-        if (!Data.Target.isNumber(t)
-          && t !== Data.Target.hit
-          && !f.flagRangeIsVisible
-          && !Array.isArray(t)
-        ) return;
-        const skill = this.getSkill(s);
-        const u = this.unit?.range.getValue(s) ?? 0;
-        const r = f.range === null ? undefined : skill?.range;
-        const sk = f.range !== undefined ? u : Math.round(r ?? u * this.getRangeMulFactor(s) / 100);
-        const skillBuff = f.skillBuffs?.rangeMul;
-
-        if (skillBuff !== undefined) {
-          if (skillBuff > 100)
-            return Data.tableColorAlias.positiveStrong;
-          if (skillBuff < 100)
-            return Data.tableColorAlias.negativeStrong;
-        }
-
-        if (sk > u)
-          return Data.tableColorAlias.positive;
-        if (sk < u)
-          return Data.tableColorAlias.negative;
-
-        if (f.cond?.range !== undefined || f.cond?.rangeAdd !== undefined) {
-          const cond = (f.cond.range ?? u) + (f.cond.rangeAdd ?? 0);
-          if (u < cond)
-            return Data.tableColorAlias.positiveWeak;
-          if (u > cond)
-            return Data.tableColorAlias.negativeWeak;
-        }
-      },
+      color: s => this.range.getFactors(s)?.color,
       factors: s => {
         const unitFactor = this.unit?.range.getFactors(s);
-        if (unitFactor === undefined)
-          return;
-
         const fea = this.getFeature(s);
         const sk = this.getSkill(s);
         const target = this.target.getValue(s);
@@ -591,13 +533,43 @@ export default class Situation implements TableSource<Keys> {
           return;
 
         const fixedRange = fea.range ?? sk?.range;
+        if (fixedRange === undefined && unitFactor === undefined)
+          return;
 
+        const base = unitFactor?.deploymentResult ?? 0;
         const field = this.getFieldElementFactor(s, stat.range);
         const multiply = Percent.sum(sk?.rangeMul, fea.rangeMul) + field;
         const addition = fea.rangeAdd ?? 0;
-        const subtotal = Math.round(unitFactor.deploymentResult * multiply / 100 + addition);
+        const calcSubtotal = (base: number, multiply: number | undefined, addition?: number | undefined) => {
+          const a = multiply !== undefined ? Math.round(base * multiply / 100) : base;
+          return a + (addition ?? 0);
+        };
+        const subtotal = calcSubtotal(base, multiply, addition);
 
         const result = fixedRange ?? subtotal;
+
+        const color = (() => {
+          if (fixedRange !== undefined)
+            return Data.tableColorAlias.warning;
+
+          const skillBuffRange = fea.skillBuffs?.range ?? calcSubtotal(base, fea.skillBuffs?.rangeMul, fea.skillBuffs?.rangeAdd);
+          if (skillBuffRange > base)
+            return Data.tableColorAlias.positiveStrong;
+          if (skillBuffRange < base)
+            return Data.tableColorAlias.negativeStrong;
+
+          const skillRange = sk?.range ?? calcSubtotal(base, sk?.rangeMul);
+          if (skillRange > base)
+            return Data.tableColorAlias.positive;
+          if (skillRange < base)
+            return Data.tableColorAlias.negative;
+
+          const condRange = fea.cond?.range ?? calcSubtotal(base, fea.cond?.rangeMul, fea.cond?.rangeAdd);
+          if (condRange > base)
+            return Data.tableColorAlias.positiveWeak;
+          if (condRange < base)
+            return Data.tableColorAlias.negativeWeak;
+        })();
 
         return {
           ...unitFactor,
@@ -606,7 +578,8 @@ export default class Situation implements TableSource<Keys> {
           addition,
           subtotal,
           result,
-        };
+          color,
+        } as Required<Data.RangeFactor>;
       }
     });
 

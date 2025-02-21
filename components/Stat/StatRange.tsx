@@ -4,17 +4,17 @@ import type { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
 import { Tooltip as T } from "./StatTooltip";
 
-type Factors = Data.RangeFactor | undefined
+type Factors = Required<Data.RangeFactor> | undefined
 const sign = T.sign;
 
 export class StatRange extends BaseStat<number | undefined, Factors> {
   protected override getTooltipBody(setting: Setting): ReactNode {
-    const f = this.getFactors(setting);
+    const f: Data.RangeFactor | undefined = this.getFactors(setting);
     if (f === undefined) return;
 
     return (
       <>
-        {f.fixedRange === undefined && super.getTooltipBody(setting)}
+        {f.deploymentResult !== undefined && super.getTooltipBody(setting)}
         <T.Equation>
           {d => (
             <>
