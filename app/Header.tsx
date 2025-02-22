@@ -5,9 +5,8 @@ import { useQueryContext, useSetQueryContext } from "@/components/States";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { useRef, type ReactNode } from "react";
-import { Button, Container, Form, InputGroup, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Form, InputGroup, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Icon from "./Icon";
-import { useSetThemeContext, useThemeContext } from "./buff/Root";
 
 const BRAND_NAME = "Monmusu DB";
 const pageNames = {
@@ -25,6 +24,12 @@ const themeName = {
   light: "ライト",
   dark: "ダーク",
 } as const;
+
+declare global {
+  interface Window {
+    __setPreferredTheme: (theme: Theme) => void
+  }
+}
 
 export default function Header() {
   return (
@@ -92,40 +97,50 @@ function SearchInput() {
 }
 
 function ThemeToggler() {
-  const theme = useThemeContext();
   return (
-    <>
-      <NavDropdown
-        id="theme-toggler"
-        title={<ThemeIcon theme={theme} />}
-      >
-        <ThemeTogglerButton theme="light" currentTheme={theme} />
-        <ThemeTogglerButton theme="dark" currentTheme={theme} />
-        <ThemeTogglerButton theme="auto" currentTheme={theme} />
-      </NavDropdown>
-    </>
+    <NavDropdown
+      id="theme-toggler"
+      title={(
+        <>
+          <ThemeTogglerIcon theme="light" />
+          <ThemeTogglerIcon theme="dark" />
+          <ThemeTogglerIcon theme="auto" />
+        </>
+      )}
+    >
+      <ThemeTogglerButton theme="light" />
+      <ThemeTogglerButton theme="dark" />
+      <ThemeTogglerButton theme="auto" />
+    </NavDropdown>
+  );
+}
+
+function ThemeTogglerIcon({
+  theme
+}: {
+  theme: Theme
+}) {
+  return (
+    <span className={`d-none theme-${theme}`}>
+      <ThemeIcon theme={theme} />
+    </span>
   );
 }
 
 function ThemeTogglerButton({
-  theme,
-  currentTheme,
+  theme
 }: {
   theme: Theme
-  currentTheme: Theme
 }) {
-  const setTheme = useSetThemeContext();
   return (
-    <NavDropdown.Item as="button" className="d-flex" onClick={() => setTheme(theme)}>
+    <NavDropdown.Item as="button" className="d-flex" onClick={() => window.__setPreferredTheme(theme)}>
       <span className="me-2 opacity-50">
         <ThemeIcon theme={theme} />
       </span>
       {themeName[theme]}
-      {currentTheme === theme && (
-        <span className="ms-auto">
-          <Icon.Check2 />
-        </span>
-      )}
+      <span className={`ms-auto d-none theme-${theme}`}>
+        <Icon.Check2 />
+      </span>
     </NavDropdown.Item>
   );
 }

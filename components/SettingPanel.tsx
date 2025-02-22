@@ -112,10 +112,10 @@ export default function SettingPanel({
         </Modal.Body>
       </Tab.Container>
       <Modal.Footer>
-        <Button variant="danger" onClick={handleReset}>
+        <Button variant="secondary" onClick={handleReset}>
           リセット
         </Button>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="primary" onClick={handleClose}>
           閉じる
         </Button>
       </Modal.Footer>

@@ -630,6 +630,7 @@ const settingValidation: Record<keyof Setting, ValidationFunc> = {
 
 
 // UI Setting
+
 export type UISetting = typeof defaultUISetting
 const defaultUISetting = {
   subskillGroup: 0 as number,
@@ -721,7 +722,7 @@ const storageKeys = {
   FILTER: "database-filter",
   SETTING: "database-setting",
   QUERY: "database-query",
-  UISETTING: "database-UI-setting",
+  UI_SETTING: "database-UI-setting",
 } as const;
 type StorageKey = typeof storageKeys[keyof typeof storageKeys]
 
@@ -846,10 +847,10 @@ class Storage {
   }
 
   static getUISetting(): UISetting {
-    return Storage.getObject(storageKeys.UISETTING, this.isUISetting, defaultUISetting);
+    return Storage.getObject(storageKeys.UI_SETTING, this.isUISetting, defaultUISetting);
   }
   static setUISetting(obj: UISetting) {
-    this.setObject(storageKeys.UISETTING, obj);
+    this.setObject(storageKeys.UI_SETTING, obj);
   }
   private static isUISetting(obj: unknown): obj is UISetting {
     if (typeof obj !== "object" || obj === null)

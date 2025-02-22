@@ -3,5 +3,17 @@ body {
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.85)
+  color: rgba(255, 255, 255, 0.85);
+}
+
+html[data-bs-theme="light"] .theme-light {
+  display: inline !important;
+}
+
+html[data-bs-theme="dark"] .theme-dark {
+  display: inline !important;
+}
+
+html[data-bs-theme="auto"] .theme-auto {
+  display: inline !important;
 }

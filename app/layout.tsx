@@ -1,4 +1,5 @@
 import "@/app/bootstrap.scss";
+import { Root } from "./Root";
 
 export const metadata = {
   title: 'Next.js',
@@ -11,8 +12,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body>{children}</body>
+    <html lang="ja" suppressHydrationWarning>
+      <body>
+        <Root>{children}</Root>
+      </body>
     </html>
   );
 }
