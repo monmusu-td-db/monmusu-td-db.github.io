@@ -16,11 +16,5 @@
 
 .modal {
   max-width: 800px !important;
-  width: 90vw
-}
-
-@media (min-width:1024px) {
-  .textNowrap {
-    white-space: nowrap !important;
-  }
+  width: 90vw;
 }

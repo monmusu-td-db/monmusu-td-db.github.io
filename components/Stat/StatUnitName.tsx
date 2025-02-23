@@ -69,7 +69,7 @@ export class StatUnitName extends StatTooltip<string> {
           </Tr>
           <Tr enabled={!!element}>
             <Th>{nameOf(stat.element)}</Th>
-            <Td>{Util.getElementText(element)}</Td>
+            <Td><Util.ElementText element={element} /></Td>
           </Tr>
           <Tr enabled={!!species}>
             <Th>{nameOf(stat.species)}</Th>
@@ -112,3 +112,4 @@ function Th({ children }: { children: ReactNode }) {
 function Td({ children }: { children: ReactNode }) {
   return <td>{COLON}{children}</td>;
 }
+

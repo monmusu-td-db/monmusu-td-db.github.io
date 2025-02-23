@@ -1,0 +1,29 @@
+@media (min-width: 1024px) {
+  .text-nowrap {
+    white-space: nowrap !important;
+  }
+}
+
+.text-e-fire {
+  color: var(--bs-red);
+}
+
+.text-e-water {
+  color: var(--bs-blue);
+}
+
+.text-e-wind {
+  color: var(--bs-green);
+}
+
+.text-e-earth {
+  color: color-mix(in srgb, #000 25%, var(--bs-orange));
+}
+
+.text-e-light {
+  color: color-mix(in srgb, #000 10%, var(--bs-yellow));
+}
+
+.text-e-dark {
+  color: var(--bs-indigo);
+}

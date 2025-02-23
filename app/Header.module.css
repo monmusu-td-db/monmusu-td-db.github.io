@@ -1,5 +1,5 @@
 .search-input {
-  position: absolute;
+  position: relative;
   left: 50%;
   width: 280px;
   margin-left: -140px;

@@ -1,6 +1,15 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type SetStateAction } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import * as Data from "./Data";
 
 // Constants
@@ -9,13 +18,12 @@ const ALL = "all";
 const PARTIAL = "partial";
 const NONE = "none";
 const SAME = "same";
-type Status1 = typeof ALL | typeof PARTIAL | typeof NONE
-type Status2 = typeof NONE | typeof SAME
-
+type Status1 = typeof ALL | typeof PARTIAL | typeof NONE;
+type Status2 = typeof NONE | typeof SAME;
 
 // Utilities
 
-type ValidationFunc = (value: unknown) => boolean
+type ValidationFunc = (value: unknown) => boolean;
 class Valid {
   static isNumber(value: unknown): value is number {
     return typeof value === "number";
@@ -38,7 +46,9 @@ class Valid {
   }
 
   static isBeast(value: unknown): boolean {
-    return Valid.isNumber(value) && value >= -1 && value < Data.Beast.list.length;
+    return (
+      Valid.isNumber(value) && value >= -1 && value < Data.Beast.list.length
+    );
   }
 
   static isStatus1(value: unknown): value is Status1 {
@@ -54,17 +64,17 @@ class Valid {
   }
 }
 
-
 // Types
 
 export interface States {
-  filter: Filter
-  setting: Setting
-  query: string
-  uISetting: UISetting
+  filter: Filter;
+  setting: Setting;
+  query: string;
+  uISetting: UISetting;
 }
 
-type HandleChangeTargetBase = typeof HandleChangeTargetBase[keyof typeof HandleChangeTargetBase]
+type HandleChangeTargetBase =
+  (typeof HandleChangeTargetBase)[keyof typeof HandleChangeTargetBase];
 const HandleChangeTargetBase = {
   SETTING: 1,
   FILTER: 2,
@@ -72,7 +82,8 @@ const HandleChangeTargetBase = {
   UI_SETTING: 4,
 } as const;
 
-type HandleChangeTargetReset = typeof HandleChangeTargetReset[keyof typeof HandleChangeTargetReset]
+type HandleChangeTargetReset =
+  (typeof HandleChangeTargetReset)[keyof typeof HandleChangeTargetReset];
 const HandleChangeTargetReset = {
   RESET_FILTER: 101,
   RESET_SETTING_UNIT: 102,
@@ -80,33 +91,39 @@ const HandleChangeTargetReset = {
   RESET_SETTING_OTHER: 104,
 } as const;
 
-type HandleChangeTarget = HandleChangeTargetBase | HandleChangeTargetReset
-type HandleChangeValue<T> = T extends typeof HandleChange.SETTING ? Partial<Setting>
-  : T extends typeof HandleChange.FILTER ? FilterObject
-  : T extends typeof HandleChange.UI_SETTING ? SetStateAction<UISetting> : string
+type HandleChangeTarget = HandleChangeTargetBase | HandleChangeTargetReset;
+type HandleChangeValue<T> = T extends typeof HandleChange.SETTING
+  ? Partial<Setting>
+  : T extends typeof HandleChange.FILTER
+  ? FilterObject
+  : T extends typeof HandleChange.UI_SETTING
+  ? SetStateAction<UISetting>
+  : string;
 export type HandleChange = (<T extends HandleChangeTargetBase>(
   target: T,
   value: HandleChangeValue<T>
-) => void) & (<T extends HandleChangeTargetReset>(target: T) => void)
+) => void) &
+  (<T extends HandleChangeTargetReset>(target: T) => void);
 export const HandleChange = {
   ...HandleChangeTargetBase,
-  ...HandleChangeTargetReset
+  ...HandleChangeTargetReset,
 } as const;
-
 
 // Filter
 
 const filterRarityKeys = Data.Rarity.list;
-type FilterRarity = typeof filterRarityKeys[number]
+type FilterRarity = (typeof filterRarityKeys)[number];
 
 const filterElementKeys = Data.Element.list;
-type FilterElement = typeof filterElementKeys[number]
+type FilterElement = (typeof filterElementKeys)[number];
 
 const filterSpeciesKeys = Data.Species.list;
-type FilterSpecies = typeof filterSpeciesKeys[number]
+type FilterSpecies = (typeof filterSpeciesKeys)[number];
 
-const filterEquipmentKeys = Object.keys(Data.className) as readonly Data.ClassNameKey[];
-export type FilterEquipment = typeof filterEquipmentKeys[number]
+const filterEquipmentKeys = Object.keys(
+  Data.className
+) as readonly Data.ClassNameKey[];
+export type FilterEquipment = (typeof filterEquipmentKeys)[number];
 export const FilterEquipment = {
   names: Data.classEquipmentName,
   keys: filterEquipmentKeys,
@@ -114,17 +131,15 @@ export const FilterEquipment = {
   getKeys(filter: Filter): ReadonlySet<FilterEquipment> {
     const ret = new Set<FilterEquipment>();
     for (const [k, v] of filter.entries()) {
-      if (v && this.isKey(k))
-        ret.add(k);
+      if (v && this.isKey(k)) ret.add(k);
     }
     return ret;
   },
 
   isKey(key: unknown): key is FilterEquipment {
-    return filterEquipmentKeys.findIndex(k => k === key) !== -1;
+    return filterEquipmentKeys.findIndex((k) => k === key) !== -1;
   },
 } as const;
-
 
 const filterConditionKeys = [
   "normal",
@@ -187,7 +202,7 @@ const filterConditionNames = {
 } as const satisfies Record<FilterConditionOld, string>;
 const filterCondition = Data.Enum(filterConditionKeys);
 
-export type FilterConditionOld = typeof filterConditionKeys[number]
+export type FilterConditionOld = (typeof filterConditionKeys)[number];
 export const FilterConditionOld = (() => {
   const c = Data.className;
   return {
@@ -195,35 +210,25 @@ export const FilterConditionOld = (() => {
 
     names: filterConditionNames,
     keys: filterConditionKeys,
-    applyingProperList: [
-      c.monk,
-      c.archer,
-      c.priest,
-    ],
-    applyingActionList: [
-      c.barbarian,
-      c.shieldKnight,
-      c.archer,
-      c.conjurer,
-    ],
+    applyingProperList: [c.monk, c.archer, c.priest],
+    applyingActionList: [c.barbarian, c.shieldKnight, c.archer, c.conjurer],
 
     isKey(key: unknown): key is FilterConditionOld {
-      return filterConditionKeys.findIndex(k => k === key) !== -1;
+      return filterConditionKeys.findIndex((k) => k === key) !== -1;
     },
 
     isProperApplied(className: Data.ClassName | undefined): boolean {
-      return this.applyingProperList.findIndex(v => v === className) !== -1;
+      return this.applyingProperList.findIndex((v) => v === className) !== -1;
     },
 
     isActionApplied(className: Data.ClassName | undefined): boolean {
-      return this.applyingActionList.findIndex(v => v === className) !== -1;
+      return this.applyingActionList.findIndex((v) => v === className) !== -1;
     },
   } as const;
 })();
 
-
-type FilterConditionKey = typeof FilterCondition.list[number]
-type FilterConditionGroup = typeof FilterCondition.groups[number]
+type FilterConditionKey = (typeof FilterCondition.list)[number];
+type FilterConditionGroup = (typeof FilterCondition.groups)[number];
 
 export class FilterCondition {
   private static readonly equipment = Data.ClassName.keys;
@@ -319,7 +324,6 @@ export class FilterCondition {
     this.equipment.conjurer,
   ] as const satisfies FilterEquipment[];
 
-
   static getVisibleItems(filter: Filter): FilterConditionKey[] {
     const e = this.equipment;
     const fn = (arg: FilterEquipment): boolean => filter.get(arg) ?? false;
@@ -344,8 +348,20 @@ export class FilterCondition {
       if (isBlank) return true;
       switch (k) {
         case cond.normal:
-          return proper || action || blader || barbarian || shieldKnight || destroyer
-            || warlock || conjurer || assassin || ninja || shaman || bard;
+          return (
+            proper ||
+            action ||
+            blader ||
+            barbarian ||
+            shieldKnight ||
+            destroyer ||
+            warlock ||
+            conjurer ||
+            assassin ||
+            ninja ||
+            shaman ||
+            bard
+          );
         case cond.proper:
           return proper;
         case cond.action:
@@ -389,12 +405,14 @@ export class FilterCondition {
     });
   }
 
-  static getAppliedGroup(className: Data.ClassName | undefined): Record<FilterConditionGroup, boolean> {
+  static getAppliedGroup(
+    className: Data.ClassName | undefined
+  ): Record<FilterConditionGroup, boolean> {
     const classNameKey = Data.ClassName.keyOf(className);
     const k = this.groupKeys;
 
-    const proper = this.properList.some(v => v === classNameKey);
-    const action = this.actionList.some(v => v === classNameKey);
+    const proper = this.properList.some((v) => v === classNameKey);
+    const action = this.actionList.some((v) => v === classNameKey);
 
     const fn = (arg: FilterConditionGroup): boolean => {
       switch (arg) {
@@ -415,25 +433,27 @@ export class FilterCondition {
   private static getReturnObj(
     fn: (arg: FilterConditionGroup) => boolean
   ): Record<FilterConditionGroup, boolean> {
-    type Ret = Record<FilterConditionGroup, boolean>
+    type Ret = Record<FilterConditionGroup, boolean>;
     const ret: Partial<Ret> = {};
-    this.groups.forEach(v => ret[v] = fn(v));
+    this.groups.forEach((v) => (ret[v] = fn(v)));
 
     return ret as Ret;
   }
 
   static getFilterIgnoreGroup(
-    appliedGroup: Record<FilterConditionGroup, boolean>, {
+    appliedGroup: Record<FilterConditionGroup, boolean>,
+    {
       isGeneral,
       isGeneralProper,
       isGeneralAction,
       isGeneralProperAction,
     }: {
-      isGeneral: boolean
-      isGeneralProper: boolean
-      isGeneralAction: boolean
-      isGeneralProperAction: boolean
-    }) {
+      isGeneral: boolean;
+      isGeneralProper: boolean;
+      isGeneralAction: boolean;
+      isGeneralProperAction: boolean;
+    }
+  ) {
     const k = this.groupKeys;
 
     const fn1 = (arg: FilterConditionGroup): boolean => {
@@ -454,16 +474,19 @@ export class FilterCondition {
 
     return this.getReturnObj(fn2);
   }
-
 }
 
-
 const filterPlacementKeys = Data.Placement.list;
-type FilterPlacement = typeof filterPlacementKeys[number]
+type FilterPlacement = (typeof filterPlacementKeys)[number];
 
 const defaultFilter = new Map<FilterKeys, boolean>();
-export type FilterKeys = FilterRarity | FilterElement | FilterSpecies | FilterEquipment
-  | FilterConditionOld | FilterPlacement
+export type FilterKeys =
+  | FilterRarity
+  | FilterElement
+  | FilterSpecies
+  | FilterEquipment
+  | FilterConditionOld
+  | FilterPlacement;
 const filterKeys: FilterKeys[] = [
   ...filterRarityKeys,
   ...filterElementKeys,
@@ -473,29 +496,28 @@ const filterKeys: FilterKeys[] = [
   ...filterPlacementKeys,
 ];
 
-export type FilterObject = Partial<Record<FilterKeys, boolean>>
-export type Filter = ReadonlyMap<FilterKeys, boolean>
-
+export type FilterObject = Partial<Record<FilterKeys, boolean>>;
+export type Filter = ReadonlyMap<FilterKeys, boolean>;
 
 // Setting
 
 type SettingUnit = {
-  readonly subskill1: number
-  readonly subskill2: number
-  readonly hpMul: number
-  readonly attackMul: number
-  readonly defenseMul: number
-  readonly resistMul: number
-  readonly hpAdd: number
-  readonly attackAdd: number
-  readonly defenseAdd: number
-  readonly resistAdd: number
-  readonly damageFactor: number
-  readonly physicalDamageCut: number
-  readonly magicalDamageCut: number
-  readonly attackSpeedBuff: number
-  readonly delayCut: number
-}
+  readonly subskill1: number;
+  readonly subskill2: number;
+  readonly hpMul: number;
+  readonly attackMul: number;
+  readonly defenseMul: number;
+  readonly resistMul: number;
+  readonly hpAdd: number;
+  readonly attackAdd: number;
+  readonly defenseAdd: number;
+  readonly resistAdd: number;
+  readonly damageFactor: number;
+  readonly physicalDamageCut: number;
+  readonly magicalDamageCut: number;
+  readonly attackSpeedBuff: number;
+  readonly delayCut: number;
+};
 const defaultSettingUnit = {
   subskill1: -1,
   subskill2: -1,
@@ -532,15 +554,15 @@ const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
 } as const;
 
 type SettingFormation = {
-  readonly mainBeast: number
-  readonly subBeast: number
-  readonly possBuffAmount: number
-  readonly possBuffLevel: number
-  readonly formationHp: number
-  readonly formationAttack: number
-  readonly formationDefense: number
-  readonly formationResist: number
-}
+  readonly mainBeast: number;
+  readonly subBeast: number;
+  readonly possBuffAmount: number;
+  readonly possBuffLevel: number;
+  readonly formationHp: number;
+  readonly formationAttack: number;
+  readonly formationDefense: number;
+  readonly formationResist: number;
+};
 const defaultSettingFormation = {
   mainBeast: -1,
   subBeast: -1,
@@ -551,11 +573,14 @@ const defaultSettingFormation = {
   formationDefense: 0,
   formationResist: 0,
 } as const satisfies SettingFormation;
-const settingFormationValidation: Record<keyof SettingFormation, ValidationFunc> = {
+const settingFormationValidation: Record<
+  keyof SettingFormation,
+  ValidationFunc
+> = {
   mainBeast: Valid.isBeast,
   subBeast: Valid.isBeast,
-  possBuffAmount: v => Valid.isNumber(v) && v >= -1 && v <= 10,
-  possBuffLevel: v => Valid.isNumber(v) && v > 0 && v <= 45,
+  possBuffAmount: (v) => Valid.isNumber(v) && v >= -1 && v <= 10,
+  possBuffLevel: (v) => Valid.isNumber(v) && v > 0 && v <= 45,
   formationHp: Valid.isMul,
   formationAttack: Valid.isMul,
   formationDefense: Valid.isMul,
@@ -563,15 +588,15 @@ const settingFormationValidation: Record<keyof SettingFormation, ValidationFunc>
 } as const;
 
 type SettingOther = {
-  readonly potential: Status1,
-  readonly weapon: Status1,
-  readonly dps1: number,
-  readonly dps2: number,
-  readonly dps3: number,
-  readonly dps4: number,
-  readonly dps5: number,
-  readonly fieldElement: Status2,
-}
+  readonly potential: Status1;
+  readonly weapon: Status1;
+  readonly dps1: number;
+  readonly dps2: number;
+  readonly dps3: number;
+  readonly dps4: number;
+  readonly dps5: number;
+  readonly fieldElement: Status2;
+};
 const defaultSettingOther = {
   potential: PARTIAL,
   weapon: ALL,
@@ -593,7 +618,7 @@ const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   fieldElement: Valid.isStatus2,
 } as const;
 
-export type Setting = SettingUnit & SettingFormation & SettingOther
+export type Setting = SettingUnit & SettingFormation & SettingOther;
 
 const defaultSetting = {
   ...defaultSettingUnit,
@@ -628,10 +653,9 @@ const settingValidation: Record<keyof Setting, ValidationFunc> = {
   ...settingOtherValidation,
 } as const;
 
-
 // UI Setting
 
-export type UISetting = typeof defaultUISetting
+export type UISetting = typeof defaultUISetting;
 const defaultUISetting = {
   subskillGroup: 0 as number,
   subskillRarity: 0 as number,
@@ -640,11 +664,10 @@ const defaultUISetting = {
   subskillIsGeneral: true as boolean,
 } as const;
 
-
 // Contexts
 
 export const QueryContext = createContext("");
-export const SetQueryContext = createContext<(query: string) => void>(() => { });
+export const SetQueryContext = createContext<(query: string) => void>(() => {});
 export function useQueryContext() {
   return useContext(QueryContext);
 }
@@ -652,14 +675,34 @@ export function useSetQueryContext() {
   return useContext(SetQueryContext);
 }
 
-
 // Hook
 
+export function useQueryState(): [string, Dispatch<SetStateAction<string>>] {
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    setQuery(Storage.getQuery());
+  }, []);
+
+  useEffect(() => {
+    Storage.setQuery(query);
+  }, [query]);
+
+  return [query, setQuery];
+}
+
 export function useTableStates(): [States, HandleChange] {
-  const [filter, setFilter] = useState<Filter>(Storage.getFilter());
-  const [setting, setSetting] = useState<Setting>(Storage.getSetting());
-  const [query, setQuery] = useState(Storage.getQuery());
-  const [uISetting, setUISetting] = useState<UISetting>(Storage.getUISetting());
+  const [filter, setFilter] = useState<Filter>(defaultFilter);
+  const [setting, setSetting] = useState<Setting>(defaultSetting);
+  const [query, setQuery] = useState("");
+  const [uISetting, setUISetting] = useState<UISetting>(defaultUISetting);
+
+  useEffect(() => {
+    setFilter(Storage.getFilter());
+    setSetting(Storage.getSetting());
+    setQuery(Storage.getQuery());
+    setUISetting(Storage.getUISetting());
+  }, []);
 
   useEffect(() => {
     Storage.setSetting(setting);
@@ -668,20 +711,25 @@ export function useTableStates(): [States, HandleChange] {
     Storage.setUISetting(uISetting);
   });
 
-  const states = useMemo(() => ({
-    setting, query, filter, uISetting,
-  }), [setting, query, filter, uISetting]);
+  const states = useMemo(
+    () => ({
+      setting,
+      query,
+      filter,
+      uISetting,
+    }),
+    [setting, query, filter, uISetting]
+  );
 
-  const handleChange = useCallback(function handleChange<T extends HandleChangeTarget>(
-    target: T,
-    value?: HandleChangeValue<T>
-  ) {
+  const handleChange = useCallback(function handleChange<
+    T extends HandleChangeTarget
+  >(target: T, value?: HandleChangeValue<T>) {
     switch (target) {
       case HandleChange.SETTING:
-        setSetting(s => ({ ...s, ...value as Partial<Setting> }));
+        setSetting((s) => ({ ...s, ...(value as Partial<Setting>) }));
         break;
       case HandleChange.FILTER:
-        setFilter(s => {
+        setFilter((s) => {
           const ret = new Map(s);
           for (const [k, v] of Object.entries(value as FilterObject)) {
             ret.set(k as FilterKeys, v);
@@ -693,29 +741,31 @@ export function useTableStates(): [States, HandleChange] {
         setQuery(value as string);
         break;
       case HandleChange.UI_SETTING:
-        if (typeof value === "function")
-          setUISetting(value);
+        if (typeof value === "function") setUISetting(value);
         else
-          setUISetting(s => ({ ...s, ...value as SetStateAction<UISetting> }));
+          setUISetting((s) => ({
+            ...s,
+            ...(value as SetStateAction<UISetting>),
+          }));
         break;
       case HandleChange.RESET_FILTER:
         setFilter(defaultFilter);
         break;
       case HandleChange.RESET_SETTING_UNIT:
-        setSetting(s => ({ ...s, ...defaultSettingUnit }));
+        setSetting((s) => ({ ...s, ...defaultSettingUnit }));
         break;
       case HandleChange.RESET_SETTING_FORMATION:
-        setSetting(s => ({ ...s, ...defaultSettingFormation }));
+        setSetting((s) => ({ ...s, ...defaultSettingFormation }));
         break;
       case HandleChange.RESET_SETTING_OTHER:
-        setSetting(s => ({ ...s, ...defaultSettingOther }));
+        setSetting((s) => ({ ...s, ...defaultSettingOther }));
         break;
     }
-  }, []);
+  },
+  []);
 
   return [states, handleChange];
 }
-
 
 // Storage
 const storageKeys = {
@@ -724,7 +774,7 @@ const storageKeys = {
   QUERY: "database-query",
   UI_SETTING: "database-UI-setting",
 } as const;
-type StorageKey = typeof storageKeys[keyof typeof storageKeys]
+type StorageKey = (typeof storageKeys)[keyof typeof storageKeys];
 
 class Storage {
   private static getStorage() {
@@ -735,17 +785,20 @@ class Storage {
     }
   }
 
-  private static getItem<T>(key: string, callback: (obj: string) => T | undefined, defaultObj: T): T {
+  private static getItem<T>(
+    key: string,
+    callback: (obj: string) => T | undefined,
+    defaultObj: T
+  ): T {
     const storage = this.getStorage();
     if (storage !== undefined) {
       try {
         const v = storage.getItem(key);
         if (v !== null) {
           const ret = callback(v);
-          if (ret !== undefined)
-            return ret;
+          if (ret !== undefined) return ret;
         }
-      } catch { }
+      } catch {}
     }
     return defaultObj;
   }
@@ -755,26 +808,24 @@ class Storage {
     if (storage !== undefined) {
       try {
         const item = storage.getItem(key);
-        if (item !== null)
-          return item;
-      } catch { }
+        if (item !== null) return item;
+      } catch {}
     }
   }
 
   private static setItem(key: StorageKey, value: string): void {
     const storage = this.getStorage();
-    if (storage !== undefined)
-      storage.setItem(key, value);
+    if (storage !== undefined) storage.setItem(key, value);
   }
 
   private static getValue(key: string): string {
-    return this.getItem(key, obj => obj, "");
+    return this.getItem(key, (obj) => obj, "");
   }
 
   private static getObject<T>(
     key: string,
     func: (arg: unknown) => arg is T,
-    defaultObj: T = {} as T,
+    defaultObj: T = {} as T
   ): T {
     const fn = (obj: string) => {
       const ret = JSON.parse(obj);
@@ -782,27 +833,27 @@ class Storage {
     };
     return this.getItem(key, fn, defaultObj);
   }
-  private static setObject(key: StorageKey, obj: Record<string, unknown>): void {
+  private static setObject(
+    key: StorageKey,
+    obj: Record<string, unknown>
+  ): void {
     this.setItem(key, JSON.stringify(obj));
   }
 
   private static getObject2(key: StorageKey): object | undefined {
     const item = this.getItem2(key);
-    if (item === undefined)
-      return;
+    if (item === undefined) return;
     const ret: unknown = JSON.parse(item);
-    if (typeof ret !== "object" || ret === null)
-      return;
+    if (typeof ret !== "object" || ret === null) return;
     return ret;
   }
 
   static getSetting(): Setting {
     const item = this.getObject2(storageKeys.SETTING);
-    if (item === undefined)
-      return defaultSetting;
+    if (item === undefined) return defaultSetting;
     const obj = item as Record<keyof Setting, unknown>;
     const ret: Partial<Record<keyof Setting, unknown>> = {};
-    Setting.list.forEach(key => {
+    Setting.list.forEach((key) => {
       const v = obj[key];
       const valid = settingValidation[key](v);
       ret[key] = valid ? v : defaultSetting[key];
@@ -828,15 +879,15 @@ class Storage {
   }
   static setFilter(item: Filter): void {
     const obj: FilterObject = {};
-    for (const [key, value] of item.entries())
-      obj[key] = value;
+    for (const [key, value] of item.entries()) obj[key] = value;
     Storage.setObject(storageKeys.FILTER, obj);
   }
   private static isFilter(obj: unknown): obj is FilterObject {
-    if (typeof obj !== "object" || obj === null)
-      return false;
+    if (typeof obj !== "object" || obj === null) return false;
     const v = obj as Record<FilterKeys, unknown>;
-    return filterKeys.every(k => (v[k] === undefined || typeof v[k] === "boolean"));
+    return filterKeys.every(
+      (k) => v[k] === undefined || typeof v[k] === "boolean"
+    );
   }
 
   static getQuery(): string {
@@ -847,17 +898,19 @@ class Storage {
   }
 
   static getUISetting(): UISetting {
-    return Storage.getObject(storageKeys.UI_SETTING, this.isUISetting, defaultUISetting);
+    return Storage.getObject(
+      storageKeys.UI_SETTING,
+      this.isUISetting,
+      defaultUISetting
+    );
   }
   static setUISetting(obj: UISetting) {
     this.setObject(storageKeys.UI_SETTING, obj);
   }
   private static isUISetting(obj: unknown): obj is UISetting {
-    if (typeof obj !== "object" || obj === null)
-      return false;
+    if (typeof obj !== "object" || obj === null) return false;
     const v = obj as Record<keyof UISetting, unknown>;
-    if (typeof v.subskillGroup !== "number")
-      return false;
+    if (typeof v.subskillGroup !== "number") return false;
     return true;
   }
 }

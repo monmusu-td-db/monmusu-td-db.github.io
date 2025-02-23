@@ -75,7 +75,7 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
       });
     })();
 
-    const ret = Util.joinTexts(contents, <>&#8203;or&#8203;</>, false);
+    const ret = <Util.JoinTexts texts={contents} separator={<>&#8203;or&#8203;</>} />;
     if (target === Infinity
       || target === Data.Target.self
       || target === Data.Target.all

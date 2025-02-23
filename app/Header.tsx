@@ -5,7 +5,15 @@ import { useQueryContext, useSetQueryContext } from "@/components/States";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { useRef, type ReactNode } from "react";
-import { Container, Form, InputGroup, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Form,
+  InputGroup,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
 import Icon from "./Icon";
 
 const BRAND_NAME = "Monmusu DB";
@@ -18,7 +26,7 @@ const Theme = {
   LIGHT: "light",
   DARK: "dark",
 } as const;
-type Theme = typeof Theme[keyof typeof Theme]
+type Theme = (typeof Theme)[keyof typeof Theme];
 const themeName = {
   auto: "自動",
   light: "ライト",
@@ -27,43 +35,56 @@ const themeName = {
 
 declare global {
   interface Window {
-    __setPreferredTheme: (theme: Theme) => void
+    __setPreferredTheme: (theme: Theme) => void;
   }
 }
 
-export default function Header() {
+export default function Header({
+  showSettingPanel,
+}: {
+  showSettingPanel?: () => void;
+}) {
   return (
-    <>
-      <Navbar as="header" expand="lg" bg="primary" data-bs-theme="dark" sticky="top">
-        <SearchInput />
-        <Container as="nav" fluid="xxl">
-          <Navbar.Brand as={Link} href="./">{BRAND_NAME}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar">
-            <Nav as="ul" className="me-auto">
-              <NavLink href="./unit">{pageNames.UNIT}</NavLink>
-              <NavLink href="./buff">{pageNames.BUFF}</NavLink>
-            </Nav>
-            <Nav>
-              <ThemeToggler />
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </>
+    <Navbar
+      as="header"
+      expand="lg"
+      bg="primary"
+      data-bs-theme="dark"
+      sticky="top"
+      className="mb-2"
+    >
+      <SearchInput />
+      <Container as="nav" fluid="xxl">
+        <Navbar.Brand as={Link} href="./">
+          {BRAND_NAME}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar" />
+        <Navbar.Collapse id="navbar">
+          <Nav as="ul" className="me-auto">
+            <NavLink href="./unit">{pageNames.UNIT}</NavLink>
+            <NavLink href="./buff">{pageNames.BUFF}</NavLink>
+          </Nav>
+          <Nav>
+            {showSettingPanel !== undefined && (
+              <>
+                <SettingPanelToggler onClick={showSettingPanel} />
+                <Vr />
+              </>
+            )}
+            <ThemeToggler />
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-function NavLink({
-  children,
-  href,
-}: {
-  children: ReactNode
-  href: string
-}) {
+function NavLink({ children, href }: { children: ReactNode; href: string }) {
   return (
     <li className="nav-item col-auto">
-      <Nav.Link as={Link} href={href}>{children}</Nav.Link>
+      <Nav.Link as={Link} href={href}>
+        {children}
+      </Nav.Link>
     </li>
   );
 }
@@ -88,7 +109,7 @@ function SearchInput() {
           type="search"
           placeholder="検索"
           value={query}
-          onChange={e => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)}
           ref={inputRef}
         />
       </InputGroup>
@@ -100,13 +121,13 @@ function ThemeToggler() {
   return (
     <NavDropdown
       id="theme-toggler"
-      title={(
+      title={
         <>
-          <ThemeTogglerIcon theme="light" />
-          <ThemeTogglerIcon theme="dark" />
-          <ThemeTogglerIcon theme="auto" />
+          <CurrentTheme theme="light" />
+          <CurrentTheme theme="dark" />
+          <CurrentTheme theme="auto" />
         </>
-      )}
+      }
     >
       <ThemeTogglerButton theme="light" />
       <ThemeTogglerButton theme="dark" />
@@ -115,11 +136,7 @@ function ThemeToggler() {
   );
 }
 
-function ThemeTogglerIcon({
-  theme
-}: {
-  theme: Theme
-}) {
+function CurrentTheme({ theme }: { theme: Theme }) {
   return (
     <span className={`d-none theme-${theme}`}>
       <ThemeIcon theme={theme} />
@@ -127,13 +144,13 @@ function ThemeTogglerIcon({
   );
 }
 
-function ThemeTogglerButton({
-  theme
-}: {
-  theme: Theme
-}) {
+function ThemeTogglerButton({ theme }: { theme: Theme }) {
   return (
-    <NavDropdown.Item as="button" className="d-flex" onClick={() => window.__setPreferredTheme(theme)}>
+    <NavDropdown.Item
+      as="button"
+      className="d-flex"
+      onClick={() => window.__setPreferredTheme(theme)}
+    >
       <span className="me-2 opacity-50">
         <ThemeIcon theme={theme} />
       </span>
@@ -145,11 +162,7 @@ function ThemeTogglerButton({
   );
 }
 
-function ThemeIcon({
-  theme
-}: {
-  theme: Theme
-}) {
+function ThemeIcon({ theme }: { theme: Theme }) {
   switch (theme) {
     case Theme.LIGHT:
       return <Icon.BrightnessHignFill />;
@@ -158,4 +171,20 @@ function ThemeIcon({
     case Theme.AUTO:
       return <Icon.CircleHalf />;
   }
+}
+
+function SettingPanelToggler({
+  onClick,
+}: {
+  onClick?: (() => void) | undefined;
+}) {
+  return (
+    <Button variant="link" className="nav-link" onClick={onClick}>
+      <Icon.GearFill />
+    </Button>
+  );
+}
+
+function Vr() {
+  return <div className="vr mx-2 text-white" />;
 }

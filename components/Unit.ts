@@ -119,6 +119,7 @@ const Percent = Data.Percent;
 
 export default class Unit implements TableSource<Keys> {
   readonly id: number;
+  readonly src: Readonly<JsonUnit>;
 
   readonly unitId: Stat.Root;
   readonly parentId: number | undefined;
@@ -174,6 +175,7 @@ export default class Unit implements TableSource<Keys> {
 
   constructor(src: Readonly<JsonUnit>) {
     this.id = src.id;
+    this.src = src;
 
     const unitId = src.parentId ?? src.id;
     this.unitId = new Stat.Root({
