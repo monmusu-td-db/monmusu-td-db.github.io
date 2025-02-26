@@ -12,7 +12,6 @@ import {
   InputGroup,
   Nav,
   Navbar,
-  NavDropdown,
 } from "react-bootstrap";
 import Icon from "./Icon";
 
@@ -22,16 +21,10 @@ const pageNames = {
   BUFF: "バフ",
 } as const;
 const Theme = {
-  AUTO: "auto",
   LIGHT: "light",
   DARK: "dark",
 } as const;
 type Theme = (typeof Theme)[keyof typeof Theme];
-const themeName = {
-  auto: "自動",
-  light: "ライト",
-  dark: "ダーク",
-} as const;
 
 declare global {
   interface Window {
@@ -119,46 +112,27 @@ function SearchInput() {
 
 function ThemeToggler() {
   return (
-    <NavDropdown
-      id="theme-toggler"
-      title={
-        <>
-          <CurrentTheme theme="light" />
-          <CurrentTheme theme="dark" />
-          <CurrentTheme theme="auto" />
-        </>
-      }
-    >
-      <ThemeTogglerButton theme="light" />
-      <ThemeTogglerButton theme="dark" />
-      <ThemeTogglerButton theme="auto" />
-    </NavDropdown>
+    <>
+      <CurrentTheme theme={Theme.LIGHT} />
+      <CurrentTheme theme={Theme.DARK} />
+    </>
   );
 }
 
 function CurrentTheme({ theme }: { theme: Theme }) {
-  return (
-    <span className={`d-none theme-${theme}`}>
-      <ThemeIcon theme={theme} />
-    </span>
-  );
-}
+  function handleClick() {
+    const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
+    return window.__setPreferredTheme(newTheme);
+  }
 
-function ThemeTogglerButton({ theme }: { theme: Theme }) {
   return (
-    <NavDropdown.Item
-      as="button"
-      className="d-flex"
-      onClick={() => window.__setPreferredTheme(theme)}
+    <Button
+      variant="link"
+      className={`nav-link d-none theme-${theme}`}
+      onClick={handleClick}
     >
-      <span className="me-2 opacity-50">
-        <ThemeIcon theme={theme} />
-      </span>
-      {themeName[theme]}
-      <span className={`ms-auto d-none theme-${theme}`}>
-        <Icon.Check2 />
-      </span>
-    </NavDropdown.Item>
+      <ThemeIcon theme={theme} />
+    </Button>
   );
 }
 
@@ -168,8 +142,6 @@ function ThemeIcon({ theme }: { theme: Theme }) {
       return <Icon.BrightnessHignFill />;
     case Theme.DARK:
       return <Icon.MoonFill />;
-    case Theme.AUTO:
-      return <Icon.CircleHalf />;
   }
 }
 

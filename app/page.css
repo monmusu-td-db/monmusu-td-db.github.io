@@ -14,6 +14,6 @@ html[data-bs-theme="dark"] .theme-dark {
   display: inline !important;
 }
 
-html[data-bs-theme="auto"] .theme-auto {
-  display: inline !important;
+[data-bs-theme="dark"] .btn-outline-primary {
+  color: var(--bs-body-color);
 }

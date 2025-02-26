@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
 
-$primary: #4a517a;
+$primary: #5660a1;
 
 // scss-docs-start import-stack
 // Configuration
@@ -40,8 +40,8 @@ $custom-table-variants: (
 );
 $table-variants: map-merge($custom-table-variants, $table-variants);
 
-$table-cell-padding-y-sm: .175rem;
-$table-cell-padding-x-sm: .175rem;
+$table-cell-padding-y-sm: 0.175rem;
+$table-cell-padding-x-sm: 0.175rem;
 
 $popover-max-width: 500px;
 $popover-bg: $body-bg-dark;
@@ -93,7 +93,6 @@ $popover-border-color: $border-color-translucent-dark;
 // Utilities
 @import "~bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
-
 
 // custom
 .text-dark-teal {

@@ -1,6 +1,12 @@
 import type { ReactNode } from "react";
 import {
-  Col, Container, Form, Row, ToggleButton, ToggleButtonGroup, type ColProps
+  Col,
+  Container,
+  Form,
+  Row,
+  ToggleButton,
+  ToggleButtonGroup,
+  type ColProps,
 } from "react-bootstrap";
 import * as Data from "./Data";
 import cn from "classnames";
@@ -13,10 +19,10 @@ const BUTTON_VARIANT = "outline-primary";
 
 function FormGroup({
   label,
-  children
+  children,
 }: {
-  label: ReactNode
-  children?: ReactNode
+  label: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <Container>
@@ -37,11 +43,11 @@ function FormCheckbox({
   onClick,
   grid,
 }: {
-  name: string
-  label: ReactNode
-  checked: boolean
-  onClick: (arg: boolean) => void
-  grid?: boolean
+  name: string;
+  label: ReactNode;
+  checked: boolean;
+  onClick: (arg: boolean) => void;
+  grid?: boolean;
 }) {
   const ret = (
     <ToggleButton
@@ -51,28 +57,19 @@ function FormCheckbox({
       variant={BUTTON_VARIANT}
       checked={checked}
       value={0}
-      onClick={() => onClick(!checked)}>
+      onClick={() => onClick(!checked)}
+    >
       {label}
     </ToggleButton>
   );
-  if (grid) return (
-    <FormGrid sm={3}>
-      {ret}
-    </FormGrid>
-  );
+  if (grid) return <FormGrid sm={3}>{ret}</FormGrid>;
   return ret;
 }
 
-function FormCheckboxGroup({
-  children
-}: {
-  children: ReactNode
-}) {
+function FormCheckboxGroup({ children }: { children: ReactNode }) {
   return (
     <Container as={Col}>
-      <Row className="gy-1">
-        {children}
-      </Row>
+      <Row className="gy-1">{children}</Row>
     </Container>
   );
 }
@@ -83,10 +80,10 @@ function FormRadio({
   value,
   onChange,
 }: {
-  name: string
-  items: readonly ReactNode[]
-  value: number
-  onChange: (value: number) => void
+  name: string;
+  items: readonly ReactNode[];
+  value: number;
+  onChange: (value: number) => void;
 }) {
   return (
     <ToggleButtonGroup
@@ -106,8 +103,7 @@ function FormRadio({
         >
           {v}
         </ToggleButton>
-      )
-      )}
+      ))}
     </ToggleButtonGroup>
   );
 }
@@ -125,28 +121,31 @@ function RarityCheckbox({
   checked,
   onClick,
 }: {
-  rarity: Data.Rarity
-  checked: boolean
-  onClick: () => void
+  rarity: Data.Rarity;
+  checked: boolean;
+  onClick: () => void;
 }) {
-  const className = [{
-    "text-bg-warning": rarity === Data.Rarity.L
-  }, cx({
-    "text-bg-epic": rarity === Data.Rarity.E,
-    "text-bg-rare": rarity === Data.Rarity.R,
-    "text-bg-common": rarity === Data.Rarity.C,
-  })];
+  const className = [
+    {
+      "text-bg-warning": rarity === Data.Rarity.L,
+    },
+    cx({
+      "text-bg-epic": rarity === Data.Rarity.E,
+      "text-bg-rare": rarity === Data.Rarity.R,
+      "text-bg-common": rarity === Data.Rarity.C,
+    }),
+  ];
   return (
     <FormCheckbox
       name={Data.Rarity[rarity]}
-      label={(
+      label={
         <>
           <span className={cn("badge me-2", className)}>
             {Data.Rarity[rarity]}
           </span>
           {Data.Rarity.alias[rarity]}
         </>
-      )}
+      }
       checked={checked}
       onClick={onClick}
       grid
@@ -159,30 +158,33 @@ function ElementCheckbox({
   checked,
   onClick,
 }: {
-  element: typeof Data.Element.list[number]
-  checked: boolean
-  onClick: () => void
+  element: (typeof Data.Element.list)[number];
+  checked: boolean;
+  onClick: () => void;
 }) {
-  const className = [{
-    "bg-danger": element === Data.Element.FIRE,
-    "bg-success": element === Data.Element.WIND,
-    "bg-warning": element === Data.Element.LIGHT,
-  }, cx({
-    "element-badge": true,
-    "bg-e-water": element === Data.Element.WATER,
-    "bg-e-earth": element === Data.Element.EARTH,
-    "bg-e-dark": element === Data.Element.DARK,
-  })];
+  const className = [
+    {
+      "bg-danger": element === Data.Element.fire,
+      "bg-success": element === Data.Element.wind,
+      "bg-warning": element === Data.Element.light,
+    },
+    cx({
+      "element-badge": true,
+      "bg-e-water": element === Data.Element.water,
+      "bg-e-earth": element === Data.Element.earth,
+      "bg-e-dark": element === Data.Element.dark,
+    }),
+  ];
 
   return (
     <FormCheckbox
       name={element}
-      label={(
+      label={
         <>
           <span className={cn("badge me-2", className)}>&#8203;</span>
           {Data.Element.name[element]}
         </>
-      )}
+      }
       checked={checked}
       onClick={onClick}
       grid
@@ -190,12 +192,15 @@ function ElementCheckbox({
   );
 }
 
-export default Object.assign({}, {
-  FormGroup,
-  FormCheckbox,
-  FormCheckboxGroup,
-  FormRadio,
-  FormGrid,
-  RarityCheckbox,
-  ElementCheckbox,
-});
+export default Object.assign(
+  {},
+  {
+    FormGroup,
+    FormCheckbox,
+    FormCheckboxGroup,
+    FormRadio,
+    FormGrid,
+    RarityCheckbox,
+    ElementCheckbox,
+  }
+);
