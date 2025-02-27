@@ -17,3 +17,12 @@ html[data-bs-theme="dark"] .theme-dark {
 [data-bs-theme="dark"] .btn-outline-primary {
   color: var(--bs-body-color);
 }
+
+h1,
+h2 {
+  margin-bottom: 1.25rem;
+}
+
+.table-container {
+  margin-bottom: 3rem;
+}

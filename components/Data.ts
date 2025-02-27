@@ -12,6 +12,7 @@ TODOリスト
   situationをunitにまとめてリジェネや吸収を自動表示できるようにする
   condition 特効の内容を表示
   states sessionStorageへのアクセスを改善
+  同一属性ユニットを複数編成
 */
 
 // Const

@@ -4,8 +4,12 @@ import * as Data from "@/components/Data";
 import * as Util from "@/components/Util";
 import Unit from "@/components/Unit";
 import type { ReactNode } from "react";
-import { Table } from "react-bootstrap";
-import style from "./FormationBuffTable.module.css";
+import styles from "./FormationBuffTable.module.css";
+import {
+  BuffTable,
+  type BuffTableItem,
+  type BuffTableSource,
+} from "@/components/BuffTable";
 
 const columns = [
   "id",
@@ -30,47 +34,18 @@ const columnName = {
 const Column = Data.Enum(columns);
 type Column = (typeof columns)[number];
 
-interface ListItem extends Record<Column, ReactNode> {
-  key: string;
-}
-
 export function FormationBuffTable() {
-  const list = getBuffList();
+  const src: BuffTableSource<Column> = {
+    columnKeys: columns,
+    columnName: columnName,
+    items: getBuffList(),
+  };
 
-  return (
-    <Table striped size="sm" bordered className={style["table"]}>
-      <Header />
-      <tbody className="table-group-divider">
-        {list.map((row) => (
-          <tr key={row.key}>
-            {columns.map((column) => (
-              <td key={column} className={style[column]}>
-                {row[column]}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </Table>
-  );
+  return <BuffTable src={src} styles={styles} />;
 }
 
-function Header() {
-  return (
-    <thead>
-      <tr>
-        {columns.map((column) => (
-          <th key={column} className={style[column]}>
-            {columnName[column]}
-          </th>
-        ))}
-      </tr>
-    </thead>
-  );
-}
-
-function getBuffList(): readonly ListItem[] {
-  const ret: ListItem[] = [];
+function getBuffList(): readonly BuffTableItem<Column>[] {
+  const ret: BuffTableItem<Column>[] = [];
 
   Unit.list.forEach((unit) => {
     const id = unit.src.parentId ?? unit.src.id;
@@ -100,8 +75,7 @@ function getBuffList(): readonly ListItem[] {
       });
       const supplement = <Util.JoinTexts texts={supplementList} />;
 
-      ret.push({
-        key: `${id}-${index}`,
+      const item = {
         id,
         name,
         hp: fn(buff.hp),
@@ -110,6 +84,11 @@ function getBuffList(): readonly ListItem[] {
         resist: fn(buff.resist),
         target,
         supplement,
+      };
+
+      ret.push({
+        key: `${unit.src.id}-${index}`,
+        value: item,
       });
     });
   });

@@ -96,6 +96,14 @@
           "凍結無効化→射程内"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "redeploy-time-cut",
+        "target": "全体",
+        "condition": "常時",
+        "value": 40
+      }
     ]
   },
   {

@@ -1,8 +1,15 @@
+"use client";
+
 import jsonUnits from "@/assets/unit.json";
 import * as Data from "./Data";
 import * as Util from "./Util";
 import * as Stat from "./Stat";
-import { FilterEquipment, Setting, type FilterKeys, type States } from "./States";
+import {
+  FilterEquipment,
+  Setting,
+  type FilterKeys,
+  type States,
+} from "./States";
 import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
@@ -10,81 +17,92 @@ import type { TableSource } from "./StatTable";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
 
 interface JsonUnit {
-  DISABLED?: boolean
-  id: number
-  parentId?: number
-  unitName: string
-  unitShortName: string
-  rarity: string
-  class?: string
-  element?: string
-  species?: string
-  cost?: number
-  hp: number
-  attack: number
-  defense: number
-  resist: number
-  attackSpeed?: number
-  attackSpeedFrame?: number
-  delay?: number
-  block?: number | null
-  target?: Data.JsonTarget
-  rounds?: Data.JsonRound
-  splash?: boolean
-  range?: number
-  moveSpeed?: number
-  moveType?: string
-  damageType?: Data.JsonDamageType
-  placement?: Data.JsonPlacement
-  supplements?: readonly string[]
-  exSkill1?: Data.JsonSkill
-  exSkill2?: Data.JsonSkill
+  DISABLED?: boolean;
+  id: number;
+  parentId?: number;
+  unitName: string;
+  unitShortName: string;
+  rarity: string;
+  class?: string;
+  element?: string;
+  species?: string;
+  cost?: number;
+  hp: number;
+  attack: number;
+  defense: number;
+  resist: number;
+  attackSpeed?: number;
+  attackSpeedFrame?: number;
+  delay?: number;
+  block?: number | null;
+  target?: Data.JsonTarget;
+  rounds?: Data.JsonRound;
+  splash?: boolean;
+  range?: number;
+  moveSpeed?: number;
+  moveType?: string;
+  damageType?: Data.JsonDamageType;
+  placement?: Data.JsonPlacement;
+  supplements?: readonly string[];
+  exSkill1?: Data.JsonSkill;
+  exSkill2?: Data.JsonSkill;
 
-  potentials?: Data.JsonPotentials
-  weapon?: Data.JsonWeapon
-  formationBuffs?: readonly Data.JsonFormationBuff[]
-  features?: readonly JsonFeature[]
-  isEventUnit?: boolean
-  isUnhealable?: boolean
-  costAdd?: number
-  hpMul?: number
-  attackMul?: number
-  defenseMul?: number
-  resistMul?: number
-  criChanceAdd?: number
-  criDamageAdd?: number
-  penetrationAdd?: number
-  delayMul?: number
-  fixedDelay?: number
-  blockAdd?: number
-  targetAdd?: number
-  rangeAdd?: number
-  moveSpeedAdd?: number
-  moveSpeedMul?: number
-  potentialBonus?: JsonPotentialBonus
-  situations?: JsonUnitSituations
+  potentials?: Data.JsonPotentials;
+  weapon?: Data.JsonWeapon;
+  formationBuffs?: readonly Data.JsonFormationBuff[];
+  features?: readonly JsonFeature[];
+  isEventUnit?: boolean;
+  isUnhealable?: boolean;
+  costAdd?: number;
+  hpMul?: number;
+  attackMul?: number;
+  defenseMul?: number;
+  resistMul?: number;
+  criChanceAdd?: number;
+  criDamageAdd?: number;
+  penetrationAdd?: number;
+  delayMul?: number;
+  fixedDelay?: number;
+  blockAdd?: number;
+  targetAdd?: number;
+  rangeAdd?: number;
+  moveSpeedAdd?: number;
+  moveSpeedMul?: number;
+  potentialBonus?: JsonPotentialBonus;
+  situations?: JsonUnitSituations;
+  buffs?: JsonBuffs;
 }
-type JsonPotentialBonus = Readonly<Partial<{
-  costAdd: number
-  hpMul: number
-  attackMul: number
-  defenseMul: number
-  resistMul: number
-  criDamageAdd: number
-  rounds: Data.JsonRound
-  rangeAdd: number
-  moveSpeedAdd: number
-  moveSpeedMul: number
-}>>
+type JsonPotentialBonus = Readonly<
+  Partial<{
+    costAdd: number;
+    hpMul: number;
+    attackMul: number;
+    defenseMul: number;
+    resistMul: number;
+    criDamageAdd: number;
+    rounds: Data.JsonRound;
+    rangeAdd: number;
+    moveSpeedAdd: number;
+    moveSpeedMul: number;
+  }>
+>;
 
 interface JsonUnitSituation {
-  skill: number
-  depend: readonly string[]
-  exclude: readonly string[]
-  require: readonly string[]
-  features: readonly string[]
+  skill: number;
+  depend: readonly string[];
+  exclude: readonly string[];
+  require: readonly string[];
+  features: readonly string[];
 }
-type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[]
+type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
+
+interface JsonBuff {
+  type: string;
+  target: string;
+  condition: string;
+  value: number;
+}
+type JsonBuffs = readonly JsonBuff[];
 
 const keys = [
   "unitId",
@@ -111,7 +129,7 @@ const keys = [
   "exSkill1",
   "exSkill2",
 ] as const satisfies Data.StatType[];
-type Keys = typeof keys[number]
+type Keys = (typeof keys)[number];
 
 const stat = Data.stat;
 const ssKeys = Subskill.keys;
@@ -170,7 +188,9 @@ export default class Unit implements TableSource<Keys> {
   readonly situations: JsonUnitSituations;
 
   private tokenParent: Unit | undefined;
-  private cacheSubskill = new Data.Cache<[Subskill | undefined, Subskill | undefined]>();
+  private cacheSubskill = new Data.Cache<
+    [Subskill | undefined, Subskill | undefined]
+  >();
   private cachePotentialValues = new Map<Data.StatType, number>();
 
   constructor(src: Readonly<JsonUnit>) {
@@ -180,7 +200,7 @@ export default class Unit implements TableSource<Keys> {
     const unitId = src.parentId ?? src.id;
     this.unitId = new Stat.Root({
       statType: stat.unitId,
-      calculater: () => unitId
+      calculater: () => unitId,
     });
 
     this.parentId = src.parentId;
@@ -189,13 +209,13 @@ export default class Unit implements TableSource<Keys> {
     this.unitName = new Stat.Root({
       statType: stat.unitName,
       calculater: () => src.unitName,
-      comparer: s => this.unitShortName.getSortOrder(s),
+      comparer: (s) => this.unitShortName.getSortOrder(s),
     });
 
     this.unitShortName = new Stat.UnitName({
       statType: stat.unitShortName,
       calculater: () => src.unitShortName,
-      unit: this
+      unit: this,
     });
 
     const rarity = Data.Rarity.parse(src.rarity);
@@ -206,7 +226,7 @@ export default class Unit implements TableSource<Keys> {
         statType: stat.rarity,
         calculater: () => rarity,
         comparer: () => comparer,
-        color: () => color
+        color: () => color,
       });
     }
 
@@ -216,10 +236,11 @@ export default class Unit implements TableSource<Keys> {
       this.className = new Stat.Root({
         statType: stat.className,
         calculater: () => className,
-        comparer: () => comparer
+        comparer: () => comparer,
       });
     }
-    const classData = className === undefined ? undefined : Class.getItem(className);
+    const classData =
+      className === undefined ? undefined : Class.getItem(className);
 
     const element = Data.Element.parse(src.element);
     {
@@ -229,24 +250,25 @@ export default class Unit implements TableSource<Keys> {
         statType: stat.element,
         calculater: () => element,
         comparer: () => comparer,
-        color: () => color
+        color: () => color,
       });
     }
 
     const species = Data.Species.parse(src.species);
     this.species = new Stat.Root({
       statType: stat.species,
-      calculater: () => species
+      calculater: () => species,
     });
 
     const getCost = (setting: Setting) => {
       const base = src.cost ?? classData?.cost;
       if (base === undefined) return;
-      const pCostAdd = this.isPotentialApplied(setting) ? src.potentialBonus?.costAdd : undefined;
+      const pCostAdd = this.isPotentialApplied(setting)
+        ? src.potentialBonus?.costAdd
+        : undefined;
       const value = base + (pCostAdd ?? src.costAdd ?? 0);
 
-      if (className === Data.className.shaman || this.isToken)
-        return value;
+      if (className === Data.className.shaman || this.isToken) return value;
       switch (rarity) {
         case Data.Rarity.L:
           return value + 1;
@@ -258,13 +280,13 @@ export default class Unit implements TableSource<Keys> {
     };
     this.cost = new Stat.Root({
       statType: stat.cost,
-      calculater: s => {
+      calculater: (s) => {
         const cost = getCost(s);
         if (cost !== undefined) {
           const ss = this.getSubskillFactor(s, ssKeys.cost);
           return this.calculateStat(s, stat.cost, cost + ss);
         }
-      }
+      },
     });
 
     this.hp = this.getBaseStat(src, stat.hp);
@@ -275,58 +297,64 @@ export default class Unit implements TableSource<Keys> {
     const criticalChance = Data.defaultCriChance + (src.criChanceAdd ?? 0);
     this.criticalChance = new Stat.Root({
       statType: stat.criticalChance,
-      calculater: () => criticalChance
+      calculater: () => criticalChance,
     });
 
     this.criticalDamage = new Stat.Root({
       statType: stat.criticalDamage,
-      calculater: s => {
+      calculater: (s) => {
         let a;
-        if (this.isPotentialApplied(s))
-          a = this.potentialBonus?.criDamageAdd;
+        if (this.isPotentialApplied(s)) a = this.potentialBonus?.criDamageAdd;
         a ??= src.criDamageAdd ?? 0;
         return Data.defaultCriDamage + a;
-      }
+      },
     });
 
-    const penetration = (classData?.penetration ?? 0) + (src.penetrationAdd ?? 0);
+    const penetration =
+      (classData?.penetration ?? 0) + (src.penetrationAdd ?? 0);
     this.penetration = new Stat.Root({
       statType: stat.penetration,
-      calculater: () => penetration
+      calculater: () => penetration,
     });
 
     const attackSpeed = src.attackSpeed ?? classData?.attackSpeed;
     this.attackSpeed = new Stat.AttackSpeed({
       statType: stat.attackSpeed,
-      calculater: s => this.attackSpeed.getFactors(s)?.attackSpeedResult,
-      factors: s => {
+      calculater: (s) => this.attackSpeed.getFactors(s)?.attackSpeedResult,
+      factors: (s) => {
         if (attackSpeed === undefined && src.attackSpeedFrame === undefined)
           return;
         const attackSpeedBase = Data.getAttackSpeed(attackSpeed);
         const fixedAttackSpeed = src.attackSpeedFrame;
         const p = this.getPotentialFactor(s, stat.attackSpeed);
-        const attackSpeedResult = fixedAttackSpeed ?? Data.getAttackSpeed((attackSpeed ?? 0) + p);
-        const attackSpeedPotential = attackSpeedBase === undefined ? 0
-          : attackSpeedBase - attackSpeedResult;
+        const attackSpeedResult =
+          fixedAttackSpeed ?? Data.getAttackSpeed((attackSpeed ?? 0) + p);
+        const attackSpeedPotential =
+          attackSpeedBase === undefined
+            ? 0
+            : attackSpeedBase - attackSpeedResult;
         return {
           attackSpeedBase,
           attackSpeedPotential,
           fixedAttackSpeed,
           attackSpeedResult,
         };
-      }
+      },
     });
 
     this.delay = new Stat.Delay({
       statType: stat.delay,
-      calculater: s => this.delay.getFactors(s)?.result,
-      factors: s => {
+      calculater: (s) => this.delay.getFactors(s)?.result,
+      factors: (s) => {
         const delay = src.delay ?? classData?.delay;
         const delayMul = src.delayMul;
         const fixedDelay = this.fixedDelay;
         const subskillBuff = this.getSubskillFactor(s, ssKeys.delayMul);
         const formationBuff = this.getFormationBuffFactor(s, stat.delay);
-        const beastFormationBuff = this.getBeastFormationBuffFactor(s, stat.delay);
+        const beastFormationBuff = this.getBeastFormationBuffFactor(
+          s,
+          stat.delay
+        );
         let delaySubtotal;
         if (delay !== undefined)
           delaySubtotal = Percent.multiply(
@@ -346,32 +374,32 @@ export default class Unit implements TableSource<Keys> {
           subskillBuff,
           formationBuff,
           beastFormationBuff,
-          result
+          result,
         };
-      }
+      },
     });
 
     this.block = new Stat.Root({
       statType: stat.block,
-      calculater: s => {
-        if (src.block === null)
-          return;
+      calculater: (s) => {
+        if (src.block === null) return;
         const b = src.block ?? classData?.block ?? 1;
         return this.calculateStat(s, stat.block, b + (src.blockAdd ?? 0));
       },
-      isReversed: true
+      isReversed: true,
     });
 
     this.target = new Stat.Target({
       statType: stat.target,
-      calculater: s => this.target.getFactors(s)?.target,
-      factors: s => {
+      calculater: (s) => this.target.getFactors(s)?.target,
+      factors: (s) => {
         const tbase = Data.JsonTarget.parse(src.target) ?? classData?.target;
         if (tbase === undefined) return;
 
         const p = this.getPotentialFactor(s, stat.target);
         const isBlock = tbase === Data.Target.block;
-        const target = isBlock ? this.block.getValue(s)
+        const target = isBlock
+          ? this.block.getValue(s)
           : Data.Target.sum(tbase, src.targetAdd ?? 0, p);
         if (target === undefined) return;
 
@@ -386,7 +414,7 @@ export default class Unit implements TableSource<Keys> {
           lancerTarget,
           laser: false,
         };
-      }
+      },
     });
 
     const rounds = Data.JsonRound.parse(src.rounds ?? classData?.rounds ?? 1);
@@ -394,45 +422,44 @@ export default class Unit implements TableSource<Keys> {
       const potential = Data.JsonRound.parse(src.potentialBonus?.rounds);
       this.rounds = new Stat.Root({
         statType: stat.round,
-        calculater: s => {
-          if (this.isPotentialApplied(s))
-            return potential ?? rounds;
+        calculater: (s) => {
+          if (this.isPotentialApplied(s)) return potential ?? rounds;
           return rounds;
-        }
+        },
       });
     }
 
     const splash = src.splash ?? classData?.splash ?? false;
     this.splash = new Stat.Root({
       statType: stat.splash,
-      calculater: () => splash
+      calculater: () => splash,
     });
 
     this.range = new Stat.Base({
       statType: stat.range,
-      calculater: s => this.range.getFactors(s)?.deploymentResult,
+      calculater: (s) => this.range.getFactors(s)?.deploymentResult,
       isReversed: true,
-      factors: s => {
+      factors: (s) => {
         const base = src.range ?? classData?.range;
-        if (base === undefined)
-          return;
+        if (base === undefined) return;
 
         return this.getDeploymentFactors(s, stat.range, base);
-      }
+      },
     });
 
     this.damageType = new Stat.Root({
       statType: stat.damageType,
-      calculater: () => Data.JsonDamageType.parse(src.damageType) ?? classData?.damageType,
-      comparer: s => Data.DamageType.indexOf(this.damageType.getValue(s)),
-      color: s => Data.DamageType.colorOf(this.damageType.getValue(s))
+      calculater: () =>
+        Data.JsonDamageType.parse(src.damageType) ?? classData?.damageType,
+      comparer: (s) => Data.DamageType.indexOf(this.damageType.getValue(s)),
+      color: (s) => Data.DamageType.colorOf(this.damageType.getValue(s)),
     });
 
     this.moveSpeed = new Stat.Root({
       statType: stat.moveSpeed,
-      calculater: s => this.moveSpeed.getFactors(s).result,
+      calculater: (s) => this.moveSpeed.getFactors(s).result,
       isReversed: true,
-      factors: s => {
+      factors: (s) => {
         const base = src.moveSpeed ?? classData?.moveSpeed ?? 160;
         const formation = this.getBeastFormationBuffFactor(s, stat.moveSpeed);
         const w = this.getWeaponBaseBuff(s, stat.moveSpeed) ?? 100;
@@ -451,7 +478,8 @@ export default class Unit implements TableSource<Keys> {
 
         const multiply = Math.max(w, mul, ssMul, potential);
 
-        const result = Percent.multiply(base + formation, multiply) + subskillAdd + addition;
+        const result =
+          Percent.multiply(base + formation, multiply) + subskillAdd + addition;
         return {
           base,
           formation,
@@ -460,35 +488,40 @@ export default class Unit implements TableSource<Keys> {
           subskillAdd,
           result,
         };
-      }
+      },
     });
 
     this.moveType = new Stat.Root({
       statType: stat.moveType,
-      calculater: () => Data.MoveType.parse(src.moveType) ?? classData?.moveType ?? Data.MoveType.normal,
-      comparer: s => -Data.MoveType.indexOf(this.moveType.getValue(s)),
-      color: s => Data.MoveType.colorOf(this.moveType.getValue(s))
+      calculater: () =>
+        Data.MoveType.parse(src.moveType) ??
+        classData?.moveType ??
+        Data.MoveType.normal,
+      comparer: (s) => -Data.MoveType.indexOf(this.moveType.getValue(s)),
+      color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);
     this.placement = new Stat.Root({
       statType: stat.placement,
-      calculater: s => {
-        const potential = this.getPotentialFactor(s, stat.placement) === 1
-          ? Data.Placement.omniguard : undefined;
+      calculater: (s) => {
+        const potential =
+          this.getPotentialFactor(s, stat.placement) === 1
+            ? Data.Placement.omniguard
+            : undefined;
         return potential ?? placement ?? classData?.placement;
       },
-      text: s => {
+      text: (s) => {
         const v = this.placement.getValue(s);
         if (v === undefined) return;
         return Data.Placement.name[v];
       },
-      comparer: s => {
+      comparer: (s) => {
         const v = this.placement.getValue(s);
         if (v === undefined) return;
         return Data.Placement.index[v];
       },
-      color: s => {
+      color: (s) => {
         const v = this.placement.getValue(s);
         if (v === undefined) return;
         return Data.Placement.color[v];
@@ -498,15 +531,15 @@ export default class Unit implements TableSource<Keys> {
     this.exSkill1 = new Stat.Root({
       statType: stat.exSkill1,
       calculater: () => Unit.toSkill(src.exSkill1),
-      comparer: s => this.exSkill1.getValue(s)?.skillName,
-      text: s => this.exSkill1.getValue(s)?.skillName
+      comparer: (s) => this.exSkill1.getValue(s)?.skillName,
+      text: (s) => this.exSkill1.getValue(s)?.skillName,
     });
 
     this.exSkill2 = new Stat.Root({
       statType: stat.exSkill2,
       calculater: () => Unit.toSkill(src.exSkill2),
-      comparer: s => this.exSkill2.getValue(s)?.skillName,
-      text: s => this.exSkill2.getValue(s)?.skillName
+      comparer: (s) => this.exSkill2.getValue(s)?.skillName,
+      text: (s) => this.exSkill2.getValue(s)?.skillName,
     });
 
     this.lancerTarget = classData?.lancerTarget ?? false;
@@ -514,15 +547,17 @@ export default class Unit implements TableSource<Keys> {
     this.weapon = src.weapon;
     {
       const s = new Set(classData?.supplements);
-      src.supplements?.forEach(v => s.add(v));
+      src.supplements?.forEach((v) => s.add(v));
       this.supplements = s;
     }
     this.features = [
       ...(classData?.features ?? []),
       ...Feature.getCommonFeatures(),
-      ...Feature.parseList(src.features ?? [])
+      ...Feature.parseList(src.features ?? []),
     ];
-    this.formationBuffs = Data.JsonFormationBuff.parse(src.formationBuffs ?? []);
+    this.formationBuffs = Data.JsonFormationBuff.parse(
+      src.formationBuffs ?? []
+    );
     this.isEventUnit = src.isEventUnit ?? false;
     this.isUnhealable = src.isUnhealable ?? false;
     this.hpMul = src.hpMul;
@@ -536,21 +571,23 @@ export default class Unit implements TableSource<Keys> {
     {
       const arr: Partial<JsonUnitSituation>[] = [];
 
-      classData?.situations?.forEach(classSituation => {
+      classData?.situations?.forEach((classSituation) => {
         const classFeatures = classSituation.features ?? [];
 
-        src.situations?.forEach(unitSituation => {
-          if (unitSituation.exclude?.some(v => classFeatures.includes(v))
-            || unitSituation.depend?.some(v => !classFeatures.includes(v))
-          ) return;
+        src.situations?.forEach((unitSituation) => {
+          if (
+            unitSituation.exclude?.some((v) => classFeatures.includes(v)) ||
+            unitSituation.depend?.some((v) => !classFeatures.includes(v))
+          )
+            return;
 
           const features: string[] = [
-            ...unitSituation.features ?? [],
-            ...classFeatures
+            ...(unitSituation.features ?? []),
+            ...classFeatures,
           ];
           arr.push({
             ...unitSituation,
-            features
+            features,
           });
         });
       });
@@ -561,28 +598,32 @@ export default class Unit implements TableSource<Keys> {
 
   getTokenParent(): Unit | undefined {
     if (this.parentId === undefined) return;
-    this.tokenParent ??= Unit.list.find(u => u.id === this.parentId);
+    this.tokenParent ??= Unit.list.find((u) => u.id === this.parentId);
     return this.tokenParent;
   }
 
-  private calculateStat<T extends number | undefined>
-    (setting: Setting, statType: Data.MainStatType, value: T): T {
+  private calculateStat<T extends number | undefined>(
+    setting: Setting,
+    statType: Data.MainStatType,
+    value: T
+  ): T {
     if (value === undefined) return value;
-    return this.getDeploymentFactors(setting, statType, value).deploymentResult as T;
+    return this.getDeploymentFactors(setting, statType, value)
+      .deploymentResult as T;
   }
 
   private getBaseStat(data: Readonly<JsonUnit>, key: Data.BaseStatType) {
     const ret: Stat.Base<number> = new Stat.Base({
       statType: key,
-      calculater: s => ret.getFactors(s)?.deploymentResult ?? 0,
-      item: s => {
+      calculater: (s) => ret.getFactors(s)?.deploymentResult ?? 0,
+      item: (s) => {
         const c = ret.getText(s);
         if (key === stat.hp && this.isUnhealable)
           return Util.getUnhealableText(c);
         return c;
       },
       isReversed: true,
-      factors: s => this.getDeploymentFactors(s, key, data[key])
+      factors: (s) => this.getDeploymentFactors(s, key, data[key]),
     });
     return ret;
   }
@@ -605,7 +646,7 @@ export default class Unit implements TableSource<Keys> {
     };
     return {
       ...ret,
-      barrackResult: this.calculateBarrackResult(ret)
+      barrackResult: this.calculateBarrackResult(ret),
     };
   }
 
@@ -627,12 +668,16 @@ export default class Unit implements TableSource<Keys> {
       ...this.getBarrackFactors(setting, statType, value),
       formationBuff: this.getFormationBuffFactor(setting, statType),
       beastFormationBuff: this.getBeastFormationBuffFactor(setting, statType),
-      beastPossLevel: this.isToken ? 100 : Data.Beast.getPossLevelFactor(setting, statType),
-      beastPossAmount: this.isToken ? 0 : Data.Beast.getPossAmountFactor(setting, statType),
+      beastPossLevel: this.isToken
+        ? 100
+        : Data.Beast.getPossLevelFactor(setting, statType),
+      beastPossAmount: this.isToken
+        ? 0
+        : Data.Beast.getPossAmountFactor(setting, statType),
     };
     return {
       ...ret,
-      deploymentResult: this.calculateDeploymentResult(statType, ret)
+      deploymentResult: this.calculateDeploymentResult(statType, ret),
     };
   }
 
@@ -641,14 +686,12 @@ export default class Unit implements TableSource<Keys> {
     factors: Data.DeploymentFactorsBase
   ): number {
     const res = factors.barrackResult;
-    if (this.isToken)
-      return res;
+    if (this.isToken) return res;
     const a = Percent.multiply(res, factors.formationBuff);
     let b;
     if (Data.Beast.isFormationFactorAdd(statType))
       b = Math.max(0, a + factors.beastFormationBuff);
-    else
-      b = Percent.multiply(a, factors.beastFormationBuff);
+    else b = Percent.multiply(a, factors.beastFormationBuff);
     const c = Percent.multiply(b, factors.beastPossLevel);
     return c + factors.beastPossAmount;
   }
@@ -667,12 +710,10 @@ export default class Unit implements TableSource<Keys> {
   }
 
   getPotentialFactor(setting: Setting, statType: Data.StatType): number {
-    if (!this.isPotentialApplied(setting))
-      return 0;
+    if (!this.isPotentialApplied(setting)) return 0;
 
     const cache = this.cachePotentialValues.get(statType);
-    if (cache !== undefined)
-      return cache;
+    if (cache !== undefined) return cache;
     else {
       const ret = Data.Potential.getEffectValue(statType, this.potentials);
       this.cachePotentialValues.set(statType, ret);
@@ -680,7 +721,10 @@ export default class Unit implements TableSource<Keys> {
     }
   }
 
-  private getWeaponBaseFactor(setting: Setting, statType: Data.StatType): number {
+  private getWeaponBaseFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
     if (!Data.Weapon.isApplied(setting)) return 0;
     const w = this.weapon;
     if (w === undefined) return 0;
@@ -691,11 +735,14 @@ export default class Unit implements TableSource<Keys> {
     }
   }
 
-  private getWeaponUpgradeFactor(setting: Setting, statType: Data.StatType): number {
+  private getWeaponUpgradeFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
     if (setting.weapon !== Setting.ALL) return 0;
     let n = 0;
     let k;
-    Data.baseStatList.forEach(v => {
+    Data.baseStatList.forEach((v) => {
       if (this.weapon !== undefined && this.weapon[v] !== undefined) {
         n++;
         if (v === statType) k = true;
@@ -705,7 +752,10 @@ export default class Unit implements TableSource<Keys> {
     return (statType === stat.hp ? 2400 : 240) / n;
   }
 
-  private getWeaponBaseBuff(setting: Setting, statType: Data.StatType): number | undefined {
+  private getWeaponBaseBuff(
+    setting: Setting,
+    statType: Data.StatType
+  ): number | undefined {
     if (!Data.Weapon.isApplied(setting)) return;
     switch (statType) {
       case stat.hp:
@@ -717,7 +767,10 @@ export default class Unit implements TableSource<Keys> {
     }
   }
 
-  private getBaseBuff(setting: Setting, statType: Data.MainStatType): number | undefined {
+  private getBaseBuff(
+    setting: Setting,
+    statType: Data.MainStatType
+  ): number | undefined {
     if (Data.BaseStatType.isKey(statType)) {
       const p = this.potentialBonus;
       if (p !== undefined && this.isPotentialApplied(setting)) {
@@ -732,35 +785,41 @@ export default class Unit implements TableSource<Keys> {
     const p = this.isPotentialApplied(setting);
     switch (statType) {
       case stat.range:
-        return (p ? this.potentialBonus?.rangeAdd : undefined) ?? this.rangeAdd ?? 0;
+        return (
+          (p ? this.potentialBonus?.rangeAdd : undefined) ?? this.rangeAdd ?? 0
+        );
       default:
         return 0;
     }
   }
 
-  private getFormationBuffValue(setting: Setting, statType: Data.StatType)
-    : Data.FormationBuffValue[] {
-
-    if (!(Data.BaseStatType.isKey(statType)
-      || statType === stat.delay)
-      || !this.isPotentialApplied(setting))
+  private getFormationBuffValue(
+    setting: Setting,
+    statType: Data.StatType
+  ): Data.FormationBuffValue[] {
+    if (
+      !(Data.BaseStatType.isKey(statType) || statType === stat.delay) ||
+      !this.isPotentialApplied(setting)
+    )
       return this.formationBuffs;
 
-    return this.formationBuffs.map(b => {
+    return this.formationBuffs.map((b) => {
       const p = b.potentialBonus;
       if (p !== undefined && p[statType] !== undefined) {
         return {
           ...b,
-          [statType]: p[statType]
+          [statType]: p[statType],
         };
       }
       return b;
     });
   }
 
-  private getFormationBuffFactor(setting: Setting, statType: Data.StatType): number {
-    if (this.isToken)
-      return 100;
+  private getFormationBuffFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
+    if (this.isToken) return 100;
 
     const k = (() => {
       switch (statType) {
@@ -775,24 +834,25 @@ export default class Unit implements TableSource<Keys> {
       }
     })();
     const subskill = k !== undefined ? this.getSubskillFactor(setting, k) : 100;
-    const panel = (() => {
-      switch (statType) {
-        case stat.hp:
-          return setting.formationHp;
-        case stat.attack:
-          return setting.formationAttack;
-        case stat.defense:
-          return setting.formationDefense;
-        case stat.resist:
-          return setting.formationResist;
-        default:
-          return 0;
-      }
-    })() + 100;
+    const panel =
+      (() => {
+        switch (statType) {
+          case stat.hp:
+            return setting.formationHp;
+          case stat.attack:
+            return setting.formationAttack;
+          case stat.defense:
+            return setting.formationDefense;
+          case stat.resist:
+            return setting.formationResist;
+          default:
+            return 0;
+        }
+      })() + 100;
 
     return [
-      ...this.getFormationBuffValue(setting, statType).map(buff => {
-        const req = buff.require.every(r => {
+      ...this.getFormationBuffValue(setting, statType).map((buff) => {
+        const req = buff.require.every((r) => {
           switch (r) {
             case Data.FormationBuffRequire.weapon:
               return Data.Weapon.isApplied(setting);
@@ -806,12 +866,15 @@ export default class Unit implements TableSource<Keys> {
           this.element.getValue(setting),
           Data.ClassName.baseNameOf(this.className.getValue(setting)),
           this.species.getValue(setting),
-        ].some(s => {
+        ].some((s) => {
           if (s === undefined) return false;
           return buff.targets.has(s);
         });
 
-        if (isTarget && (Data.BaseStatType.isKey(statType) || statType === stat.delay))
+        if (
+          isTarget &&
+          (Data.BaseStatType.isKey(statType) || statType === stat.delay)
+        )
           return buff[statType] ?? 100;
 
         return 100;
@@ -862,18 +925,18 @@ export default class Unit implements TableSource<Keys> {
         if (isAdd) {
           const r1 = v1 ?? 0;
           const r2 = v2 ?? 0;
-          if (r1 < 0 && r2 < 0)
-            return Math.min(r1, r2);
-          else if (r1 > 0 && r2 > 0)
-            return Math.max(r1, r2);
-          else
-            return r1 + r2;
+          if (r1 < 0 && r2 < 0) return Math.min(r1, r2);
+          else if (r1 > 0 && r2 > 0) return Math.max(r1, r2);
+          else return r1 + r2;
         }
         return 100 + Math.max(v1 ?? 0, v2 ?? 0);
     }
   }
 
-  getBeastFormationBuffFactor(setting: Setting, statType: Data.StatType): number {
+  getBeastFormationBuffFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
     const keys = Beast.keys;
     const key = (() => {
       switch (statType) {
@@ -893,14 +956,16 @@ export default class Unit implements TableSource<Keys> {
           return keys.moveSpeedAdd;
       }
     })();
-    if (key === undefined)
-      return 100;
+    if (key === undefined) return 100;
     return this.getBeastFactor(setting, key);
   }
 
   getSubskills(setting: Setting): [Subskill | undefined, Subskill | undefined] {
     return this.cacheSubskill.getCache(() => {
-      return [Subskill.getItem(setting.subskill1), Subskill.getItem(setting.subskill2)];
+      return [
+        Subskill.getItem(setting.subskill1),
+        Subskill.getItem(setting.subskill2),
+      ];
     }, setting);
   }
 
@@ -922,8 +987,7 @@ export default class Unit implements TableSource<Keys> {
           return false;
       }
     })();
-    if (this.isToken)
-      return isMul ? 100 : 0;
+    if (this.isToken) return isMul ? 100 : 0;
 
     const [ss1, ss2] = this.getSubskills(setting);
     const className = this.className.getValue(setting);
@@ -936,8 +1000,7 @@ export default class Unit implements TableSource<Keys> {
     const fn = (ss: Subskill | undefined) => {
       if (ss === undefined) return;
       const ret = ss.getFactor(key, types);
-      if (typeof ret === "boolean")
-        return ret ? 1 : 0;
+      if (typeof ret === "boolean") return ret ? 1 : 0;
       return ret;
     };
     const v1 = fn(ss1);
@@ -946,18 +1009,28 @@ export default class Unit implements TableSource<Keys> {
 
     switch (key) {
       case ssKeys.cost:
-        return (isStackable ? (v1 ?? 0) + (v2 ?? 0) : Math.min(v1 ?? 0, v2 ?? 0));
+        return isStackable ? (v1 ?? 0) + (v2 ?? 0) : Math.min(v1 ?? 0, v2 ?? 0);
       case ssKeys.delayMul:
-        return isStackable ? Percent.multiply(v1, v2) : Math.min(v1 ?? 100, v2 ?? 100);
+        return isStackable
+          ? Percent.multiply(v1, v2)
+          : Math.min(v1 ?? 100, v2 ?? 100);
       default:
         if (isMul)
-          return 100 + (isStackable ? (v1 ?? 0) + (v2 ?? 0) : Math.max(v1 ?? 0, v2 ?? 0));
+          return (
+            100 +
+            (isStackable ? (v1 ?? 0) + (v2 ?? 0) : Math.max(v1 ?? 0, v2 ?? 0))
+          );
         else
-          return (isStackable ? (v1 ?? 0) + (v2 ?? 0) : Math.max(v1 ?? 0, v2 ?? 0));
+          return isStackable
+            ? (v1 ?? 0) + (v2 ?? 0)
+            : Math.max(v1 ?? 0, v2 ?? 0);
     }
   }
 
-  private getSubskillMultiFactor(setting: Setting, statType: Data.StatType): number {
+  private getSubskillMultiFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
     switch (statType) {
       case stat.hp:
       case stat.attack:
@@ -969,7 +1042,10 @@ export default class Unit implements TableSource<Keys> {
     }
   }
 
-  private getSubskillAddFactor(setting: Setting, statType: Data.StatType): number {
+  private getSubskillAddFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
     const keys = ssKeys;
     const fn = (k: SubskillFactorKey) => {
       return this.getSubskillFactor(setting, k);
@@ -991,49 +1067,56 @@ export default class Unit implements TableSource<Keys> {
     }
   }
 
-  private static toSkill(value: Data.JsonSkill | undefined): Data.Skill | undefined {
+  private static toSkill(
+    value: Data.JsonSkill | undefined
+  ): Data.Skill | undefined {
     if (value === undefined) return;
     return Data.JsonSkill.parse(value);
   }
 
-  static comparer(setting: Setting, key: Keys, target: Unit): string | number | undefined {
+  static comparer(
+    setting: Setting,
+    key: Keys,
+    target: Unit
+  ): string | number | undefined {
     return target[key].getSortOrder(setting);
   }
 
   static filter(states: States, list: readonly Unit[]): readonly Unit[] {
-    return list.filter(item => {
+    return list.filter((item) => {
       const parent = item.getTokenParent();
       const target = parent !== undefined ? parent : item;
       const className = target.className.getValue(states.setting);
       const filterKeys = FilterEquipment.getKeys(states.filter);
       const classNameKey = Data.ClassName.keyOf(className);
-      if (filterKeys.size > 0 && classNameKey !== undefined && !filterKeys.has(classNameKey))
+      if (
+        filterKeys.size > 0 &&
+        classNameKey !== undefined &&
+        !filterKeys.has(classNameKey)
+      )
         return false;
 
-      if (target.filterRarity(states))
-        return false;
+      if (target.filterRarity(states)) return false;
 
-      if (target.filterElement(states))
-        return false;
+      if (target.filterElement(states)) return false;
 
-      if (target.filterSpecies(states))
-        return false;
+      if (target.filterSpecies(states)) return false;
 
-      if (item.filterPlacement(states))
-        return false;
+      if (item.filterPlacement(states)) return false;
 
       if (!states.query) {
         return true;
       } else {
-        const sb = parent === undefined ? [
-          item.rarity,
-        ] : [
-          parent.unitName,
-          parent.unitShortName,
-          parent.rarity,
-          parent.element,
-          parent.className,
-        ];
+        const sb =
+          parent === undefined
+            ? [item.rarity]
+            : [
+                parent.unitName,
+                parent.unitShortName,
+                parent.rarity,
+                parent.element,
+                parent.className,
+              ];
 
         const s = [
           ...sb,
@@ -1044,9 +1127,9 @@ export default class Unit implements TableSource<Keys> {
           item.className,
           item.exSkill1,
           item.exSkill2,
-        ].map(v => v.getText(states.setting)?.toString());
+        ].map((v) => v.getText(states.setting)?.toString());
         try {
-          return s.some(str => str?.match(states.query));
+          return s.some((str) => str?.match(states.query));
         } catch {
           return false;
         }
@@ -1057,23 +1140,28 @@ export default class Unit implements TableSource<Keys> {
   private filterItem<T extends FilterKeys>(
     states: States,
     list: readonly T[],
-    value: T | undefined | null,
+    value: T | undefined | null
   ): boolean {
-    const filters = list.filter(v => states.filter.get(v));
+    const filters = list.filter((v) => states.filter.get(v));
     if (filters.length > 0) {
-      if (value === null || value !== undefined && !filters.includes(value))
+      if (value === null || (value !== undefined && !filters.includes(value)))
         return true;
     }
     return false;
   }
 
   filterRarity(states: States): boolean {
-    return this.filterItem(states, Data.Rarity.list, this.rarity.getValue(states.setting));
+    return this.filterItem(
+      states,
+      Data.Rarity.list,
+      this.rarity.getValue(states.setting)
+    );
   }
 
   filterElement(states: States): boolean {
     const element = this.element.getValue(states.setting);
-    const value = element === undefined ? undefined : Data.Element.keyOf(element);
+    const value =
+      element === undefined ? undefined : Data.Element.keyOf(element);
     return this.filterItem(states, Data.Element.list, value);
   }
 
@@ -1084,7 +1172,11 @@ export default class Unit implements TableSource<Keys> {
   }
 
   filterPlacement(states: States): boolean {
-    return this.filterItem(states, Data.Placement.list, this.placement.getValue(states.setting));
+    return this.filterItem(
+      states,
+      Data.Placement.list,
+      this.placement.getValue(states.setting)
+    );
   }
 
   static get list(): readonly Unit[] {
@@ -1094,14 +1186,12 @@ export default class Unit implements TableSource<Keys> {
   static get keys(): readonly Keys[] {
     return keys;
   }
-
 }
 
 const units = (() => {
   const ret: Unit[] = [];
   jsonUnits.forEach((item: JsonUnit) => {
-    if (!item.DISABLED)
-      ret.push(new Unit(item));
+    if (!item.DISABLED) ret.push(new Unit(item));
   });
   return ret;
 })();

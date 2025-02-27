@@ -1,0 +1,3 @@
+.table > :not(caption) > * > th {
+  text-align: start !important;
+}
