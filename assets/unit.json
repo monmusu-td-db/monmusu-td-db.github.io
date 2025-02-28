@@ -101,8 +101,19 @@
       {
         "type": "redeploy-time-cut",
         "target": "全体",
-        "condition": "常時",
+        "duration": "常時",
         "value": 40
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": 2,
+        "target": "射程内",
+        "value": 60
+      },
+      {
+        "type": "freeze-nullify",
+        "skill": 1,
+        "target": "射程内"
       }
     ]
   },

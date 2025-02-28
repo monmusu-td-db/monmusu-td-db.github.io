@@ -1,11 +1,12 @@
 "use client";
 
+import * as Data from "@/components/Data";
 import {
   BuffTable,
   type BuffTableItem,
   type BuffTableSource,
 } from "@/components/BuffTable";
-import Unit from "@/components/Unit";
+import Unit, { type JsonUnit } from "@/components/Unit";
 import type { ReactNode } from "react";
 
 const columnKeys = [
@@ -13,8 +14,10 @@ const columnKeys = [
   "name",
   "skillName",
   "target",
-  "condition",
+  "range",
+  "duration",
   "redeployTimeCut",
+  "supplement",
 ] as const;
 type ColumnKey = (typeof columnKeys)[number];
 
@@ -23,9 +26,22 @@ const columnName = {
   name: "名前",
   skillName: "スキル",
   target: "対象",
-  condition: "状態",
+  range: "射程",
+  duration: "持続時間",
   redeployTimeCut: "再出撃短縮",
+  supplement: "補足",
 } as const satisfies Record<ColumnKey, string>;
+
+const BuffType = {
+  redeployTimeCut: "redeploy-time-cut",
+  freezeNullify: "freeze-nullify",
+} as const;
+type BuffType = (typeof BuffType)[keyof typeof BuffType];
+
+const Target = {
+  all: "全体",
+} as const;
+type Target = (typeof Target)[keyof typeof Target];
 
 const items = getItems();
 type Item = BuffTableItem<ColumnKey>;
@@ -44,28 +60,36 @@ function getItems(): readonly Item[] {
   const ret: Item[] = [];
 
   Unit.list.forEach((unit) => {
-    const buffs = unit.src.buffs;
+    const src = unit.src;
+    const buffs = src.buffs;
     if (buffs === undefined || buffs.length === 0) return;
 
     buffs.forEach((buff) => {
-      const id = unit.src.parentId ?? unit.src.id;
+      const skill = getSkill(src, buff.skill);
+
+      const id = src.parentId ?? src.id;
+      const skillName = skill?.skillName;
       const target = buff.target;
-      const condition = buff.condition;
+      const range = target === Target.all ? target : getRange(unit, buff.skill);
+      const duration = getDuration(buff.duration ?? skill?.duration);
       const redeployTimeCut = getPercent(
-        buff.type === "redeploy-time-cut" && buff.value
+        buff.type === BuffType.redeployTimeCut && buff.value
       );
+      const supplement = getSupplement(buff.type);
 
       const itemValue: ItemValue = {
         id,
-        name: unit.src.unitShortName,
-        skillName: "",
+        name: src.unitShortName,
+        skillName,
         target,
-        condition,
+        range,
+        duration,
         redeployTimeCut,
+        supplement,
       };
 
       ret.push({
-        key: unit.src.id,
+        key: src.id,
         value: itemValue,
       });
     });
@@ -74,7 +98,43 @@ function getItems(): readonly Item[] {
   return ret;
 }
 
-function getPercent(value: number | undefined | false): string {
-  if (value === undefined || value === false) return "";
+function getSkill(
+  src: Readonly<JsonUnit>,
+  skillId: number | undefined
+): Data.JsonSkill | undefined {
+  switch (skillId) {
+    case 1:
+      return src.exSkill1;
+    case 2:
+      return src.exSkill2;
+  }
+}
+
+function getRange(unit: Unit, skillId: number | undefined): number | undefined {
+  const src = unit.src;
+  const skill = getSkill(src, skillId);
+  if (skill?.range !== undefined) return skill.range;
+  if (unit.rangeBase === undefined) return;
+  return Data.Percent.multiply(
+    unit.rangeBase + (src.rangeAdd ?? 0),
+    skill?.rangeMul
+  );
+}
+
+function getPercent(value: number | undefined | false): string | undefined {
+  if (value === undefined || value === false) return;
   return `${value}%`;
+}
+
+function getDuration(value: number | string | undefined): string | undefined {
+  if (typeof value !== "number") return value;
+  return `${value}秒`;
+}
+
+function getSupplement(type: string): string | undefined {
+  // TODO
+  switch (type) {
+    case BuffType.freezeNullify:
+      return "凍結無効化";
+  }
 }

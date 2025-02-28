@@ -16,7 +16,7 @@ import Beast, { type BeastFactorKeys } from "./Beast";
 import type { TableSource } from "./StatTable";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
 
-interface JsonUnit {
+export interface JsonUnit {
   DISABLED?: boolean;
   id: number;
   parentId?: number;
@@ -98,11 +98,12 @@ type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
 
 interface JsonBuff {
   type: string;
+  skill?: number;
   target: string;
-  condition: string;
-  value: number;
+  duration?: string;
+  value?: number;
 }
-type JsonBuffs = readonly JsonBuff[];
+type JsonBuffs = readonly Readonly<JsonBuff>[];
 
 const keys = [
   "unitId",
@@ -186,6 +187,8 @@ export default class Unit implements TableSource<Keys> {
   readonly rangeAdd: number | undefined;
   readonly potentialBonus: JsonPotentialBonus | undefined;
   readonly situations: JsonUnitSituations;
+
+  readonly rangeBase: number | undefined;
 
   private tokenParent: Unit | undefined;
   private cacheSubskill = new Data.Cache<
@@ -435,15 +438,14 @@ export default class Unit implements TableSource<Keys> {
       calculater: () => splash,
     });
 
+    this.rangeBase = src.range ?? classData?.range;
     this.range = new Stat.Base({
       statType: stat.range,
       calculater: (s) => this.range.getFactors(s)?.deploymentResult,
       isReversed: true,
       factors: (s) => {
-        const base = src.range ?? classData?.range;
-        if (base === undefined) return;
-
-        return this.getDeploymentFactors(s, stat.range, base);
+        if (this.rangeBase === undefined) return;
+        return this.getDeploymentFactors(s, stat.range, this.rangeBase);
       },
     });
 
