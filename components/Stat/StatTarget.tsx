@@ -6,15 +6,17 @@ import { StatTooltip } from "./StatTooltip";
 import type { StatHandler } from "./StatRoot";
 import { Level, Positive } from "../Util";
 
-export class StatTarget extends StatTooltip<Data.Target | undefined, Data.TargetFactors | undefined> {
-  override isEnabled: StatHandler<boolean> = s => this.getFactors(s) !== undefined;
+export class StatTarget extends StatTooltip<
+  Data.Target | undefined,
+  Data.TargetFactors | undefined
+> {
+  override isEnabled: StatHandler<boolean> = (s) =>
+    this.getFactors(s) !== undefined;
 
   protected override getDefaultComparer(setting: Setting): number | undefined {
     const value = this.getValue(setting);
-    if (value === Infinity)
-      return -1000;
-    if (typeof value === "number")
-      return -value;
+    if (value === Infinity) return -1000;
+    if (typeof value === "number") return -value;
     switch (value) {
       case Data.Target.self:
         return -1;
@@ -25,7 +27,7 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
       case Data.Target.hit:
         return 1;
     }
-  };
+  }
 
   protected override getDefaultItem(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
@@ -37,12 +39,14 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
         case Data.Target.self:
         case Data.Target.all:
         case Data.Target.other:
+          return [target];
         case Data.Target.hit:
+          if (splash) return [`${target}→範囲`];
           return [target];
       }
       const targets = Array.isArray(target) ? target : [target];
 
-      return targets.flatMap(tgt => {
+      return targets.flatMap((tgt) => {
         function fn(value: number) {
           const multiply = <>&#8203;×</>;
           let t, tar;
@@ -56,7 +60,7 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
             tar = tgt > 1;
           }
 
-          const tx = tar || tgt === 1 && lancerTarget;
+          const tx = tar || (tgt === 1 && lancerTarget);
           const start = tx && lancerTarget && splash ? "(" : "";
           const a = tx ? t : "";
           const b = tx && lancerTarget ? "+" : "";
@@ -65,26 +69,49 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
           const d = (tar || lancerTarget) && splash ? multiply : "";
           const e = splash ? "範囲" : "";
           const f = !(tar || splash || lancerTarget) ? 1 : "";
-          const g = value > 1 ? <>{multiply}{value}</> : "";
-          return <>{start}{a}{b}{c}{end}{d}{e}{f}{g}</>;
+          const g =
+            value > 1 ? (
+              <>
+                {multiply}
+                {value}
+              </>
+            ) : (
+              ""
+            );
+          return (
+            <>
+              {start}
+              {a}
+              {b}
+              {c}
+              {end}
+              {d}
+              {e}
+              {f}
+              {g}
+            </>
+          );
         }
 
-        if (typeof rounds === "number")
-          return fn(rounds);
-        return rounds.map(r => fn(r.value));
+        if (typeof rounds === "number") return fn(rounds);
+        return rounds.map((r) => fn(r.value));
       });
     })();
 
-    const ret = <Util.JoinTexts texts={contents} separator={<>&#8203;or&#8203;</>} />;
-    if (target === Infinity
-      || target === Data.Target.self
-      || target === Data.Target.all
-      || target === Data.Target.other
-      || target === Data.Target.hit
-      || splash
-      || lancerTarget
-      || laser
-      || Array.isArray(rounds) && rounds.length > 1)
+    const ret = (
+      <Util.JoinTexts texts={contents} separator={<>&#8203;or&#8203;</>} />
+    );
+    if (
+      target === Infinity ||
+      target === Data.Target.self ||
+      target === Data.Target.all ||
+      target === Data.Target.other ||
+      target === Data.Target.hit ||
+      splash ||
+      lancerTarget ||
+      laser ||
+      (Array.isArray(rounds) && rounds.length > 1)
+    )
       return <small>{ret}</small>;
     return ret;
   }
@@ -96,10 +123,15 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
     const multiply = "×";
     const round = typeof f.rounds === "number" ? f.rounds : undefined;
     const [average, ratios] = Data.Round.getAverageAndRatios(f.rounds);
-    const roundDetails = typeof f.rounds === "number" ? undefined : f.rounds.map(r => {
-      const ratio = (r.ratio / ratios * 100).toFixed(0) + this.percent;
-      return multiply + r.value.toFixed(0) + this.bStart + ratio + this.bEnd;
-    });
+    const roundDetails =
+      typeof f.rounds === "number"
+        ? undefined
+        : f.rounds.map((r) => {
+            const ratio = ((r.ratio / ratios) * 100).toFixed(0) + this.percent;
+            return (
+              multiply + r.value.toFixed(0) + this.bStart + ratio + this.bEnd
+            );
+          });
 
     return (
       <table>
@@ -126,19 +158,23 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
           </Row>
           {round !== undefined && round !== 1 ? (
             <Row label="連射数">
-              <Level level={round > 1}>{multiply}{round.toFixed(0)}</Level>
+              <Level level={round > 1}>
+                {multiply}
+                {round.toFixed(0)}
+              </Level>
             </Row>
           ) : (
             <>
               {average !== 1 && (
                 <Row label="平均連射数">
-                  <Level level={average > 1}>{multiply}{average.toFixed(1)}</Level>
+                  <Level level={average > 1}>
+                    {multiply}
+                    {average.toFixed(1)}
+                  </Level>
                 </Row>
               )}
               {roundDetails !== undefined && roundDetails.length > 0 && (
-                <Row label="連射内訳">
-                  {roundDetails.join(" / ")}
-                </Row>
+                <Row label="連射内訳">{roundDetails.join(" / ")}</Row>
               )}
             </>
           )}
@@ -148,13 +184,7 @@ export class StatTarget extends StatTooltip<Data.Target | undefined, Data.Target
   }
 }
 
-function Row({
-  label,
-  children,
-}: {
-  label: ReactNode
-  children: ReactNode
-}) {
+function Row({ label, children }: { label: ReactNode; children: ReactNode }) {
   return (
     <tr>
       <Th>{label}</Th>

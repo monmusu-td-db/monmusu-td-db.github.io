@@ -1530,6 +1530,276 @@
     ]
   },
   {
+    "id": 40,
+    "unitName": "【マンティコア娘】ニィル",
+    "unitShortName": "ニィル",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "hp": 4230,
+    "attack": 564,
+    "defense": 424,
+    "resist": 123,
+    "exSkill1": {
+      "skillName": "ニードルレイン",
+      "attackMul": 230,
+      "target": 5,
+      "rangeMul": 200,
+      "duration": 10,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "トキシックニードル",
+      "target": 5,
+      "rangeMul": 240,
+      "duration": 10,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃速度+15"
+    ],
+    "weapon": {
+      "weaponName": "アンタレスダガー",
+      "hp": 100,
+      "attack": 70
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "ATK-10→命中",
+          "DEF-10→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "ATK-20→命中",
+          "DEF-20→命中"
+        ]
+      },
+      {
+        "featureName": "proper-human",
+        "conditions": [
+          "特"
+        ],
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 160
+        }
+      },
+      {
+        "featureName": "proper-human",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "人間特効"
+        ]
+      },
+      {
+        "featureName": "proper-poison",
+        "annotations": [
+          "毒特効"
+        ],
+        "conditions": [
+          "特"
+        ],
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 140
+      },
+      {
+        "featureName": "skill1-extra",
+        "conditions": [
+          "追",
+          {
+            "key": "hit",
+            "value": 1
+          }
+        ],
+        "damageFactor": 15,
+        "criChanceAdd": -1000,
+        "target": "命中",
+        "splash": true,
+        "rounds": 4,
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "skill2-extra",
+        "conditions": [
+          "追",
+          {
+            "key": "hit",
+            "value": 1
+          }
+        ],
+        "damageFactor": 80,
+        "criChanceAdd": -1000,
+        "target": "命中",
+        "splash": true,
+        "rounds": 4,
+        "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-extra"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-extra"
+        ]
+      },
+      {
+        "features": [
+          "proper-human"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "proper-human"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-extra",
+          "proper-human"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "proper-human"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-extra",
+          "proper-human"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-extra",
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "skill2-extra",
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "proper-human",
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "proper-human",
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-extra",
+          "proper-human",
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "proper-human",
+          "proper-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "skill2-extra",
+          "proper-human",
+          "proper-poison"
+        ]
+      }
+    ]
+  },
+  {
     "id": 43,
     "unitName": "【マタンゴ娘】シジメ",
     "unitShortName": "シジメ",
