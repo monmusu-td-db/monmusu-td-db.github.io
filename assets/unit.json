@@ -10245,5 +10245,99 @@
     "potentialBonus": {
       "criChanceAdd": 45
     }
+  },
+  {
+    "id": 311,
+    "unitName": "【フェアリードラゴン娘】オンシジューム",
+    "unitShortName": "オンシジューム",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "風",
+    "hp": 4054,
+    "attack": 573,
+    "defense": 434,
+    "resist": 123,
+    "moveType": "隠密",
+    "supplements": [
+      "物理魔法回避90%(3s)/移動",
+      "物理魔法回避90%(3s)/配置"
+    ],
+    "exSkill1": {
+      "skillName": "ブラッディワルツ",
+      "attackMul": 260,
+      "attackMotionMul": 312,
+      "target": "射程内",
+      "rounds": 5,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "moveSpeed": 30
+      }
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "move-speed",
+          "value": 80
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "move-speed",
+            "value": 100
+          }
+        }
+      },
+      {
+        "skill": 0,
+        "rounds": 2
+      },
+      {
+        "featureName": "skill1-absorb",
+        "staticDamage": {
+          "key": "attack",
+          "value": 3
+        },
+        "damageType": "吸収"
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "damageFactor": 130
+      }
+    ],
+    "moveSpeedAdd": 150,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-absorb"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "target": "射程内風属性",
+        "value": 130
+      }
+    ]
   }
 ]

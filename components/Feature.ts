@@ -6,16 +6,16 @@ const stat = Data.stat;
 // Values
 
 const require = {
-  WEAPON: "武器",
-  FIRE: "火マス",
-  WATER: "水マス",
-  EARTH: "地マス",
-  WIND: "風マス",
-  LIGHT: "光マス",
-  DARK: "闇マス",
-  SKILL: "スキル",
+  weapon: "武器",
+  fire: "火マス",
+  water: "水マス",
+  earth: "地マス",
+  wind: "風マス",
+  light: "光マス",
+  dark: "闇マス",
+  skill: "スキル",
 } as const;
-type Require = typeof require[keyof typeof require]
+type Require = (typeof require)[keyof typeof require];
 const Require = {
   ...require,
   isElementApplied(
@@ -30,36 +30,44 @@ const Require = {
         return false;
     }
     return true;
-  }
+  },
 } as const;
-
 
 const additionFactorKeys = {
   HP: stat.hp,
   ATTACK: stat.attack,
   DEFENSE: stat.defense,
   RESIST: stat.resist,
+  MOVE_SPEED: "move-speed",
   CURRENT_HP: "current-hp",
   ACCUMULATION: "accumulation",
 } as const;
-type AdditionFactorKey = typeof additionFactorKeys[keyof typeof additionFactorKeys]
+type AdditionFactorKey =
+  (typeof additionFactorKeys)[keyof typeof additionFactorKeys];
 
-type JsonAdditionFactor = {
-  key: string
-  value: number
-} | {
-  value: number
-  time: number
-} | number
+type JsonAdditionFactor =
+  | {
+      key: string;
+      value: number;
+    }
+  | {
+      value: number;
+      time: number;
+    }
+  | number;
 
-export type AdditionFactor = {
-  key: Exclude<AdditionFactorKey, typeof AdditionFactor.ACCUMULATION> | undefined
-  value: number
-} | {
-  key: typeof AdditionFactor.ACCUMULATION
-  value: number
-  time: number
-}
+export type AdditionFactor =
+  | {
+      key:
+        | Exclude<AdditionFactorKey, typeof AdditionFactor.ACCUMULATION>
+        | undefined;
+      value: number;
+    }
+  | {
+      key: typeof AdditionFactor.ACCUMULATION;
+      value: number;
+      time: number;
+    };
 export const AdditionFactor = additionFactorKeys;
 
 const JsonAdditionFactor = {
@@ -68,7 +76,7 @@ const JsonAdditionFactor = {
     if (typeof obj === "number") {
       return {
         key: undefined,
-        value: obj
+        value: obj,
       };
     }
 
@@ -76,26 +84,25 @@ const JsonAdditionFactor = {
       return {
         key: AdditionFactor.ACCUMULATION,
         value: obj.value,
-        time: obj.time
+        time: obj.time,
       };
     }
 
     const isKey = (key: string): key is AdditionFactorKey =>
-      Object.values(additionFactorKeys).findIndex(v => v === key) !== -1;
+      Object.values(additionFactorKeys).findIndex((v) => v === key) !== -1;
     if (isKey(obj.key) && obj.key !== AdditionFactor.ACCUMULATION) {
       return {
         key: obj.key,
-        value: obj.value
+        value: obj.value,
       };
     }
-  }
+  },
 } as const;
 
-
 type JsonAttackDebuff = {
-  readonly key: string
-  readonly value: number
-}
+  readonly key: string;
+  readonly value: number;
+};
 const JsonAttackDebuff = {
   isKvp(obj: JsonAttackDebuff): obj is AttackDebuff {
     switch (obj.key) {
@@ -106,45 +113,44 @@ const JsonAttackDebuff = {
         return false;
     }
     return typeof obj.value === "number";
-  }
+  },
 } as const;
 export type AttackDebuff = {
-  readonly key: typeof Data.StaticDamage.ATTACK_BASE | typeof AttackDebuff.ENEMY_ATTACK
-  readonly value: number
-}
+  readonly key:
+    | typeof Data.StaticDamage.ATTACK_BASE
+    | typeof AttackDebuff.ENEMY_ATTACK;
+  readonly value: number;
+};
 export const AttackDebuff = {
-  ENEMY_ATTACK: "enemy-attack"
+  ENEMY_ATTACK: "enemy-attack",
 } as const;
 
-type DefresDebuff = DebuffAdd | DebuffMul
+type DefresDebuff = DebuffAdd | DebuffMul;
 interface DebuffAdd {
-  readonly time: number
-  readonly valueAdd: number
+  readonly time: number;
+  readonly valueAdd: number;
 }
 interface DebuffMul {
-  readonly valueMul: number
+  readonly valueMul: number;
 }
 export const Debuff = {
   calculate(
     obj: DefresDebuff | number | undefined,
     interval: number,
     attackSpeed: number | undefined,
-    defres: number,
+    defres: number
   ): number | undefined {
-    if (obj === undefined || typeof obj === "number")
-      return obj;
+    if (obj === undefined || typeof obj === "number") return obj;
     if ("valueMul" in obj) {
-      return defres * obj.valueMul / 100;
+      return (defres * obj.valueMul) / 100;
     } else {
-      if (attackSpeed === undefined)
-        attackSpeed = interval;
-      const a = (obj.time % interval) >= attackSpeed ? 1 : 0;
+      if (attackSpeed === undefined) attackSpeed = interval;
+      const a = obj.time % interval >= attackSpeed ? 1 : 0;
       const b = Math.trunc(obj.time / interval) + a;
       return obj.valueAdd * b;
     }
-  }
+  },
 } as const;
-
 
 // Feature
 
@@ -200,93 +206,96 @@ const commonFeature = {
   cooldownReductions: [] as readonly number[],
 };
 interface JsonFeatureDiff {
-  fieldElements: readonly string[]
-  conditions: readonly Data.JsonCondition[]
-  annotations: readonly string[]
-  deleteAnnotations: readonly string[]
-  hpAdd: JsonAdditionFactor
-  attackAdd: JsonAdditionFactor
-  defenseAdd: JsonAdditionFactor
-  resistAdd: JsonAdditionFactor
-  staticDamage: Data.JsonStaticDamage
-  staticDefense: Data.JsonStaticDamage
-  staticResist: Data.JsonStaticDamage
-  attackDebuff: number | JsonAttackDebuff
-  target: Data.JsonTarget
-  fixedTarget: Data.JsonTarget
-  rounds: Data.JsonRound
-  hits: Data.JsonRound
-  duration: Data.JsonDuration | null
-  damageType: Data.JsonDamageType
-  supplements: readonly string[]
-  deleteSupplements: readonly string[]
+  fieldElements: readonly string[];
+  conditions: readonly Data.JsonCondition[];
+  annotations: readonly string[];
+  deleteAnnotations: readonly string[];
+  hpAdd: JsonAdditionFactor;
+  attackAdd: JsonAdditionFactor;
+  defenseAdd: JsonAdditionFactor;
+  resistAdd: JsonAdditionFactor;
+  staticDamage: Data.JsonStaticDamage;
+  staticDefense: Data.JsonStaticDamage;
+  staticResist: Data.JsonStaticDamage;
+  attackDebuff: number | JsonAttackDebuff;
+  target: Data.JsonTarget;
+  fixedTarget: Data.JsonTarget;
+  rounds: Data.JsonRound;
+  hits: Data.JsonRound;
+  duration: Data.JsonDuration | null;
+  damageType: Data.JsonDamageType;
+  supplements: readonly string[];
+  deleteSupplements: readonly string[];
 }
 interface FeatureDiff {
-  fieldElements: Set<Data.Element>
-  conditions: Data.Condition[]
-  annotations: string[]
-  deleteAnnotations: string[]
-  hpAdds: AdditionFactor[]
-  attackAdds: AdditionFactor[]
-  defenseAdds: AdditionFactor[]
-  resistAdds: AdditionFactor[]
-  staticDamage: Data.StaticDamage
-  staticDefense: Data.StaticDamage
-  staticResist: Data.StaticDamage
-  attackDebuff: number | AttackDebuff
-  target: Data.TargetBase
-  fixedTarget: Data.TargetBase
-  rounds: Data.Rounds
-  hits: Data.Rounds
-  duration: number | typeof Data.Duration.always | null
-  damageType: Data.DamageType | null
-  supplements: Set<string>
-  deleteSupplements: Set<string>
+  fieldElements: Set<Data.Element>;
+  conditions: Data.Condition[];
+  annotations: string[];
+  deleteAnnotations: string[];
+  hpAdds: AdditionFactor[];
+  attackAdds: AdditionFactor[];
+  defenseAdds: AdditionFactor[];
+  resistAdds: AdditionFactor[];
+  staticDamage: Data.StaticDamage;
+  staticDefense: Data.StaticDamage;
+  staticResist: Data.StaticDamage;
+  attackDebuff: number | AttackDebuff;
+  target: Data.TargetBase;
+  fixedTarget: Data.TargetBase;
+  rounds: Data.Rounds;
+  hits: Data.Rounds;
+  duration: number | typeof Data.Duration.always | null;
+  damageType: Data.DamageType | null;
+  supplements: Set<string>;
+  deleteSupplements: Set<string>;
 }
 interface FeatureOutputDiff {
-  fieldElements: ReadonlySet<Data.Element>
-  conditions: readonly Data.Condition[]
-  annotations: readonly string[]
-  deleteAnnotations: readonly string[]
-  hpAdds: readonly AdditionFactor[]
-  attackAdds: readonly AdditionFactor[]
-  defenseAdds: readonly AdditionFactor[]
-  resistAdds: readonly AdditionFactor[]
-  supplements: ReadonlySet<string>
-  deleteSupplements: ReadonlySet<string>
+  fieldElements: ReadonlySet<Data.Element>;
+  conditions: readonly Data.Condition[];
+  annotations: readonly string[];
+  deleteAnnotations: readonly string[];
+  hpAdds: readonly AdditionFactor[];
+  attackAdds: readonly AdditionFactor[];
+  defenseAdds: readonly AdditionFactor[];
+  resistAdds: readonly AdditionFactor[];
+  supplements: ReadonlySet<string>;
+  deleteSupplements: ReadonlySet<string>;
 }
-type CommonFeature = typeof commonFeature
-const commonFeatureKeys = Object.keys(commonFeature) as readonly (keyof CommonFeature)[];
+type CommonFeature = typeof commonFeature;
+const commonFeatureKeys = Object.keys(
+  commonFeature
+) as readonly (keyof CommonFeature)[];
 const keys = Data.Enum(commonFeatureKeys);
 
-type JsonFeatureBase = Readonly<Partial<CommonFeature & JsonFeatureDiff>>
+type JsonFeatureBase = Readonly<Partial<CommonFeature & JsonFeatureDiff>>;
 export interface JsonFeature extends JsonFeatureBase {
-  readonly featureName?: string
-  readonly require?: readonly string[]
-  readonly skill?: number
-  readonly isBuffSkill?: boolean
-  readonly hasPotentials?: Data.JsonPotentials
-  readonly potentialBonus?: JsonFeatureBase
+  readonly featureName?: string;
+  readonly require?: readonly string[];
+  readonly skill?: number;
+  readonly isBuffSkill?: boolean;
+  readonly hasPotentials?: Data.JsonPotentials;
+  readonly potentialBonus?: JsonFeatureBase;
 }
-type FeatureCore = Partial<CommonFeature & FeatureDiff>
+type FeatureCore = Partial<CommonFeature & FeatureDiff>;
 interface FeatureObject extends FeatureCore {
-  featureName?: string
-  require?: Set<Require>
-  skill?: number
-  isBuffSkill?: boolean
-  hasPotentials?: Set<Data.Potential>
-  potentialBonus?: FeatureCore
+  featureName?: string;
+  require?: Set<Require>;
+  skill?: number;
+  isBuffSkill?: boolean;
+  hasPotentials?: Set<Data.Potential>;
+  potentialBonus?: FeatureCore;
 }
 
-export type FeatureOutputCore = Partial<CommonFeature & FeatureOutputDiff
-  & Omit<FeatureDiff, keyof FeatureOutputDiff>>
+export type FeatureOutputCore = Partial<
+  CommonFeature & FeatureOutputDiff & Omit<FeatureDiff, keyof FeatureOutputDiff>
+>;
 export interface FeatureOutput extends FeatureOutputCore {
-  featureName?: string
-  require?: ReadonlySet<Require>
-  skill?: number
-  isBuffSkill?: boolean
-  hasPotentials?: ReadonlySet<Data.Potential>
-  potentialBonus?: Readonly<FeatureOutputCore>
+  featureName?: string;
+  require?: ReadonlySet<Require>;
+  skill?: number;
+  isBuffSkill?: boolean;
+  hasPotentials?: ReadonlySet<Data.Potential>;
+  potentialBonus?: Readonly<FeatureOutputCore>;
 }
 
 export class Feature {
@@ -295,14 +304,10 @@ export class Feature {
   static parse(src: JsonFeature): Readonly<FeatureOutput> {
     const ret: FeatureOutput = this.parseBase(src);
 
-    if (src.featureName !== undefined)
-      ret.featureName = src.featureName;
-    if (src.require !== undefined)
-      ret.require = this.parseRequire(src.require);
-    if (src.skill !== undefined)
-      ret.skill = src.skill;
-    if (src.isBuffSkill !== undefined)
-      ret.isBuffSkill = src.isBuffSkill;
+    if (src.featureName !== undefined) ret.featureName = src.featureName;
+    if (src.require !== undefined) ret.require = this.parseRequire(src.require);
+    if (src.skill !== undefined) ret.skill = src.skill;
+    if (src.isBuffSkill !== undefined) ret.isBuffSkill = src.isBuffSkill;
     if (src.hasPotentials !== undefined)
       ret.hasPotentials = Data.JsonPotentials.toSet(src.hasPotentials);
     if (src.potentialBonus !== undefined)
@@ -314,96 +319,82 @@ export class Feature {
   private static parseBase(src: JsonFeatureBase): FeatureOutputCore {
     const obj: FeatureObject = {};
 
-    commonFeatureKeys.forEach(key => {
-      if (src[key] !== undefined)
-        this.setValue(obj, key, src[key]);
+    commonFeatureKeys.forEach((key) => {
+      if (src[key] !== undefined) this.setValue(obj, key, src[key]);
     });
 
     const ret: FeatureOutputCore = obj;
     {
       const v = Data.Element.parseElements(src.fieldElements);
-      if (v !== undefined)
-        ret.fieldElements = v;
+      if (v !== undefined) ret.fieldElements = v;
     }
     {
       const v = Data.JsonCondition.parse(src.conditions);
-      if (v !== undefined)
-        ret.conditions = v;
+      if (v !== undefined) ret.conditions = v;
     }
-    if (src.annotations !== undefined)
-      ret.annotations = src.annotations;
+    if (src.annotations !== undefined) ret.annotations = src.annotations;
     if (src.deleteAnnotations !== undefined)
       ret.deleteAnnotations = src.deleteAnnotations;
     {
       const v = JsonAdditionFactor.parse(src.hpAdd);
-      if (v !== undefined)
-        ret.hpAdds = [v];
+      if (v !== undefined) ret.hpAdds = [v];
     }
     {
       const v = JsonAdditionFactor.parse(src.attackAdd);
-      if (v !== undefined)
-        ret.attackAdds = [v];
+      if (v !== undefined) ret.attackAdds = [v];
     }
     {
       const v = JsonAdditionFactor.parse(src.defenseAdd);
-      if (v !== undefined)
-        ret.defenseAdds = [v];
+      if (v !== undefined) ret.defenseAdds = [v];
     }
     {
       const v = JsonAdditionFactor.parse(src.resistAdd);
-      if (v !== undefined)
-        ret.resistAdds = [v];
+      if (v !== undefined) ret.resistAdds = [v];
     }
     {
       const v = Data.JsonStaticDamage.parse(src.staticDamage);
-      if (v !== undefined)
-        ret.staticDamage = v;
+      if (v !== undefined) ret.staticDamage = v;
     }
     {
       const v = Data.JsonStaticDamage.parse(src.staticDefense);
-      if (v !== undefined)
-        ret.staticDefense = v;
+      if (v !== undefined) ret.staticDefense = v;
     }
     {
       const v = Data.JsonStaticDamage.parse(src.staticResist);
-      if (v !== undefined)
-        ret.staticResist = v;
+      if (v !== undefined) ret.staticResist = v;
     }
     {
       const v = src.attackDebuff;
-      if (typeof v === "number" || v !== undefined && JsonAttackDebuff.isKvp(v))
+      if (
+        typeof v === "number" ||
+        (v !== undefined && JsonAttackDebuff.isKvp(v))
+      )
         ret.attackDebuff = v;
     }
     {
       const v = Data.JsonTarget.parse(src.target);
-      if (v !== undefined)
-        ret.target = v;
+      if (v !== undefined) ret.target = v;
     }
     {
       const v = Data.JsonTarget.parse(src.fixedTarget);
-      if (v !== undefined)
-        ret.fixedTarget = v;
+      if (v !== undefined) ret.fixedTarget = v;
     }
     {
       const v = Data.JsonRound.parse(src.rounds);
-      if (v !== undefined)
-        ret.rounds = v;
+      if (v !== undefined) ret.rounds = v;
     }
     {
       const v = Data.JsonRound.parse(src.hits);
-      if (v !== undefined)
-        ret.hits = v;
+      if (v !== undefined) ret.hits = v;
     }
-    if (src.duration === null)
-      ret.duration = null;
+    if (src.duration === null) ret.duration = null;
     else if (src.duration === Data.Duration.always)
       ret.duration = Data.Duration.always;
     else if (src.duration !== undefined)
       ret.duration = Data.JsonDuration.parse(src.duration);
     {
       const v = Data.JsonDamageType.parse(src.damageType);
-      if (v !== undefined)
-        ret.damageType = v;
+      if (v !== undefined) ret.damageType = v;
     }
     if (src.supplements !== undefined)
       ret.supplements = new Set(src.supplements);
@@ -416,17 +407,19 @@ export class Feature {
   private static setValue<T extends keyof CommonFeature>(
     obj: FeatureObject,
     key: T,
-    value: CommonFeature[T],
+    value: CommonFeature[T]
   ): void {
     obj[key] = value;
   }
 
   static parseRequire(src: readonly string[]): Set<Require> {
-    return new Set(Object.values(require).filter(v => src.includes(v)));
+    return new Set(Object.values(require).filter((v) => src.includes(v)));
   }
 
-  static parseList(src: readonly JsonFeature[]): readonly Readonly<FeatureOutput>[] {
-    return src.map(v => this.parse(v));
+  static parseList(
+    src: readonly JsonFeature[]
+  ): readonly Readonly<FeatureOutput>[] {
+    return src.map((v) => this.parse(v));
   }
 
   static calculateList(
@@ -434,12 +427,11 @@ export class Feature {
     isPotentialApplied: boolean
   ): Readonly<FeatureOutputCore> {
     const ret: FeatureObject = {};
-    src.forEach(feature => {
+    src.forEach((feature) => {
       if (isPotentialApplied)
         feature = { ...feature, ...feature.potentialBonus };
-      commonFeatureKeys.forEach(key => {
-        if (feature[key] === undefined)
-          return;
+      commonFeatureKeys.forEach((key) => {
+        if (feature[key] === undefined) return;
         if (ret[key] === undefined)
           return this.setValue(ret, key, feature[key]);
 
@@ -449,23 +441,24 @@ export class Feature {
           case keys.defenseMul:
           case keys.resistMul:
           case keys.rangeMul:
-            return ret[key] = Data.Percent.sum(ret[key], feature[key]);
+            return (ret[key] = Data.Percent.sum(ret[key], feature[key]));
 
           case keys.damageFactor:
           case keys.delayMul:
-            return ret[key] = Data.Percent.multiply(ret[key], feature[key]);
+            return (ret[key] = Data.Percent.multiply(ret[key], feature[key]));
 
           case keys.damageCut:
           case keys.physicalDamageCut:
           case keys.magicalDamageCut:
-            return ret[key] = 100 - Data.Percent.multiply(100 - ret[key], 100 - feature[key]);
+            return (ret[key] =
+              100 - Data.Percent.multiply(100 - ret[key], 100 - feature[key]));
 
           case keys.criChanceAdd:
           case keys.criDamageAdd:
           case keys.criChanceLimitAdd:
           case keys.criDamageLimitAdd:
           case keys.rangeAdd:
-            return ret[key] += feature[key];
+            return (ret[key] += feature[key]);
 
           default:
             return this.setValue(ret, key, feature[key]);
@@ -473,17 +466,25 @@ export class Feature {
       });
 
       if (feature.fieldElements !== undefined)
-        ret.fieldElements = this.unionItems(ret.fieldElements, feature.fieldElements);
+        ret.fieldElements = this.unionItems(
+          ret.fieldElements,
+          feature.fieldElements
+        );
       if (feature.conditions !== undefined)
         ret.conditions = this.concatItems(ret.conditions, feature.conditions);
       if (feature.annotations !== undefined)
-        ret.annotations = this.concatItems(ret.annotations, feature.annotations);
+        ret.annotations = this.concatItems(
+          ret.annotations,
+          feature.annotations
+        );
       if (feature.deleteAnnotations !== undefined)
-        ret.deleteAnnotations = this.concatItems(ret.deleteAnnotations, feature.deleteAnnotations);
+        ret.deleteAnnotations = this.concatItems(
+          ret.deleteAnnotations,
+          feature.deleteAnnotations
+        );
       {
         const v = feature.hpAdds;
-        if (v !== undefined)
-          ret.hpAdds = this.concatItems(ret.hpAdds, v);
+        if (v !== undefined) ret.hpAdds = this.concatItems(ret.hpAdds, v);
       }
       {
         const v = feature.attackAdds;
@@ -510,53 +511,58 @@ export class Feature {
         ret.attackDebuff = feature.attackDebuff;
       {
         const v = feature.target;
-        if (v !== undefined)
-          ret.target = v;
+        if (v !== undefined) ret.target = v;
       }
       {
         const v = feature.fixedTarget;
-        if (v !== undefined)
-          ret.fixedTarget = v;
+        if (v !== undefined) ret.fixedTarget = v;
       }
       {
         const v = feature.rounds;
-        if (v !== undefined)
-          ret.rounds = v;
+        if (v !== undefined) ret.rounds = v;
       }
       {
         const v = feature.hits;
-        if (v !== undefined)
-          ret.hits = v;
+        if (v !== undefined) ret.hits = v;
       }
       {
         const v = feature.duration;
-        if (v !== undefined)
-          ret.duration = v;
+        if (v !== undefined) ret.duration = v;
       }
       {
         const v = feature.damageType;
-        if (v !== undefined)
-          ret.damageType = v;
+        if (v !== undefined) ret.damageType = v;
       }
       if (feature.supplements !== undefined)
         ret.supplements = this.unionItems(ret.supplements, feature.supplements);
       if (feature.deleteSupplements !== undefined)
-        ret.deleteSupplements = this.unionItems(ret.deleteSupplements, feature.deleteSupplements);
+        ret.deleteSupplements = this.unionItems(
+          ret.deleteSupplements,
+          feature.deleteSupplements
+        );
     });
     if (ret.annotations !== undefined && ret.deleteAnnotations !== undefined)
-      ret.annotations = ret.annotations.filter(str => !ret.deleteAnnotations?.includes(str));
+      ret.annotations = ret.annotations.filter(
+        (str) => !ret.deleteAnnotations?.includes(str)
+      );
     return ret;
   }
 
-  private static concatItems<T>(obj1: T[] | undefined, obj2: readonly T[]): T[] {
+  private static concatItems<T>(
+    obj1: T[] | undefined,
+    obj2: readonly T[]
+  ): T[] {
     obj1 ??= [];
-    obj2.forEach(v => obj1.push(v));
+    obj2.forEach((v) => obj1.push(v));
     return obj1;
   }
 
-  private static unionItems<T>(obj1: Set<T> | undefined, obj2: ReadonlySet<T>): Set<T> {
+  private static unionItems<T>(
+    obj1: Set<T> | undefined,
+    obj2: ReadonlySet<T>
+  ): Set<T> {
     obj1 ??= new Set();
-    obj2.forEach(v => obj1.add(v));
+    obj2.forEach((v) => obj1.add(v));
     return obj1;
   }
 
@@ -565,19 +571,21 @@ export class Feature {
     statType: Data.BaseStatType
   ): readonly AdditionFactor[] | undefined {
     switch (statType) {
-      case stat.hp: return obj.hpAdds;
-      case stat.attack: return obj.attackAdds;
-      case stat.defense: return obj.defenseAdds;
-      case stat.resist: return obj.resistAdds;
+      case stat.hp:
+        return obj.hpAdds;
+      case stat.attack:
+        return obj.attackAdds;
+      case stat.defense:
+        return obj.defenseAdds;
+      case stat.resist:
+        return obj.resistAdds;
     }
   }
 
   static getCommonFeatures(): readonly Readonly<FeatureOutput>[] {
     return commonFeatures;
   }
-
 }
-
 
 // Templates
 

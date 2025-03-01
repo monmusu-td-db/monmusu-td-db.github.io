@@ -16,6 +16,7 @@ const columnKeys = [
   "target",
   "range",
   "duration",
+  "damageFactor",
   "redeployTimeCut",
   "supplement",
 ] as const;
@@ -28,11 +29,13 @@ const columnName = {
   target: "対象",
   range: "射程",
   duration: "持続時間",
+  damageFactor: "ダメージ倍率",
   redeployTimeCut: "再出撃短縮",
   supplement: "補足",
 } as const satisfies Record<ColumnKey, string>;
 
 const BuffType = {
+  damageFactor: "damage-factor",
   redeployTimeCut: "redeploy-time-cut",
   freezeNullify: "freeze-nullify",
 } as const;
@@ -65,6 +68,7 @@ function getItems(): readonly Item[] {
     if (buffs === undefined || buffs.length === 0) return;
 
     buffs.forEach((buff) => {
+      const getBuffValue = (type: BuffType) => buff.type === type && buff.value;
       const skill = getSkill(src, buff.skill);
 
       const id = src.parentId ?? src.id;
@@ -72,8 +76,9 @@ function getItems(): readonly Item[] {
       const target = buff.target;
       const range = target === Target.all ? target : getRange(unit, buff.skill);
       const duration = getDuration(buff.duration ?? skill?.duration);
+      const damageFactor = getDamageFactor(getBuffValue(BuffType.damageFactor));
       const redeployTimeCut = getPercent(
-        buff.type === BuffType.redeployTimeCut && buff.value
+        getBuffValue(BuffType.redeployTimeCut)
       );
       const supplement = getSupplement(buff.type);
 
@@ -84,6 +89,7 @@ function getItems(): readonly Item[] {
         target,
         range,
         duration,
+        damageFactor,
         redeployTimeCut,
         supplement,
       };
@@ -124,6 +130,11 @@ function getRange(unit: Unit, skillId: number | undefined): number | undefined {
 function getPercent(value: number | undefined | false): string | undefined {
   if (value === undefined || value === false) return;
   return `${value}%`;
+}
+
+function getDamageFactor(value: number | undefined | false): ReactNode {
+  if (value === undefined || value === false) return;
+  return (value / 100).toFixed(2);
 }
 
 function getDuration(value: number | string | undefined): string | undefined {

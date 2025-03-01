@@ -463,7 +463,11 @@ export default class Unit implements TableSource<Keys> {
       isReversed: true,
       factors: (s) => {
         const base = src.moveSpeed ?? classData?.moveSpeed ?? 160;
-        const formation = this.getBeastFormationBuffFactor(s, stat.moveSpeed);
+        const formation = this.getFormationBuffFactor(s, stat.moveSpeed);
+        const beastFormation = this.getBeastFormationBuffFactor(
+          s,
+          stat.moveSpeed
+        );
         const w = this.getWeaponBaseBuff(s, stat.moveSpeed) ?? 100;
 
         let addition, mul;
@@ -481,10 +485,13 @@ export default class Unit implements TableSource<Keys> {
         const multiply = Math.max(w, mul, ssMul, potential);
 
         const result =
-          Percent.multiply(base + formation, multiply) + subskillAdd + addition;
+          Percent.multiply(base + formation + beastFormation, multiply) +
+          subskillAdd +
+          addition;
         return {
           base,
           formation,
+          beastFormation,
           multiply,
           addition,
           subskillAdd,
@@ -800,7 +807,11 @@ export default class Unit implements TableSource<Keys> {
     statType: Data.StatType
   ): Data.FormationBuffValue[] {
     if (
-      !(Data.BaseStatType.isKey(statType) || statType === stat.delay) ||
+      !(
+        Data.BaseStatType.isKey(statType) ||
+        statType === stat.delay ||
+        statType === stat.moveSpeed
+      ) ||
       !this.isPotentialApplied(setting)
     )
       return this.formationBuffs;
@@ -821,7 +832,16 @@ export default class Unit implements TableSource<Keys> {
     setting: Setting,
     statType: Data.StatType
   ): number {
-    if (this.isToken) return 100;
+    let defaultValue;
+    switch (statType) {
+      case stat.moveSpeed:
+        defaultValue = 0;
+        break;
+      default:
+        defaultValue = 100;
+        break;
+    }
+    if (this.isToken) return defaultValue;
 
     const k = (() => {
       switch (statType) {
@@ -835,7 +855,8 @@ export default class Unit implements TableSource<Keys> {
           return ssKeys.formationResist;
       }
     })();
-    const subskill = k !== undefined ? this.getSubskillFactor(setting, k) : 100;
+    const subskill =
+      k !== undefined ? this.getSubskillFactor(setting, k) : defaultValue;
     const panel =
       (() => {
         switch (statType) {
@@ -850,7 +871,7 @@ export default class Unit implements TableSource<Keys> {
           default:
             return 0;
         }
-      })() + 100;
+      })() + defaultValue;
 
     return [
       ...this.getFormationBuffValue(setting, statType).map((buff) => {
@@ -859,9 +880,8 @@ export default class Unit implements TableSource<Keys> {
             case Data.FormationBuffRequire.weapon:
               return Data.Weapon.isApplied(setting);
           }
-          return false;
         });
-        if (!req) return 100;
+        if (!req) return defaultValue;
 
         const isTarget = [
           Data.FormationBuff.all,
@@ -875,15 +895,17 @@ export default class Unit implements TableSource<Keys> {
 
         if (
           isTarget &&
-          (Data.BaseStatType.isKey(statType) || statType === stat.delay)
+          (Data.BaseStatType.isKey(statType) ||
+            statType === stat.delay ||
+            statType === stat.moveSpeed)
         )
-          return buff[statType] ?? 100;
+          return buff[statType] ?? defaultValue;
 
-        return 100;
+        return defaultValue;
       }),
       subskill,
       panel,
-    ].reduce((a, c) => a + c - 100, 100);
+    ].reduce((a, c) => a + c - defaultValue, defaultValue);
   }
 
   private getBeastFactor(setting: Setting, key: BeastFactorKeys): number {

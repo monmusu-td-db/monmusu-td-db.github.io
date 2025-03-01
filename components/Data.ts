@@ -630,6 +630,7 @@ export interface FormationBuff {
   readonly defense?: number;
   readonly resist?: number;
   readonly delay?: number;
+  readonly moveSpeed?: number;
   readonly potentialBonus?: Omit<
     FormationBuff,
     "targets" | "require" | "potentialBonus"
@@ -1622,6 +1623,7 @@ interface DpsFactorsDetail {
 export interface MoveSpeedFactors {
   readonly base: number;
   readonly formation: number;
+  readonly beastFormation: number;
   readonly multiply: number;
   readonly addition: number;
   readonly subskillAdd: number;
