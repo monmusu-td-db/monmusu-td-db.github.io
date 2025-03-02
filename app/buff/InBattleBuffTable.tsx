@@ -1,13 +1,15 @@
 "use client";
 
 import * as Data from "@/components/Data";
+import * as Util from "@/components/Util";
 import {
   BuffTable,
   type BuffTableItem,
   type BuffTableSource,
 } from "@/components/BuffTable";
-import Unit, { type JsonUnit } from "@/components/Unit";
+import Unit, { JsonBuff, type JsonUnit } from "@/components/Unit";
 import type { ReactNode } from "react";
+import styles from "./InBattleBuffTable.module.css";
 
 const columnKeys = [
   "id",
@@ -15,7 +17,9 @@ const columnKeys = [
   "skillName",
   "target",
   "range",
+  "initialTime",
   "duration",
+  "cooldown",
   "damageFactor",
   "redeployTimeCut",
   "supplement",
@@ -28,7 +32,9 @@ const columnName = {
   skillName: "スキル",
   target: "対象",
   range: "射程",
-  duration: "持続時間",
+  initialTime: "初動",
+  duration: "効果時間",
+  cooldown: "再動",
   damageFactor: "ダメージ倍率",
   redeployTimeCut: "再出撃短縮",
   supplement: "補足",
@@ -56,7 +62,7 @@ export function InBattleBuffTable() {
     columnName,
     items,
   };
-  return <BuffTable src={src} />;
+  return <BuffTable src={src} styles={styles} />;
 }
 
 function getItems(): readonly Item[] {
@@ -75,12 +81,19 @@ function getItems(): readonly Item[] {
       const skillName = skill?.skillName;
       const target = buff.target;
       const range = target === Target.all ? target : getRange(unit, buff.skill);
+      const initialTime = getDuration(
+        skill?.cooldown !== undefined &&
+          (skill.cooldown *
+            Data.Rarity.getInitialTimeFactor(Data.Rarity.parse(src.rarity))) /
+            10
+      );
       const duration = getDuration(buff.duration ?? skill?.duration);
+      const cooldown = getDuration(skill?.cooldown);
       const damageFactor = getDamageFactor(getBuffValue(BuffType.damageFactor));
       const redeployTimeCut = getPercent(
         getBuffValue(BuffType.redeployTimeCut)
       );
-      const supplement = getSupplement(buff.type);
+      const supplement = getSupplement(buff);
 
       const itemValue: ItemValue = {
         id,
@@ -88,7 +101,9 @@ function getItems(): readonly Item[] {
         skillName,
         target,
         range,
+        initialTime,
         duration,
+        cooldown,
         damageFactor,
         redeployTimeCut,
         supplement,
@@ -137,15 +152,28 @@ function getDamageFactor(value: number | undefined | false): ReactNode {
   return (value / 100).toFixed(2);
 }
 
-function getDuration(value: number | string | undefined): string | undefined {
+function getDuration(
+  value: number | string | undefined | false
+): string | undefined {
+  if (value === false) return;
   if (typeof value !== "number") return value;
-  return `${value}秒`;
+  return value.toFixed(1);
 }
 
-function getSupplement(type: string): string | undefined {
+function getSupplement(buff: JsonBuff): ReactNode {
   // TODO
-  switch (type) {
-    case BuffType.freezeNullify:
-      return "凍結無効化";
+  const texts: ReactNode[] = [];
+  const add = (arg: ReactNode) => texts.push(arg);
+
+  if (buff.require?.includes(JsonBuff.require.weapon)) {
+    add(<span className="text-danger">武器効果</span>); // TODO
   }
+
+  switch (buff.type) {
+    case BuffType.freezeNullify:
+      add("凍結無効化");
+      break;
+  }
+
+  return <Util.JoinTexts texts={texts} />;
 }

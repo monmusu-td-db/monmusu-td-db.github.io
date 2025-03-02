@@ -785,6 +785,19 @@ export const Rarity = {
     if (value === undefined) return;
     return rarityName[value];
   },
+
+  getInitialTimeFactor(rarity: Rarity | undefined): number {
+    switch (rarity) {
+      case Rarity.L:
+        return 3;
+      case Rarity.E:
+        return 5;
+      case Rarity.R:
+        return 6;
+      default:
+        return 7;
+    }
+  },
 } as const;
 
 export const className = {

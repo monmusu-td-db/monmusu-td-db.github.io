@@ -96,14 +96,20 @@ interface JsonUnitSituation {
 }
 type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
 
-interface JsonBuff {
+export type JsonBuff = Readonly<{
   type: string;
+  require?: readonly string[];
   skill?: number;
   target: string;
   duration?: string;
   value?: number;
-}
-type JsonBuffs = readonly Readonly<JsonBuff>[];
+}>;
+export const JsonBuff = {
+  require: {
+    weapon: "武器",
+  },
+} as const;
+type JsonBuffs = readonly JsonBuff[];
 
 const keys = [
   "unitId",

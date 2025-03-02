@@ -1748,18 +1748,9 @@ export default class Situation implements TableSource<Keys> {
     if (cooldown.base === undefined || cooldown.baseResult === undefined)
       return;
 
-    const v = (() => {
-      switch (this.unit?.rarity.getValue(setting)) {
-        case Data.Rarity.L:
-          return 3;
-        case Data.Rarity.E:
-          return 5;
-        case Data.Rarity.R:
-          return 6;
-        default:
-          return 7;
-      }
-    })();
+    const v = Data.Rarity.getInitialTimeFactor(
+      this.unit?.rarity.getValue(setting)
+    );
     const fb =
       this.unit?.getBeastFormationBuffFactor(setting, stat.initialTime) ?? 100;
     const b = (((cooldown.base * v) / 10) * fb) / 100;

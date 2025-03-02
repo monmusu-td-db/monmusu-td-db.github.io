@@ -112,7 +112,18 @@
       },
       {
         "type": "freeze-nullify",
+        "require": [
+          "武器"
+        ],
         "skill": 1,
+        "target": "射程内"
+      },
+      {
+        "type": "freeze-nullify",
+        "require": [
+          "武器"
+        ],
+        "skill": 2,
         "target": "射程内"
       }
     ]
