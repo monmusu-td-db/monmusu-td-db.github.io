@@ -5364,7 +5364,7 @@
     "class": "アーチャー",
     "element": "闇",
     "hp": 2802,
-    "attack": 723,
+    "attack": 648,
     "defense": 312,
     "resist": 202,
     "exSkill1": {
@@ -10184,6 +10184,83 @@
     ],
     "costAdd": 3,
     "hpMul": 120
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 309,
+    "unitName": "【煌射手アークエンジェル娘】オシュネー",
+    "unitShortName": "オシュネー/煌",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "火",
+    "hp": 2569,
+    "attack": 648,
+    "defense": 331,
+    "resist": 207,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "正義執行",
+      "attackMul": 180,
+      "target": 3,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 45,
+      "damageType": "魔法",
+      "supplements": [
+        "スタン付与35%",
+        "発動時火マス化→射程内火味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-12"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 104,
+        "potentialBonus": {
+          "attack": 106
+        }
+      }
+    ],
+    "features": [
+      {
+        "require": [
+          "火マス"
+        ],
+        "criChanceAdd": 20
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field"
+        ]
+      }
+    ]
   },
   {
     "id": 310,

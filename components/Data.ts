@@ -12,7 +12,7 @@ TODOリスト
   situationをunitにまとめてリジェネや吸収を自動表示できるようにする
   condition 特効の内容を表示
   states sessionStorageへのアクセスを改善
-  同一属性ユニットを複数編成
+  8体以上同一属性編成
 */
 
 // Const
@@ -1309,6 +1309,7 @@ const potentialList = [
   { name: "スキル再使用時間-4秒", stat: stat.cooldown, value: -4 },
   { name: "スキル再使用時間-6秒", stat: stat.cooldown, value: -6 },
   { name: "スキル初回待ち時間-6秒", stat: stat.initialTime, value: -6 },
+  { name: "スキル初回待ち時間-12", stat: stat.initialTime, value: -12 },
   { name: "物理ダメージ20%軽減", stat: stat.physicalLimit, value: 20 },
   { name: "魔法ダメージ20%軽減", stat: stat.magicalLimit, value: 20 },
   { name: "物理攻撃回避40%", stat: null, value: 40 },

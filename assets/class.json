@@ -344,6 +344,25 @@
         "rangeAdd": 100,
         "duration": 20
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-proper"
+        ]
+      },
+      {
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "features": [
+          "class-proper",
+          "class-action"
+        ]
+      }
     ]
   },
   {

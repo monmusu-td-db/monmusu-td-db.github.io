@@ -709,7 +709,7 @@ export function useTableStates(): [States, HandleChange] {
     Storage.setFilter(filter);
     Storage.setQuery(query);
     Storage.setUISetting(uISetting);
-  });
+  }, [setting, filter, query, uISetting]);
 
   const states = useMemo(
     () => ({
