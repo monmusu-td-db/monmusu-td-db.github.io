@@ -1,7 +1,7 @@
 "use client";
 
 import "./page.css";
-import { useQueryContext, useSetQueryContext } from "@/components/States";
+import { Contexts } from "@/components/States";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { useRef, type ReactNode } from "react";
@@ -83,8 +83,8 @@ function NavLink({ children, href }: { children: ReactNode; href: string }) {
 }
 
 function SearchInput() {
-  const query = useQueryContext();
-  const setQuery = useSetQueryContext();
+  const query = Contexts.useQuery();
+  const setQuery = Contexts.useSetQuery();
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleResetButton() {

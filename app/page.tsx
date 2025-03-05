@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 
-import { useQueryContext, useTableStates } from "@/components/States";
+import { Contexts, useTableStates } from "@/components/States";
 import type StatTableType from "@/components/StatTable";
 import Situation from "@/components/Situation";
 import SettingPanel from "@/components/SettingPanel";
@@ -16,16 +16,18 @@ const StatTable = dynamic(() => import("@/components/StatTable"), {
 
 export default function App() {
   const [states, handleChange] = useTableStates();
-  const query = useQueryContext();
+  const query = Contexts.useQuery();
+  const filter = Contexts.useFilter();
   const [showPanel, setShowPanel] = useState(false);
 
   const newStates = useMemo(
     () => ({
       // TODO
       ...states,
+      filter,
       query,
     }),
-    [states, query]
+    [states, query, filter]
   );
 
   function handleShowPanel() {
@@ -41,9 +43,8 @@ export default function App() {
       <SettingPanel
         show={showPanel}
         handleClose={handleClosePanel}
-        filter={states.filter}
-        setting={states.setting}
-        uISetting={states.uISetting}
+        setting={newStates.setting}
+        uISetting={newStates.uISetting}
         onChange={handleChange}
         isSituation={true}
       />

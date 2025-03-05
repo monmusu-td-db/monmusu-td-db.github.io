@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useReducer,
   useState,
   type Dispatch,
   type SetStateAction,
@@ -664,32 +665,98 @@ const defaultUISetting = {
   subskillIsGeneral: true as boolean,
 } as const;
 
-// Contexts
+// Hooks
 
-export const QueryContext = createContext("");
-export const SetQueryContext = createContext<(query: string) => void>(() => {});
-export function useQueryContext() {
-  return useContext(QueryContext);
+const FilterAction = {
+  change: "change",
+  initialize: "initialize",
+  reset: "reset",
+} as const;
+type FilterAction =
+  | {
+      type: typeof FilterAction.change;
+      nextValue: FilterObject;
+    }
+  | {
+      type: typeof FilterAction.initialize;
+      initialValue: Filter;
+    }
+  | {
+      type: typeof FilterAction.reset;
+    };
+function filterReducer(state: Filter, action: FilterAction): Filter {
+  switch (action.type) {
+    case FilterAction.change: {
+      const ret = new Map(state);
+      for (const [k, v] of Object.entries(action.nextValue)) {
+        ret.set(k as FilterKeys, v);
+      }
+      return ret;
+    }
+    case FilterAction.initialize: {
+      return action.initialValue;
+    }
+    case FilterAction.reset: {
+      return defaultFilter;
+    }
+  }
 }
-export function useSetQueryContext() {
-  return useContext(SetQueryContext);
-}
 
-// Hook
-
-export function useQueryState(): [string, Dispatch<SetStateAction<string>>] {
-  const [query, setQuery] = useState("");
+export function useFilterState(): [Filter, Dispatch<FilterAction>] {
+  const [filter, dispatch] = useReducer(filterReducer, defaultFilter);
+  const [init, setInit] = useState(false);
 
   useEffect(() => {
-    setQuery(Storage.getQuery());
+    dispatch({
+      type: FilterAction.initialize,
+      initialValue: Storage.getFilter(),
+    });
+    setInit(true);
   }, []);
 
   useEffect(() => {
-    Storage.setQuery(query);
-  }, [query]);
+    if (init) {
+      Storage.setFilter(filter);
+    }
+  }, [filter, init]);
+
+  return [filter, dispatch];
+}
+
+export function useQueryState(): [string, Dispatch<SetStateAction<string>>] {
+  const [query, setQuery] = useState("");
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    setQuery(Storage.getQuery());
+    setInit(true);
+  }, []);
+
+  useEffect(() => {
+    if (init) {
+      Storage.setQuery(query);
+    }
+  }, [query, init]);
 
   return [query, setQuery];
 }
+
+// Contexts
+
+export const Contexts = {
+  FilterAction,
+  Filter: createContext<Filter>(defaultFilter),
+  DispatchFilter: createContext<Dispatch<FilterAction>>(() => {}),
+  useFilter: () => useContext(Contexts.Filter),
+  useDispatchFilter: () => useContext(Contexts.DispatchFilter),
+
+  Query: createContext(""),
+  SetQuery: createContext<Dispatch<string>>(() => {}),
+  useQuery: () => useContext(Contexts.Query),
+  useSetQuery: () => useContext(Contexts.SetQuery),
+};
+
+// Old Hooks
 
 export function useTableStates(): [States, HandleChange] {
   const [filter, setFilter] = useState<Filter>(defaultFilter);
@@ -698,16 +765,16 @@ export function useTableStates(): [States, HandleChange] {
   const [uISetting, setUISetting] = useState<UISetting>(defaultUISetting);
 
   useEffect(() => {
-    setFilter(Storage.getFilter());
+    // setFilter(Storage.getFilter());
     setSetting(Storage.getSetting());
-    setQuery(Storage.getQuery());
+    // setQuery(Storage.getQuery());
     setUISetting(Storage.getUISetting());
   }, []);
 
   useEffect(() => {
     Storage.setSetting(setting);
-    Storage.setFilter(filter);
-    Storage.setQuery(query);
+    // Storage.setFilter(filter);
+    // Storage.setQuery(query);
     Storage.setUISetting(uISetting);
   }, [setting, filter, query, uISetting]);
 

@@ -1,13 +1,31 @@
-import { memo, useCallback, useState, type ChangeEventHandler, type ReactNode } from "react";
 import {
-  Button, Col, Form, FormGroup, FormLabel, InputGroup, Modal, Nav, Row, Tab
+  memo,
+  useCallback,
+  useState,
+  type ChangeEventHandler,
+  type ReactNode,
+} from "react";
+import {
+  Button,
+  Col,
+  Form,
+  FormGroup,
+  FormLabel,
+  InputGroup,
+  Modal,
+  Nav,
+  Row,
+  Tab,
 } from "react-bootstrap";
 import {
-  type Filter, FilterEquipment,
-  HandleChange, Setting,
+  type Filter,
+  FilterEquipment,
+  HandleChange,
+  Setting,
   type FilterObject,
   type UISetting,
-  FilterCondition
+  FilterCondition,
+  Contexts,
 } from "./States";
 import * as Data from "./Data";
 import Styles from "./styles.module.css";
@@ -27,25 +45,23 @@ const tabs = {
 export default function SettingPanel({
   show,
   handleClose,
-  filter,
   setting,
   uISetting,
   onChange,
   isSituation,
 }: {
-  show: boolean
-  handleClose: () => void
-  filter: Filter
-  setting: Setting
-  uISetting: UISetting
-  onChange: HandleChange
-  isSituation: boolean
+  show: boolean;
+  handleClose: () => void;
+  setting: Setting;
+  uISetting: UISetting;
+  onChange: HandleChange;
+  isSituation: boolean;
 }) {
   const [tab, setTab] = useState<string>(tabs.FILTER);
   const [resetKey, setResetKey] = useState(0);
 
   function handleReset(): void {
-    setResetKey(p => p + 1);
+    setResetKey((p) => p + 1);
     switch (tab) {
       case tabs.FILTER:
         onChange(HandleChange.RESET_FILTER);
@@ -70,7 +86,7 @@ export default function SettingPanel({
       dialogClassName={Styles.modal ?? ""}
       scrollable
     >
-      <Tab.Container activeKey={tab} onSelect={t => setTab(t ?? tabs.FILTER)}>
+      <Tab.Container activeKey={tab} onSelect={(t) => setTab(t ?? tabs.FILTER)}>
         <Modal.Header closeButton>
           <Modal.Title>各種設定</Modal.Title>
           <Nav variant="underline" justify className="col-8 ms-auto me-auto">
@@ -91,7 +107,7 @@ export default function SettingPanel({
         <Modal.Body>
           <Tab.Content>
             <Tab.Pane eventKey={tabs.FILTER}>
-              <TabFilter filter={filter} onChange={onChange} isSituation={isSituation} />
+              <TabFilter isSituation={isSituation} />
             </Tab.Pane>
             <Tab.Pane eventKey={tabs.UNIT}>
               <TabUnit
@@ -103,10 +119,18 @@ export default function SettingPanel({
               />
             </Tab.Pane>
             <Tab.Pane eventKey={tabs.FORMATION}>
-              <TabFormation setting={setting} onChange={onChange} key={resetKey} />
+              <TabFormation
+                setting={setting}
+                onChange={onChange}
+                key={resetKey}
+              />
             </Tab.Pane>
             <Tab.Pane eventKey={tabs.OTHER}>
-              <TabOther setting={setting} onChange={onChange} isSituation={isSituation} />
+              <TabOther
+                setting={setting}
+                onChange={onChange}
+                isSituation={isSituation}
+              />
             </Tab.Pane>
           </Tab.Content>
         </Modal.Body>
@@ -123,27 +147,46 @@ export default function SettingPanel({
   );
 }
 
-const TabFilter = memo(function TabFilter({
+function TabFilter({ isSituation }: { isSituation: boolean }) {
+  const filter = Contexts.useFilter();
+  const dispatchFilter = Contexts.useDispatchFilter();
+  const handleChange = useCallback(
+    (nextValue: FilterObject) => {
+      dispatchFilter({ type: Contexts.FilterAction.change, nextValue });
+    },
+    [dispatchFilter]
+  );
+
+  return (
+    <_TabFilter
+      filter={filter}
+      handleChange={handleChange}
+      isSituation={isSituation}
+    />
+  );
+}
+
+const _TabFilter = memo(function _TabFilter({
   filter,
-  onChange,
+  handleChange,
   isSituation,
 }: {
-  filter: Filter
-  onChange: HandleChange
-  isSituation: boolean
+  filter: Filter;
+  handleChange: (nextValue: FilterObject) => void;
+  isSituation: boolean;
 }) {
   return (
     <Form>
       <ModalUI.FormGroup label="レアリティ">
         <ModalUI.FormCheckboxGroup>
-          {Data.Rarity.list.map(v => {
+          {Data.Rarity.list.map((v) => {
             const checked = filter.get(v) ?? false;
             return (
               <ModalUI.RarityCheckbox
                 key={v}
                 rarity={v}
                 checked={checked}
-                onClick={() => onChange(HandleChange.FILTER, { [v]: !checked })}
+                onClick={() => handleChange({ [v]: !checked })}
               />
             );
           })}
@@ -151,14 +194,14 @@ const TabFilter = memo(function TabFilter({
       </ModalUI.FormGroup>
       <ModalUI.FormGroup label="属性">
         <ModalUI.FormCheckboxGroup>
-          {Data.Element.list.map(v => {
+          {Data.Element.list.map((v) => {
             const checked = filter.get(v) ?? false;
             return (
               <ModalUI.ElementCheckbox
                 key={v}
                 element={v}
                 checked={checked}
-                onClick={() => onChange(HandleChange.FILTER, { [v]: !checked })}
+                onClick={() => handleChange({ [v]: !checked })}
               />
             );
           })}
@@ -166,18 +209,18 @@ const TabFilter = memo(function TabFilter({
       </ModalUI.FormGroup>
       <ModalUI.FormGroup label="基礎クラス">
         <ModalUI.FormCheckboxGroup>
-          {Data.ClassName.getBaseKeys().map(k => {
+          {Data.ClassName.getBaseKeys().map((k) => {
             const ekeys = Data.ClassName.equipmentKeysOf(k);
             return (
               <ModalUI.FormCheckbox
                 key={k}
                 name={k}
                 label={Data.ClassName.baseNames[k]}
-                checked={ekeys.every(ek => filter.get(ek))}
-                onClick={v => {
+                checked={ekeys.every((ek) => filter.get(ek))}
+                onClick={(v) => {
                   const s: FilterObject = {};
-                  ekeys.forEach(ek => s[ek] = v);
-                  onChange(HandleChange.FILTER, s);
+                  ekeys.forEach((ek) => (s[ek] = v));
+                  handleChange(s);
                 }}
                 grid
               />
@@ -187,41 +230,41 @@ const TabFilter = memo(function TabFilter({
       </ModalUI.FormGroup>
       <ModalUI.FormGroup label="武器">
         <ModalUI.FormCheckboxGroup>
-          {FilterEquipment.keys.map(k => {
+          {FilterEquipment.keys.map((k) => {
             return (
               <ModalUI.FormCheckbox
                 key={k}
                 name={k}
                 label={FilterEquipment.names[k]}
                 checked={filter.get(k) ?? false}
-                onClick={v => onChange(HandleChange.FILTER, { [k]: v })}
+                onClick={(v) => handleChange({ [k]: v })}
                 grid
               />
             );
           })}
         </ModalUI.FormCheckboxGroup>
       </ModalUI.FormGroup>
-      {isSituation &&
+      {isSituation && (
         <ModalUI.FormGroup label="状況">
           <ModalUI.FormCheckboxGroup>
-            {FilterCondition.getVisibleItems(filter).map(k => {
+            {FilterCondition.getVisibleItems(filter).map((k) => {
               return (
                 <ModalUI.FormCheckbox
                   key={k}
                   name={k}
                   label={FilterCondition.names[k]}
                   checked={filter.get(k) ?? false}
-                  onClick={v => onChange(HandleChange.FILTER, { [k]: v })}
+                  onClick={(v) => handleChange({ [k]: v })}
                   grid
                 />
               );
             })}
           </ModalUI.FormCheckboxGroup>
         </ModalUI.FormGroup>
-      }
+      )}
       <ModalUI.FormGroup label="タイプ">
         <ModalUI.FormCheckboxGroup>
-          {Data.Species.list.map(v => {
+          {Data.Species.list.map((v) => {
             const checked = filter.get(v) ?? false;
             return (
               <ModalUI.FormCheckbox
@@ -229,7 +272,7 @@ const TabFilter = memo(function TabFilter({
                 name={v}
                 label={Data.Species.name[v]}
                 checked={checked}
-                onClick={() => onChange(HandleChange.FILTER, { [v]: !checked })}
+                onClick={() => handleChange({ [v]: !checked })}
                 grid
               />
             );
@@ -238,7 +281,7 @@ const TabFilter = memo(function TabFilter({
       </ModalUI.FormGroup>
       <ModalUI.FormGroup label="配置タイプ">
         <ModalUI.FormCheckboxGroup>
-          {Data.Placement.list.map(v => {
+          {Data.Placement.list.map((v) => {
             const checked = filter.get(v) ?? false;
             return (
               <ModalUI.FormCheckbox
@@ -246,7 +289,7 @@ const TabFilter = memo(function TabFilter({
                 name={v}
                 label={Data.Placement.desc[v]}
                 checked={checked}
-                onClick={() => onChange(HandleChange.FILTER, { [v]: !checked })}
+                onClick={() => handleChange({ [v]: !checked })}
                 grid
               />
             );
@@ -263,10 +306,10 @@ function TabUnit({
   onChange,
   isSituation,
 }: {
-  setting: Setting
-  uISetting: UISetting
-  onChange: HandleChange
-  isSituation: boolean
+  setting: Setting;
+  uISetting: UISetting;
+  onChange: HandleChange;
+  isSituation: boolean;
 }) {
   return (
     <Form>
@@ -276,9 +319,13 @@ function TabUnit({
             id={setting.subskill1}
             uiSetting={uISetting}
             onSelect={useCallback(
-              id => onChange(HandleChange.SETTING, { subskill1: id }), [onChange]
+              (id) => onChange(HandleChange.SETTING, { subskill1: id }),
+              [onChange]
             )}
-            onChangeUI={useCallback(e => onChange(HandleChange.UI_SETTING, e), [onChange])}
+            onChangeUI={useCallback(
+              (e) => onChange(HandleChange.UI_SETTING, e),
+              [onChange]
+            )}
           />
         </Col>
         <Col>
@@ -286,9 +333,13 @@ function TabUnit({
             id={setting.subskill2}
             uiSetting={uISetting}
             onSelect={useCallback(
-              id => onChange(HandleChange.SETTING, { subskill2: id }), [onChange]
+              (id) => onChange(HandleChange.SETTING, { subskill2: id }),
+              [onChange]
             )}
-            onChangeUI={useCallback(e => onChange(HandleChange.UI_SETTING, e), [onChange])}
+            onChangeUI={useCallback(
+              (e) => onChange(HandleChange.UI_SETTING, e),
+              [onChange]
+            )}
           />
         </Col>
       </ModalUI.FormGroup>
@@ -296,13 +347,17 @@ function TabUnit({
         <>
           <ModalUI.FormGroup label="乗算バフ">
             <Row as={Col}>
-              {[stat.attack, stat.defense, stat.resist].map(v => (
+              {[stat.attack, stat.defense, stat.resist].map((v) => (
                 <FormNumber
                   key={v}
                   name={`${v}-mul-buff`}
                   label={Data.BaseStatType.name[v]}
                   value={setting[Data.BaseStatType.mulKey[v]]}
-                  onChange={n => onChange(HandleChange.SETTING, { [Data.BaseStatType.mulKey[v]]: n })}
+                  onChange={(n) =>
+                    onChange(HandleChange.SETTING, {
+                      [Data.BaseStatType.mulKey[v]]: n,
+                    })
+                  }
                   isValid={Setting.isValidMul}
                 />
               ))}
@@ -310,13 +365,17 @@ function TabUnit({
           </ModalUI.FormGroup>
           <ModalUI.FormGroup label="加算バフ">
             <Row as={Col}>
-              {[stat.attack, stat.defense, stat.resist].map(v => (
+              {[stat.attack, stat.defense, stat.resist].map((v) => (
                 <FormNumber
                   key={v}
                   name={`${v}-add-buff`}
                   label={Data.BaseStatType.name[v]}
                   value={setting[Data.BaseStatType.addKey[v]]}
-                  onChange={n => onChange(HandleChange.SETTING, { [Data.BaseStatType.addKey[v]]: n })}
+                  onChange={(n) =>
+                    onChange(HandleChange.SETTING, {
+                      [Data.BaseStatType.addKey[v]]: n,
+                    })
+                  }
                   isValid={Setting.isValidAdd}
                   isAdd
                 />
@@ -329,21 +388,27 @@ function TabUnit({
                 name={"damage-factor"}
                 label={"攻撃倍率"}
                 value={setting.damageFactor}
-                onChange={n => onChange(HandleChange.SETTING, { damageFactor: n })}
+                onChange={(n) =>
+                  onChange(HandleChange.SETTING, { damageFactor: n })
+                }
                 isValid={Setting.isValidMul}
               />
               <FormNumber
                 name={"physical-damage-cut"}
                 label={"物理攻撃軽減"}
                 value={setting.physicalDamageCut}
-                onChange={n => onChange(HandleChange.SETTING, { physicalDamageCut: n })}
+                onChange={(n) =>
+                  onChange(HandleChange.SETTING, { physicalDamageCut: n })
+                }
                 isValid={Setting.isValidDamageCut}
               />
               <FormNumber
                 name={"magical-damage-cut"}
                 label={"魔法攻撃軽減"}
                 value={setting.magicalDamageCut}
-                onChange={n => onChange(HandleChange.SETTING, { magicalDamageCut: n })}
+                onChange={(n) =>
+                  onChange(HandleChange.SETTING, { magicalDamageCut: n })
+                }
                 isValid={Setting.isValidDamageCut}
               />
             </Row>
@@ -354,14 +419,18 @@ function TabUnit({
                 name={"attack-speed-buff"}
                 label={"攻撃速度バフ"}
                 value={setting.attackSpeedBuff}
-                onChange={n => onChange(HandleChange.SETTING, { attackSpeedBuff: n })}
+                onChange={(n) =>
+                  onChange(HandleChange.SETTING, { attackSpeedBuff: n })
+                }
                 isValid={Setting.isValidMul}
               />
               <FormNumber
                 name={"delay-cut"}
                 label={"待機時間短縮"}
                 value={setting.delayCut}
-                onChange={n => onChange(HandleChange.SETTING, { delayCut: n })}
+                onChange={(n) =>
+                  onChange(HandleChange.SETTING, { delayCut: n })
+                }
                 isValid={Setting.isValidCut}
               />
             </Row>
@@ -376,8 +445,8 @@ function TabFormation({
   setting,
   onChange,
 }: {
-  setting: Setting
-  onChange: HandleChange
+  setting: Setting;
+  onChange: HandleChange;
 }) {
   return (
     <Form>
@@ -385,25 +454,26 @@ function TabFormation({
         <Col>
           <BeastUI.Selector
             id={setting.mainBeast}
-            onSelect={n => {
+            onSelect={(n) => {
               switch (n) {
                 case -1:
                 case setting.subBeast:
                   onChange(HandleChange.SETTING, {
                     mainBeast: n,
-                    subBeast: -1
+                    subBeast: -1,
                   });
                   break;
                 default:
                   onChange(HandleChange.SETTING, { mainBeast: n });
                   break;
               }
-            }} />
+            }}
+          />
         </Col>
         <Col>
           <BeastUI.Selector
             id={setting.subBeast}
-            onSelect={n => onChange(HandleChange.SETTING, { subBeast: n })}
+            onSelect={(n) => onChange(HandleChange.SETTING, { subBeast: n })}
             disabled={setting.mainBeast === -1}
           />
         </Col>
@@ -414,9 +484,11 @@ function TabFormation({
             name="s-possAmount"
             label="所持数"
             value={setting.possBuffAmount}
-            onChange={e => onChange(HandleChange.SETTING, {
-              possBuffAmount: Number.parseInt(e.target.value)
-            })}
+            onChange={(e) =>
+              onChange(HandleChange.SETTING, {
+                possBuffAmount: Number.parseInt(e.target.value),
+              })
+            }
           >
             <option value={-1}>適用しない</option>
             <SelectOptions value={9} />
@@ -426,9 +498,11 @@ function TabFormation({
             name="s-possLevel"
             label="レベル"
             value={setting.possBuffLevel}
-            onChange={e => onChange(HandleChange.SETTING, {
-              possBuffLevel: Number.parseInt(e.target.value)
-            })}
+            onChange={(e) =>
+              onChange(HandleChange.SETTING, {
+                possBuffLevel: Number.parseInt(e.target.value),
+              })
+            }
             disabled={setting.possBuffAmount === -1}
           >
             <SelectOptions value={Data.MAX_POSS_BUFF_LEVEL} />
@@ -437,13 +511,17 @@ function TabFormation({
       </ModalUI.FormGroup>
       <ModalUI.FormGroup label="編成バフ">
         <Row as={Col}>
-          {Data.BaseStatType.list.map(v => (
+          {Data.BaseStatType.list.map((v) => (
             <FormNumber
               key={v}
               name={`formation-${v}`}
               label={Data.BaseStatType.name[v]}
               value={setting[Setting.formation.key[v]]}
-              onChange={n => onChange(HandleChange.SETTING, { [Setting.formation.key[v]]: n })}
+              onChange={(n) =>
+                onChange(HandleChange.SETTING, {
+                  [Setting.formation.key[v]]: n,
+                })
+              }
               isValid={Setting.isValidMul}
             />
           ))}
@@ -458,22 +536,28 @@ function TabOther({
   onChange,
   isSituation,
 }: {
-  setting: Setting
-  onChange: HandleChange
-  isSituation: boolean
+  setting: Setting;
+  onChange: HandleChange;
+  isSituation: boolean;
 }) {
   function getTypeValue(value: string) {
     switch (value) {
-      default: return 0;
-      case Setting.PARTIAL: return 1;
-      case Setting.NONE: return 2;
+      default:
+        return 0;
+      case Setting.PARTIAL:
+        return 1;
+      case Setting.NONE:
+        return 2;
     }
   }
   function getTypeName(value: number) {
     switch (value) {
-      default: return Setting.ALL;
-      case 1: return Setting.PARTIAL;
-      case 2: return Setting.NONE;
+      default:
+        return Setting.ALL;
+      case 1:
+        return Setting.PARTIAL;
+      case 2:
+        return Setting.NONE;
     }
   }
 
@@ -485,7 +569,9 @@ function TabOther({
             name="s-potential"
             items={["全員に適用", "E以下orイベユニのみ適用", "適用しない"]}
             value={getTypeValue(setting.potential)}
-            onChange={v => onChange(HandleChange.SETTING, { potential: getTypeName(v) })}
+            onChange={(v) =>
+              onChange(HandleChange.SETTING, { potential: getTypeName(v) })
+            }
           />
         </Col>
       </ModalUI.FormGroup>
@@ -495,7 +581,9 @@ function TabOther({
             name="s-weapon"
             items={["武器強化を適用", "基礎性能のみ適用", "適用しない"]}
             value={getTypeValue(setting.weapon)}
-            onChange={v => onChange(HandleChange.SETTING, { weapon: getTypeName(v) })}
+            onChange={(v) =>
+              onChange(HandleChange.SETTING, { weapon: getTypeName(v) })
+            }
           />
         </Col>
       </ModalUI.FormGroup>
@@ -506,9 +594,11 @@ function TabOther({
               name="s-field-element"
               items={["無属性", "ユニットと同属性"]}
               value={setting.fieldElement === Setting.NONE ? 0 : 1}
-              onChange={v => onChange(HandleChange.SETTING, {
-                fieldElement: v === 0 ? Setting.NONE : Setting.SAME
-              })}
+              onChange={(v) =>
+                onChange(HandleChange.SETTING, {
+                  fieldElement: v === 0 ? Setting.NONE : Setting.SAME,
+                })
+              }
             />
           </Col>
         </ModalUI.FormGroup>
@@ -520,15 +610,19 @@ function TabOther({
 function SelectOptions({ value }: { value: number }) {
   const ret = [];
   for (let i = 0; i <= value; i++) {
-    ret.push(<option value={i} key={i}>{i}</option>);
+    ret.push(
+      <option value={i} key={i}>
+        {i}
+      </option>
+    );
   }
   return ret;
-};
+}
 
 function FormItem(props: {
-  children: ReactNode
-  name: string
-  label: ReactNode
+  children: ReactNode;
+  name: string;
+  label: ReactNode;
 }) {
   return (
     <Col sm={6} className="mb-1">
@@ -536,21 +630,19 @@ function FormItem(props: {
         <FormLabel column="sm" sm={5}>
           {props.label}
         </FormLabel>
-        <Col sm={7}>
-          {props.children}
-        </Col>
+        <Col sm={7}>{props.children}</Col>
       </FormGroup>
     </Col>
   );
 }
 
 function FormSelect(props: {
-  children: ReactNode
-  name: string
-  label: string
-  value: number
-  onChange: ChangeEventHandler<HTMLSelectElement>
-  disabled?: boolean
+  children: ReactNode;
+  name: string;
+  label: string;
+  value: number;
+  onChange: ChangeEventHandler<HTMLSelectElement>;
+  disabled?: boolean;
 }) {
   return (
     <FormItem {...props}>
@@ -567,12 +659,12 @@ function FormSelect(props: {
 }
 
 function FormNumber(props: {
-  name: string
-  label: ReactNode
-  value: number
-  onChange: (value: number) => void
-  isValid: (arg: number) => boolean
-  isAdd?: boolean
+  name: string;
+  label: ReactNode;
+  value: number;
+  onChange: (value: number) => void;
+  isValid: (arg: number) => boolean;
+  isAdd?: boolean;
 }) {
   const [text, setText] = useState<string>(props.value.toString());
 
@@ -581,8 +673,7 @@ function FormNumber(props: {
   function handleChange(value: string) {
     setText(value);
     const v = Number.parseInt(value);
-    if (props.isValid(v))
-      props.onChange(v);
+    if (props.isValid(v)) props.onChange(v);
   }
 
   return (
@@ -594,10 +685,14 @@ function FormNumber(props: {
         <Form.Control
           type="number"
           value={text}
-          onChange={e => handleChange(e.target.value)}
+          onChange={(e) => handleChange(e.target.value)}
           isInvalid={isInvalid}
         />
-        <InputGroup.Text role="button" onClick={() => handleChange("0")} style={{ width: "2em" }}>
+        <InputGroup.Text
+          role="button"
+          onClick={() => handleChange("0")}
+          style={{ width: "2em" }}
+        >
           {!props.isAdd && "%"}
         </InputGroup.Text>
         {isInvalid && (

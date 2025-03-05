@@ -73,7 +73,7 @@ function getItems(): readonly Item[] {
     const buffs = src.buffs;
     if (buffs === undefined || buffs.length === 0) return;
 
-    buffs.forEach((buff) => {
+    buffs.forEach((buff, index) => {
       const getBuffValue = (type: BuffType) => buff.type === type && buff.value;
       const skill = getSkill(src, buff.skill);
 
@@ -110,7 +110,7 @@ function getItems(): readonly Item[] {
       };
 
       ret.push({
-        key: src.id,
+        key: `${src.id}-${index}`,
         value: itemValue,
       });
     });

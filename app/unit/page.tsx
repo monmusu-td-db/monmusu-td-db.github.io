@@ -1,6 +1,6 @@
 "use client";
 
-import { useQueryContext, useTableStates } from "@/components/States";
+import { Contexts, useTableStates } from "@/components/States";
 import StatTable from "@/components/StatTable";
 import Unit from "@/components/Unit";
 import { useMemo, useState } from "react";
@@ -9,16 +9,18 @@ import SettingPanel from "@/components/SettingPanel";
 
 export default function Page() {
   const [states, handleChange] = useTableStates();
-  const query = useQueryContext();
+  const query = Contexts.useQuery();
+  const filter = Contexts.useFilter();
   const [showPanel, setShowPanel] = useState(false);
 
   const newStates = useMemo(
     () => ({
       // TODO
       ...states,
+      filter,
       query,
     }),
-    [states, query]
+    [states, filter, query]
   );
 
   function handleShowPanel() {
@@ -34,9 +36,8 @@ export default function Page() {
       <SettingPanel
         show={showPanel}
         handleClose={handleClosePanel}
-        filter={states.filter}
-        setting={states.setting}
-        uISetting={states.uISetting}
+        setting={newStates.setting}
+        uISetting={newStates.uISetting}
         onChange={handleChange}
         isSituation={false}
       />
