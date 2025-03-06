@@ -116,6 +116,25 @@
         ],
         "attackAdd": 1000
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "features": [
+          "class-attack-add"
+        ]
+      },
+      {
+        "features": [
+          "class-action",
+          "class-attack-add"
+        ]
+      }
     ]
   },
   {

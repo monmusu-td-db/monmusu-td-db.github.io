@@ -10427,5 +10427,42 @@
         "value": 130
       }
     ]
+  },
+  {
+    "id": 314,
+    "unitName": "【ウコバク娘】フォウル",
+    "unitShortName": "フォウル",
+    "rarity": "R",
+    "class": "バーバリアン",
+    "element": "火",
+    "species": "悪魔",
+    "hp": 6363,
+    "attack": 936,
+    "defense": 402,
+    "resist": 127,
+    "supplements": [
+      "火傷付与(稀)",
+      "火傷付与(稀+)→ブロック敵",
+      "HP回復3%/敵撃破→悪魔"
+    ],
+    "exSkill1": {
+      "skillName": "悪魔仕込みの腕前",
+      "attackMul": 200,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "攻撃力+50"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   }
 ]
