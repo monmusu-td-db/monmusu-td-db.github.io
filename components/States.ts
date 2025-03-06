@@ -2,10 +2,8 @@
 
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
-  useMemo,
   useReducer,
   useState,
   type Dispatch,
@@ -73,42 +71,6 @@ export interface States {
   query: string;
   uISetting: UISetting;
 }
-
-type HandleChangeTargetBase =
-  (typeof HandleChangeTargetBase)[keyof typeof HandleChangeTargetBase];
-const HandleChangeTargetBase = {
-  SETTING: 1,
-  FILTER: 2,
-  QUERY: 3,
-  UI_SETTING: 4,
-} as const;
-
-type HandleChangeTargetReset =
-  (typeof HandleChangeTargetReset)[keyof typeof HandleChangeTargetReset];
-const HandleChangeTargetReset = {
-  RESET_FILTER: 101,
-  RESET_SETTING_UNIT: 102,
-  RESET_SETTING_FORMATION: 103,
-  RESET_SETTING_OTHER: 104,
-} as const;
-
-type HandleChangeTarget = HandleChangeTargetBase | HandleChangeTargetReset;
-type HandleChangeValue<T> = T extends typeof HandleChange.SETTING
-  ? Partial<Setting>
-  : T extends typeof HandleChange.FILTER
-  ? FilterObject
-  : T extends typeof HandleChange.UI_SETTING
-  ? SetStateAction<UISetting>
-  : string;
-export type HandleChange = (<T extends HandleChangeTargetBase>(
-  target: T,
-  value: HandleChangeValue<T>
-) => void) &
-  (<T extends HandleChangeTargetReset>(target: T) => void);
-export const HandleChange = {
-  ...HandleChangeTargetBase,
-  ...HandleChangeTargetReset,
-} as const;
 
 // Filter
 
@@ -684,6 +646,7 @@ type FilterAction =
   | {
       type: typeof FilterAction.reset;
     };
+
 function filterReducer(state: Filter, action: FilterAction): Filter {
   switch (action.type) {
     case FilterAction.change: {
@@ -723,6 +686,60 @@ export function useFilterState(): [Filter, Dispatch<FilterAction>] {
   return [filter, dispatch];
 }
 
+const SettingAction = {
+  change: "change",
+  resetUnit: "reset-unit",
+  resetFormation: "reset-formation",
+  resetOther: "reset-other",
+} as const;
+type SettingAction =
+  | {
+      type: typeof SettingAction.change;
+      nextValue: Partial<Setting>;
+    }
+  | {
+      type:
+        | typeof SettingAction.resetUnit
+        | typeof SettingAction.resetFormation
+        | typeof SettingAction.resetOther;
+    };
+
+function settingReducer(state: Setting, action: SettingAction): Setting {
+  const fn = (nextValue: Partial<Setting>) => ({ ...state, ...nextValue });
+  switch (action.type) {
+    case SettingAction.change: {
+      return fn(action.nextValue);
+    }
+    case SettingAction.resetUnit: {
+      return fn(defaultSettingUnit);
+    }
+    case SettingAction.resetFormation: {
+      return fn(defaultSettingFormation);
+    }
+    case SettingAction.resetOther: {
+      return fn(defaultSettingOther);
+    }
+  }
+}
+
+export function useSettingState(): [Setting, Dispatch<SettingAction>] {
+  const [setting, dispatch] = useReducer(settingReducer, defaultSetting);
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    dispatch({ type: SettingAction.change, nextValue: Storage.getSetting() });
+    setInit(true);
+  }, []);
+
+  useEffect(() => {
+    if (init) {
+      Storage.setSetting(setting);
+    }
+  }, [setting, init]);
+
+  return [setting, dispatch];
+}
+
 export function useQueryState(): [string, Dispatch<SetStateAction<string>>] {
   const [query, setQuery] = useState("");
   const [init, setInit] = useState(false);
@@ -741,6 +758,59 @@ export function useQueryState(): [string, Dispatch<SetStateAction<string>>] {
   return [query, setQuery];
 }
 
+const UISettingAction = {
+  change: "change",
+  update: "update",
+} as const;
+type UISettingAction =
+  | {
+      type: typeof UISettingAction.change;
+      nextValue: Partial<UISetting>;
+    }
+  | {
+      type: typeof UISettingAction.update;
+      updater: SetStateAction<UISetting>;
+    };
+
+function uISettingReducer(
+  state: UISetting,
+  action: UISettingAction
+): UISetting {
+  switch (action.type) {
+    case UISettingAction.change: {
+      return { ...state, ...action.nextValue };
+    }
+    case UISettingAction.update: {
+      if (typeof action.updater === "function") {
+        return action.updater(state);
+      } else {
+        return action.updater;
+      }
+    }
+  }
+}
+
+export function useUISettingState(): [UISetting, Dispatch<UISettingAction>] {
+  const [uISetting, dispatch] = useReducer(uISettingReducer, defaultUISetting);
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    dispatch({
+      type: UISettingAction.change,
+      nextValue: Storage.getUISetting(),
+    });
+    setInit(true);
+  }, []);
+
+  useEffect(() => {
+    if (init) {
+      Storage.setUISetting(uISetting);
+    }
+  }, [uISetting, init]);
+
+  return [uISetting, dispatch];
+}
+
 // Contexts
 
 export const Contexts = {
@@ -750,89 +820,23 @@ export const Contexts = {
   useFilter: () => useContext(Contexts.Filter),
   useDispatchFilter: () => useContext(Contexts.DispatchFilter),
 
+  SettingAction,
+  Setting: createContext<Setting>(defaultSetting),
+  DispatchSetting: createContext<Dispatch<SettingAction>>(() => {}),
+  useSetting: () => useContext(Contexts.Setting),
+  useDispatchSetting: () => useContext(Contexts.DispatchSetting),
+
   Query: createContext(""),
   SetQuery: createContext<Dispatch<string>>(() => {}),
   useQuery: () => useContext(Contexts.Query),
   useSetQuery: () => useContext(Contexts.SetQuery),
+
+  UISettingAction,
+  UISetting: createContext<UISetting>(defaultUISetting),
+  DispatchUISetting: createContext<Dispatch<UISettingAction>>(() => {}),
+  useUISetting: () => useContext(Contexts.UISetting),
+  useDispatchUISetting: () => useContext(Contexts.DispatchUISetting),
 };
-
-// Old Hooks
-
-export function useTableStates(): [States, HandleChange] {
-  const [filter, setFilter] = useState<Filter>(defaultFilter);
-  const [setting, setSetting] = useState<Setting>(defaultSetting);
-  const [query, setQuery] = useState("");
-  const [uISetting, setUISetting] = useState<UISetting>(defaultUISetting);
-
-  useEffect(() => {
-    // setFilter(Storage.getFilter());
-    setSetting(Storage.getSetting());
-    // setQuery(Storage.getQuery());
-    setUISetting(Storage.getUISetting());
-  }, []);
-
-  useEffect(() => {
-    Storage.setSetting(setting);
-    // Storage.setFilter(filter);
-    // Storage.setQuery(query);
-    Storage.setUISetting(uISetting);
-  }, [setting, filter, query, uISetting]);
-
-  const states = useMemo(
-    () => ({
-      setting,
-      query,
-      filter,
-      uISetting,
-    }),
-    [setting, query, filter, uISetting]
-  );
-
-  const handleChange = useCallback(function handleChange<
-    T extends HandleChangeTarget
-  >(target: T, value?: HandleChangeValue<T>) {
-    switch (target) {
-      case HandleChange.SETTING:
-        setSetting((s) => ({ ...s, ...(value as Partial<Setting>) }));
-        break;
-      case HandleChange.FILTER:
-        setFilter((s) => {
-          const ret = new Map(s);
-          for (const [k, v] of Object.entries(value as FilterObject)) {
-            ret.set(k as FilterKeys, v);
-          }
-          return ret;
-        });
-        break;
-      case HandleChange.QUERY:
-        setQuery(value as string);
-        break;
-      case HandleChange.UI_SETTING:
-        if (typeof value === "function") setUISetting(value);
-        else
-          setUISetting((s) => ({
-            ...s,
-            ...(value as SetStateAction<UISetting>),
-          }));
-        break;
-      case HandleChange.RESET_FILTER:
-        setFilter(defaultFilter);
-        break;
-      case HandleChange.RESET_SETTING_UNIT:
-        setSetting((s) => ({ ...s, ...defaultSettingUnit }));
-        break;
-      case HandleChange.RESET_SETTING_FORMATION:
-        setSetting((s) => ({ ...s, ...defaultSettingFormation }));
-        break;
-      case HandleChange.RESET_SETTING_OTHER:
-        setSetting((s) => ({ ...s, ...defaultSettingOther }));
-        break;
-    }
-  },
-  []);
-
-  return [states, handleChange];
-}
 
 // Storage
 const storageKeys = {

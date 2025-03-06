@@ -1,24 +1,45 @@
 "use client";
 
-import { Contexts, useFilterState, useQueryState } from "@/components/States";
+import {
+  Contexts,
+  useFilterState,
+  useQueryState,
+  useSettingState,
+  useUISettingState,
+} from "@/components/States";
 import { type ReactNode } from "react";
 
 export function ClientRoot({ children }: { children: ReactNode }) {
   return (
     <FilterRoot>
-      <QueryRoot>{children}</QueryRoot>
+      <SettingRoot>
+        <QueryRoot>
+          <UISettingRoot>{children}</UISettingRoot>
+        </QueryRoot>
+      </SettingRoot>
     </FilterRoot>
   );
 }
 
 function FilterRoot({ children }: { children: ReactNode }) {
-  const [filter, dispatchFilter] = useFilterState();
+  const [filter, dispatch] = useFilterState();
   return (
     <Contexts.Filter.Provider value={filter}>
-      <Contexts.DispatchFilter.Provider value={dispatchFilter}>
+      <Contexts.DispatchFilter.Provider value={dispatch}>
         {children}
       </Contexts.DispatchFilter.Provider>
     </Contexts.Filter.Provider>
+  );
+}
+
+function SettingRoot({ children }: { children: ReactNode }) {
+  const [setting, dispatch] = useSettingState();
+  return (
+    <Contexts.Setting.Provider value={setting}>
+      <Contexts.DispatchSetting.Provider value={dispatch}>
+        {children}
+      </Contexts.DispatchSetting.Provider>
+    </Contexts.Setting.Provider>
   );
 }
 
@@ -30,5 +51,16 @@ function QueryRoot({ children }: { children: ReactNode }) {
         {children}
       </Contexts.SetQuery.Provider>
     </Contexts.Query.Provider>
+  );
+}
+
+function UISettingRoot({ children }: { children: ReactNode }) {
+  const [uISetting, dispatch] = useUISettingState();
+  return (
+    <Contexts.UISetting.Provider value={uISetting}>
+      <Contexts.DispatchUISetting.Provider value={dispatch}>
+        {children}
+      </Contexts.DispatchUISetting.Provider>
+    </Contexts.UISetting.Provider>
   );
 }

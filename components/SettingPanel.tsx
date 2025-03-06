@@ -4,6 +4,7 @@ import {
   useState,
   type ChangeEventHandler,
   type ReactNode,
+  type SetStateAction,
 } from "react";
 import {
   Button,
@@ -20,7 +21,6 @@ import {
 import {
   type Filter,
   FilterEquipment,
-  HandleChange,
   Setting,
   type FilterObject,
   type UISetting,
@@ -45,35 +45,31 @@ const tabs = {
 export default function SettingPanel({
   show,
   handleClose,
-  setting,
-  uISetting,
-  onChange,
   isSituation,
 }: {
   show: boolean;
   handleClose: () => void;
-  setting: Setting;
-  uISetting: UISetting;
-  onChange: HandleChange;
   isSituation: boolean;
 }) {
   const [tab, setTab] = useState<string>(tabs.FILTER);
   const [resetKey, setResetKey] = useState(0);
+  const dispatchFilter = Contexts.useDispatchFilter();
+  const dispatchSetting = Contexts.useDispatchSetting();
 
   function handleReset(): void {
     setResetKey((p) => p + 1);
     switch (tab) {
       case tabs.FILTER:
-        onChange(HandleChange.RESET_FILTER);
+        dispatchFilter({ type: Contexts.FilterAction.reset });
         break;
       case tabs.UNIT:
-        onChange(HandleChange.RESET_SETTING_UNIT);
+        dispatchSetting({ type: Contexts.SettingAction.resetUnit });
         break;
       case tabs.FORMATION:
-        onChange(HandleChange.RESET_SETTING_FORMATION);
+        dispatchSetting({ type: Contexts.SettingAction.resetFormation });
         break;
       case tabs.OTHER:
-        onChange(HandleChange.RESET_SETTING_OTHER);
+        dispatchSetting({ type: Contexts.SettingAction.resetOther });
         break;
     }
   }
@@ -110,27 +106,13 @@ export default function SettingPanel({
               <TabFilter isSituation={isSituation} />
             </Tab.Pane>
             <Tab.Pane eventKey={tabs.UNIT}>
-              <TabUnit
-                key={resetKey}
-                setting={setting}
-                uISetting={uISetting}
-                onChange={onChange}
-                isSituation={isSituation}
-              />
+              <TabUnit key={resetKey} isSituation={isSituation} />
             </Tab.Pane>
             <Tab.Pane eventKey={tabs.FORMATION}>
-              <TabFormation
-                setting={setting}
-                onChange={onChange}
-                key={resetKey}
-              />
+              <TabFormation key={resetKey} />
             </Tab.Pane>
             <Tab.Pane eventKey={tabs.OTHER}>
-              <TabOther
-                setting={setting}
-                onChange={onChange}
-                isSituation={isSituation}
-              />
+              <TabOther isSituation={isSituation} />
             </Tab.Pane>
           </Tab.Content>
         </Modal.Body>
@@ -160,19 +142,19 @@ function TabFilter({ isSituation }: { isSituation: boolean }) {
   return (
     <_TabFilter
       filter={filter}
-      handleChange={handleChange}
+      onChange={handleChange}
       isSituation={isSituation}
     />
   );
 }
 
-const _TabFilter = memo(function _TabFilter({
+const _TabFilter = memo(function TabFilter({
   filter,
-  handleChange,
+  onChange,
   isSituation,
 }: {
   filter: Filter;
-  handleChange: (nextValue: FilterObject) => void;
+  onChange: (nextValue: FilterObject) => void;
   isSituation: boolean;
 }) {
   return (
@@ -186,7 +168,7 @@ const _TabFilter = memo(function _TabFilter({
                 key={v}
                 rarity={v}
                 checked={checked}
-                onClick={() => handleChange({ [v]: !checked })}
+                onClick={() => onChange({ [v]: !checked })}
               />
             );
           })}
@@ -201,7 +183,7 @@ const _TabFilter = memo(function _TabFilter({
                 key={v}
                 element={v}
                 checked={checked}
-                onClick={() => handleChange({ [v]: !checked })}
+                onClick={() => onChange({ [v]: !checked })}
               />
             );
           })}
@@ -220,7 +202,7 @@ const _TabFilter = memo(function _TabFilter({
                 onClick={(v) => {
                   const s: FilterObject = {};
                   ekeys.forEach((ek) => (s[ek] = v));
-                  handleChange(s);
+                  onChange(s);
                 }}
                 grid
               />
@@ -237,7 +219,7 @@ const _TabFilter = memo(function _TabFilter({
                 name={k}
                 label={FilterEquipment.names[k]}
                 checked={filter.get(k) ?? false}
-                onClick={(v) => handleChange({ [k]: v })}
+                onClick={(v) => onChange({ [k]: v })}
                 grid
               />
             );
@@ -254,7 +236,7 @@ const _TabFilter = memo(function _TabFilter({
                   name={k}
                   label={FilterCondition.names[k]}
                   checked={filter.get(k) ?? false}
-                  onClick={(v) => handleChange({ [k]: v })}
+                  onClick={(v) => onChange({ [k]: v })}
                   grid
                 />
               );
@@ -272,7 +254,7 @@ const _TabFilter = memo(function _TabFilter({
                 name={v}
                 label={Data.Species.name[v]}
                 checked={checked}
-                onClick={() => handleChange({ [v]: !checked })}
+                onClick={() => onChange({ [v]: !checked })}
                 grid
               />
             );
@@ -289,7 +271,7 @@ const _TabFilter = memo(function _TabFilter({
                 name={v}
                 label={Data.Placement.desc[v]}
                 checked={checked}
-                onClick={() => handleChange({ [v]: !checked })}
+                onClick={() => onChange({ [v]: !checked })}
                 grid
               />
             );
@@ -300,15 +282,48 @@ const _TabFilter = memo(function _TabFilter({
   );
 });
 
-function TabUnit({
+function TabUnit({ isSituation }: { isSituation: boolean }) {
+  const setting = Contexts.useSetting();
+  const dispatchSetting = Contexts.useDispatchSetting();
+  const uISetting = Contexts.useUISetting();
+  const dispatchUISetting = Contexts.useDispatchUISetting();
+
+  const handleChangeSetting = useCallback(
+    (nextValue: Partial<Setting>) => {
+      dispatchSetting({ type: Contexts.SettingAction.change, nextValue });
+    },
+    [dispatchSetting]
+  );
+
+  const handleChangeUISetting = useCallback(
+    (updater: SetStateAction<UISetting>) => {
+      dispatchUISetting({ type: Contexts.UISettingAction.update, updater });
+    },
+    [dispatchUISetting]
+  );
+
+  return (
+    <_TabUnit
+      setting={setting}
+      onChangeSetting={handleChangeSetting}
+      uISetting={uISetting}
+      onChangeUISetting={handleChangeUISetting}
+      isSituation={isSituation}
+    />
+  );
+}
+
+const _TabUnit = memo(function TabUnit({
   setting,
+  onChangeSetting,
   uISetting,
-  onChange,
+  onChangeUISetting,
   isSituation,
 }: {
   setting: Setting;
+  onChangeSetting: (nextValue: Partial<Setting>) => void;
   uISetting: UISetting;
-  onChange: HandleChange;
+  onChangeUISetting: (updater: SetStateAction<UISetting>) => void;
   isSituation: boolean;
 }) {
   return (
@@ -319,12 +334,12 @@ function TabUnit({
             id={setting.subskill1}
             uiSetting={uISetting}
             onSelect={useCallback(
-              (id) => onChange(HandleChange.SETTING, { subskill1: id }),
-              [onChange]
+              (id) => onChangeSetting({ subskill1: id }),
+              [onChangeSetting]
             )}
             onChangeUI={useCallback(
-              (e) => onChange(HandleChange.UI_SETTING, e),
-              [onChange]
+              (updater) => onChangeUISetting(updater),
+              [onChangeUISetting]
             )}
           />
         </Col>
@@ -333,12 +348,12 @@ function TabUnit({
             id={setting.subskill2}
             uiSetting={uISetting}
             onSelect={useCallback(
-              (id) => onChange(HandleChange.SETTING, { subskill2: id }),
-              [onChange]
+              (id) => onChangeSetting({ subskill2: id }),
+              [onChangeSetting]
             )}
             onChangeUI={useCallback(
-              (e) => onChange(HandleChange.UI_SETTING, e),
-              [onChange]
+              (updater) => onChangeUISetting(updater),
+              [onChangeUISetting]
             )}
           />
         </Col>
@@ -354,7 +369,7 @@ function TabUnit({
                   label={Data.BaseStatType.name[v]}
                   value={setting[Data.BaseStatType.mulKey[v]]}
                   onChange={(n) =>
-                    onChange(HandleChange.SETTING, {
+                    onChangeSetting({
                       [Data.BaseStatType.mulKey[v]]: n,
                     })
                   }
@@ -372,7 +387,7 @@ function TabUnit({
                   label={Data.BaseStatType.name[v]}
                   value={setting[Data.BaseStatType.addKey[v]]}
                   onChange={(n) =>
-                    onChange(HandleChange.SETTING, {
+                    onChangeSetting({
                       [Data.BaseStatType.addKey[v]]: n,
                     })
                   }
@@ -388,27 +403,21 @@ function TabUnit({
                 name={"damage-factor"}
                 label={"攻撃倍率"}
                 value={setting.damageFactor}
-                onChange={(n) =>
-                  onChange(HandleChange.SETTING, { damageFactor: n })
-                }
+                onChange={(n) => onChangeSetting({ damageFactor: n })}
                 isValid={Setting.isValidMul}
               />
               <FormNumber
                 name={"physical-damage-cut"}
                 label={"物理攻撃軽減"}
                 value={setting.physicalDamageCut}
-                onChange={(n) =>
-                  onChange(HandleChange.SETTING, { physicalDamageCut: n })
-                }
+                onChange={(n) => onChangeSetting({ physicalDamageCut: n })}
                 isValid={Setting.isValidDamageCut}
               />
               <FormNumber
                 name={"magical-damage-cut"}
                 label={"魔法攻撃軽減"}
                 value={setting.magicalDamageCut}
-                onChange={(n) =>
-                  onChange(HandleChange.SETTING, { magicalDamageCut: n })
-                }
+                onChange={(n) => onChangeSetting({ magicalDamageCut: n })}
                 isValid={Setting.isValidDamageCut}
               />
             </Row>
@@ -419,18 +428,14 @@ function TabUnit({
                 name={"attack-speed-buff"}
                 label={"攻撃速度バフ"}
                 value={setting.attackSpeedBuff}
-                onChange={(n) =>
-                  onChange(HandleChange.SETTING, { attackSpeedBuff: n })
-                }
+                onChange={(n) => onChangeSetting({ attackSpeedBuff: n })}
                 isValid={Setting.isValidMul}
               />
               <FormNumber
                 name={"delay-cut"}
                 label={"待機時間短縮"}
                 value={setting.delayCut}
-                onChange={(n) =>
-                  onChange(HandleChange.SETTING, { delayCut: n })
-                }
+                onChange={(n) => onChangeSetting({ delayCut: n })}
                 isValid={Setting.isValidCut}
               />
             </Row>
@@ -439,14 +444,28 @@ function TabUnit({
       )}
     </Form>
   );
+});
+
+function TabFormation() {
+  const setting = Contexts.useSetting();
+  const dispatch = Contexts.useDispatchSetting();
+
+  const handleChange = useCallback(
+    (nextValue: Partial<Setting>) => {
+      dispatch({ type: Contexts.SettingAction.change, nextValue });
+    },
+    [dispatch]
+  );
+
+  return <_TabFormation setting={setting} onChange={handleChange} />;
 }
 
-function TabFormation({
+const _TabFormation = memo(function _TabFormation({
   setting,
   onChange,
 }: {
   setting: Setting;
-  onChange: HandleChange;
+  onChange: (nextValue: Partial<Setting>) => void;
 }) {
   return (
     <Form>
@@ -458,13 +477,13 @@ function TabFormation({
               switch (n) {
                 case -1:
                 case setting.subBeast:
-                  onChange(HandleChange.SETTING, {
+                  onChange({
                     mainBeast: n,
                     subBeast: -1,
                   });
                   break;
                 default:
-                  onChange(HandleChange.SETTING, { mainBeast: n });
+                  onChange({ mainBeast: n });
                   break;
               }
             }}
@@ -473,7 +492,7 @@ function TabFormation({
         <Col>
           <BeastUI.Selector
             id={setting.subBeast}
-            onSelect={(n) => onChange(HandleChange.SETTING, { subBeast: n })}
+            onSelect={(n) => onChange({ subBeast: n })}
             disabled={setting.mainBeast === -1}
           />
         </Col>
@@ -485,7 +504,7 @@ function TabFormation({
             label="所持数"
             value={setting.possBuffAmount}
             onChange={(e) =>
-              onChange(HandleChange.SETTING, {
+              onChange({
                 possBuffAmount: Number.parseInt(e.target.value),
               })
             }
@@ -499,7 +518,7 @@ function TabFormation({
             label="レベル"
             value={setting.possBuffLevel}
             onChange={(e) =>
-              onChange(HandleChange.SETTING, {
+              onChange({
                 possBuffLevel: Number.parseInt(e.target.value),
               })
             }
@@ -518,7 +537,7 @@ function TabFormation({
               label={Data.BaseStatType.name[v]}
               value={setting[Setting.formation.key[v]]}
               onChange={(n) =>
-                onChange(HandleChange.SETTING, {
+                onChange({
                   [Setting.formation.key[v]]: n,
                 })
               }
@@ -529,15 +548,35 @@ function TabFormation({
       </ModalUI.FormGroup>
     </Form>
   );
+});
+
+function TabOther({ isSituation }: { isSituation: boolean }) {
+  const setting = Contexts.useSetting();
+  const dispatch = Contexts.useDispatchSetting();
+
+  const handleChange = useCallback(
+    (nextValue: Partial<Setting>) => {
+      dispatch({ type: Contexts.SettingAction.change, nextValue });
+    },
+    [dispatch]
+  );
+
+  return (
+    <_TabOther
+      setting={setting}
+      onChange={handleChange}
+      isSituation={isSituation}
+    />
+  );
 }
 
-function TabOther({
+const _TabOther = memo(function _TabOther({
   setting,
   onChange,
   isSituation,
 }: {
   setting: Setting;
-  onChange: HandleChange;
+  onChange: (nextValue: Partial<Setting>) => void;
   isSituation: boolean;
 }) {
   function getTypeValue(value: string) {
@@ -569,9 +608,7 @@ function TabOther({
             name="s-potential"
             items={["全員に適用", "E以下orイベユニのみ適用", "適用しない"]}
             value={getTypeValue(setting.potential)}
-            onChange={(v) =>
-              onChange(HandleChange.SETTING, { potential: getTypeName(v) })
-            }
+            onChange={(v) => onChange({ potential: getTypeName(v) })}
           />
         </Col>
       </ModalUI.FormGroup>
@@ -581,9 +618,7 @@ function TabOther({
             name="s-weapon"
             items={["武器強化を適用", "基礎性能のみ適用", "適用しない"]}
             value={getTypeValue(setting.weapon)}
-            onChange={(v) =>
-              onChange(HandleChange.SETTING, { weapon: getTypeName(v) })
-            }
+            onChange={(v) => onChange({ weapon: getTypeName(v) })}
           />
         </Col>
       </ModalUI.FormGroup>
@@ -595,7 +630,7 @@ function TabOther({
               items={["無属性", "ユニットと同属性"]}
               value={setting.fieldElement === Setting.NONE ? 0 : 1}
               onChange={(v) =>
-                onChange(HandleChange.SETTING, {
+                onChange({
                   fieldElement: v === 0 ? Setting.NONE : Setting.SAME,
                 })
               }
@@ -605,7 +640,7 @@ function TabOther({
       )}
     </Form>
   );
-}
+});
 
 function SelectOptions({ value }: { value: number }) {
   const ret = [];

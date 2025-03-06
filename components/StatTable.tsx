@@ -3,52 +3,75 @@
 import styles from "./StatTable.module.css";
 
 import {
-  memo, useCallback, useDeferredValue, useMemo, useState,
-  type CSSProperties, type ReactNode
+  memo,
+  useCallback,
+  useDeferredValue,
+  useMemo,
+  useState,
+  type CSSProperties,
+  type ReactNode,
 } from "react";
 import { OverlayTrigger, Table } from "react-bootstrap";
 
 import * as Data from "./Data";
 import * as Util from "./Util";
-import { Setting, type States } from "./States";
+import { Contexts, Setting, type States } from "./States";
 import { StatRoot } from "./Stat/StatRoot";
 import { StatTooltip } from "./Stat/StatTooltip";
 import Situation from "./Situation";
 import classNames from "classnames";
 
-type Key = string | number | symbol
+type Key = string | number | symbol;
 const stat = Data.stat;
 
 const getPendingStyle = (isPending: boolean) => ({
   opacity: isPending ? 0.5 : 1,
-  transition: "opacity 0.2s 0.2s linear"
+  transition: "opacity 0.2s 0.2s linear",
 });
 
 interface Sort<T extends Key = Key> {
-  column: T | undefined
-  isReversed: boolean
+  column: T | undefined;
+  isReversed: boolean;
 }
-type HandleClickHeader<T extends Key = Key> = (column: T) => void
+type HandleClickHeader<T extends Key = Key> = (column: T) => void;
 
 export type TableSource<T extends Key> = {
-  [K in T]: StatRoot<unknown, unknown>
+  [K in T]: StatRoot<unknown, unknown>;
 } & {
-  readonly id: number
-}
-interface TableSourceControl<TData extends TableSource<TColumn>, TColumn extends keyof TData> {
-  readonly list: readonly TData[],
-  readonly columns: readonly TColumn[],
-  readonly comparer: (setting: Setting, key: TColumn, target: TData) => string | number | undefined,
-  readonly filter: (states: States, list: readonly TData[]) => readonly TData[]
+  readonly id: number;
+};
+interface TableSourceControl<
+  TData extends TableSource<TColumn>,
+  TColumn extends keyof TData
+> {
+  readonly list: readonly TData[];
+  readonly columns: readonly TColumn[];
+  readonly comparer: (
+    setting: Setting,
+    key: TColumn,
+    target: TData
+  ) => string | number | undefined;
+  readonly filter: (states: States, list: readonly TData[]) => readonly TData[];
 }
 
-function StatTable<TData extends TableSource<TColumn>, TColumn extends keyof TData>({
-  states,
-  src,
-}: {
-  states: States
-  src: TableSourceControl<TData, TColumn>
-}) {
+function StatTable<
+  TData extends TableSource<TColumn>,
+  TColumn extends keyof TData
+>({ src }: { src: TableSourceControl<TData, TColumn> }) {
+  const filter = Contexts.useFilter();
+  const setting = Contexts.useSetting();
+  const query = Contexts.useQuery();
+  const uISetting = Contexts.useUISetting();
+
+  const states = useMemo((): States => {
+    return {
+      filter,
+      setting,
+      query,
+      uISetting,
+    };
+  }, [filter, query, setting, uISetting]);
+
   const deferredStates = useDeferredValue(states);
   const isPending = states !== deferredStates;
 
@@ -59,13 +82,16 @@ function StatTable<TData extends TableSource<TColumn>, TColumn extends keyof TDa
   );
 }
 
-const Control = memo(_Control) as typeof _Control;
-function _Control<TData extends TableSource<TColumn>, TColumn extends keyof TData>({
+const Control = memo(Control_) as typeof Control_;
+function Control_<
+  TData extends TableSource<TColumn>,
+  TColumn extends keyof TData
+>({
   states,
   src,
 }: {
-  states: States
-  src: TableSourceControl<TData, TColumn>
+  states: States;
+  src: TableSourceControl<TData, TColumn>;
 }) {
   const defaultSort: Sort<TColumn> = {
     column: src.columns[0],
@@ -74,58 +100,80 @@ function _Control<TData extends TableSource<TColumn>, TColumn extends keyof TDat
   const [sort, setSort] = useState(defaultSort);
 
   const handleClickHeader = useCallback((column: TColumn) => {
-    setSort(p => {
-      if (p.column === column)
-        return { ...p, isReversed: !p.isReversed };
-      else
-        return { ...p, column };
+    setSort((p) => {
+      if (p.column === column) return { ...p, isReversed: !p.isReversed };
+      else return { ...p, column };
     });
   }, []);
 
-  const filteredList = useMemo(() => src.filter(states, src.list), [states, src]);
+  const filteredList = useMemo(
+    () => src.filter(states, src.list),
+    [states, src]
+  );
 
-  const sortedList = useMemo(() => (() => {
-    const column = sort.column;
-    if (column === undefined)
-      return filteredList;
-    const mappedList = filteredList.map((v, i) => ({
-      i, value: src.comparer(states.setting, column, v)
-    }));
-    mappedList.sort((a, b) => {
-      if (sort.isReversed)
-        return Util.comparer(b.value, a.value);
-      else
-        return Util.comparer(a.value, b.value);
-    });
-    return mappedList.map(v => filteredList[v.i]) as readonly TData[];
-  })(), [filteredList, sort, states.setting, src]);
+  const sortedList = useMemo(
+    () =>
+      (() => {
+        const column = sort.column;
+        if (column === undefined) return filteredList;
+        const mappedList = filteredList.map((v, i) => ({
+          i,
+          value: src.comparer(states.setting, column, v),
+        }));
+        mappedList.sort((a, b) => {
+          if (sort.isReversed) return Util.comparer(b.value, a.value);
+          else return Util.comparer(a.value, b.value);
+        });
+        return mappedList.map((v) => filteredList[v.i]) as readonly TData[];
+      })(),
+    [filteredList, sort, states.setting, src]
+  );
 
   return (
-    <Root states={states} src={src} list={sortedList} sort={sort} onClickHeader={handleClickHeader} />
+    <Root
+      states={states}
+      src={src}
+      list={sortedList}
+      sort={sort}
+      onClickHeader={handleClickHeader}
+    />
   );
 }
 
-const Root = memo(_Root) as typeof _Root;
-function _Root<TData extends TableSource<TColumn>, TColumn extends keyof TData>({
+const Root = memo(Root_) as typeof Root_;
+function Root_<
+  TData extends TableSource<TColumn>,
+  TColumn extends keyof TData
+>({
   states,
   src,
   list,
   sort,
   onClickHeader,
 }: {
-  states: States
-  src: TableSourceControl<TData, TColumn>
-  list: typeof src.list
-  sort: Sort<TColumn>
-  onClickHeader: HandleClickHeader<TColumn>
+  states: States;
+  src: TableSourceControl<TData, TColumn>;
+  list: typeof src.list;
+  sort: Sort<TColumn>;
+  onClickHeader: HandleClickHeader<TColumn>;
 }) {
   const deferredList = useDeferredValue(list);
   const isPending = list !== deferredList;
 
   return (
-    <Table striped size="sm" className={styles.table} style={getPendingStyle(isPending)}>
+    <Table
+      striped
+      size="sm"
+      className={styles.table}
+      style={getPendingStyle(isPending)}
+    >
       <Header columns={src.columns} sort={sort} onClick={onClickHeader} />
-      <Body setting={states.setting} list={deferredList} columns={src.columns} sort={sort} />
+      <Body
+        setting={states.setting}
+        list={deferredList}
+        columns={src.columns}
+        sort={sort}
+      />
     </Table>
   );
 }
@@ -136,15 +184,20 @@ function _Header<T extends Key>({
   sort,
   onClick,
 }: {
-  columns: readonly T[]
-  sort: Sort<T>
-  onClick: HandleClickHeader<T>
+  columns: readonly T[];
+  sort: Sort<T>;
+  onClick: HandleClickHeader<T>;
 }) {
   return (
     <thead>
       <tr>
-        {columns.map(item => (
-          <HeaderItem key={item.toString()} item={item} sort={sort} onClick={onClick} />
+        {columns.map((item) => (
+          <HeaderItem
+            key={item.toString()}
+            item={item}
+            sort={sort}
+            onClick={onClick}
+          />
         ))}
       </tr>
     </thead>
@@ -157,9 +210,9 @@ function _HeaderItem<T extends Key>({
   sort,
   onClick,
 }: {
-  item: T
-  sort: Sort<T>
-  onClick: HandleClickHeader<T>
+  item: T;
+  sort: Sort<T>;
+  onClick: HandleClickHeader<T>;
 }) {
   const className = {
     "text-center": true,
@@ -167,7 +220,8 @@ function _HeaderItem<T extends Key>({
     "table-primary": sort.column === item && sort.isReversed,
   };
   const width = getColumnWidth(item);
-  const style: CSSProperties | undefined = width === undefined ? undefined : { width: `${width}em` };
+  const style: CSSProperties | undefined =
+    width === undefined ? undefined : { width: `${width}em` };
   let role, handleClick: HandleClickHeader<T>;
   switch (item as Data.StatType) {
     case stat.conditions:
@@ -179,7 +233,12 @@ function _HeaderItem<T extends Key>({
       break;
   }
   return (
-    <th className={classNames(className)} style={style} role={role} onClick={() => handleClick?.(item)}>
+    <th
+      className={classNames(className)}
+      style={style}
+      role={role}
+      onClick={() => handleClick?.(item)}
+    >
       {Data.StatType.isKey(item) ? Data.StatType.nameOf(item) : undefined}
     </th>
   );
@@ -256,16 +315,19 @@ function getColumnWidth(key: unknown): number | undefined {
   }
 }
 
-const Body = memo(function Body2<TData extends TableSource<TColumn>, TColumn extends keyof TData>({
+const Body = memo(function Body2<
+  TData extends TableSource<TColumn>,
+  TColumn extends keyof TData
+>({
   setting,
   list,
   columns,
   sort,
 }: {
-  setting: Setting
-  list: readonly TData[]
-  columns: readonly Key[]
-  sort: Sort<TColumn>
+  setting: Setting;
+  list: readonly TData[];
+  columns: readonly Key[];
+  sort: Sort<TColumn>;
 }) {
   const deferredSort = useDeferredValue(sort);
   let previousId: number | undefined;
@@ -287,7 +349,7 @@ const Body = memo(function Body2<TData extends TableSource<TColumn>, TColumn ext
 
   return (
     <tbody>
-      {list.map(row => {
+      {list.map((row) => {
         let className;
         if (row instanceof Situation && isBorderEnabled(deferredSort.column)) {
           const id = row.unitId.getValue(setting);
@@ -305,33 +367,36 @@ const Body = memo(function Body2<TData extends TableSource<TColumn>, TColumn ext
   );
 });
 
-const Row = memo(function Row2<TData extends TableSource<TColumn>, TColumn extends keyof TData>({
+const Row = memo(function Row2<
+  TData extends TableSource<TColumn>,
+  TColumn extends keyof TData
+>({
   setting,
   columns,
-  row
+  row,
 }: {
-  setting: Setting
-  columns: readonly TColumn[]
-  row: TData
+  setting: Setting;
+  columns: readonly TColumn[];
+  row: TData;
 }) {
   return (
     <>
-      {columns.map(column => (
-        <RowItem key={`${row.id}_${column.toString()}`} setting={setting} column={column} row={row} />
+      {columns.map((column) => (
+        <RowItem
+          key={`${row.id}_${column.toString()}`}
+          setting={setting}
+          column={column}
+          row={row}
+        />
       ))}
     </>
   );
 });
 
-const RowItem = memo(function RowItem<TData extends TableSource<TColumn>, TColumn extends keyof TData>({
-  setting,
-  column,
-  row
-}: {
-  setting: Setting
-  column: TColumn
-  row: TData
-}) {
+const RowItem = memo(function RowItem<
+  TData extends TableSource<TColumn>,
+  TColumn extends keyof TData
+>({ setting, column, row }: { setting: Setting; column: TColumn; row: TData }) {
   const src = row[column];
   function getEmptyText(v: ReactNode) {
     switch (column) {
@@ -349,7 +414,7 @@ const RowItem = memo(function RowItem<TData extends TableSource<TColumn>, TColum
       default:
         return v ?? "-";
     }
-  };
+  }
 
   const alignment = (() => {
     switch (column) {
@@ -392,13 +457,15 @@ const RowItem = memo(function RowItem<TData extends TableSource<TColumn>, TColum
   const color = src.getColor(setting);
 
   const itemClassNames = [];
-  if (alignment !== undefined)
-    itemClassNames.push(alignment);
-  if (color !== undefined)
-    itemClassNames.push(`table-${color}`);
+  if (alignment !== undefined) itemClassNames.push(alignment);
+  if (color !== undefined) itemClassNames.push(`table-${color}`);
 
   const item = (
-    <td className={itemClassNames.length > 0 ? classNames(itemClassNames) : undefined}>
+    <td
+      className={
+        itemClassNames.length > 0 ? classNames(itemClassNames) : undefined
+      }
+    >
       {content}
     </td>
   );
@@ -407,14 +474,13 @@ const RowItem = memo(function RowItem<TData extends TableSource<TColumn>, TColum
     return (
       <OverlayTrigger
         placement={src.placement}
-        overlay={p => src.getTooltip(p, setting, row.id)}
+        overlay={(p) => src.getTooltip(p, setting, row.id)}
         trigger={["click", "hover"]}
       >
         {item}
       </OverlayTrigger>
     );
-  else
-    return item;
+  else return item;
 });
 
 export default StatTable;
