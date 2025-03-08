@@ -88,13 +88,6 @@ $popover-border-color: $border-color-translucent-dark;
 
 @import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
-
-@each $color, $value in $custom-dark-table-variants {
-  [data-bs-theme="dark"] {
-    @include table-variant($color, $value);
-  }
-}
-
 @import "~bootstrap/scss/utilities";
 
 // Layout & components
@@ -138,6 +131,12 @@ $popover-border-color: $border-color-translucent-dark;
 // scss-docs-end import-stack
 
 // custom
+@each $color, $value in $custom-dark-table-variants {
+  [data-bs-theme="dark"] {
+    @include table-variant($color, $value);
+  }
+}
+
 .text-dark-teal {
   color: $teal !important;
 }
