@@ -1,5 +1,18 @@
-import { Fragment, memo, useCallback, useState, type MouseEventHandler } from "react";
-import { Button as BButton, Card, Col, Modal, Row, type ModalProps } from "react-bootstrap";
+import {
+  Fragment,
+  memo,
+  useCallback,
+  useState,
+  type MouseEventHandler,
+} from "react";
+import {
+  Button as BButton,
+  Card,
+  Col,
+  Modal,
+  Row,
+  type ModalProps,
+} from "react-bootstrap";
 import * as Data from "./Data";
 import classNames from "classnames";
 import bClassNames from "classnames/bind";
@@ -8,24 +21,23 @@ import styles from "./CardSelector.module.css";
 const cx = bClassNames.bind(styles);
 
 interface Resource {
-  id: number
-  name: string
-  rarity: Data.Rarity
-  desc: string
+  id: number;
+  name: string;
+  rarity: Data.Rarity;
+  desc: string;
 }
 
 interface Props {
-  src: Resource | undefined
+  src: Resource | undefined;
 }
 
 interface ButtonProps extends Props {
-  disabled?: boolean | undefined
-  onClick?: MouseEventHandler
+  disabled?: boolean | undefined;
+  onClick?: MouseEventHandler;
 }
 function Button(props: ButtonProps) {
   const src = props.src;
 
-  const isMixNormal = src?.rarity !== undefined;
   const cardClassNames = [
     "ms-auto me-auto",
     cx("button", {
@@ -33,12 +45,16 @@ function Button(props: ButtonProps) {
       "table-c-yellow": src?.rarity === Data.Rarity.L,
       "table-c-indigo": src?.rarity === Data.Rarity.E,
       "table-c-blue": src?.rarity === Data.Rarity.R,
-      "table-secondary": src?.rarity === Data.Rarity.C,
-      "table-dark": src === undefined,
-      "button-normal": isMixNormal,
-      "button-light": !isMixNormal,
-    })
+      "table-c-gray": src?.rarity === Data.Rarity.C || src === undefined,
+    }),
   ];
+
+  const cardHeaderColor = {
+    "table-c-yellow-300": src?.rarity === Data.Rarity.L,
+    "table-c-indigo-300": src?.rarity === Data.Rarity.E,
+    "table-c-blue-300": src?.rarity === Data.Rarity.R,
+    "table-c-gray-400": src?.rarity === Data.Rarity.C,
+  };
 
   let role, onClick;
   if (!props.disabled) {
@@ -50,13 +66,18 @@ function Button(props: ButtonProps) {
     <Card className={classNames(cardClassNames)} role={role} onClick={onClick}>
       {src !== undefined && (
         <>
-          <Card.Header>
+          <Card.Header className={classNames(cardHeaderColor)}>
             <span className="me-2">{src.rarity}</span>
             <span>{src.name}</span>
           </Card.Header>
           <Card.Body>
             <div className="d-grid h-100 align-items-center text-break">
-              {src.desc.split("\n").map((v, i) => <Fragment key={i}>{i !== 0 && <br />}{v}</Fragment>)}
+              {src.desc.split("\n").map((v, i) => (
+                <Fragment key={i}>
+                  {i !== 0 && <br />}
+                  {v}
+                </Fragment>
+              ))}
             </div>
           </Card.Body>
         </>
@@ -70,10 +91,13 @@ function useSelector(onSelect: undefined | ((id: number) => void)) {
 
   const handleOpen = () => setShow(true);
   const handleClose = () => setShow(false);
-  const handleSelect = useCallback((id: number) => {
-    handleClose();
-    onSelect?.(id);
-  }, [onSelect]);
+  const handleSelect = useCallback(
+    (id: number) => {
+      handleClose();
+      onSelect?.(id);
+    },
+    [onSelect]
+  );
   const handleRemove = () => handleSelect(-1);
 
   return {
@@ -86,30 +110,38 @@ function useSelector(onSelect: undefined | ((id: number) => void)) {
 }
 
 interface SelectorBaseProps {
-  list: readonly Resource[]
-  onSelect?: (id: number) => void
-  disabled?: boolean | undefined
+  list: readonly Resource[];
+  onSelect?: (id: number) => void;
+  disabled?: boolean | undefined;
 }
-export interface SelectorProps extends Props, SelectorBaseProps { }
+export interface SelectorProps extends Props, SelectorBaseProps {}
 interface SelectorModalProps extends SelectorProps {
-  title: string
+  title: string;
 }
 function Selector(props: SelectorModalProps) {
   const selector = useSelector(props.onSelect);
   return (
     <>
-      <Button src={props.src} onClick={selector.handleOpen} disabled={props.disabled} />
-      <SelectorModal
-        show={selector.show}
-        onHide={selector.handleClose}
-      >
+      <Button
+        src={props.src}
+        onClick={selector.handleOpen}
+        disabled={props.disabled}
+      />
+      <SelectorModal show={selector.show} onHide={selector.handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{props.title}</Modal.Title>
-          <RemoveButton className="ms-5 me-auto" onClick={selector.handleRemove} />
+          <RemoveButton
+            className="ms-5 me-auto"
+            onClick={selector.handleRemove}
+          />
         </Modal.Header>
         <Modal.Body>
           <Row className="gx-2 gy-2 pb-2 mb-3">
-            <Items {...props} disabled={!selector.show} onSelect={selector.handleSelect} />
+            <Items
+              {...props}
+              disabled={!selector.show}
+              onSelect={selector.handleSelect}
+            />
           </Row>
         </Modal.Body>
       </SelectorModal>
@@ -118,10 +150,7 @@ function Selector(props: SelectorModalProps) {
 }
 
 function SelectorModal(props: ModalProps) {
-  const modalClassNames = cx(
-    "selector-modal",
-    { disabled: !props.show }
-  );
+  const modalClassNames = cx("selector-modal", { disabled: !props.show });
   const dialogClassNames = cx("selector-dialog");
   const backdropClassNames = cx("selector-backdrop");
 
@@ -142,26 +171,32 @@ function RemoveButton({
   onClick,
   className,
 }: {
-  onClick: () => void
-  className?: string | undefined
+  onClick: () => void;
+  className?: string | undefined;
 }) {
   return (
     <Col xs={2} className={classNames("d-grid", className)}>
-      <BButton variant="danger" onClick={onClick}>はずす</BButton>
+      <BButton variant="danger" onClick={onClick}>
+        はずす
+      </BButton>
     </Col>
   );
 }
 
 interface ItemsProps extends SelectorBaseProps {
-  disabled: boolean
+  disabled: boolean;
 }
 function Items(props: ItemsProps) {
   const handleSelect = (id: number) => props.onSelect?.(id);
   return (
     <>
-      {props.list.map(item => (
+      {props.list.map((item) => (
         <Col key={item.id} lg={4} sm={6}>
-          <Button disabled={props.disabled} src={item} onClick={() => handleSelect(item.id)} />
+          <Button
+            disabled={props.disabled}
+            src={item}
+            onClick={() => handleSelect(item.id)}
+          />
         </Col>
       ))}
     </>
@@ -169,10 +204,12 @@ function Items(props: ItemsProps) {
 }
 
 interface RarityContainerProps extends ItemsProps {
-  rarity: Data.Rarity
+  rarity: Data.Rarity;
 }
-const RarityContainer = memo(function RarityContainer(props: RarityContainerProps) {
-  const list = props.list.filter(item => item.rarity === props.rarity);
+const RarityContainer = memo(function RarityContainer(
+  props: RarityContainerProps
+) {
+  const list = props.list.filter((item) => item.rarity === props.rarity);
   if (list.length === 0) return;
 
   return (

@@ -4,3 +4,7 @@
   width: 280px;
   margin-left: -140px;
 }
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85);
+}

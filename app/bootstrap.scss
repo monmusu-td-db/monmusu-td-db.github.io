@@ -17,6 +17,7 @@ $custom-table-variants: (
   "c-green": shift-color($green-200, $custom-table-bg-scale),
   "c-yellow": shift-color($yellow-200, $custom-table-bg-scale),
   "c-indigo": shift-color($indigo-200, $custom-table-bg-scale),
+  "c-gray": shift-color($gray-300, $custom-table-bg-scale),
   "c-red-100": shift-color($red-100, $custom-table-bg-scale),
   "c-red-300": shift-color($red-300, $custom-table-bg-scale),
   "c-red-500": shift-color($red-500, $custom-table-bg-scale),
@@ -37,6 +38,8 @@ $custom-table-variants: (
   "c-yellow-500": shift-color($yellow-500, $custom-table-bg-scale),
   "c-yellow-600": shift-color($yellow-600, $custom-table-bg-scale),
   "c-yellow-800": shift-color($yellow-800, $custom-table-bg-scale),
+  "c-indigo-300": shift-color($indigo-300, $custom-table-bg-scale),
+  "c-gray-400": shift-color($gray-400, $custom-table-bg-scale),
 );
 $table-variants: map-merge($custom-table-variants, $table-variants);
 
@@ -48,6 +51,7 @@ $custom-dark-table-variants: (
   "c-green": shift-color($green-800, $custom-dark-table-bg-scale),
   "c-yellow": shift-color($yellow-700, $custom-dark-table-bg-scale),
   "c-indigo": shift-color($indigo-800, $custom-dark-table-bg-scale),
+  "c-gray": shift-color($gray-700, $custom-dark-table-bg-scale),
   "c-red-100": shift-color($red-900, $custom-dark-table-bg-scale),
   "c-red-300": shift-color($red-700, $custom-dark-table-bg-scale),
   "c-red-500": shift-color($red-600, $custom-dark-table-bg-scale),
@@ -68,6 +72,8 @@ $custom-dark-table-variants: (
   "c-yellow-500": shift-color($yellow-500, $custom-dark-table-bg-scale),
   "c-yellow-600": shift-color($yellow-400, $custom-dark-table-bg-scale),
   "c-yellow-800": shift-color($yellow-300, $custom-dark-table-bg-scale),
+  "c-indigo-300": shift-color($indigo-700, $custom-dark-table-bg-scale),
+  "c-gray-400": shift-color($gray-600, $custom-dark-table-bg-scale),
 );
 
 $table-cell-padding-y-sm: 0.175rem;

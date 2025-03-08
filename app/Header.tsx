@@ -75,7 +75,7 @@ export default function Header({
 function NavLink({ children, href }: { children: ReactNode; href: string }) {
   return (
     <li className="nav-item col-auto">
-      <Nav.Link as={Link} href={href}>
+      <Nav.Link as={Link} href={href} className={styles["nav-link"]}>
         {children}
       </Nav.Link>
     </li>
@@ -128,7 +128,7 @@ function CurrentTheme({ theme }: { theme: Theme }) {
   return (
     <Button
       variant="link"
-      className={`nav-link d-none theme-${theme}`}
+      className={`nav-link d-none theme-${theme} ${styles["nav-link"]}`}
       onClick={handleClick}
     >
       <ThemeIcon theme={theme} />
@@ -151,7 +151,11 @@ function SettingPanelToggler({
   onClick?: (() => void) | undefined;
 }) {
   return (
-    <Button variant="link" className="nav-link" onClick={onClick}>
+    <Button
+      variant="link"
+      className={`nav-link ${styles["nav-link"]}`}
+      onClick={onClick}
+    >
       <Icon.GearFill />
     </Button>
   );
