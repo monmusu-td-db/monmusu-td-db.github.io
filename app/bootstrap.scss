@@ -40,6 +40,36 @@ $custom-table-variants: (
 );
 $table-variants: map-merge($custom-table-variants, $table-variants);
 
+$custom-dark-table-bg-scale: 15%;
+$custom-dark-table-variants: (
+  "c-red": shift-color($red-800, $custom-dark-table-bg-scale),
+  "c-blue": shift-color($blue-800, $custom-dark-table-bg-scale),
+  "c-orange": shift-color($orange-900, $custom-dark-table-bg-scale),
+  "c-green": shift-color($green-800, $custom-dark-table-bg-scale),
+  "c-yellow": shift-color($yellow-700, $custom-dark-table-bg-scale),
+  "c-indigo": shift-color($indigo-800, $custom-dark-table-bg-scale),
+  "c-red-100": shift-color($red-900, $custom-dark-table-bg-scale),
+  "c-red-300": shift-color($red-700, $custom-dark-table-bg-scale),
+  "c-red-500": shift-color($red-600, $custom-dark-table-bg-scale),
+  "c-red-700": shift-color($red-500, $custom-dark-table-bg-scale),
+  "c-red-900": shift-color($red-300, $custom-dark-table-bg-scale),
+  "c-blue-100": shift-color($blue-900, $custom-dark-table-bg-scale),
+  "c-blue-300": shift-color($blue-700, $custom-dark-table-bg-scale),
+  "c-blue-500": shift-color($blue-600, $custom-dark-table-bg-scale),
+  "c-blue-700": shift-color($blue-500, $custom-dark-table-bg-scale),
+  "c-blue-900": shift-color($blue-300, $custom-dark-table-bg-scale),
+  "c-green-100": shift-color($green-900, $custom-dark-table-bg-scale),
+  "c-green-300": shift-color($green-700, $custom-dark-table-bg-scale),
+  "c-green-500": shift-color($green-600, $custom-dark-table-bg-scale),
+  "c-green-700": shift-color($green-500, $custom-dark-table-bg-scale),
+  "c-green-900": shift-color($green-300, $custom-dark-table-bg-scale),
+  "c-yellow-100": shift-color($yellow-800, $custom-dark-table-bg-scale),
+  "c-yellow-300": shift-color($yellow-600, $custom-dark-table-bg-scale),
+  "c-yellow-500": shift-color($yellow-500, $custom-dark-table-bg-scale),
+  "c-yellow-600": shift-color($yellow-400, $custom-dark-table-bg-scale),
+  "c-yellow-800": shift-color($yellow-300, $custom-dark-table-bg-scale),
+);
+
 $table-cell-padding-y-sm: 0.175rem;
 $table-cell-padding-x-sm: 0.175rem;
 
@@ -52,6 +82,13 @@ $popover-border-color: $border-color-translucent-dark;
 
 @import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
+
+@each $color, $value in $custom-dark-table-variants {
+  [data-bs-theme="dark"] {
+    @include table-variant($color, $value);
+  }
+}
+
 @import "~bootstrap/scss/utilities";
 
 // Layout & components

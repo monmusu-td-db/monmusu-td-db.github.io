@@ -216,8 +216,8 @@ function _HeaderItem<T extends Key>({
 }) {
   const className = {
     "text-center": true,
-    "table-danger": sort.column === item && !sort.isReversed,
-    "table-primary": sort.column === item && sort.isReversed,
+    "table-c-red": sort.column === item && !sort.isReversed,
+    "table-c-blue": sort.column === item && sort.isReversed,
   };
   const width = getColumnWidth(item);
   const style: CSSProperties | undefined =
