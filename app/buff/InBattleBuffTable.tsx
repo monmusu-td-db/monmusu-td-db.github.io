@@ -20,11 +20,16 @@ const columnKeys = [
   "initialTime",
   "duration",
   "cooldown",
+  "hpMul",
+  "attackMul",
+  "defenseMul",
+  "resistMul",
   "damageFactor",
   "damageDebuff",
   "physicalDamageDebuff",
   "magicalDamageDebuff",
   "redeployTimeCut",
+  "fieldChange",
   "supplement",
 ] as const;
 type ColumnKey = (typeof columnKeys)[number];
@@ -38,21 +43,40 @@ const columnName = {
   initialTime: "初動",
   duration: "効果時間",
   cooldown: "再動",
+  hpMul: "HP乗算バフ",
+  attackMul: "攻撃乗算バフ",
+  defenseMul: "物防乗算バフ",
+  resistMul: "魔防乗算バフ",
   damageFactor: "ダメージ倍率",
   damageDebuff: "敵被ダメージ増加",
   physicalDamageDebuff: "敵物理被ダメージ増加",
   magicalDamageDebuff: "敵魔法被ダメージ増加",
   redeployTimeCut: "再出撃短縮",
+  fieldChange: "マス属性変化",
   supplement: "補足",
 } as const satisfies Record<ColumnKey, string>;
 
 const BuffType = {
+  hpMul: "hp-mul",
+  attackMul: "attack-mul",
+  defenseMul: "defense-mul",
+  resistMul: "resist-mul",
   damageFactor: "damage-factor",
   damageDebuff: "damage-debuff",
   physicalDamageDebuff: "physical-damage-debuff",
   magicalDamageDebuff: "magical-damage-debuff",
   redeployTimeCut: "redeploy-time-cut",
   freezeNullify: "freeze-nullify",
+  blindResist: "blind-resist",
+  stanResist: "stan-resist",
+  petrifyResist: "petrify-resist",
+  freezeResist: "freeze-resist",
+  fieldChangeFire: "field-change-fire",
+  fieldChangeWater: "field-change-water",
+  fieldChangeWind: "field-change-wind",
+  fieldChangeEarth: "field-change-earth",
+  fieldChangeLight: "field-change-light",
+  fieldChangeDark: "field-change-dark",
 } as const;
 type BuffType = (typeof BuffType)[keyof typeof BuffType];
 
@@ -99,17 +123,22 @@ function getItems(): readonly Item[] {
       );
       const duration = getDuration(buff.duration ?? skill?.duration);
       const cooldown = getDuration(skill?.cooldown);
+      const hpMul = getMulFactor(getBuffValue(BuffType.hpMul));
+      const attackMul = getMulFactor(getBuffValue(BuffType.attackMul));
+      const defenseMul = getMulFactor(getBuffValue(BuffType.defenseMul));
+      const resistMul = getMulFactor(getBuffValue(BuffType.resistMul));
       const damageFactor = getDamageFactor(getBuffValue(BuffType.damageFactor));
-      const damageDebuff = getDamageDebuff(getBuffValue(BuffType.damageDebuff));
-      const physicalDamageDebuff = getDamageDebuff(
+      const damageDebuff = getMulFactor(getBuffValue(BuffType.damageDebuff));
+      const physicalDamageDebuff = getMulFactor(
         getBuffValue(BuffType.physicalDamageDebuff)
       );
-      const magicalDamageDebuff = getDamageDebuff(
+      const magicalDamageDebuff = getMulFactor(
         getBuffValue(BuffType.magicalDamageDebuff)
       );
       const redeployTimeCut = getPercent(
         getBuffValue(BuffType.redeployTimeCut)
       );
+      const fieldChange = getFieldChange(buff);
       const supplement = getSupplement(buff);
 
       const itemValue: ItemValue = {
@@ -121,11 +150,16 @@ function getItems(): readonly Item[] {
         initialTime,
         duration,
         cooldown,
+        hpMul,
+        attackMul,
+        defenseMul,
+        resistMul,
         damageFactor,
         damageDebuff,
         physicalDamageDebuff,
         magicalDamageDebuff,
         redeployTimeCut,
+        fieldChange,
         supplement,
       };
 
@@ -167,14 +201,14 @@ function getPercent(value: number | undefined | false): string | undefined {
   return `${value}%`;
 }
 
+function getMulFactor(value: number | undefined): ReactNode {
+  if (value === undefined) return;
+  return getPercent(value - 100);
+}
+
 function getDamageFactor(value: number | undefined | false): ReactNode {
   if (value === undefined || value === false) return;
   return (value / 100).toFixed(2);
-}
-
-function getDamageDebuff(value: number | undefined): ReactNode {
-  if (value === undefined) return;
-  return getPercent(value - 100);
 }
 
 function getDuration(
@@ -183,6 +217,33 @@ function getDuration(
   if (value === false) return;
   if (typeof value !== "number") return value;
   return value.toFixed(1);
+}
+
+function getFieldChange(buff: JsonBuff): ReactNode {
+  const name = (() => {
+    const n = Data.Element.name;
+    switch (buff.type) {
+      case BuffType.fieldChangeFire:
+        return n.fire;
+      case BuffType.fieldChangeWater:
+        return n.water;
+      case BuffType.fieldChangeWind:
+        return n.wind;
+      case BuffType.fieldChangeEarth:
+        return n.earth;
+      case BuffType.fieldChangeLight:
+        return n.light;
+      case BuffType.fieldChangeDark:
+        return n.dark;
+      default:
+        return;
+    }
+  })();
+  if (name === undefined) {
+    return;
+  } else {
+    return <span className={Data.Element.textColorOf(name)}>{name}</span>;
+  }
 }
 
 function getSupplement(buff: JsonBuff): ReactNode {
@@ -194,9 +255,23 @@ function getSupplement(buff: JsonBuff): ReactNode {
     add(<span className="text-danger">武器効果</span>); // TODO
   }
 
+  buff.supplements?.forEach((text) => add(text));
+
   switch (buff.type) {
     case BuffType.freezeNullify:
       add("凍結無効化");
+      break;
+    case BuffType.blindResist:
+      add("暗闇耐性+" + buff.value);
+      break;
+    case BuffType.stanResist:
+      add("スタン耐性+" + buff.value);
+      break;
+    case BuffType.petrifyResist:
+      add("石化耐性+" + buff.value);
+      break;
+    case BuffType.freezeResist:
+      add("凍結耐性+" + buff.value);
       break;
   }
 

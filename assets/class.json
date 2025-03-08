@@ -541,6 +541,19 @@
         ],
         "damageFactor": 130
       }
+    ],
+    "situations": [
+      {
+        "features": [
+          "class-heal"
+        ]
+      },
+      {
+        "features": [
+          "class-heal",
+          "class-proper"
+        ]
+      }
     ]
   },
   {

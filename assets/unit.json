@@ -93,7 +93,7 @@
           "武器"
         ],
         "supplements": [
-          "凍結無効化→射程内"
+          "凍結無効→射程内"
         ]
       }
     ],
@@ -10570,6 +10570,141 @@
         "skill": 1,
         "target": "射程内風属性",
         "value": 130
+      }
+    ]
+  },
+  {
+    "id": 313,
+    "unitName": "【プリンシパリティ娘】フィリス",
+    "unitShortName": "フィリス",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "光",
+    "hp": 3998,
+    "attack": 697,
+    "defense": 284,
+    "resist": 411,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "慈悲の光",
+      "attackMul": 240,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
+        "暗闇無効→射程内",
+        "スタン無効→射程内",
+        "石化無効→射程内",
+        "凍結無効→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "回復量20%上昇"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "暗闇耐性+30→射程内",
+          "スタン耐性+30→射程内",
+          "石化耐性+30→射程内",
+          "凍結耐性+30→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "暗闇耐性+35→射程内",
+            "スタン耐性+35→射程内",
+            "石化耐性+35→射程内",
+            "凍結耐性+35→射程内"
+          ]
+        }
+      },
+      {
+        "isBuffSkill": true,
+        "skill": 1,
+        "require": [
+          "光マス"
+        ],
+        "hpMul": 140
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "blind-resist",
+        "target": "射程内",
+        "duration": "常時",
+        "value": 30,
+        "potentialBonus": {
+          "value": 35
+        }
+      },
+      {
+        "type": "stan-resist",
+        "target": "射程内",
+        "duration": "常時",
+        "value": 30,
+        "potentialBonus": {
+          "value": 35
+        }
+      },
+      {
+        "type": "petrify-resist",
+        "target": "射程内",
+        "duration": "常時",
+        "value": 30,
+        "potentialBonus": {
+          "value": 35
+        }
+      },
+      {
+        "type": "freeze-resist",
+        "target": "射程内",
+        "duration": "常時",
+        "value": 30,
+        "potentialBonus": {
+          "value": 35
+        }
+      },
+      {
+        "type": "field-change-light",
+        "skill": 1,
+        "target": "射程内光属性",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "hp-mul",
+        "skill": 1,
+        "target": "射程内光マス",
+        "value": 140
       }
     ]
   },

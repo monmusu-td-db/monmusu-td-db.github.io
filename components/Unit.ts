@@ -109,6 +109,7 @@ export type JsonBuff = Readonly<{
   target: string;
   duration?: string;
   value?: number;
+  supplements?: readonly string[];
 }>;
 export const JsonBuff = {
   require: {

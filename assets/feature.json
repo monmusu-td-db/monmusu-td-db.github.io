@@ -55,6 +55,15 @@
     ]
   },
   {
+    "featureName": "common-light-field",
+    "fieldElements": [
+      "光"
+    ],
+    "annotations": [
+      "光マス配置時"
+    ]
+  },
+  {
     "featureName": "common-block0",
     "conditions": [
       {
