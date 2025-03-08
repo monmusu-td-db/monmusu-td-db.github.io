@@ -1828,12 +1828,27 @@ export default class Situation implements TableSource<Keys> {
     const isMinDefres = d === minDefres;
     const defres = Math.trunc(d);
 
+    const physicalDamageDebuff =
+      damageType === Data.DamageType.physical
+        ? fea.physicalDamageDebuff
+        : undefined;
+    const magicalDamageDebuff =
+      damageType === Data.DamageType.magic
+        ? fea.magicalDamageDebuff
+        : undefined;
+    const damageDebuff = Percent.sum(
+      fea.damageDebuff,
+      physicalDamageDebuff,
+      magicalDamageDebuff
+    );
+    const trueDamageDebuff = fea.damageDebuff ?? 100;
+
     const round = Data.Round.average(this.rounds.getValue(setting));
     if (round === undefined) return;
 
     const hits = Data.Round.average(this.hits.getValue(setting));
 
-    const ret = {
+    const ret: Data.DpsFactorsBase = {
       attack,
       baseDefres,
       defres,
@@ -1844,6 +1859,8 @@ export default class Situation implements TableSource<Keys> {
         staticDamage ?? this.criticalChance.getValue(setting) ?? 0,
       criticalDamage: this.criticalDamage.getValue(setting) ?? 0,
       penetration: this.getPenetration(setting),
+      damageDebuff,
+      trueDamageDebuff,
       round,
       hits,
       interval,
@@ -1872,10 +1889,14 @@ export default class Situation implements TableSource<Keys> {
       const minDamage = Math.trunc(attack / 10);
       const d = attack - factors.defres;
       const isMinDamage = minDamage >= d;
-      const damage = isMinDamage ? minDamage : d;
+      const damage = Percent.multiply(
+        isMinDamage ? minDamage : d,
+        factors.damageDebuff
+      );
+      const trueDamage = Percent.multiply(attack, factors.trueDamageDebuff);
 
       const meanDamage =
-        (damage * nonPenetration + attack * factors.penetration) / 100;
+        (damage * nonPenetration + trueDamage * factors.penetration) / 100;
       const damageAmount = Math.round(
         meanDamage * factors.round * factors.hits
       );
@@ -1885,6 +1906,7 @@ export default class Situation implements TableSource<Keys> {
         minDamage,
         isMinDamage,
         damage,
+        trueDamage,
         damageAmount,
       };
     };

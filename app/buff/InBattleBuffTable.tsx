@@ -21,6 +21,9 @@ const columnKeys = [
   "duration",
   "cooldown",
   "damageFactor",
+  "damageDebuff",
+  "physicalDamageDebuff",
+  "magicalDamageDebuff",
   "redeployTimeCut",
   "supplement",
 ] as const;
@@ -36,12 +39,18 @@ const columnName = {
   duration: "効果時間",
   cooldown: "再動",
   damageFactor: "ダメージ倍率",
+  damageDebuff: "敵被ダメージ増加",
+  physicalDamageDebuff: "敵物理被ダメージ増加",
+  magicalDamageDebuff: "敵魔法被ダメージ増加",
   redeployTimeCut: "再出撃短縮",
   supplement: "補足",
 } as const satisfies Record<ColumnKey, string>;
 
 const BuffType = {
   damageFactor: "damage-factor",
+  damageDebuff: "damage-debuff",
+  physicalDamageDebuff: "physical-damage-debuff",
+  magicalDamageDebuff: "magical-damage-debuff",
   redeployTimeCut: "redeploy-time-cut",
   freezeNullify: "freeze-nullify",
 } as const;
@@ -74,7 +83,8 @@ function getItems(): readonly Item[] {
     if (buffs === undefined || buffs.length === 0) return;
 
     buffs.forEach((buff, index) => {
-      const getBuffValue = (type: BuffType) => buff.type === type && buff.value;
+      const getBuffValue = (type: BuffType) =>
+        buff.type === type ? buff.value : undefined;
       const skill = getSkill(src, buff.skill);
 
       const id = src.parentId ?? src.id;
@@ -90,6 +100,13 @@ function getItems(): readonly Item[] {
       const duration = getDuration(buff.duration ?? skill?.duration);
       const cooldown = getDuration(skill?.cooldown);
       const damageFactor = getDamageFactor(getBuffValue(BuffType.damageFactor));
+      const damageDebuff = getDamageDebuff(getBuffValue(BuffType.damageDebuff));
+      const physicalDamageDebuff = getDamageDebuff(
+        getBuffValue(BuffType.physicalDamageDebuff)
+      );
+      const magicalDamageDebuff = getDamageDebuff(
+        getBuffValue(BuffType.magicalDamageDebuff)
+      );
       const redeployTimeCut = getPercent(
         getBuffValue(BuffType.redeployTimeCut)
       );
@@ -105,6 +122,9 @@ function getItems(): readonly Item[] {
         duration,
         cooldown,
         damageFactor,
+        damageDebuff,
+        physicalDamageDebuff,
+        magicalDamageDebuff,
         redeployTimeCut,
         supplement,
       };
@@ -150,6 +170,11 @@ function getPercent(value: number | undefined | false): string | undefined {
 function getDamageFactor(value: number | undefined | false): ReactNode {
   if (value === undefined || value === false) return;
   return (value / 100).toFixed(2);
+}
+
+function getDamageDebuff(value: number | undefined): ReactNode {
+  if (value === undefined) return;
+  return getPercent(value - 100);
 }
 
 function getDuration(

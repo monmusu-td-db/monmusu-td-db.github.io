@@ -87,13 +87,18 @@ type JsonPotentialBonus = Readonly<
   }>
 >;
 
-interface JsonUnitSituation {
+interface UnitSituation {
   skill: number;
+  hasPotentials: Readonly<Data.JsonPotentials>;
+  features: readonly string[];
+}
+type UnitSituations = readonly Readonly<Partial<UnitSituation>>[];
+
+interface JsonUnitSituation extends UnitSituation {
   depend: readonly string[];
   exclude: readonly string[];
   require: readonly string[];
   proper: boolean;
-  features: readonly string[];
 }
 type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
 
@@ -193,7 +198,7 @@ export default class Unit implements TableSource<Keys> {
   readonly fixedDelay: number | undefined;
   readonly rangeAdd: number | undefined;
   readonly potentialBonus: JsonPotentialBonus | undefined;
-  readonly situations: JsonUnitSituations;
+  readonly situations: UnitSituations;
 
   readonly rangeBase: number | undefined;
 
@@ -585,7 +590,7 @@ export default class Unit implements TableSource<Keys> {
     this.potentialBonus = src.potentialBonus;
 
     {
-      const arr: Partial<JsonUnitSituation>[] = [];
+      const arr: Partial<UnitSituation>[] = [];
 
       classData?.situations?.forEach((classSituation) => {
         const classFeatures = classSituation.features ?? [];

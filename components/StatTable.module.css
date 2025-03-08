@@ -46,5 +46,5 @@
 }
 
 [data-bs-theme="dark"] .table-border-double > * {
-  border-top: double var(--bs-light-border-subtle) !important;
+  border-top: double var(--bs-light) !important;
 }

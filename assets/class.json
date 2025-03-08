@@ -299,6 +299,18 @@
         "hpMul": 150,
         "duration": 15
       }
+    ],
+    "situations": [
+      {
+        "features": [
+          "class-melee"
+        ]
+      },
+      {
+        "features": [
+          "class-ranged"
+        ]
+      }
     ]
   },
   {

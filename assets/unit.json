@@ -5249,6 +5249,151 @@
     "isEventUnit": true
   },
   {
+    "id": 139,
+    "unitName": "【ドラゴンゾンビ娘】ディフォーラ",
+    "unitShortName": "ディフォーラTODO→スキル射程",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "闇",
+    "species": "竜",
+    "hp": 8917,
+    "attack": 1027,
+    "defense": 601,
+    "resist": 110,
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "アシッドコラプション",
+      "attackMul": 380,
+      "range": 190,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "腐朽のオーラ",
+      "attackMul": 300,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "DEF-30%→TODO全体?",
+        "攻撃速度-XX%→TODO全体?",
+        "暗闇付与→TODO射程内?"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "featureName": "class-melee",
+        "physicalDamageDebuff": 120,
+        "potentialBonus": {
+          "physicalDamageDebuff": 128
+        }
+      },
+      {
+        "featureName": "class-ranged",
+        "skill": 1,
+        "physicalDamageDebuff": 120,
+        "potentialBonus": {
+          "physicalDamageDebuff": 128
+        }
+      },
+      {
+        "featureName": "dot",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        },
+        "interval": 60,
+        "target": "ブロック",
+        "splash": false,
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "dot",
+        "skill": 1,
+        "target": "射程内"
+      },
+      {
+        "featureName": "dot",
+        "skill": 2,
+        "staticDamage": {
+          "key": "attack",
+          "value": 70
+        },
+        "target": "射程内",
+        "range": 999
+      }
+    ],
+    "hpMul": 120,
+    "situations": [
+      {},
+      {
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "physical-damage-debuff",
+        "target": "ブロック敵",
+        "duration": "常時",
+        "value": 120,
+        "potentialBonus": {
+          "value": 128
+        }
+      },
+      {
+        "type": "physical-damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 120,
+        "potentialBonus": {
+          "value": 128
+        }
+      }
+    ]
+  },
+  {
     "id": 140,
     "unitName": "【花嫁レッドドラゴン娘】エリュート",
     "unitShortName": "エリュート/嫁",

@@ -11,8 +11,8 @@ TODOリスト
   フィルター状況を見やすく(例：飛行特効)
   situationをunitにまとめてリジェネや吸収を自動表示できるようにする
   condition 特効の内容を表示
-  states sessionStorageへのアクセスを改善
   8体以上同一属性編成
+  Buffページに潜在覚醒ボーナスを適用
 */
 
 // Const
@@ -1611,6 +1611,8 @@ export interface DpsFactorsBase {
   readonly criticalChance: number;
   readonly criticalDamage: number;
   readonly penetration: number;
+  readonly damageDebuff: number;
+  readonly trueDamageDebuff: number;
   readonly round: number;
   readonly hits: number;
   readonly interval: number;
@@ -1631,6 +1633,7 @@ interface DpsFactorsDetail {
   readonly minDamage: number;
   readonly isMinDamage: boolean;
   readonly damage: number;
+  readonly trueDamage: number;
   readonly damageAmount: number;
 }
 

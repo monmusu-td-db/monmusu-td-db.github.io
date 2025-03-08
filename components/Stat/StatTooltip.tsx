@@ -26,7 +26,10 @@ const sign = {
   FRAME: "f",
 } as const;
 
-export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<TStat, TFactors> {
+export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
+  TStat,
+  TFactors
+> {
   readonly isEnabled: StatHandler<boolean> = () => true;
   readonly placement: Placement = "auto";
   readonly equal = " = ";
@@ -39,10 +42,20 @@ export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
   readonly bEnd = ")";
   readonly frame = "f";
 
-  getTooltip(props: OverlayInjectedProps, setting: Setting, id: number): ReactNode {
+  getTooltip(
+    props: OverlayInjectedProps,
+    setting: Setting,
+    id: number
+  ): ReactNode {
     return (
-      <Popover id={`${id}_${this.statType}_tooltip`} {...props} placement={this.placement}>
-        <PopoverHeader as="h3">{Data.StatType.nameOf(this.statType)}</PopoverHeader>
+      <Popover
+        id={`${id}_${this.statType}_tooltip`}
+        {...props}
+        placement={this.placement}
+      >
+        <PopoverHeader as="h3">
+          {Data.StatType.nameOf(this.statType)}
+        </PopoverHeader>
         <PopoverBody>
           <dl>{this.getTooltipBody(setting)}</dl>
         </PopoverBody>
@@ -50,56 +63,56 @@ export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
     );
   }
 
-  protected abstract getTooltipBody(setting: Setting): ReactNode
+  protected abstract getTooltipBody(setting: Setting): ReactNode;
 }
-
 
 // Util
 
 interface TextBaseProps {
-  children: ReactNode
-  b?: boolean | undefined
+  children: ReactNode;
+  b?: boolean | undefined;
 }
 
 interface TextProps extends TextBaseProps {
-  className: string | undefined
+  className: string | undefined;
 }
 
 function Text({ className, children, b }: TextProps) {
-  return (
-    <span className={className}>
-      {b ? (
-        <b>{children}</b>
-      ) : (
-        children
-      )}
-    </span>
-  );
+  return <span className={className}>{b ? <b>{children}</b> : children}</span>;
 }
 
 function Positive({ children, b }: TextBaseProps) {
-  return <Text className={textColor.POSITIVE} b={b}>{children}</Text>;
+  return (
+    <Text className={textColor.POSITIVE} b={b}>
+      {children}
+    </Text>
+  );
 }
 
 function Negative({ children, b }: TextBaseProps) {
-  return <Text className={textColor.NEGATIVE} b={b}>{children}</Text>;
+  return (
+    <Text className={textColor.NEGATIVE} b={b}>
+      {children}
+    </Text>
+  );
 }
 
 interface ValueProps extends TextBaseProps {
-  isPositive: boolean
+  isPositive: boolean;
 }
 
 function Value({ children, b, isPositive }: ValueProps) {
-  if (isPositive)
-    return <Positive b={b}>{children}</Positive>;
-  else
-    return <Negative b={b}>{children}</Negative>;
+  if (isPositive) return <Positive b={b}>{children}</Positive>;
+  else return <Negative b={b}>{children}</Negative>;
 }
 
 function Info({ children, b }: TextBaseProps) {
-  return <Text className={textColor.INFO} b={b}>{children}</Text>;
+  return (
+    <Text className={textColor.INFO} b={b}>
+      {children}
+    </Text>
+  );
 }
-
 
 const IsDescContext = createContext(false);
 
@@ -135,36 +148,62 @@ function Result({ children }: { children: ReactNode }) {
 function Expression({ children }: { children: ReactNode }) {
   const isDesc = useContext(IsDescContext);
   if (isDesc) {
-    return (
-      <small>
-        {children}
-      </small>
-    );
+    return <small>{children}</small>;
   } else {
     return children;
   }
 }
 
 interface ExpressionItemProps {
-  enabled?: boolean
-  children: ReactNode
+  enabled?: boolean;
+  children: ReactNode;
 }
 
 function Brackets({ enabled, children }: ExpressionItemProps) {
-  if (enabled !== false)
-    return <>{sign.BSTART}{children}{sign.BEND}</>;
-  else
+  if (enabled !== false) {
+    return (
+      <>
+        {sign.BSTART}
+        {children}
+        {sign.BEND}
+      </>
+    );
+  } else {
     return children;
+  }
 }
 
 function Plus({ enabled, children }: ExpressionItemProps) {
-  if (enabled !== false)
-    return <>{sign.PLUS}{children}</>;
+  if (enabled !== false) {
+    return (
+      <>
+        {sign.PLUS}
+        {children}
+      </>
+    );
+  }
+}
+
+function Minus({ enabled, children }: ExpressionItemProps) {
+  if (enabled !== false) {
+    return (
+      <>
+        {sign.MINUS}
+        {children}
+      </>
+    );
+  }
 }
 
 function Multiply({ enabled, children }: ExpressionItemProps) {
-  if (enabled !== false)
-    return <>{sign.MULTIPLY}{children}</>;
+  if (enabled !== false) {
+    return (
+      <>
+        {sign.MULTIPLY}
+        {children}
+      </>
+    );
+  }
 }
 
 export const Tooltip = {
@@ -178,5 +217,6 @@ export const Tooltip = {
   Expression,
   Brackets,
   Plus,
+  Minus,
   Multiply,
 };
