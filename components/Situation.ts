@@ -101,7 +101,7 @@ export default class Situation implements TableSource<Keys> {
   readonly defense: Stat.DefRes;
   readonly resist: Stat.DefRes;
   readonly interval: Stat.Interval;
-  readonly block: Stat.Root;
+  readonly block: Stat.Root<number | undefined, Data.BlockFactors | undefined>;
   readonly target: Stat.Target;
   readonly rounds: Stat.Root<Data.Rounds, Data.ColorFactor<Data.Rounds>>;
   readonly hits: Stat.Root<Data.Rounds>;
@@ -345,21 +345,38 @@ export default class Situation implements TableSource<Keys> {
 
     this.block = new Stat.Root({
       statType: stat.block,
-      calculater: (s) => {
-        const skill = this.getSkill(s);
-        const block = skill?.block ?? this.unit?.block.getValue(s);
-        if (block === undefined) return;
-
-        const add = skill?.blockAdd ?? 0;
-        return block + add;
-      },
+      calculater: (s) => this.block.getFactors(s)?.result,
       isReversed: true,
       color: (s) => {
+        const f = this.block.getFactors(s);
+        if (f === undefined) return;
+
+        const skillColor = Util.getTableColor(f.skill, f.base);
+        if (skillColor !== undefined) {
+          return skillColor;
+        }
+        return Util.getTableColorWeak(f.condFeature, f.skill);
+      },
+      factors: (s) => {
         const sk = this.getSkill(s);
-        if (sk === undefined) return;
-        const u = this.unit?.block.getValue(s) ?? 0;
-        const skill = sk?.block ?? u + (sk?.blockAdd ?? 0);
-        return Util.getTableColor(skill, u);
+
+        const base = this.unit?.block.getValue(s);
+        const skillbase = sk?.block ?? base;
+        if (skillbase === undefined) return;
+
+        const fea = this.getFeature(s);
+        const skill = skillbase + (sk?.blockAdd ?? 0);
+        const feature = skill + (fea.blockAdd ?? 0);
+        const condFeature = skill + (fea.cond?.blockAdd ?? 0);
+        const result = feature;
+
+        return {
+          base: base ?? 0,
+          skill,
+          feature,
+          condFeature,
+          result,
+        };
       },
     });
 
@@ -1561,12 +1578,22 @@ export default class Situation implements TableSource<Keys> {
     const asf = this.unit?.attackSpeed.getFactors(setting);
     const attackMotionMul = f.attackMotionMul ?? sk?.attackMotionMul;
     const attackMotionSpeed = Percent.multiply(attackSpeed, attackMotionMul);
-    const attackSpeedBuff = Percent.max(
+    const attackSpeedBuffPos = Percent.max(
       sk?.attackSpeedBuff,
       f.attackSpeedBuff,
       this.getSubskillFactor(setting, ssKeys.attackSpeedBuff),
       100 + setting.attackSpeedBuff
     );
+    const attackSpeedBuffNeg = Math.min(
+      // TODO 攻撃速度低下の仕様を調査する
+      ...[
+        sk?.attackSpeedBuff,
+        f.attackSpeedBuff,
+        this.getSubskillFactor(setting, ssKeys.attackSpeedBuff),
+        100 + setting.attackSpeedBuff,
+      ].map((v) => v ?? 100)
+    );
+    const attackSpeedBuff = Percent.sum(attackSpeedBuffPos, attackSpeedBuffNeg);
     const attackSpeedResult = getAtkSpdResult(
       attackMotionSpeed,
       attackSpeedBuff

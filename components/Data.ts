@@ -1561,6 +1561,14 @@ export interface IntervalFactors extends ActualIntervalFactors {
   readonly result?: number;
 }
 
+export interface BlockFactors {
+  readonly base: number;
+  readonly skill: number;
+  readonly feature: number;
+  readonly condFeature: number;
+  readonly result: number;
+}
+
 export interface TargetFactors {
   readonly target: Target;
   readonly isBlock: boolean;

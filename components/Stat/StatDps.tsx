@@ -126,30 +126,40 @@ export class StatDps<
                     {d ? "平均" + damage : detail.damageAmount}
                   </Tt.Result>
                   <Tt.Expression>
-                    <Tt.Brackets
-                      enabled={
-                        f.damageDebuff !== 100 || f.round > 1 || f.hits > 1
-                      }
-                    >
-                      {d ? damage : detail.damage}
-                      <Tt.Multiply>
+                    {isTrueDamage || f.penetration <= 0 ? (
+                      <>
                         {d
-                          ? "非貫通率"
-                          : Math.round(f.nonPenetration) + sign.PERCENT}
-                      </Tt.Multiply>
-                      <Tt.Plus>
-                        <Tt.Positive>
-                          {d ? "貫通" + damage : detail.trueDamage}
-                        </Tt.Positive>
+                          ? damage
+                          : isTrueDamage
+                          ? detail.trueDamage
+                          : detail.damage}
+                      </>
+                    ) : (
+                      <Tt.Brackets
+                        enabled={
+                          f.damageDebuff !== 100 || f.round > 1 || f.hits > 1
+                        }
+                      >
+                        {d ? damage : detail.damage}
                         <Tt.Multiply>
-                          <Tt.Positive>
-                            {d
-                              ? "貫通率"
-                              : Math.round(f.penetration) + sign.PERCENT}
-                          </Tt.Positive>
+                          {d
+                            ? "非貫通率"
+                            : Math.round(f.nonPenetration) + sign.PERCENT}
                         </Tt.Multiply>
-                      </Tt.Plus>
-                    </Tt.Brackets>
+                        <Tt.Plus>
+                          <Tt.Positive>
+                            {d ? "貫通" + damage : detail.trueDamage}
+                          </Tt.Positive>
+                          <Tt.Multiply>
+                            <Tt.Positive>
+                              {d
+                                ? "貫通率"
+                                : Math.round(f.penetration) + sign.PERCENT}
+                            </Tt.Positive>
+                          </Tt.Multiply>
+                        </Tt.Plus>
+                      </Tt.Brackets>
+                    )}
                     <Tt.Multiply enabled={f.round > 1}>
                       <Tt.Positive>
                         {d ? "平均連射数" : f.round.toFixed(1)}

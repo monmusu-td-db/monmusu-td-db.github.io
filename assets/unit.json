@@ -2141,6 +2141,168 @@
     }
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 56,
+    "unitName": "【ザラタン娘】アックァ",
+    "unitShortName": "アックァ",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "水",
+    "hp": 8566,
+    "attack": 956,
+    "defense": 677,
+    "resist": 110,
+    "exSkill1": {
+      "skillName": "ギガンティックラブ",
+      "hpMul": 180,
+      "attackMul": 280,
+      "defenseMul": 180,
+      "attackSpeedBuff": 80,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "物理防御力+90",
+      "物理防御力+90"
+    ],
+    "weapon": {
+      "weaponName": "カブトガニ",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "blockAdd": 1
+      },
+      {
+        "featureName": "block0",
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "BL",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "featureName": "common-block1",
+        "isConditionalBuff": true,
+        "defenseMul": 140
+      },
+      {
+        "featureName": "common-block5",
+        "isConditionalBuff": true,
+        "defenseMul": 300
+      },
+      {
+        "featureName": "skill1-phase1",
+        "phase": 1,
+        "attackMul": 112
+      },
+      {
+        "featureName": "skill1-phase5",
+        "phase": 5,
+        "attackMul": 160,
+        "potentialBonus": {
+          "phase": 6,
+          "attackMul": 172
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase1"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase5"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block1",
+          "skill1-phase1"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block5",
+          "skill1-phase1"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
+  },
+  {
     "id": 58,
     "unitName": "【カトブレパス娘】ニグリュ",
     "unitShortName": "ニグリュ",
@@ -5359,6 +5521,13 @@
         "skill": 2,
         "features": [
           "dot"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "features": [
+          "class-action"
         ]
       },
       {
@@ -10775,6 +10944,7 @@
       "攻撃力+50",
       "攻撃力+50"
     ],
+    "isEventUnit": true,
     "situations": [
       {},
       {

@@ -198,7 +198,12 @@ export function getSkillItem({
     if (annotations === undefined) return;
     skillName = annotations[0];
     annotations = annotations.slice(1);
-  } else if (skillName !== undefined && phase !== undefined && phase > 1) {
+  } else if (
+    phaseName !== undefined &&
+    skillName !== undefined &&
+    phase !== undefined &&
+    phase > 1
+  ) {
     phase = undefined;
     skillName = phaseName;
   }

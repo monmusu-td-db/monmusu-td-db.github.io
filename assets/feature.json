@@ -103,6 +103,26 @@
     ]
   },
   {
+    "featureName": "common-block4",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "featureName": "common-block5",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 5
+      }
+    ]
+  },
+  {
     "featureName": "common-charge-attack",
     "isConditionalBuff": true,
     "isMoving": true,
