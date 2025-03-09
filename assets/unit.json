@@ -9709,7 +9709,7 @@
   {
     "id": 288,
     "unitName": "【石猿娘】メイユェン",
-    "unitShortName": "メイユェン→TODO tkn/skill1-range",
+    "unitShortName": "メイユェン",
     "rarity": "L",
     "class": "モンク",
     "element": "地",
@@ -9727,7 +9727,7 @@
       "attackMul": 140,
       "target": "射程内",
       "rounds": 4,
-      "range": 999,
+      "range": 300,
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
@@ -9775,6 +9775,43 @@
     "situations": [
       {},
       {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 2880001,
+    "parentId": 288,
+    "unitName": "メイユェン",
+    "unitShortName": "メイユェンT",
+    "rarity": "C",
+    "class": "モンク",
+    "element": "地",
+    "species": "妖怪",
+    "cost": 15,
+    "hp": 6173,
+    "attack": 891,
+    "defense": 357,
+    "resist": 158,
+    "exSkill1": {
+      "skillName": "伸びろ如意棒！",
+      "attackMul": 140,
+      "target": "射程内",
+      "rounds": 4,
+      "range": 300,
+      "duration": "単発",
+      "cooldown": 30,
+      "supplements": [
+        "即死(低)"
+      ]
+    },
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-attack"
+        ],
         "skill": 1
       }
     ]
