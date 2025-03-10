@@ -75,6 +75,19 @@
         "supplements": [
           "対地限定攻撃"
         ]
+      },
+      {
+        "featureName": "class-ranged-attack",
+        "deleteSupplements": [
+          "対地限定攻撃"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "class-normal"
+        ]
       }
     ]
   },
@@ -494,6 +507,24 @@
         "duration": 20,
         "supplements": [
           "隠密"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-enemy1"
+        ]
+      },
+      {
+        "features": [
+          "class-enemy2"
+        ]
+      },
+      {
+        "features": [
+          "class-action"
         ]
       }
     ]

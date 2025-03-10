@@ -152,6 +152,17 @@
         "コスト+11"
       ]
     },
+    "exSkill2": {
+      "skillName": "火翼竜の撃槍",
+      "attackMul": 300,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "コスト+14",
+        "火傷付与(中)"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -185,11 +196,38 @@
           "武器"
         ],
         "supplements": [
-          "撃破+1/5体毎"
+          "コスト+1/5体撃破"
         ]
       }
     ],
-    "delayMul": 75
+    "delayMul": 75,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-3hits"
+        ]
+      }
+    ]
   },
   {
     "id": 8,
@@ -1048,6 +1086,14 @@
       "duration": 20,
       "cooldown": 30
     },
+    "exSkill2": {
+      "skillName": "魅惑のチャーム",
+      "attackMul": 140,
+      "targetAdd": 2,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 30
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -1088,6 +1134,15 @@
         ]
       },
       {
+        "featureName": "proper",
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "damageFactor": 200,
+        "supplements": [
+          "スタン付与25%→男性"
+        ]
+      },
+      {
         "featureName": "proper-absorb",
         "isAbility": true,
         "annotations": [
@@ -1103,6 +1158,40 @@
         "target": "自分",
         "flagRangeIsVisible": true,
         "damageType": "吸収"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "features": [
+          "proper",
+          "proper-absorb"
+        ]
       }
     ]
   },
