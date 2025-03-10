@@ -244,7 +244,21 @@
       "skillName": "袋叩きだぜ！",
       "fixedDelay": 1,
       "duration": "単発",
-      "cooldown": 35
+      "cooldown": 35,
+      "supplements": [
+        "発動時オークトークン配置→自身"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "臨戦態勢！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 40,
+      "damageType": null,
+      "supplements": [
+        "発動時オークT(投石)配置→自身",
+        "発動時バリア{attack-base*200}付与"
+      ]
     },
     "potentials": [
       "出撃コスト-1",
@@ -292,6 +306,39 @@
           "value": 50
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "isGeneral": true,
+        "exclude": [
+          "class-action",
+          "class-attack-add"
+        ]
+      },
+      {
+        "skill": 2,
+        "isGeneral": true,
+        "exclude": [
+          "class-action",
+          "class-attack-add"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "isGeneralProper": true,
+        "exclude": [
+          "class-attack-add"
+        ],
+        "features": [
+          "token-limit"
+        ]
+      }
     ]
   },
   {
@@ -333,6 +380,52 @@
         "damageFactor": 200,
         "interval": null,
         "target": "射程内",
+        "damageType": "物理"
+      }
+    ],
+    "isUnhealable": true
+  },
+  {
+    "id": 80002,
+    "parentId": 8,
+    "unitName": "ハイオーク(投石)",
+    "unitShortName": "オークT(投石)",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 3886,
+    "attack": 747,
+    "defense": 298,
+    "resist": 44,
+    "attackSpeedFrame": 40,
+    "delay": 26,
+    "block": null,
+    "target": 1,
+    "range": 250,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 50
+        }
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackMul": 150
+      },
+      {
+        "featureName": "deploy-attack",
+        "annotations": [
+          "配置時攻撃"
+        ],
+        "damageFactor": 100,
+        "interval": null,
+        "target": "射程内",
+        "range": null,
         "damageType": "物理"
       }
     ],

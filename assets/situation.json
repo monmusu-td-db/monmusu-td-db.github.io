@@ -71,85 +71,23 @@
     ]
   },
   {
-    "unitId": 8
-  },
-  {
-    "unitId": 8,
-    "skill": 1,
-    "isGeneral": true
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "class-action",
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "attack-mul"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "attack-mul",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "attack-mul",
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "attack-mul",
-      "class-action",
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "token-limit"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "isGeneralProper": true,
-    "features": [
-      "token-limit",
-      "class-action"
-    ]
-  },
-  {
     "unitId": 80001,
     "isGeneral": true
   },
   {
     "unitId": 80001,
+    "skill": -1,
+    "isGeneral": true,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 80002,
+    "isGeneral": true
+  },
+  {
+    "unitId": 80002,
     "skill": -1,
     "isGeneral": true,
     "features": [
