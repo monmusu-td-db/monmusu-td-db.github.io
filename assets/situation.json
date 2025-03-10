@@ -71,95 +71,23 @@
     ]
   },
   {
-    "unitId": 4,
-    "features": [
-      "class-normal"
-    ]
-  },
-  {
-    "unitId": 4,
-    "skill": 1
-  },
-  {
-    "unitId": 8
-  },
-  {
-    "unitId": 8,
-    "skill": 1,
-    "isGeneral": true
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "class-action",
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "attack-mul"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "attack-mul",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "attack-mul",
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "features": [
-      "attack-mul",
-      "class-action",
-      "class-attack-add"
-    ]
-  },
-  {
-    "unitId": 8,
-    "features": [
-      "token-limit"
-    ]
-  },
-  {
-    "unitId": 8,
-    "skill": -1,
-    "isGeneralProper": true,
-    "features": [
-      "token-limit",
-      "class-action"
-    ]
-  },
-  {
     "unitId": 80001,
     "isGeneral": true
   },
   {
     "unitId": 80001,
+    "skill": -1,
+    "isGeneral": true,
+    "features": [
+      "deploy-attack"
+    ]
+  },
+  {
+    "unitId": 80002,
+    "isGeneral": true
+  },
+  {
+    "unitId": 80002,
     "skill": -1,
     "isGeneral": true,
     "features": [
@@ -1315,119 +1243,6 @@
   {
     "unitId": 27,
     "skill": -1,
-    "features": [
-      "proper",
-      "proper-absorb"
-    ]
-  },
-  {
-    "unitId": 30
-  },
-  {
-    "unitId": 30,
-    "skill": 1
-  },
-  {
-    "unitId": 30,
-    "features": [
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": 1,
-    "features": [
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "features": [
-      "class-enemy1"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": 1,
-    "features": [
-      "class-enemy1"
-    ]
-  },
-  {
-    "unitId": 30,
-    "features": [
-      "class-enemy1",
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": 1,
-    "features": [
-      "class-enemy1",
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "features": [
-      "class-enemy2"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": 1,
-    "features": [
-      "class-enemy2"
-    ]
-  },
-  {
-    "unitId": 30,
-    "features": [
-      "class-enemy2",
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": 1,
-    "features": [
-      "class-enemy2",
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": 1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 30,
-    "features": [
-      "class-action",
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": 1,
-    "features": [
-      "class-action",
-      "proper"
-    ]
-  },
-  {
-    "unitId": 30,
-    "skill": -1,
-    "isGeneral": true,
     "features": [
       "proper",
       "proper-absorb"

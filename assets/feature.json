@@ -162,6 +162,35 @@
     ]
   },
   {
+    "featureName": "common-1hit",
+    "conditions": [
+      {
+        "key": "hit",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "featureName": "common-2hits",
+    "conditions": [
+      {
+        "key": "hit",
+        "value": 2
+      }
+    ],
+    "hits": 2
+  },
+  {
+    "featureName": "common-3hits",
+    "conditions": [
+      {
+        "key": "hit",
+        "value": 3
+      }
+    ],
+    "hits": 3
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [

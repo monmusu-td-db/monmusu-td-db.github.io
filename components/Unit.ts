@@ -89,6 +89,10 @@ type JsonPotentialBonus = Readonly<
 
 interface UnitSituation {
   skill: number;
+  isGeneral: boolean;
+  isGeneralProper: boolean;
+  isGeneralAction: boolean;
+  isGeneralProperAction: boolean;
   hasPotentials: Readonly<Data.JsonPotentials>;
   features: readonly string[];
 }
@@ -617,7 +621,11 @@ export default class Unit implements TableSource<Keys> {
 
       src.situations?.forEach((unitSituation) => {
         if (unitSituation.proper) {
-          arr.push(unitSituation);
+          const isGeneral = unitSituation.isGeneral ?? true;
+          arr.push({
+            ...unitSituation,
+            isGeneral,
+          });
         }
       });
 

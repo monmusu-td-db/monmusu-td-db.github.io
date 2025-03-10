@@ -152,6 +152,17 @@
         "コスト+11"
       ]
     },
+    "exSkill2": {
+      "skillName": "火翼竜の撃槍",
+      "attackMul": 300,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "コスト+14",
+        "火傷付与(中)"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -185,11 +196,38 @@
           "武器"
         ],
         "supplements": [
-          "撃破+1/5体毎"
+          "コスト+1/5体撃破"
         ]
       }
     ],
-    "delayMul": 75
+    "delayMul": 75,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-3hits"
+        ]
+      }
+    ]
   },
   {
     "id": 8,
@@ -206,7 +244,21 @@
       "skillName": "袋叩きだぜ！",
       "fixedDelay": 1,
       "duration": "単発",
-      "cooldown": 35
+      "cooldown": 35,
+      "supplements": [
+        "発動時オークトークン配置→自身"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "臨戦態勢！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 40,
+      "damageType": null,
+      "supplements": [
+        "発動時オークT(投石)配置→自身",
+        "発動時バリア{attack-base*200}付与"
+      ]
     },
     "potentials": [
       "出撃コスト-1",
@@ -254,6 +306,39 @@
           "value": 50
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "isGeneral": true,
+        "exclude": [
+          "class-action",
+          "class-attack-add"
+        ]
+      },
+      {
+        "skill": 2,
+        "isGeneral": true,
+        "exclude": [
+          "class-action",
+          "class-attack-add"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "isGeneralProper": true,
+        "exclude": [
+          "class-attack-add"
+        ],
+        "features": [
+          "token-limit"
+        ]
+      }
     ]
   },
   {
@@ -295,6 +380,52 @@
         "damageFactor": 200,
         "interval": null,
         "target": "射程内",
+        "damageType": "物理"
+      }
+    ],
+    "isUnhealable": true
+  },
+  {
+    "id": 80002,
+    "parentId": 8,
+    "unitName": "ハイオーク(投石)",
+    "unitShortName": "オークT(投石)",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 3886,
+    "attack": 747,
+    "defense": 298,
+    "resist": 44,
+    "attackSpeedFrame": 40,
+    "delay": 26,
+    "block": null,
+    "target": 1,
+    "range": 250,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 50
+        }
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackMul": 150
+      },
+      {
+        "featureName": "deploy-attack",
+        "annotations": [
+          "配置時攻撃"
+        ],
+        "damageFactor": 100,
+        "interval": null,
+        "target": "射程内",
+        "range": null,
         "damageType": "物理"
       }
     ],
@@ -1048,6 +1179,14 @@
       "duration": 20,
       "cooldown": 30
     },
+    "exSkill2": {
+      "skillName": "魅惑のチャーム",
+      "attackMul": 140,
+      "targetAdd": 2,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 30
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -1088,6 +1227,15 @@
         ]
       },
       {
+        "featureName": "proper",
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "damageFactor": 200,
+        "supplements": [
+          "スタン付与25%→男性"
+        ]
+      },
+      {
         "featureName": "proper-absorb",
         "isAbility": true,
         "annotations": [
@@ -1103,6 +1251,40 @@
         "target": "自分",
         "flagRangeIsVisible": true,
         "damageType": "吸収"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "features": [
+          "proper",
+          "proper-absorb"
+        ]
       }
     ]
   },
