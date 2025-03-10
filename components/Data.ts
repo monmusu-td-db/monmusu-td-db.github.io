@@ -1498,11 +1498,19 @@ export interface InBattleFactors extends InBattleFactorsBase {
   readonly currentFactor: number;
   readonly inBattleResult: number;
 }
+
+export interface ActualHpFactors extends InBattleFactors {
+  readonly isUnhealable: boolean;
+  readonly currentFactor2: number;
+  readonly actualResult: number;
+}
+
 export interface ActualAttackFactorsBase extends InBattleFactors {
   readonly damageFactor: number;
   readonly criticalChance: number;
   readonly criticalDamage: number;
   readonly staticDamage: StaticDamageFactor | undefined;
+  readonly isSupport: boolean;
 }
 export interface ActualAttackFactors extends ActualAttackFactorsBase {
   readonly actualResult: number;

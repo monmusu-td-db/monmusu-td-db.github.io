@@ -1064,6 +1064,18 @@ export default class Situation implements TableSource<Keys> {
     return ret;
   }
 
+  private getStatHp(): Stat.Hp {
+    const statType = stat.hp;
+    const ret: Stat.Hp = new Stat.Hp({
+      statType,
+      calculater: (s) => ret.getFactors(s)?.actualResult,
+      isReversed: true,
+      color: (s) => this.getBaseStatColor(s, statType),
+      factors: (s) => this.getActualHpFactors(s),
+    });
+    return ret;
+  }
+
   private getStatAttack(): Stat.Attack {
     const ret: Stat.Attack = new Stat.Attack({
       statType: stat.attack,
@@ -1073,17 +1085,6 @@ export default class Situation implements TableSource<Keys> {
         return ret.getFactors(s)?.actualResult;
       },
       isReversed: true,
-      item: (s) => {
-        const f = ret.getFactors(s);
-        const c = ret.getText(s);
-        const v = ret.getValue(s);
-        const fea = this.getFeature(s);
-        if (fea.isSupport && v !== undefined && v >= 0)
-          return Util.getBaseStatItem(`+${c}`, v > 9999);
-        if ((f?.criticalChance ?? 0) >= 100)
-          return Util.getAttackItem(c, (f?.criticalAttack ?? 0) > 99999);
-        return Util.getBaseStatItem(c, (v ?? 0) > 99999);
-      },
       color: (s) => {
         if (ret.getFactors(s)?.staticDamage !== undefined)
           return Data.tableColorAlias.warning;
@@ -1251,9 +1252,8 @@ export default class Situation implements TableSource<Keys> {
     const { isMaxDamage, isMinDamage, inBattleResult } =
       this.calculateInBattleResult(ret);
     const currentFactor =
-      (() => {
-        if (statType === stat.hp) return this.getFeature(setting).currentHp;
-      })() ?? 100;
+      (statType === stat.hp ? this.getFeature(setting).currentHp : undefined) ??
+      100;
     return {
       ...ret,
       isMaxDamage,
@@ -1277,6 +1277,23 @@ export default class Situation implements TableSource<Keys> {
     };
   }
 
+  private getActualHpFactors(
+    setting: Setting
+  ): Data.ActualHpFactors | undefined {
+    const base = this.getInBattleFactors(setting, stat.hp);
+    if (base === undefined) return;
+
+    const isUnhealable = this.unit?.isUnhealable ?? false;
+    const currentFactor = this.getFeature(setting).currentHp ?? 100;
+
+    return {
+      ...base,
+      isUnhealable,
+      currentFactor2: currentFactor, //TODO
+      actualResult: Percent.multiply(base.inBattleResult, currentFactor),
+    };
+  }
+
   private getActualAttackFactors(
     setting: Setting
   ): Data.ActualAttackFactors | undefined {
@@ -1288,6 +1305,7 @@ export default class Situation implements TableSource<Keys> {
       criticalChance: this.criticalChance.getValue(setting),
       criticalDamage: this.criticalDamage.getValue(setting),
       staticDamage: this.getStaticDamage(setting, stat.attack, f),
+      isSupport: this.getFeature(setting).isSupport ?? false,
     };
     return this.calculateActualAttackResult(ret);
   }
