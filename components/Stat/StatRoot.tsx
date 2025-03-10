@@ -108,7 +108,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   protected NumberItem({ value, plus }: { value: number; plus?: boolean }) {
     const limit = plus ? FONT_SIZE_LIMIT_NUMBER_PLUS : FONT_SIZE_LIMIT_NUMBER;
     const text = value.toFixed(0);
-    const ret = plus ? <>+{text}</> : text;
+    const ret = plus && value >= 0 ? <>+{text}</> : text;
 
     if (value <= limit) {
       return ret;

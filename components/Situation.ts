@@ -224,7 +224,7 @@ export default class Situation implements TableSource<Keys> {
     });
 
     this.cost = this.getStat(stat.cost, this.unit?.cost);
-    this.hp = this.getBaseStat(stat.hp);
+    this.hp = this.getStatHp();
     this.attack = this.getStatAttack();
     this.defense = this.getStatDefRes(stat.defense);
     this.resist = this.getStatDefRes(stat.resist);
@@ -1046,24 +1046,6 @@ export default class Situation implements TableSource<Keys> {
     return stat;
   }
 
-  private getBaseStat(statType: Data.BaseStatType): Stat.SituationBase {
-    const ret: Stat.SituationBase = new Stat.SituationBase({
-      statType,
-      calculater: (s) => ret.getFactors(s)?.inBattleResult,
-      item: (s) => {
-        const c = ret.getText(s);
-        const v = ret.getValue(s) ?? 0;
-        if (statType === stat.hp && this.unit?.isUnhealable)
-          return Util.getUnhealableText(c, v > 99999);
-        return Util.getBaseStatItem(c, v > 99999);
-      },
-      isReversed: true,
-      color: (s) => this.getBaseStatColor(s, statType),
-      factors: (s) => this.getInBattleFactors(s, statType),
-    });
-    return ret;
-  }
-
   private getStatHp(): Stat.Hp {
     const statType = stat.hp;
     const ret: Stat.Hp = new Stat.Hp({
@@ -1100,16 +1082,6 @@ export default class Situation implements TableSource<Keys> {
       statType,
       calculater: (s) => ret.getFactors(s)?.inBattleResult,
       isReversed: true,
-      item: (s) => {
-        const v = ret.getValue(s) ?? 0;
-        const f = ret.getFactors(s);
-        if (f?.staticDamage !== undefined) {
-          const res = f.staticDamage.result;
-          if (res >= 0) return Util.getBaseStatItem(`+${res}`, res > 9999);
-          else return Util.getBaseStatItem(res);
-        }
-        return Util.getBaseStatItem(ret.getText(s), v > 99999);
-      },
       color: (s) => {
         if (ret.getFactors(s)?.staticDamage !== undefined)
           return Data.tableColorAlias.warning;

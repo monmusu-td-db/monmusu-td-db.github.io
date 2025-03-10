@@ -165,14 +165,6 @@ export function getUnhealableText(
   return <u>{getBaseStatItem(content, isSmall)}</u>;
 }
 
-export function getAttackItem(
-  content: string | undefined,
-  isSmall?: boolean
-): ReactNode {
-  if (content === undefined) return;
-  return <b>{getBaseStatItem(content, isSmall)}</b>;
-}
-
 export function getBaseStatItem(
   content: string | number | JSX.Element | undefined,
   isSmall?: boolean
