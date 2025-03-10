@@ -43,28 +43,17 @@ export class SituationBaseStat<
                   </>
                 ) : (
                   <>
-                    <T.Brackets
-                      enabled={f.currentFactor !== 100 && !!f.additionFactor}
-                    >
-                      {d ? "配置前能力" : f.deploymentResult}
-                      <T.Multiply enabled={f.multiFactor !== 100}>
-                        <T.Value isPositive={f.multiFactor > 100}>
-                          {d ? "乗算倍率" : f.multiFactor + sign.PERCENT}
-                        </T.Value>
-                      </T.Multiply>
-                      <T.Plus enabled={!!f.additionFactor}>
-                        <T.Value isPositive={f.additionFactor > 0}>
-                          {d ? "加算値" : f.additionFactor}
-                        </T.Value>
-                      </T.Plus>
-                    </T.Brackets>
-                    <T.Multiply enabled={f.currentFactor !== 100}>
-                      <T.Value isPositive={f.currentFactor > 100}>
-                        {d
-                          ? "現在値割合"
-                          : Math.round(f.currentFactor) + sign.PERCENT}
+                    {d ? "配置前能力" : f.deploymentResult}
+                    <T.Multiply enabled={f.multiFactor !== 100}>
+                      <T.Value isPositive={f.multiFactor > 100}>
+                        {d ? "乗算倍率" : f.multiFactor + sign.PERCENT}
                       </T.Value>
                     </T.Multiply>
+                    <T.Plus enabled={!!f.additionFactor}>
+                      <T.Value isPositive={f.additionFactor > 0}>
+                        {d ? "加算値" : f.additionFactor}
+                      </T.Value>
+                    </T.Plus>
                   </>
                 )}
               </T.Expression>

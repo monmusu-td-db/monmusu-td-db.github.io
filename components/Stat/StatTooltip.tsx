@@ -116,7 +116,14 @@ function Info({ children, b }: TextBaseProps) {
 
 const IsDescContext = createContext(false);
 
-function Equation({ children }: { children: (isDesc: boolean) => ReactNode }) {
+function Equation({
+  children,
+  disabled,
+}: {
+  children: (isDesc: boolean) => ReactNode;
+  disabled?: boolean;
+}) {
+  if (disabled) return;
   return (
     <>
       <dt>

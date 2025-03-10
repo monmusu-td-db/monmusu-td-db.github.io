@@ -107,13 +107,21 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
 
   protected NumberItem({ value, plus }: { value: number; plus?: boolean }) {
     const limit = plus ? FONT_SIZE_LIMIT_NUMBER_PLUS : FONT_SIZE_LIMIT_NUMBER;
-    const text = value.toFixed(0);
+    const text = StatRoot.getNumberText(value);
     const ret = plus && value >= 0 ? <>+{text}</> : text;
 
     if (value <= limit) {
       return ret;
     } else {
       return <small>{ret}</small>;
+    }
+  }
+
+  private static getNumberText(value: number): string {
+    if (value >= 1_000_000) {
+      return (value / 1000).toFixed(0) + "K";
+    } else {
+      return value.toFixed(0);
     }
   }
 }

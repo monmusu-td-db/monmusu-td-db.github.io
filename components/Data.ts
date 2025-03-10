@@ -1495,13 +1495,12 @@ export interface InBattleFactorsBase extends DeploymentFactors {
 export interface InBattleFactors extends InBattleFactorsBase {
   readonly isMaxDamage: boolean;
   readonly isMinDamage: boolean;
-  readonly currentFactor: number;
   readonly inBattleResult: number;
 }
 
 export interface ActualHpFactors extends InBattleFactors {
   readonly isUnhealable: boolean;
-  readonly currentFactor2: number;
+  readonly currentFactor: number;
   readonly actualResult: number;
 }
 

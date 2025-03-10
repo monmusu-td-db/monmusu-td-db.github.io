@@ -1223,15 +1223,11 @@ export default class Situation implements TableSource<Keys> {
     };
     const { isMaxDamage, isMinDamage, inBattleResult } =
       this.calculateInBattleResult(ret);
-    const currentFactor =
-      (statType === stat.hp ? this.getFeature(setting).currentHp : undefined) ??
-      100;
     return {
       ...ret,
       isMaxDamage,
       isMinDamage,
-      currentFactor,
-      inBattleResult: Percent.multiply(inBattleResult, currentFactor),
+      inBattleResult,
     };
   }
 
@@ -1261,7 +1257,7 @@ export default class Situation implements TableSource<Keys> {
     return {
       ...base,
       isUnhealable,
-      currentFactor2: currentFactor, //TODO
+      currentFactor,
       actualResult: Percent.multiply(base.inBattleResult, currentFactor),
     };
   }
