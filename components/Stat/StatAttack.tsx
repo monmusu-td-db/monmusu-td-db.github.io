@@ -9,9 +9,11 @@ export type Factors = Data.ActualAttackFactors | undefined;
 
 export class StatAttack extends SituationBaseStat<Factors> {
   protected override getDefaultItem(setting: Setting): ReactNode {
+    const value = this.getValue(setting);
+    if (value === undefined) return;
+
     const Item = super.NumberItem;
     const factors = this.getFactors(setting);
-    const value = this.getValue(setting) ?? 0;
     const ret = <Item value={value} />;
 
     if (factors?.isSupport && value >= 0) {

@@ -8,9 +8,11 @@ export type Factors = Data.ActualDefResFactors | undefined;
 
 export class StatDefRes extends SituationBaseStat<Factors> {
   protected override getDefaultItem(setting: Setting): ReactNode {
+    const value = this.getValue(setting);
+    if (value === undefined) return;
+
     const Item = super.NumberItem;
     const factors = this.getFactors(setting);
-    const value = this.getValue(setting) ?? 0;
 
     if (factors?.staticDamage !== undefined) {
       return <Item value={factors.staticDamage.result} plus />;
