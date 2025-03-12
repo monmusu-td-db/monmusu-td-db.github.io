@@ -14,7 +14,7 @@
     "moveType": "飛行",
     "supplements": [
       "配置回復100%",
-      "再出撃-40%→全体",
+      "再出撃時間-40%→全体",
       "凍結無効"
     ],
     "exSkill1": {
@@ -31,7 +31,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "再出撃-60%→射程内"
+        "再出撃時間-60%→射程内"
       ]
     },
     "potentials": [
@@ -3984,11 +3984,11 @@
       {
         "featureName": "normal",
         "supplements": [
-          "再出撃-15%→射程内"
+          "再出撃時間-15%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
-            "再出撃-20%→射程内"
+            "再出撃時間-20%→射程内"
           ]
         }
       },
@@ -3996,11 +3996,11 @@
         "featureName": "skill",
         "isBuffSkill": true,
         "supplements": [
-          "再出撃-30%→射程内"
+          "再出撃時間-30%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
-            "再出撃-40%→射程内"
+            "再出撃時間-40%→射程内"
           ]
         }
       }
@@ -4118,6 +4118,15 @@
         "ノックバック/3秒→射程内"
       ]
     },
+    "exSkill2": {
+      "skillName": "蒼々の天啓",
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "再出撃時間-80%→全体",
+        "撤退時回復コスト90%→全体"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -4130,7 +4139,46 @@
     "moveSpeedAdd": 40,
     "potentialBonus": {
       "moveSpeedAdd": 45
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "move-speed-add",
+        "target": "全体",
+        "value": 20,
+        "potentialBonus": {
+          "value": 25
+        }
+      },
+      {
+        "type": "move-speed-add",
+        "target": "飛行",
+        "value": 40,
+        "potentialBonus": {
+          "value": 45
+        }
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": 2,
+        "target": "全体",
+        "value": 80
+      },
+      {
+        "type": "withdraw-cost-return",
+        "skill": 2,
+        "target": "全体",
+        "value": 90
+      }
+    ]
   },
   {
     "id": 95,
@@ -7439,7 +7487,7 @@
     "features": [
       {
         "supplements": [
-          "再出撃-12秒→自分",
+          "再出撃時間-12秒→自分",
           "射程内呪殺15%(ボス8%)"
         ],
         "potentialBonus": {
@@ -8840,7 +8888,7 @@
     "defense": 364,
     "resist": 442,
     "supplements": [
-      "再出撃-50%→自分"
+      "再出撃時間-50%→自分"
     ],
     "exSkill1": {
       "skillName": "炎の護竜",

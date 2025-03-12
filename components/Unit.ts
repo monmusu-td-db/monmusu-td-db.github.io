@@ -593,44 +593,56 @@ export default class Unit implements TableSource<Keys> {
     this.fixedDelay = src.fixedDelay;
     this.rangeAdd = src.rangeAdd;
     this.potentialBonus = src.potentialBonus;
+    this.situations = this.getSituations(classData, src.situations);
+  }
 
-    {
-      const arr: Partial<UnitSituation>[] = [];
+  private getSituations(
+    classData: Class | undefined,
+    src: JsonUnitSituations | undefined
+  ): UnitSituations {
+    const ret: Partial<UnitSituation>[] = [];
 
-      classData?.situations?.forEach((classSituation) => {
-        const classFeatures = classSituation.features ?? [];
+    classData?.situations?.forEach((classSituation) => {
+      const classFeatures = classSituation.features ?? [];
 
-        src.situations?.forEach((unitSituation) => {
-          if (
-            unitSituation.exclude?.some((v) => classFeatures.includes(v)) ||
-            unitSituation.depend?.some((v) => !classFeatures.includes(v)) ||
-            unitSituation.proper
-          )
-            return;
+      if (classSituation.proper) {
+        ret.push({
+          ...classSituation,
+          skill: -1,
+        });
+        return;
+      }
 
-          const features: string[] = [
-            ...(unitSituation.features ?? []),
-            ...classFeatures,
-          ];
-          arr.push({
-            ...unitSituation,
-            features,
-          });
+      src?.forEach((unitSituation) => {
+        if (
+          unitSituation.exclude?.some((v) => classFeatures.includes(v)) ||
+          unitSituation.depend?.some((v) => !classFeatures.includes(v)) ||
+          unitSituation.proper
+        )
+          return;
+
+        const features: string[] = [
+          ...(unitSituation.features ?? []),
+          ...classFeatures,
+        ];
+        ret.push({
+          ...unitSituation,
+          features,
         });
       });
+    });
 
-      src.situations?.forEach((unitSituation) => {
-        if (unitSituation.proper) {
-          const isGeneral = unitSituation.isGeneral ?? true;
-          arr.push({
-            ...unitSituation,
-            isGeneral,
-          });
-        }
-      });
+    src?.forEach((unitSituation) => {
+      if (unitSituation.proper) {
+        const isGeneral = unitSituation.isGeneral ?? true;
+        ret.push({
+          ...unitSituation,
+          isGeneral,
+        });
+      }
+    });
 
-      this.situations = arr;
-    }
+    return ret;
   }
 
   getTokenParent(): Unit | undefined {

@@ -3,30 +3,31 @@ import jsonClasses from "@/assets/class.json";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
 
 interface JsonClass {
-  className: string
-  cost: number
-  attackSpeed?: number
-  delay?: number
-  block?: number
-  target?: number | string
-  rounds?: Data.JsonRound
-  splash?: boolean
-  lancerTarget?: boolean
-  range?: number
-  moveSpeed: number
-  moveType?: string
-  penetration?: number
-  damageType?: Data.JsonDamageType
-  placement: Data.JsonPlacement
-  supplements?: string[]
-  features?: JsonFeature[]
-  situations?: JsonClassSituations
+  className: string;
+  cost: number;
+  attackSpeed?: number;
+  delay?: number;
+  block?: number;
+  target?: number | string;
+  rounds?: Data.JsonRound;
+  splash?: boolean;
+  lancerTarget?: boolean;
+  range?: number;
+  moveSpeed: number;
+  moveType?: string;
+  penetration?: number;
+  damageType?: Data.JsonDamageType;
+  placement: Data.JsonPlacement;
+  supplements?: string[];
+  features?: JsonFeature[];
+  situations?: JsonClassSituations;
 }
 
 interface JsonClassSituation {
-  features: readonly string[]
+  proper: boolean;
+  features: readonly string[];
 }
-type JsonClassSituations = readonly Readonly<Partial<JsonClassSituation>>[]
+type JsonClassSituations = readonly Readonly<Partial<JsonClassSituation>>[];
 
 class Class {
   readonly className: string;
@@ -70,7 +71,7 @@ class Class {
   }
 
   static getItem(value: string): Class | undefined {
-    return Class.list.find(v => v.className === value);
+    return Class.list.find((v) => v.className === value);
   }
 
   static get list(): readonly Class[] {
@@ -78,6 +79,6 @@ class Class {
   }
 }
 
-const list = jsonClasses.map(item => new Class(item));
+const list = jsonClasses.map((item) => new Class(item));
 
 export default Class;

@@ -2234,7 +2234,14 @@ export default class Situation implements TableSource<Keys> {
           Data.ClassName.equipmentNameOf(item.unit?.className.getValue(setting))
         );
         try {
-          return s.some((str) => str?.match(states.query));
+          const regex = new RegExp(states.query);
+          return s.some((str) => {
+            if (str === undefined) {
+              return;
+            } else {
+              return regex.test(str);
+            }
+          });
         } catch {
           return false;
         }

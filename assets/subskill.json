@@ -411,7 +411,7 @@
     "class": "撤退時コスト回復",
     "desc": "撤退時のコスト回復量が70%になる",
     "isGeneral": true,
-    "redeployCostReturn": 70
+    "withdrawCostReturn": 70
   },
   {
     "name": "撤退時コスト回復 II",
@@ -420,7 +420,7 @@
     "class": "撤退時コスト回復",
     "desc": "撤退時のコスト回復量が80%になる",
     "isGeneral": true,
-    "redeployCostReturn": 80
+    "withdrawCostReturn": 80
   },
   {
     "name": "撤退時コスト回復 III",
@@ -429,7 +429,7 @@
     "class": "撤退時コスト回復",
     "desc": "撤退時のコスト回復量が90%になる",
     "isGeneral": true,
-    "redeployCostReturn": 90
+    "withdrawCostReturn": 90
   },
   {
     "name": "アイアンボディ",
@@ -1252,7 +1252,7 @@
     "group": "支援",
     "desc": "再出撃までの時間を45%短縮\n撤退時のコスト回復量が70%になる",
     "redeployTimeCut": 45,
-    "redeployCostReturn": 70
+    "withdrawCostReturn": 70
   },
   {
     "name": "再出撃時間短縮 IV",

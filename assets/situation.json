@@ -4359,40 +4359,6 @@
     ]
   },
   {
-    "unitId": 94
-  },
-  {
-    "unitId": 94,
-    "skill": 1
-  },
-  {
-    "unitId": 94,
-    "skill": -1,
-    "features": [
-      "class-buff"
-    ]
-  },
-  {
-    "unitId": 94,
-    "skill": -1,
-    "features": [
-      "class-buff-proper"
-    ]
-  },
-  {
-    "unitId": 94,
-    "features": [
-      "class-debuff"
-    ]
-  },
-  {
-    "unitId": 94,
-    "skill": 1,
-    "features": [
-      "class-debuff"
-    ]
-  },
-  {
     "unitId": 95,
     "features": [
       "normal"

@@ -903,6 +903,26 @@
         "target": "射程内",
         "damageType": null
       }
+    ],
+    "situations": [
+      {},
+      {
+        "proper": true,
+        "features": [
+          "class-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-buff-proper"
+        ]
+      },
+      {
+        "features": [
+          "class-debuff"
+        ]
+      }
     ]
   }
 ]
