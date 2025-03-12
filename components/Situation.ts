@@ -1692,11 +1692,6 @@ export default class Situation implements TableSource<Keys> {
     };
   }
 
-  private getRangeMulFactor(setting: Setting): number {
-    const f = this.getFeature(setting).rangeMul;
-    return Percent.sum(this.getSkill(setting)?.rangeMul, f);
-  }
-
   private getStatLimitFactors(
     setting: Setting,
     statType: typeof stat.physicalLimit | typeof stat.magicalLimit
