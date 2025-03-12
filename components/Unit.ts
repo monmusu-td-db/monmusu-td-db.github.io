@@ -643,6 +643,10 @@ export default class Unit implements TableSource<Keys> {
           ...unitSituation,
           isGeneral,
         });
+        return;
+      }
+      if (classData?.situations === undefined) {
+        ret.push({ ...unitSituation });
       }
     });
 

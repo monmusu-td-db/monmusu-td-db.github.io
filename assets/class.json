@@ -421,6 +421,9 @@
     "placement": "遠",
     "supplements": [
       "回避無視30%"
+    ],
+    "situations": [
+      {}
     ]
   },
   {

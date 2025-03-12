@@ -226,6 +226,7 @@
       "value": 1
     },
     "target": "自分",
+    "rounds": 1,
     "flagRangeIsVisible": true,
     "damageType": "吸収",
     "supplements": [
@@ -292,5 +293,14 @@
     "rounds": 1,
     "duration": 30,
     "damageType": "貫通"
+  },
+  {
+    "featureName": "common-0-sec",
+    "conditions": [
+      {
+        "key": "s",
+        "value": 0
+      }
+    ]
   }
 ]

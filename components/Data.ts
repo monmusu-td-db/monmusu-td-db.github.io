@@ -442,7 +442,8 @@ export const Debuff = {
     obj: DefresDebuff | number | undefined,
     interval: number,
     attackSpeed: number | undefined,
-    defres: number
+    defres: number,
+    rounds: number
   ): number | undefined {
     if (obj === undefined || typeof obj === "number") return obj;
     if ("valueMul" in obj) {
@@ -450,6 +451,7 @@ export const Debuff = {
     } else {
       return (
         obj.valueAdd *
+        rounds *
         Accumulation.calculate({ time: obj.time, attackSpeed, interval })
       );
     }

@@ -6569,6 +6569,134 @@
     "hpMul": 120
   },
   {
+    "id": 168,
+    "unitName": "【遊水のクラーケン娘】オキュー",
+    "unitShortName": "オキュー/水着",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "水",
+    "hp": 2608,
+    "attack": 981,
+    "defense": 237,
+    "resist": 295,
+    "supplements": [
+      "DEF-12→命中",
+      "RES-12→命中"
+    ],
+    "exSkill1": {
+      "skillName": "オクタプルショット",
+      "attackMotionMul": 150,
+      "rounds": 8,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "featureName": "10-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "resistDebuff": {
+          "time": 300,
+          "valueAdd": 100
+        }
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1680001,
+    "parentId": 168,
+    "unitName": "触手(水鉄砲)",
+    "unitShortName": "触手(水鉄砲)",
+    "rarity": "C",
+    "element": "水",
+    "cost": 7,
+    "hp": 2396,
+    "attack": 1108,
+    "defense": 179,
+    "resist": 74,
+    "attackSpeedFrame": 40,
+    "delay": 25,
+    "block": 1,
+    "target": 1,
+    "range": 240,
+    "moveSpeed": 130,
+    "damageType": "魔法",
+    "placement": "両",
+    "features": [
+      {
+        "supplements": [
+          "コスト+1/3秒"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 169,
     "unitName": "【ドラゴニュート娘】チファ",
     "unitShortName": "チファ",
@@ -8732,15 +8860,6 @@
             "物理魔法被Dmg-100%"
           ]
         }
-      },
-      {
-        "featureName": "0-sec",
-        "conditions": [
-          {
-            "key": "s",
-            "value": 0
-          }
-        ]
       },
       {
         "featureName": "10-sec",
