@@ -4007,6 +4007,561 @@
     ]
   },
   {
+    "TODO_DESC": "スキル1射程はWiki情報/スキル1は5回強化可能?",
+    "id": 92,
+    "unitName": "【アクアドラゴン娘】ロヴィリス",
+    "unitShortName": "ロヴィリス",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "水",
+    "species": "竜",
+    "hp": 6363,
+    "attack": 609,
+    "defense": 893,
+    "resist": 222,
+    "exSkill1": {
+      "skillName": "ドラゴニックオーラ",
+      "attackMul": 180,
+      "defenseMul": 200,
+      "resistMul": 200,
+      "splash": true,
+      "range": 220,
+      "duration": 30,
+      "cooldown": 40,
+      "damageType": "魔法",
+      "skillFeatures": [
+        {
+          "featureName": "common-skill1-phase2",
+          "attackMul": 210,
+          "defenseMul": 230,
+          "resistMul": 230
+        },
+        {
+          "featureName": "common-skill1-phase3",
+          "attackMul": 240,
+          "defenseMul": 260,
+          "resistMul": 260
+        },
+        {
+          "featureName": "common-skill1-phase4",
+          "attackMul": 270,
+          "defenseMul": 290,
+          "resistMul": 290
+        },
+        {
+          "featureName": "common-skill1-phase5",
+          "attackMul": 300,
+          "defenseMul": 320,
+          "resistMul": 320
+        }
+      ]
+    },
+    "exSkill2": {
+      "skillName": "水竜の大盾",
+      "blockAdd": 3,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "魔法防御力+90"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "attack": 110
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "magicalDamageCut": 25,
+        "supplements": [
+          "魔法被Dmg-25%"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "magicalDamageCut": 50,
+        "supplements": [
+          "魔法被Dmg-50%"
+        ]
+      },
+      {
+        "skill": 2,
+        "staticDamage": {
+          "key": "attack",
+          "value": 40
+        },
+        "interval": 30,
+        "target": "自分",
+        "damageType": "再生"
+      },
+      {
+        "featureName": "common-block1",
+        "attackMul": 130,
+        "potentialBonus": {
+          "attackMul": 135
+        }
+      },
+      {
+        "featureName": "common-block5",
+        "isConditionalBuff": true,
+        "attackMul": 250,
+        "potentialBonus": {
+          "attackMul": 275
+        }
+      },
+      {
+        "featureName": "skill2-0s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 0
+          }
+        ],
+        "physicalDamageCut": 100,
+        "magicalDamageCut": 100,
+        "supplements": [
+          "物理魔法被Dmg-100%"
+        ]
+      },
+      {
+        "featureName": "skill2-2s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 2
+          }
+        ],
+        "physicalDamageCut": 90,
+        "magicalDamageCut": 90,
+        "supplements": [
+          "物理魔法被Dmg-90%"
+        ]
+      },
+      {
+        "featureName": "skill2-4s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 4
+          }
+        ],
+        "physicalDamageCut": 80,
+        "magicalDamageCut": 80,
+        "supplements": [
+          "物理魔法被Dmg-80%"
+        ]
+      },
+      {
+        "featureName": "skill2-6s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 6
+          }
+        ],
+        "physicalDamageCut": 70,
+        "magicalDamageCut": 70,
+        "supplements": [
+          "物理魔法被Dmg-70%"
+        ]
+      },
+      {
+        "featureName": "skill2-12s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 12
+          }
+        ],
+        "physicalDamageCut": 40,
+        "magicalDamageCut": 40,
+        "supplements": [
+          "物理魔法被Dmg-40%"
+        ]
+      },
+      {
+        "featureName": "skill2-18s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 18
+          }
+        ],
+        "physicalDamageCut": 10,
+        "magicalDamageCut": 10,
+        "supplements": [
+          "物理魔法被Dmg-10%"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-0s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-2s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-4s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-6s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-12s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-18s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-0s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-2s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-4s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-6s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-12s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-18s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-0s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-2s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-4s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-6s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-12s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-18s"
+        ]
+      }
+    ]
+  },
+  {
     "id": 93,
     "unitName": "【ネメアレオ娘】メアルス",
     "unitShortName": "メアルス",

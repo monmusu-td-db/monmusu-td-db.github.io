@@ -13,6 +13,7 @@ TODOリスト
   condition 特効の内容を表示
   8体以上同一属性編成
   Buffページに潜在覚醒ボーナスを適用
+  被ダメージ軽減supplement自動化
 */
 
 // Const

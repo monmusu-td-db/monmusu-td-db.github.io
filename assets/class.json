@@ -251,6 +251,30 @@
           "物理魔法被Dmg-60%"
         ]
       }
+    ],
+    "situations": [
+      {
+        "features": [
+          "class-melee"
+        ]
+      },
+      {
+        "features": [
+          "class-melee",
+          "class-action"
+        ]
+      },
+      {
+        "features": [
+          "class-ranged"
+        ]
+      },
+      {
+        "features": [
+          "class-ranged",
+          "class-action"
+        ]
+      }
     ]
   },
   {
