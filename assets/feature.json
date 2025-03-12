@@ -74,7 +74,6 @@
   },
   {
     "featureName": "common-block1",
-    "isConditionalBuff": true,
     "conditions": [
       {
         "key": "BL",
@@ -121,6 +120,26 @@
         "value": 5
       }
     ]
+  },
+  {
+    "featureName": "common-skill1-phase1",
+    "phase": 1
+  },
+  {
+    "featureName": "common-skill1-phase2",
+    "phase": 2
+  },
+  {
+    "featureName": "common-skill1-phase3",
+    "phase": 3
+  },
+  {
+    "featureName": "common-skill1-phase4",
+    "phase": 4
+  },
+  {
+    "featureName": "common-skill1-phase5",
+    "phase": 5
   },
   {
     "featureName": "common-charge-attack",
@@ -226,6 +245,7 @@
       "value": 1
     },
     "target": "自分",
+    "rounds": 1,
     "flagRangeIsVisible": true,
     "damageType": "吸収",
     "supplements": [
@@ -292,5 +312,14 @@
     "rounds": 1,
     "duration": 30,
     "damageType": "貫通"
+  },
+  {
+    "featureName": "common-0-sec",
+    "conditions": [
+      {
+        "key": "s",
+        "value": 0
+      }
+    ]
   }
 ]

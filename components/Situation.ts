@@ -1820,6 +1820,9 @@ export default class Situation implements TableSource<Keys> {
     if (interval === undefined || intervalFactor?.actualResult === undefined)
       return;
 
+    const round = Data.Round.average(this.rounds.getValue(setting));
+    if (round === undefined) return;
+
     const baseDefres = (() => {
       switch (index) {
         case 0:
@@ -1847,7 +1850,8 @@ export default class Situation implements TableSource<Keys> {
       })(),
       intervalFactor.actualResult,
       intervalFactor.base?.attackSpeedResult,
-      baseDefres
+      baseDefres,
+      round
     );
     const minDefres = baseDefres / 2;
     const d = Math.max(minDefres, baseDefres - (defresDebuff ?? 0));
@@ -1868,9 +1872,6 @@ export default class Situation implements TableSource<Keys> {
       magicalDamageDebuff
     );
     const trueDamageDebuff = fea.damageDebuff ?? 100;
-
-    const round = Data.Round.average(this.rounds.getValue(setting));
-    if (round === undefined) return;
 
     const hits = Data.Round.average(this.hits.getValue(setting));
 
@@ -2233,7 +2234,14 @@ export default class Situation implements TableSource<Keys> {
           Data.ClassName.equipmentNameOf(item.unit?.className.getValue(setting))
         );
         try {
-          return s.some((str) => str?.match(states.query));
+          const regex = new RegExp(states.query);
+          return s.some((str) => {
+            if (str === undefined) {
+              return;
+            } else {
+              return regex.test(str);
+            }
+          });
         } catch {
           return false;
         }

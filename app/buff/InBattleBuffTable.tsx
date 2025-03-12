@@ -28,7 +28,9 @@ const columnKeys = [
   "damageDebuff",
   "physicalDamageDebuff",
   "magicalDamageDebuff",
+  "moveSpeedAdd",
   "redeployTimeCut",
+  "withdrawCostReturn",
   "fieldChange",
   "supplement",
 ] as const;
@@ -43,15 +45,17 @@ const columnName = {
   initialTime: "初動",
   duration: "効果時間",
   cooldown: "再動",
-  hpMul: "HP乗算バフ",
-  attackMul: "攻撃乗算バフ",
-  defenseMul: "物防乗算バフ",
-  resistMul: "魔防乗算バフ",
+  hpMul: "HP乗算",
+  attackMul: "攻撃乗算",
+  defenseMul: "物防乗算",
+  resistMul: "魔防乗算",
   damageFactor: "ダメージ倍率",
   damageDebuff: "敵被ダメージ増加",
   physicalDamageDebuff: "敵物理被ダメージ増加",
   magicalDamageDebuff: "敵魔法被ダメージ増加",
+  moveSpeedAdd: "移動速度加算",
   redeployTimeCut: "再出撃短縮",
+  withdrawCostReturn: "撤退時コスト回復量",
   fieldChange: "マス属性変化",
   supplement: "補足",
 } as const satisfies Record<ColumnKey, string>;
@@ -65,7 +69,9 @@ const BuffType = {
   damageDebuff: "damage-debuff",
   physicalDamageDebuff: "physical-damage-debuff",
   magicalDamageDebuff: "magical-damage-debuff",
+  moveSpeedAdd: "move-speed-add",
   redeployTimeCut: "redeploy-time-cut",
+  withdrawCostReturn: "withdraw-cost-return",
   freezeNullify: "freeze-nullify",
   blindResist: "blind-resist",
   stanResist: "stan-resist",
@@ -82,6 +88,8 @@ type BuffType = (typeof BuffType)[keyof typeof BuffType];
 
 const Target = {
   all: "全体",
+  inRange: "射程内",
+  block: "ブロック",
 } as const;
 type Target = (typeof Target)[keyof typeof Target];
 
@@ -114,7 +122,7 @@ function getItems(): readonly Item[] {
       const id = src.parentId ?? src.id;
       const skillName = skill?.skillName;
       const target = buff.target;
-      const range = target === Target.all ? target : getRange(unit, buff.skill);
+      const range = getRange(target, unit, buff.skill);
       const initialTime = getDuration(
         skill?.cooldown !== undefined &&
           (skill.cooldown *
@@ -135,8 +143,12 @@ function getItems(): readonly Item[] {
       const magicalDamageDebuff = getMulFactor(
         getBuffValue(BuffType.magicalDamageDebuff)
       );
+      const moveSpeedAdd = getBuffValue(BuffType.moveSpeedAdd);
       const redeployTimeCut = getPercent(
         getBuffValue(BuffType.redeployTimeCut)
+      );
+      const withdrawCostReturn = getPercent(
+        getBuffValue(BuffType.withdrawCostReturn)
       );
       const fieldChange = getFieldChange(buff);
       const supplement = getSupplement(buff);
@@ -158,7 +170,9 @@ function getItems(): readonly Item[] {
         damageDebuff,
         physicalDamageDebuff,
         magicalDamageDebuff,
+        moveSpeedAdd,
         redeployTimeCut,
+        withdrawCostReturn,
         fieldChange,
         supplement,
       };
@@ -185,7 +199,18 @@ function getSkill(
   }
 }
 
-function getRange(unit: Unit, skillId: number | undefined): number | undefined {
+function getRange(
+  target: string | undefined,
+  unit: Unit,
+  skillId: number | undefined
+): string | number | undefined {
+  const regex = new RegExp(`${Target.inRange}|${Target.block}`);
+  if (target === undefined) return;
+
+  if (!regex.test(target)) {
+    return Target.all;
+  }
+
   const src = unit.src;
   const skill = getSkill(src, skillId);
   if (skill?.range !== undefined) return skill.range;

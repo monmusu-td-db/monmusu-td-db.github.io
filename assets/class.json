@@ -251,6 +251,30 @@
           "物理魔法被Dmg-60%"
         ]
       }
+    ],
+    "situations": [
+      {
+        "features": [
+          "class-melee"
+        ]
+      },
+      {
+        "features": [
+          "class-melee",
+          "class-action"
+        ]
+      },
+      {
+        "features": [
+          "class-ranged"
+        ]
+      },
+      {
+        "features": [
+          "class-ranged",
+          "class-action"
+        ]
+      }
     ]
   },
   {
@@ -421,6 +445,9 @@
     "placement": "遠",
     "supplements": [
       "回避無視30%"
+    ],
+    "situations": [
+      {}
     ]
   },
   {
@@ -902,6 +929,26 @@
         "interval": null,
         "target": "射程内",
         "damageType": null
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "proper": true,
+        "features": [
+          "class-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-buff-proper"
+        ]
+      },
+      {
+        "features": [
+          "class-debuff"
+        ]
       }
     ]
   }

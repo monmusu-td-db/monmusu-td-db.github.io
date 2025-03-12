@@ -4359,40 +4359,6 @@
     ]
   },
   {
-    "unitId": 94
-  },
-  {
-    "unitId": 94,
-    "skill": 1
-  },
-  {
-    "unitId": 94,
-    "skill": -1,
-    "features": [
-      "class-buff"
-    ]
-  },
-  {
-    "unitId": 94,
-    "skill": -1,
-    "features": [
-      "class-buff-proper"
-    ]
-  },
-  {
-    "unitId": 94,
-    "features": [
-      "class-debuff"
-    ]
-  },
-  {
-    "unitId": 94,
-    "skill": 1,
-    "features": [
-      "class-debuff"
-    ]
-  },
-  {
     "unitId": 95,
     "features": [
       "normal"
@@ -4568,52 +4534,6 @@
     "unitId": 960001,
     "features": [
       "skill1-buff"
-    ]
-  },
-  {
-    "unitId": 101
-  },
-  {
-    "unitId": 101,
-    "skill": 1
-  },
-  {
-    "unitId": 101,
-    "features": [
-      "class-enemy1"
-    ]
-  },
-  {
-    "unitId": 101,
-    "skill": 1,
-    "features": [
-      "class-enemy1"
-    ]
-  },
-  {
-    "unitId": 101,
-    "features": [
-      "class-enemy2"
-    ]
-  },
-  {
-    "unitId": 101,
-    "skill": 1,
-    "features": [
-      "class-enemy2"
-    ]
-  },
-  {
-    "unitId": 101,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 101,
-    "skill": 1,
-    "features": [
-      "class-action"
     ]
   },
   {
@@ -8770,7 +8690,7 @@
     "skill": 1,
     "features": [
       "melee",
-      "0-sec"
+      "common-0-sec"
     ]
   },
   {

@@ -14,7 +14,7 @@
     "moveType": "飛行",
     "supplements": [
       "配置回復100%",
-      "再出撃-40%→全体",
+      "再出撃時間-40%→全体",
       "凍結無効"
     ],
     "exSkill1": {
@@ -31,7 +31,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "再出撃-60%→射程内"
+        "再出撃時間-60%→射程内"
       ]
     },
     "potentials": [
@@ -3984,11 +3984,11 @@
       {
         "featureName": "normal",
         "supplements": [
-          "再出撃-15%→射程内"
+          "再出撃時間-15%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
-            "再出撃-20%→射程内"
+            "再出撃時間-20%→射程内"
           ]
         }
       },
@@ -3996,13 +3996,568 @@
         "featureName": "skill",
         "isBuffSkill": true,
         "supplements": [
-          "再出撃-30%→射程内"
+          "再出撃時間-30%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
-            "再出撃-40%→射程内"
+            "再出撃時間-40%→射程内"
           ]
         }
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "スキル1射程はWiki情報/スキル1は5回強化可能?",
+    "id": 92,
+    "unitName": "【アクアドラゴン娘】ロヴィリス",
+    "unitShortName": "ロヴィリス",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "水",
+    "species": "竜",
+    "hp": 6363,
+    "attack": 609,
+    "defense": 893,
+    "resist": 222,
+    "exSkill1": {
+      "skillName": "ドラゴニックオーラ",
+      "attackMul": 180,
+      "defenseMul": 200,
+      "resistMul": 200,
+      "splash": true,
+      "range": 220,
+      "duration": 30,
+      "cooldown": 40,
+      "damageType": "魔法",
+      "skillFeatures": [
+        {
+          "featureName": "common-skill1-phase2",
+          "attackMul": 210,
+          "defenseMul": 230,
+          "resistMul": 230
+        },
+        {
+          "featureName": "common-skill1-phase3",
+          "attackMul": 240,
+          "defenseMul": 260,
+          "resistMul": 260
+        },
+        {
+          "featureName": "common-skill1-phase4",
+          "attackMul": 270,
+          "defenseMul": 290,
+          "resistMul": 290
+        },
+        {
+          "featureName": "common-skill1-phase5",
+          "attackMul": 300,
+          "defenseMul": 320,
+          "resistMul": 320
+        }
+      ]
+    },
+    "exSkill2": {
+      "skillName": "水竜の大盾",
+      "blockAdd": 3,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "魔法防御力+90"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "attack": 110
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "magicalDamageCut": 25,
+        "supplements": [
+          "魔法被Dmg-25%"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "magicalDamageCut": 50,
+        "supplements": [
+          "魔法被Dmg-50%"
+        ]
+      },
+      {
+        "skill": 2,
+        "staticDamage": {
+          "key": "attack",
+          "value": 40
+        },
+        "interval": 30,
+        "target": "自分",
+        "damageType": "再生"
+      },
+      {
+        "featureName": "common-block1",
+        "attackMul": 130,
+        "potentialBonus": {
+          "attackMul": 135
+        }
+      },
+      {
+        "featureName": "common-block5",
+        "isConditionalBuff": true,
+        "attackMul": 250,
+        "potentialBonus": {
+          "attackMul": 275
+        }
+      },
+      {
+        "featureName": "skill2-0s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 0
+          }
+        ],
+        "physicalDamageCut": 100,
+        "magicalDamageCut": 100,
+        "supplements": [
+          "物理魔法被Dmg-100%"
+        ]
+      },
+      {
+        "featureName": "skill2-2s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 2
+          }
+        ],
+        "physicalDamageCut": 90,
+        "magicalDamageCut": 90,
+        "supplements": [
+          "物理魔法被Dmg-90%"
+        ]
+      },
+      {
+        "featureName": "skill2-4s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 4
+          }
+        ],
+        "physicalDamageCut": 80,
+        "magicalDamageCut": 80,
+        "supplements": [
+          "物理魔法被Dmg-80%"
+        ]
+      },
+      {
+        "featureName": "skill2-6s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 6
+          }
+        ],
+        "physicalDamageCut": 70,
+        "magicalDamageCut": 70,
+        "supplements": [
+          "物理魔法被Dmg-70%"
+        ]
+      },
+      {
+        "featureName": "skill2-12s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 12
+          }
+        ],
+        "physicalDamageCut": 40,
+        "magicalDamageCut": 40,
+        "supplements": [
+          "物理魔法被Dmg-40%"
+        ]
+      },
+      {
+        "featureName": "skill2-18s",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 18
+          }
+        ],
+        "physicalDamageCut": 10,
+        "magicalDamageCut": 10,
+        "supplements": [
+          "物理魔法被Dmg-10%"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "common-skill1-phase5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-0s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-2s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-4s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-6s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-12s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "skill2-18s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block5",
+          "common-skill1-phase5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-0s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-2s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-4s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-6s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-12s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "skill2-18s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-skill1-phase5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-0s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-2s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-4s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-6s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-12s"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "skill2-18s"
+        ]
       }
     ]
   },
@@ -4118,6 +4673,15 @@
         "ノックバック/3秒→射程内"
       ]
     },
+    "exSkill2": {
+      "skillName": "蒼々の天啓",
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "再出撃時間-80%→全体",
+        "撤退時回復コスト90%→全体"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -4130,7 +4694,46 @@
     "moveSpeedAdd": 40,
     "potentialBonus": {
       "moveSpeedAdd": 45
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "move-speed-add",
+        "target": "全体",
+        "value": 20,
+        "potentialBonus": {
+          "value": 25
+        }
+      },
+      {
+        "type": "move-speed-add",
+        "target": "飛行",
+        "value": 40,
+        "potentialBonus": {
+          "value": 45
+        }
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": 2,
+        "target": "全体",
+        "value": 80
+      },
+      {
+        "type": "withdraw-cost-return",
+        "skill": 2,
+        "target": "全体",
+        "value": 90
+      }
+    ]
   },
   {
     "id": 95,
@@ -4345,6 +4948,16 @@
         "命中停止15f(0.5秒)"
       ]
     },
+    "exSkill2": {
+      "skillName": "氷結の雪吹雪",
+      "attackMul": 260,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "発動時凍結付与(超)→射程内",
+        "凍結付与(低)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -4365,7 +4978,28 @@
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "duration": 5,
+        "supplements": [
+          "吹雪"
+        ],
+        "potentialBonus": {
+          "duration": 7
+        }
+      }
+    ]
   },
   {
     "id": 104,
@@ -6490,6 +7124,134 @@
     "hpMul": 120
   },
   {
+    "id": 168,
+    "unitName": "【遊水のクラーケン娘】オキュー",
+    "unitShortName": "オキュー/水着",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "水",
+    "hp": 2608,
+    "attack": 981,
+    "defense": 237,
+    "resist": 295,
+    "supplements": [
+      "DEF-12→命中",
+      "RES-12→命中"
+    ],
+    "exSkill1": {
+      "skillName": "オクタプルショット",
+      "attackMotionMul": 150,
+      "rounds": 8,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "featureName": "10-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "resistDebuff": {
+          "time": 300,
+          "valueAdd": 100
+        }
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1680001,
+    "parentId": 168,
+    "unitName": "触手(水鉄砲)",
+    "unitShortName": "触手(水鉄砲)",
+    "rarity": "C",
+    "element": "水",
+    "cost": 7,
+    "hp": 2396,
+    "attack": 1108,
+    "defense": 179,
+    "resist": 74,
+    "attackSpeedFrame": 40,
+    "delay": 25,
+    "block": 1,
+    "target": 1,
+    "range": 240,
+    "moveSpeed": 130,
+    "damageType": "魔法",
+    "placement": "両",
+    "features": [
+      {
+        "supplements": [
+          "コスト+1/3秒"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 169,
     "unitName": "【ドラゴニュート娘】チファ",
     "unitShortName": "チファ",
@@ -7439,7 +8201,7 @@
     "features": [
       {
         "supplements": [
-          "再出撃-12秒→自分",
+          "再出撃時間-12秒→自分",
           "射程内呪殺15%(ボス8%)"
         ],
         "potentialBonus": {
@@ -8655,15 +9417,6 @@
         }
       },
       {
-        "featureName": "0-sec",
-        "conditions": [
-          {
-            "key": "s",
-            "value": 0
-          }
-        ]
-      },
-      {
         "featureName": "10-sec",
         "isConditionalBuff": true,
         "annotations": [
@@ -8840,7 +9593,7 @@
     "defense": 364,
     "resist": 442,
     "supplements": [
-      "再出撃-50%→自分"
+      "再出撃時間-50%→自分"
     ],
     "exSkill1": {
       "skillName": "炎の護竜",
@@ -9274,10 +10027,11 @@
     "TODO_STAT_INFERRED": true,
     "id": 249,
     "unitName": "【牛頭鬼娘】シルバ",
-    "unitShortName": "シルバ→TODOスキル攻撃速度",
+    "unitShortName": "シルバ/牛頭鬼",
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "地",
+    "species": "妖怪",
     "hp": 9185,
     "attack": 1028,
     "defense": 633,
@@ -9285,6 +10039,8 @@
     "exSkill1": {
       "skillName": "全力パワースタンプ",
       "attackMul": 420,
+      "attackMotionMul": 163,
+      "attackSpeedBuff": 80,
       "splash": true,
       "duration": 25,
       "cooldown": 35,
