@@ -19,6 +19,8 @@ import {
   type FeatureOutputCore,
 } from "./Feature";
 
+const tableColor = Data.tableColorAlias;
+
 interface JsonSituation {
   unitId: number;
   skill?: number;
@@ -213,13 +215,13 @@ export default class Situation implements TableSource<Keys> {
             }
           })
         )
-          return Data.tableColorAlias.positive;
+          return tableColor.positive;
 
         const f = this.getFeature(s);
         if (f.isConditionalBuff && f.cond?.conditions)
-          return Data.tableColorAlias.positiveWeak;
+          return tableColor.positiveWeak;
         if (f.isConditionalDebuff && f.cond?.conditions)
-          return Data.tableColorAlias.negativeWeak;
+          return tableColor.negativeWeak;
       },
     });
 
@@ -329,7 +331,7 @@ export default class Situation implements TableSource<Keys> {
         const f = this.interval.getFactors(s);
         if (f?.actualResult === undefined) return;
 
-        if (f?.cooldown || f?.staticValue) return Data.tableColorAlias.warning;
+        if (f?.cooldown || f?.staticValue) return tableColor.warning;
 
         const b = f?.base?.buffColor;
         if (b) return b;
@@ -413,7 +415,7 @@ export default class Situation implements TableSource<Keys> {
 
         const color: Data.TableColor | undefined = (() => {
           if (typeof target !== "number") return;
-          if (isFixed) return Data.tableColorAlias.warning;
+          if (isFixed) return tableColor.warning;
 
           const average = (arg: Data.Target) => {
             if (Array.isArray(arg)) {
@@ -456,8 +458,8 @@ export default class Situation implements TableSource<Keys> {
             roundsFactor.skillPoint,
             sk?.laser ? 1 : 0
           );
-          if (skillPoint > 0) return Data.tableColorAlias.positive;
-          if (skillPoint < 0) return Data.tableColorAlias.negative;
+          if (skillPoint > 0) return tableColor.positive;
+          if (skillPoint < 0) return tableColor.negative;
 
           const condNum = sum(
             calcBlock(fea.cond?.target),
@@ -470,8 +472,8 @@ export default class Situation implements TableSource<Keys> {
             roundsFactor.conditionPoint,
             fea.cond?.laser ? 1 : 0
           );
-          if (conditionPoint > 0) return Data.tableColorAlias.positiveWeak;
-          if (conditionPoint < 0) return Data.tableColorAlias.negativeWeak;
+          if (conditionPoint > 0) return tableColor.positiveWeak;
+          if (conditionPoint < 0) return tableColor.negativeWeak;
         })();
 
         return {
@@ -590,7 +592,7 @@ export default class Situation implements TableSource<Keys> {
         const result = fixedRange ?? subtotal;
 
         const color = (() => {
-          if (fixedRange !== undefined) return Data.tableColorAlias.warning;
+          if (fixedRange !== undefined) return tableColor.warning;
 
           const skillBuffRange =
             fea.skillBuffs?.range ??
@@ -599,18 +601,18 @@ export default class Situation implements TableSource<Keys> {
               fea.skillBuffs?.rangeMul,
               fea.skillBuffs?.rangeAdd
             );
-          if (skillBuffRange > base) return Data.tableColorAlias.positiveStrong;
-          if (skillBuffRange < base) return Data.tableColorAlias.negativeStrong;
+          if (skillBuffRange > base) return tableColor.positiveStrong;
+          if (skillBuffRange < base) return tableColor.negativeStrong;
 
           const skillRange = sk?.range ?? calcSubtotal(base, sk?.rangeMul);
-          if (skillRange > base) return Data.tableColorAlias.positive;
-          if (skillRange < base) return Data.tableColorAlias.negative;
+          if (skillRange > base) return tableColor.positive;
+          if (skillRange < base) return tableColor.negative;
 
           const condRange =
             fea.cond?.range ??
             calcSubtotal(base, fea.cond?.rangeMul, fea.cond?.rangeAdd);
-          if (condRange > base) return Data.tableColorAlias.positiveWeak;
-          if (condRange < base) return Data.tableColorAlias.negativeWeak;
+          if (condRange > base) return tableColor.positiveWeak;
+          if (condRange < base) return tableColor.negativeWeak;
         })();
 
         return {
@@ -676,15 +678,14 @@ export default class Situation implements TableSource<Keys> {
       color: (s) => {
         const f = this.getFeature(s);
         const b = f.skillBuffs?.supplements;
-        if (b !== undefined && b.size > 0)
-          return Data.tableColorAlias.positiveStrong;
+        if (b !== undefined && b.size > 0) return tableColor.positiveStrong;
         if (this.getSkill(s)?.supplements && !this.getFeature(s).isAbility)
-          return Data.tableColorAlias.positive;
+          return tableColor.positive;
         const cond = f.cond?.supplements;
         if (cond !== undefined && cond.size > 0) {
-          if (f.isConditionalSkillBuff) return Data.tableColorAlias.positive;
-          if (f.isConditionalDebuff) return Data.tableColorAlias.negativeWeak;
-          if (f.isConditionalBuff) return Data.tableColorAlias.positiveWeak;
+          if (f.isConditionalSkillBuff) return tableColor.positive;
+          if (f.isConditionalDebuff) return tableColor.negativeWeak;
+          if (f.isConditionalBuff) return tableColor.positiveWeak;
         }
       },
     });
@@ -700,18 +701,16 @@ export default class Situation implements TableSource<Keys> {
       },
       color: (s) => {
         const f = this.getFeature(s);
-        if (f.isExtraDamage) return Data.tableColorAlias.warning;
+        if (f.isExtraDamage) return tableColor.warning;
         if (this.initialTime.getValue(s) === undefined)
           return this.getTokenParent(s)?.initialTime.getColor(s);
-        if (this.getSkill(s)?.isOverCharge)
-          return Data.tableColorAlias.negative;
+        if (this.getSkill(s)?.isOverCharge) return tableColor.negative;
         const c = f.initialTimeCut ?? 0;
         const p = this.unit?.getPotentialFactor(s, stat.initialTime) ?? 0;
         const cp = c - p;
-        if (cp > 0) return Data.tableColorAlias.positiveWeak;
-        if (cp < 0) return Data.tableColorAlias.negativeWeak;
-        if (f.cooldownReductions !== undefined)
-          return Data.tableColorAlias.positiveWeak;
+        if (cp > 0) return tableColor.positiveWeak;
+        if (cp < 0) return tableColor.negativeWeak;
+        if (f.cooldownReductions !== undefined) return tableColor.positiveWeak;
       },
     });
 
@@ -746,7 +745,7 @@ export default class Situation implements TableSource<Keys> {
           f.duration === Data.Duration.always ||
           f.isExtraDamage
         )
-          return Data.tableColorAlias.warning;
+          return tableColor.warning;
       },
     });
 
@@ -756,18 +755,18 @@ export default class Situation implements TableSource<Keys> {
       text: (s) => this.cooldown.getValue(s)?.toFixed(1),
       color: (s) => {
         const f = this.cooldown.getFactors(s);
-        if (f.isExtraDamage) return Data.tableColorAlias.warning;
+        if (f.isExtraDamage) return tableColor.warning;
         if (f.base === undefined)
           return this.getTokenParent(s)?.cooldown.getColor(s);
-        if (f.isOverCharge) return Data.tableColorAlias.negative;
+        if (f.isOverCharge) return tableColor.negative;
 
         const ctCut = f.feature + f.potential;
 
-        if (ctCut < 0) return Data.tableColorAlias.positiveWeak;
-        if (ctCut > 0) return Data.tableColorAlias.negativeWeak;
+        if (ctCut < 0) return tableColor.positiveWeak;
+        if (ctCut > 0) return tableColor.negativeWeak;
 
         if (this.getFeature(s).cooldownReductions !== undefined)
-          return Data.tableColorAlias.positiveWeak;
+          return tableColor.positiveWeak;
       },
       factors: (s) => {
         const f = this.getFeature(s);
@@ -1068,8 +1067,16 @@ export default class Situation implements TableSource<Keys> {
       },
       isReversed: true,
       color: (s) => {
-        if (ret.getFactors(s)?.staticDamage !== undefined)
-          return Data.tableColorAlias.warning;
+        if (ret.getFactors(s)?.staticDamage !== undefined) {
+          return tableColor.warning;
+        }
+
+        const buffFactor = this.getBuffDamageFactor(s);
+        if (buffFactor !== undefined) {
+          if (buffFactor > 100) return tableColor.positiveStrong;
+          if (buffFactor < 100) return tableColor.negativeStrong;
+        }
+
         return this.getBaseStatColor(s, stat.attack);
       },
       factors: (s) => this.getActualAttackFactors(s),
@@ -1084,7 +1091,7 @@ export default class Situation implements TableSource<Keys> {
       isReversed: true,
       color: (s) => {
         if (ret.getFactors(s)?.staticDamage !== undefined)
-          return Data.tableColorAlias.warning;
+          return tableColor.warning;
         return this.getBaseStatColor(s, statType);
       },
       factors: (s) => this.getActualDefResFactors(s, statType),
@@ -1098,42 +1105,48 @@ export default class Situation implements TableSource<Keys> {
   ): Data.TableColor | undefined {
     // TODO Factor依存に書き直して加算バフを追加する
     const fea = this.getFeature(setting);
+    let colorFlag: boolean | undefined;
+    const setColorFlag = (newColorFlag: boolean) => {
+      if (newColorFlag) {
+        colorFlag = true;
+      } else if (colorFlag === undefined) {
+        colorFlag = false;
+      }
+    };
+    const checkPercent = (value: number | undefined) => {
+      if (value !== undefined) {
+        if (value > 100) setColorFlag(true);
+        if (value < 100) setColorFlag(false);
+      }
+    };
+    const checkAdd = (value: number | undefined) => {
+      if (value !== undefined) {
+        if (value > 0) setColorFlag(true);
+        if (value < 0) setColorFlag(false);
+      }
+    };
 
     if (statType === stat.hp) {
-      const hp = fea.currentHp;
-      if (hp !== undefined) {
-        if (hp > 100) return Data.tableColorAlias.positiveWeak;
-        if (hp < 100) return Data.tableColorAlias.negativeWeak;
-      }
+      checkPercent(fea.currentHp);
     }
+    checkPercent(this.getBuffMultiFactor(setting, statType));
+    checkAdd(this.getBuffAddFactor(setting, statType));
+    if (colorFlag !== undefined) {
+      if (colorFlag) return tableColor.positiveStrong;
+      if (colorFlag) return tableColor.negativeStrong;
+    }
+    colorFlag = undefined;
 
-    if (statType === stat.attack) {
-      const factor = this.getBuffDamageFactor(setting);
-      if (factor !== undefined) {
-        if (factor > 100) return Data.tableColorAlias.positiveStrong;
-        if (factor < 100) return Data.tableColorAlias.negativeStrong;
-      }
-    }
-    const b = this.getBuffMultiFactor(setting, statType);
-    if (b !== undefined) {
-      if (b > 100) return Data.tableColorAlias.positiveStrong;
-      if (b < 100) return Data.tableColorAlias.negativeStrong;
-    }
-    {
-      const factor = this.getBuffAddFactor(setting, statType);
-      if (factor > 0) return Data.tableColorAlias.positiveStrong;
-      if (factor < 0) return Data.tableColorAlias.negativeStrong;
-    }
     const sk = this.getSkillMultiFactor(setting, statType);
     if (sk !== undefined) {
-      if (sk > 100) return Data.tableColorAlias.positive;
-      if (sk < 100) return Data.tableColorAlias.negative;
+      if (sk > 100) return tableColor.positive;
+      if (sk < 100) return tableColor.negative;
     }
     const skill = this.getSkill(setting);
     if (statType === stat.attack) {
       const df = skill?.damageFactor ?? 100;
-      if (df > 100) return Data.tableColorAlias.positive;
-      if (df < 100) return Data.tableColorAlias.negative;
+      if (df > 100) return tableColor.positive;
+      if (df < 100) return tableColor.negative;
 
       const c = this.criticalChance.getColor(setting);
       if (c) return c;
@@ -1156,8 +1169,8 @@ export default class Situation implements TableSource<Keys> {
       }
     })();
     if (flag !== undefined) {
-      if (flag) return Data.tableColorAlias.positive;
-      else return Data.tableColorAlias.negative;
+      if (flag) return tableColor.positive;
+      else return tableColor.negative;
     }
 
     let mul;
@@ -1184,12 +1197,12 @@ export default class Situation implements TableSource<Keys> {
     }
 
     if (mul !== undefined && fea.isConditionalSkillBuff) {
-      if (mul > 100) return Data.tableColorAlias.positive;
-      if (mul < 100) return Data.tableColorAlias.negative;
+      if (mul > 100) return tableColor.positive;
+      if (mul < 100) return tableColor.negative;
     }
     if (mul !== undefined) {
-      if (mul > 100) return Data.tableColorAlias.positiveWeak;
-      if (mul < 100) return Data.tableColorAlias.negativeWeak;
+      if (mul > 100) return tableColor.positiveWeak;
+      if (mul < 100) return tableColor.negativeWeak;
     }
   }
 
@@ -1338,7 +1351,7 @@ export default class Situation implements TableSource<Keys> {
 
   private getBuffDamageFactor(setting: Setting): number | undefined {
     const skillBuffs = this.getFeature(setting).skillBuffs;
-    if (skillBuffs === undefined) return 0;
+    if (skillBuffs === undefined) return;
     return skillBuffs.damageFactor;
   }
 
