@@ -200,11 +200,13 @@ function getSkill(
 }
 
 function getRange(
-  target: string,
+  target: string | undefined,
   unit: Unit,
   skillId: number | undefined
 ): string | number | undefined {
   const regex = new RegExp(`${Target.inRange}|${Target.block}`);
+  if (target === undefined) return;
+
   if (!regex.test(target)) {
     return Target.all;
   }

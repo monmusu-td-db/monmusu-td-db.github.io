@@ -4393,6 +4393,16 @@
         "命中停止15f(0.5秒)"
       ]
     },
+    "exSkill2": {
+      "skillName": "氷結の雪吹雪",
+      "attackMul": 260,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "発動時凍結付与(超)→射程内",
+        "凍結付与(低)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -4413,7 +4423,28 @@
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "duration": 5,
+        "supplements": [
+          "吹雪"
+        ],
+        "potentialBonus": {
+          "duration": 7
+        }
+      }
+    ]
   },
   {
     "id": 104,

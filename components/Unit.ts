@@ -110,10 +110,14 @@ export type JsonBuff = Readonly<{
   type: string;
   require?: readonly string[];
   skill?: number;
-  target: string;
-  duration?: string;
+  target?: string;
+  duration?: string | number;
   value?: number;
   supplements?: readonly string[];
+  potentialBonus?: Omit<
+    JsonBuff,
+    "type" | "require" | "skill" | "potentialBonus"
+  >;
 }>;
 export const JsonBuff = {
   require: {
