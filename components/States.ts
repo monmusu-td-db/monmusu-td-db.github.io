@@ -134,63 +134,8 @@ const filterConditionKeys = [
   "bardDebuff",
 ] as const;
 
-const filterConditionNames = {
-  normal: "通常",
-  proper: "クラス特効",
-  action: "クラスACT",
-  properAction: "特効&ACT",
-  bladerCharge1: "曲刀 チャージ1",
-  bladerCharge2: "曲刀 チャージ2",
-  bladerCharge3: "曲刀 チャージ最大",
-  barbarianAttackAdd: "斧 被ダメ強化",
-  barbarianAddAct: "斧 強化&ACT",
-  shieldKnightRanged: "剣盾 遠距離",
-  shieldKnightRangedAction: "剣盾 遠距離&ACT",
-  destroyerRanged: "こん棒 遠距離",
-  warlockAttackMul1: "杖 敵撃破1",
-  warlockAttackMul2: "杖 敵撃破2",
-  conjurerEnemy1: "本 敵1",
-  conjurerEnemy2: "本 敵2",
-  assassinAttackMul1: "短剣 移動強化1",
-  assassinAttackMul2: "短剣 移動強化2",
-  ninjaFire: "手裏剣 火マス",
-  ninjaWater: "手裏剣 水マス",
-  ninjaWind: "手裏剣 風マス",
-  ninjaEarth: "手裏剣 地マス",
-  ninjaStealth: "手裏剣 光/闇マス",
-  shamanBuff: "霊枝 加算バフ",
-  bardBuff: "楽器 加算バフ",
-  bardBuffProper: "楽器 特効加算バフ",
-  bardDebuff: "楽器 攻撃デバフ",
-} as const satisfies Record<FilterConditionOld, string>;
-const filterCondition = Data.Enum(filterConditionKeys);
-
-export type FilterConditionOld = (typeof filterConditionKeys)[number];
-export const FilterConditionOld = (() => {
-  const c = Data.className;
-  return {
-    ...filterCondition,
-
-    names: filterConditionNames,
-    keys: filterConditionKeys,
-    applyingProperList: [c.monk, c.archer, c.priest],
-    applyingActionList: [c.barbarian, c.shieldKnight, c.archer, c.conjurer],
-
-    isKey(key: unknown): key is FilterConditionOld {
-      return filterConditionKeys.findIndex((k) => k === key) !== -1;
-    },
-
-    isProperApplied(className: Data.ClassName | undefined): boolean {
-      return this.applyingProperList.findIndex((v) => v === className) !== -1;
-    },
-
-    isActionApplied(className: Data.ClassName | undefined): boolean {
-      return this.applyingActionList.findIndex((v) => v === className) !== -1;
-    },
-  } as const;
-})();
-
-type FilterConditionKey = (typeof FilterCondition.list)[number];
+export type FilterConditionKey = (typeof FilterCondition.list)[number];
+type FilterConditionKeyExcludeNormal = Exclude<FilterConditionKey, "normal">;
 type FilterConditionGroup = (typeof FilterCondition.groups)[number];
 
 export class FilterCondition {
@@ -274,6 +219,38 @@ export class FilterCondition {
     bardDebuff: "楽器 攻撃デバフ",
   } as const satisfies Record<FilterConditionKey, string>;
 
+  static group = {
+    proper: this.groupKeys.proper,
+    action: this.groupKeys.action,
+    properAction: this.groupKeys.properAction,
+    bladerCharge1: this.groupKeys.blader,
+    bladerCharge2: this.groupKeys.blader,
+    bladerCharge3: this.groupKeys.blader,
+    barbarianAttackAdd: this.groupKeys.barbarian,
+    barbarianAddAct: this.groupKeys.barbarian,
+    shieldKnightRanged: this.groupKeys.shieldKnight,
+    shieldKnightRangedAction: this.groupKeys.shieldKnight,
+    destroyerRanged: this.groupKeys.destroyer,
+    warlockAttackMul1: this.groupKeys.warlock,
+    warlockAttackMul2: this.groupKeys.warlock,
+    conjurerEnemy1: this.groupKeys.conjurer,
+    conjurerEnemy2: this.groupKeys.conjurer,
+    assassinAttackMul1: this.groupKeys.assassin,
+    assassinAttackMul2: this.groupKeys.assassin,
+    ninjaFire: this.groupKeys.ninja,
+    ninjaWater: this.groupKeys.ninja,
+    ninjaWind: this.groupKeys.ninja,
+    ninjaEarth: this.groupKeys.ninja,
+    ninjaStealth: this.groupKeys.ninja,
+    shamanBuff: this.groupKeys.shaman,
+    bardBuff: this.groupKeys.bard,
+    bardBuffProper: this.groupKeys.bard,
+    bardDebuff: this.groupKeys.bard,
+  } as const satisfies Record<
+    FilterConditionKeyExcludeNormal,
+    FilterConditionGroup
+  >;
+
   private static readonly properList = [
     this.equipment.monk,
     this.equipment.archer,
@@ -286,6 +263,34 @@ export class FilterCondition {
     this.equipment.archer,
     this.equipment.conjurer,
   ] as const satisfies FilterEquipment[];
+
+  static requiredFeature = {
+    proper: "class-proper",
+    action: ["class-action", "class-action-base"],
+    bladerCharge1: "class-charge1",
+    bladerCharge2: "class-charge2",
+    bladerCharge3: "class-charge3",
+    barbarianAttackAdd: "class-attack-add",
+    shieldKnightRanged: "class-ranged",
+    destroyerRanged: "class-ranged",
+    warlockAttackMul1: "class-attack-mul1",
+    warlockAttackMul2: "class-attack-mul2",
+    conjurerEnemy1: "class-enemy1",
+    conjurerEnemy2: "class-enemy2",
+    assassinAttackMul1: "class-attack-mul1",
+    assassinAttackMul2: "class-attack-mul2",
+    ninjaFire: "class-fire-field",
+    ninjaWater: "class-water-field",
+    ninjaWind: "class-wind-field",
+    ninjaEarth: "class-earth-field",
+    ninjaStealth: "class-field-stealth",
+    shamanBuff: "class-buff",
+    bardBuff: "class-buff",
+    bardBuffProper: "class-buff-proper",
+    bardDebuff: "class-debuff",
+  } as const satisfies Partial<
+    Record<FilterConditionKeyExcludeNormal, string | string[]>
+  >;
 
   static getVisibleItems(filter: Filter): FilterConditionKey[] {
     const e = this.equipment;
@@ -307,7 +312,7 @@ export class FilterCondition {
     const cond = this.keys;
     const isBlank = !FilterEquipment.keys.some(fn);
 
-    return filterConditionKeys.filter((k): boolean => {
+    return this.list.filter((k): boolean => {
       if (isBlank) return true;
       switch (k) {
         case cond.normal:
@@ -437,6 +442,10 @@ export class FilterCondition {
 
     return this.getReturnObj(fn2);
   }
+
+  static isKey(key: unknown): key is FilterConditionKey {
+    return this.list.findIndex((k) => k === key) !== -1;
+  }
 }
 
 const filterPlacementKeys = Data.Placement.list;
@@ -448,7 +457,7 @@ export type FilterKeys =
   | FilterElement
   | FilterSpecies
   | FilterEquipment
-  | FilterConditionOld
+  | FilterConditionKey
   | FilterPlacement;
 const filterKeys: FilterKeys[] = [
   ...filterRarityKeys,
