@@ -4,9 +4,9 @@ import * as Util from "./Util";
 import * as Stat from "./Stat";
 import {
   FilterCondition,
-  FilterConditionOld,
   FilterEquipment,
   Setting,
+  type FilterConditionKey,
   type States,
 } from "./States";
 import Unit from "./Unit";
@@ -2162,12 +2162,12 @@ export default class Situation implements TableSource<Keys> {
     list: readonly Situation[]
   ): readonly Situation[] {
     const equipmentFilters: FilterEquipment[] = [];
-    const conditionFilters: FilterConditionOld[] = [];
+    const conditionFilters: FilterConditionKey[] = [];
     const setting = states.setting;
     const filter = states.filter;
     filter.forEach((v, k) => {
       if (FilterEquipment.isKey(k) && v) equipmentFilters.push(k);
-      if (FilterConditionOld.isKey(k) && v) conditionFilters.push(k);
+      if (FilterCondition.isKey(k) && v) conditionFilters.push(k);
     });
 
     const getIsNecessary = <T>(arg: T[], fn: (a: T) => unknown): boolean => {
@@ -2248,9 +2248,9 @@ export default class Situation implements TableSource<Keys> {
   private static filterCondition(
     item: Situation,
     className: Data.ClassName | undefined,
-    conditionFilters: readonly FilterConditionOld[]
+    conditionFilters: readonly FilterConditionKey[]
   ): boolean {
-    const f = item.features;
+    const features = item.features;
 
     const groups = FilterCondition.groups;
     const appliedGroup = FilterCondition.getAppliedGroup(className);
@@ -2259,199 +2259,110 @@ export default class Situation implements TableSource<Keys> {
       item
     );
 
-    const prApplied = FilterConditionOld.isProperApplied(className);
-    const acApplied = FilterConditionOld.isActionApplied(className);
-    const bcApplied = className === Data.ClassName.names.blader;
-    const baApplied = className === Data.ClassName.names.barbarian;
-    const skApplied = className === Data.ClassName.names.shieldKnight;
-    const drApplied = className === Data.ClassName.names.destroyer;
-    const warlockApplied = className === Data.ClassName.names.warlock;
-    const ceApplied = className === Data.ClassName.names.conjurer;
-    const amApplied = className === Data.ClassName.names.assassin;
-    const ninjaApplied = className === Data.ClassName.names.ninja;
-    const shamanApplied = className === Data.ClassName.names.shaman;
-    const bardApplied = className === Data.ClassName.names.bard;
-    const pr = prApplied && f.includes("class-proper");
-    const ac =
-      acApplied &&
-      (f.includes("class-action") || f.includes("class-action-base"));
-    const bc1 = bcApplied && f.includes("class-charge1");
-    const bc2 = bcApplied && f.includes("class-charge2");
-    const bc3 = bcApplied && f.includes("class-charge3");
-    const ba = baApplied && f.includes("class-attack-add");
-    const sk = skApplied && f.includes("class-ranged");
-    const dr1 = drApplied && f.includes("class-ranged");
-    const dr2 = drApplied && !f.includes("class-melee");
-    const warlockAm1 = warlockApplied && f.includes("class-attack-mul1");
-    const warlockAm2 = warlockApplied && f.includes("class-attack-mul2");
-    const ce1 = ceApplied && f.includes("class-enemy1");
-    const ce2 = ceApplied && f.includes("class-enemy2");
-    const am1 = amApplied && f.includes("class-attack-mul1");
-    const am2 = amApplied && f.includes("class-attack-mul2");
-    const ninjaFire = ninjaApplied && f.includes("class-fire-field");
-    const ninjaWater = ninjaApplied && f.includes("class-water-field");
-    const ninjaWind = ninjaApplied && f.includes("class-wind-field");
-    const ninjaEarth = ninjaApplied && f.includes("class-earth-field");
-    const ninjaStealth = ninjaApplied && f.includes("class-field-stealth");
-    const shaman = shamanApplied && f.includes("class-buff");
-    const bard1 = bardApplied && f.includes("class-buff");
-    const bard2 = bardApplied && f.includes("class-buff-proper");
-    const bard3 = bardApplied && f.includes("class-debuff");
-    const prFlag = item.isGeneral || item.isGeneralProper || !prApplied;
-    const acFlag = item.isGeneral || item.isGeneralAction || !acApplied;
-    const pracFlag =
-      item.isGeneral || item.isGeneralProperAction || !(prApplied && acApplied);
-    const bcFlag = item.isGeneral || !bcApplied;
-    const baFlag = item.isGeneral || !baApplied;
-    const skFlag = item.isGeneral || !skApplied;
-    const drFlag = item.isGeneral || !drApplied;
-    const warlockFlag = item.isGeneral || !warlockApplied;
-    const ceFlag = item.isGeneral || !ceApplied;
-    const amFlag = item.isGeneral || !amApplied;
-    const ninjaFlag = !ninjaApplied;
-    const shamanFlag = !shamanApplied;
-    const bardFlag = !bardApplied;
-    if (
-      (() => {
-        if (conditionFilters.length === 0) return false;
-        const cond = FilterConditionOld;
-        return (
-          !conditionFilters.every((k) => {
-            // 無関係なフィルターは無視して表示
+    const cond = FilterCondition.keys;
+    const getIsUnrelatedItem = (): boolean => {
+      return conditionFilters.every((k) => {
+        switch (k) {
+          case cond.normal:
+            return groups.every((k) => ignoreGroup[k]);
+          default: {
+            let general;
             switch (k) {
-              case cond.normal:
-                return groups.every((k) => ignoreGroup[k]);
               case cond.proper:
-                return prFlag;
+                general = item.isGeneralProper;
+                break;
               case cond.action:
-                return acFlag;
+                general = item.isGeneralAction;
+                break;
               case cond.properAction:
-                return pracFlag;
-              case cond.bladerCharge1:
-              case cond.bladerCharge2:
-              case cond.bladerCharge3:
-                return bcFlag;
-              case cond.barbarianAttackAdd:
-              case cond.barbarianAddAct:
-                return baFlag;
-              case cond.shieldKnightRanged:
-              case cond.shieldKnightRangedAction:
-                return skFlag;
-              case cond.destroyerRanged:
-                return drFlag;
-              case cond.warlockAttackMul1:
-              case cond.warlockAttackMul2:
-                return warlockFlag;
-              case cond.conjurerEnemy1:
-              case cond.conjurerEnemy2:
-                return ceFlag;
-              case cond.assassinAttackMul1:
-              case cond.assassinAttackMul2:
-                return amFlag;
-              case cond.ninjaFire:
-              case cond.ninjaWater:
-              case cond.ninjaWind:
-              case cond.ninjaEarth:
-              case cond.ninjaStealth:
-                return ninjaFlag;
-              case cond.shamanBuff:
-                return shamanFlag;
-              case cond.bardBuff:
-              case cond.bardBuffProper:
-              case cond.bardDebuff:
-                return bardFlag;
+                general = item.isGeneralProperAction;
+                break;
             }
-          }) &&
-          !conditionFilters.some((k) => {
-            switch (k) {
-              case cond.normal:
-                return (
-                  !pr &&
-                  !ac &&
-                  !bc1 &&
-                  !bc2 &&
-                  !bc3 &&
-                  !ba &&
-                  !dr1 &&
-                  !sk &&
-                  !warlockAm1 &&
-                  !warlockAm2 &&
-                  !ce1 &&
-                  !ce2 &&
-                  !am1 &&
-                  !am2 &&
-                  !ninjaFire &&
-                  !ninjaWater &&
-                  !ninjaWind &&
-                  !ninjaEarth &&
-                  !ninjaStealth &&
-                  !shaman &&
-                  !bard1 &&
-                  !bard2 &&
-                  !bard3
-                );
-              case cond.proper:
-                return pr && !ac;
-              case cond.action:
-                return !pr && ac && !ba && !sk;
-              case cond.properAction:
-                return pr && ac;
-              case cond.bladerCharge1:
-                return bc1;
-              case cond.bladerCharge2:
-                return bc2;
-              case cond.bladerCharge3:
-                return bc3;
-              case cond.barbarianAttackAdd:
-                return (ba || item.isGeneralProper) && !ac;
-              case cond.barbarianAddAct:
-                return (
-                  (ba || item.isGeneralProper) &&
-                  (ac || item.isGeneralProperAction)
-                );
-              case cond.shieldKnightRanged:
-                return sk && !ac;
-              case cond.shieldKnightRangedAction:
-                return sk && ac;
-              case cond.destroyerRanged:
-                return dr1 || dr2;
-              case cond.warlockAttackMul1:
-                return warlockAm1;
-              case cond.warlockAttackMul2:
-                return warlockAm2;
-              case cond.conjurerEnemy1:
-                return ce1;
-              case cond.conjurerEnemy2:
-                return ce2;
-              case cond.assassinAttackMul1:
-                return am1;
-              case cond.assassinAttackMul2:
-                return am2;
-              case cond.ninjaFire:
-                return ninjaFire;
-              case cond.ninjaWater:
-                return ninjaWater;
-              case cond.ninjaWind:
-                return ninjaWind;
-              case cond.ninjaEarth:
-                return ninjaEarth;
-              case cond.ninjaStealth:
-                return ninjaStealth;
-              case cond.shamanBuff:
-                return shaman;
-              case cond.bardBuff:
-                return bard1;
-              case cond.bardBuffProper:
-                return bard2;
-              case cond.bardDebuff:
-                return bard3;
-            }
-          })
-        );
-      })()
-    )
-      return false;
-    return true;
+            return (
+              item.isGeneral ||
+              general ||
+              !appliedGroup[FilterCondition.group[k]]
+            );
+          }
+        }
+      });
+    };
+
+    const condKeys = FilterCondition.list.filter((k) => {
+      switch (k) {
+        case cond.normal:
+        case cond.properAction:
+        case cond.barbarianAddAct:
+        case cond.shieldKnightRangedAction:
+          return false;
+        default:
+          return true;
+      }
+    }) as Exclude<
+      FilterConditionKey,
+      | typeof cond.normal
+      | typeof cond.properAction
+      | typeof cond.barbarianAddAct
+      | typeof cond.shieldKnightRangedAction
+    >[];
+    type CondKey = (typeof condKeys)[number];
+    const condMap = new Map<CondKey, boolean>();
+    const getIsFilteredKey = (key: CondKey): boolean => {
+      const cache = condMap.get(key);
+      if (cache !== undefined) {
+        return cache;
+      } else {
+        const feature = FilterCondition.requiredFeature[key];
+        const hasFeature = Array.isArray(feature)
+          ? feature.some((str) => features.includes(str))
+          : features.includes(feature);
+        const ret = appliedGroup[FilterCondition.group[key]] && hasFeature;
+
+        condMap.set(key, ret);
+        return ret;
+      }
+    };
+
+    const getIsFilteredItem = (): boolean => {
+      const fn = getIsFilteredKey;
+      return conditionFilters.some((filter) => {
+        switch (filter) {
+          case cond.normal:
+            return condKeys.every((k) => !fn(k));
+          case cond.proper:
+            return fn(filter) && !fn(cond.action);
+          case cond.action:
+            return (
+              fn(filter) &&
+              !fn(cond.proper) &&
+              !fn(cond.barbarianAttackAdd) &&
+              !fn(cond.shieldKnightRanged)
+            );
+          case cond.properAction:
+            return fn(cond.proper) && fn(cond.action);
+          case cond.barbarianAttackAdd:
+            return (
+              (fn(cond.barbarianAttackAdd) || item.isGeneralProper) &&
+              !fn(cond.action)
+            );
+          case cond.barbarianAddAct:
+            return (
+              (fn(cond.barbarianAttackAdd) || item.isGeneralProper) &&
+              (fn(cond.action) || item.isGeneralProperAction)
+            );
+          case cond.shieldKnightRanged:
+            return fn(cond.shieldKnightRanged) && !fn(cond.action);
+          case cond.shieldKnightRangedAction:
+            return fn(cond.shieldKnightRanged) && fn(cond.action);
+          case cond.destroyerRanged:
+            return fn(cond.destroyerRanged) || features.includes("class-melee");
+          default:
+            return fn(filter);
+        }
+      });
+    };
+
+    return getIsUnrelatedItem() || getIsFilteredItem();
   }
 
   static get list(): readonly Situation[] {
