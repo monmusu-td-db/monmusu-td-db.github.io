@@ -2485,6 +2485,275 @@
     ]
   },
   {
+    "id": 57,
+    "unitName": "【ターロス娘】クレッタ",
+    "unitShortName": "クレッタ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "火",
+    "hp": 6310,
+    "attack": 619,
+    "defense": 923,
+    "resist": 212,
+    "range": 120,
+    "exSkill1": {
+      "skillName": "青銅の守護者",
+      "attackMul": 140,
+      "defenseMul": 320,
+      "blockAdd": 2,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "exSkill2": {
+      "skillName": "バーニング・ハグ",
+      "attackMul": 220,
+      "defenseMul": 230,
+      "duration": 40,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+90",
+      "射程+15",
+      "射程+15"
+    ],
+    "weapon": {
+      "weaponName": "クレーターシールド",
+      "hp": 150,
+      "defense": 70
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "凍結無効",
+          "スタン無効"
+        ]
+      },
+      {
+        "featureName": "class-melee",
+        "require": [
+          "武器"
+        ],
+        "attackMul": 160
+      },
+      {
+        "featureName": "common-block1",
+        "attackMul": 160,
+        "potentialBonus": {
+          "attackMul": 170
+        }
+      },
+      {
+        "featureName": "common-block5",
+        "attackMul": 400,
+        "potentialBonus": {
+          "attackMul": 450
+        }
+      },
+      {
+        "featureName": "common-block7",
+        "attackMul": 520,
+        "potentialBonus": {
+          "attackMul": 590
+        }
+      },
+      {
+        "featureName": "dot",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 10
+        },
+        "interval": 15,
+        "target": "ブロック",
+        "range": null,
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "dot",
+        "skill": 2,
+        "staticDamage": {
+          "key": "attack",
+          "value": 40
+        }
+      }
+    ],
+    "situations": [
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block1",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block1",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block7"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block5",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block7",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block5",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block0",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block0",
+          "dot"
+        ]
+      }
+    ]
+  },
+  {
     "id": 58,
     "unitName": "【カトブレパス娘】ニグリュ",
     "unitShortName": "ニグリュ",

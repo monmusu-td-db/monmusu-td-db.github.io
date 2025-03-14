@@ -122,6 +122,26 @@
     ]
   },
   {
+    "featureName": "common-block6",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 6
+      }
+    ]
+  },
+  {
+    "featureName": "common-block7",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 7
+      }
+    ]
+  },
+  {
     "featureName": "common-skill1-phase1",
     "phase": 1
   },
