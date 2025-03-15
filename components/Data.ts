@@ -509,10 +509,6 @@ interface SkillBase {
   criDamageAdd?: number;
   criChanceLimitAdd?: number;
   criDamageLimitAdd?: number;
-  hpAddFlag?: boolean;
-  attackAddFlag?: boolean;
-  defenseAddFlag?: boolean;
-  resistAddFlag?: boolean;
   attackMotionMul?: number;
   attackSpeedBuff?: number;
   delayMul?: number;
@@ -1498,14 +1494,21 @@ export interface InBattleFactorsBase extends DeploymentFactors {
 export interface InBattleFactors extends InBattleFactorsBase {
   readonly isMaxDamage: boolean;
   readonly isMinDamage: boolean;
-  readonly currentFactor: number;
   readonly inBattleResult: number;
 }
+
+export interface ActualHpFactors extends InBattleFactors {
+  readonly isUnhealable: boolean;
+  readonly currentFactor: number;
+  readonly actualResult: number;
+}
+
 export interface ActualAttackFactorsBase extends InBattleFactors {
   readonly damageFactor: number;
   readonly criticalChance: number;
   readonly criticalDamage: number;
   readonly staticDamage: StaticDamageFactor | undefined;
+  readonly isSupport: boolean;
 }
 export interface ActualAttackFactors extends ActualAttackFactorsBase {
   readonly actualResult: number;
@@ -1513,7 +1516,7 @@ export interface ActualAttackFactors extends ActualAttackFactorsBase {
 }
 
 export interface CriticalFactors {
-  readonly skillColor: TableColor | undefined;
+  readonly skillColor: boolean | undefined;
   readonly result: number;
 }
 
