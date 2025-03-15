@@ -9511,7 +9511,6 @@
     "resist": 129,
     "exSkill1": {
       "skillName": "メガロスプラッシュ",
-      "attackAddFlag": true,
       "duration": "単発",
       "cooldown": 15,
       "skillFeatures": [
@@ -9544,6 +9543,7 @@
       },
       {
         "skill": 1,
+        "isConditionalSkillBuff": true,
         "attackAdd": {
           "key": "hp",
           "value": 50

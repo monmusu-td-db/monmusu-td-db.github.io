@@ -4,10 +4,18 @@ import type { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
 import { Tooltip as T } from "./StatTooltip";
 
-type Factors = Required<Data.RangeFactor> | undefined
+type Factors = Required<Data.RangeFactor> | undefined;
 const sign = T.sign;
 
 export class StatRange extends BaseStat<number | undefined, Factors> {
+  protected override getDefaultItem(setting: Setting): ReactNode {
+    const value = this.getValue(setting);
+    if (value === undefined) return;
+
+    const Item = super.NumberItem;
+    return <Item value={value} length={3} />;
+  }
+
   protected override getTooltipBody(setting: Setting): ReactNode {
     const f: Data.RangeFactor | undefined = this.getFactors(setting);
     if (f === undefined) return;
@@ -16,11 +24,9 @@ export class StatRange extends BaseStat<number | undefined, Factors> {
       <>
         {f.deploymentResult !== undefined && super.getTooltipBody(setting)}
         <T.Equation>
-          {d => (
+          {(d) => (
             <>
-              <T.Result>
-                {d ? "実能力値" : f.result}
-              </T.Result>
+              <T.Result>{d ? "実能力値" : f.result}</T.Result>
               <T.Expression>
                 {f.fixedRange !== undefined ? (
                   <T.Value isPositive={f.fixedRange > f.subtotal}>

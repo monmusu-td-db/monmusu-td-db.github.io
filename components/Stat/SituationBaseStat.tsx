@@ -26,7 +26,7 @@ export class SituationBaseStat<
         <T.Equation>
           {(d) => (
             <>
-              <T.Result>{d ? "表示能力値" : f.inBattleResult}</T.Result>
+              <T.Result>{d ? "戦闘中能力" : f.inBattleResult}</T.Result>
               <T.Expression>
                 {f.isMaxDamage || f.isMinDamage ? (
                   <>

@@ -3,9 +3,6 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import { Setting } from "../States";
 
-const FONT_SIZE_LIMIT_NUMBER = 99999;
-const FONT_SIZE_LIMIT_NUMBER_PLUS = 9999;
-
 export type StatHandler<T> = (setting: Setting) => T;
 
 interface StatPropsBase<TStat> {
@@ -105,23 +102,32 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     return this.getText(setting);
   }
 
-  protected NumberItem({ value, plus }: { value: number; plus?: boolean }) {
-    const limit = plus ? FONT_SIZE_LIMIT_NUMBER_PLUS : FONT_SIZE_LIMIT_NUMBER;
-    const text = StatRoot.getNumberText(value);
-    const ret = plus && value >= 0 ? <>+{text}</> : text;
+  protected NumberItem({
+    value,
+    plus,
+    length,
+  }: {
+    value: number;
+    plus?: boolean;
+    length?: number;
+  }) {
+    const limit = length ?? 5;
+    const text = StatRoot.getNumberText(value, limit);
+    const ret = plus && value >= 0 ? "+" + text : text;
 
-    if (value <= limit) {
+    if (ret.length <= limit) {
       return ret;
     } else {
       return <small>{ret}</small>;
     }
   }
 
-  private static getNumberText(value: number): string {
-    if (value >= 1_000_000) {
-      return (value / 1000).toFixed(0) + "K";
+  private static getNumberText(value: number, limit: number): string {
+    const text = value.toFixed(0);
+    if (text.length <= limit + 1) {
+      return text;
     } else {
-      return value.toFixed(0);
+      return (value / 1000).toFixed(0) + "K";
     }
   }
 }

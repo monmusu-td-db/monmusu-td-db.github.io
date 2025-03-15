@@ -509,10 +509,6 @@ interface SkillBase {
   criDamageAdd?: number;
   criChanceLimitAdd?: number;
   criDamageLimitAdd?: number;
-  hpAddFlag?: boolean;
-  attackAddFlag?: boolean;
-  defenseAddFlag?: boolean;
-  resistAddFlag?: boolean;
   attackMotionMul?: number;
   attackSpeedBuff?: number;
   delayMul?: number;
@@ -1520,7 +1516,7 @@ export interface ActualAttackFactors extends ActualAttackFactorsBase {
 }
 
 export interface CriticalFactors {
-  readonly skillColor: TableColor | undefined;
+  readonly skillColor: boolean | undefined;
   readonly result: number;
 }
 

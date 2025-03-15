@@ -36,6 +36,7 @@ interface JsonSituation {
 
 interface FeatureOutputDetail extends Readonly<FeatureOutputCore> {
   cond?: FeatureOutputCore;
+  skillCond?: FeatureOutputCore;
   skillBuffs?: FeatureOutputCore;
 }
 
@@ -231,25 +232,29 @@ export default class Situation implements TableSource<Keys> {
     this.defense = this.getStatDefRes(stat.defense);
     this.resist = this.getStatDefRes(stat.resist);
 
+    const getColor = (base: number, head: number): boolean | undefined => {
+      if (base === head) {
+        return;
+      } else {
+        return base > head;
+      }
+    };
     this.criticalChance = new Stat.Root({
       statType: stat.criticalChance,
       calculater: (s) => this.criticalChance.getFactors(s).result,
-      color: (s) => {
-        const col = this.criticalChance.getFactors(s)?.skillColor;
-        if (col !== undefined) return col;
-      },
       factors: (s) => {
-        const fn = (v: number) =>
+        const limit = (v: number) =>
           Math.max(0, Math.min(v, this.criticalChanceLimit.getValue(s)));
-        const b = this.unit?.criticalChance.getValue(s) ?? 0;
-        const sk = this.getSkill(s)?.criChanceAdd ?? 0;
+        const base = this.unit?.criticalChance.getValue(s) ?? 0;
+        const skill = this.getSkill(s)?.criChanceAdd ?? 0;
         const fea = this.getFeature(s).criChanceAdd ?? 0;
-        const p = this.unit?.isPotentialApplied(s)
+        const potential = this.unit?.isPotentialApplied(s)
           ? this.unit?.getPotentialFactor(s, stat.criticalChance) ?? 0
           : 0;
-        const ss = this.getSubskillFactor(s, ssKeys.criChanceAdd);
-        const result = fn(b + sk + fea + p + ss);
-        const skillColor = Util.getTableColor(fn(b + sk), fn(b));
+        const subskill = this.getSubskillFactor(s, ssKeys.criChanceAdd);
+        const result = limit(base + skill + fea + potential + subskill);
+
+        const skillColor = getColor(limit(base + skill), limit(base));
 
         return {
           skillColor,
@@ -261,19 +266,15 @@ export default class Situation implements TableSource<Keys> {
     this.criticalDamage = new Stat.Root({
       statType: stat.criticalDamage,
       calculater: (s) => this.criticalDamage.getFactors(s).result,
-      color: (s) => {
-        const col = this.criticalDamage.getFactors(s)?.skillColor;
-        if (col !== undefined) return col;
-      },
       factors: (s) => {
-        const fn = (v: number) =>
+        const limit = (v: number) =>
           Math.max(0, Math.min(v, this.criticalDamageLimit.getValue(s)));
-        const b = this.unit?.criticalDamage.getValue(s) ?? 0;
-        const sk = this.getSkill(s)?.criDamageAdd ?? 0;
+        const base = this.unit?.criticalDamage.getValue(s) ?? 0;
+        const skill = this.getSkill(s)?.criDamageAdd ?? 0;
         const fea = this.getFeature(s).criDamageAdd ?? 0;
-        const ss = this.getSubskillFactor(s, ssKeys.criDamageAdd);
-        const result = fn(b + sk + fea + ss);
-        const skillColor = Util.getTableColor(fn(b + sk), fn(b));
+        const subskill = this.getSubskillFactor(s, ssKeys.criDamageAdd);
+        const result = limit(base + skill + fea + subskill);
+        const skillColor = getColor(limit(base + skill), limit(base));
 
         return {
           skillColor,
@@ -681,9 +682,14 @@ export default class Situation implements TableSource<Keys> {
         if (b !== undefined && b.size > 0) return tableColor.positiveStrong;
         if (this.getSkill(s)?.supplements && !this.getFeature(s).isAbility)
           return tableColor.positive;
+
+        const skillCond = f.skillCond?.supplements;
+        if (skillCond !== undefined && skillCond.size > 0) {
+          return tableColor.positive;
+        }
+
         const cond = f.cond?.supplements;
         if (cond !== undefined && cond.size > 0) {
-          if (f.isConditionalSkillBuff) return tableColor.positive;
           if (f.isConditionalDebuff) return tableColor.negativeWeak;
           if (f.isConditionalBuff) return tableColor.positiveWeak;
         }
@@ -996,14 +1002,21 @@ export default class Situation implements TableSource<Keys> {
         f.isAction ||
         f.phase !== undefined ||
         f.isConditionalBuff ||
-        f.isConditionalDebuff ||
-        f.isConditionalSkillBuff
+        f.isConditionalDebuff
       );
     });
     ret.cond = Feature.calculateList(condFeatures, isPotentialApplied);
 
-    const skillFeatures = filteredFeatures.filter((f) => f.isBuffSkill);
-    ret.skillBuffs = Feature.calculateList(skillFeatures, isPotentialApplied);
+    const skillFeatures = filteredFeatures.filter(
+      (f) => f.isConditionalSkillBuff
+    );
+    ret.skillCond = Feature.calculateList(skillFeatures, isPotentialApplied);
+
+    const buffSkillFeatures = filteredFeatures.filter((f) => f.isBuffSkill);
+    ret.skillBuffs = Feature.calculateList(
+      buffSkillFeatures,
+      isPotentialApplied
+    );
 
     return ret;
   }
@@ -1070,13 +1083,6 @@ export default class Situation implements TableSource<Keys> {
         if (ret.getFactors(s)?.staticDamage !== undefined) {
           return tableColor.warning;
         }
-
-        const buffFactor = this.getBuffDamageFactor(s);
-        if (buffFactor !== undefined) {
-          if (buffFactor > 100) return tableColor.positiveStrong;
-          if (buffFactor < 100) return tableColor.negativeStrong;
-        }
-
         return this.getBaseStatColor(s, stat.attack);
       },
       factors: (s) => this.getActualAttackFactors(s),
@@ -1103,7 +1109,6 @@ export default class Situation implements TableSource<Keys> {
     setting: Setting,
     statType: Data.BaseStatType
   ): Data.TableColor | undefined {
-    // TODO Factor依存に書き直して加算バフを追加する
     const fea = this.getFeature(setting);
     let colorFlag: boolean | undefined;
     const setColorFlag = (newColorFlag: boolean) => {
@@ -1114,95 +1119,89 @@ export default class Situation implements TableSource<Keys> {
       }
     };
     const checkPercent = (value: number | undefined) => {
-      if (value !== undefined) {
-        if (value > 100) setColorFlag(true);
-        if (value < 100) setColorFlag(false);
+      if (value !== undefined && value !== 100) {
+        if (value > 100) {
+          setColorFlag(true);
+        } else {
+          setColorFlag(false);
+        }
       }
     };
     const checkAdd = (value: number | undefined) => {
-      if (value !== undefined) {
-        if (value > 0) setColorFlag(true);
-        if (value < 0) setColorFlag(false);
+      if (value !== undefined && value !== 0) {
+        if (value > 0) {
+          setColorFlag(true);
+        } else {
+          setColorFlag(false);
+        }
       }
     };
-
-    if (statType === stat.hp) {
-      checkPercent(fea.currentHp);
-    }
-    checkPercent(this.getBuffMultiFactor(setting, statType));
-    checkAdd(this.getBuffAddFactor(setting, statType));
-    if (colorFlag !== undefined) {
-      if (colorFlag) return tableColor.positiveStrong;
-      if (colorFlag) return tableColor.negativeStrong;
-    }
-    colorFlag = undefined;
-
-    const sk = this.getSkillMultiFactor(setting, statType);
-    if (sk !== undefined) {
-      if (sk > 100) return tableColor.positive;
-      if (sk < 100) return tableColor.negative;
-    }
-    const skill = this.getSkill(setting);
-    if (statType === stat.attack) {
-      const df = skill?.damageFactor ?? 100;
-      if (df > 100) return tableColor.positive;
-      if (df < 100) return tableColor.negative;
-
-      const c = this.criticalChance.getColor(setting);
-      if (c) return c;
-
-      if (this.criticalChance.getValue(setting) > 0) {
-        const d = this.criticalDamage.getColor(setting);
-        if (d) return d;
+    const checkBoolean = (value: boolean | undefined) => {
+      if (value !== undefined) {
+        setColorFlag(value);
       }
-    }
-    const flag = (() => {
+    };
+    const checkCond = (cond: FeatureOutputCore | undefined) => {
+      switch (statType) {
+        case stat.attack:
+          checkPercent(cond?.damageFactor);
+          checkAdd(cond?.criChanceAdd);
+          checkAdd(cond?.criDamageAdd);
+      }
+      checkPercent(cond?.[Data.BaseStatType.mulKey[statType]]);
+      checkAdd(this.calculateAddFactor(setting, statType, cond));
+    };
+
+    {
       switch (statType) {
         case stat.hp:
-          return skill?.hpAddFlag;
+          checkPercent(fea.currentHp);
+          break;
         case stat.attack:
-          return skill?.attackAddFlag;
-        case stat.defense:
-          return skill?.defenseAddFlag;
-        case stat.resist:
-          return skill?.resistAddFlag;
+          checkPercent(this.getBuffDamageFactor(setting));
+          break;
       }
-    })();
-    if (flag !== undefined) {
-      if (flag) return tableColor.positive;
-      else return tableColor.negative;
-    }
+      checkPercent(this.getBuffMultiFactor(setting, statType));
+      const skillBuffs = this.getFeature(setting).skillBuffs;
+      checkAdd(this.calculateAddFactor(setting, statType, skillBuffs));
 
-    let mul;
-    switch (statType) {
-      case stat.hp:
-        mul = fea.cond?.hpMul;
-        break;
-      case stat.attack: {
-        const cca = fea.cond?.criChanceAdd;
-        const cda = fea.cond?.criDamageAdd;
-        mul =
-          fea.cond?.attackMul ??
-          fea.cond?.damageFactor ??
-          (cca === undefined ? undefined : 100 + cca) ??
-          (cda === undefined ? undefined : Data.defaultCriDamage + cda);
-        break;
+      if (colorFlag !== undefined) {
+        if (colorFlag) {
+          return tableColor.positiveStrong;
+        } else {
+          return tableColor.negativeStrong;
+        }
       }
-      case stat.defense:
-        mul = fea.cond?.defenseMul;
-        break;
-      case stat.resist:
-        mul = fea.cond?.resistMul;
-        break;
     }
+    {
+      const skill = this.getSkill(setting);
+      switch (statType) {
+        case stat.attack:
+          checkPercent(skill?.damageFactor);
+          checkBoolean(this.criticalChance.getFactors(setting).skillColor);
+          checkBoolean(this.criticalDamage.getFactors(setting).skillColor);
+      }
+      checkPercent(this.getSkillMultiFactor(setting, statType));
+      checkCond(fea.skillCond);
 
-    if (mul !== undefined && fea.isConditionalSkillBuff) {
-      if (mul > 100) return tableColor.positive;
-      if (mul < 100) return tableColor.negative;
+      if (colorFlag !== undefined) {
+        if (colorFlag) {
+          return tableColor.positive;
+        } else {
+          return tableColor.negative;
+        }
+      }
     }
-    if (mul !== undefined) {
-      if (mul > 100) return tableColor.positiveWeak;
-      if (mul < 100) return tableColor.negativeWeak;
+    {
+      checkCond(fea.cond);
+
+      if (colorFlag !== undefined) {
+        if (colorFlag) {
+          return tableColor.positiveWeak;
+        } else {
+          return tableColor.negativeWeak;
+        }
+      }
     }
   }
 
@@ -1340,15 +1339,6 @@ export default class Situation implements TableSource<Keys> {
     return f[Data.BaseStatType.mulKey[statType]];
   }
 
-  private getBuffAddFactor(
-    setting: Setting,
-    statType: Data.BaseStatType
-  ): number {
-    const skillBuffs = this.getFeature(setting).skillBuffs;
-    if (skillBuffs === undefined) return 0;
-    return this.calculateAddFactor(setting, statType, skillBuffs);
-  }
-
   private getBuffDamageFactor(setting: Setting): number | undefined {
     const skillBuffs = this.getFeature(setting).skillBuffs;
     if (skillBuffs === undefined) return;
@@ -1365,8 +1355,9 @@ export default class Situation implements TableSource<Keys> {
   private calculateAddFactor(
     setting: Setting,
     statType: Data.BaseStatType,
-    feature: Readonly<FeatureOutput>
+    feature: Readonly<FeatureOutput> | undefined
   ): number {
+    if (feature === undefined) return 0;
     const factors = Feature.getAdditionFactors(feature, statType);
     if (factors === undefined) return 0;
     return factors
@@ -2169,11 +2160,6 @@ export default class Situation implements TableSource<Keys> {
       if (FilterCondition.isKey(k) && v) conditionFilters.push(k);
     });
 
-    const getIsNecessary = <T>(arg: T[], fn: (a: T) => unknown): boolean => {
-      if (arg.length === 0) return true;
-      return arg.some(fn);
-    };
-
     return list.filter((item) => {
       if (!item.isVisible(setting)) return false;
 
@@ -2181,18 +2167,15 @@ export default class Situation implements TableSource<Keys> {
       const target = parent === undefined ? item : parent;
 
       if (target.unit?.filterRarity(states)) return false;
-
       if (target.unit?.filterElement(states)) return false;
-
       if (target.unit?.filterSpecies(states)) return false;
-
       if (item.unit?.filterPlacement(states)) return false;
 
       const className = target.unit?.className.getValue(setting);
+      const classNameKey = Data.ClassName.keyOf(className);
       if (
-        !getIsNecessary(equipmentFilters, (k) => {
-          if (Data.ClassName.isKey(k)) return Data.className[k] === className;
-        })
+        classNameKey === undefined ||
+        !equipmentFilters.includes(classNameKey)
       )
         return false;
 
