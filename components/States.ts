@@ -865,25 +865,7 @@ class Storage {
     }
   }
 
-  private static getItem<T>(
-    key: string,
-    callback: (obj: string) => T | undefined,
-    defaultObj: T
-  ): T {
-    const storage = this.getStorage();
-    if (storage !== undefined) {
-      try {
-        const v = storage.getItem(key);
-        if (v !== null) {
-          const ret = callback(v);
-          if (ret !== undefined) return ret;
-        }
-      } catch {}
-    }
-    return defaultObj;
-  }
-
-  private static getItem2(key: StorageKey): string | undefined {
+  private static getItem(key: StorageKey): string | undefined {
     const storage = this.getStorage();
     if (storage !== undefined) {
       try {
@@ -898,21 +880,14 @@ class Storage {
     if (storage !== undefined) storage.setItem(key, value);
   }
 
-  private static getValue(key: string): string {
-    return this.getItem(key, (obj) => obj, "");
+  private static getObject(key: StorageKey): object | undefined {
+    const item = this.getItem(key);
+    if (item === undefined) return;
+    const ret: unknown = JSON.parse(item);
+    if (typeof ret !== "object" || ret === null) return;
+    return ret;
   }
 
-  private static getObject<T>(
-    key: string,
-    func: (arg: unknown) => arg is T,
-    defaultObj: T = {} as T
-  ): T {
-    const fn = (obj: string) => {
-      const ret = JSON.parse(obj);
-      if (func(ret)) return ret;
-    };
-    return this.getItem(key, fn, defaultObj);
-  }
   private static setObject(
     key: StorageKey,
     obj: Record<string, unknown>
@@ -920,16 +895,8 @@ class Storage {
     this.setItem(key, JSON.stringify(obj));
   }
 
-  private static getObject2(key: StorageKey): object | undefined {
-    const item = this.getItem2(key);
-    if (item === undefined) return;
-    const ret: unknown = JSON.parse(item);
-    if (typeof ret !== "object" || ret === null) return;
-    return ret;
-  }
-
   static getSetting(): Setting {
-    const item = this.getObject2(storageKeys.SETTING);
+    const item = this.getObject(storageKeys.SETTING);
     if (item === undefined) return defaultSetting;
     const obj = item as Record<keyof Setting, unknown>;
     const ret: Partial<Record<keyof Setting, unknown>> = {};
@@ -949,8 +916,12 @@ class Storage {
   }
 
   static getFilter(): Map<FilterKeys, boolean> {
-    const obj = Storage.getObject(storageKeys.FILTER, this.isFilter);
+    const obj = this.getObject(storageKeys.FILTER);
     const ret = new Map<FilterKeys, boolean>();
+
+    if (!this.isFilter(obj)) {
+      return ret;
+    }
     for (const key of filterKeys) {
       if (obj[key] === undefined) continue;
       ret.set(key, obj[key]);
@@ -971,18 +942,19 @@ class Storage {
   }
 
   static getQuery(): string {
-    return this.getValue(storageKeys.QUERY);
+    return this.getItem(storageKeys.QUERY) ?? "";
   }
   static setQuery(value: string): void {
     this.setItem(storageKeys.QUERY, value);
   }
 
   static getUISetting(): UISetting {
-    return Storage.getObject(
-      storageKeys.UI_SETTING,
-      this.isUISetting,
-      defaultUISetting
-    );
+    const obj = this.getObject(storageKeys.UI_SETTING);
+    if (!this.isUISetting(obj)) {
+      return defaultUISetting;
+    } else {
+      return obj;
+    }
   }
   static setUISetting(obj: UISetting) {
     this.setObject(storageKeys.UI_SETTING, obj);

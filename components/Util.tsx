@@ -85,20 +85,6 @@ export function getTableColorWeak(
   }
 }
 
-export function getPriorTableColor(
-  ...values: (Data.TableColor | undefined)[]
-): Data.TableColor | undefined {
-  for (const v of values) {
-    switch (v) {
-      case Data.tableColorAlias.positive:
-      case Data.tableColorAlias.positiveWeak:
-      case Data.tableColorAlias.positiveStrong:
-        return v;
-    }
-  }
-  return values.find((v) => v !== undefined);
-}
-
 // Items
 
 export function JoinTexts({
