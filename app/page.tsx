@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 
+import * as Util from "@/components/Util";
 import type StatTableType from "@/components/StatTable";
 import Situation from "@/components/Situation";
 import SettingPanel from "@/components/SettingPanel";
@@ -10,7 +11,7 @@ import Header from "./Header";
 
 const StatTable = dynamic(() => import("@/components/StatTable"), {
   ssr: false,
-  loading: () => <>Loading...</>,
+  loading: () => <Util.Loading />,
 }) as typeof StatTableType;
 
 export default function App() {

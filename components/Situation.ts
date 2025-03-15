@@ -2174,8 +2174,8 @@ export default class Situation implements TableSource<Keys> {
       const className = target.unit?.className.getValue(setting);
       const classNameKey = Data.ClassName.keyOf(className);
       if (
-        classNameKey === undefined ||
-        !equipmentFilters.includes(classNameKey)
+        !(states.query && equipmentFilters.length === 0) &&
+        (classNameKey === undefined || !equipmentFilters.includes(classNameKey))
       )
         return false;
 
