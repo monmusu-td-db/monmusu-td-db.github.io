@@ -84,22 +84,6 @@ export class Percent {
   }
 }
 
-export class Accumulation {
-  static calculate({
-    attackSpeed,
-    interval,
-    time,
-  }: {
-    attackSpeed?: number | undefined;
-    interval: number;
-    time: number;
-  }): number {
-    if (attackSpeed === undefined) attackSpeed = interval;
-    const a = time % interval >= attackSpeed ? 1 : 0;
-    return Math.trunc(time / interval) + a;
-  }
-}
-
 // Stat
 
 const statTypeList = [
@@ -400,61 +384,6 @@ export const StaticDamage = {
         return "固定値";
       case staticDamage.TIME:
         return "累積数";
-    }
-  },
-} as const;
-
-type JsonAttackDebuff = {
-  readonly key: string;
-  readonly value: number;
-};
-const JsonAttackDebuff = {
-  isKvp(obj: JsonAttackDebuff): obj is AttackDebuff {
-    switch (obj.key) {
-      case staticDamage.ATTACK_BASE:
-      case AttackDebuff.enemyAttack:
-        break;
-      default:
-        return false;
-    }
-    return typeof obj.value === "number";
-  },
-} as const;
-export type AttackDebuff = {
-  readonly key:
-    | typeof staticDamage.ATTACK_BASE
-    | typeof AttackDebuff.enemyAttack;
-  readonly value: number;
-};
-export const AttackDebuff = {
-  enemyAttack: "enemy-attack",
-} as const;
-
-type DefresDebuff = DebuffAdd | DebuffMul;
-interface DebuffAdd {
-  readonly time: number;
-  readonly valueAdd: number;
-}
-interface DebuffMul {
-  readonly valueMul: number;
-}
-export const Debuff = {
-  calculate(
-    obj: DefresDebuff | number | undefined,
-    interval: number,
-    attackSpeed: number | undefined,
-    defres: number,
-    rounds: number
-  ): number | undefined {
-    if (obj === undefined || typeof obj === "number") return obj;
-    if ("valueMul" in obj) {
-      return (defres * obj.valueMul) / 100;
-    } else {
-      return (
-        obj.valueAdd *
-        rounds *
-        Accumulation.calculate({ time: obj.time, attackSpeed, interval })
-      );
     }
   },
 } as const;

@@ -13,7 +13,10 @@ import Unit from "./Unit";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import type { TableSource } from "./StatTable";
 import {
+  Accumulation,
   AdditionFactor,
+  AttackDebuff,
+  Debuff,
   Feature,
   type FeatureOutput,
   type FeatureOutputCore,
@@ -1390,9 +1393,7 @@ export default class Situation implements TableSource<Keys> {
           case AdditionFactor.ACCUMULATION: {
             return (
               f.value *
-              Data.Accumulation.calculate(
-                this.getAccumulationProps(setting, f.time)
-              )
+              Accumulation.calculate(this.getAccumulationProps(setting, f.time))
             );
           }
         }
@@ -1462,7 +1463,7 @@ export default class Situation implements TableSource<Keys> {
           result: obj.value,
         };
       case Data.StaticDamage.TIME: {
-        const reference = Data.Accumulation.calculate(
+        const reference = Accumulation.calculate(
           this.getAccumulationProps(setting, obj.time)
         );
         return {
@@ -1743,7 +1744,7 @@ export default class Situation implements TableSource<Keys> {
         if (a === undefined) return 0;
         return Percent.multiply(a, v.value);
       }
-      case Data.AttackDebuff.enemyAttack:
+      case AttackDebuff.enemyAttack:
         return Percent.divide(limit, 100 - v.value) - limit;
     }
   }
@@ -1793,9 +1794,9 @@ export default class Situation implements TableSource<Keys> {
     if (fea.isNotSustainable) return;
 
     const f = this.attack.getFactors(setting);
-    const attack = f?.actualResult;
-    if (attack === undefined) return;
-    const staticDamage = f?.staticDamage !== undefined ? 0 : undefined;
+    if (f === undefined) return;
+    const attack = f.actualResult;
+    const staticDamage = f.staticDamage !== undefined ? 0 : undefined;
 
     const damageType = this.damageType.getValue(setting);
     if (damageType === undefined) return;
@@ -1825,7 +1826,7 @@ export default class Situation implements TableSource<Keys> {
           return setting.dps5;
       }
     })();
-    const defresDebuff = Data.Debuff.calculate(
+    const defresDebuff = Debuff.calculate(
       (() => {
         switch (damageType) {
           case Data.DamageType.physical:
@@ -1834,6 +1835,7 @@ export default class Situation implements TableSource<Keys> {
             return fea.resistDebuff;
         }
       })(),
+      f.deploymentResult,
       intervalFactor.actualResult,
       intervalFactor.base?.attackSpeedResult,
       baseDefres,

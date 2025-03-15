@@ -2161,6 +2161,172 @@
     "isUnhealable": true
   },
   {
+    "TODO_DESC": "HP減少時攻撃速度",
+    "id": 47,
+    "unitName": "【デュラハン娘】プラチナ",
+    "unitShortName": "プラチナ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "闇",
+    "hp": 6628,
+    "attack": 580,
+    "defense": 930,
+    "resist": 214,
+    "supplements": [
+      "毒無効",
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "デュラハンフォーム",
+      "attackMul": 200,
+      "duration": 15,
+      "cooldown": 45,
+      "supplements": [
+        "DEF-{attack-base*3}→命中",
+        "回復100%/スキル終了時"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "ソウルブレード",
+      "attackMul": 150,
+      "target": "ブロック",
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "物理防御力+90",
+      "物理防御力+90"
+    ],
+    "weapon": {
+      "weaponName": "ガンケンブレード",
+      "hp": 300,
+      "defense": 50
+    },
+    "features": [
+      {
+        "skill": 0,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "CT-1秒/3回攻撃"
+        ]
+      },
+      {
+        "isConditionalSkillBuff": true,
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "MIN-HP1"
+        ]
+      },
+      {
+        "featureName": "15-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 15
+          }
+        ],
+        "defenseDebuff": {
+          "key": "attack-base",
+          "time": 450,
+          "valueAdd": 3
+        }
+      },
+      {
+        "featureName": "hp-50%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ],
+        "currentHp": 50,
+        "attackMul": 200,
+        "potentialBonus": {
+          "attackMul": 225
+        }
+      },
+      {
+        "featureName": "skill2-attack-add",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 1000
+          }
+        ],
+        "attackAdd": 1000
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "15-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-50%",
+          "common-0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-50%",
+          "15-sec"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-attack-add"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "hp-50%",
+          "skill2-attack-add"
+        ]
+      }
+    ]
+  },
+  {
     "id": 49,
     "unitName": "【ジャイアント娘】メロン",
     "unitShortName": "メロン",

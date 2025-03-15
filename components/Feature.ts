@@ -107,7 +107,7 @@ const JsonAttackDebuff = {
   isKvp(obj: JsonAttackDebuff): obj is AttackDebuff {
     switch (obj.key) {
       case Data.StaticDamage.ATTACK_BASE:
-      case AttackDebuff.ENEMY_ATTACK:
+      case AttackDebuff.enemyAttack:
         break;
       default:
         return false;
@@ -118,15 +118,16 @@ const JsonAttackDebuff = {
 export type AttackDebuff = {
   readonly key:
     | typeof Data.StaticDamage.ATTACK_BASE
-    | typeof AttackDebuff.ENEMY_ATTACK;
+    | typeof AttackDebuff.enemyAttack;
   readonly value: number;
 };
 export const AttackDebuff = {
-  ENEMY_ATTACK: "enemy-attack",
+  enemyAttack: "enemy-attack",
 } as const;
 
 type DefresDebuff = DebuffAdd | DebuffMul;
 interface DebuffAdd {
+  readonly key?: string;
   readonly time: number;
   readonly valueAdd: number;
 }
@@ -136,21 +137,48 @@ interface DebuffMul {
 export const Debuff = {
   calculate(
     obj: DefresDebuff | number | undefined,
+    attack: number,
     interval: number,
     attackSpeed: number | undefined,
-    defres: number
+    defres: number,
+    rounds: number
   ): number | undefined {
     if (obj === undefined || typeof obj === "number") return obj;
     if ("valueMul" in obj) {
       return (defres * obj.valueMul) / 100;
     } else {
-      if (attackSpeed === undefined) attackSpeed = interval;
-      const a = obj.time % interval >= attackSpeed ? 1 : 0;
-      const b = Math.trunc(obj.time / interval) + a;
-      return obj.valueAdd * b;
+      let value;
+      switch (obj.key) {
+        case Data.StaticDamage.ATTACK_BASE:
+          value = Data.Percent.multiply(attack, obj.valueAdd);
+          break;
+        default:
+          value = obj.valueAdd;
+      }
+      return (
+        value *
+        rounds *
+        Accumulation.calculate({ time: obj.time, attackSpeed, interval })
+      );
     }
   },
 } as const;
+
+export class Accumulation {
+  static calculate({
+    attackSpeed,
+    interval,
+    time,
+  }: {
+    attackSpeed?: number | undefined;
+    interval: number;
+    time: number;
+  }): number {
+    if (attackSpeed === undefined) attackSpeed = interval;
+    const a = time % interval >= attackSpeed ? 1 : 0;
+    return Math.trunc(time / interval) + a;
+  }
+}
 
 // Feature
 
