@@ -13,7 +13,7 @@ TODOリスト
   condition 特効の内容を表示
   8体以上同一属性編成
   Buffページに潜在覚醒ボーナスを適用
-  被ダメージ軽減supplement自動化
+  被ダメージ軽減supplement自動化(回避も)
 */
 
 // Const
@@ -1257,6 +1257,7 @@ const potentialList = [
   { name: "スタン耐性+50", stat: null, value: 50 },
   { name: "移動時スキル継続", stat: null, value: 1 },
   { name: "火傷の敵へ与ダメ1.2倍", stat: null, value: 1 },
+  { name: "スキル時ACT+30%", stat: null, value: 1 },
 ] as const satisfies PotentialEffect[];
 export type Potential = (typeof potentialList)[number]["name"];
 export const Potential = {

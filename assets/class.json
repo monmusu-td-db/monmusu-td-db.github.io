@@ -373,6 +373,14 @@
         "moveSpeedMul": 150,
         "duration": 20
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-action"
+        ]
+      }
     ]
   },
   {

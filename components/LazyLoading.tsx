@@ -14,6 +14,6 @@ function Loading() {
 }
 
 export const StatTable = dynamic(() => import("@/components/StatTable"), {
-  ssr: true,
+  ssr: false,
   loading: () => <Loading />,
 }) as typeof StatTableType;
