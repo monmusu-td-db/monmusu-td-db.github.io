@@ -1388,6 +1388,14 @@
       {
         "featureName": "barrier",
         "isAbility": true,
+        "interval": null,
+        "target": "射程内",
+        "duration": null,
+        "damageType": null
+      },
+      {
+        "featureName": "barrier",
+        "skill": 0,
         "annotations": [
           "配置時バリア付与"
         ],
@@ -1395,9 +1403,6 @@
           "key": "attack-base",
           "value": 300
         },
-        "interval": null,
-        "target": "射程内",
-        "damageType": null,
         "supplements": [
           "配置バリア{attack-base*300}付与→射程内"
         ],
@@ -1412,7 +1417,10 @@
         }
       },
       {
-        "featureName": "barrier-skill",
+        "featureName": "barrier",
+        "require": [
+          "スキル"
+        ],
         "isAbility": true,
         "annotations": [
           "発動時バリア付与"
@@ -1421,12 +1429,34 @@
           "key": "attack-base",
           "value": 500
         },
-        "interval": null,
-        "target": "射程内",
-        "duration": null,
-        "damageType": null,
         "supplements": [
           "発動バリア{attack-base*500}付与→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "barrier"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "barrier"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "barrier"
         ]
       }
     ]
@@ -1519,6 +1549,30 @@
           "石化耐性+100→射程内(10s)"
         ],
         "potentialBonus": {}
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-buff"
+        ]
+      },
+      {
+        "features": [
+          "skill2-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "deploy-heal"
+        ]
       }
     ]
   },
@@ -6904,6 +6958,7 @@
     "unitName": "エナジーソウル",
     "unitShortName": "エナジーソウル",
     "rarity": "C",
+    "element": "光",
     "cost": 7,
     "hp": 100,
     "attack": 0,
@@ -10099,6 +10154,7 @@
     "attack": 475,
     "defense": 364,
     "resist": 442,
+    "species": "竜",
     "supplements": [
       "再出撃時間-50%→自分"
     ],
@@ -10132,6 +10188,37 @@
           "attackMul": 140
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 2250001,
+    "parentId": 225,
+    "unitName": "神秘の果実",
+    "unitShortName": "神秘の果実",
+    "rarity": "C",
+    "element": "光",
+    "cost": 15,
+    "hp": 100,
+    "attack": 0,
+    "defense": 0,
+    "resist": 0,
+    "block": 0,
+    "target": 0,
+    "moveSpeed": 0,
+    "placement": "付",
+    "supplements": [
+      "配置後即時消滅",
+      "配置回復8%/s(20s)→付与対象"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
     ]
   },
   {

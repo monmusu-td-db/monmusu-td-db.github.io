@@ -262,6 +262,13 @@ export const JsonCondition = {
 export const Condition = {
   ...condition,
 
+  get(key: ConditionKey, value?: number | undefined): Condition {
+    return {
+      key,
+      value,
+    };
+  },
+
   of(...lists: (readonly Condition[] | undefined)[]): Condition[] {
     const ret: Condition[] = [];
     lists.forEach((list) =>

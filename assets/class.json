@@ -641,9 +641,7 @@
       },
       {
         "featureName": "class-heal",
-        "conditions": [
-          "癒"
-        ]
+        "healFlag": true
       },
       {
         "featureName": "class-regenerate",
@@ -662,6 +660,19 @@
         "target": "全体",
         "duration": "常時",
         "damageType": "再生"
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "class-heal"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-regenerate"
+        ]
       }
     ]
   },

@@ -1343,94 +1343,6 @@
     ]
   },
   {
-    "unitId": 33,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 33,
-    "skill": 1,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 33,
-    "skill": 2,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 33,
-    "features": [
-      "barrier"
-    ]
-  },
-  {
-    "unitId": 33,
-    "skill": 1,
-    "features": [
-      "barrier-skill"
-    ]
-  },
-  {
-    "unitId": 33,
-    "skill": 2,
-    "features": [
-      "barrier-skill"
-    ]
-  },
-  {
-    "unitId": 33,
-    "skill": -1,
-    "features": [
-      "class-regenerate"
-    ]
-  },
-  {
-    "unitId": 34,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 34,
-    "skill": 1,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 34,
-    "skill": 2,
-    "features": [
-      "skill2-buff"
-    ]
-  },
-  {
-    "unitId": 34,
-    "features": [
-      "class-heal",
-      "skill2-buff"
-    ]
-  },
-  {
-    "unitId": 34,
-    "skill": -1,
-    "features": [
-      "deploy-heal"
-    ]
-  },
-  {
-    "unitId": 34,
-    "skill": -1,
-    "features": [
-      "class-regenerate"
-    ]
-  },
-  {
     "unitId": 35,
     "features": [
       "class-heal"
@@ -8911,23 +8823,6 @@
     ],
     "features": [
       "common-potential-regenerate-3%"
-    ]
-  },
-  {
-    "unitId": 225,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 225,
-    "skill": 1
-  },
-  {
-    "unitId": 225,
-    "skill": -1,
-    "features": [
-      "class-regenerate"
     ]
   },
   {

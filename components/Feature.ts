@@ -194,6 +194,7 @@ const commonFeature = {
   isConditionalDebuff: false,
   isConditionalSkillBuff: false,
   isMoving: false,
+  healFlag: false,
   currentHp: 0,
   phase: 0,
   phaseName: "",

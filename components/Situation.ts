@@ -200,10 +200,20 @@ export default class Situation implements TableSource<Keys> {
     this.conditions = new Stat.Root({
       statType: stat.conditions,
       calculater: (s) => {
-        const a = Data.JsonCondition.parse(src.conditions);
-        const b = this.getSkill(s)?.conditions;
-        const c = Data.Condition.of(a, b, this.getFeature(s).conditions);
-        return Data.Condition.toSorted(c);
+        const base = Data.JsonCondition.parse(src.conditions);
+        const skill = this.getSkill(s)?.conditions;
+        const heal =
+          this.getFeature(s).healFlag &&
+          this.damageType.getValue(s) === Data.DamageType.heal
+            ? [Data.Condition.get(Data.Condition.heal)]
+            : undefined;
+        const ret = Data.Condition.of(
+          base,
+          skill,
+          heal,
+          this.getFeature(s).conditions
+        );
+        return Data.Condition.toSorted(ret);
       },
       text: (s) => Data.Condition.textOf(this.conditions.getValue(s)),
       color: (s) => {

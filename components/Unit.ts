@@ -612,12 +612,13 @@ export default class Unit implements TableSource<Keys> {
     src: JsonUnitSituations | undefined
   ): UnitSituations {
     const ret: Partial<UnitSituation>[] = [];
+    const classProper: Partial<UnitSituation>[] = [];
 
     classData?.situations?.forEach((classSituation) => {
       const classFeatures = classSituation.features ?? [];
 
       if (classSituation.proper) {
-        ret.push({
+        classProper.push({
           ...classSituation,
           skill: -1,
         });
@@ -657,6 +658,7 @@ export default class Unit implements TableSource<Keys> {
       }
     });
 
+    ret.push(...classProper);
     return ret;
   }
 
