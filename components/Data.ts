@@ -1072,11 +1072,12 @@ export const MoveType = {
     )?.[0] as MoveTypeKey;
   },
 
-  indexOf(value: MoveType): number {
+  indexOf(value: MoveType | undefined): number {
     return Object.values(moveType).findIndex((v) => v === value);
   },
 
-  colorOf(value: MoveType) {
+  colorOf(value: MoveType | undefined): TableColor | undefined {
+    if (value === undefined) return;
     return moveTypeColor[this.keyOf(value)];
   },
 } as const;
@@ -1189,6 +1190,17 @@ export const Placement = {
   indexOf(value: Placement): number {
     if (value === undefined) return -1;
     return this.index[value];
+  },
+
+  hasMoveType(value: Placement): boolean {
+    switch (value) {
+      case undefined:
+      case Placement.servant:
+      case Placement.target:
+        return false;
+      default:
+        return true;
+    }
   },
 } as const;
 

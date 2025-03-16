@@ -40,7 +40,7 @@ export interface JsonUnit {
   splash?: boolean;
   range?: number;
   moveSpeed?: number;
-  moveType?: string;
+  moveType?: string | null;
   damageType?: Data.JsonDamageType;
   placement?: Data.JsonPlacement;
   supplements?: readonly string[];
@@ -187,7 +187,7 @@ export default class Unit implements TableSource<Keys> {
   readonly range: Stat.Base;
   readonly damageType: Stat.Root<Data.DamageType | undefined>;
   readonly moveSpeed: Stat.Root<number | undefined, Data.MoveSpeedFactors>;
-  readonly moveType: Stat.Root<Data.MoveType>;
+  readonly moveType: Stat.Root<Data.MoveType | undefined>;
   readonly placement: Stat.Root<Data.Placement>;
   readonly exSkill1: Stat.Root<Readonly<Data.Skill> | undefined>;
   readonly exSkill2: Stat.Root<Readonly<Data.Skill> | undefined>;
@@ -523,10 +523,17 @@ export default class Unit implements TableSource<Keys> {
 
     this.moveType = new Stat.Root({
       statType: stat.moveType,
-      calculater: () =>
-        Data.MoveType.parse(src.moveType) ??
-        classData?.moveType ??
-        Data.MoveType.normal,
+      calculater: (s) => {
+        if (src.moveType === null) return;
+        const placement = this.placement.getValue(s);
+        if (Data.Placement.hasMoveType(placement)) {
+          return (
+            Data.MoveType.parse(src.moveType) ??
+            classData?.moveType ??
+            Data.MoveType.normal
+          );
+        }
+      },
       comparer: (s) => -Data.MoveType.indexOf(this.moveType.getValue(s)),
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
     });

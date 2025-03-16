@@ -12,9 +12,9 @@ const COLON = "：";
 const stat = Data.stat;
 
 type Props = {
-  unit: Unit | undefined
-  situation?: Situation
-} & StatProps<string>
+  unit: Unit | undefined;
+  situation?: Situation;
+} & StatProps<string>;
 
 export class StatUnitName extends StatTooltip<string> {
   override isEnabled: StatHandler<boolean> = () => this.unit !== undefined;
@@ -69,7 +69,9 @@ export class StatUnitName extends StatTooltip<string> {
           </Tr>
           <Tr enabled={!!element}>
             <Th>{nameOf(stat.element)}</Th>
-            <Td><Util.ElementText element={element} /></Td>
+            <Td>
+              <Util.ElementText element={element} />
+            </Td>
           </Tr>
           <Tr enabled={!!species}>
             <Th>{nameOf(stat.species)}</Th>
@@ -95,14 +97,9 @@ export class StatUnitName extends StatTooltip<string> {
   }
 }
 
-function Tr({ children, enabled }: {
-  children: ReactNode
-  enabled?: boolean
-}) {
-  if (enabled === false)
-    return;
-  else
-    return <tr>{children}</tr>;
+function Tr({ children, enabled }: { children: ReactNode; enabled?: boolean }) {
+  if (enabled === false) return;
+  else return <tr>{children}</tr>;
 }
 
 function Th({ children }: { children: ReactNode }) {
@@ -110,6 +107,10 @@ function Th({ children }: { children: ReactNode }) {
 }
 
 function Td({ children }: { children: ReactNode }) {
-  return <td>{COLON}{children}</td>;
+  return (
+    <td>
+      {COLON}
+      {children}
+    </td>
+  );
 }
-
