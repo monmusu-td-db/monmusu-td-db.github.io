@@ -3,6 +3,7 @@ import * as Data from "./Data";
 import * as Util from "./Util";
 import * as Stat from "./Stat";
 import {
+  Filter,
   FilterCondition,
   FilterEquipment,
   Setting,
@@ -2176,7 +2177,7 @@ export default class Situation implements TableSource<Keys> {
       const className = target.unit?.className.getValue(setting);
       const classNameKey = Data.ClassName.keyOf(className);
       if (
-        !(states.query && equipmentFilters.length === 0) &&
+        equipmentFilters.length !== 0 &&
         (classNameKey === undefined || !equipmentFilters.includes(classNameKey))
       )
         return false;
@@ -2185,7 +2186,7 @@ export default class Situation implements TableSource<Keys> {
         return false;
 
       if (!states.query) {
-        return true;
+        return Filter.baseKeys.some((k) => states.filter.get(k));
       } else {
         const sb: (Stat.Root<unknown, unknown> | undefined)[] =
           parent === undefined

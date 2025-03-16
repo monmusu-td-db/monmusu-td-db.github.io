@@ -1,10 +1,10 @@
 "use client";
 
-import StatTable from "@/components/StatTable";
 import Unit from "@/components/Unit";
 import { useMemo, useState } from "react";
 import Header from "../Header";
 import SettingPanel from "@/components/SettingPanel";
+import { StatTable } from "@/components/LazyLoading";
 
 export default function Page() {
   const [showPanel, setShowPanel] = useState(false);

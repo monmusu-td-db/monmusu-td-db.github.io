@@ -470,6 +470,15 @@ const filterKeys: FilterKeys[] = [
 
 export type FilterObject = Partial<Record<FilterKeys, boolean>>;
 export type Filter = ReadonlyMap<FilterKeys, boolean>;
+export const Filter = {
+  baseKeys: [
+    ...filterRarityKeys,
+    ...filterElementKeys,
+    ...filterSpeciesKeys,
+    ...filterEquipmentKeys,
+    ...filterPlacementKeys,
+  ],
+} as const;
 
 // Setting
 

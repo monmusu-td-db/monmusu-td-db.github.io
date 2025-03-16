@@ -1169,11 +1169,8 @@ export default class Unit implements TableSource<Keys> {
         return false;
 
       if (target.filterRarity(states)) return false;
-
       if (target.filterElement(states)) return false;
-
       if (target.filterSpecies(states)) return false;
-
       if (item.filterPlacement(states)) return false;
 
       if (!states.query) {
