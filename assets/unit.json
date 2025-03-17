@@ -4133,12 +4133,20 @@
     ],
     "features": [
       {
+        "supplements": [
+          "復活HP100%(1回のみ)"
+        ]
+      },
+      {
         "featureName": "revived",
         "annotations": [
           "復活後"
         ],
         "attackMul": 160,
-        "defenseMul": 160
+        "defenseMul": 160,
+        "deleteSupplements": [
+          "復活HP100%(1回のみ)"
+        ]
       },
       {
         "featureName": "revived",
@@ -11098,6 +11106,7 @@
       "skillName": "原始の猛攻",
       "hpMul": 140,
       "attackMul": 260,
+      "attackMotionMul": 225,
       "blockAdd": 2,
       "rounds": 3,
       "splash": true,
@@ -12559,6 +12568,92 @@
       {},
       {
         "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 317,
+    "unitName": "【シームルグ娘】パリンダーヴァ",
+    "unitShortName": "パリンダーヴァ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "風",
+    "hp": 2686,
+    "attack": 440,
+    "defense": 352,
+    "resist": 453,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "鳥王の加護",
+      "attackMul": 190,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
+        "MIN-HP1"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "再出撃時間-50%→自分"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "再出撃時間-70%→自分"
+          ]
+        }
+      },
+      {
+        "supplements": [
+          "復活HP100%(1回のみ)",
+          "被Dmg25%引受"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "被Dmg35%引受"
+        ],
+        "deleteSupplements": [
+          "被Dmg25%引受"
+        ]
+      },
+      {
+        "featureName": "revived",
+        "isConditionalBuff": true,
+        "annotations": [
+          "復活後"
+        ],
+        "attackMul": 150,
+        "deleteSupplements": [
+          "復活HP100%(1回のみ)"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "revived"
+        ]
       }
     ]
   }
