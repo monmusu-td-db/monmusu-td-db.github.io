@@ -6321,7 +6321,7 @@
         "featureName": "skill2-attack",
         "isConditionalBuff": true,
         "annotations": [
-          "継続ダメージ"
+          "ダメージフィールド"
         ],
         "interval": 30,
         "target": "射程内",
@@ -12653,6 +12653,102 @@
         "skill": 1,
         "features": [
           "revived"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 318,
+    "unitName": "【モスマン娘】モスラーニャ",
+    "unitShortName": "モスラーニャ",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "闇",
+    "hp": 4429,
+    "attack": 804,
+    "defense": 335,
+    "resist": 110,
+    "exSkill1": {
+      "skillName": "闇夜の紅眼",
+      "attackMul": 220,
+      "rangeMul": 160,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "移動消費コスト-2"
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "move-speed",
+          "value": 50
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "move-speed",
+            "value": 70
+          }
+        }
+      },
+      {
+        "skill": 1,
+        "moveSpeedAdd": 50
+      },
+      {
+        "featureName": "damage-field",
+        "isAbility": true,
+        "annotations": [
+          "ダメージフィールド"
+        ],
+        "damageFactor": 60,
+        "criChanceAdd": -1000,
+        "interval": 30,
+        "target": "射程内",
+        "range": null,
+        "damageType": "魔法",
+        "supplements": [
+          "暗闇付与(稀)"
+        ]
+      },
+      {
+        "featureName": "damage-field",
+        "skill": 1,
+        "damageFactor": 150
+      }
+    ],
+    "moveSpeedAdd": 100,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "damage-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-field"
         ]
       }
     ]

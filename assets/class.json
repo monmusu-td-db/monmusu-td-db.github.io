@@ -748,6 +748,9 @@
         ],
         "delayMul": 80
       }
+    ],
+    "situations": [
+      {}
     ]
   },
   {
