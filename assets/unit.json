@@ -1682,6 +1682,15 @@
         "isBuffSkill": true,
         "physicalDamageCut": 20
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
     ]
   },
   {
@@ -1726,6 +1735,12 @@
           "火マス"
         ],
         "damageFactor": 120
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },
@@ -6565,6 +6580,83 @@
           "attackMul": 340
         }
       }
+    ],
+    "situations": [
+      {
+        "features": [
+          "normal",
+          "normal-supplement"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-dot"
+        ]
+      },
+      {
+        "features": [
+          "normal",
+          "normal-supplement",
+          "skill1-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-dot",
+          "skill1-phase1"
+        ]
+      },
+      {
+        "features": [
+          "normal",
+          "normal-supplement",
+          "skill1-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-dot",
+          "skill1-phase2"
+        ]
+      },
+      {
+        "features": [
+          "normal",
+          "normal-supplement",
+          "skill1-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-dot",
+          "skill1-phase3"
+        ]
+      }
     ]
   },
   {
@@ -7267,17 +7359,23 @@
         }
       },
       {
+        "skill": 0,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
         "skill": 1,
         "criChanceAdd": 25,
         "potentialBonus": {
           "criChanceAdd": 32
         }
-      },
+      }
+    ],
+    "situations": [
+      {},
       {
-        "featureName": "normal",
-        "supplements": [
-          "隠密"
-        ]
+        "skill": 1
       }
     ]
   },
@@ -8391,6 +8489,12 @@
         "potentialBonus": {
           "attackMul": 130
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },

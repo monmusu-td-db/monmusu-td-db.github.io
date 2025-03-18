@@ -621,7 +621,14 @@ export default class Situation implements TableSource<Keys> {
           if (skillBuffRange > base) return tableColor.positiveStrong;
           if (skillBuffRange < base) return tableColor.negativeStrong;
 
-          const skillRange = sk?.range ?? calcSubtotal(base, sk?.rangeMul);
+          const skillMul = Percent.multiply(
+            sk?.rangeMul,
+            fea.skillCond?.rangeMul
+          );
+          const skillRange =
+            fea.skillCond?.range ??
+            sk?.range ??
+            calcSubtotal(base, skillMul, fea.skillCond?.rangeAdd);
           if (skillRange > base) return tableColor.positive;
           if (skillRange < base) return tableColor.negative;
 

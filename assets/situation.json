@@ -1403,50 +1403,6 @@
     ]
   },
   {
-    "unitId": 37,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 37,
-    "skill": 1,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 37,
-    "skill": 2,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 37,
-    "skill": -1,
-    "features": [
-      "class-regenerate"
-    ]
-  },
-  {
-    "unitId": 38,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 38,
-    "skill": 1
-  },
-  {
-    "unitId": 38,
-    "skill": -1,
-    "features": [
-      "class-regenerate"
-    ]
-  },
-  {
     "unitId": 39,
     "features": [
       "class-heal"
@@ -5667,111 +5623,6 @@
     ]
   },
   {
-    "unitId": 136,
-    "features": [
-      "class-heal",
-      "normal",
-      "normal-supplement"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "skill1-dot"
-    ]
-  },
-  {
-    "unitId": 136,
-    "features": [
-      "class-heal",
-      "normal",
-      "normal-supplement",
-      "skill1-phase1"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "class-heal",
-      "skill1-phase1"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "skill1-dot",
-      "skill1-phase1"
-    ]
-  },
-  {
-    "unitId": 136,
-    "features": [
-      "class-heal",
-      "normal",
-      "normal-supplement",
-      "skill1-phase2"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "class-heal",
-      "skill1-phase2"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "skill1-dot",
-      "skill1-phase2"
-    ]
-  },
-  {
-    "unitId": 136,
-    "features": [
-      "class-heal",
-      "normal",
-      "normal-supplement",
-      "skill1-phase3"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "class-heal",
-      "skill1-phase3"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": 1,
-    "features": [
-      "skill1-dot",
-      "skill1-phase3"
-    ]
-  },
-  {
-    "unitId": 136,
-    "skill": -1,
-    "features": [
-      "normal",
-      "class-regenerate"
-    ]
-  },
-  {
     "unitId": 137
   },
   {
@@ -6130,27 +5981,6 @@
     "features": [
       "deploy-attack",
       "class-proper"
-    ]
-  },
-  {
-    "unitId": 156,
-    "features": [
-      "class-heal",
-      "normal"
-    ]
-  },
-  {
-    "unitId": 156,
-    "skill": 1,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 156,
-    "skill": -1,
-    "features": [
-      "class-regenerate"
     ]
   },
   {
@@ -7272,26 +7102,6 @@
     ],
     "features": [
       "common-potential-absorb-1%"
-    ]
-  },
-  {
-    "unitId": 181,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 181,
-    "skill": 1,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 181,
-    "skill": -1,
-    "features": [
-      "class-regenerate"
     ]
   },
   {
