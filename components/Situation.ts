@@ -681,10 +681,17 @@ export default class Situation implements TableSource<Keys> {
           const skill = this.getSkill(s)?.[key];
           const fea = this.getFeature(s)[key];
           const subskill = this.getSubskillFactor(s, ssKeys[key]);
+          const potential = this.unit?.getPotentialFactor(s, ret.statType);
 
           const skillColor =
             (skill ?? 0) > 0 && Percent.sum(base, skill, fea) < 100;
-          const result = Percent.accumulate(base, skill, fea, subskill);
+          const result = Percent.accumulate(
+            base,
+            skill,
+            fea,
+            subskill,
+            potential
+          );
           return {
             skillColor,
             result,

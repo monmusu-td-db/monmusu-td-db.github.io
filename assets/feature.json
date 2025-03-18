@@ -1,35 +1,6 @@
 [
   {
     "hasPotentials": [
-      "物理攻撃回避40%"
-    ],
-    "supplements": [
-      "物理攻撃回避40%"
-    ]
-  },
-  {
-    "hasPotentials": [
-      "魔法攻撃回避40%"
-    ],
-    "supplements": [
-      "魔法攻撃回避40%"
-    ]
-  },
-  {
-    "hasPotentials": [
-      "物理攻撃回避40%",
-      "魔法攻撃回避40%"
-    ],
-    "supplements": [
-      "物理魔法回避40%"
-    ],
-    "deleteSupplements": [
-      "物理攻撃回避40%",
-      "魔法攻撃回避40%"
-    ]
-  },
-  {
-    "hasPotentials": [
       "物理ダメージ20%軽減"
     ],
     "supplements": [
