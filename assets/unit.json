@@ -619,11 +619,9 @@
     "exSkill2": {
       "skillName": "アイアンスキン",
       "attackMul": 320,
+      "physicalEvasion": 80,
       "duration": 25,
-      "cooldown": 45,
-      "supplements": [
-        "物理攻撃回避86%"
-      ]
+      "cooldown": 45
     },
     "potentials": [
       "出撃コスト-1",
@@ -656,19 +654,11 @@
         "damageFactor": 150
       },
       {
-        "skill": 0,
-        "supplements": [
-          "物理攻撃回避30%"
-        ]
-      },
-      {
         "skill": 1,
-        "noBaseSupplements": true,
-        "supplements": [
-          "物理攻撃回避30%"
-        ]
+        "noBaseSupplements": true
       }
-    ]
+    ],
+    "physicalEvasion": 30
   },
   {
     "id": 13,
@@ -5937,16 +5927,6 @@
     ],
     "features": [
       {
-        "supplements": [
-          "物理魔法回避40%"
-        ],
-        "potentialBonus": {
-          "supplements": [
-            "物理魔法回避45%"
-          ]
-        }
-      },
-      {
         "featureName": "deploy-attack",
         "isNotSustainable": true,
         "annotations": [
@@ -5960,7 +5940,13 @@
         "range": 200
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "potentialBonus": {
+      "physicalEvasion": 45,
+      "magicalEvasion": 45
+    }
   },
   {
     "id": 117,
@@ -6709,19 +6695,13 @@
       "攻撃力+75",
       "射程+15"
     ],
-    "features": [
-      {
-        "supplements": [
-          "物理魔法回避40%"
-        ],
-        "potentialBonus": {
-          "supplements": [
-            "物理魔法回避45%"
-          ]
-        }
-      }
-    ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "potentialBonus": {
+      "physicalEvasion": 45,
+      "magicalEvasion": 45
+    }
   },
   {
     "id": 139,
@@ -8812,8 +8792,6 @@
     "attack": 1149,
     "defense": 457,
     "resist": 136,
-    "physicalEvasion": 30,
-    "magicalEvasion": 30,
     "moveType": "ワープ",
     "exSkill1": {
       "skillName": "ソウルサイス",
@@ -8845,7 +8823,9 @@
         ],
         "attackMul": 1000
       }
-    ]
+    ],
+    "physicalEvasion": 30,
+    "magicalEvasion": 30
   },
   {
     "DISABLED": true,

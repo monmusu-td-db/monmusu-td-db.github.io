@@ -678,11 +678,15 @@ export default class Situation implements TableSource<Keys> {
         calculater: (s) => this[key].getFactors(s).result,
         factors: (s) => {
           const base = this.unit?.[key].getValue(s);
-          const subskill = this.getSubskillFactor(s, ssKeys[key]);
+          const skill = this.getSkill(s)?.[key];
           const fea = this.getFeature(s)[key];
+          const subskill = this.getSubskillFactor(s, ssKeys[key]);
 
-          const result = Percent.accumulate(base, subskill, fea);
+          const skillColor =
+            (skill ?? 0) > 0 && Percent.sum(base, skill, fea) < 100;
+          const result = Percent.accumulate(base, skill, fea, subskill);
           return {
+            skillColor,
             result,
           };
         },
@@ -734,6 +738,12 @@ export default class Situation implements TableSource<Keys> {
         if (skillCond !== undefined && skillCond.size > 0) {
           return tableColor.positive;
         }
+
+        if (
+          this.physicalEvasion.getFactors(s).skillColor ||
+          this.magicalEvasion.getFactors(s).skillColor
+        )
+          return tableColor.positive;
 
         const cond = fea.cond?.supplements;
         if (cond !== undefined && cond.size > 0) {

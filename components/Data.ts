@@ -464,6 +464,8 @@ interface SkillBase {
   laser?: boolean;
   range?: number;
   rangeMul?: number;
+  physicalEvasion?: number;
+  magicalEvasion?: number;
   duration: number | typeof Duration.single;
   cooldown: number;
   damageType?: DamageType | null | undefined;
@@ -1561,6 +1563,7 @@ export interface LimitFactors {
 }
 
 export interface EvasionFactors {
+  readonly skillColor: boolean;
   readonly result: number;
 }
 

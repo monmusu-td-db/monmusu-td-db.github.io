@@ -39,8 +39,6 @@ export interface JsonUnit {
   rounds?: Data.JsonRound;
   splash?: boolean;
   range?: number;
-  physicalEvasion?: number;
-  magicalEvasion?: number;
   moveSpeed?: number;
   moveType?: string | null;
   damageType?: Data.JsonDamageType;
@@ -68,6 +66,8 @@ export interface JsonUnit {
   blockAdd?: number;
   targetAdd?: number;
   rangeAdd?: number;
+  physicalEvasion?: number;
+  magicalEvasion?: number;
   moveSpeedAdd?: number;
   moveSpeedMul?: number;
   potentialBonus?: JsonPotentialBonus;
@@ -84,6 +84,8 @@ type JsonPotentialBonus = Readonly<
     criDamageAdd: number;
     rounds: Data.JsonRound;
     rangeAdd: number;
+    physicalEvasion: number;
+    magicalEvasion: number;
     moveSpeedAdd: number;
     moveSpeedMul: number;
   }>
@@ -347,12 +349,22 @@ export default class Unit implements TableSource<Keys> {
 
     this.physicalEvasion = new Stat.Root({
       statType: stat.physicalEvasion,
-      calculater: () => src.physicalEvasion,
+      calculater: (s) => {
+        const potential = this.isPotentialApplied(s)
+          ? src.potentialBonus?.physicalEvasion
+          : undefined;
+        return potential ?? src.physicalEvasion;
+      },
     });
 
     this.magicalEvasion = new Stat.Root({
       statType: stat.magicalEvasion,
-      calculater: () => src.magicalEvasion,
+      calculater: (s) => {
+        const potential = this.isPotentialApplied(s)
+          ? src.potentialBonus?.magicalEvasion
+          : undefined;
+        return potential ?? src.magicalEvasion;
+      },
     });
 
     const attackSpeed = src.attackSpeed ?? classData?.attackSpeed;
