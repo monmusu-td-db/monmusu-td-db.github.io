@@ -4321,7 +4321,27 @@
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "deploy-heal"
+        ]
+      }
+    ]
   },
   {
     "id": 85,
@@ -4484,7 +4504,7 @@
     ],
     "features": [
       {
-        "featureName": "normal",
+        "skill": 0,
         "supplements": [
           "再出撃時間-15%→射程内"
         ],
@@ -4495,7 +4515,9 @@
         }
       },
       {
-        "featureName": "skill",
+        "require": [
+          "スキル"
+        ],
         "isBuffSkill": true,
         "supplements": [
           "再出撃時間-30%→射程内"
@@ -4505,6 +4527,15 @@
             "再出撃時間-40%→射程内"
           ]
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
@@ -5549,7 +5580,13 @@
       }
     ],
     "isEventUnit": true,
-    "costAdd": -1
+    "costAdd": -1,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 1040001,
@@ -5585,7 +5622,13 @@
         ]
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 105,
@@ -6428,7 +6471,27 @@
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-debuff"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "regenerate"
+        ]
+      }
+    ]
   },
   {
     "id": 135,
@@ -6917,7 +6980,7 @@
       },
       {
         "skill": -1,
-        "proper": true,
+        "bottom": true,
         "hasPotentials": [
           "HPが毎秒3%回復"
         ],
@@ -7499,7 +7562,7 @@
         }
       },
       {
-        "featureName": "buff-proper",
+        "featureName": "class-buff-proper",
         "annotations": [
           "同属性特効"
         ]
@@ -7542,6 +7605,53 @@
           "key": "static",
           "value": 210
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "ability-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "ability-damage"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "isGeneral": false,
+        "features": [
+          "class-buff",
+          "buff-species"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "isGeneral": false,
+        "features": [
+          "class-buff-proper",
+          "buff-proper-species"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
       }
     ]
   },
@@ -8747,6 +8857,93 @@
           "value": 40
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase1"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase2"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase3"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase3"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "regenerate"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "skill1-phase1",
+          "regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-phase1",
+          "regenerate"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "skill1-phase2",
+          "regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-phase2",
+          "regenerate"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "skill1-phase3",
+          "regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-phase3",
+          "regenerate"
+        ]
+      }
     ]
   },
   {
@@ -8811,7 +9008,19 @@
         "target": "射程内"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": -1,
+        "features": [
+          "support"
+        ]
+      }
+    ]
   },
   {
     "id": 188,
@@ -11422,7 +11631,13 @@
         ]
       }
     ],
-    "moveSpeedMul": 130
+    "moveSpeedMul": 130,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 281,
@@ -12741,7 +12956,7 @@
       },
       {
         "skill": -1,
-        "proper": true,
+        "bottom": true,
         "hasPotentials": [
           "HPが毎秒3%回復"
         ],

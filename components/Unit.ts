@@ -107,6 +107,7 @@ interface JsonUnitSituation extends UnitSituation {
   exclude: readonly string[];
   require: readonly string[];
   proper: boolean;
+  bottom: boolean;
 }
 type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
 
@@ -655,7 +656,8 @@ export default class Unit implements TableSource<Keys> {
         if (
           unitSituation.exclude?.some((v) => classFeatures.includes(v)) ||
           unitSituation.depend?.some((v) => !classFeatures.includes(v)) ||
-          unitSituation.proper
+          unitSituation.proper ||
+          unitSituation.bottom
         )
           return;
 
@@ -685,6 +687,18 @@ export default class Unit implements TableSource<Keys> {
     });
 
     ret.push(...classProper);
+
+    src?.forEach((unitSituation) => {
+      if (unitSituation.bottom) {
+        const isGeneral = unitSituation.isGeneral ?? true;
+        ret.push({
+          ...unitSituation,
+          isGeneral,
+        });
+        return;
+      }
+    });
+
     return ret;
   }
 
