@@ -50,7 +50,7 @@ export class StatLimit extends StatTooltip<number | undefined, Factors> {
         </Tt.Equation>
         {f.evasion > 0 && (
           <Tt.List>
-            <Tt.ListItem label={damageType + "回避率"}>
+            <Tt.ListItem label={damageType + "攻撃回避率"}>
               {f.evasion + sign.PERCENT}
             </Tt.ListItem>
           </Tt.List>

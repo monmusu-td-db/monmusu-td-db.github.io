@@ -671,31 +671,26 @@ export default class Situation implements TableSource<Keys> {
       factors: (s) => this.getStatLimitFactors(s, stat.magicalLimit),
     });
 
-    this.physicalEvasion = new Stat.Root({
-      statType: stat.physicalEvasion,
-      calculater: (s) => this.physicalEvasion.getFactors(s).result,
-      factors: (s) => {
-        const fea = this.getFeature(s);
-        const base = this.unit?.physicalEvasion.getValue(s);
-        const result = fea.physicalEvasion ?? base ?? 0;
-        return {
-          result,
-        };
-      },
-    });
+    const getStatEvasion = (isPhysical: boolean) => {
+      const key = isPhysical ? "physicalEvasion" : "magicalEvasion";
+      const ret = new Stat.Root<number, Data.EvasionFactors>({
+        statType: stat[key],
+        calculater: (s) => this[key].getFactors(s).result,
+        factors: (s) => {
+          const base = this.unit?.[key].getValue(s);
+          const subskill = this.getSubskillFactor(s, ssKeys[key]);
+          const fea = this.getFeature(s)[key];
 
-    this.magicalEvasion = new Stat.Root({
-      statType: stat.magicalEvasion,
-      calculater: (s) => this.magicalEvasion.getFactors(s).result,
-      factors: (s) => {
-        const fea = this.getFeature(s);
-        const base = this.unit?.magicalEvasion.getValue(s);
-        const result = fea.magicalEvasion ?? base ?? 0;
-        return {
-          result,
-        };
-      },
-    });
+          const result = Percent.accumulate(base, subskill, fea);
+          return {
+            result,
+          };
+        },
+      });
+      return ret;
+    };
+    this.physicalEvasion = getStatEvasion(true);
+    this.magicalEvasion = getStatEvasion(false);
 
     this.supplements = new Stat.Supplement({
       statType: stat.supplements,
@@ -1138,8 +1133,8 @@ export default class Situation implements TableSource<Keys> {
       return ret;
     }
 
-    if (phy > 0) ret.add("物理回避" + phy + "%");
-    if (mag > 0) ret.add("魔法回避" + mag + "%");
+    if (phy > 0) ret.add("物理攻撃回避" + phy + "%");
+    if (mag > 0) ret.add("魔法攻撃回避" + mag + "%");
     return ret;
   }
 
@@ -1797,13 +1792,8 @@ export default class Situation implements TableSource<Keys> {
       statType === stat.physicalLimit
         ? setting.physicalDamageCut
         : setting.magicalDamageCut;
-    const fn = (v: number = 0) => 100 - v;
     const damageCut = Percent.multiply(
-      fn(f.damageCut),
-      fn(base),
-      fn(p),
-      ss,
-      fn(panel)
+      ...[f.damageCut, base, p, ss, panel].map((v) => 100 - (v ?? 0))
     );
     const limit = Percent.divide(hp, damageCut);
 
@@ -2165,9 +2155,9 @@ export default class Situation implements TableSource<Keys> {
           : Math.min(v1 ?? 100, v2 ?? 100);
       case keys.physicalDamageCut:
       case keys.magicalDamageCut:
-        return isStackable
-          ? Percent.multiply(100 - r1, 100 - r2)
-          : Math.min(100 - r1, 100 - r2);
+      case keys.physicalEvasion:
+      case keys.magicalEvasion:
+        return isStackable ? Percent.accumulate(r1, r2) : Math.max(r1, r2);
       case keys.damageFactor:
       case keys.attackSpeedBuff:
       case keys.fieldBuffFactor:

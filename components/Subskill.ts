@@ -2,57 +2,59 @@ import * as Data from "./Data";
 import jsonSubskill from "@/assets/subskill.json";
 
 interface JsonSubskill extends Partial<JsonSubskillFactors> {
-  name: string,
-  rarity: string,
-  group: string,
-  class?: string,
-  desc: string,
-  features?: JsonSubskillFeature[],
-  isGeneral?: boolean,
+  name: string;
+  rarity: string;
+  group: string;
+  class?: string;
+  desc: string;
+  features?: JsonSubskillFeature[];
+  isGeneral?: boolean;
 }
 
 interface JsonSubskillFeature extends Partial<JsonSubskillFactors> {
-  require?: string[]
-  exclude?: string[]
+  require?: string[];
+  exclude?: string[];
 }
 
 interface JsonSubskillFactors {
-  cost: number,
-  hp: number,
-  attack: number,
-  defense: number,
-  resist: number,
-  hpAdd: number,
-  attackAdd: number,
-  defenseAdd: number,
-  resistAdd: number,
-  hpMul: number,
-  attackMul: number,
-  defenseMul: number,
-  resistMul: number,
-  damageFactor: number,
-  criChanceAdd: number,
-  criDamageAdd: number,
-  penetration: number,
-  formationHp: number,
-  formationAttack: number,
-  formationDefense: number,
-  formationResist: number,
-  attackSpeedBuff: number,
-  delayCut: number,
-  rangeAdd: number
-  physicalDamageCut: number,
-  magicalDamageCut: number,
-  initialTimeCut: number,
-  cooldown: number,
-  moveSpeed: number,
-  moveSpeedAdd: number,
-  fieldBuffFactor: number,
+  cost: number;
+  hp: number;
+  attack: number;
+  defense: number;
+  resist: number;
+  hpAdd: number;
+  attackAdd: number;
+  defenseAdd: number;
+  resistAdd: number;
+  hpMul: number;
+  attackMul: number;
+  defenseMul: number;
+  resistMul: number;
+  damageFactor: number;
+  criChanceAdd: number;
+  criDamageAdd: number;
+  penetration: number;
+  formationHp: number;
+  formationAttack: number;
+  formationDefense: number;
+  formationResist: number;
+  attackSpeedBuff: number;
+  delayCut: number;
+  rangeAdd: number;
+  physicalDamageCut: number;
+  magicalDamageCut: number;
+  physicalEvasion: number;
+  magicalEvasion: number;
+  initialTimeCut: number;
+  cooldown: number;
+  moveSpeed: number;
+  moveSpeedAdd: number;
+  fieldBuffFactor: number;
 
-  isHighBeat: boolean,
-  isLimitBreak: boolean,
-  isRecharge: boolean,
-  isLifeBlock: boolean,
+  isHighBeat: boolean;
+  isLimitBreak: boolean;
+  isRecharge: boolean;
+  isLifeBlock: boolean;
 }
 
 const group = {
@@ -60,11 +62,11 @@ const group = {
   defense: "防御",
   support: "支援",
 } as const;
-type Group = typeof group[keyof typeof group]
+type Group = (typeof group)[keyof typeof group];
 const Group = {
   parse(str: string): Group | undefined {
-    return Object.values(group).find(v => v === str);
-  }
+    return Object.values(group).find((v) => v === str);
+  },
 } as const;
 
 const subskillFactorKeys = [
@@ -94,6 +96,8 @@ const subskillFactorKeys = [
   "rangeAdd",
   "physicalDamageCut",
   "magicalDamageCut",
+  "physicalEvasion",
+  "magicalEvasion",
   "initialTimeCut",
   "cooldown",
   "moveSpeed",
@@ -106,8 +110,8 @@ const subskillFactorKeys = [
   "isLifeBlock",
 ] as const;
 const subskillFactor = Data.Enum(subskillFactorKeys);
-export type SubskillFactorKey = typeof subskillFactorKeys[number]
-type ISubskillFactors = Record<typeof subskillFactorKeys[number], unknown>
+export type SubskillFactorKey = (typeof subskillFactorKeys)[number];
+type ISubskillFactors = Record<(typeof subskillFactorKeys)[number], unknown>;
 
 class SubskillFactors implements ISubskillFactors {
   readonly cost: number | undefined;
@@ -136,6 +140,8 @@ class SubskillFactors implements ISubskillFactors {
   readonly rangeAdd: number | undefined;
   readonly physicalDamageCut: number | undefined;
   readonly magicalDamageCut: number | undefined;
+  readonly physicalEvasion: number | undefined;
+  readonly magicalEvasion: number | undefined;
   readonly initialTimeCut: number | undefined;
   readonly cooldown: number | undefined;
   readonly moveSpeed: number | undefined;
@@ -174,6 +180,8 @@ class SubskillFactors implements ISubskillFactors {
     this.rangeAdd = src.rangeAdd;
     this.physicalDamageCut = src.physicalDamageCut;
     this.magicalDamageCut = src.magicalDamageCut;
+    this.physicalEvasion = src.physicalEvasion;
+    this.magicalEvasion = src.magicalEvasion;
     this.initialTimeCut = src.initialTimeCut;
     this.cooldown = src.cooldown;
     this.moveSpeed = src.moveSpeed;
@@ -220,7 +228,7 @@ class Subskill {
     this.isGeneral = src.isGeneral ?? false;
 
     this.factors = new SubskillFactors(src);
-    this.features = src.features?.map(f => new SubskillFeature(f));
+    this.features = src.features?.map((f) => new SubskillFeature(f));
   }
 
   getFactor<T extends keyof SubskillFactors>(
@@ -229,15 +237,14 @@ class Subskill {
   ): SubskillFactors[T] {
     if (this.features !== undefined) {
       for (const f of this.features) {
-        const hasRequirement = f.require?.every(r => types.includes(r)) ?? true;
-        const isExcluded = f.exclude?.some(r => types.includes(r));
+        const hasRequirement =
+          f.require?.every((r) => types.includes(r)) ?? true;
+        const isExcluded = f.exclude?.some((r) => types.includes(r));
         const fac = f[key];
-        if (hasRequirement && !isExcluded && fac !== undefined)
-          return fac;
+        if (hasRequirement && !isExcluded && fac !== undefined) return fac;
       }
     }
-    if (types.includes("トークン"))
-      return;
+    if (types.includes("トークン")) return;
     return this.factors[key];
   }
 
@@ -249,10 +256,15 @@ class Subskill {
     return list;
   }
 
-  static isStackable(obj1: Subskill | undefined, obj2: Subskill | undefined): boolean {
-    if (obj1?.id === obj2?.id
-      || obj1?.className !== undefined && obj1?.className === obj2?.className
-    ) return false;
+  static isStackable(
+    obj1: Subskill | undefined,
+    obj2: Subskill | undefined
+  ): boolean {
+    if (
+      obj1?.id === obj2?.id ||
+      (obj1?.className !== undefined && obj1?.className === obj2?.className)
+    )
+      return false;
     return true;
   }
 
@@ -261,6 +273,8 @@ class Subskill {
   }
 }
 
-const list: Subskill[] = jsonSubskill.map((item, index) => new Subskill(item, index));
+const list: Subskill[] = jsonSubskill.map(
+  (item, index) => new Subskill(item, index)
+);
 
 export default Subskill;

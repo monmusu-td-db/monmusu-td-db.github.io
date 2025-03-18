@@ -82,6 +82,10 @@ export class Percent {
   static max(...values: (number | undefined)[]): number {
     return Math.max(...values.map((v) => v ?? 100));
   }
+
+  static accumulate(...values: (number | undefined)[]) {
+    return 100 - this.multiply(...values.map((v) => 100 - (v ?? 0)));
+  }
 }
 
 // Stat
