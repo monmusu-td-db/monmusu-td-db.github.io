@@ -124,7 +124,9 @@ export default class Situation implements TableSource<Keys> {
   readonly penetration: Stat.Root;
   readonly physicalLimit: Stat.Limit;
   readonly magicalLimit: Stat.Limit;
-  readonly supplements: Stat.Root<ReadonlySet<string>>;
+  readonly physicalEvasion: Stat.Root<number, Data.EvasionFactors>;
+  readonly magicalEvasion: Stat.Root<number, Data.EvasionFactors>;
+  readonly supplements: Stat.Supplement;
   readonly initialTime: Stat.Root;
   readonly duration: Stat.Root;
   readonly cooldown: Stat.Root<number | undefined, Data.CooldownFactors>;
@@ -669,7 +671,33 @@ export default class Situation implements TableSource<Keys> {
       factors: (s) => this.getStatLimitFactors(s, stat.magicalLimit),
     });
 
-    this.supplements = new Stat.Root({
+    this.physicalEvasion = new Stat.Root({
+      statType: stat.physicalEvasion,
+      calculater: (s) => this.physicalEvasion.getFactors(s).result,
+      factors: (s) => {
+        const fea = this.getFeature(s);
+        const base = this.unit?.physicalEvasion.getValue(s);
+        const result = fea.physicalEvasion ?? base ?? 0;
+        return {
+          result,
+        };
+      },
+    });
+
+    this.magicalEvasion = new Stat.Root({
+      statType: stat.magicalEvasion,
+      calculater: (s) => this.magicalEvasion.getFactors(s).result,
+      factors: (s) => {
+        const fea = this.getFeature(s);
+        const base = this.unit?.magicalEvasion.getValue(s);
+        const result = fea.magicalEvasion ?? base ?? 0;
+        return {
+          result,
+        };
+      },
+    });
+
+    this.supplements = new Stat.Supplement({
       statType: stat.supplements,
       calculater: (s) => {
         const f = this.getFeature(s);
@@ -678,34 +706,44 @@ export default class Situation implements TableSource<Keys> {
           const skill = this.getSkill(s)?.supplements;
           const feature = f.supplements;
           if (f.isAbility) return feature ?? new Set();
-          const p = this.unit?.isPotentialApplied(s)
+          const potential = this.unit?.isPotentialApplied(s)
             ? Data.Potential.filter(stat.supplements, this.unit?.potentials)
             : undefined;
-          if (f.noBaseSupplements)
-            return this.mergeSupplements(p, skill, feature);
-          return this.mergeSupplements(base, p, skill, feature);
+          const evasion = this.getEvasionSupplements(s);
+
+          if (f.noBaseSupplements) {
+            return this.mergeSupplements(evasion, potential, skill, feature);
+          } else {
+            return this.mergeSupplements(
+              evasion,
+              base,
+              potential,
+              skill,
+              feature
+            );
+          }
         })();
         const ret = this.filterSupplements(supplements, f.deleteSupplements);
-        return Util.getSupplementsValue(ret, this, s);
+        return this.parseSupplements(ret, s);
       },
       text: (s) => [...this.supplements.getValue(s)].join(" "),
-      item: (s) => Util.getSupplementsItem(this.supplements.getValue(s)),
       color: (s) => {
-        const f = this.getFeature(s);
-        const b = f.skillBuffs?.supplements;
-        if (b !== undefined && b.size > 0) return tableColor.positiveStrong;
+        const fea = this.getFeature(s);
+        const skillBuff = fea.skillBuffs?.supplements;
+        if (skillBuff !== undefined && skillBuff.size > 0)
+          return tableColor.positiveStrong;
         if (this.getSkill(s)?.supplements && !this.getFeature(s).isAbility)
           return tableColor.positive;
 
-        const skillCond = f.skillCond?.supplements;
+        const skillCond = fea.skillCond?.supplements;
         if (skillCond !== undefined && skillCond.size > 0) {
           return tableColor.positive;
         }
 
-        const cond = f.cond?.supplements;
+        const cond = fea.cond?.supplements;
         if (cond !== undefined && cond.size > 0) {
-          if (f.isConditionalDebuff) return tableColor.negativeWeak;
-          if (f.isConditionalBuff) return tableColor.positiveWeak;
+          if (fea.isConditionalDebuff) return tableColor.negativeWeak;
+          if (fea.isConditionalBuff) return tableColor.positiveWeak;
         }
       },
     });
@@ -1057,6 +1095,51 @@ export default class Situation implements TableSource<Keys> {
     target.forEach((str) => {
       if (!filter.has(str)) ret.add(str);
     });
+    return ret;
+  }
+
+  private parseSupplements(
+    value: ReadonlySet<string>,
+    setting: Setting
+  ): ReadonlySet<string> {
+    const ret = new Set<string>();
+    for (const str of value) {
+      ret.add(
+        str.replaceAll(/\{([^\{\}])*\}/g, (match) => {
+          match = match.slice(1, match.length - 1);
+          const [key, value] = match.split("*");
+          return (
+            (() => {
+              switch (key) {
+                case "attack-base":
+                  return Data.Percent.multiply(
+                    this.attack.getFactors(setting)?.deploymentResult ?? 0,
+                    value !== undefined ? Number.parseInt(value) : undefined
+                  );
+              }
+            })()?.toString() ?? ""
+          );
+        })
+      );
+    }
+    return ret;
+  }
+
+  private getEvasionSupplements(
+    setting: Setting
+  ): ReadonlySet<string> | undefined {
+    const phy = this.physicalEvasion.getValue(setting);
+    const mag = this.magicalEvasion.getValue(setting);
+    if (phy <= 0 && mag <= 0) return;
+
+    const ret = new Set<string>();
+    if (phy === mag) {
+      ret.add("物理魔法回避" + phy + "%");
+      return ret;
+    }
+
+    if (phy > 0) ret.add("物理回避" + phy + "%");
+    if (mag > 0) ret.add("魔法回避" + mag + "%");
     return ret;
   }
 
@@ -1734,6 +1817,12 @@ export default class Situation implements TableSource<Keys> {
 
     const result = subtotal + attackDebuff;
 
+    const evasion = (
+      statType === stat.physicalLimit
+        ? this.physicalEvasion
+        : this.magicalEvasion
+    ).getValue(setting);
+
     return {
       result,
       hp,
@@ -1742,6 +1831,7 @@ export default class Situation implements TableSource<Keys> {
       attackDebuff,
       isMaxAttackDebuff,
       damageCut,
+      evasion,
     };
   }
 

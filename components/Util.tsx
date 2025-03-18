@@ -2,8 +2,6 @@ import { Fragment, type ReactNode } from "react";
 
 import styles from "./Util.module.css";
 import * as Data from "./Data";
-import type Situation from "./Situation";
-import type { Setting } from "./States";
 
 const text = {
   positive: "text-dark-teal",
@@ -307,54 +305,6 @@ export function getDpsColor(
     if (value < 1000) return Data.tableColor.yellow600;
     else return Data.tableColor.yellow800;
   }
-}
-
-export function getSupplementsValue(
-  value: ReadonlySet<string>,
-  situation: Situation,
-  setting: Setting
-): ReadonlySet<string> {
-  const ret = new Set<string>();
-  for (const str of value) {
-    ret.add(
-      str.replaceAll(/\{([^\{\}])*\}/g, (match) => {
-        match = match.slice(1, match.length - 1);
-        const [key, value] = match.split("*");
-        return (
-          (() => {
-            switch (key) {
-              case "attack-base":
-                return Data.Percent.multiply(
-                  situation.attack.getFactors(setting)?.deploymentResult ?? 0,
-                  value !== undefined ? Number.parseInt(value) : undefined
-                );
-            }
-          })()?.toString() ?? ""
-        );
-      })
-    );
-  }
-  return ret;
-}
-
-export function getSupplementsItem(value: ReadonlySet<string>): ReactNode {
-  const ret: ReactNode[] = [];
-  for (const str of value) {
-    if (str.startsWith("limit"))
-      ret.push(
-        <>
-          <span className="text-danger">limit</span>
-          {str.slice(5)}
-        </>
-      );
-    else ret.push(str);
-  }
-
-  return (
-    <small>
-      <JoinTexts texts={ret} nowrap />
-    </small>
-  );
 }
 
 export function comparer(

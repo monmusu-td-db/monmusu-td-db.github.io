@@ -124,6 +124,8 @@ const statTypeList = [
   "situationId",
   "physicalLimit",
   "magicalLimit",
+  "physicalEvasion",
+  "magicalEvasion",
   "supplements",
   "initialTime",
   "duration",
@@ -1551,6 +1553,11 @@ export interface LimitFactors {
   readonly attackDebuff: number;
   readonly isMaxAttackDebuff: boolean;
   readonly damageCut: number;
+  readonly evasion: number;
+}
+
+export interface EvasionFactors {
+  readonly result: number;
 }
 
 export interface CooldownFactors {

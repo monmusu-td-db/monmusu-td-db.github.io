@@ -11,6 +11,7 @@ import { StatInterval } from "./Stat/StatInterval";
 import { StatTarget } from "./Stat/StatTarget";
 import { StatRange } from "./Stat/StatRange";
 import { StatLimit } from "./Stat/StatLimit";
+import { StatSupplement } from "./Stat/StatSupplement";
 import { StatDps } from "./Stat/StatDps";
 
 export { StatRoot as Root };
@@ -26,4 +27,5 @@ export { StatInterval as Interval };
 export { StatTarget as Target };
 export { StatRange as Range };
 export { StatLimit as Limit };
+export { StatSupplement as Supplement };
 export { StatDps as Dps };

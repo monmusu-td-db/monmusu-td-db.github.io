@@ -24,6 +24,7 @@ const sign = {
   BSTART: "(",
   BEND: ")",
   FRAME: "f",
+  COLON: "：",
 } as const;
 
 export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
@@ -213,6 +214,43 @@ function Multiply({ enabled, children }: ExpressionItemProps) {
   }
 }
 
+function Divide({ enabled, children }: ExpressionItemProps) {
+  if (enabled !== false) {
+    return (
+      <>
+        {sign.DIVIDE}
+        {children}
+      </>
+    );
+  }
+}
+
+function List({ children }: { children: ReactNode }) {
+  return (
+    <table>
+      <tbody>{children}</tbody>
+    </table>
+  );
+}
+
+function ListItem({
+  children,
+  label,
+}: {
+  children: ReactNode;
+  label: ReactNode;
+}) {
+  return (
+    <tr>
+      <th className={textColor.RESULT}>{label}</th>
+      <td>
+        {sign.COLON}
+        {children}
+      </td>
+    </tr>
+  );
+}
+
 export const Tooltip = {
   sign,
   Positive,
@@ -226,4 +264,7 @@ export const Tooltip = {
   Plus,
   Minus,
   Multiply,
+  Divide,
+  List,
+  ListItem,
 };

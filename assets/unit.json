@@ -8812,10 +8812,9 @@
     "attack": 1149,
     "defense": 457,
     "resist": 136,
+    "physicalEvasion": 30,
+    "magicalEvasion": 30,
     "moveType": "ワープ",
-    "supplements": [
-      "物理魔法回避30%"
-    ],
     "exSkill1": {
       "skillName": "ソウルサイス",
       "criChanceAdd": 100,

@@ -39,6 +39,8 @@ export interface JsonUnit {
   rounds?: Data.JsonRound;
   splash?: boolean;
   range?: number;
+  physicalEvasion?: number;
+  magicalEvasion?: number;
   moveSpeed?: number;
   moveType?: string | null;
   damageType?: Data.JsonDamageType;
@@ -178,6 +180,8 @@ export default class Unit implements TableSource<Keys> {
   readonly criticalChance: Stat.Root;
   readonly criticalDamage: Stat.Root;
   readonly penetration: Stat.Root;
+  readonly physicalEvasion: Stat.Root;
+  readonly magicalEvasion: Stat.Root;
   readonly attackSpeed: Stat.AttackSpeed;
   readonly delay: Stat.Delay;
   readonly block: Stat.Root;
@@ -339,6 +343,16 @@ export default class Unit implements TableSource<Keys> {
     this.penetration = new Stat.Root({
       statType: stat.penetration,
       calculater: () => penetration,
+    });
+
+    this.physicalEvasion = new Stat.Root({
+      statType: stat.physicalEvasion,
+      calculater: () => src.physicalEvasion,
+    });
+
+    this.magicalEvasion = new Stat.Root({
+      statType: stat.magicalEvasion,
+      calculater: () => src.magicalEvasion,
     });
 
     const attackSpeed = src.attackSpeed ?? classData?.attackSpeed;

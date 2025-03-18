@@ -217,6 +217,8 @@ const commonFeature = {
   damageDebuff: 0,
   physicalDamageDebuff: 0,
   magicalDamageDebuff: 0,
+  physicalEvasion: 0,
+  magicalEvasion: 0,
   attackMotionMul: 0,
   attackSpeedBuff: 0,
   delayMul: 0,
