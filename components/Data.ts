@@ -14,6 +14,7 @@ TODOリスト
   8体以上同一属性編成
   Buffページに潜在覚醒ボーナスを適用
   被ダメージ軽減supplement自動化(回避も)
+  isAbilityの挙動改善
 */
 
 // Const

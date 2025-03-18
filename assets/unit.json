@@ -8169,17 +8169,15 @@
     "features": [
       {
         "skill": 0,
-        "supplements": [
-          "物理魔法回避40%"
-        ]
+        "physicalEvasion": 40,
+        "magicalEvasion": 40
       },
       {
         "require": [
           "スキル"
         ],
-        "supplements": [
-          "物理魔法回避80%"
-        ]
+        "physicalEvasion": 80,
+        "magicalEvasion": 80
       },
       {
         "skill": 1,
@@ -10501,9 +10499,6 @@
     "defense": 298,
     "resist": 220,
     "moveType": "ワープ",
-    "supplements": [
-      "物理魔法回避30%"
-    ],
     "exSkill1": {
       "skillName": "ソウルアロー",
       "criChanceAdd": 100,
@@ -10535,7 +10530,9 @@
         ],
         "attackMul": 1000
       }
-    ]
+    ],
+    "physicalEvasion": 30,
+    "magicalEvasion": 30
   },
   {
     "DISABLED": true,
@@ -11170,13 +11167,11 @@
     "features": [
       {
         "skill": 0,
-        "supplements": [
-          "物理魔法回避50%"
-        ],
+        "physicalEvasion": 50,
+        "magicalEvasion": 50,
         "potentialBonus": {
-          "supplements": [
-            "物理魔法回避60%"
-          ]
+          "physicalEvasion": 60,
+          "magicalEvasion": 60
         }
       },
       {
@@ -11769,17 +11764,6 @@
     ],
     "features": [
       {
-        "isNotAbility": true,
-        "supplements": [
-          "物理魔法回避30%"
-        ],
-        "potentialBonus": {
-          "supplements": [
-            "物理魔法回避40%"
-          ]
-        }
-      },
-      {
         "featureName": "extra-damage",
         "annotations": [
           "追加攻撃"
@@ -11789,7 +11773,13 @@
         "rounds": 2
       }
     ],
-    "moveSpeedAdd": 100
+    "physicalEvasion": 30,
+    "magicalEvasion": 30,
+    "moveSpeedAdd": 100,
+    "potentialBonus": {
+      "physicalEvasion": 40,
+      "magicalEvasion": 40
+    }
   },
   {
     "id": 302,
@@ -12508,44 +12498,55 @@
     ],
     "features": [
       {
-        "supplements": [
-          "物理魔法回避40%"
-        ],
+        "featureName": "normal",
+        "physicalEvasion": 40,
+        "magicalEvasion": 40,
         "potentialBonus": {
-          "supplements": [
-            "物理魔法回避45%"
-          ]
+          "physicalEvasion": 45,
+          "magicalEvasion": 45
         }
       },
       {
         "featureName": "class-action",
         "isConditionalBuff": true,
+        "physicalEvasion": 80,
+        "magicalEvasion": 80,
         "supplements": [
           "回避無視100%"
-        ]
-      },
-      {
-        "featureName": "class-action",
-        "isConditionalBuff": true,
-        "supplements": [
-          "物理魔法回避80%"
-        ],
-        "deleteSupplements": [
-          "物理魔法回避40%"
         ],
         "potentialBonus": {
-          "supplements": [
-            "物理魔法回避90%"
-          ],
-          "deleteSupplements": [
-            "物理魔法回避45%"
-          ]
+          "physicalEvasion": 90,
+          "magicalEvasion": 90
         }
       }
     ],
     "situations": [
-      {},
       {
+        "exclude": [
+          "class-action"
+        ],
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
         "skill": 1
       }
     ]

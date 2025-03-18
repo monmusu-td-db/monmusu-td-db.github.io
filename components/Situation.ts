@@ -711,13 +711,14 @@ export default class Situation implements TableSource<Keys> {
           const base = this.unit?.supplements;
           const skill = this.getSkill(s)?.supplements;
           const feature = f.supplements;
-          if (f.isAbility) return feature ?? new Set();
           const potential = this.unit?.isPotentialApplied(s)
             ? Data.Potential.filter(stat.supplements, this.unit?.potentials)
             : undefined;
           const evasion = this.getEvasionSupplements(s);
 
-          if (f.noBaseSupplements) {
+          if (f.isAbility) {
+            return this.mergeSupplements(evasion, potential, feature);
+          } else if (f.noBaseSupplements) {
             return this.mergeSupplements(evasion, potential, skill, feature);
           } else {
             return this.mergeSupplements(
