@@ -128,7 +128,7 @@ export const AttackDebuff = {
 type DefresDebuff = DebuffAdd | DebuffMul;
 interface DebuffAdd {
   readonly key?: string;
-  readonly time: number;
+  readonly time?: number;
   readonly valueAdd: number;
 }
 interface DebuffMul {
@@ -155,11 +155,15 @@ export const Debuff = {
         default:
           value = obj.valueAdd;
       }
-      return (
-        value *
-        rounds *
-        Accumulation.calculate({ time: obj.time, attackSpeed, interval })
-      );
+      if (obj.time === undefined) {
+        return value * rounds;
+      } else {
+        return (
+          value *
+          rounds *
+          Accumulation.calculate({ time: obj.time, attackSpeed, interval })
+        );
+      }
     }
   },
 } as const;

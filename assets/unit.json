@@ -3393,6 +3393,55 @@
     }
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 67,
+    "unitName": "【ヒポグリフ娘】リクリフ",
+    "unitShortName": "リクリフ",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 3960,
+    "attack": 649,
+    "defense": 360,
+    "resist": 109,
+    "exSkill1": {
+      "skillName": "エアロウィング",
+      "attackMul": 210,
+      "criChanceAdd": 20,
+      "target": 2,
+      "rangeMul": 210,
+      "duration": 10,
+      "cooldown": 25,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "features": [
+      {
+        "defenseDebuff": {
+          "key": "attack-base",
+          "valueAdd": 15
+        }
+      }
+    ],
+    "potentialBonus": {
+      "hpMul": 106
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 68,
     "unitName": "【ヘカトンケイル娘】ラキオン",
     "unitShortName": "ラキオン",
