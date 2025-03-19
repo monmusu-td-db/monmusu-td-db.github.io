@@ -467,7 +467,10 @@ export default class Situation implements TableSource<Keys> {
           const splashFactor = this.splash.getFactors(s);
           const roundsFactor = this.rounds.getFactors(s);
 
-          const skillNum = sum(calcBlock(sk?.target), sk?.targetAdd ?? 0);
+          const skillNum = sum(
+            calcBlock(sk?.target) ?? base,
+            sk?.targetAdd ?? 0
+          );
           const skillPointBase = getPoint(skillNum);
           const skillPoint = calcPoints(
             skillPointBase,
@@ -479,7 +482,7 @@ export default class Situation implements TableSource<Keys> {
           if (skillPoint < 0) return tableColor.negative;
 
           const condNum = sum(
-            calcBlock(fea.cond?.target),
+            calcBlock(fea.cond?.target) ?? base,
             fea.cond?.targetAdd ?? 0
           );
           const conditionPointBase = getPoint(condNum);

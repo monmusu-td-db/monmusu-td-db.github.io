@@ -3195,6 +3195,129 @@
     }
   },
   {
+    "id": 64,
+    "unitName": "【ダークエルフ娘】ティーレ",
+    "unitShortName": "ティーレ",
+    "rarity": "E",
+    "class": "ウォーロック",
+    "element": "闇",
+    "hp": 2664,
+    "attack": 892,
+    "defense": 227,
+    "resist": 523,
+    "exSkill1": {
+      "skillName": "暗黒魔導の儀",
+      "attackMul": 320,
+      "duration": 15,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "深淵魔導の儀",
+      "attackMul": 260,
+      "targetAdd": 1,
+      "duration": 15,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "魔法防御力+90"
+    ],
+    "weapon": {
+      "weaponName": "暗黒秘術の杖",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "require": [
+          "闇マス"
+        ],
+        "attackMul": 115
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalDebuff": true,
+        "supplements": [
+          "発動時射程内味方HP減20%"
+        ]
+      },
+      {
+        "skill": 2,
+        "isConditionalDebuff": true,
+        "supplements": [
+          "発動時射程内味方HP減30%"
+        ]
+      },
+      {
+        "featureName": "weapon-attack-mul",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "annotations": [
+          "武器効果(最大)"
+        ],
+        "attackMul": 260
+      }
+    ],
+    "isEventUnit": true,
+    "potentialBonus": {
+      "attackMul": 104
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "features": [
+          "weapon-attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "weapon-attack-mul"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "weapon-attack-mul",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "weapon-attack-mul",
+          "common-2hits"
+        ]
+      }
+    ]
+  },
+  {
     "id": 65,
     "unitName": "【フロストジャイアント娘】ナルケパフネ",
     "unitShortName": "ナルケパフネ",

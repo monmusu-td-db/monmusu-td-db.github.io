@@ -478,10 +478,10 @@
         "conditions": [
           {
             "key": "*",
-            "value": 110
+            "value": 150
           }
         ],
-        "attackMul": 110
+        "attackMul": 150
       },
       {
         "featureName": "class-attack-mul2",
@@ -489,10 +489,23 @@
         "conditions": [
           {
             "key": "*",
-            "value": 120
+            "value": 200
           }
         ],
-        "attackMul": 120
+        "attackMul": 200
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "class-attack-mul2"
+        ]
       }
     ]
   },
