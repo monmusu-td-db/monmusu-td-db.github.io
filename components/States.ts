@@ -310,10 +310,8 @@ export class FilterCondition {
     const bard = fn(e.bard);
 
     const cond = this.keys;
-    const isBlank = !FilterEquipment.keys.some(fn);
 
     return this.list.filter((k): boolean => {
-      if (isBlank) return true;
       switch (k) {
         case cond.normal:
           return (

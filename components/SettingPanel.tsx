@@ -28,7 +28,7 @@ import {
   Contexts,
 } from "./States";
 import * as Data from "./Data";
-import Styles from "./styles.module.css";
+import styles from "./SettingPanel.module.css";
 import SubskillUI from "./SubskillUI";
 import BeastUI from "./BeastUI";
 import ModalUI from "./ModalUI";
@@ -79,7 +79,7 @@ export default function SettingPanel({
       show={show}
       onHide={handleClose}
       size="lg"
-      dialogClassName={Styles.modal ?? ""}
+      dialogClassName={styles.modal ?? ""}
       scrollable
     >
       <Tab.Container activeKey={tab} onSelect={(t) => setTab(t ?? tabs.FILTER)}>
@@ -157,6 +157,8 @@ const _TabFilter = memo(function TabFilter({
   onChange: (nextValue: FilterObject) => void;
   isSituation: boolean;
 }) {
+  const conditions = FilterCondition.getVisibleItems(filter);
+
   return (
     <Form>
       <ModalUI.FormGroup label="レアリティ">
@@ -226,10 +228,10 @@ const _TabFilter = memo(function TabFilter({
           })}
         </ModalUI.FormCheckboxGroup>
       </ModalUI.FormGroup>
-      {isSituation && (
+      {isSituation && conditions.length > 0 && (
         <ModalUI.FormGroup label="状況">
           <ModalUI.FormCheckboxGroup>
-            {FilterCondition.getVisibleItems(filter).map((k) => {
+            {conditions.map((k) => {
               return (
                 <ModalUI.FormCheckbox
                   key={k}
