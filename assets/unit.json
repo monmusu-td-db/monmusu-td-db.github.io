@@ -685,8 +685,7 @@
       "range": 170,
       "duration": 30,
       "cooldown": 40,
-      "damageType": "魔法",
-      "supplements": []
+      "damageType": "魔法"
     },
     "potentials": [
       "出撃コスト-1",
@@ -709,10 +708,8 @@
       },
       {
         "skill": 2,
-        "magicalDamageCut": 70,
-        "supplements": [
-          "魔法被Dmg-70%"
-        ]
+        "isConditionalSkillBuff": true,
+        "magicalDamageCut": 70
       },
       {
         "featureName": "revived",
@@ -1636,8 +1633,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "引き付け",
-        "物理被Dmg-51%"
+        "引き付け"
       ]
     },
     "exSkill2": {
@@ -1647,7 +1643,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "物理被Dmg-20%→射程内"
+        "物理被Dmg-20%→射程内他者"
       ]
     },
     "potentials": [
@@ -1665,17 +1661,12 @@
     },
     "features": [
       {
-        "physicalDamageCut": 30,
-        "supplements": [
-          "物理被Dmg-30%"
-        ]
+        "physicalDamageCut": 30
       },
       {
         "skill": 1,
-        "physicalDamageCut": 30,
-        "deleteSupplements": [
-          "物理被Dmg-30%"
-        ]
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 30
       },
       {
         "skill": 2,
@@ -3679,10 +3670,7 @@
       {
         "physicalDamageCut": 5,
         "magicalDamageCut": 5,
-        "fieldBuffFactor": 200,
-        "supplements": [
-          "物理魔法被Dmg-5%"
-        ]
+        "fieldBuffFactor": 200
       },
       {
         "featureName": "skill2-1hit",

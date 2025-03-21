@@ -124,6 +124,8 @@ export default class Situation implements TableSource<Keys> {
   readonly penetration: Stat.Root;
   readonly physicalLimit: Stat.Limit;
   readonly magicalLimit: Stat.Limit;
+  readonly physicalDamageCut: Stat.Root<number, Data.DamageCutFactors>;
+  readonly magicalDamageCut: Stat.Root<number, Data.DamageCutFactors>;
   readonly physicalEvasion: Stat.Root<number, Data.EvasionFactors>;
   readonly magicalEvasion: Stat.Root<number, Data.EvasionFactors>;
   readonly supplements: Stat.Supplement;
@@ -681,16 +683,68 @@ export default class Situation implements TableSource<Keys> {
       factors: (s) => this.getStatLimitFactors(s, stat.magicalLimit),
     });
 
-    const getStatEvasion = (isPhysical: boolean) => {
-      const key = isPhysical ? "physicalEvasion" : "magicalEvasion";
-      const ret = new Stat.Root<number, Data.EvasionFactors>({
-        statType: stat[key],
-        calculater: (s) => this[key].getFactors(s).result,
+    const getStatDamageCut = (isPhysical: boolean) => {
+      const statType = isPhysical
+        ? stat.physicalDamageCut
+        : stat.magicalDamageCut;
+      const ret = new Stat.Root<number, Data.DamageCutFactors>({
+        statType,
+        calculater: (s) => this[statType].getFactors(s).result,
         factors: (s) => {
-          const base = this.unit?.[key].getValue(s);
-          const skill = this.getSkill(s)?.[key];
-          const fea = this.getFeature(s)[key];
-          const subskill = this.getSubskillFactor(s, ssKeys[key]);
+          const fea = this.getFeature(s);
+          const base = fea[statType];
+          const potential = this.unit?.getPotentialFactor(s, statType);
+          const subskill = this.getSubskillFactorFromStatType(s, statType);
+          const panel = s[statType];
+          const generalDamageCut = fea.damageCut;
+          const result = Percent.multiply(
+            ...[generalDamageCut, base, potential, subskill, panel].map(
+              (v) => 100 - (v ?? 0)
+            )
+          );
+
+          const supplement = Percent.accumulate(
+            base,
+            potential,
+            subskill,
+            panel
+          );
+          const generalSupplement = generalDamageCut ?? 0;
+
+          const cond = fea.cond?.[statType];
+          const condColor =
+            cond === undefined || cond === 0 ? undefined : cond > 0;
+
+          const skillCond = fea.skillCond?.[statType];
+          const skillCondColor =
+            skillCond === undefined || skillCond === 0
+              ? undefined
+              : skillCond > 0;
+
+          return {
+            supplement,
+            generalSupplement,
+            condColor,
+            skillCondColor,
+            result,
+          };
+        },
+      });
+      return ret;
+    };
+    this.physicalDamageCut = getStatDamageCut(true);
+    this.magicalDamageCut = getStatDamageCut(false);
+
+    const getStatEvasion = (isPhysical: boolean) => {
+      const statType = isPhysical ? stat.physicalEvasion : stat.magicalEvasion;
+      const ret = new Stat.Root<number, Data.EvasionFactors>({
+        statType,
+        calculater: (s) => this[statType].getFactors(s).result,
+        factors: (s) => {
+          const base = this.unit?.[statType].getValue(s);
+          const skill = this.getSkill(s)?.[statType];
+          const fea = this.getFeature(s)[statType];
+          const subskill = this.getSubskillFactor(s, ssKeys[statType]);
           const potential = this.unit?.getPotentialFactor(s, ret.statType);
 
           const skillColor =
@@ -724,20 +778,22 @@ export default class Situation implements TableSource<Keys> {
           const potential = this.unit?.isPotentialApplied(s)
             ? Data.Potential.filter(stat.supplements, this.unit?.potentials)
             : undefined;
+          const damageCut = this.getDamageCutSupplements(s);
           const evasion = this.getEvasionSupplements(s);
+          const ret = this.mergeSupplements(
+            damageCut,
+            evasion,
+            potential,
+            feature,
+            skill
+          );
 
           if (f.isAbility) {
-            return this.mergeSupplements(evasion, potential, feature);
+            return this.mergeSupplements(feature);
           } else if (f.noBaseSupplements) {
-            return this.mergeSupplements(evasion, potential, skill, feature);
+            return this.mergeSupplements(ret);
           } else {
-            return this.mergeSupplements(
-              evasion,
-              base,
-              potential,
-              skill,
-              feature
-            );
+            return this.mergeSupplements(ret, base);
           }
         })();
         const ret = this.filterSupplements(supplements, f.deleteSupplements);
@@ -757,17 +813,34 @@ export default class Situation implements TableSource<Keys> {
           return tableColor.positive;
         }
 
+        const physicalDamageCut =
+          this.physicalDamageCut.getFactors(s).skillCondColor;
+        const magicalDamageCut =
+          this.magicalDamageCut.getFactors(s).skillCondColor;
+
         if (
+          physicalDamageCut ||
+          magicalDamageCut ||
           this.physicalEvasion.getFactors(s).skillColor ||
           this.magicalEvasion.getFactors(s).skillColor
         )
           return tableColor.positive;
+
+        if (physicalDamageCut === false || magicalDamageCut === false) {
+          return tableColor.negative;
+        }
 
         const cond = fea.cond?.supplements;
         if (cond !== undefined && cond.size > 0) {
           if (fea.isConditionalDebuff) return tableColor.negativeWeak;
           if (fea.isConditionalBuff) return tableColor.positiveWeak;
         }
+
+        if (
+          this.physicalDamageCut.getFactors(s).condColor ||
+          this.magicalDamageCut.getFactors(s).condColor
+        )
+          return tableColor.positiveWeak;
       },
     });
 
@@ -1148,6 +1221,33 @@ export default class Situation implements TableSource<Keys> {
     return ret;
   }
 
+  private getDamageCutSupplements(
+    setting: Setting
+  ): ReadonlySet<string> | undefined {
+    const phyFac = this.physicalDamageCut.getFactors(setting);
+    const phy = phyFac.supplement;
+    const mag = this.magicalDamageCut.getFactors(setting).supplement;
+    const gen = phyFac.generalSupplement;
+    if (phy === 0 && mag === 0 && gen === 0) return;
+
+    const ret = new Set<string>();
+    const fn = (type: string, damage: number) => {
+      const sign = damage > 0 ? "-" : "+";
+      ret.add(type + "Dmg" + sign + Math.abs(damage) + "%");
+    };
+
+    if (gen !== 0) fn("", gen);
+
+    if (phy !== 0 && phy === mag) {
+      fn("物理魔法", phy);
+      return ret;
+    }
+
+    if (phy > 0) fn("物理", phy);
+    if (mag > 0) fn("魔法", mag);
+    return ret;
+  }
+
   private getEvasionSupplements(
     setting: Setting
   ): ReadonlySet<string> | undefined {
@@ -1161,8 +1261,8 @@ export default class Situation implements TableSource<Keys> {
       return ret;
     }
 
-    if (phy > 0) ret.add("物理攻撃回避" + phy + "%");
-    if (mag > 0) ret.add("魔法攻撃回避" + mag + "%");
+    if (phy > 0) ret.add("物理回避" + phy + "%");
+    if (mag > 0) ret.add("魔法回避" + mag + "%");
     return ret;
   }
 
@@ -1809,20 +1909,11 @@ export default class Situation implements TableSource<Keys> {
     const baseDefres = this[s].getValue(setting);
     if (hp === undefined || baseDefres === undefined) return;
 
-    const f = this.getFeature(setting);
-    const base =
+    const damageCut = (
       statType === stat.physicalLimit
-        ? f.physicalDamageCut
-        : f.magicalDamageCut;
-    const p = this.unit?.getPotentialFactor(setting, statType);
-    const ss = this.getSubskillFactorFromStatType(setting, statType);
-    const panel =
-      statType === stat.physicalLimit
-        ? setting.physicalDamageCut
-        : setting.magicalDamageCut;
-    const damageCut = Percent.multiply(
-      ...[f.damageCut, base, p, ss, panel].map((v) => 100 - (v ?? 0))
-    );
+        ? this.physicalDamageCut
+        : this.magicalDamageCut
+    ).getValue(setting);
     const limit = Percent.divide(hp, damageCut);
 
     const defres = Math.min(Percent.multiply(limit, 900), baseDefres);

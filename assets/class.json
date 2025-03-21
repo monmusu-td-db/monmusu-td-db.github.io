@@ -227,10 +227,7 @@
         "conditions": [
           "近"
         ],
-        "damageCut": 25,
-        "supplements": [
-          "被Dmg-25%"
-        ]
+        "damageCut": 25
       },
       {
         "featureName": "class-ranged",
@@ -246,10 +243,7 @@
         ],
         "physicalDamageCut": 60,
         "magicalDamageCut": 60,
-        "duration": 15,
-        "supplements": [
-          "物理魔法被Dmg-60%"
-        ]
+        "duration": 15
       }
     ],
     "situations": [

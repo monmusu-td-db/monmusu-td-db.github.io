@@ -37,6 +37,8 @@
     "situationId": "ID",
     "physicalLimit": "物理ワンパン",
     "magicalLimit": "魔法ワンパン",
+    "physicalDamageCut": "物理ダメージ軽減",
+    "magicalDamageCut": "魔法ダメージ軽減",
     "physicalEvasion": "物理回避率",
     "magicalEvasion": "魔法回避率",
     "supplements": "補足",

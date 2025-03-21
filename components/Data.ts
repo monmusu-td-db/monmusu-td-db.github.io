@@ -129,6 +129,8 @@ const statTypeList = [
   "situationId",
   "physicalLimit",
   "magicalLimit",
+  "physicalDamageCut",
+  "magicalDamageCut",
   "physicalEvasion",
   "magicalEvasion",
   "supplements",
@@ -1561,6 +1563,14 @@ export interface LimitFactors {
   readonly isMaxAttackDebuff: boolean;
   readonly damageCut: number;
   readonly evasion: number;
+}
+
+export interface DamageCutFactors {
+  readonly supplement: number;
+  readonly generalSupplement: number;
+  readonly condColor: boolean | undefined;
+  readonly skillCondColor: boolean | undefined;
+  readonly result: number;
 }
 
 export interface EvasionFactors {
