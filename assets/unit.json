@@ -1643,7 +1643,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "物理被Dmg-20%→射程内他者"
+        "物理被Dmg-20%→射程内"
       ]
     },
     "potentials": [
@@ -3866,10 +3866,7 @@
         "skill": 2,
         "isConditionalSkillBuff": true,
         "physicalDamageCut": 30,
-        "magicalDamageCut": 30,
-        "supplements": [
-          "物理魔法被Dmg-30%"
-        ]
+        "magicalDamageCut": 30
       },
       {
         "featureName": "common-charge-attack",
@@ -4773,19 +4770,13 @@
     "features": [
       {
         "skill": 0,
-        "magicalDamageCut": 25,
-        "supplements": [
-          "魔法被Dmg-25%"
-        ]
+        "magicalDamageCut": 25
       },
       {
         "require": [
           "スキル"
         ],
-        "magicalDamageCut": 50,
-        "supplements": [
-          "魔法被Dmg-50%"
-        ]
+        "magicalDamageCut": 50
       },
       {
         "skill": 2,
@@ -4821,10 +4812,7 @@
           }
         ],
         "physicalDamageCut": 100,
-        "magicalDamageCut": 100,
-        "supplements": [
-          "物理魔法被Dmg-100%"
-        ]
+        "magicalDamageCut": 100
       },
       {
         "featureName": "skill2-2s",
@@ -4835,10 +4823,7 @@
           }
         ],
         "physicalDamageCut": 90,
-        "magicalDamageCut": 90,
-        "supplements": [
-          "物理魔法被Dmg-90%"
-        ]
+        "magicalDamageCut": 90
       },
       {
         "featureName": "skill2-4s",
@@ -4849,10 +4834,7 @@
           }
         ],
         "physicalDamageCut": 80,
-        "magicalDamageCut": 80,
-        "supplements": [
-          "物理魔法被Dmg-80%"
-        ]
+        "magicalDamageCut": 80
       },
       {
         "featureName": "skill2-6s",
@@ -4863,10 +4845,7 @@
           }
         ],
         "physicalDamageCut": 70,
-        "magicalDamageCut": 70,
-        "supplements": [
-          "物理魔法被Dmg-70%"
-        ]
+        "magicalDamageCut": 70
       },
       {
         "featureName": "skill2-12s",
@@ -4877,10 +4856,7 @@
           }
         ],
         "physicalDamageCut": 40,
-        "magicalDamageCut": 40,
-        "supplements": [
-          "物理魔法被Dmg-40%"
-        ]
+        "magicalDamageCut": 40
       },
       {
         "featureName": "skill2-18s",
@@ -4891,10 +4867,7 @@
           }
         ],
         "physicalDamageCut": 10,
-        "magicalDamageCut": 10,
-        "supplements": [
-          "物理魔法被Dmg-10%"
-        ]
+        "magicalDamageCut": 10
       }
     ],
     "situations": [
@@ -5265,9 +5238,6 @@
     "attack": 580,
     "defense": 938,
     "resist": 208,
-    "supplements": [
-      "物理被Dmg-20%→全体"
-    ],
     "exSkill1": {
       "skillName": "スターロード",
       "attackMul": 220,
@@ -5275,7 +5245,6 @@
       "cooldown": 50,
       "supplements": [
         "引き付け",
-        "物理被Dmg0",
         "スタン無効"
       ]
     },
@@ -5285,7 +5254,6 @@
       "cooldown": 25,
       "supplements": [
         "引き付け",
-        "被Dmg0",
         "スタン無効"
       ]
     },
@@ -5298,7 +5266,10 @@
     ],
     "features": [
       {
-        "physicalDamageCut": 20
+        "physicalDamageCut": 20,
+        "supplements": [
+          "物理被Dmg-20%→全体"
+        ]
       },
       {
         "skill": 1,
@@ -6098,17 +6069,11 @@
       },
       {
         "featureName": "normal",
-        "physicalDamageCut": 20,
-        "supplements": [
-          "物理被Dmg-20%"
-        ]
+        "physicalDamageCut": 20
       },
       {
         "featureName": "skill",
-        "physicalDamageCut": 40,
-        "supplements": [
-          "物理被Dmg-40%"
-        ]
+        "physicalDamageCut": 40
       }
     ],
     "costAdd": 3,
@@ -6184,10 +6149,7 @@
       "attackMul": 360,
       "target": 1,
       "duration": 40,
-      "cooldown": 50,
-      "supplements": [
-        "移動可"
-      ]
+      "cooldown": 50
     },
     "potentials": [
       "出撃コスト-1",
@@ -6211,18 +6173,27 @@
     ],
     "features": [
       {
-        "featureName": "normal",
+        "skill": 0,
         "physicalDamageCut": 50,
         "magicalDamageCut": 50,
         "supplements": [
-          "物理魔法被Dmg-50%",
           "移動不可"
+        ],
+        "deleteSupplements": [
+          "スタン付与20%"
         ]
       },
       {
-        "featureName": "normal2",
-        "isAbility": true,
-        "interval": null
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "移動可"
+        ]
+      },
+      {
+        "featureName": "normal",
+        "interval": null,
+        "damageType": null
       },
       {
         "featureName": "dot",
@@ -6235,6 +6206,36 @@
         "target": "射程内",
         "range": 150,
         "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action"
+        ]
       }
     ]
   },
@@ -6751,23 +6752,18 @@
     ],
     "features": [
       {
-        "featureName": "normal",
+        "skill": -1,
         "physicalDamageCut": 35
       },
       {
-        "featureName": "normal-supplement",
-        "supplements": [
-          "物理被Dmg-35%"
-        ]
+        "skill": 0,
+        "physicalDamageCut": 35
       },
       {
         "require": [
           "スキル"
         ],
-        "physicalDamageCut": 70,
-        "supplements": [
-          "物理被Dmg-70%"
-        ]
+        "physicalDamageCut": 70
       },
       {
         "featureName": "skill1-dot",
@@ -6807,8 +6803,7 @@
     "situations": [
       {
         "features": [
-          "normal",
-          "normal-supplement"
+          "normal"
         ]
       },
       {
@@ -6823,7 +6818,6 @@
       {
         "features": [
           "normal",
-          "normal-supplement",
           "skill1-phase1"
         ]
       },
@@ -6843,7 +6837,6 @@
       {
         "features": [
           "normal",
-          "normal-supplement",
           "skill1-phase2"
         ]
       },
@@ -6863,7 +6856,6 @@
       {
         "features": [
           "normal",
-          "normal-supplement",
           "skill1-phase3"
         ]
       },
@@ -8258,14 +8250,8 @@
     "features": [
       {
         "magicalDamageCut": 30,
-        "supplements": [
-          "魔法被Dmg-30%"
-        ],
         "potentialBonus": {
-          "magicalDamageCut": 40,
-          "supplements": [
-            "魔法被Dmg-40%"
-          ]
+          "magicalDamageCut": 40
         }
       },
       {
@@ -9888,14 +9874,8 @@
     "features": [
       {
         "physicalDamageCut": 20,
-        "supplements": [
-          "物理被Dmg-20%"
-        ],
         "potentialBonus": {
-          "physicalDamageCut": 25,
-          "supplements": [
-            "物理被Dmg-25%"
-          ]
+          "physicalDamageCut": 25
         }
       },
       {
@@ -9990,10 +9970,7 @@
     ],
     "features": [
       {
-        "physicalDamageCut": 20,
-        "supplements": [
-          "物理被Dmg-20%"
-        ]
+        "physicalDamageCut": 20
       },
       {
         "skill": 1,
@@ -10333,10 +10310,7 @@
       },
       {
         "featureName": "token-block",
-        "damageCut": 20,
-        "supplements": [
-          "被Dmg-20%"
-        ]
+        "damageCut": 20
       }
     ]
   },
@@ -10409,15 +10383,9 @@
         "skill": 0,
         "physicalDamageCut": 40,
         "magicalDamageCut": 40,
-        "supplements": [
-          "物理魔法被Dmg-40%"
-        ],
         "potentialBonus": {
           "physicalDamageCut": 50,
-          "magicalDamageCut": 50,
-          "supplements": [
-            "物理魔法被Dmg-50%"
-          ]
+          "magicalDamageCut": 50
         }
       },
       {
@@ -10425,15 +10393,9 @@
         "skill": 1,
         "physicalDamageCut": 80,
         "magicalDamageCut": 80,
-        "supplements": [
-          "物理魔法被Dmg-80%"
-        ],
         "potentialBonus": {
           "physicalDamageCut": 100,
-          "magicalDamageCut": 100,
-          "supplements": [
-            "物理魔法被Dmg-100%"
-          ]
+          "magicalDamageCut": 100
         }
       },
       {
@@ -10507,14 +10469,11 @@
       },
       {
         "featureName": "weaken",
-        "isConditionalDebuff": true,
+        "isConditionalBuff": true,
         "annotations": [
           "スタン・石化・凍結状態時"
         ],
-        "damageCut": -50,
-        "supplements": [
-          "被Dmg+50%"
-        ]
+        "damageCut": -50
       }
     ]
   },
@@ -10921,10 +10880,7 @@
         "skill": 0,
         "target": 0,
         "physicalDamageCut": 25,
-        "magicalDamageCut": 25,
-        "supplements": [
-          "物理魔法被Dmg-25%"
-        ]
+        "magicalDamageCut": 25
       },
       {
         "attackDebuff": {
@@ -11510,10 +11466,7 @@
     ],
     "features": [
       {
-        "magicalDamageCut": 30,
-        "supplements": [
-          "魔法被Dmg-35%"
-        ]
+        "magicalDamageCut": 35
       },
       {
         "featureName": "team-buff5",
@@ -12065,15 +12018,7 @@
       "skillName": "断つ猛進",
       "attackMul": 300,
       "duration": 30,
-      "cooldown": 50,
-      "skillFeatures": [
-        {
-          "featureName": "charge-attack",
-          "supplements": [
-            "物理魔法被Dmg-60%"
-          ]
-        }
-      ]
+      "cooldown": 50
     },
     "potentials": [
       "出撃コスト-1",
@@ -12112,11 +12057,9 @@
       {
         "featureName": "charge-attack",
         "skill": 1,
+        "isConditionalBuff": true,
         "physicalDamageCut": 60,
-        "magicalDamageCut": 60,
-        "supplements": [
-          "物理魔法被Dmg-60%"
-        ]
+        "magicalDamageCut": 60
       },
       {
         "featureName": "extra-damage",

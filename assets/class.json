@@ -113,9 +113,9 @@
       },
       {
         "featureName": "class-action",
+        "isConditionalBuff": true,
         "supplements": [
-          "スタン耐性+50",
-          "被Dmg+20%"
+          "スタン耐性+50"
         ]
       },
       {

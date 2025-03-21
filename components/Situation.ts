@@ -711,11 +711,17 @@ export default class Situation implements TableSource<Keys> {
           );
           const generalSupplement = generalDamageCut ?? 0;
 
-          const cond = fea.cond?.[statType];
+          const cond = Percent.accumulate(
+            fea.cond?.[statType],
+            fea.cond?.damageCut
+          );
           const condColor =
             cond === undefined || cond === 0 ? undefined : cond > 0;
 
-          const skillCond = fea.skillCond?.[statType];
+          const skillCond = Percent.accumulate(
+            fea.skillCond?.[statType],
+            fea.skillCond?.damageCut
+          );
           const skillCondColor =
             skillCond === undefined || skillCond === 0
               ? undefined
@@ -813,20 +819,21 @@ export default class Situation implements TableSource<Keys> {
           return tableColor.positive;
         }
 
-        const physicalDamageCut =
-          this.physicalDamageCut.getFactors(s).skillCondColor;
-        const magicalDamageCut =
-          this.magicalDamageCut.getFactors(s).skillCondColor;
+        const phyDamageCut = this.physicalDamageCut.getFactors(s);
+        const magDamageCut = this.magicalDamageCut.getFactors(s);
+
+        const phySkillCond = phyDamageCut.skillCondColor;
+        const magSkillCond = magDamageCut.skillCondColor;
 
         if (
-          physicalDamageCut ||
-          magicalDamageCut ||
+          phySkillCond ||
+          magSkillCond ||
           this.physicalEvasion.getFactors(s).skillColor ||
           this.magicalEvasion.getFactors(s).skillColor
         )
           return tableColor.positive;
 
-        if (physicalDamageCut === false || magicalDamageCut === false) {
+        if (phySkillCond === false || magSkillCond === false) {
           return tableColor.negative;
         }
 
@@ -836,11 +843,12 @@ export default class Situation implements TableSource<Keys> {
           if (fea.isConditionalBuff) return tableColor.positiveWeak;
         }
 
-        if (
-          this.physicalDamageCut.getFactors(s).condColor ||
-          this.magicalDamageCut.getFactors(s).condColor
-        )
-          return tableColor.positiveWeak;
+        const phyCond = phyDamageCut.condColor;
+        const magCond = magDamageCut.condColor;
+        if (phyCond || magCond) return tableColor.positiveWeak;
+
+        if (phyCond === false || magCond === false)
+          return tableColor.negativeWeak;
       },
     });
 
@@ -1233,18 +1241,20 @@ export default class Situation implements TableSource<Keys> {
     const ret = new Set<string>();
     const fn = (type: string, damage: number) => {
       const sign = damage > 0 ? "-" : "+";
-      ret.add(type + "Dmg" + sign + Math.abs(damage) + "%");
+      ret.add(type + "被Dmg" + sign + Math.abs(damage) + "%");
     };
 
     if (gen !== 0) fn("", gen);
 
-    if (phy !== 0 && phy === mag) {
-      fn("物理魔法", phy);
-      return ret;
-    }
+    if (gen < 100) {
+      if (phy !== 0 && phy === mag) {
+        fn("物理魔法", phy);
+        return ret;
+      }
 
-    if (phy > 0) fn("物理", phy);
-    if (mag > 0) fn("魔法", mag);
+      if (phy > 0) fn("物理", phy);
+      if (mag > 0) fn("魔法", mag);
+    }
     return ret;
   }
 
