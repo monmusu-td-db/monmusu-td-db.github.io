@@ -1,13 +1,5 @@
 [
   {
-    "hasPotentials": [
-      "物理ダメージ20%軽減"
-    ],
-    "supplements": [
-      "物理被Dmg-20%"
-    ]
-  },
-  {
     "isNotAbility": true,
     "hasPotentials": [
       "配置時バリア1500"

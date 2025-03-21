@@ -13,7 +13,6 @@ TODOリスト
   condition 特効の内容を表示
   8体以上同一属性編成
   Buffページに潜在覚醒ボーナスを適用
-  被ダメージ軽減supplement自動化(回避も)
   isAbilityの挙動改善
 */
 
@@ -1268,8 +1267,8 @@ const potentialList = [
   { name: "スキル再使用時間-6秒", stat: stat.cooldown, value: -6 },
   { name: "スキル初回待ち時間-6秒", stat: stat.initialTime, value: -6 },
   { name: "スキル初回待ち時間-12", stat: stat.initialTime, value: -12 },
-  { name: "物理ダメージ20%軽減", stat: stat.physicalLimit, value: 20 },
-  { name: "魔法ダメージ20%軽減", stat: stat.magicalLimit, value: 20 },
+  { name: "物理ダメージ20%軽減", stat: stat.physicalDamageCut, value: 20 },
+  { name: "魔法ダメージ20%軽減", stat: stat.magicalDamageCut, value: 20 },
   { name: "物理攻撃回避40%", stat: stat.physicalEvasion, value: 40 },
   { name: "魔法攻撃回避40%", stat: stat.magicalEvasion, value: 40 },
   { name: "HPが毎秒3%回復", stat: null, value: 3 },
