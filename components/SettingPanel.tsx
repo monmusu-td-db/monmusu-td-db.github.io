@@ -489,13 +489,19 @@ const _TabFormation = memo(function _TabFormation({
                   break;
               }
             }}
+            isMain
           />
         </Col>
         <Col>
           <BeastUI.Selector
             id={setting.subBeast}
-            onSelect={(n) => onChange({ subBeast: n })}
-            disabled={setting.mainBeast === -1}
+            onSelect={(n) => {
+              if (setting.mainBeast === -1) {
+                onChange({ mainBeast: n });
+              } else {
+                onChange({ subBeast: n });
+              }
+            }}
           />
         </Col>
       </ModalUI.FormGroup>
