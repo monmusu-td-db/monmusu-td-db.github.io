@@ -2539,6 +2539,70 @@
     }
   },
   {
+    "id": 54,
+    "unitName": "【グリフォン娘】クリフォ",
+    "unitShortName": "クリフォ",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 4465,
+    "attack": 717,
+    "defense": 351,
+    "resist": 106,
+    "exSkill1": {
+      "skillName": "清嵐舞踊",
+      "attackMul": 230,
+      "rounds": 2,
+      "rangeMul": 210,
+      "duration": 15,
+      "cooldown": 20,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "秘扇嵐爪",
+      "attack": 60,
+      "range": 10
+    },
+    "features": [
+      {
+        "target": [
+          1,
+          2
+        ],
+        "defenseDebuff": {
+          "key": "attack-base",
+          "valueAdd": 30
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "criChanceAdd": 10
+      },
+      {
+        "skill": 1,
+        "criChanceAdd": 30,
+        "criChanceLimitAdd": 30
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 56,
     "unitName": "【ザラタン娘】アックァ",
