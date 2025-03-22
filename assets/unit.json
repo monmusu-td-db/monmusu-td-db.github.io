@@ -4761,7 +4761,7 @@
     ]
   },
   {
-    "TODO_DESC": "スキル1射程はWiki情報/スキル1は5回強化可能?",
+    "TODO_DESC": "スキル1射程はWiki情報",
     "id": 92,
     "unitName": "【アクアドラゴン娘】ロヴィリス",
     "unitShortName": "ロヴィリス",
@@ -9908,6 +9908,115 @@
     "potentialBonus": {
       "moveSpeedMul": 370
     }
+  },
+  {
+    "id": 206,
+    "unitName": "【参詣のアクアドラゴン娘】ロヴィリス",
+    "unitShortName": "ロヴィリス/正月",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "水",
+    "species": "竜",
+    "hp": 2548,
+    "attack": 972,
+    "defense": 235,
+    "resist": 573,
+    "supplements": [
+      "CT-1秒/敵撃破時"
+    ],
+    "exSkill1": {
+      "skillName": "ドラゴニックウェーブ",
+      "attackMul": 300,
+      "splash": false,
+      "laser": true,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "魔法防御力+90",
+      "近接マスに配置可能"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "attack": 109,
+        "potentialBonus": {
+          "attack": 114
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "magicalDamageCut": 25
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "magicalDamageCut": 50
+      },
+      {
+        "featureName": "common-skill1-phase2",
+        "attackMul": 130,
+        "rangeMul": 130
+      },
+      {
+        "featureName": "common-skill1-phase3",
+        "attackMul": 160,
+        "rangeMul": 160
+      },
+      {
+        "featureName": "common-skill1-phase4",
+        "attackMul": 190,
+        "rangeMul": 190
+      },
+      {
+        "featureName": "common-skill1-phase5",
+        "attackMul": 220,
+        "rangeMul": 220
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase5"
+        ]
+      }
+    ]
   },
   {
     "id": 212,
