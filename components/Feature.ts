@@ -156,7 +156,7 @@ export const Debuff = {
           value = obj.valueAdd;
       }
       if (obj.time === undefined) {
-        return value * rounds;
+        return value;
       } else {
         return (
           value *
