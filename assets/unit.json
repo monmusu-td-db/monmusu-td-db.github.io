@@ -3881,6 +3881,108 @@
     "isUnhealable": true
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 73,
+    "unitName": "【ワーラット娘】ラタ",
+    "unitShortName": "ラタ",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "hp": 4054,
+    "attack": 501,
+    "defense": 415,
+    "resist": 125,
+    "exSkill1": {
+      "skillName": "つかまらないっち！",
+      "hpMul": 180,
+      "attackMul": 190,
+      "duration": "永続",
+      "cooldown": 120,
+      "supplements": [
+        "移動可"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalEvasion": 50,
+        "magicalEvasion": 50
+      },
+      {
+        "featureName": "dot",
+        "isAbility": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 5
+        },
+        "interval": 30,
+        "damageType": "貫通",
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 6
+          }
+        }
+      },
+      {
+        "featureName": "dot",
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack",
+          "value": 15
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 18
+          }
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 74,
     "unitName": "【オークロード娘】デルボア",
     "unitShortName": "デルボア",
