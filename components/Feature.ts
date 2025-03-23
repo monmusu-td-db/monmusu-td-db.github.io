@@ -32,6 +32,8 @@ const Require = {
     return true;
   },
 } as const;
+export type FeatureRequire = Require;
+export const FeatureRequire = Require;
 
 const additionFactorKeys = {
   HP: stat.hp,
@@ -489,8 +491,9 @@ export class Feature {
           case keys.damageCut:
           case keys.physicalDamageCut:
           case keys.magicalDamageCut:
-            return (ret[key] =
-              100 - Data.Percent.multiply(100 - ret[key], 100 - feature[key]));
+          case keys.physicalEvasion:
+          case keys.magicalEvasion:
+            return (ret[key] = Data.Percent.accumulate(ret[key], feature[key]));
 
           case keys.criChanceAdd:
           case keys.criDamageAdd:

@@ -2620,6 +2620,90 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 55,
+    "unitName": "【シルフ娘】シルフィーネ",
+    "unitShortName": "シルフィーネ",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 4321,
+    "attack": 649,
+    "defense": 348,
+    "resist": 103,
+    "exSkill1": {
+      "skillName": "幻惑の風",
+      "attackMul": 180,
+      "duration": 10,
+      "cooldown": 30,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "移動速度1.5倍"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "風"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "features": [
+      {
+        "physicalEvasion": 40,
+        "magicalEvasion": 40,
+        "fieldBuffFactor": 200
+      },
+      {
+        "require": [
+          "風マス"
+        ],
+        "criChanceAdd": 20
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "physicalEvasion": 50,
+        "magicalEvasion": 50,
+        "supplements": [
+          "物理魔法回避50%→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "critical-chance-add",
+        "require": [
+          "風マス"
+        ],
+        "target": "射程内",
+        "value": 20
+      },
+      {
+        "type": "physical-evasion",
+        "skill": 1,
+        "target": "射程内",
+        "value": 50
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 56,
     "unitName": "【ザラタン娘】アックァ",

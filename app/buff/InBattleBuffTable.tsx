@@ -7,9 +7,10 @@ import {
   type BuffTableItem,
   type BuffTableSource,
 } from "@/components/BuffTable";
-import Unit, { JsonBuff, type JsonUnit } from "@/components/Unit";
+import Unit, { type JsonBuff, type JsonUnit } from "@/components/Unit";
 import type { ReactNode } from "react";
 import styles from "./InBattleBuffTable.module.css";
+import { FeatureRequire } from "@/components/Feature";
 
 const columnKeys = [
   "id",
@@ -24,10 +25,14 @@ const columnKeys = [
   "attackMul",
   "defenseMul",
   "resistMul",
+  "criChanceAdd",
+  "criDamageAdd",
   "damageFactor",
   "damageDebuff",
   "physicalDamageDebuff",
   "magicalDamageDebuff",
+  "physicalEvasion",
+  "magicalEvasion",
   "moveSpeedAdd",
   "redeployTimeCut",
   "withdrawCostReturn",
@@ -51,8 +56,12 @@ const columnName = {
   resistMul: "魔防乗算",
   damageFactor: "ダメージ倍率",
   damageDebuff: "敵被ダメージ増加",
+  criChanceAdd: "クリティカル率増加",
+  criDamageAdd: "クリティカルダメージ増加",
   physicalDamageDebuff: "敵物理被ダメージ増加",
   magicalDamageDebuff: "敵魔法被ダメージ増加",
+  physicalEvasion: "物理回避付与",
+  magicalEvasion: "魔法回避付与",
   moveSpeedAdd: "移動速度加算",
   redeployTimeCut: "再出撃短縮",
   withdrawCostReturn: "撤退時コスト回復量",
@@ -69,6 +78,10 @@ const BuffType = {
   damageDebuff: "damage-debuff",
   physicalDamageDebuff: "physical-damage-debuff",
   magicalDamageDebuff: "magical-damage-debuff",
+  criChanceAdd: "critical-chance-add",
+  criDamageAdd: "critical-damage-add",
+  physicalEvasion: "physical-evasion",
+  magicalEvasion: "magical-evasion",
   moveSpeedAdd: "move-speed-add",
   redeployTimeCut: "redeploy-time-cut",
   withdrawCostReturn: "withdraw-cost-return",
@@ -115,7 +128,7 @@ function getItems(): readonly Item[] {
     if (buffs === undefined || buffs.length === 0) return;
 
     buffs.forEach((buff, index) => {
-      const getBuffValue = (type: BuffType) =>
+      const fn = (type: BuffType) =>
         buff.type === type ? buff.value : undefined;
       const skill = getSkill(src, buff.skill);
 
@@ -131,25 +144,25 @@ function getItems(): readonly Item[] {
       );
       const duration = getDuration(buff.duration ?? skill?.duration);
       const cooldown = getDuration(skill?.cooldown);
-      const hpMul = getMulFactor(getBuffValue(BuffType.hpMul));
-      const attackMul = getMulFactor(getBuffValue(BuffType.attackMul));
-      const defenseMul = getMulFactor(getBuffValue(BuffType.defenseMul));
-      const resistMul = getMulFactor(getBuffValue(BuffType.resistMul));
-      const damageFactor = getDamageFactor(getBuffValue(BuffType.damageFactor));
-      const damageDebuff = getMulFactor(getBuffValue(BuffType.damageDebuff));
+      const hpMul = getMulFactor(fn(BuffType.hpMul));
+      const attackMul = getMulFactor(fn(BuffType.attackMul));
+      const defenseMul = getMulFactor(fn(BuffType.defenseMul));
+      const resistMul = getMulFactor(fn(BuffType.resistMul));
+      const damageFactor = getDamageFactor(fn(BuffType.damageFactor));
+      const damageDebuff = getMulFactor(fn(BuffType.damageDebuff));
+      const criChanceAdd = getPercent(fn(BuffType.criChanceAdd));
+      const criDamageAdd = getPercent(fn(BuffType.criDamageAdd));
       const physicalDamageDebuff = getMulFactor(
-        getBuffValue(BuffType.physicalDamageDebuff)
+        fn(BuffType.physicalDamageDebuff)
       );
       const magicalDamageDebuff = getMulFactor(
-        getBuffValue(BuffType.magicalDamageDebuff)
+        fn(BuffType.magicalDamageDebuff)
       );
-      const moveSpeedAdd = getBuffValue(BuffType.moveSpeedAdd);
-      const redeployTimeCut = getPercent(
-        getBuffValue(BuffType.redeployTimeCut)
-      );
-      const withdrawCostReturn = getPercent(
-        getBuffValue(BuffType.withdrawCostReturn)
-      );
+      const physicalEvasion = getPercent(fn(BuffType.physicalEvasion));
+      const magicalEvasion = getPercent(fn(BuffType.magicalEvasion));
+      const moveSpeedAdd = fn(BuffType.moveSpeedAdd);
+      const redeployTimeCut = getPercent(fn(BuffType.redeployTimeCut));
+      const withdrawCostReturn = getPercent(fn(BuffType.withdrawCostReturn));
       const fieldChange = getFieldChange(buff);
       const supplement = getSupplement(buff);
 
@@ -168,8 +181,12 @@ function getItems(): readonly Item[] {
         resistMul,
         damageFactor,
         damageDebuff,
+        criChanceAdd,
+        criDamageAdd,
         physicalDamageDebuff,
         magicalDamageDebuff,
+        physicalEvasion,
+        magicalEvasion,
         moveSpeedAdd,
         redeployTimeCut,
         withdrawCostReturn,
@@ -276,9 +293,26 @@ function getSupplement(buff: JsonBuff): ReactNode {
   const texts: ReactNode[] = [];
   const add = (arg: ReactNode) => texts.push(arg);
 
-  if (buff.require?.includes(JsonBuff.require.weapon)) {
-    add(<span className="text-danger">武器効果</span>); // TODO
-  }
+  buff.require?.forEach((str) => {
+    let text;
+    switch (str) {
+      case FeatureRequire.weapon:
+        text = "武器効果";
+        break;
+      case FeatureRequire.fire:
+      case FeatureRequire.water:
+      case FeatureRequire.earth:
+      case FeatureRequire.wind:
+      case FeatureRequire.light:
+      case FeatureRequire.dark:
+        text = str + "配置時";
+        break;
+      default:
+        text = str;
+        break;
+    }
+    add(<span className="text-danger">{text}</span>); // TODO
+  });
 
   buff.supplements?.forEach((text) => add(text));
 

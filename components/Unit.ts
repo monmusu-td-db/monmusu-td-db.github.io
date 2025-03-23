@@ -124,11 +124,6 @@ export type JsonBuff = Readonly<{
     "type" | "require" | "skill" | "potentialBonus"
   >;
 }>;
-export const JsonBuff = {
-  require: {
-    weapon: "武器",
-  },
-} as const;
 type JsonBuffs = readonly JsonBuff[];
 
 const keys = [
