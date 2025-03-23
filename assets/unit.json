@@ -4941,6 +4941,63 @@
     "blockAdd": 1
   },
   {
+    "id": 87,
+    "unitName": "【デーモン娘】メド",
+    "unitShortName": "メド",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 5939,
+    "attack": 1189,
+    "defense": 457,
+    "resist": 137,
+    "exSkill1": {
+      "skillName": "ステゴロ1本勝負",
+      "attackMul": 600,
+      "duration": 10,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "まとめてぶっ壊す！",
+      "attackMul": 600,
+      "fixedDelay": 1,
+      "splash": true,
+      "range": 160,
+      "duration": "単発",
+      "cooldown": 25,
+      "supplements": [
+        "CT-2秒/敵撃破時"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "features": [
+      {
+        "magicalDamageCut": 20
+      }
+    ],
+    "isEventUnit": true,
+    "attackMul": 125,
+    "potentialBonus": {
+      "attackMul": 130
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 89,
     "unitName": "【バンシー娘】アンセ",
     "unitShortName": "アンセ",
