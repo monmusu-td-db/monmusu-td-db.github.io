@@ -1732,6 +1732,23 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-fire-field"
+        ]
       }
     ]
   },
