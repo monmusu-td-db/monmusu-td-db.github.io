@@ -4174,6 +4174,54 @@
     }
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 76,
+    "unitName": "【ワーベア娘】テティ",
+    "unitShortName": "テティ",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "地",
+    "hp": 6246,
+    "attack": 984,
+    "defense": 445,
+    "resist": 134,
+    "exSkill1": {
+      "skillName": "キャワワって言いなさい！",
+      "hpMul": 180,
+      "attackMul": 210,
+      "defenseMul": 180,
+      "duration": "永続",
+      "cooldown": 120
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "isEventUnit": true,
+    "costAdd": 4,
+    "hpMul": 110,
+    "attackMul": 115,
+    "potentialBonus": {
+      "hpMul": 115,
+      "attackMul": 118
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 77,
     "unitName": "【ワイバーン娘】アーラ",
     "unitShortName": "アーラ",
