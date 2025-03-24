@@ -8865,6 +8865,49 @@
     "isUnhealable": true
   },
   {
+    "id": 174,
+    "unitName": "【ドッペルゲンガー娘】ラッツェル",
+    "unitShortName": "ラッツェル",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "hp": 4195,
+    "attack": 493,
+    "defense": 413,
+    "resist": 123,
+    "exSkill1": {
+      "skillName": "影の刃",
+      "attackMul": 160,
+      "targetAdd": 2,
+      "duration": 15,
+      "cooldown": 40,
+      "damageType": "貫通"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalDebuff": true,
+        "supplements": [
+          "999999dmg→自身/スキル後"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 175,
     "unitName": "【ジャバウォック娘】リデル",
     "unitShortName": "リデル",

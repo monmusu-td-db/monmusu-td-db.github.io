@@ -237,10 +237,17 @@ export default class Situation implements TableSource<Keys> {
           return tableColor.positive;
 
         const f = this.getFeature(s);
-        if (f.isConditionalBuff && f.cond?.conditions)
-          return tableColor.positiveWeak;
-        if (f.isConditionalDebuff && f.cond?.conditions)
-          return tableColor.negativeWeak;
+        const skillCond = f.skillCond?.conditions;
+        if (skillCond !== undefined && skillCond.length > 0) {
+          if (f.isConditionalSkillBuff) return tableColor.positive;
+          if (f.isConditionalSkillDebuff) return tableColor.negative;
+        }
+
+        const condBuff = f.cond?.conditions;
+        if (condBuff !== undefined && condBuff.length > 0) {
+          if (f.isConditionalBuff) return tableColor.positiveWeak;
+          if (f.isConditionalDebuff) return tableColor.negativeWeak;
+        }
       },
     });
 
@@ -814,18 +821,14 @@ export default class Situation implements TableSource<Keys> {
         if (this.getSkill(s)?.supplements && !this.getFeature(s).isAbility)
           return tableColor.positive;
 
-        const skillCond = fea.skillCond?.supplements;
-        if (skillCond !== undefined && skillCond.size > 0) {
-          return tableColor.positive;
-        }
-
+        const skillCond = (fea.skillCond?.supplements?.size ?? 0) > 0;
         const phyDamageCut = this.physicalDamageCut.getFactors(s);
         const magDamageCut = this.magicalDamageCut.getFactors(s);
-
         const phySkillCond = phyDamageCut.skillCondColor;
         const magSkillCond = magDamageCut.skillCondColor;
 
         if (
+          (skillCond && fea.isConditionalSkillBuff) ||
           phySkillCond ||
           magSkillCond ||
           this.physicalEvasion.getFactors(s).skillColor ||
@@ -833,7 +836,11 @@ export default class Situation implements TableSource<Keys> {
         )
           return tableColor.positive;
 
-        if (phySkillCond === false || magSkillCond === false) {
+        if (
+          (skillCond && fea.isConditionalSkillDebuff) ||
+          phySkillCond === false ||
+          magSkillCond === false
+        ) {
           return tableColor.negative;
         }
 
@@ -1164,7 +1171,7 @@ export default class Situation implements TableSource<Keys> {
     ret.cond = Feature.calculateList(condFeatures, isPotentialApplied);
 
     const skillFeatures = filteredFeatures.filter(
-      (f) => f.isConditionalSkillBuff
+      (f) => f.isConditionalSkillBuff || f.isConditionalSkillDebuff
     );
     ret.skillCond = Feature.calculateList(skillFeatures, isPotentialApplied);
 
