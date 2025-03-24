@@ -1130,10 +1130,14 @@ export default class Situation implements TableSource<Keys> {
         f.skill !== this.skill
       )
         return;
+
+      const noWeapon = setting.weapon === Setting.NONE;
+      const noSkill = this.getSkill(setting) === undefined;
       if (
-        (f.require?.has(Feature.require.weapon) && setting.weapon === "none") ||
-        (f.require?.has(Feature.require.skill) &&
-          this.getSkill(setting) === undefined)
+        (f.require?.has(Feature.require.weapon) && noWeapon) ||
+        (f.require?.has(Feature.require.skill) && noSkill) ||
+        (f.exclude?.has(Feature.require.weapon) && !noWeapon) ||
+        (f.exclude?.has(Feature.require.skill) && !noSkill)
       )
         return;
 
@@ -1151,6 +1155,7 @@ export default class Situation implements TableSource<Keys> {
     const filteredFeatures = tempFeatures.filter((f) => {
       return (
         Feature.require.isElementApplied(f.require, fieldElements) &&
+        !Feature.require.isElementExcluded(f.exclude, fieldElements) &&
         !(isAbility && f.isNotAbility)
       );
     });

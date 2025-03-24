@@ -18,18 +18,33 @@ const require = {
 type Require = (typeof require)[keyof typeof require];
 const Require = {
   ...require,
+
+  list: Object.values(require),
+
   isElementApplied(
     requirements: ReadonlySet<Require> | undefined,
     fieldElements: ReadonlySet<Data.Element>
   ): boolean {
     if (requirements === undefined) return true;
     const element = Data.Element.name;
-    for (const v of Object.keys(element)) {
-      const k = v as keyof typeof element;
+    for (const k of Data.Element.list) {
       if (requirements.has(require[k]) && !fieldElements.has(element[k]))
         return false;
     }
     return true;
+  },
+
+  isElementExcluded(
+    excludeList: ReadonlySet<Require> | undefined,
+    fieldElements: ReadonlySet<Data.Element>
+  ): boolean {
+    if (excludeList === undefined) return false;
+    const element = Data.Element.name;
+    for (const k of Data.Element.list) {
+      if (excludeList.has(require[k]) && fieldElements.has(element[k]))
+        return true;
+    }
+    return false;
   },
 } as const;
 export type FeatureRequire = Require;
@@ -313,6 +328,7 @@ type JsonFeatureBase = Readonly<Partial<CommonFeature & JsonFeatureDiff>>;
 export interface JsonFeature extends JsonFeatureBase {
   readonly featureName?: string;
   readonly require?: readonly string[];
+  readonly exclude?: readonly string[];
   readonly skill?: number;
   readonly isBuffSkill?: boolean;
   readonly hasPotentials?: Data.JsonPotentials;
@@ -322,6 +338,7 @@ type FeatureCore = Partial<CommonFeature & FeatureDiff>;
 interface FeatureObject extends FeatureCore {
   featureName?: string;
   require?: Set<Require>;
+  exclude?: Set<Require>;
   skill?: number;
   isBuffSkill?: boolean;
   hasPotentials?: Set<Data.Potential>;
@@ -334,6 +351,7 @@ export type FeatureOutputCore = Partial<
 export interface FeatureOutput extends FeatureOutputCore {
   featureName?: string;
   require?: ReadonlySet<Require>;
+  exclude?: ReadonlySet<Require>;
   skill?: number;
   isBuffSkill?: boolean;
   hasPotentials?: ReadonlySet<Data.Potential>;
@@ -348,6 +366,7 @@ export class Feature {
 
     if (src.featureName !== undefined) ret.featureName = src.featureName;
     if (src.require !== undefined) ret.require = this.parseRequire(src.require);
+    if (src.exclude !== undefined) ret.exclude = this.parseRequire(src.exclude);
     if (src.skill !== undefined) ret.skill = src.skill;
     if (src.isBuffSkill !== undefined) ret.isBuffSkill = src.isBuffSkill;
     if (src.hasPotentials !== undefined)
@@ -455,7 +474,7 @@ export class Feature {
   }
 
   static parseRequire(src: readonly string[]): Set<Require> {
-    return new Set(Object.values(require).filter((v) => src.includes(v)));
+    return new Set(Require.list.filter((v) => src.includes(v)));
   }
 
   static parseList(

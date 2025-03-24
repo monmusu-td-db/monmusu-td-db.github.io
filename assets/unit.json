@@ -9059,6 +9059,69 @@
     "isUnhealable": true
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 177,
+    "unitName": "【蹴才のハーピー娘】フェルミ",
+    "unitShortName": "フェルミ/学園",
+    "rarity": "E",
+    "class": "モンク",
+    "element": "風",
+    "hp": 6735,
+    "attack": 863,
+    "defense": 328,
+    "resist": 137,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "邪魔しないで！",
+      "attackMul": 200,
+      "rounds": 4,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "即死(低)"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "移動消費コスト-2"
+    ],
+    "features": [
+      {
+        "exclude": [
+          "風マス"
+        ],
+        "physicalEvasion": 20,
+        "magicalEvasion": 20,
+        "potentialBonus": {
+          "physicalEvasion": 25,
+          "magicalEvasion": 25
+        }
+      },
+      {
+        "require": [
+          "風マス"
+        ],
+        "physicalEvasion": 40,
+        "magicalEvasion": 40,
+        "potentialBonus": {
+          "physicalEvasion": 50,
+          "magicalEvasion": 50
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 179,
     "unitName": "【援武のカトブレパス娘】ニグリュ",
     "unitShortName": "ニグリュ/学園",
