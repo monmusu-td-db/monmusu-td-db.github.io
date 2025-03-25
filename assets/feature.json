@@ -203,6 +203,18 @@
     "damageType": "吸収"
   },
   {
+    "featureName": "common-melee",
+    "conditions": [
+      "近"
+    ]
+  },
+  {
+    "featureName": "common-ranged",
+    "conditions": [
+      "遠"
+    ]
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [

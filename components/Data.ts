@@ -14,6 +14,9 @@ TODOリスト
   8体以上同一属性編成
   Buffページに潜在覚醒ボーナスを適用
   isAbilityの挙動改善
+
+メモ
+  モンクの射程は固定だが表示上だけ変動する
 */
 
 // Const
@@ -1253,6 +1256,7 @@ const potentialList = [
   { name: "物理防御力+90", stat: stat.defense, value: 90 },
   { name: "魔法防御力+60", stat: stat.resist, value: 60 },
   { name: "魔法防御力+90", stat: stat.resist, value: 90 },
+  { name: "攻撃速度+10", stat: stat.attackSpeed, value: 10 },
   { name: "攻撃速度+15", stat: stat.attackSpeed, value: 15 },
   { name: "射程+10", stat: stat.range, value: 10 },
   { name: "射程+15", stat: stat.range, value: 15 },

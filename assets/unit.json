@@ -9803,6 +9803,179 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 187,
+    "unitName": "【ワーウルフ娘】ウォルーザ",
+    "unitShortName": "ウォルーザ",
+    "rarity": "E",
+    "class": "モンク",
+    "element": "闇",
+    "hp": 7240,
+    "attack": 827,
+    "defense": 316,
+    "resist": 137,
+    "exSkill1": {
+      "skillName": "守ってみせる！",
+      "hpMul": 270,
+      "attackMul": 170,
+      "attackSpeedBuff": 150,
+      "fixedDelay": 11,
+      "duration": "永続",
+      "cooldown": 140
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃速度+10",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "featureName": "normal",
+        "range": 200
+      },
+      {
+        "featureName": "normal",
+        "skill": 0,
+        "supplements": [
+          "被Dmg15%引受→射程内"
+        ]
+      },
+      {
+        "featureName": "normal",
+        "skill": 1,
+        "supplements": [
+          "被Dmg25%引受→射程内"
+        ]
+      },
+      {
+        "featureName": "common-ranged",
+        "isConditionalDebuff": true,
+        "interval": null,
+        "target": 0,
+        "rounds": 1,
+        "damageType": null,
+        "supplements": [
+          "非ブロック時攻撃不可"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 1
+        },
+        "supplements": [
+          "回復1%/攻撃"
+        ],
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "hp",
+            "value": 2
+          },
+          "supplements": [
+            "回復2%/攻撃"
+          ]
+        }
+      },
+      {
+        "featureName": "common-absorb",
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 2
+        },
+        "supplements": [
+          "回復2%/攻撃"
+        ],
+        "deleteSupplements": [
+          "回復1%/攻撃"
+        ],
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "hp",
+            "value": 3
+          },
+          "supplements": [
+            "回復3%/攻撃"
+          ],
+          "deleteSupplements": [
+            "回復2%/攻撃"
+          ]
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "common-melee",
+          "normal"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "normal"
+        ]
+      },
+      {
+        "depend": [
+          "class-attack"
+        ]
+      },
+      {
+        "depend": [
+          "class-attack"
+        ],
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-ranged",
+          "normal"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "normal"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-melee",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate-2%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 188,
     "unitName": "【闇の墓守】リッチ",
     "unitShortName": "リッチ",
@@ -13759,17 +13932,17 @@
       {
         "supplements": [
           "復活HP100%(1回のみ)",
-          "被Dmg25%引受"
+          "被Dmg25%引受→射程内"
         ]
       },
       {
         "skill": 1,
         "isConditionalSkillBuff": true,
         "supplements": [
-          "被Dmg35%引受"
+          "被Dmg35%引受→射程内"
         ],
         "deleteSupplements": [
-          "被Dmg25%引受"
+          "被Dmg25%引受→射程内"
         ]
       },
       {
