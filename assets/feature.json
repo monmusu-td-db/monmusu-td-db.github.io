@@ -193,6 +193,16 @@
     "hits": 3
   },
   {
+    "featureName": "common-absorb",
+    "isAbility": true,
+    "conditions": [
+      "吸"
+    ],
+    "target": "自分",
+    "flagRangeIsVisible": true,
+    "damageType": "吸収"
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [

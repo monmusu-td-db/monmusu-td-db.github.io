@@ -5069,6 +5069,79 @@
     ]
   },
   {
+    "id": 91,
+    "unitName": "【アルプ娘】ルププ",
+    "unitShortName": "ルププ",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 4060,
+    "attack": 493,
+    "defense": 427,
+    "resist": 120,
+    "moveType": "隠密",
+    "exSkill1": {
+      "skillName": "インビジフード",
+      "attackMul": 180,
+      "target": 3,
+      "block": 0,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃速度+15"
+    ],
+    "features": [
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          "特"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "supplements": [
+          "回復3%/女性に攻撃"
+        ],
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "hp",
+            "value": 4
+          },
+          "supplements": [
+            "回復4%/女性に攻撃"
+          ]
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "スキル1射程はWiki情報",
     "id": 92,
     "unitName": "【アクアドラゴン娘】ロヴィリス",
