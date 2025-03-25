@@ -5069,6 +5069,7 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 91,
     "unitName": "【アルプ娘】ルププ",
     "unitShortName": "ルププ",
@@ -6034,6 +6035,88 @@
       }
     ],
     "isUnhealable": true
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 99,
+    "unitName": "【スプリガン娘】プリン",
+    "unitShortName": "プリン",
+    "rarity": "E",
+    "class": "シールドナイト",
+    "element": "光",
+    "hp": 6256,
+    "attack": 554,
+    "defense": 885,
+    "resist": 210,
+    "exSkill1": {
+      "skillName": "グロウアップボディ",
+      "hpMul": 200,
+      "attackMul": 140,
+      "defenseMul": 140,
+      "blockAdd": 1,
+      "duration": 35,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "features": [
+      {
+        "featureName": "common-skill1-phase2",
+        "hpMul": 140,
+        "attackMul": 140,
+        "defenseMul": 140
+      },
+      {
+        "featureName": "common-skill1-phase3",
+        "hpMul": 180,
+        "attackMul": 180,
+        "defenseMul": 180
+      },
+      {
+        "featureName": "common-skill1-phase4",
+        "hpMul": 220,
+        "attackMul": 220,
+        "defenseMul": 220
+      }
+    ],
+    "costAdd": -6,
+    "hpMul": 80,
+    "attackMul": 80,
+    "potentialBonus": {
+      "costAdd": -8
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase4"
+        ]
+      }
+    ]
   },
   {
     "id": 101,
