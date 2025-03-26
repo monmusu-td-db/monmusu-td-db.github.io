@@ -6361,6 +6361,111 @@
     "isUnhealable": true
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 108,
+    "unitName": "【レッドキャップ娘】レップ",
+    "unitShortName": "レップ",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "火",
+    "hp": 6204,
+    "attack": 968,
+    "defense": 453,
+    "resist": 135,
+    "exSkill1": {
+      "skillName": "血塗れパーティタイム！",
+      "attackMul": 320,
+      "duration": 25,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃力+75"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "damageFactor": 110,
+        "supplements": [
+          "HP-50/秒"
+        ],
+        "potentialBonus": {
+          "damageFactor": 113
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "HP-150/秒"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 130,
+        "potentialBonus": {
+          "damageFactor": 139
+        }
+      },
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "種族特性"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "skill": 0,
+        "staticDamage": {
+          "key": "hp",
+          "value": 6
+        },
+        "supplements": [
+          "回復6%/攻撃"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "staticDamage": {
+          "key": "hp",
+          "value": 30
+        },
+        "supplements": [
+          "回復30%/攻撃"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "id": 109,
     "unitName": "【初雷のサンダーバード娘】ワエマワ",
     "unitShortName": "ワエマワ/正月",
