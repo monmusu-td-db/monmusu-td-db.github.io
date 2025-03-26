@@ -1306,5 +1306,24 @@ const units = (() => {
   jsonUnits.forEach((item: JsonUnit) => {
     if (!item.DISABLED) ret.push(new Unit(item));
   });
+
+  if (process.env.NODE_ENV !== "production") {
+    const ids = new Set<number>();
+    let lastId = -1;
+    ret.forEach((unit) => {
+      const id = unit.src.parentId ?? unit.src.id;
+      ids.add(id);
+      if (lastId < id) lastId = id;
+    });
+    console.log(
+      "必要実装数:" +
+        (lastId - ids.size) +
+        "　実装済み:" +
+        ids.size +
+        "　最新ユニットID:" +
+        lastId
+    );
+  }
+
   return ret;
 })();
