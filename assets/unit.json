@@ -6650,6 +6650,63 @@
     "isUnhealable": true
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 112,
+    "unitName": "【バフォメット娘】ソーヴェグラー",
+    "unitShortName": "ソーヴェグラー",
+    "rarity": "E",
+    "class": "コンジャラー",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 2586,
+    "attack": 568,
+    "defense": 245,
+    "resist": 572,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "サクリファイスゴート",
+      "attackMul": 250,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "魔法防御力+90",
+      "魔法防御力+90"
+    ],
+    "features": [
+      {
+        "damageFactor": 160,
+        "potentialBonus": {
+          "damageFactor": 170
+        }
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "HP-2%/攻撃→射程内味方"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "HP-5%/攻撃→射程内味方"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 114,
     "unitName": "【アイアンゴーレム娘】アイレン",
     "unitShortName": "アイレン",
