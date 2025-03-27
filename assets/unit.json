@@ -1143,7 +1143,10 @@
         },
         "target": "自分",
         "flagRangeIsVisible": true,
-        "damageType": "吸収"
+        "damageType": "吸収",
+        "supplements": [
+          "回復5%/命中女性"
+        ]
       }
     ]
   },
@@ -1237,7 +1240,10 @@
         },
         "target": "自分",
         "flagRangeIsVisible": true,
-        "damageType": "吸収"
+        "damageType": "吸収",
+        "supplements": [
+          "回復3%/命中男性"
+        ]
       }
     ],
     "situations": [
@@ -5114,7 +5120,7 @@
           "value": 3
         },
         "supplements": [
-          "回復3%/女性に攻撃"
+          "回復3%/命中女性"
         ],
         "potentialBonus": {
           "staticDamage": {
@@ -5122,7 +5128,7 @@
             "value": 4
           },
           "supplements": [
-            "回復4%/女性に攻撃"
+            "回復4%/命中女性"
           ]
         }
       }
@@ -6428,7 +6434,7 @@
           "value": 6
         },
         "supplements": [
-          "回復6%/攻撃"
+          "回復6%/命中"
         ]
       },
       {
@@ -6440,7 +6446,7 @@
           "value": 30
         },
         "supplements": [
-          "回復30%/攻撃"
+          "回復30%/命中"
         ]
       }
     ],
@@ -6687,14 +6693,14 @@
       {
         "skill": 0,
         "supplements": [
-          "HP-2%/攻撃→射程内味方"
+          "HP-2%/命中→射程内他味方"
         ]
       },
       {
         "skill": 1,
         "isConditionalSkillDebuff": true,
         "supplements": [
-          "HP-5%/攻撃→射程内味方"
+          "HP-5%/命中→射程内他味方"
         ]
       }
     ],
@@ -10032,7 +10038,7 @@
           "value": 1
         },
         "supplements": [
-          "回復1%/攻撃"
+          "回復1%/命中"
         ],
         "potentialBonus": {
           "staticDamage": {
@@ -10040,7 +10046,7 @@
             "value": 2
           },
           "supplements": [
-            "回復2%/攻撃"
+            "回復2%/命中"
           ]
         }
       },
@@ -10054,10 +10060,10 @@
           "value": 2
         },
         "supplements": [
-          "回復2%/攻撃"
+          "回復2%/命中"
         ],
         "deleteSupplements": [
-          "回復1%/攻撃"
+          "回復1%/命中"
         ],
         "potentialBonus": {
           "staticDamage": {
@@ -10065,10 +10071,10 @@
             "value": 3
           },
           "supplements": [
-            "回復3%/攻撃"
+            "回復3%/命中"
           ],
           "deleteSupplements": [
-            "回復2%/攻撃"
+            "回復2%/命中"
           ]
         }
       }
@@ -10356,7 +10362,7 @@
         "target": "自分",
         "damageType": "吸収",
         "supplements": [
-          "回復14%/攻撃"
+          "回復14%/命中"
         ]
       },
       {
@@ -10369,10 +10375,10 @@
           "value": 15
         },
         "supplements": [
-          "回復15%/攻撃"
+          "回復15%/命中"
         ],
         "deleteSupplements": [
-          "回復14%/攻撃"
+          "回復14%/命中"
         ]
       },
       {
