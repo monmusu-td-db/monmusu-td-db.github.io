@@ -11,7 +11,7 @@ interface JsonClass {
   target?: number | string;
   rounds?: Data.JsonRound;
   splash?: boolean;
-  lancerTarget?: boolean;
+  wideTarget?: boolean;
   range?: number;
   moveSpeed: number;
   moveType?: string;
@@ -38,7 +38,7 @@ class Class {
   readonly target: Data.TargetBase;
   readonly rounds: Data.Rounds;
   readonly splash: boolean;
-  readonly lancerTarget: boolean;
+  readonly wideTarget: boolean;
   readonly range: number | undefined;
   readonly moveSpeed: number;
   readonly moveType: Data.MoveType;
@@ -58,7 +58,7 @@ class Class {
     this.target = Data.JsonTarget.parse(src.target) ?? 1;
     this.rounds = Data.JsonRound.parse(src.rounds ?? 1);
     this.splash = src.splash ?? false;
-    this.lancerTarget = src.lancerTarget ?? false;
+    this.wideTarget = src.wideTarget ?? false;
     this.range = src.range;
     this.moveSpeed = src.moveSpeed;
     this.moveType = Data.MoveType.parse(src.moveType) ?? Data.MoveType.normal;

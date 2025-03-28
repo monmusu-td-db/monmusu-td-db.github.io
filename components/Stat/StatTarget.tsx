@@ -6,6 +6,9 @@ import { StatTooltip } from "./StatTooltip";
 import type { StatHandler } from "./StatRoot";
 import { Level, Positive } from "../Util";
 
+const PLUS = "+";
+const MULTIPLY = <>&#8203;×</>;
+
 export class StatTarget extends StatTooltip<
   Data.Target | undefined,
   Data.TargetFactors | undefined
@@ -32,7 +35,7 @@ export class StatTarget extends StatTooltip<
   protected override getDefaultItem(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;
-    const { target, splash, rounds, lancerTarget, laser } = f;
+    const { target, splash, rounds, wideTarget, laser } = f;
 
     const contents: ReactNode[] = (() => {
       switch (target) {
@@ -46,49 +49,39 @@ export class StatTarget extends StatTooltip<
       }
       const targets = Array.isArray(target) ? target : [target];
 
-      return targets.flatMap((tgt) => {
-        function fn(value: number) {
-          const multiply = <>&#8203;×</>;
-          let t, tar;
+      return targets.flatMap((target) => {
+        function fn(round: number) {
+          let base, noOmit;
 
           if (laser) {
-            t = "直線上";
-            tar = true;
+            base = "直線上";
+            noOmit = true;
           } else {
-            if (tgt < 1) return 0;
-            t = tgt === Infinity ? Data.Target.inRange : tgt;
-            tar = tgt > 1;
+            if (target < 1) return 0;
+            base = target === Infinity ? Data.Target.inRange : target;
+            noOmit = target > 1;
           }
 
-          const tx = tar || (tgt === 1 && lancerTarget);
-          const start = tx && lancerTarget && splash ? "(" : "";
-          const a = tx ? t : "";
-          const b = tx && lancerTarget ? "+" : "";
-          const c = lancerTarget ? "​周囲" : "";
-          const end = tx && lancerTarget && splash ? ")" : "";
-          const d = (tar || lancerTarget) && splash ? multiply : "";
-          const e = splash ? "範囲" : "";
-          const f = !(tar || splash || lancerTarget) ? 1 : "";
-          const g =
-            value > 1 ? (
-              <>
-                {multiply}
-                {value}
-              </>
-            ) : (
-              ""
-            );
+          const targetText = noOmit || (target === 1 && wideTarget);
+
           return (
             <>
-              {start}
-              {a}
-              {b}
-              {c}
-              {end}
-              {d}
-              {e}
-              {f}
-              {g}
+              <Brackets
+                enabled={targetText && wideTarget && (splash || round > 1)}
+              >
+                {targetText && base}
+                {targetText && wideTarget && PLUS}
+                {wideTarget && "​周囲"}
+              </Brackets>
+              {(noOmit || wideTarget) && splash && MULTIPLY}
+              {splash && "範囲"}
+              {!(noOmit || splash || wideTarget) && 1}
+              {round > 1 && (
+                <>
+                  {MULTIPLY}
+                  {round}
+                </>
+              )}
             </>
           );
         }
@@ -108,7 +101,7 @@ export class StatTarget extends StatTooltip<
       target === Data.Target.other ||
       target === Data.Target.hit ||
       splash ||
-      lancerTarget ||
+      wideTarget ||
       laser ||
       (Array.isArray(rounds) && rounds.length > 1)
     )
@@ -138,7 +131,7 @@ export class StatTarget extends StatTooltip<
         <tbody>
           <Row label="対象">
             {Data.Target.getString(f.target)}
-            {f.lancerTarget && (
+            {f.wideTarget && (
               <>
                 {this.plus}
                 周囲
@@ -199,4 +192,24 @@ function Th({ children }: { children?: ReactNode }) {
 
 function Td({ children }: { children?: ReactNode }) {
   return <td>：{children}</td>;
+}
+
+function Brackets({
+  enabled,
+  children,
+}: {
+  enabled?: boolean;
+  children: ReactNode;
+}) {
+  if (enabled !== false) {
+    return (
+      <>
+        {"("}
+        {children}
+        {")"}
+      </>
+    );
+  } else {
+    return children;
+  }
 }

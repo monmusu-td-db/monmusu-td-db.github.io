@@ -5029,7 +5029,6 @@
     "exSkill2": {
       "skillName": "双蛇の息吹",
       "blockAdd": 2,
-      "wideTarget": true,
       "duration": 20,
       "cooldown": 20
     },
@@ -5047,7 +5046,8 @@
         "attackAdd": {
           "key": "hp",
           "value": 10
-        }
+        },
+        "wideTarget": true
       },
       {
         "featureName": "common-melee",
@@ -8242,7 +8242,7 @@
         ],
         "damageFactor": 160,
         "interval": null,
-        "lancerTarget": false,
+        "wideTarget": false,
         "potentialBonus": {
           "damageFactor": 180
         }

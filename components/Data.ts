@@ -1543,7 +1543,7 @@ export interface TargetFactors {
   readonly isBlock: boolean;
   readonly splash: boolean;
   readonly rounds: Rounds;
-  readonly lancerTarget: boolean;
+  readonly wideTarget: boolean;
   readonly laser: boolean;
   readonly color?: TableColor | undefined;
 }

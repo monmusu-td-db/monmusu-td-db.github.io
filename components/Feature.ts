@@ -249,7 +249,7 @@ const commonFeature = {
   blockAdd: 0,
   targetAdd: 0,
   splash: false,
-  lancerTarget: false,
+  wideTarget: false,
   laser: false,
   range: 0 as number | null,
   rangeMul: 0,

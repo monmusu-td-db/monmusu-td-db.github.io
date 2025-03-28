@@ -194,7 +194,7 @@ export default class Unit implements TableSource<Keys> {
   readonly exSkill1: Stat.Root<Readonly<Data.Skill> | undefined>;
   readonly exSkill2: Stat.Root<Readonly<Data.Skill> | undefined>;
 
-  readonly lancerTarget: boolean;
+  readonly wideTarget: boolean;
   readonly potentials: readonly (Data.Potential | undefined)[];
   readonly weapon: Readonly<Data.Weapon> | undefined;
   readonly supplements: ReadonlySet<string>;
@@ -451,13 +451,13 @@ export default class Unit implements TableSource<Keys> {
 
         const splash = this.splash.getValue(s);
         const rounds = this.rounds.getValue(s);
-        const lancerTarget = this.lancerTarget;
+        const wideTarget = this.wideTarget;
         return {
           target,
           isBlock,
           splash,
           rounds,
-          lancerTarget,
+          wideTarget,
           laser: false,
         };
       },
@@ -601,7 +601,7 @@ export default class Unit implements TableSource<Keys> {
       text: (s) => this.exSkill2.getValue(s)?.skillName,
     });
 
-    this.lancerTarget = classData?.lancerTarget ?? false;
+    this.wideTarget = classData?.wideTarget ?? false;
     this.potentials = Data.JsonPotentials.parse(src.potentials);
     this.weapon = src.weapon;
     {

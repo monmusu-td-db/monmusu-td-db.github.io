@@ -60,7 +60,7 @@
     "attackSpeed": 122,
     "delay": 20,
     "block": 2,
-    "lancerTarget": true,
+    "wideTarget": true,
     "range": 120,
     "moveSpeed": 200,
     "penetration": 33.3,

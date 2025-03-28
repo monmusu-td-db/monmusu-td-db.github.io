@@ -436,7 +436,7 @@ export default class Situation implements TableSource<Keys> {
 
         const splash = this.splash.getValue(s) ?? false;
         const rounds = this.rounds.getValue(s);
-        const lancerTarget = fea.lancerTarget ?? u?.lancerTarget ?? false;
+        const lancerTarget = fea.wideTarget ?? u?.wideTarget ?? false;
         const laser = fea.laser ?? sk?.laser ?? false;
 
         const color: Data.TableColor | undefined = (() => {
@@ -510,7 +510,7 @@ export default class Situation implements TableSource<Keys> {
           isBlock,
           splash,
           rounds,
-          lancerTarget,
+          wideTarget: lancerTarget,
           laser,
           color,
         };
