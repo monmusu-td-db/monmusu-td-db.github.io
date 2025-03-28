@@ -1145,7 +1145,7 @@
         "flagRangeIsVisible": true,
         "damageType": "吸収",
         "supplements": [
-          "回復5%/命中女性"
+          "回復5%/命中(女性)"
         ]
       }
     ]
@@ -1242,7 +1242,7 @@
         "flagRangeIsVisible": true,
         "damageType": "吸収",
         "supplements": [
-          "回復3%/命中男性"
+          "回復3%/命中(男性)"
         ]
       }
     ],
@@ -5004,6 +5004,218 @@
     ]
   },
   {
+    "TODO_DESC": "ex1攻撃速度はwiki情報からの推測値",
+    "id": 88,
+    "unitName": "【ヒュドラ娘】ユラ",
+    "unitShortName": "ユラ",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "水",
+    "species": "竜",
+    "hp": 4477,
+    "attack": 546,
+    "defense": 416,
+    "resist": 122,
+    "supplements": [
+      "復活HP100%(1回のみ)"
+    ],
+    "exSkill1": {
+      "skillName": "超活性",
+      "attackMul": 150,
+      "attackSpeedBuff": 150,
+      "duration": 30,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "双蛇の息吹",
+      "blockAdd": 2,
+      "wideTarget": true,
+      "duration": 20,
+      "cooldown": 20
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃速度+15"
+    ],
+    "features": [
+      {
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "attackAdd": {
+          "key": "hp",
+          "value": 10
+        }
+      },
+      {
+        "featureName": "common-melee",
+        "rounds": [
+          {
+            "ratio": 1,
+            "value": 1
+          },
+          {
+            "ratio": 3,
+            "value": 5
+          }
+        ]
+      },
+      {
+        "featureName": "common-melee",
+        "require": [
+          "スキル"
+        ],
+        "rounds": 5
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 160
+        }
+      },
+      {
+        "featureName": "hp-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "種族特性HP増加(最大値)"
+        ],
+        "hpMul": 150
+      },
+      {
+        "featureName": "common-regenerate",
+        "isConditionalSkillBuff": true,
+        "staticDamage": {
+          "key": "hp",
+          "value": 9
+        },
+        "supplements": [
+          "回復9%/秒"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "isConditionalSkillBuff": true,
+        "conditions": [
+          "特"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 6
+        },
+        "supplements": [
+          "回復6%/命中(毒状態敵)"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "features": [
+          "common-melee",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-melee",
+          "common-proper"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-ranged",
+          "common-proper"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-ranged",
+          "hp-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate"
+        ]
+      }
+    ]
+  },
+  {
     "id": 89,
     "unitName": "【バンシー娘】アンセ",
     "unitShortName": "アンセ",
@@ -5120,7 +5332,7 @@
           "value": 3
         },
         "supplements": [
-          "回復3%/命中女性"
+          "回復3%/命中(女性)"
         ],
         "potentialBonus": {
           "staticDamage": {
@@ -5128,7 +5340,7 @@
             "value": 4
           },
           "supplements": [
-            "回復4%/命中女性"
+            "回復4%/命中(女性)"
           ]
         }
       }

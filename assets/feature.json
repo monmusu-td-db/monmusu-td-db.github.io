@@ -215,6 +215,12 @@
     ]
   },
   {
+    "featureName": "common-proper",
+    "conditions": [
+      "特"
+    ]
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [
@@ -233,7 +239,7 @@
     "duration": "常時",
     "damageType": "再生",
     "supplements": [
-      "回復3%/s"
+      "回復3%/秒"
     ]
   },
   {
@@ -258,6 +264,21 @@
     ]
   },
   {
+    "featureName": "common-regenerate",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "conditions": [
+      "再"
+    ],
+    "interval": 30,
+    "target": "自分",
+    "rounds": 1,
+    "duration": "常時",
+    "damageType": "再生"
+  },
+  {
     "featureName": "common-regenerate-2%",
     "isAbility": true,
     "annotations": [
@@ -276,7 +297,7 @@
     "duration": "常時",
     "damageType": "再生",
     "supplements": [
-      "回復2%/s"
+      "回復2%/秒"
     ]
   },
   {
@@ -298,7 +319,7 @@
     "duration": "常時",
     "damageType": "再生",
     "supplements": [
-      "回復3%/s"
+      "回復3%/秒"
     ]
   },
   {
