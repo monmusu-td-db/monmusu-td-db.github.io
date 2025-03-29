@@ -1048,6 +1048,165 @@
     ]
   },
   {
+    "id": 25,
+    "unitName": "【メデューサ娘】ローレン",
+    "unitShortName": "ローレン",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "地",
+    "hp": 2780,
+    "attack": 1020,
+    "defense": 220,
+    "resist": 537,
+    "supplements": [
+      "石化付与(超)/配置時→全体"
+    ],
+    "exSkill1": {
+      "skillName": "女王の邪眼",
+      "attackMul": 280,
+      "rangeMul": 140,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "石化付与(超)/発動時→射程内"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "女王の波動",
+      "attackMul": 130,
+      "target": 3,
+      "rangeMul": 200,
+      "duration": 15,
+      "cooldown": 35,
+      "supplements": [
+        "石化付与(稀)"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "weapon": {
+      "weaponName": "魔杖イービルアイ",
+      "attack": 45,
+      "resist": 25,
+      "range": 5
+    },
+    "features": [
+      {
+        "supplements": [
+          "毒付与(稀)"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "猛毒付与(稀)"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "石化付与(低)"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "石化付与(稀+低)"
+        ],
+        "deleteSupplements": [
+          "石化付与(稀)",
+          "石化付与(低)"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-proper",
+        "skill": 1,
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-proper",
+        "skill": 2,
+        "damageFactor": 150
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-proper",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-proper",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-proper",
+          "common-3hits"
+        ]
+      }
+    ]
+  },
+  {
     "id": 27,
     "unitName": "【インキュバス娘】タンタル",
     "unitShortName": "タンタル",
