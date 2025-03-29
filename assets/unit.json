@@ -11303,7 +11303,7 @@
   {
     "id": 212,
     "unitName": "【愛飲のスライム娘】リン",
-    "unitShortName": "リン/VT",
+    "unitShortName": "リン/VD",
     "rarity": "E",
     "class": "チーフアサシン",
     "element": "水",
@@ -11366,7 +11366,7 @@
   {
     "id": 213,
     "unitName": "【焼艶のヴァンパイア娘】ヴェラートゥ",
-    "unitShortName": "ヴェラートゥ/VT",
+    "unitShortName": "ヴェラートゥ/VD",
     "rarity": "L",
     "class": "ガンナー",
     "element": "闇",
@@ -11397,7 +11397,7 @@
   {
     "id": 214,
     "unitName": "【甘癒のアイアンゴーレム娘】アイレン",
-    "unitShortName": "アイレン/VT",
+    "unitShortName": "アイレン/VD",
     "rarity": "L",
     "class": "プリースト",
     "element": "光",
@@ -13859,9 +13859,88 @@
     "hpMul": 80
   },
   {
+    "id": 306,
+    "unitName": "【甘護のマタンゴ娘】シジメ",
+    "unitShortName": "シジメ/VD",
+    "rarity": "E",
+    "class": "シールドナイト",
+    "element": "地",
+    "hp": 5674,
+    "attack": 639,
+    "defense": 767,
+    "resist": 229,
+    "supplements": [
+      "鈍足/被攻撃→対象",
+      "攻撃速度減少/被攻撃→対象"
+    ],
+    "exSkill1": {
+      "skillName": "甘々甘味のちょこれいと",
+      "attackMul": 200,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "duration": "単発",
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "tkn+1",
+        "鈍足(大)→命中",
+        "攻撃速度減少(大)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "物理ダメージ20%軽減"
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 3060001,
+    "parentId": 306,
+    "unitName": "シジメ",
+    "unitShortName": "シジメT/VD",
+    "rarity": "C",
+    "class": "シールドナイト",
+    "element": "地",
+    "cost": 20,
+    "hp": 5674,
+    "attack": 639,
+    "defense": 767,
+    "resist": 229,
+    "exSkill1": {
+      "skillName": "甘々甘味のちょこれいと",
+      "attackMul": 200,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "duration": "単発",
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "鈍足(大)→命中",
+        "攻撃速度減少(大)→命中"
+      ]
+    },
+    "isEventUnit": true,
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 307,
     "unitName": "【甘装のホムンクルス娘】ラプルム",
-    "unitShortName": "ラプルム/VT",
+    "unitShortName": "ラプルム/VD",
     "rarity": "L",
     "class": "アーチャー",
     "element": "火",
@@ -13969,7 +14048,7 @@
   {
     "id": 308,
     "unitName": "【甘菓泡ロックバード娘】ログダンノ",
-    "unitShortName": "ログダンノ/VT",
+    "unitShortName": "ログダンノ/VD",
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "風",
