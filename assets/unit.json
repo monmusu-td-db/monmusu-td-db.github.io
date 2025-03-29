@@ -12584,6 +12584,119 @@
     "isUnhealable": true
   },
   {
+    "TODO_DESC": "コストは単独の場合1/23f増加、シャーマン0.4体相当",
+    "id": 257,
+    "unitName": "【ミュルミドーンクィーン娘】オセヴィア",
+    "unitShortName": "オセヴィア",
+    "rarity": "L",
+    "class": "バード",
+    "element": "地",
+    "hp": 3312,
+    "attack": 310,
+    "defense": 392,
+    "resist": 299,
+    "moveType": "飛行",
+    "supplements": [
+      "コスト回復加速(小)"
+    ],
+    "exSkill1": {
+      "skillName": "アサルトパレード",
+      "rangeMul": 220,
+      "duration": 40,
+      "cooldown": 45,
+      "supplements": [
+        "tkn+2"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "defenseMul": 120,
+        "potentialBonus": {
+          "defenseMul": 125
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "defense-mul",
+        "target": "射程内地マス",
+        "duration": "常時",
+        "value": 120,
+        "potentialBonus": {
+          "value": 125
+        }
+      },
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "target": "射程内他者",
+        "value": 130
+      },
+      {
+        "type": "attack-speed-buff",
+        "skill": 1,
+        "target": "射程内他者",
+        "value": 150
+      },
+      {
+        "type": "delay-mul",
+        "skill": 1,
+        "target": "射程内他者",
+        "value": 50
+      }
+    ]
+  },
+  {
+    "id": 2570001,
+    "parentId": 257,
+    "unitName": "働きアリ",
+    "unitShortName": "働きアリT",
+    "rarity": "C",
+    "cost": 5,
+    "element": "地",
+    "hp": 1296,
+    "attack": 597,
+    "defense": 59,
+    "resist": 0,
+    "attackSpeedFrame": 45,
+    "delay": 20,
+    "block": 1,
+    "target": 1,
+    "moveSpeed": 130,
+    "damageType": "物理",
+    "placement": "近",
+    "exSkill1": {
+      "skillName": "資源調達",
+      "attackMotionMul": 67,
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 15,
+      "supplements": [
+        "コスト+6"
+      ]
+    },
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 259,
     "unitName": "【戯夏のポルターガイスト娘】マギー",
     "unitShortName": "マギー/水着",

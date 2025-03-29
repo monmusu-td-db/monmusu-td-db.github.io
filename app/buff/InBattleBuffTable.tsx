@@ -31,6 +31,8 @@ const columnKeys = [
   "damageDebuff",
   "physicalDamageDebuff",
   "magicalDamageDebuff",
+  "attackSpeedBuff",
+  "delayMul",
   "physicalEvasion",
   "magicalEvasion",
   "moveSpeedAdd",
@@ -60,6 +62,8 @@ const columnName = {
   criDamageAdd: "クリティカルダメージ増加",
   physicalDamageDebuff: "敵物理被ダメージ増加",
   magicalDamageDebuff: "敵魔法被ダメージ増加",
+  attackSpeedBuff: "攻撃速度バフ",
+  delayMul: "攻撃待機時間短縮",
   physicalEvasion: "物理回避付与",
   magicalEvasion: "魔法回避付与",
   moveSpeedAdd: "移動速度加算",
@@ -80,6 +84,8 @@ const BuffType = {
   magicalDamageDebuff: "magical-damage-debuff",
   criChanceAdd: "critical-chance-add",
   criDamageAdd: "critical-damage-add",
+  attackSpeedBuff: "attack-speed-buff",
+  delayMul: "delay-mul",
   physicalEvasion: "physical-evasion",
   magicalEvasion: "magical-evasion",
   moveSpeedAdd: "move-speed-add",
@@ -158,6 +164,8 @@ function getItems(): readonly Item[] {
       const magicalDamageDebuff = getMulFactor(
         fn(BuffType.magicalDamageDebuff)
       );
+      const attackSpeedBuff = getMulFactor(fn(BuffType.attackSpeedBuff));
+      const delayMul = getPercent(fn(BuffType.delayMul));
       const physicalEvasion = getPercent(fn(BuffType.physicalEvasion));
       const magicalEvasion = getPercent(fn(BuffType.magicalEvasion));
       const moveSpeedAdd = fn(BuffType.moveSpeedAdd);
@@ -185,6 +193,8 @@ function getItems(): readonly Item[] {
         criDamageAdd,
         physicalDamageDebuff,
         magicalDamageDebuff,
+        attackSpeedBuff,
+        delayMul,
         physicalEvasion,
         magicalEvasion,
         moveSpeedAdd,
