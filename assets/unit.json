@@ -13,7 +13,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "配置回復100%",
+      "回復100%/配置",
       "再出撃時間-40%→全体",
       "凍結無効"
     ],
@@ -246,7 +246,7 @@
       "duration": "単発",
       "cooldown": 35,
       "supplements": [
-        "発動時オークトークン配置→自身"
+        "オークトークン配置/発動→自分"
       ]
     },
     "exSkill2": {
@@ -256,8 +256,8 @@
       "cooldown": 40,
       "damageType": null,
       "supplements": [
-        "発動時オークT(投石)配置→自身",
-        "発動時バリア{attack-base*200}付与"
+        "オークT(投石)配置/発動→自分",
+        "バリア{attack-base*200}付与/発動"
       ]
     },
     "potentials": [
@@ -448,7 +448,7 @@
       "duration": 40,
       "cooldown": 20,
       "supplements": [
-        "発動時オークトークン配置→自身"
+        "オークトークン配置/発動→自分"
       ]
     },
     "exSkill2": {
@@ -457,7 +457,7 @@
       "duration": 40,
       "cooldown": 20,
       "supplements": [
-        "発動時熱血オークT配置→自身"
+        "熱血オークT配置/発動→自分"
       ]
     },
     "potentials": [
@@ -751,7 +751,7 @@
       "cooldown": 30,
       "damageType": "回復",
       "supplements": [
-        "発動回復100%"
+        "回復100%/発動"
       ]
     },
     "exSkill2": {
@@ -1059,7 +1059,7 @@
     "defense": 220,
     "resist": 537,
     "supplements": [
-      "石化付与(超)/配置時→全体"
+      "石化付与(超)/配置→全体"
     ],
     "exSkill1": {
       "skillName": "女王の邪眼",
@@ -1068,7 +1068,7 @@
       "duration": 30,
       "cooldown": 35,
       "supplements": [
-        "石化付与(超)/発動時→射程内"
+        "石化付与(超)/発動→射程内"
       ]
     },
     "exSkill2": {
@@ -1556,7 +1556,7 @@
           "value": 300
         },
         "supplements": [
-          "配置バリア{attack-base*300}付与→射程内"
+          "バリア{attack-base*300}付与/配置→射程内"
         ],
         "potentialBonus": {
           "staticDamage": {
@@ -1564,7 +1564,7 @@
             "value": 350
           },
           "supplements": [
-            "配置バリア{attack-base*350}付与→射程内"
+            "バリア{attack-base*350}付与/配置→射程内"
           ]
         }
       },
@@ -1575,14 +1575,14 @@
         ],
         "isAbility": true,
         "annotations": [
-          "発動時バリア付与"
+          "バリア付与/発動"
         ],
         "staticDamage": {
           "key": "attack-base",
           "value": 500
         },
         "supplements": [
-          "発動バリア{attack-base*500}付与→射程内"
+          "バリア{attack-base*500}付与/発動→射程内"
         ]
       }
     ],
@@ -1631,8 +1631,8 @@
       "duration": 20,
       "cooldown": 25,
       "supplements": [
-        "発動毒回復→射程内",
-        "発動石化回復→射程内"
+        "毒回復/発動→射程内",
+        "石化回復/発動→射程内"
       ]
     },
     "exSkill2": {
@@ -1695,8 +1695,8 @@
         "target": "射程内",
         "damageType": "回復",
         "supplements": [
-          "配置毒回復→射程内",
-          "配置石化回復→射程内",
+          "毒回復/配置→射程内",
+          "石化回復/配置→射程内",
           "毒耐性+100→射程内(10s)",
           "石化耐性+100→射程内(10s)"
         ],
@@ -1748,8 +1748,8 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "発動時射程内敵HP減15%",
-        "発動回復100%→自分"
+        "射程内敵HP減15%/発動",
+        "回復100%/発動→自分"
       ]
     },
     "potentials": [
@@ -1861,7 +1861,7 @@
     "defense": 315,
     "resist": 422,
     "supplements": [
-      "配置凍結回復→射程内"
+      "凍結回復/配置→射程内"
     ],
     "exSkill1": {
       "skillName": "ソウルハント",
@@ -3458,7 +3458,7 @@
         "target": "射程内",
         "damageType": "回復",
         "supplements": [
-          "発動時HP-20%"
+          "HP-20%/発動"
         ]
       }
     ]
@@ -3568,14 +3568,14 @@
         "skill": 1,
         "isConditionalDebuff": true,
         "supplements": [
-          "発動時射程内味方HP減20%"
+          "HP減20%/発動→射程内味方"
         ]
       },
       {
         "skill": 2,
         "isConditionalDebuff": true,
         "supplements": [
-          "発動時射程内味方HP減30%"
+          "HP減30%/発動→射程内味方"
         ]
       },
       {
@@ -3660,7 +3660,7 @@
       "damageType": "魔法",
       "supplements": [
         "命中停止30f(1秒)",
-        "発動時吹雪(10秒)",
+        "吹雪(10秒)/発動",
         "即死(低)"
       ]
     },
@@ -3674,7 +3674,7 @@
       "damageType": "魔法",
       "supplements": [
         "命中停止30f(1秒)",
-        "発動時吹雪(10秒)"
+        "吹雪(10秒)/発動"
       ]
     },
     "potentials": [
@@ -4266,7 +4266,7 @@
       "duration": 20,
       "cooldown": 30,
       "supplements": [
-        "発動回復90%"
+        "回復90%/発動"
       ]
     },
     "exSkill2": {
@@ -6523,7 +6523,7 @@
       "duration": 20,
       "cooldown": 40,
       "supplements": [
-        "発動時凍結付与(超)→射程内",
+        "凍結付与(超)/発動→射程内",
         "凍結付与(低)→命中"
       ]
     },
@@ -6538,11 +6538,11 @@
       {
         "skill": 1,
         "supplements": [
-          "発動時吹雪(5秒)"
+          "吹雪(5秒)/発動"
         ],
         "potentialBonus": {
           "supplements": [
-            "発動時吹雪(7秒)"
+            "吹雪(7秒)/発動"
           ]
         }
       }
@@ -7807,7 +7807,7 @@
       "duration": 70,
       "cooldown": 45,
       "supplements": [
-        "毒付与→自身"
+        "毒付与→自分"
       ]
     },
     "potentials": [
@@ -8336,11 +8336,11 @@
     "features": [
       {
         "supplements": [
-          "配置回復1200→付与対象"
+          "回復1200/配置→付与対象"
         ],
         "potentialBonus": {
           "supplements": [
-            "配置回復1400→付与対象"
+            "回復1400/配置→付与対象"
           ]
         }
       }
@@ -8684,7 +8684,7 @@
       "supplements": [
         "敵攻撃速度-50%→射程内",
         "鈍足-50%→射程内",
-        "発動時地マス化→配置マス"
+        "地マス化/発動→自分"
       ]
     },
     "potentials": [
@@ -9303,8 +9303,8 @@
       "duration": 20,
       "cooldown": 50,
       "supplements": [
-        "発動時水マス化→射程内1マス",
-        "発動バリア{attack-base*500}→射程内水マス"
+        "水マス化/発動→射程内1マス",
+        "バリア{attack-base*500}/発動→射程内水マス"
       ]
     },
     "potentials": [
@@ -9590,7 +9590,7 @@
         "skill": 1,
         "isConditionalDebuff": true,
         "supplements": [
-          "999999dmg→自身/スキル後"
+          "999999dmg→自分/スキル後"
         ]
       }
     ],
@@ -9896,7 +9896,7 @@
       "duration": 20,
       "cooldown": 50,
       "supplements": [
-        "発動闇マス化→射程内闇味方"
+        "闇マス化/発動→射程内闇味方"
       ]
     },
     "potentials": [
@@ -9992,11 +9992,11 @@
     "features": [
       {
         "supplements": [
-          "バインド60f(2秒)/配置時"
+          "バインド60f(2秒)/配置"
         ],
         "potentialBonus": {
           "supplements": [
-            "バインド90f(3秒)/配置時"
+            "バインド90f(3秒)/配置"
           ]
         }
       }
@@ -10533,7 +10533,7 @@
       "duration": 40,
       "cooldown": 45,
       "supplements": [
-        "発動時全敵味方HP減14%"
+        "HP減14%/発動→全敵味方"
       ]
     },
     "potentials": [
@@ -12075,7 +12075,7 @@
           "rounds": 1,
           "range": 150,
           "supplements": [
-            "発動回復60%",
+            "回復60%/発動",
             "スタン付与100%"
           ]
         }
@@ -12207,7 +12207,7 @@
     "placement": "付",
     "supplements": [
       "配置後即時消滅",
-      "配置回復8%/s(20s)→付与対象"
+      "回復8%/s(20s)/配置→付与対象"
     ],
     "isUnhealable": true,
     "situations": [
@@ -12289,7 +12289,7 @@
       "duration": "永続",
       "cooldown": 180,
       "supplements": [
-        "発動時光マス化→配置マス",
+        "光マス化/発動→自分",
         "移動可"
       ]
     },
@@ -13429,7 +13429,7 @@
         "skill": 1,
         "isBuffSkill": true,
         "supplements": [
-          "発動時CT-2秒→射程内"
+          "CT-2秒/発動→射程内"
         ]
       }
     ],
@@ -13675,12 +13675,12 @@
       {
         "skill": 1,
         "supplements": [
-          "発動時地マス化→配置マス",
+          "地マス化/発動→配置マス",
           "スタン付与15%"
         ],
         "potentialBonus": {
           "supplements": [
-            "発動地マス化→射程内地味方",
+            "地マス化/発動→射程内地味方",
             "スタン付与25%"
           ]
         }
@@ -14074,7 +14074,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "発動火マス化→自身&自tkn",
+        "火マス化/発動→自分&自tkn",
         "tkn+2"
       ]
     },
@@ -14259,7 +14259,7 @@
       "damageType": "魔法",
       "supplements": [
         "スタン付与35%",
-        "発動時火マス化→射程内火味方"
+        "火マス化/発動→射程内火味方"
       ]
     },
     "potentials": [
