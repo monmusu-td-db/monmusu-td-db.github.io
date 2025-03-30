@@ -11192,6 +11192,127 @@
     }
   },
   {
+    "id": 204,
+    "unitName": "【巫女舞のリザードマン娘】サウラ",
+    "unitShortName": "サウラ/正月",
+    "rarity": "E",
+    "class": "シャーマン",
+    "element": "水",
+    "species": "竜",
+    "hp": 2669,
+    "attack": 0,
+    "defense": 307,
+    "resist": 491,
+    "supplements": [
+      "石化無効",
+      "スタン無効",
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "お姉ちゃん御籤！",
+      "rangeMul": 160,
+      "duration": "単発",
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "魔法防御力+90",
+      "最大HP+600"
+    ],
+    "features": [
+      {
+        "featureName": "skill1-bad",
+        "isConditionalSkillBuff": true,
+        "annotations": [
+          "おみくじ 凶"
+        ],
+        "supplements": [
+          "HP減50%→射程内敵味方/発動",
+          "(HP減10%→射程内ボス)"
+        ]
+      },
+      {
+        "featureName": "skill1-normal",
+        "isConditionalSkillBuff": true,
+        "annotations": [
+          "おみくじ 吉"
+        ],
+        "supplements": [
+          "回復20%→射程内/発動"
+        ]
+      },
+      {
+        "featureName": "skill1-good",
+        "isConditionalSkillBuff": true,
+        "annotations": [
+          "おみくじ 大吉"
+        ],
+        "supplements": [
+          "回復35%→射程内/発動"
+        ]
+      }
+    ],
+    "hpMul": 110,
+    "situations": [
+      {},
+      {
+        "depend": [
+          "class-buff"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-bad"
+        ]
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-normal"
+        ]
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-good"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "target": "射程内",
+        "duration": 20,
+        "value": 150,
+        "supplements": [
+          "EX1おみくじ大吉"
+        ]
+      },
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "target": "射程内",
+        "value": 150,
+        "supplements": [
+          "おみくじ大吉"
+        ]
+      }
+    ]
+  },
+  {
     "id": 206,
     "unitName": "【参詣のアクアドラゴン娘】ロヴィリス",
     "unitShortName": "ロヴィリス/正月",

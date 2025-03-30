@@ -884,6 +884,14 @@
         },
         "target": "射程内"
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-buff"
+        ]
+      }
     ]
   },
   {
