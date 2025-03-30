@@ -7039,6 +7039,7 @@
     "attack": 568,
     "defense": 245,
     "resist": 572,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "サクリファイスゴート",
@@ -11192,6 +11193,7 @@
     }
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 204,
     "unitName": "【巫女舞のリザードマン娘】サウラ",
     "unitShortName": "サウラ/正月",
@@ -11254,6 +11256,7 @@
         ]
       }
     ],
+    "isEventUnit": true,
     "hpMul": 110,
     "situations": [
       {},
@@ -11418,6 +11421,86 @@
         "features": [
           "common-skill1-phase5"
         ]
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 208,
+    "unitName": "【ピュラリス娘】ピューリ",
+    "unitShortName": "ピューリ",
+    "rarity": "E",
+    "class": "アーチャー",
+    "element": "火",
+    "species": "妖精",
+    "hp": 2359,
+    "attack": 694,
+    "defense": 304,
+    "resist": 190,
+    "block": 0,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "バーニングワーク",
+      "attackMul": 130,
+      "rangeMul": 150,
+      "duration": 20,
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "火"
+        ],
+        "hp": 104,
+        "attack": 104,
+        "potentialBonus": {
+          "hp": 105,
+          "attack": 105
+        }
+      }
+    ],
+    "features": [
+      {
+        "require": [
+          "火マス"
+        ],
+        "attackMul": 108
+      },
+      {
+        "skill": 1,
+        "require": [
+          "火マス"
+        ],
+        "isConditionalSkillBuff": true,
+        "attackMul": 108
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 0,
+        "target": "射程内火マス",
+        "value": 106
+      },
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "target": "射程内火マス",
+        "value": 112
       }
     ]
   },
