@@ -12623,6 +12623,127 @@
     "magicalEvasion": 30
   },
   {
+    "id": 246,
+    "unitName": "【リトルグレイ娘】パープロープ",
+    "unitShortName": "パープロープ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "光",
+    "species": "エイリアン",
+    "hp": 6999,
+    "attack": 550,
+    "defense": 871,
+    "resist": 227,
+    "exSkill1": {
+      "skillName": "メテオバスター",
+      "attackMul": 340,
+      "resistMul": 340,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-12/発動",
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "エイリアン"
+        ],
+        "hp": 112,
+        "potentialBonus": {
+          "hp": 115
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "magicalDamageCut": 20
+      },
+      {
+        "skill": -1,
+        "magicalDamageCut": 20
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "magicalDamageCut": 80
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "未調査",
+    "id": 2460001,
+    "parentId": 246,
+    "unitName": "リトルグレイ戦士",
+    "unitShortName": "リトルグレイT TODO→stat&攻撃速度",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 9999,
+    "attack": 999,
+    "defense": 999,
+    "resist": 999,
+    "attackSpeedFrame": 40,
+    "delay": 25,
+    "block": null,
+    "target": 1,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 50
+        }
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "isGeneral": true
+      }
+    ]
+  },
+  {
     "DISABLED": true,
     "id": 248,
     "unitName": "【ベルフェゴール娘】ペルペ",

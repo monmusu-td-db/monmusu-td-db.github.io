@@ -221,6 +221,16 @@
     ]
   },
   {
+    "featureName": "common-token-limit",
+    "annotations": [
+      "付与トークン込み耐久値"
+    ],
+    "attackDebuff": {
+      "key": "enemy-attack",
+      "value": 50
+    }
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [
