@@ -11,6 +11,14 @@
     "placement": "近",
     "features": [
       {
+        "featureName": "class-charge",
+        "skill": 0,
+        "isConditionalBuff": true,
+        "isNotSustainable": true,
+        "target": 1,
+        "splash": true
+      },
+      {
         "featureName": "class-charge-normal",
         "isConditionalBuff": true,
         "isNotSustainable": true,
@@ -26,7 +34,8 @@
             "value": 210
           }
         ],
-        "attackMul": 210
+        "attackMul": 210,
+        "minInterval": 100
       },
       {
         "featureName": "class-charge2",
@@ -37,7 +46,8 @@
             "value": 320
           }
         ],
-        "attackMul": 320
+        "attackMul": 320,
+        "minInterval": 200
       },
       {
         "featureName": "class-charge3",
@@ -50,7 +60,29 @@
         ],
         "attackMul": 430,
         "criChanceAdd": 100,
-        "criChanceLimitAdd": 50
+        "criChanceLimitAdd": 50,
+        "minInterval": 300
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-charge",
+          "class-charge1"
+        ]
+      },
+      {
+        "features": [
+          "class-charge",
+          "class-charge2"
+        ]
+      },
+      {
+        "features": [
+          "class-charge",
+          "class-charge3"
+        ]
       }
     ]
   },

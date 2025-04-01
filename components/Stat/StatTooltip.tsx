@@ -24,6 +24,7 @@ const sign = {
   BSTART: "(",
   BEND: ")",
   FRAME: "f",
+  SECOND: "秒",
   COLON: "：",
 } as const;
 

@@ -1282,6 +1282,7 @@ const potentialList = [
   { name: "CRI率/CRI率上限+20%", stat: stat.criticalChanceLimit, value: 20 },
   { name: "CRI率/CRI率上限+30%", stat: stat.criticalChance, value: 30 },
   { name: "CRI率/CRI率上限+30%", stat: stat.criticalChanceLimit, value: 30 },
+  { name: "CRIダメージ+50%", stat: stat.criticalDamage, value: 50 },
   { name: "配置時バリア1500", stat: null, value: 1 },
   { name: "HP+600、攻撃力+75", stat: stat.hp, value: 600 },
   { name: "HP+600、攻撃力+75", stat: stat.attack, value: 75 },
@@ -1528,6 +1529,8 @@ export interface IntervalBaseFactors
 }
 export interface IntervalFactors extends ActualIntervalFactors {
   readonly cooldown?: number;
+  readonly minInterval?: number | undefined;
+  readonly staticCooldown?: boolean;
   readonly result?: number;
 }
 

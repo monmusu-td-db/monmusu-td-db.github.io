@@ -246,6 +246,7 @@ const commonFeature = {
   delayMul: 0,
   fixedDelay: 0,
   interval: 0 as number | null,
+  minInterval: 0,
   blockAdd: 0,
   targetAdd: 0,
   splash: false,

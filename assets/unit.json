@@ -15227,6 +15227,65 @@
     ]
   },
   {
+    "id": 319,
+    "unitName": "【リトルグリーンマン娘】プピペルザ",
+    "unitShortName": "プピペルザ",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "闇",
+    "species": "エイリアン",
+    "hp": 5185,
+    "attack": 986,
+    "defense": 516,
+    "resist": 106,
+    "exSkill1": {
+      "skillName": "コズミックエッジ",
+      "attackMul": 440,
+      "attackMotionMul": 278,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "range": 320,
+      "duration": "単発",
+      "cooldown": 5,
+      "supplements": [
+        "コスト-8/発動",
+        "敵攻撃力100%魔法Dmg/撃破"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "CRIダメージ+50%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "エイリアン",
+          "闇"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "class-charge",
+        "criChanceAdd": 20,
+        "criDamageAdd": 50
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 320,
     "unitName": "【ラージノーズグレイ娘】ピエンティア",
     "unitShortName": "ピエンティア",

@@ -297,8 +297,11 @@ export default class Situation implements TableSource<Keys> {
         const base = this.unit?.criticalDamage.getValue(s) ?? 0;
         const skill = this.getSkill(s)?.criDamageAdd ?? 0;
         const fea = this.getFeature(s).criDamageAdd ?? 0;
+        const potential = this.unit?.isPotentialApplied(s)
+          ? this.unit?.getPotentialFactor(s, stat.criticalDamage) ?? 0
+          : 0;
         const subskill = this.getSubskillFactor(s, ssKeys.criDamageAdd);
-        const result = limit(base + skill + fea + subskill);
+        const result = limit(base + skill + fea + potential + subskill);
         const skillColor = getColor(limit(base + skill), limit(base));
 
         return {
@@ -344,8 +347,12 @@ export default class Situation implements TableSource<Keys> {
     this.interval = new Stat.Interval({
       statType: stat.interval,
       calculater: (s) => {
-        const ret = this.interval.getFactors(s)?.actualResult;
+        const factor = this.interval.getFactors(s);
+        const ret = factor?.actualResult;
         if (this.getSkill(s)?.duration === Data.Duration.single) {
+          if (factor?.staticCooldown) {
+            return factor.result;
+          }
           const c = this.cooldown.getValue(s);
           if (ret === undefined || c === undefined) return;
           return ret + c * Data.fps;
@@ -1755,10 +1762,20 @@ export default class Situation implements TableSource<Keys> {
     if (this.getSkill(setting)?.duration === Data.Duration.single) {
       const cooldown = this.cooldown.getValue(setting);
       if (cooldown === undefined) return;
-      const result = ret.actualResult + cooldown * Data.fps;
+
+      const minInterval = this.getFeature(setting).minInterval;
+      let staticCooldown = false;
+      let result = ret.actualResult + cooldown * Data.fps;
+      if (minInterval !== undefined) {
+        staticCooldown = minInterval > result;
+        result = Math.max(minInterval, result);
+      }
+
       return {
         ...ret,
         cooldown,
+        staticCooldown,
+        minInterval,
         result,
       };
     }
