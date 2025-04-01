@@ -15225,5 +15225,110 @@
         ]
       }
     ]
+  },
+  {
+    "id": 320,
+    "unitName": "【ラージノーズグレイ娘】ピエンティア",
+    "unitShortName": "ピエンティア",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "光",
+    "species": "エイリアン",
+    "hp": 2376,
+    "attack": 479,
+    "defense": 358,
+    "resist": 465,
+    "exSkill1": {
+      "skillName": "オブジェクトアナライズ",
+      "attackMul": 260,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-10/発動",
+        "tkn+2"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "エイリアン",
+          "光"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-token-limit"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "射程は目測/基礎statはLv45",
+    "id": 3200001,
+    "parentId": 320,
+    "unitName": "グレイクローン",
+    "unitShortName": "グレイクローンT TODO→base",
+    "rarity": "C",
+    "species": "エイリアン",
+    "cost": 10,
+    "hp": 1505,
+    "attack": 812,
+    "defense": 146,
+    "resist": 179,
+    "attackSpeedFrame": 40,
+    "delay": 30,
+    "block": null,
+    "target": 1,
+    "range": 160,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "付",
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 50
+        }
+      },
+      {
+        "featureName": "skill1-buff",
+        "parentSkill": 1,
+        "isBuffSkill": true,
+        "attackMul": 260
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   }
 ]
