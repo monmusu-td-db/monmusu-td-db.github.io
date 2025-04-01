@@ -12716,6 +12716,7 @@
     "unitName": "リトルグレイ戦士",
     "unitShortName": "リトルグレイT TODO→stat&攻撃速度",
     "rarity": "C",
+    "species": "エイリアン",
     "cost": 0,
     "hp": 9999,
     "attack": 999,
@@ -12740,6 +12741,104 @@
     "situations": [
       {
         "isGeneral": true
+      }
+    ]
+  },
+  {
+    "id": 247,
+    "unitName": "【リトルグレイ娘】ピペリ",
+    "unitShortName": "ピペリ",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "光",
+    "species": "エイリアン",
+    "hp": 2199,
+    "attack": 1052,
+    "defense": 223,
+    "resist": 338,
+    "exSkill1": {
+      "skillName": "ミスティックステルス",
+      "attackMul": 230,
+      "laser": true,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-14/発動",
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "背面攻撃"
+        ],
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 180
+        }
+      },
+      {
+        "featureName": "critical-damage-add",
+        "isConditionalBuff": true,
+        "annotations": [
+          "CRIダメージ最大時"
+        ],
+        "criDamageAdd": 100
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "features": [
+          "critical-damage-add"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "critical-damage-add"
+        ]
+      },
+      {
+        "features": [
+          "critical-damage-add",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "critical-damage-add",
+          "common-proper"
+        ]
       }
     ]
   },
