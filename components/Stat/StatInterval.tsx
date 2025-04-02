@@ -15,12 +15,12 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
     this.getFactors(s)?.result !== undefined;
   protected override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f?.result === undefined || f.base === undefined) return;
+    if (f?.result === undefined) return;
     const b = f.base;
 
     return (
       <>
-        {!f.staticValue && !f.staticCooldown && (
+        {!f.staticValue && !f.staticCooldown && b !== undefined && (
           <>
             <AttackSpeedTooltip parent={this} factors={b} />
             <DelayTooltip
@@ -41,7 +41,7 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
                   {d ? "攻撃間隔" : f.actualResult + sign.FRAME}
                 </Tt.Result>
                 <Tt.Expression>
-                  {!!f.staticValue ? (
+                  {!!f.staticValue || b === undefined ? (
                     <>{d ? "固有値" : f.staticValue + sign.FRAME}</>
                   ) : (
                     <>
