@@ -12004,6 +12004,168 @@
     "isUnhealable": true
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 219,
+    "unitName": "【アプサラス娘】チュニーラ",
+    "unitShortName": "チュニーラ",
+    "rarity": "E",
+    "class": "バード",
+    "element": "水",
+    "species": "悪魔",
+    "hp": 3487,
+    "attack": 297,
+    "defense": 335,
+    "resist": 295,
+    "exSkill1": {
+      "skillName": "接待サービス♪",
+      "rangeMul": 210,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "tkn+1"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "魔法防御力+90",
+      "トークン所持数+1"
+    ],
+    "features": [
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 2
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 3
+          }
+        },
+        "target": "射程内"
+      },
+      {
+        "featureName": "regenerate-proper",
+        "conditions": [
+          "特"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 4
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 6
+          }
+        },
+        "target": "射程内"
+      },
+      {
+        "featureName": "skill1-heal",
+        "skill": 1,
+        "isAbility": true,
+        "annotations": [
+          "発動時回復"
+        ],
+        "staticDamage": {
+          "key": "hp-base",
+          "value": 25
+        },
+        "interval": null,
+        "damageType": "回復"
+      },
+      {
+        "featureName": "skill1-heal-proper",
+        "conditions": [
+          "特"
+        ],
+        "staticDamage": {
+          "key": "hp-base",
+          "value": 50
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-heal"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-heal",
+          "skill1-heal-proper"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate",
+          "regenerate-proper"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate",
+          "regenerate-proper"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 2190001,
+    "parentId": 219,
+    "unitName": "水精",
+    "unitShortName": "水精T",
+    "rarity": "C",
+    "element": "水",
+    "cost": 22,
+    "hp": 8872,
+    "attack": 1996,
+    "defense": 199,
+    "resist": 299,
+    "target": 0,
+    "range": 200,
+    "moveSpeed": 130,
+    "placement": "近",
+    "supplements": [
+      "HP0/ブロック時",
+      "停止(1秒)/ブロック時→射程内"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 220,
     "unitName": "【エンプーサ娘】パナティス",
     "unitShortName": "パナティス",
