@@ -12004,6 +12004,84 @@
     "isUnhealable": true
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 219,
+    "unitName": "【アプサラス娘】チュニーラ",
+    "unitShortName": "チュニーラ",
+    "rarity": "E",
+    "class": "バード",
+    "element": "水",
+    "species": "悪魔",
+    "hp": 3487,
+    "attack": 297,
+    "defense": 335,
+    "resist": 295,
+    "exSkill1": {
+      "skillName": "接待サービス♪"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "魔法防御力+90",
+      "トークン所持数+1"
+    ],
+    "features": [
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 2
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 3
+          }
+        },
+        "target": "射程内"
+      },
+      {
+        "featureName": "regenerate-proper",
+        "conditions": [
+          "特"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 4
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 6
+          }
+        },
+        "target": "射程内"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "bottom": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "bottom": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate",
+          "regenerate-proper"
+        ]
+      }
+    ]
+  },
+  {
     "id": 220,
     "unitName": "【エンプーサ娘】パナティス",
     "unitShortName": "パナティス",
