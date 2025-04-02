@@ -12089,6 +12089,7 @@
         }
       }
     ],
+    "isEventUnit": true,
     "situations": [
       {},
       {
@@ -12147,9 +12148,9 @@
     "unitShortName": "水精T",
     "rarity": "C",
     "element": "水",
-    "cost": 22,
-    "hp": 8872,
-    "attack": 1996,
+    "cost": 10,
+    "hp": 1996,
+    "attack": 0,
     "defense": 199,
     "resist": 299,
     "target": 0,
@@ -12160,6 +12161,7 @@
       "HP0/ブロック時",
       "停止(1秒)/ブロック時→射程内"
     ],
+    "isEventUnit": true,
     "isUnhealable": true,
     "situations": [
       {}
