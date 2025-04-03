@@ -12515,6 +12515,95 @@
     "isEventUnit": true
   },
   {
+    "id": 231,
+    "unitName": "【修泳の川熊娘】イオ",
+    "unitShortName": "イオ/学園",
+    "rarity": "E",
+    "class": "デストロイヤー",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 8355,
+    "attack": 945,
+    "defense": 628,
+    "resist": 103,
+    "range": 240,
+    "exSkill1": {
+      "skillName": "パーンと一発！",
+      "attackMul": 200,
+      "defenseMul": 200,
+      "duration": 40,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "damageFactor": 70
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 160
+        }
+      },
+      {
+        "featureName": "common-absorb",
+        "conditions": [
+          "特"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 10
+        },
+        "supplements": [
+          "回復10%/命中スタン敵"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 232,
     "unitName": "【魔女生カーバンクル娘】ルルゥ",
     "unitShortName": "ルルゥ/学園",
