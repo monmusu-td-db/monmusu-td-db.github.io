@@ -109,6 +109,7 @@ const Target = {
   all: "全体",
   inRange: "射程内",
   block: "ブロック",
+  self: "自分",
 } as const;
 type Target = (typeof Target)[keyof typeof Target];
 
@@ -235,7 +236,11 @@ function getRange(
   if (target === undefined) return;
 
   if (!regex.test(target)) {
-    return Target.all;
+    if (target === Target.self) {
+      return;
+    } else {
+      return Target.all;
+    }
   }
 
   const src = unit.src;

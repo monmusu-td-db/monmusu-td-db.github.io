@@ -11505,6 +11505,103 @@
     ]
   },
   {
+    "TODO_DESC": "射程/スタン蓄積値",
+    "id": 209,
+    "unitName": "【アークエンジェル娘】オシュネー",
+    "unitShortName": "オシュネー",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "光",
+    "hp": 6469,
+    "attack": 580,
+    "defense": 593,
+    "resist": 229,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "正義の光",
+      "attackMul": 150,
+      "target": "射程内",
+      "range": 999,
+      "duration": 30,
+      "cooldown": 35,
+      "damageType": "魔法",
+      "supplements": [
+        "スタン付与XX%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スタン耐性+50"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "光"
+        ],
+        "attack": 110,
+        "resist": 110,
+        "potentialBonus": {
+          "attack": 113,
+          "resist": 113
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "require": [
+          "光マス"
+        ],
+        "isConditionalBuff": true,
+        "damageCut": 15
+      },
+      {
+        "skill": 1,
+        "require": [
+          "光マス"
+        ],
+        "isConditionalSkillBuff": true,
+        "damageCut": 30
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change-light",
+        "skill": 1,
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 212,
     "unitName": "【愛飲のスライム娘】リン",
     "unitShortName": "リン/VD",
