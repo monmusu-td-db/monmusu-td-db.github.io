@@ -10818,6 +10818,118 @@
     "isEventUnit": true
   },
   {
+    "TODO_DESC": "射程",
+    "id": 192,
+    "unitName": "【氷雪のカリュブディス娘】リュプチェ",
+    "unitShortName": "リュプチェ/Xm",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "水",
+    "hp": 6363,
+    "attack": 614,
+    "defense": 878,
+    "resist": 224,
+    "exSkill1": {
+      "skillName": "クリスマスブライニクル",
+      "attackMul": 220,
+      "target": 4,
+      "range": 999,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "凍結付与(高)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "魔法防御力+90",
+      "攻撃対象数+1"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "defense": 109,
+        "resist": 109
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 180
+        }
+      },
+      {
+        "featureName": "common-proper",
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-block3",
+        "isConditionalBuff": true,
+        "annotations": [
+          "3体以上ブロック時"
+        ],
+        "target": "ブロック",
+        "supplements": [
+          "凍結付与(低)→命中"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block3",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "凍結特効"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 195,
     "unitName": "【風神娘】シナツ",
