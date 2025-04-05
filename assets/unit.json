@@ -12957,6 +12957,59 @@
     "delayMul": 80
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 241,
+    "unitName": "【憧嫁のペガサス娘】スズ",
+    "unitShortName": "スズ/嫁",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 4141,
+    "attack": 706,
+    "defense": 345,
+    "resist": 100,
+    "exSkill1": {
+      "skillName": "ブレスウインド",
+      "attackSpeedBuff": 200,
+      "fixedDelay": 2,
+      "rangeMul": 150,
+      "duration": 15,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRI率/CRI率上限+20%"
+    ],
+    "features": [
+      {
+        "attackSpeedBuff": 120,
+        "potentialBonus": {
+          "attackSpeedBuff": 125
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-speed-buff",
+        "target": "射程内",
+        "value": 120,
+        "potentialBonus": {
+          "value": 125
+        }
+      }
+    ]
+  },
+  {
     "id": 242,
     "unitName": "【灼嫁のイフリート娘】イフィジャール",
     "unitShortName": "イフィジャール/J",
