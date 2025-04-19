@@ -2108,7 +2108,6 @@ export default class Situation implements TableSource<Keys> {
       physicalDamageDebuff,
       magicalDamageDebuff
     );
-    const trueDamageDebuff = fea.damageDebuff ?? 100;
 
     const hits = Data.Round.average(this.hits.getValue(setting));
 
@@ -2124,7 +2123,6 @@ export default class Situation implements TableSource<Keys> {
       criticalDamage: this.criticalDamage.getValue(setting) ?? 0,
       penetration: this.getPenetration(setting),
       damageDebuff,
-      trueDamageDebuff,
       round,
       hits,
       interval,
@@ -2157,7 +2155,7 @@ export default class Situation implements TableSource<Keys> {
         isMinDamage ? minDamage : d,
         factors.damageDebuff
       );
-      const trueDamage = Percent.multiply(attack, factors.trueDamageDebuff);
+      const trueDamage = Percent.multiply(attack, factors.damageDebuff);
 
       const meanDamage =
         (damage * nonPenetration + trueDamage * factors.penetration) / 100;
