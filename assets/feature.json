@@ -144,6 +144,15 @@
     ]
   },
   {
+    "featureName": "common-team-buff1-no-emphasis",
+    "conditions": [
+      {
+        "key": "t",
+        "value": 1
+      }
+    ]
+  },
+  {
     "featureName": "common-team-buff2",
     "isConditionalBuff": true,
     "conditions": [
@@ -160,6 +169,26 @@
       {
         "key": "t",
         "value": 3
+      }
+    ]
+  },
+  {
+    "featureName": "common-team-buff5",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "featureName": "common-team-buff10",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 10
       }
     ]
   },

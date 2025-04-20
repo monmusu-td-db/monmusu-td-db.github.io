@@ -13998,6 +13998,121 @@
     ]
   },
   {
+    "id": 264,
+    "unitName": "【ティターニア娘】オプスカリテ",
+    "unitShortName": "オプスカリテ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "風",
+    "species": "妖精",
+    "hp": 2826,
+    "attack": 1012,
+    "defense": 229,
+    "resist": 510,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "ナイトドリーム",
+      "damageFactor": 150,
+      "targetAdd": 1,
+      "rangeMul": 240,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "暗闇付与"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRI率/CRI率上限+30%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "妖精"
+        ],
+        "attack": 114,
+        "potentialBonus": {
+          "attack": 118
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-team-buff1-no-emphasis",
+        "attackMul": 110
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "attackMul": 150
+      },
+      {
+        "featureName": "common-team-buff10",
+        "isConditionalBuff": true,
+        "attackMul": 200
+      }
+    ],
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "situations": [
+      {
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-team-buff1-no-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-team-buff1-no-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-team-buff10"
+        ]
+      }
+    ]
+  },
+  {
     "id": 266,
     "unitName": "【ワーマンモス娘】エプラ",
     "unitShortName": "エプラ",
@@ -15913,8 +16028,9 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "地",
+    "species": "竜",
     "hp": 6628,
-    "attack": 789,
+    "attack": 639,
     "defense": 819,
     "resist": 220,
     "damageType": "魔法",
