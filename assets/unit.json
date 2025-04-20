@@ -3458,7 +3458,7 @@
         "target": "射程内",
         "damageType": "回復",
         "supplements": [
-          "HP-20%/発動"
+          "HP-20%/発動→自身"
         ]
       }
     ]
@@ -6494,6 +6494,141 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_DESC": "ex1/2射程/ex2攻撃速度",
+    "id": 100,
+    "unitName": "【ブラックドラゴン娘】マウロ",
+    "unitShortName": "マウロ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "闇",
+    "species": "竜",
+    "hp": 6151,
+    "attack": 1092,
+    "defense": 473,
+    "resist": 136,
+    "exSkill1": {
+      "skillName": "ブラックノヴァ",
+      "attackMul": 360,
+      "splash": true,
+      "range": 999,
+      "duration": 25,
+      "cooldown": 60,
+      "damageType": "貫通"
+    },
+    "exSkill2": {
+      "skillName": "ブラックスーパーモード",
+      "attackMul": 300,
+      "rounds": 2,
+      "range": 999,
+      "duration": 15,
+      "cooldown": 40,
+      "damageType": "貫通"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃力+75"
+    ],
+    "features": [
+      {
+        "featureName": "hp-50%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ],
+        "currentHp": 50,
+        "damageFactor": 120
+      },
+      {
+        "skill": 1,
+        "isConditionalDebuff": true,
+        "supplements": [
+          "HP-20%/発動→自身"
+        ]
+      },
+      {
+        "skill": 2,
+        "isConditionalDebuff": true,
+        "supplements": [
+          "HP-4%/s→自身"
+        ]
+      }
+    ],
+    "attackMul": 115,
+    "potentialBonus": {
+      "attackMul": 122
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "hp-50%"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "射程はWiki情報/ダメージ間隔要調査",
+    "id": 1000001,
+    "parentId": 100,
+    "unitName": "ブラックホール",
+    "unitShortName": "ブラックホールT",
+    "rarity": "C",
+    "element": "闇",
+    "cost": 12,
+    "hp": 1000,
+    "attack": 598,
+    "defense": 0,
+    "resist": 0,
+    "block": 0,
+    "target": 0,
+    "range": 100,
+    "moveSpeed": 0,
+    "placement": "両",
+    "supplements": [
+      "引き付け",
+      "limit30秒"
+    ],
+    "features": [
+      {
+        "staticDamage": {
+          "key": "attack",
+          "value": 100
+        },
+        "interval": 30,
+        "damageCut": 100,
+        "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {}
+    ],
+    "isUnhealable": true
   },
   {
     "id": 101,
