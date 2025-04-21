@@ -16235,5 +16235,154 @@
         }
       }
     ]
+  },
+  {
+    "id": 324,
+    "unitName": "【蔵書のアプサラス娘】チュニーラ",
+    "unitShortName": "チュニーラ/学園",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "水",
+    "species": "悪魔",
+    "hp": 2367,
+    "attack": 660,
+    "defense": 242,
+    "resist": 641,
+    "exSkill1": {
+      "skillName": "図書室ではお静かに♪",
+      "attackMul": 240,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "tkn+3/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "tkn+1/10秒"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "tkn+1/8秒"
+          ]
+        }
+      },
+      {
+        "featureName": "team-buff5",
+        "isConditionalSkillBuff": true,
+        "conditions": [
+          {
+            "key": "t",
+            "value": 5
+          }
+        ],
+        "skill": 1,
+        "attackMul": 125,
+        "criChanceAdd": 10
+      },
+      {
+        "featureName": "team-buff10",
+        "isConditionalSkillBuff": true,
+        "conditions": [
+          {
+            "key": "t",
+            "value": 10
+          }
+        ],
+        "skill": 1,
+        "attackMul": 150,
+        "criChanceAdd": 20
+      },
+      {
+        "featureName": "team-buff15",
+        "isConditionalSkillBuff": true,
+        "conditions": [
+          {
+            "key": "t",
+            "value": 15
+          }
+        ],
+        "skill": 1,
+        "attackMul": 175,
+        "criChanceAdd": 30
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "team-buff15"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 3240001,
+    "parentId": 324,
+    "unitName": "図書水精",
+    "unitShortName": "図書水精T",
+    "rarity": "C",
+    "cost": 5,
+    "element": "水",
+    "hp": 1826,
+    "attack": 458,
+    "defense": 93,
+    "resist": 289,
+    "attackSpeedFrame": 40,
+    "delay": 20,
+    "block": 1,
+    "target": 1,
+    "range": 200,
+    "moveSpeed": 130,
+    "damageType": "魔法",
+    "placement": "両",
+    "supplements": [
+      "鈍足→射程内",
+      "停止(1秒)/死亡時→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "返却滞納、めっですよ！",
+      "duration": 1.4,
+      "cooldown": 0,
+      "supplements": [
+        "HP減100%→自身"
+      ]
+    },
+    "features": [
+      {}
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   }
 ]
