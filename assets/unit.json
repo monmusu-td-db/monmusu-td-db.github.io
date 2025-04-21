@@ -13001,6 +13001,110 @@
     ]
   },
   {
+    "TODO_DESC": "毒ダメージ増加",
+    "id": 233,
+    "unitName": "【劇薬のリッチ娘】リコ",
+    "unitShortName": "リコ/学園",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "hp": 3948,
+    "attack": 635,
+    "defense": 449,
+    "resist": 126,
+    "damageType": "魔法",
+    "exSkill1": {
+      "skillName": "実験の賜物だ",
+      "attackMul": 240,
+      "rangeMul": 180,
+      "duration": 25,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "鈍足-20%→毒状態敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-28%→毒状態敵"
+          ]
+        }
+      },
+      {
+        "featureName": "skill1-dot",
+        "isAbility": true,
+        "annotations": [
+          "毒状態敵対象"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 100
+        },
+        "interval": 150,
+        "target": "全体",
+        "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-dot"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "攻撃速度/射程",
+    "TODO_STAT_INFERRED": true,
+    "id": 2330001,
+    "parentId": 233,
+    "unitName": "助手霊魂",
+    "unitShortName": "助手霊魂T",
+    "rarity": "C",
+    "cost": 12,
+    "hp": 1617,
+    "attack": 538,
+    "defense": 119,
+    "resist": 184,
+    "attackSpeedFrame": 99,
+    "delay": 99,
+    "block": null,
+    "target": 1,
+    "range": 999,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "付",
+    "supplements": [
+      "超毒付与(稀)"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "target": "付与対象",
+        "range": null,
+        "duration": 40,
+        "value": 112
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 235,
     "unitName": "【ベヒモス娘】デイン",
