@@ -116,6 +116,7 @@ export type JsonBuff = Readonly<{
   require?: readonly string[];
   skill?: number;
   target?: string;
+  range?: number | null;
   duration?: string | number;
   value?: number;
   supplements?: readonly string[];

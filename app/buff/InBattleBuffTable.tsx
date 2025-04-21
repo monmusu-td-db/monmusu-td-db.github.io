@@ -142,7 +142,7 @@ function getItems(): readonly Item[] {
       const id = src.parentId ?? src.id;
       const skillName = skill?.skillName;
       const target = buff.target;
-      const range = getRange(target, unit, buff.skill);
+      const range = getRange(target, unit, buff.skill, buff.range);
       const initialTime = getDuration(
         skill?.cooldown !== undefined &&
           (skill.cooldown *
@@ -230,10 +230,14 @@ function getSkill(
 function getRange(
   target: string | undefined,
   unit: Unit,
-  skillId: number | undefined
+  skillId: number | undefined,
+  range: number | null | undefined
 ): string | number | undefined {
   const regex = new RegExp(`${Target.inRange}|${Target.block}`);
-  if (target === undefined) return;
+  if (target === undefined || range === null) return;
+  if (typeof range === "number") {
+    return range;
+  }
 
   if (!regex.test(target)) {
     if (target === Target.self) {
