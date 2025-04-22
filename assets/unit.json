@@ -3960,7 +3960,7 @@
       "damageType": "魔法",
       "supplements": [
         "コスト+8",
-        "攻撃速度減少付与"
+        "攻撃速度減少→命中"
       ]
     },
     "exSkill2": {
@@ -14388,17 +14388,6 @@
     ],
     "features": [
       {
-        "require": [
-          "スキル"
-        ],
-        "hasPotentials": [
-          "移動時スキル継続"
-        ],
-        "supplements": [
-          "移動可"
-        ]
-      },
-      {
         "featureName": "class-action",
         "annotations": [
           "種族特性+ハイタフネス"
@@ -14424,6 +14413,55 @@
       "hpMul": 125,
       "attackMul": 115
     }
+  },
+  {
+    "id": 268,
+    "unitName": "【ワードラゴン娘】ハイルィ",
+    "unitShortName": "ハイルィ",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "水",
+    "hp": 4501,
+    "attack": 730,
+    "defense": 375,
+    "resist": 108,
+    "supplements": [
+      "鈍足(5秒)→命中",
+      "攻撃速度減少(5秒)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "流激演舞",
+      "attackMul": 190,
+      "attackMotionMul": 153,
+      "target": 6,
+      "rounds": 5,
+      "rangeMul": 160,
+      "duration": "永続",
+      "cooldown": 130
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "移動時スキル継続"
+    ],
+    "features": [
+      {
+        "criChanceAdd": 15,
+        "criChanceLimitAdd": 15,
+        "potentialBonus": {
+          "criChanceAdd": 20,
+          "criChanceLimitAdd": 20
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 269,

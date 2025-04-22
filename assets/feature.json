@@ -9,6 +9,17 @@
     ]
   },
   {
+    "require": [
+      "スキル"
+    ],
+    "hasPotentials": [
+      "移動時スキル継続"
+    ],
+    "supplements": [
+      "移動可"
+    ]
+  },
+  {
     "featureName": "common-fire-field",
     "fieldElements": [
       "火"
