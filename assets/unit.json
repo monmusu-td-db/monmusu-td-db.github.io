@@ -1748,7 +1748,7 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "射程内敵HP減15%/発動",
+        "射程内敵HP-15%/発動",
         "回復100%/発動→自分"
       ]
     },
@@ -3568,14 +3568,14 @@
         "skill": 1,
         "isConditionalDebuff": true,
         "supplements": [
-          "HP減20%/発動→射程内味方"
+          "HP-20%/発動→射程内味方"
         ]
       },
       {
         "skill": 2,
         "isConditionalDebuff": true,
         "supplements": [
-          "HP減30%/発動→射程内味方"
+          "HP-30%/発動→射程内味方"
         ]
       },
       {
@@ -8433,7 +8433,7 @@
       "cooldown": 50,
       "supplements": [
         "tkn+1",
-        "敵味方HP減1%/10秒→射程内"
+        "敵味方HP-1%/10秒→射程内"
       ]
     },
     "potentials": [
@@ -10669,7 +10669,7 @@
       "duration": 40,
       "cooldown": 45,
       "supplements": [
-        "HP減14%/発動→全敵味方"
+        "HP-14%/発動→全敵味方"
       ]
     },
     "potentials": [
@@ -11478,8 +11478,8 @@
           "おみくじ 凶"
         ],
         "supplements": [
-          "HP減50%→射程内敵味方/発動",
-          "(HP減10%→射程内ボス)"
+          "HP-50%→射程内敵味方/発動",
+          "(HP-10%→射程内ボス)"
         ]
       },
       {
@@ -14484,6 +14484,86 @@
     ]
   },
   {
+    "TODO_DESC": "ex1スタン/スタン時間/防御デバフ",
+    "id": 272,
+    "unitName": "【ファフニール娘】ニッドラ",
+    "unitShortName": "ニッドラ",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "地",
+    "species": "竜",
+    "hp": 2860,
+    "attack": 559,
+    "defense": 307,
+    "resist": 475,
+    "exSkill1": {
+      "skillName": "守護の呪い",
+      "attackMul": 220,
+      "damageFactor": 130,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "スタン付与XX%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "defenseDebuff": {
+          "valueMul": 30
+        },
+        "resistDebuff": {
+          "valueMul": 30
+        },
+        "supplements": [
+          "物理魔法防御-30%→射程内"
+        ]
+      },
+      {
+        "supplements": [
+          "スタン時間+20%→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "スタン時間+25%→射程内"
+          ]
+        }
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "duration": 20,
+        "supplements": [
+          "HP-1%/秒→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "呪詛敵"
+        ],
+        "skill": 1,
+        "target": "全体",
+        "value": 130
+      }
+    ]
+  },
+  {
     "id": 275,
     "unitName": "【ハンプティダンプティ娘】エッシェル",
     "unitShortName": "エッシェル",
@@ -16284,7 +16364,7 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "HP減1%→命中"
+        "HP-1%→命中"
       ]
     },
     "potentials": [
@@ -16475,7 +16555,7 @@
       "duration": 1.4,
       "cooldown": 0,
       "supplements": [
-        "HP減100%→自身"
+        "HP-100%→自身"
       ]
     },
     "features": [

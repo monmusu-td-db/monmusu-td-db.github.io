@@ -621,6 +621,14 @@
           "カースドテリトリー"
         ]
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-action"
+        ]
+      }
     ]
   },
   {
