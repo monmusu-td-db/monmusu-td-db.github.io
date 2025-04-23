@@ -8,6 +8,7 @@ import type { StatHandler, StatProps } from "./StatRoot";
 type Factors = Data.DpsFactors | undefined;
 
 const sign = Tt.sign;
+const AMOUNT = "合計";
 
 export class StatDps<
   T extends number | undefined = number | undefined
@@ -132,7 +133,7 @@ export class StatDps<
               {(d) => (
                 <>
                   <Tt.Result>
-                    {d ? "平均" + damage : detail.damageAmount}
+                    {d ? AMOUNT + damage : detail.damageAmount}
                   </Tt.Result>
                   <Tt.Expression>
                     {isTrueDamage || f.penetration <= 0 ? (
@@ -203,7 +204,7 @@ export class StatDps<
                     <>
                       {d
                         ? isAmountShowed
-                          ? "平均" + damageOrHeal
+                          ? AMOUNT + damageOrHeal
                           : damageOrHeal
                         : f.normal.damageAmount}
                       <Tt.Multiply enabled={isBothShowed}>
@@ -218,7 +219,7 @@ export class StatDps<
                     <>
                       <Tt.Positive>
                         {d
-                          ? (isAmountShowed ? "平均" : "") +
+                          ? (isAmountShowed ? AMOUNT : "") +
                             "CRI" +
                             damageOrHeal
                           : f.critical.damageAmount}
