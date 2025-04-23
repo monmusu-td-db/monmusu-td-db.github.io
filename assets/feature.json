@@ -233,6 +233,26 @@
     "hits": 3
   },
   {
+    "featureName": "common-4hits",
+    "conditions": [
+      {
+        "key": "hit",
+        "value": 4
+      }
+    ],
+    "hits": 4
+  },
+  {
+    "featureName": "common-5hits",
+    "conditions": [
+      {
+        "key": "hit",
+        "value": 5
+      }
+    ],
+    "hits": 5
+  },
+  {
     "featureName": "common-absorb",
     "isAbility": true,
     "conditions": [

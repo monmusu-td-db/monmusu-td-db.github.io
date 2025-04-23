@@ -3464,6 +3464,172 @@
     ]
   },
   {
+    "TODO_DESC": "ex1/ex2射程/ex2追加ダメージHit数",
+    "id": 61,
+    "unitName": "【レッドドラゴン娘】エリュート",
+    "unitShortName": "エリュート",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "火",
+    "species": "竜",
+    "hp": 5562,
+    "attack": 955,
+    "defense": 475,
+    "resist": 112,
+    "exSkill1": {
+      "skillName": "火竜轟焔斬",
+      "attackMul": 150,
+      "fixedDelay": 1,
+      "target": 1,
+      "range": 999,
+      "duration": "単発",
+      "cooldown": 35,
+      "damageType": "魔法"
+    },
+    "exSkill2": {
+      "skillName": "業火爆砕",
+      "attackMul": 120,
+      "fixedDelay": 1,
+      "target": 5,
+      "range": 999,
+      "duration": "単発",
+      "cooldown": 30,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃速度+15"
+    ],
+    "weapon": {
+      "weaponName": "焔煌の炎刃",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "featureName": "class-charge",
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 160
+        }
+      },
+      {
+        "featureName": "phase1",
+        "require": [
+          "武器"
+        ],
+        "phase": 1,
+        "attackMul": 120
+      },
+      {
+        "featureName": "phase5",
+        "require": [
+          "武器"
+        ],
+        "phase": 5,
+        "attackMul": 200
+      },
+      {
+        "featureName": "extra-damage",
+        "conditions": [
+          "追"
+        ],
+        "damageFactor": 50,
+        "criChanceAdd": -1000,
+        "target": "命中",
+        "splash": true,
+        "rounds": 9
+      }
+    ],
+    "attackMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "phase1",
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase1",
+          "extra-damage",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase1",
+          "extra-damage",
+          "common-5hits"
+        ]
+      },
+      {
+        "features": [
+          "phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "phase5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "phase5",
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase5"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase5",
+          "extra-damage",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase5",
+          "extra-damage",
+          "common-5hits"
+        ]
+      },
+      {
+        "features": [
+          "phase5"
+        ]
+      }
+    ]
+  },
+  {
     "id": 63,
     "unitName": "【クーシー娘】ユーシィ",
     "unitShortName": "ユーシィ",
