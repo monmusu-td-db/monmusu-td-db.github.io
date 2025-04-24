@@ -259,6 +259,8 @@
       "吸"
     ],
     "target": "自分",
+    "splash": false,
+    "wideTarget": false,
     "flagRangeIsVisible": true,
     "damageType": "吸収"
   },

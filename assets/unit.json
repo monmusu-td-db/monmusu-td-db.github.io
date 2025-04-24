@@ -14968,6 +14968,271 @@
     "hpMul": 85
   },
   {
+    "id": 286,
+    "unitName": "【チュパカブラ娘】チュピナ",
+    "unitShortName": "チュピナ",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "闇",
+    "hp": 4477,
+    "attack": 677,
+    "defense": 477,
+    "resist": 66,
+    "supplements": [
+      "コスト+2/撃破"
+    ],
+    "exSkill1": {
+      "skillName": "ブラッドハーベスト",
+      "attackMul": 200,
+      "fixedDelay": 1,
+      "splash": true,
+      "range": 350,
+      "duration": "単発",
+      "cooldown": 5,
+      "damageType": "貫通",
+      "supplements": [
+        "コスト-5/発動",
+        "コスト+6"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "wideTarget": false,
+        "deleteSupplements": [
+          "対地限定攻撃"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "supplements": [
+          "回復3%/命中"
+        ]
+      },
+      {
+        "featureName": "extra-damage",
+        "isAbility": true,
+        "conditions": [
+          "追"
+        ],
+        "criChanceAdd": -1000,
+        "target": "命中",
+        "supplements": [
+          "暗闇付与"
+        ]
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 160
+          }
+        ],
+        "attackMul": 160,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 180
+            }
+          ],
+          "attackMul": 180
+        }
+      },
+      {
+        "featureName": "attack-mul3",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 480
+          }
+        ],
+        "attackMul": 480,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 540
+            }
+          ],
+          "attackMul": 540
+        }
+      },
+      {
+        "featureName": "attack-mul5",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 800
+          }
+        ],
+        "attackMul": 800,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 900
+            }
+          ],
+          "attackMul": 900
+        }
+      },
+      {
+        "featureName": "attack-mul-max",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 1000
+          }
+        ],
+        "attackMul": 1000
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage",
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage",
+          "attack-mul3"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage",
+          "attack-mul5"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul-max"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul-max"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage",
+          "attack-mul-max"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "common-absorb",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "common-absorb",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "common-absorb",
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 288,
     "unitName": "【石猿娘】メイユェン",
     "unitShortName": "メイユェン",
