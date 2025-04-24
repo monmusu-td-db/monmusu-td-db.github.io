@@ -57,7 +57,7 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
           </Tt.Equation>
         )}
 
-        {!!f.cooldown && (
+        {f.cooldown !== undefined && (
           <Tt.Equation>
             {(d) => (
               <>
@@ -72,12 +72,20 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
                   ) : (
                     <>
                       {d ? "攻撃間隔" : f.actualResult + sign.FRAME}
-                      <Tt.Plus>{d ? "再動" : f.cooldown + sign.SECOND}</Tt.Plus>
-                      <Tt.Multiply>
-                        {d
-                          ? "フレームレート"
-                          : Data.fps + sign.FRAME + "/" + sign.SECOND}
-                      </Tt.Multiply>
+                      {f.cooldownFrame === 1 ? (
+                        <Tt.Plus>{d ? "再動(下限)" : 1 + sign.FRAME}</Tt.Plus>
+                      ) : (
+                        <>
+                          <Tt.Plus>
+                            {d ? "再動" : f.cooldown + sign.SECOND}
+                          </Tt.Plus>
+                          <Tt.Multiply>
+                            {d
+                              ? "フレームレート"
+                              : Data.fps + sign.FRAME + "/" + sign.SECOND}
+                          </Tt.Multiply>
+                        </>
+                      )}
                     </>
                   )}
                 </Tt.Expression>

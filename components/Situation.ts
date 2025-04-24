@@ -353,9 +353,9 @@ export default class Situation implements TableSource<Keys> {
           if (factor?.staticCooldown) {
             return factor.result;
           }
-          const c = this.cooldown.getValue(s);
+          const c = factor?.cooldown;
           if (ret === undefined || c === undefined) return;
-          return ret + c * Data.fps;
+          return factor?.result;
         }
         return ret;
       },
@@ -364,7 +364,8 @@ export default class Situation implements TableSource<Keys> {
         const f = this.interval.getFactors(s);
         if (f?.actualResult === undefined) return;
 
-        if (f?.cooldown || f?.staticValue) return tableColor.warning;
+        if (f?.cooldown !== undefined || f?.staticValue)
+          return tableColor.warning;
 
         const b = f?.base?.buffColor;
         if (b) return b;
@@ -1763,9 +1764,10 @@ export default class Situation implements TableSource<Keys> {
       const cooldown = this.cooldown.getValue(setting);
       if (cooldown === undefined) return;
 
+      const cooldownFrame = Math.max(1, cooldown * Data.fps);
       const minInterval = this.getFeature(setting).minInterval;
       let staticCooldown = false;
-      let result = ret.actualResult + cooldown * Data.fps;
+      let result = ret.actualResult + cooldownFrame;
       if (minInterval !== undefined) {
         staticCooldown = minInterval > result;
         result = Math.max(minInterval, result);
@@ -1774,6 +1776,7 @@ export default class Situation implements TableSource<Keys> {
       return {
         ...ret,
         cooldown,
+        cooldownFrame,
         staticCooldown,
         minInterval,
         result,

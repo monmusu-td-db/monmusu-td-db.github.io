@@ -1532,6 +1532,7 @@ export interface IntervalBaseFactors
 }
 export interface IntervalFactors extends ActualIntervalFactors {
   readonly cooldown?: number;
+  readonly cooldownFrame?: number;
   readonly minInterval?: number | undefined;
   readonly staticCooldown?: boolean;
   readonly result?: number;
