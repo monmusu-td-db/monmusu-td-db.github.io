@@ -220,7 +220,7 @@ export const MainStatType = {
 
 // Json
 
-const jsonConditionTexts = {
+const conditionKeys = {
   hp: "HP",
   block: "BL",
   team: "t",
@@ -242,8 +242,9 @@ const jsonConditionTexts = {
   second: "s",
   hit: "hit",
 } as const;
+const conditionKeysEntries = Object.entries(conditionKeys);
 const conditionTexts = {
-  ...jsonConditionTexts,
+  ...conditionKeys,
   multiply: "×",
 } as const;
 type ConditionKey = keyof typeof conditionTexts;
@@ -254,7 +255,7 @@ export const JsonCondition = {
   parse(list: readonly JsonCondition[] | undefined): Condition[] | undefined {
     if (list === undefined) return;
     const fn = (obj: JsonCondition): Condition | undefined => {
-      for (const kvp of Object.entries(jsonConditionTexts)) {
+      for (const kvp of conditionKeysEntries) {
         const key = kvp[0] as ConditionKey;
         const value = kvp[1];
         if (value === obj) {
@@ -286,12 +287,16 @@ export const Condition = {
 
   of(...lists: (readonly Condition[] | undefined)[]): Condition[] {
     const ret: Condition[] = [];
-    lists.forEach((list) =>
-      list?.forEach((kvp) => {
-        if (!ret.find((r) => r.key === kvp.key)) ret.push(kvp);
-      })
-    );
-    return ret;
+    const revLists = lists.toReversed();
+    revLists.forEach((list) => {
+      const revList = list?.toReversed();
+      revList?.forEach((kvp) => {
+        if (!ret.find((r) => r.key === kvp.key)) {
+          ret.push(kvp);
+        }
+      });
+    });
+    return ret.reverse();
   },
 
   toSorted(list: readonly Condition[]): Condition[] {
