@@ -12015,6 +12015,114 @@
     ]
   },
   {
+    "id": 211,
+    "unitName": "【マモン娘】マージェル",
+    "unitShortName": "マージェル",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "光",
+    "species": "悪魔",
+    "hp": 2815,
+    "attack": 0,
+    "defense": 299,
+    "resist": 521,
+    "exSkill1": {
+      "skillName": "強欲の悪魔",
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "ATK-10%(15秒)→射程内",
+        "敵ATK減少分ATK上昇→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "isNotAbility": true,
+        "supplements": [
+          "コスト+1/5体撃破→射程内味方"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "コスト+1/4体撃破→射程内味方"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 10
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "バフ枠は推測",
+    "id": 2110001,
+    "parentId": 211,
+    "unitName": "御買得品",
+    "unitShortName": "御買得品T",
+    "rarity": "C",
+    "element": "光",
+    "cost": 30,
+    "hp": 100,
+    "attack": 0,
+    "defense": 0,
+    "resist": 0,
+    "block": 0,
+    "target": 0,
+    "moveSpeed": 0,
+    "placement": "付",
+    "supplements": [
+      "配置後即時消滅",
+      "バフ→付与対象"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "target": "付与対象",
+        "range": null,
+        "value": 110
+      },
+      {
+        "type": "hp-mul",
+        "require": [
+          "近接クラス"
+        ],
+        "target": "付与対象",
+        "range": null,
+        "value": 110
+      },
+      {
+        "type": "delay-mul",
+        "require": [
+          "遠隔/スカウト系クラス"
+        ],
+        "target": "付与対象",
+        "range": null,
+        "value": 90
+      }
+    ]
+  },
+  {
     "id": 212,
     "unitName": "【愛飲のスライム娘】リン",
     "unitShortName": "リン/VD",
