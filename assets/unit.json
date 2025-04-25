@@ -7386,6 +7386,108 @@
     ]
   },
   {
+    "id": 113,
+    "unitName": "【ヴァンパイア娘】ヴェラートゥ",
+    "unitShortName": "ヴェラートゥ",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "闇",
+    "hp": 5892,
+    "attack": 939,
+    "defense": 471,
+    "resist": 108,
+    "moveType": "ワープ",
+    "exSkill1": {
+      "skillName": "ブラッディダンス",
+      "attackMul": 460,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "range": 250,
+      "duration": "単発",
+      "cooldown": 25
+    },
+    "exSkill2": {
+      "skillName": "黒翼の舞踏",
+      "attackMul": 420,
+      "fixedDelay": 1,
+      "target": 5,
+      "range": 350,
+      "duration": "単発",
+      "cooldown": 25,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃速度+15"
+    ],
+    "features": [
+      {
+        "featureName": "common-absorb",
+        "staticDamage": {
+          "key": "hp",
+          "value": 4
+        },
+        "supplements": [
+          "回復4%/命中"
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "conditions": [
+          {
+            "key": "*",
+            "value": 1000
+          }
+        ],
+        "attackMul": 1000
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-charge",
+          "class-charge3",
+          "attack-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-charge",
+          "class-charge3",
+          "attack-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "class-charge",
+          "class-charge3",
+          "attack-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "id": 114,
     "unitName": "【アイアンゴーレム娘】アイレン",
     "unitShortName": "アイレン",
