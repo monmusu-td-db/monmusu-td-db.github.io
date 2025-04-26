@@ -14898,6 +14898,65 @@
     ]
   },
   {
+    "TODO_DESC": "delayCutはWiki情報",
+    "id": 271,
+    "unitName": "【リトルグリーンマン娘】ピンダ",
+    "unitShortName": "ピンダ",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "闇",
+    "species": "エイリアン",
+    "hp": 2544,
+    "attack": 1056,
+    "defense": 223,
+    "resist": 320,
+    "supplements": [
+      "鈍足-10%(5秒)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "ポイントシュート",
+      "attackMul": 290,
+      "rounds": 2,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-16/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "エイリアン"
+        ],
+        "cost": -1
+      }
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "penetrationAdd": 70
+      }
+    ],
+    "delayMul": 85,
+    "potentialBonus": {
+      "delayMul": 70
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "TODO_DESC": "ex1スタン/スタン時間/防御デバフ",
     "id": 272,
     "unitName": "【ファフニール娘】ニッドラ",
