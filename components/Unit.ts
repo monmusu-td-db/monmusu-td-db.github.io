@@ -789,7 +789,9 @@ export default class Unit implements TableSource<Keys> {
   ): number {
     const res = factors.barrackResult;
     if (this.isToken) return res;
-    const a = Percent.multiply(res, factors.formationBuff);
+    const a = Data.BaseStatType.isKey(statType)
+      ? Percent.multiply(res, factors.formationBuff)
+      : res + factors.formationBuff;
     let b;
     if (Data.Beast.isFormationFactorAdd(statType))
       b = Math.max(0, a + factors.beastFormationBuff);
@@ -901,6 +903,7 @@ export default class Unit implements TableSource<Keys> {
   ): Data.FormationBuffValue[] {
     if (
       !(
+        statType === stat.cost ||
         Data.BaseStatType.isKey(statType) ||
         statType === stat.delay ||
         statType === stat.moveSpeed
@@ -927,6 +930,7 @@ export default class Unit implements TableSource<Keys> {
   ): number {
     let defaultValue;
     switch (statType) {
+      case stat.cost:
       case stat.moveSpeed:
         defaultValue = 0;
         break;
@@ -989,6 +993,7 @@ export default class Unit implements TableSource<Keys> {
         if (
           isTarget &&
           (Data.BaseStatType.isKey(statType) ||
+            statType === stat.cost ||
             statType === stat.delay ||
             statType === stat.moveSpeed)
         )

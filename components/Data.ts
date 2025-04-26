@@ -582,6 +582,7 @@ export interface FormationBuff {
     typeof FormationBuff.all | Element | BaseClassName | Species
   >;
   readonly require: readonly FormationBuffRequire[];
+  readonly cost?: number;
   readonly hp?: number;
   readonly attack?: number;
   readonly defense?: number;

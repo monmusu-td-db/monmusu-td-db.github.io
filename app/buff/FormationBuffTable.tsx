@@ -14,6 +14,7 @@ import {
 const columns = [
   "id",
   "name",
+  "cost",
   "hp",
   "attack",
   "defense",
@@ -24,6 +25,7 @@ const columns = [
 const columnName = {
   id: "#",
   name: "名前",
+  cost: "コスト",
   hp: "HP",
   attack: "攻撃",
   defense: "物防",
@@ -78,6 +80,7 @@ function getBuffList(): readonly BuffTableItem<Column>[] {
       const item = {
         id,
         name,
+        cost: buff.cost?.toString() ?? "",
         hp: fn(buff.hp),
         attack: fn(buff.attack),
         defense: fn(buff.defense),
