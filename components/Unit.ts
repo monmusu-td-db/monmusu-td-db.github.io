@@ -178,7 +178,7 @@ export default class Unit implements TableSource<Keys> {
   readonly resist: Stat.Base<number>;
   readonly criticalChance: Stat.Root;
   readonly criticalDamage: Stat.Root;
-  readonly penetration: Stat.Root;
+  readonly penetration: Stat.Root<number | undefined, Data.PenetrationFactors>;
   readonly physicalEvasion: Stat.Root;
   readonly magicalEvasion: Stat.Root;
   readonly attackSpeed: Stat.AttackSpeed;
@@ -337,11 +337,18 @@ export default class Unit implements TableSource<Keys> {
       },
     });
 
-    const penetration =
-      (classData?.penetration ?? 0) + (src.penetrationAdd ?? 0);
     this.penetration = new Stat.Root({
       statType: stat.penetration,
-      calculater: () => penetration,
+      calculater: (s) => {
+        const factor = this.penetration.getFactors(s);
+        return Data.Penetration.getValue(factor.base, factor.multiply);
+      },
+      factors: () => {
+        return {
+          base: src.penetrationAdd ?? 0,
+          multiply: classData?.penetration ?? 0,
+        };
+      },
     });
 
     this.physicalEvasion = new Stat.Root({

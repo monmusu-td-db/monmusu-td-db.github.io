@@ -1428,6 +1428,12 @@ export interface StaticDamageFactor {
   readonly result: number;
 }
 
+export class Penetration {
+  static getValue(base: number, multiply: number): number {
+    return 100 - ((100 - base) * (100 - multiply)) / 100;
+  }
+}
+
 // Factors
 
 export interface ColorFactor<T = number> {
@@ -1497,6 +1503,11 @@ export interface CriticalFactors {
 export interface ActualDefResFactors extends InBattleFactors {
   readonly staticDamage: StaticDamageFactor | undefined;
   readonly actualResult: number;
+}
+
+export interface PenetrationFactors {
+  readonly base: number;
+  readonly multiply: number;
 }
 
 export interface AttackSpeedFactors {

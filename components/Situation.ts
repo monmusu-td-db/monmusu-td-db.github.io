@@ -121,7 +121,7 @@ export default class Situation implements TableSource<Keys> {
   readonly criticalDamage: Stat.Root<number, Data.CriticalFactors>;
   readonly criticalChanceLimit: Stat.Root<number>;
   readonly criticalDamageLimit: Stat.Root<number>;
-  readonly penetration: Stat.Root;
+  readonly penetration: Stat.Root<number | undefined, Data.PenetrationFactors>;
   readonly physicalLimit: Stat.Limit;
   readonly magicalLimit: Stat.Limit;
   readonly physicalDamageCut: Stat.Root<number, Data.DamageCutFactors>;
@@ -337,10 +337,18 @@ export default class Situation implements TableSource<Keys> {
     this.penetration = new Stat.Root({
       statType: stat.penetration,
       calculater: (s) => {
-        const u = this.unit?.penetration.getValue(s) ?? 0;
+        const factor = this.penetration.getFactors(s);
+        return Data.Penetration.getValue(factor.base, factor.multiply);
+      },
+      factors: (s) => {
+        const unitFactor = this.unit?.penetration.getFactors(s);
         const ss = this.getSubskillFactor(s, ssKeys.penetration) ?? 0;
         const fea = this.getFeature(s).penetrationAdd ?? 0;
-        return u + ss + fea;
+
+        return {
+          base: (unitFactor?.base ?? 0) + ss + fea,
+          multiply: unitFactor?.multiply ?? 0,
+        };
       },
     });
 
