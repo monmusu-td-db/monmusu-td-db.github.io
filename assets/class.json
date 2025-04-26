@@ -208,6 +208,7 @@
         "rounds": 1,
         "splash": false,
         "range": 200,
+        "damageType": "物理",
         "supplements": [
           "スタン付与100%"
         ]

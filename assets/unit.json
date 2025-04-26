@@ -15443,6 +15443,262 @@
     ]
   },
   {
+    "TODO_DESC": "配置時攻撃射程/鈍足が命中時か否か/配置時攻撃の状態異常付与",
+    "id": 287,
+    "unitName": "【フラットウッズ・モンスター娘】クリプト",
+    "unitShortName": "クリプト",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "闇",
+    "species": "エイリアン",
+    "hp": 7071,
+    "attack": 885,
+    "defense": 325,
+    "resist": 153,
+    "supplements": [
+      "猛毒付与(稀)",
+      "暗闇付与(稀)"
+    ],
+    "exSkill1": {
+      "skillName": "トキシックレイ",
+      "attackMul": 320,
+      "target": "射程内",
+      "rounds": 1,
+      "duration": 20,
+      "cooldown": 5,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト-8/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "featureName": "deploy-attack",
+        "isAbility": true,
+        "annotations": [
+          "配置時追加攻撃"
+        ],
+        "damageFactor": 200,
+        "interval": null,
+        "target": "射程内",
+        "rounds": 1,
+        "splash": false,
+        "range": 200,
+        "damageType": "魔法",
+        "supplements": [
+          "鈍足→命中"
+        ],
+        "potentialBonus": {
+          "damageFactor": 250
+        }
+      },
+      {
+        "featureName": "proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "毒 or 暗闇特効"
+        ],
+        "conditions": [
+          "特"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "proper",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "damageFactor": 120
+      },
+      {
+        "featureName": "proper-double",
+        "isConditionalBuff": true,
+        "annotations": [
+          "二重特効"
+        ],
+        "conditions": [
+          "特"
+        ],
+        "damageFactor": 144
+      },
+      {
+        "featureName": "proper-double",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "damageFactor": 144
+      },
+      {
+        "featureName": "class-proper",
+        "annotations": [
+          "スタン特効"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "proper-double"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "proper-double"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "class-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "deploy-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "class-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "deploy-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "class-attack",
+          "proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "deploy-attack",
+          "proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "class-attack",
+          "proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "deploy-attack",
+          "proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "class-attack",
+          "proper-double"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "deploy-attack",
+          "proper-double"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "class-attack",
+          "proper-double"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "deploy-attack",
+          "proper-double"
+        ]
+      }
+    ]
+  },
+  {
     "id": 288,
     "unitName": "【石猿娘】メイユェン",
     "unitShortName": "メイユェン",
@@ -17055,7 +17311,7 @@
     ],
     "features": [
       {
-        "featureName": "specific-stan",
+        "featureName": "proper-stan",
         "isConditionalBuff": true,
         "conditions": [
           "特"
@@ -17077,13 +17333,13 @@
       },
       {
         "features": [
-          "specific-stan"
+          "proper-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "specific-stan"
+          "proper-stan"
         ]
       }
     ],
