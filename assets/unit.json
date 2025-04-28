@@ -8142,8 +8142,8 @@
     ],
     "exSkill1": {
       "skillName": "お姉ちゃんサンダー！",
-      "attackMul": 170,
-      "targetAdd": 2,
+      "attackMul": 180,
+      "targetAdd": 4,
       "rangeMul": 160,
       "duration": 20,
       "cooldown": 40,
@@ -8165,14 +8165,14 @@
         ],
         "staticDamage": {
           "key": "attack",
-          "value": 40
+          "value": 50
         },
         "target": "命中",
         "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
-            "value": 55
+            "value": 65
           }
         }
       },
