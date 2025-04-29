@@ -262,6 +262,7 @@ export class FilterCondition {
     this.equipment.shieldKnight,
     this.equipment.archer,
     this.equipment.conjurer,
+    this.equipment.whipper,
   ] as const satisfies FilterEquipment[];
 
   static requiredFeature = {
