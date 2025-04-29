@@ -777,9 +777,11 @@ export const className = {
   airScout: "エアスカウト",
   assassin: "チーフアサシン",
   ninja: "ニンジャ",
+  whipper: "ウィッパー",
   shaman: "シャーマン",
   bard: "バード",
 } as const;
+export type ClassNameKey = keyof typeof className;
 export const classEquipmentName = {
   blader: "曲刀",
   lancer: "槍",
@@ -798,9 +800,10 @@ export const classEquipmentName = {
   assassin: "短剣",
   airScout: "扇",
   ninja: "手裏剣",
+  whipper: "鞭",
   shaman: "霊枝",
   bard: "楽器",
-} as const;
+} as const satisfies Record<ClassNameKey, string>;
 const baseClassName = {
   warrior: "ウォリアー",
   guardian: "ガーディアン",
@@ -819,7 +822,6 @@ export const BaseClassName = {
     return Object.values(baseClassName).find((v) => v === value);
   },
 } as const;
-export type ClassNameKey = keyof typeof className;
 const classNameKeyList = Object.keys(className) as readonly ClassNameKey[];
 const classNameKeys = Enum(classNameKeyList);
 export type ClassName = (typeof className)[ClassNameKey];
@@ -1380,6 +1382,7 @@ export const attackSpeedList = {
   102: 40,
   105: 39,
   110: 37,
+  112: 36,
   113: 36,
   115: 35,
   116: 35,
