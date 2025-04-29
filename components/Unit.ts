@@ -796,9 +796,10 @@ export default class Unit implements TableSource<Keys> {
   ): number {
     const res = factors.barrackResult;
     if (this.isToken) return res;
-    const a = Data.BaseStatType.isKey(statType)
-      ? Percent.multiply(res, factors.formationBuff)
-      : res + factors.formationBuff;
+    const a =
+      statType !== stat.cost
+        ? Percent.multiply(res, factors.formationBuff)
+        : res + factors.formationBuff;
     let b;
     if (Data.Beast.isFormationFactorAdd(statType))
       b = Math.max(0, a + factors.beastFormationBuff);
