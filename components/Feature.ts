@@ -216,6 +216,7 @@ const commonFeature = {
   isConditionalSkillBuff: false,
   isConditionalSkillDebuff: false,
   isMoving: false,
+  isUnhealable: false,
   healFlag: false,
   currentHp: 0,
   phase: 0,

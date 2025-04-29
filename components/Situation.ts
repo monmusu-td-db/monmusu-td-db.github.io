@@ -683,7 +683,10 @@ export default class Situation implements TableSource<Keys> {
       arg: Stat.Limit,
       setting: Setting
     ): string | JSX.Element | undefined => {
-      return Util.getLimitItem(arg.getValue(setting), this.unit?.isUnhealable);
+      return Util.getLimitItem(
+        arg.getValue(setting),
+        this.getIsUnhealable(setting)
+      );
     };
 
     this.physicalLimit = new Stat.Limit({
@@ -1521,7 +1524,7 @@ export default class Situation implements TableSource<Keys> {
     const base = this.getInBattleFactors(setting, stat.hp);
     if (base === undefined) return;
 
-    const isUnhealable = this.unit?.isUnhealable ?? false;
+    const isUnhealable = this.getIsUnhealable(setting);
     const currentFactor = this.getFeature(setting).currentHp ?? 100;
 
     return {
@@ -1530,6 +1533,11 @@ export default class Situation implements TableSource<Keys> {
       currentFactor,
       actualResult: Percent.multiply(base.inBattleResult, currentFactor),
     };
+  }
+
+  private getIsUnhealable(setting: Setting): boolean {
+    const fea = this.getFeature(setting);
+    return fea.isUnhealable ?? this.unit?.isUnhealable ?? false;
   }
 
   private getActualAttackFactors(
