@@ -891,7 +891,7 @@
     ]
   },
   {
-    "TODO_DESC": "射程",
+    "TODO_DESC": "射程/物理防御デバフの持続時間/移動速度/移動不可(バインド?)/ダメージ耐性デバフはWiki情報/ACT中は範囲マルチになる?",
     "className": "ウィッパー",
     "cost": 12,
     "attackSpeed": 112,
@@ -901,11 +901,31 @@
     "moveSpeed": 999,
     "damageType": "物理",
     "placement": "両",
+    "supplements": [
+      "DEF-{attack-base*12}(XX秒)→命中"
+    ],
     "features": [
-      {}
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "テラーペイン"
+        ],
+        "damageDebuff": 120,
+        "target": "射程内",
+        "duration": 10,
+        "supplements": [
+          "バインド(XXf/X秒)→命中"
+        ]
+      }
     ],
     "situations": [
-      {}
+      {},
+      {
+        "features": [
+          "class-action"
+        ]
+      }
     ]
   },
   {

@@ -20,6 +20,14 @@
     ]
   },
   {
+    "hasPotentials": [
+      "凍結無効"
+    ],
+    "supplements": [
+      "凍結無効"
+    ]
+  },
+  {
     "featureName": "common-fire-field",
     "fieldElements": [
       "火"

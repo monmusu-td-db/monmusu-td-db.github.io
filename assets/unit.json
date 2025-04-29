@@ -17612,5 +17612,123 @@
         "skill": 1
       }
     ]
+  },
+  {
+    "TODO_DESC": "底力特性はWiki情報",
+    "id": 328,
+    "unitName": "【ガン・ケン娘】プラチナ",
+    "unitShortName": "プラチナ/鞭",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "闇",
+    "hp": 4156,
+    "attack": 742,
+    "defense": 471,
+    "resist": 233,
+    "supplements": [
+      "毒無効",
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "サイレントナイト",
+      "attackMul": 260,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "HP1%に変動/発動",
+        "HP50%に変動/終了"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "凍結無効"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "CT-1秒/敵撃破時"
+        ]
+      },
+      {
+        "skill": 1,
+        "isUnhealable": true,
+        "currentHp": 1
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "MIN-HP1"
+        ]
+      },
+      {
+        "featureName": "hp-50%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ],
+        "currentHp": 50,
+        "attackMul": 150,
+        "attackSpeedBuff": 200,
+        "delayMul": 30,
+        "potentialBonus": {
+          "attackMul": 163
+        }
+      },
+      {
+        "featureName": "hp-1%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 1
+          }
+        ],
+        "currentHp": 1,
+        "attackMul": 200,
+        "attackSpeedBuff": 200,
+        "delayMul": 30,
+        "potentialBonus": {
+          "attackMul": 225
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "features": [
+          "hp-1%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-1%"
+        ]
+      }
+    ]
   }
 ]
