@@ -17631,6 +17631,7 @@
     "exSkill1": {
       "skillName": "冷氷螺旋刃",
       "attackMul": 160,
+      "laser": true,
       "rangeMul": 200,
       "duration": 20,
       "cooldown": 35
@@ -17648,11 +17649,9 @@
       },
       {
         "skill": 1,
-        "isConditionalBuff": true,
         "fieldElements": [
           "水"
-        ],
-        "laser": true
+        ]
       },
       {
         "featureName": "common-proper",
