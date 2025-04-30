@@ -38,7 +38,9 @@ const columnKeys = [
   "moveSpeedAdd",
   "redeployTimeCut",
   "withdrawCostReturn",
+  "fieldBuffFactor",
   "fieldChange",
+  "fieldBuffAdd",
   "supplement",
 ] as const;
 type ColumnKey = (typeof columnKeys)[number];
@@ -69,7 +71,9 @@ const columnName = {
   moveSpeedAdd: "移動速度加算",
   redeployTimeCut: "再出撃短縮",
   withdrawCostReturn: "撤退時コスト回復量",
+  fieldBuffFactor: "マスボーナス強化",
   fieldChange: "マス属性変化",
+  fieldBuffAdd: "マスボーナス付与",
   supplement: "補足",
 } as const satisfies Record<ColumnKey, string>;
 
@@ -96,12 +100,19 @@ const BuffType = {
   stanResist: "stan-resist",
   petrifyResist: "petrify-resist",
   freezeResist: "freeze-resist",
+  fieldBuffFactor: "field-buff-factor",
   fieldChangeFire: "field-change-fire",
   fieldChangeWater: "field-change-water",
   fieldChangeWind: "field-change-wind",
   fieldChangeEarth: "field-change-earth",
   fieldChangeLight: "field-change-light",
   fieldChangeDark: "field-change-dark",
+  fieldBuffAddFire: "field-buff-add-fire",
+  fieldBuffAddWater: "field-buff-add-water",
+  fieldBuffAddWind: "field-buff-add-wind",
+  fieldBuffAddEarth: "field-buff-add-earth",
+  fieldBuffAddLight: "field-buff-add-light",
+  fieldBuffAddDark: "field-buff-add-dark",
 } as const;
 type BuffType = (typeof BuffType)[keyof typeof BuffType];
 
@@ -172,7 +183,9 @@ function getItems(): readonly Item[] {
       const moveSpeedAdd = fn(BuffType.moveSpeedAdd);
       const redeployTimeCut = getPercent(fn(BuffType.redeployTimeCut));
       const withdrawCostReturn = getPercent(fn(BuffType.withdrawCostReturn));
+      const fieldBuffFactor = getPercent(fn(BuffType.fieldBuffFactor));
       const fieldChange = getFieldChange(buff);
+      const fieldBuffAdd = getFieldBuffAdd(buff);
       const supplement = getSupplement(buff);
 
       const itemValue: ItemValue = {
@@ -201,7 +214,9 @@ function getItems(): readonly Item[] {
         moveSpeedAdd,
         redeployTimeCut,
         withdrawCostReturn,
+        fieldBuffFactor,
         fieldChange,
+        fieldBuffAdd,
         supplement,
       };
 
@@ -280,8 +295,12 @@ function getDuration(
   return value.toFixed(1);
 }
 
+function getFieldText(element: Data.Element): ReactNode {
+  return <span className={Data.Element.textColorOf(element)}>{element}</span>;
+}
+
 function getFieldChange(buff: JsonBuff): ReactNode {
-  const name = (() => {
+  const element = (() => {
     const n = Data.Element.name;
     switch (buff.type) {
       case BuffType.fieldChangeFire:
@@ -300,10 +319,37 @@ function getFieldChange(buff: JsonBuff): ReactNode {
         return;
     }
   })();
-  if (name === undefined) {
+  if (element === undefined) {
     return;
   } else {
-    return <span className={Data.Element.textColorOf(name)}>{name}</span>;
+    return getFieldText(element);
+  }
+}
+
+function getFieldBuffAdd(buff: JsonBuff): ReactNode {
+  const element = (() => {
+    const n = Data.Element.name;
+    switch (buff.type) {
+      case BuffType.fieldBuffAddFire:
+        return n.fire;
+      case BuffType.fieldBuffAddWater:
+        return n.water;
+      case BuffType.fieldChangeWind:
+        return n.wind;
+      case BuffType.fieldBuffAddEarth:
+        return n.earth;
+      case BuffType.fieldBuffAddLight:
+        return n.light;
+      case BuffType.fieldBuffAddDark:
+        return n.dark;
+      default:
+        return;
+    }
+  })();
+  if (element === undefined) {
+    return;
+  } else {
+    return getFieldText(element);
   }
 }
 

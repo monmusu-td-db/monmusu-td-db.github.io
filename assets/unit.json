@@ -17614,9 +17614,111 @@
     ]
   },
   {
+    "id": 327,
+    "unitName": "【フロストドレイク娘】フリス",
+    "unitShortName": "フリス/進化",
+    "rarity": "L",
+    "class": "ニンジャ",
+    "element": "水",
+    "species": "竜",
+    "hp": 2851,
+    "attack": 520,
+    "defense": 419,
+    "resist": 306,
+    "supplements": [
+      "凍結付与→命中"
+    ],
+    "exSkill1": {
+      "skillName": "冷氷螺旋刃",
+      "attackMul": 160,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "30%で貫通攻撃"
+    ],
+    "features": [
+      {
+        "fieldBuffFactor": 300
+      },
+      {
+        "skill": 1,
+        "fieldElements": [
+          "水"
+        ],
+        "laser": true
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 130,
+        "potentialBonus": {
+          "damageFactor": 140
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-buff-factor",
+        "target": "射程内",
+        "duration": "常時",
+        "value": 300
+      },
+      {
+        "type": "field-buff-factor",
+        "skill": 1,
+        "target": "射程内",
+        "value": 300
+      },
+      {
+        "type": "field-change-water",
+        "skill": 1,
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "field-buff-add-water",
+        "skill": 1,
+        "target": "射程内"
+      }
+    ]
+  },
+  {
     "id": 328,
     "unitName": "【ガン・ケン娘】プラチナ",
-    "unitShortName": "プラチナ/鞭",
+    "unitShortName": "プラチナ/進化",
     "rarity": "L",
     "class": "ウィッパー",
     "element": "闇",

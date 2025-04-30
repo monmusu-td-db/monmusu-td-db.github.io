@@ -888,6 +888,34 @@
           "隠密"
         ]
       }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-fire-field"
+        ]
+      },
+      {
+        "features": [
+          "class-water-field"
+        ]
+      },
+      {
+        "features": [
+          "class-wind-field"
+        ]
+      },
+      {
+        "features": [
+          "class-earth-field"
+        ]
+      },
+      {
+        "features": [
+          "class-field-stealth"
+        ]
+      }
     ]
   },
   {
