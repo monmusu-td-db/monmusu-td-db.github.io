@@ -883,6 +883,7 @@ export const ClassName = {
       case n.assassin:
       case n.airScout:
       case n.ninja:
+      case n.whipper:
         return baseClassName.scout;
       case n.shaman:
       case n.bard:
@@ -1395,6 +1396,7 @@ export const attackSpeedList = {
   123: 33,
   125: 33,
   126: 32,
+  127: 32,
   128: 32,
   129: 32,
   130: 32,

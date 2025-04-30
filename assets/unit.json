@@ -17614,7 +17614,6 @@
     ]
   },
   {
-    "TODO_DESC": "底力特性はWiki情報",
     "id": 328,
     "unitName": "【ガン・ケン娘】プラチナ",
     "unitShortName": "プラチナ/鞭",
@@ -17666,6 +17665,10 @@
         "supplements": [
           "MIN-HP1"
         ]
+      },
+      {
+        "featureName": "class-action",
+        "splash": false
       },
       {
         "featureName": "hp-50%",
