@@ -10158,11 +10158,11 @@
     "features": [
       {
         "supplements": [
-          "バインド30f(1秒)"
+          "バインド(30f/1秒)"
         ],
         "potentialBonus": {
           "supplements": [
-            "バインド39f(1.3秒)"
+            "バインド(39f/1.3秒)"
           ]
         }
       },
@@ -10195,7 +10195,7 @@
     "placement": "近",
     "supplements": [
       "隠密",
-      "バインド15f(0.5秒)"
+      "バインド(15f/0.5秒)"
     ],
     "features": [
       {
@@ -10433,7 +10433,7 @@
       "cooldown": 40,
       "supplements": [
         "tkn+1",
-        "バインド90f(3秒)"
+        "バインド(90f/3秒)"
       ]
     },
     "potentials": [
@@ -10446,11 +10446,11 @@
     "features": [
       {
         "supplements": [
-          "バインド60f(2秒)/配置"
+          "バインド(60f/2秒)/配置"
         ],
         "potentialBonus": {
           "supplements": [
-            "バインド90f(3秒)/配置"
+            "バインド(90f/3秒)/配置"
           ]
         }
       }

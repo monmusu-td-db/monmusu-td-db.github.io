@@ -891,7 +891,6 @@
     ]
   },
   {
-    "TODO_DESC": "物理防御デバフの持続時間/移動不可(バインド?)/ダメージ耐性デバフはWiki情報/ACT中は範囲マルチになる?",
     "className": "ウィッパー",
     "cost": 12,
     "attackSpeed": 112,
@@ -902,7 +901,7 @@
     "damageType": "物理",
     "placement": "両",
     "supplements": [
-      "DEF-{attack-base*12}(XX秒)→命中"
+      "DEF-{attack-base*12}(10秒)→命中"
     ],
     "features": [
       {
@@ -915,7 +914,7 @@
         "target": "射程内",
         "duration": 10,
         "supplements": [
-          "バインド(XXf/X秒)→命中"
+          "バインド(300f/10秒)→射程内"
         ]
       }
     ],
