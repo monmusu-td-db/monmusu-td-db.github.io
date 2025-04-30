@@ -17648,6 +17648,7 @@
       },
       {
         "skill": 1,
+        "isConditionalBuff": true,
         "fieldElements": [
           "水"
         ],

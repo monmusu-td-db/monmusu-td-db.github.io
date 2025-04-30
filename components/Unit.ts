@@ -343,9 +343,11 @@ export default class Unit implements TableSource<Keys> {
         const factor = this.penetration.getFactors(s);
         return Data.Penetration.getValue(factor.base, factor.multiply);
       },
-      factors: () => {
+      factors: (s) => {
+        const base = src.penetrationAdd ?? 0;
+        const potential = this.getPotentialFactor(s, stat.penetration);
         return {
-          base: src.penetrationAdd ?? 0,
+          base: base + potential,
           multiply: classData?.penetration ?? 0,
         };
       },

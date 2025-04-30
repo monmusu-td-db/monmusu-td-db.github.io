@@ -840,6 +840,7 @@
           "key": "attack",
           "value": 100
         },
+        "penetrationAdd": -1000,
         "target": "命中",
         "damageType": "魔法"
       },
@@ -859,6 +860,7 @@
           "key": "attack",
           "value": 100
         },
+        "penetrationAdd": -1000,
         "target": "命中",
         "damageType": "物理"
       },
