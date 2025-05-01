@@ -14534,6 +14534,93 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 258,
+    "unitName": "【海岸傘ゾンビ娘】ロトーナ",
+    "unitShortName": "ロトーナ/水着",
+    "rarity": "E",
+    "class": "ランサー",
+    "element": "闇",
+    "hp": 4288,
+    "attack": 650,
+    "defense": 531,
+    "resist": 53,
+    "supplements": [
+      "毒無効",
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "夏色騎士道",
+      "attackMul": 300,
+      "defenseMul": 300,
+      "blockAdd": 2,
+      "duration": 40,
+      "cooldown": 30,
+      "supplements": [
+        "コスト+20"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "featureName": "hp-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "hpMul": 160,
+        "potentialBonus": {
+          "hpMul": 170
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "hp-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-mul"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "hp-mul",
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 259,
     "unitName": "【戯夏のポルターガイスト娘】マギー",
     "unitShortName": "マギー/水着",
