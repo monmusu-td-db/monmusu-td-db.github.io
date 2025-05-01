@@ -10545,6 +10545,80 @@
     "isEventUnit": true
   },
   {
+    "TODO_DESC": "ex1攻撃待機時間",
+    "id": 184,
+    "unitName": "【ナベリウス娘】テルル",
+    "unitShortName": "テルル/進化",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 2673,
+    "attack": 1021,
+    "defense": 229,
+    "resist": 284,
+    "rounds": 3,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "乱れ撃つわん！",
+      "attackMul": 180,
+      "delayMul": 999,
+      "rounds": 6,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "attack-base",
+          "value": 18
+        },
+        "damageFactor": 80,
+        "potentialBonus": {
+          "damageFactor": 90
+        }
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "ATK-{attack-base*18}→全体/配置"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "ATK-{attack-base*18}→全体/発動"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "回避無視100%"
+        ],
+        "deleteSupplements": [
+          "回避無視30%"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 185,
     "unitName": "【ガーデンノーム娘】ペトラ",
     "unitShortName": "ペトラ/庭",
