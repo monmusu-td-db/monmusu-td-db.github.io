@@ -14732,6 +14732,77 @@
     ]
   },
   {
+    "TODO_DESC": "ex1停止時間は5秒表記だが実際には3秒",
+    "TODO_STAT_INFERRED": true,
+    "id": 262,
+    "unitName": "【ピクシー娘】パーク",
+    "unitShortName": "パーク",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "風",
+    "species": "妖精",
+    "hp": 3186,
+    "attack": 394,
+    "defense": 342,
+    "resist": 100,
+    "exSkill1": {
+      "skillName": "森からのお仕置き",
+      "attackMul": 240,
+      "duration": 25,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "移動不可付与(3秒)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "isEventUnit": true,
+    "physicalEvasion": 30,
+    "magicalEvasion": 30,
+    "potentialBonus": {
+      "physicalEvasion": 40,
+      "magicalEvasion": 40
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "スタン蓄積値",
+    "id": 2620001,
+    "parentId": 262,
+    "unitName": "痺れキノコ",
+    "unitShortName": "痺れキノコT",
+    "rarity": "C",
+    "cost": 10,
+    "element": "風",
+    "hp": 179,
+    "attack": 179,
+    "defense": 179,
+    "resist": 179,
+    "block": 1,
+    "target": 0,
+    "moveSpeed": 0,
+    "placement": "近",
+    "supplements": [
+      "スタン付与100%→周囲/死亡時",
+      "HP0/ブロック時"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 263,
     "unitName": "【オベロン娘】リュミヴェル",
     "unitShortName": "リュミヴェル",
