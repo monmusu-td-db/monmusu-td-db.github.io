@@ -15519,6 +15519,129 @@
     "hpMul": 85
   },
   {
+    "TODO_DESC": "スタン蓄積値",
+    "id": 283,
+    "unitName": "【ワキヤン・タンカ娘】ワエマワ",
+    "unitShortName": "ワエマワ/進化",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "光",
+    "hp": 2710,
+    "attack": 1079,
+    "defense": 222,
+    "resist": 555,
+    "moveType": "飛行",
+    "supplements": [
+      "スタン耐性減少→射程内敵"
+    ],
+    "exSkill1": {
+      "skillName": "ビリビリ☆ボルテックス",
+      "targetAdd": 3,
+      "rangeMul": 300,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "スタン付与XX%(中)"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRIダメージ+50%"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "スタン時間+20%→全体"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "スタン時間+28%→全体"
+          ]
+        }
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "スタン付与XX%(小)"
+        ]
+      },
+      {
+        "isConditionalSkillBuff": true,
+        "require": [
+          "スキル"
+        ],
+        "criChanceAdd": 50,
+        "criChanceLimitAdd": 50
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalSkillBuff": true,
+        "skill": 1,
+        "damageFactor": 200
+      }
+    ],
+    "criChanceAdd": 50,
+    "criDamageAdd": 50,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits",
+          "common-proper"
+        ]
+      }
+    ]
+  },
+  {
     "id": 284,
     "unitName": "【アトラク＝ナクア娘】フランシ",
     "unitShortName": "フランシ/進化",
