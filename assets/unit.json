@@ -13652,6 +13652,234 @@
     }
   },
   {
+    "id": 238,
+    "unitName": "【リリス娘】クロミ",
+    "unitShortName": "クロミ/進化",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 2542,
+    "attack": 644,
+    "defense": 244,
+    "resist": 611,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "リリステンプテーション",
+      "attackMul": 280,
+      "target": "射程内",
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "停止(3秒)/発動→全体"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "featureName": "normal",
+        "isNotAbility": true,
+        "skill": 0,
+        "resistDebuff": {
+          "key": "attack-base",
+          "valueAdd": 100
+        },
+        "supplements": [
+          "RES-{attack-base*100}→射程内",
+          "RES-{attack-base*50}→射程外"
+        ],
+        "potentialBonus": {
+          "resistDebuff": {
+            "key": "attack-base",
+            "valueAdd": 130
+          },
+          "supplements": [
+            "RES-{attack-base*130}→射程内",
+            "RES-{attack-base*65}→射程外"
+          ]
+        }
+      },
+      {
+        "featureName": "proper-debuff",
+        "isConditionalBuff": true,
+        "isNotAbility": true,
+        "skill": 0,
+        "resistDebuff": {
+          "key": "attack-base",
+          "valueAdd": 200
+        },
+        "supplements": [
+          "RES-{attack-base*200}→射程内男性",
+          "RES-{attack-base*100}→射程外男性"
+        ],
+        "potentialBonus": {
+          "resistDebuff": {
+            "key": "attack-base",
+            "valueAdd": 260
+          },
+          "supplements": [
+            "RES-{attack-base*260}→射程内男性",
+            "RES-{attack-base*130}→射程外男性"
+          ]
+        }
+      },
+      {
+        "featureName": "proper-debuff",
+        "isConditionalSkillBuff": true,
+        "isNotAbility": true,
+        "require": [
+          "スキル"
+        ],
+        "resistDebuff": {
+          "key": "attack-base",
+          "valueAdd": 200
+        },
+        "supplements": [
+          "RES-{attack-base*200}→射程内",
+          "RES-{attack-base*100}→射程外"
+        ],
+        "potentialBonus": {
+          "resistDebuff": {
+            "key": "attack-base",
+            "valueAdd": 260
+          },
+          "supplements": [
+            "RES-{attack-base*260}→射程内",
+            "RES-{attack-base*130}→射程外"
+          ]
+        }
+      },
+      {
+        "featureName": "normal-absorb",
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "supplements": [
+          "回復3%/命中"
+        ]
+      },
+      {
+        "featureName": "proper-absorb",
+        "isConditionalBuff": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 6
+        },
+        "supplements": [
+          "回復6%/命中"
+        ]
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 200
+          }
+        ],
+        "attackMul": 200
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 300
+          }
+        ],
+        "attackMul": 300
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "features": [
+          "common-proper",
+          "proper-debuff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "proper-debuff"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul1",
+          "normal"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul1",
+          "common-proper",
+          "proper-debuff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1",
+          "proper-debuff"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2",
+          "normal"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2",
+          "common-proper",
+          "proper-debuff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2",
+          "proper-debuff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-absorb",
+          "normal-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-absorb",
+          "common-proper",
+          "proper-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "TODO_BUFF": "delay-20%→sk1-射程内味方",
     "id": 239,
