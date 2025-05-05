@@ -10271,6 +10271,202 @@
     ]
   },
   {
+    "TODO_DESC": "攻撃速度バフ/待機時間短縮は要検証/スタン蓄積値はwiki情報",
+    "id": 178,
+    "unitName": "【号令のシルバードラゴン娘】アルギュロ",
+    "unitShortName": "アルギュロ/学",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "光",
+    "species": "竜",
+    "hp": 2544,
+    "attack": 1163,
+    "defense": 237,
+    "resist": 292,
+    "moveType": "飛行",
+    "supplements": [
+      "スタン付与15%"
+    ],
+    "exSkill1": {
+      "skillName": "銀竜の号令",
+      "attackMul": 480,
+      "rangeMul": 180,
+      "splash": true,
+      "duration": 10,
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "featureName": "attack-speed-buff1",
+        "annotations": [
+          "攻撃・移動速度強化×2"
+        ],
+        "isConditionalBuff": true,
+        "attackSpeedBuff": 130,
+        "delayMul": 72,
+        "moveSpeedMul": 130,
+        "potentialBonus": {
+          "attackSpeedBuff": 140,
+          "delayMul": 64,
+          "moveSpeedMul": 140
+        }
+      },
+      {
+        "featureName": "attack-speed-buff2",
+        "annotations": [
+          "攻撃・移動速度強化×4"
+        ],
+        "isConditionalBuff": true,
+        "attackSpeedBuff": 160,
+        "delayMul": 52,
+        "moveSpeedMul": 160,
+        "potentialBonus": {
+          "attackSpeedBuff": 180,
+          "delayMul": 41,
+          "moveSpeedMul": 180
+        }
+      },
+      {
+        "featureName": "attack-speed-buff3",
+        "annotations": [
+          "攻撃・移動速度強化×6"
+        ],
+        "isConditionalBuff": true,
+        "attackSpeedBuff": 190,
+        "delayMul": 38,
+        "moveSpeedMul": 190,
+        "potentialBonus": {
+          "attackSpeedBuff": 200,
+          "delayMul": 26,
+          "moveSpeedMul": 200
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-speed-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-speed-buff1"
+        ]
+      },
+      {
+        "features": [
+          "attack-speed-buff2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-speed-buff2"
+        ]
+      },
+      {
+        "features": [
+          "attack-speed-buff3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-speed-buff3"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-speed-buff",
+        "target": "射程内",
+        "duration": 5,
+        "value": 115,
+        "supplements": [
+          "攻撃命中時"
+        ],
+        "potentialBonus": {
+          "value": 120
+        }
+      },
+      {
+        "type": "delay-mul",
+        "target": "射程内",
+        "duration": 5,
+        "value": 85,
+        "supplements": [
+          "攻撃命中時"
+        ],
+        "potentialBonus": {
+          "value": 80
+        }
+      },
+      {
+        "type": "move-speed-mul",
+        "target": "射程内",
+        "duration": 5,
+        "value": 115,
+        "supplements": [
+          "攻撃命中時"
+        ],
+        "potentialBonus": {
+          "value": 120
+        }
+      },
+      {
+        "type": "attack-speed-buff",
+        "skill": 1,
+        "target": "射程内",
+        "duration": 5,
+        "value": 130,
+        "supplements": [
+          "攻撃命中時"
+        ],
+        "potentialBonus": {
+          "value": 140
+        }
+      },
+      {
+        "type": "delay-mul",
+        "skill": 1,
+        "target": "射程内",
+        "duration": 5,
+        "value": 70,
+        "supplements": [
+          "攻撃命中時"
+        ],
+        "potentialBonus": {
+          "value": 60
+        }
+      },
+      {
+        "type": "move-speed-mul",
+        "skill": 1,
+        "target": "射程内",
+        "duration": 5,
+        "value": 130,
+        "supplements": [
+          "攻撃命中時"
+        ],
+        "potentialBonus": {
+          "value": 140
+        }
+      }
+    ]
+  },
+  {
     "id": 179,
     "unitName": "【援武のカトブレパス娘】ニグリュ",
     "unitShortName": "ニグリュ/学園",

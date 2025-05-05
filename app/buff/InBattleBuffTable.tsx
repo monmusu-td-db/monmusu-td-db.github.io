@@ -36,6 +36,7 @@ const columnKeys = [
   "physicalEvasion",
   "magicalEvasion",
   "moveSpeedAdd",
+  "moveSpeedMul",
   "redeployTimeCut",
   "withdrawCostReturn",
   "fieldBuffFactor",
@@ -69,6 +70,7 @@ const columnName = {
   physicalEvasion: "物理回避付与",
   magicalEvasion: "魔法回避付与",
   moveSpeedAdd: "移動速度加算",
+  moveSpeedMul: "移動速度乗算",
   redeployTimeCut: "再出撃短縮",
   withdrawCostReturn: "撤退時コスト回復量",
   fieldBuffFactor: "マスボーナス強化",
@@ -93,6 +95,7 @@ const BuffType = {
   physicalEvasion: "physical-evasion",
   magicalEvasion: "magical-evasion",
   moveSpeedAdd: "move-speed-add",
+  moveSpeedMul: "move-speed-mul",
   redeployTimeCut: "redeploy-time-cut",
   withdrawCostReturn: "withdraw-cost-return",
   freezeNullify: "freeze-nullify",
@@ -177,10 +180,11 @@ function getItems(): readonly Item[] {
         fn(BuffType.magicalDamageDebuff)
       );
       const attackSpeedBuff = getMulFactor(fn(BuffType.attackSpeedBuff));
-      const delayMul = getPercent(fn(BuffType.delayMul));
+      const delayMul = getMulFactor(fn(BuffType.delayMul));
       const physicalEvasion = getPercent(fn(BuffType.physicalEvasion));
       const magicalEvasion = getPercent(fn(BuffType.magicalEvasion));
       const moveSpeedAdd = fn(BuffType.moveSpeedAdd);
+      const moveSpeedMul = getMulFactor(fn(BuffType.moveSpeedMul));
       const redeployTimeCut = getPercent(fn(BuffType.redeployTimeCut));
       const withdrawCostReturn = getPercent(fn(BuffType.withdrawCostReturn));
       const fieldBuffFactor = getPercent(fn(BuffType.fieldBuffFactor));
@@ -212,6 +216,7 @@ function getItems(): readonly Item[] {
         physicalEvasion,
         magicalEvasion,
         moveSpeedAdd,
+        moveSpeedMul,
         redeployTimeCut,
         withdrawCostReturn,
         fieldBuffFactor,
