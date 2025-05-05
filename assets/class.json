@@ -332,12 +332,15 @@
       },
       {
         "featureName": "class-action",
+        "conditions": [
+          "再"
+        ]
+      },
+      {
+        "featureName": "class-action",
         "isAbility": true,
         "showDamageCut": true,
         "isAction": true,
-        "conditions": [
-          "再"
-        ],
         "annotations": [
           "ハイタフネス"
         ],
