@@ -13652,6 +13652,142 @@
     }
   },
   {
+    "id": 236,
+    "unitName": "【ブラスドラゴン娘】セレン",
+    "unitShortName": "セレン/進化",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "地",
+    "species": "竜",
+    "hp": 9268,
+    "attack": 1085,
+    "defense": 612,
+    "resist": 96,
+    "exSkill1": {
+      "skillName": "破天歯砕撃",
+      "attackMul": 420,
+      "range": 300,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "CRI率/CRI率上限+30%"
+    ],
+    "features": [
+      {
+        "isNotAbility": true,
+        "supplements": [
+          "DEF-{attack-base*10}→命中"
+        ]
+      },
+      {
+        "isConditionalBuff": true,
+        "skill": 0,
+        "attackMotionMul": 167,
+        "rounds": 6
+      },
+      {
+        "featureName": "class-melee",
+        "isConditionalBuff": true,
+        "physicalDamageCut": 35,
+        "magicalDamageCut": 35
+      },
+      {
+        "featureName": "extra-damage",
+        "skill": 1,
+        "conditions": [
+          "追"
+        ],
+        "damageFactor": 100,
+        "criChanceAdd": -1000,
+        "target": "命中",
+        "rounds": 3,
+        "splash": true
+      },
+      {
+        "featureName": "10-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "defenseDebuff": {
+          "key": "attack-base",
+          "time": 300,
+          "valueAdd": 60
+        }
+      },
+      {
+        "featureName": "10-sec",
+        "skill": 1,
+        "defenseDebuff": {
+          "key": "attack-base",
+          "time": 300,
+          "valueAdd": 40
+        }
+      }
+    ],
+    "attackMul": 60,
+    "potentialBonus": {
+      "attackMul": 70
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec",
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "features": [
+          "class-melee",
+          "class-action"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "features": [
+          "class-ranged",
+          "class-action"
+        ]
+      }
+    ]
+  },
+  {
     "id": 238,
     "unitName": "【リリス娘】クロミ",
     "unitShortName": "クロミ/進化",
