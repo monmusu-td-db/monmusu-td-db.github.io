@@ -1643,7 +1643,7 @@
       "cooldown": 25,
       "damageType": null,
       "supplements": [
-        "回復10%/s付与→射程内(15s)"
+        "回復10%/秒付与→射程内(15秒)"
       ]
     },
     "potentials": [
@@ -1697,8 +1697,8 @@
         "supplements": [
           "毒回復/配置→射程内",
           "石化回復/配置→射程内",
-          "毒耐性+100→射程内(10s)",
-          "石化耐性+100→射程内(10s)"
+          "毒耐性+100→射程内(10秒)",
+          "石化耐性+100→射程内(10秒)"
         ],
         "potentialBonus": {}
       }
@@ -3880,10 +3880,10 @@
       {
         "featureName": "common-regenerate-2%",
         "supplements": [
-          "回復2%/s→吹雪中"
+          "回復2%/秒→吹雪中"
         ],
         "deleteSupplements": [
-          "回復2%/s"
+          "回復2%/秒"
         ]
       }
     ],
@@ -4267,10 +4267,10 @@
             "value": 4
           },
           "supplements": [
-            "回復4%/s"
+            "回復4%/秒"
           ],
           "deleteSupplements": [
-            "回復3%/s"
+            "回復3%/秒"
           ]
         }
       }
@@ -6773,7 +6773,7 @@
         "skill": 2,
         "isConditionalDebuff": true,
         "supplements": [
-          "HP-4%/s→自身"
+          "HP-4%/秒→自身"
         ]
       }
     ],
@@ -7885,10 +7885,10 @@
           "value": 6
         },
         "supplements": [
-          "回復6%/s"
+          "回復6%/秒"
         ],
         "deleteSupplements": [
-          "回復3%/s"
+          "回復3%/秒"
         ]
       }
     ],
@@ -9455,7 +9455,7 @@
         "featureName": "charge-attack",
         "skill": 0,
         "supplements": [
-          "CT-1秒/s"
+          "CT-1秒/秒"
         ]
       },
       {
@@ -9471,10 +9471,10 @@
           "value": 8
         },
         "supplements": [
-          "回復8%/s"
+          "回復8%/秒"
         ],
         "deleteSupplements": [
-          "回復5%/s"
+          "回復5%/秒"
         ]
       }
     ],
@@ -9908,7 +9908,7 @@
         "target": "全体",
         "damageType": "再生",
         "supplements": [
-          "回復8%/s→ゴブリン族"
+          "回復8%/秒→ゴブリン族"
         ]
       },
       {
@@ -11301,7 +11301,7 @@
         "featureName": "support",
         "skill": 0,
         "supplements": [
-          "ATK+150(7s)/命中→射程内"
+          "ATK+150(7秒)/命中→射程内"
         ]
       },
       {
@@ -11314,7 +11314,7 @@
         },
         "target": "全体",
         "supplements": [
-          "ATK+350(7s)/命中→全味方"
+          "ATK+350(7秒)/命中→全味方"
         ]
       },
       {
@@ -11491,11 +11491,11 @@
     "features": [
       {
         "supplements": [
-          "移動速度+60(7s)→全味方"
+          "移動速度+60(7秒)→全味方"
         ],
         "potentialBonus": {
           "supplements": [
-            "移動速度+75(7s)→全味方"
+            "移動速度+75(7秒)→全味方"
           ]
         }
       }
@@ -12613,7 +12613,7 @@
         "target": "全体",
         "damageType": "再生",
         "supplements": [
-          "回復7%/s→全体"
+          "回復7%/秒→全体"
         ]
       },
       {
@@ -13298,7 +13298,7 @@
     "placement": "付",
     "supplements": [
       "配置後即時消滅",
-      "回復8%/s(20s)/配置→付与対象"
+      "回復8%/秒(20秒)/配置→付与対象"
     ],
     "isUnhealable": true,
     "situations": [
@@ -13409,6 +13409,25 @@
         "supplements": [
           "回復10%/命中スタン敵"
         ]
+      },
+      {
+        "featureName": "class-action",
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "annotations": [
+          "+潜在覚醒特性"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 8
+        },
+        "supplements": [
+          "回復8%/秒"
+        ],
+        "deleteSupplements": [
+          "回復5%/秒"
+        ]
       }
     ],
     "isEventUnit": true,
@@ -13443,6 +13462,13 @@
         ],
         "features": [
           "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "bottom": true,
+        "skill": -1,
+        "features": [
+          "class-action"
         ]
       }
     ]
@@ -15422,10 +15448,10 @@
           "value": 8
         },
         "supplements": [
-          "回復8%/s"
+          "回復8%/秒"
         ],
         "deleteSupplements": [
-          "回復5%/s"
+          "回復5%/秒"
         ]
       }
     ],
@@ -17477,8 +17503,8 @@
     "resist": 123,
     "moveType": "隠密",
     "supplements": [
-      "物理魔法回避90%(3s)/移動",
-      "物理魔法回避90%(3s)/配置"
+      "物理魔法回避90%(3秒)/移動",
+      "物理魔法回避90%(3秒)/配置"
     ],
     "exSkill1": {
       "skillName": "ブラッディワルツ",
