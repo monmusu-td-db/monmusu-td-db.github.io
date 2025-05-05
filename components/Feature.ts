@@ -206,6 +206,7 @@ export class Accumulation {
 const commonFeature = {
   isAbility: false,
   isNotAbility: false,
+  showDamageCut: false,
   noBaseSupplements: false,
   isAction: false,
   isNotSustainable: false,

@@ -333,6 +333,7 @@
       {
         "featureName": "class-action",
         "isAbility": true,
+        "showDamageCut": true,
         "isAction": true,
         "conditions": [
           "再"
@@ -351,7 +352,7 @@
         "duration": 15,
         "damageType": "再生",
         "supplements": [
-          "回復5%/s"
+          "回復5%/秒"
         ]
       },
       {

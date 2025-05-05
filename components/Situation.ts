@@ -821,7 +821,11 @@ export default class Situation implements TableSource<Keys> {
           );
 
           if (f.isAbility) {
-            return this.mergeSupplements(feature);
+            if (f.showDamageCut) {
+              return this.mergeSupplements(damageCut, feature);
+            } else {
+              return this.mergeSupplements(feature);
+            }
           } else if (f.noBaseSupplements) {
             return this.mergeSupplements(ret);
           } else {
