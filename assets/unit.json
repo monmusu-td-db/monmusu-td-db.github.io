@@ -15570,6 +15570,136 @@
     ]
   },
   {
+    "TODO_DESC": "ex1射程はwiki情報",
+    "id": 270,
+    "unitName": "【リトルグリーンマン娘】プリプリダ",
+    "unitShortName": "プリプリダ",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "闇",
+    "species": "エイリアン",
+    "hp": 8777,
+    "attack": 1044,
+    "defense": 607,
+    "resist": 109,
+    "exSkill1": {
+      "skillName": "ブラインドボルト",
+      "attackMul": 260,
+      "target": 5,
+      "range": 300,
+      "duration": 20,
+      "cooldown": 5,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト-12/発動",
+        "暗闇付与→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル時バリア1000"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "エイリアン"
+        ],
+        "hp": 109,
+        "attack": 109,
+        "potentialBonus": {
+          "hp": 111,
+          "attack": 111
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "hp-100%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "hp-49%",
+        "currentHp": 49,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 49
+          }
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "攻撃速度",
+    "id": 2700001,
+    "parentId": 270,
+    "unitName": "リトルグリーンマン",
+    "unitShortName": "LグリーンマンT",
+    "rarity": "C",
+    "cost": 5,
+    "element": "闇",
+    "hp": 2491,
+    "attack": 707,
+    "defense": 119,
+    "resist": 119,
+    "range": 230,
+    "attackSpeedFrame": 99,
+    "delay": 99,
+    "block": 1,
+    "target": 1,
+    "moveSpeed": 130,
+    "damageType": "魔法",
+    "placement": "両",
+    "supplements": [
+      "コスト+1/3秒"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "TODO_DESC": "delayCutはWiki情報",
     "id": 271,
     "unitName": "【リトルグリーンマン娘】ピンダ",

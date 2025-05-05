@@ -5,7 +5,20 @@
       "配置時バリア1500"
     ],
     "supplements": [
-      "配置時バリア1500付与"
+      "バリア1500付与/配置"
+    ]
+  },
+  {
+    "isNotAbility": true,
+    "isConditionalBuff": true,
+    "require": [
+      "スキル"
+    ],
+    "hasPotentials": [
+      "スキル時バリア1000"
+    ],
+    "supplements": [
+      "バリア1500付与/発動"
     ]
   },
   {

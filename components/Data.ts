@@ -1297,6 +1297,7 @@ const potentialList = [
   { name: "CRI率/CRI率上限+30%", stat: stat.criticalChanceLimit, value: 30 },
   { name: "CRIダメージ+50%", stat: stat.criticalDamage, value: 50 },
   { name: "配置時バリア1500", stat: null, value: 1 },
+  { name: "スキル時バリア1000", stat: null, value: 1 },
   { name: "HP+600、攻撃力+75", stat: stat.hp, value: 600 },
   { name: "HP+600、攻撃力+75", stat: stat.attack, value: 75 },
   { name: "攻撃時スタン蓄積+10", stat: null, value: 10 },
