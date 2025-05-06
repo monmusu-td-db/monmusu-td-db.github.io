@@ -1,9 +1,16 @@
-function BrightnessHignFill() {
+type Props = {
+  width?: number;
+  height?: number;
+};
+
+function BrightnessHignFill({ width, height }: Props) {
+  width ??= 16;
+  height ??= 16;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={width}
+      height={height}
       fill="currentColor"
       className="bi bi-brightness-high-fill"
       viewBox="0 0 16 16"
@@ -13,12 +20,14 @@ function BrightnessHignFill() {
   );
 }
 
-function Check2() {
+function Check2({ width, height }: Props) {
+  width ??= 16;
+  height ??= 16;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={width}
+      height={height}
       fill="currentColor"
       className="bi bi-check2"
       viewBox="0 0 16 16"
@@ -28,12 +37,14 @@ function Check2() {
   );
 }
 
-function GearFill() {
+function GearFill({ width, height }: Props) {
+  width ??= 16;
+  height ??= 16;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={width}
+      height={height}
       fill="currentColor"
       className="bi bi-gear-fill"
       viewBox="0 0 16 16"
@@ -43,12 +54,14 @@ function GearFill() {
   );
 }
 
-function MoonFill() {
+function MoonFill({ width, height }: Props) {
+  width ??= 16;
+  height ??= 16;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={width}
+      height={height}
       fill="currentColor"
       className="bi bi-moon-fill"
       viewBox="0 0 16 16"
@@ -58,12 +71,14 @@ function MoonFill() {
   );
 }
 
-function Search() {
+function Search({ width, height }: Props) {
+  width ??= 19;
+  height ??= 19;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="19"
-      height="19"
+      width={width}
+      height={height}
       fill="currentColor"
       className="bi bi-search"
       viewBox="0 0 16 16"
