@@ -99,6 +99,7 @@ const BuffType = {
   redeployTimeCut: "redeploy-time-cut",
   withdrawCostReturn: "withdraw-cost-return",
   freezeNullify: "freeze-nullify",
+  poisonResist: "poison-resist",
   blindResist: "blind-resist",
   stanResist: "stan-resist",
   petrifyResist: "petrify-resist",
@@ -389,6 +390,9 @@ function getSupplement(buff: JsonBuff): ReactNode {
   switch (buff.type) {
     case BuffType.freezeNullify:
       add("凍結無効化");
+      break;
+    case BuffType.poisonResist:
+      add("毒耐性+" + buff.value);
       break;
     case BuffType.blindResist:
       add("暗闇耐性+" + buff.value);

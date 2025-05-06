@@ -5112,6 +5112,202 @@
     }
   },
   {
+    "id": 83,
+    "unitName": "【シルバードラゴン娘】アルギュロ",
+    "unitShortName": "アルギュロ",
+    "rarity": "L",
+    "class": "バード",
+    "element": "光",
+    "hp": 3545,
+    "attack": 281,
+    "defense": 380,
+    "resist": 317,
+    "species": "竜",
+    "moveType": "飛行",
+    "supplements": [
+      "毒無効",
+      "石化無効"
+    ],
+    "exSkill1": {
+      "skillName": "灼銀のシンフォニー",
+      "duration": 30,
+      "cooldown": 40
+    },
+    "exSkill2": {
+      "skillName": "白銀の加護",
+      "duration": 40,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "射程+15"
+    ],
+    "weapon": {
+      "weaponName": "真銀の竪琴",
+      "defense": 40,
+      "resist": 40
+    },
+    "features": [
+      {
+        "supplements": [
+          "毒耐性+30→全体",
+          "毒耐性+60→30→全体竜特性",
+          "石化耐性+30→30→全体",
+          "石化耐性+60→30→全体竜特性"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "毒耐性+35→全体",
+            "毒耐性+70→全体竜特性",
+            "石化耐性+35→全体",
+            "石化耐性+70→全体竜特性"
+          ]
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "毒回復/発動→全体",
+          "石化回復/発動→全体"
+        ]
+      },
+      {
+        "skill": 1,
+        "supplements": [
+          "熱波(10秒)/発動"
+        ]
+      },
+      {
+        "skill": 2,
+        "isBuffSkill": true,
+        "defenseMul": 200,
+        "resistMul": 200
+      },
+      {
+        "featureName": "skill1-dot",
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack",
+          "value": 60
+        },
+        "interval": 30,
+        "target": "射程内",
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "skill2-regenerate",
+        "skill": 2,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 90
+        },
+        "interval": 60,
+        "target": "射程内",
+        "damageType": "再生"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "exclude": [
+          "class-debuff"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-dot"
+        ]
+      },
+      {
+        "exclude": [
+          "class-debuff"
+        ],
+        "skill": 2,
+        "features": [
+          "skill2-regenerate"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "require": [
+          "武器",
+          "竜特性"
+        ],
+        "target": "全体",
+        "value": 110
+      },
+      {
+        "type": "defense-mul",
+        "require": [
+          "竜特性"
+        ],
+        "skill": 2,
+        "target": "射程内",
+        "value": 200
+      },
+      {
+        "type": "resist-mul",
+        "require": [
+          "竜特性"
+        ],
+        "skill": 2,
+        "target": "射程内",
+        "value": 200
+      },
+      {
+        "type": "poison-resist",
+        "target": "全体",
+        "value": 30,
+        "potentialBonus": {
+          "value": 35
+        }
+      },
+      {
+        "type": "poison-resist",
+        "require": [
+          "竜特性"
+        ],
+        "target": "全体",
+        "value": 60,
+        "potentialBonus": {
+          "value": 70
+        }
+      },
+      {
+        "type": "petrify-resist",
+        "target": "全体",
+        "value": 30,
+        "potentialBonus": {
+          "value": 35
+        }
+      },
+      {
+        "type": "petrify-resist",
+        "require": [
+          "竜特性"
+        ],
+        "target": "全体",
+        "value": 60,
+        "potentialBonus": {
+          "value": 70
+        }
+      }
+    ]
+  },
+  {
     "id": 84,
     "unitName": "【セイレーン娘】ティア",
     "unitShortName": "ティア",
