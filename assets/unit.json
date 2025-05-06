@@ -6630,6 +6630,62 @@
     "isUnhealable": true
   },
   {
+    "TODO_DESC": "ex1攻撃速度",
+    "id": 97,
+    "unitName": "【ミスリルゴーレム娘】ミスレナ",
+    "unitShortName": "ミスレナ",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "光",
+    "hp": 8355,
+    "attack": 920,
+    "defense": 675,
+    "resist": 117,
+    "supplements": [
+      "毒無効",
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "超ハードコーティング",
+      "attackMul": 240,
+      "defenseMul": 360,
+      "attackMotionMul": 999,
+      "splash": true,
+      "duration": 30,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "物理防御力+90"
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "defense",
+          "value": 40
+        },
+        "magicalDamageCut": 50,
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "defense",
+            "value": 52
+          }
+        }
+      }
+    ],
+    "costAdd": 5,
+    "defenseMul": 130,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 99,
     "unitName": "【スプリガン娘】プリン",
