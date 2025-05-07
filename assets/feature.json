@@ -163,7 +163,10 @@
     "conditions": [
       "突"
     ],
-    "interval": null
+    "interval": null,
+    "target": "命中",
+    "wideTarget": false,
+    "range": null
   },
   {
     "featureName": "common-team-buff1",

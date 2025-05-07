@@ -15901,6 +15901,71 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 265,
+    "unitName": "【ワーボア娘】ヌタバ",
+    "unitShortName": "ヌタバ",
+    "rarity": "E",
+    "class": "ランサー",
+    "element": "地",
+    "hp": 4629,
+    "attack": 639,
+    "defense": 489,
+    "resist": 55,
+    "moveType": "突進",
+    "exSkill1": {
+      "skillName": "ワイルドラッシュ",
+      "hpMul": 160,
+      "attackMul": 240,
+      "duration": "永続",
+      "cooldown": 150,
+      "supplements": [
+        "コスト+1/4秒"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "移動消費コスト-2"
+    ],
+    "features": [
+      {
+        "featureName": "common-charge-attack",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "penetrationAdd": 10,
+        "potentialBonus": {
+          "damageFactor": 170
+        }
+      },
+      {
+        "skill": 1,
+        "moveSpeedAdd": 150
+      }
+    ],
+    "isEventUnit": true,
+    "moveSpeedMul": 150,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      }
+    ]
+  },
+  {
     "id": 266,
     "unitName": "【ワーマンモス娘】エプラ",
     "unitShortName": "エプラ",
