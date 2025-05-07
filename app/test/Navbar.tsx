@@ -3,21 +3,13 @@
 import "./Navbar.css";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
-import {
-  Button,
-  Container,
-  Form,
-  InputGroup,
-  Nav,
-  Navbar,
-  Offcanvas,
-  ToggleButton,
-} from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Icon from "../Icon";
-import { useRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import Theme from "../Theme";
-import { Contexts } from "@/components/States";
 import Panel from "./Panel";
+import cn from "classnames";
+import SearchInput from "./SearchInput";
 
 const ICON_SIZE = 18;
 
@@ -49,7 +41,7 @@ function Header() {
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
-        <SearchInput />
+        <SearchInput className="header-search-input d-none d-md-block" />
         <div className="d-flex justify-content-end">
           <ThemeToggler />
           <PanelToggler />
@@ -65,34 +57,6 @@ function Brand() {
       <Image src={Logo} width={32} height={32} alt="Monmusu DB Logo" />
       <span className="ms-2">Monmusu DB</span>
     </Navbar.Brand>
-  );
-}
-
-function SearchInput() {
-  const query = Contexts.useQuery();
-  const setQuery = Contexts.useSetQuery();
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  function handleResetButton() {
-    setQuery("");
-    inputRef.current?.focus();
-  }
-
-  return (
-    <Form className="header-search-input d-none d-md-block">
-      <InputGroup>
-        <InputGroup.Text role="button" onClick={handleResetButton}>
-          <Icon.Search />
-        </InputGroup.Text>
-        <Form.Control
-          type="search"
-          placeholder="検索"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          ref={inputRef}
-        />
-      </InputGroup>
-    </Form>
   );
 }
 
@@ -119,19 +83,15 @@ function PanelToggler() {
 
   return (
     <div className="flex ms-1 me-1">
-      <ToggleButton
-        id="panel-toggler"
-        type="checkbox"
+      <Button
         variant="outline-secondary"
-        checked={open}
-        value="1"
-        className="header-btn"
-        onChange={toggle}
+        className={cn("header-btn", { "header-btn-checked": open })}
+        onClick={toggle}
         aria-controls={Panel.ID}
         aria-expanded={open}
       >
         <Icon.GearFill width={ICON_SIZE} height={ICON_SIZE} />
-      </ToggleButton>
+      </Button>
     </div>
   );
 }

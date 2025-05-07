@@ -5,16 +5,21 @@ import * as Data from "./Data";
 import CardSelector from "./CardSelector";
 import Subskill from "./Subskill";
 import {
-  memo, useCallback, useDeferredValue, useMemo, useState, type Dispatch, type ReactNode,
-  type SetStateAction
+  memo,
+  useCallback,
+  useDeferredValue,
+  useMemo,
+  useState,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
 } from "react";
-import ModalUI from "./ModalUI";
+import ModalUI from "./PanelUI";
 import type { UISetting } from "./States";
-
 
 // Const
 
-type HandleCond = (cond: number) => number
+type HandleCond = (cond: number) => number;
 const list = Subskill.getList();
 
 const tabs = {
@@ -65,10 +70,12 @@ const viewHandleKeys = {
   RARITY: 2,
   GENERAL: 3,
 } as const;
-type ViewHandleKey = typeof viewHandleKeys[keyof typeof viewHandleKeys]
-type ViewHandleValue<T extends ViewHandleKey> = T extends 0 | 1 ? number
-  : T extends 2 ? HandleCond : boolean
-
+type ViewHandleKey = (typeof viewHandleKeys)[keyof typeof viewHandleKeys];
+type ViewHandleValue<T extends ViewHandleKey> = T extends 0 | 1
+  ? number
+  : T extends 2
+  ? HandleCond
+  : boolean;
 
 // Util
 
@@ -76,14 +83,13 @@ function isChecked(value: number, cond: number): boolean {
   return (cond & value) === value;
 }
 
-
 // Components
 
 function SubskillSelector(props: {
-  id: number
-  uiSetting: UISetting
-  onSelect: (id: number) => void
-  onChangeUI: Dispatch<SetStateAction<UISetting>>
+  id: number;
+  uiSetting: UISetting;
+  onSelect: (id: number) => void;
+  onChangeUI: Dispatch<SetStateAction<UISetting>>;
 }) {
   const selector = CardSelector.useSelector(props.onSelect);
   const [tab, setTab] = useState<string>(tabs.SELECT);
@@ -92,22 +98,31 @@ function SubskillSelector(props: {
   const rarity = s.subskillRarity;
   const isGeneral = s.subskillIsGeneral;
 
-  const filteredList = useMemo(() => list.filter(item => {
-    const a = group === 0
-      || isChecked(groupCond.ATTACK, group) && item.group === groupTexts.ATTACK
-      || isChecked(groupCond.DEFENSE, group) && item.group === groupTexts.DEFENSE
-      || isChecked(groupCond.SUPPORT, group) && item.group === groupTexts.SUPPORT;
+  const filteredList = useMemo(
+    () =>
+      list.filter((item) => {
+        const a =
+          group === 0 ||
+          (isChecked(groupCond.ATTACK, group) &&
+            item.group === groupTexts.ATTACK) ||
+          (isChecked(groupCond.DEFENSE, group) &&
+            item.group === groupTexts.DEFENSE) ||
+          (isChecked(groupCond.SUPPORT, group) &&
+            item.group === groupTexts.SUPPORT);
 
-    const b = rarity === 0
-      || isChecked(rarityCond.L, rarity) && item.rarity === Data.Rarity.L
-      || isChecked(rarityCond.E, rarity) && item.rarity === Data.Rarity.E
-      || isChecked(rarityCond.R, rarity) && item.rarity === Data.Rarity.R
-      || isChecked(rarityCond.C, rarity) && item.rarity === Data.Rarity.C;
+        const b =
+          rarity === 0 ||
+          (isChecked(rarityCond.L, rarity) && item.rarity === Data.Rarity.L) ||
+          (isChecked(rarityCond.E, rarity) && item.rarity === Data.Rarity.E) ||
+          (isChecked(rarityCond.R, rarity) && item.rarity === Data.Rarity.R) ||
+          (isChecked(rarityCond.C, rarity) && item.rarity === Data.Rarity.C);
 
-    const c = isGeneral ? item.isGeneral : true;
+        const c = isGeneral ? item.isGeneral : true;
 
-    return a && b && c;
-  }), [group, isGeneral, rarity]);
+        return a && b && c;
+      }),
+    [group, isGeneral, rarity]
+  );
 
   const sortType = s.subskillSortType;
   const sortOrder = s.subskillSortReversed;
@@ -116,47 +131,56 @@ function SubskillSelector(props: {
     switch (sortType) {
       case sortCond.NAME:
         const fn = (a: Subskill, b: Subskill) => a.name.localeCompare(b.name);
-        if (sortOrder)
-          return filteredList.toSorted((a, b) => fn(b, a));
-        else
-          return filteredList.toSorted(fn);
+        if (sortOrder) return filteredList.toSorted((a, b) => fn(b, a));
+        else return filteredList.toSorted(fn);
       default:
-        if (sortOrder)
-          return filteredList.toReversed();
-        else
-          return filteredList;
+        if (sortOrder) return filteredList.toReversed();
+        else return filteredList;
     }
   }, [filteredList, sortOrder, sortType]);
   const dSortedList = useDeferredValue(sortedList);
 
   const src = Subskill.getItem(props.id);
-  const p = { list: dSortedList, onSelect: selector.handleSelect, disabled: !selector.show };
+  const p = {
+    list: dSortedList,
+    onSelect: selector.handleSelect,
+    disabled: !selector.show,
+  };
 
   const onChangeUI = props.onChangeUI;
   function handleGroup(callback: HandleCond) {
-    onChangeUI(p => ({ ...p, subskillGroup: callback(p.subskillGroup) }));
+    onChangeUI((p) => ({ ...p, subskillGroup: callback(p.subskillGroup) }));
   }
-  const handleTabView = useCallback(function <T extends ViewHandleKey>(
-    key: T,
-    value: ViewHandleValue<T>
-  ) {
-    switch (key) {
-      case viewHandleKeys.SORT_TYPE:
-        onChangeUI(p => ({ ...p, subskillSortType: value as ViewHandleValue<0> }));
-        break;
-      case viewHandleKeys.SORT_ORDER:
-        onChangeUI(p => ({ ...p, subskillSortReversed: value === 1 }));
-        break;
-      case viewHandleKeys.RARITY: {
-        const callback = value as ViewHandleValue<2>;
-        onChangeUI(p => ({ ...p, subskillRarity: callback(p.subskillRarity) }));
-        break;
+  const handleTabView = useCallback(
+    function <T extends ViewHandleKey>(key: T, value: ViewHandleValue<T>) {
+      switch (key) {
+        case viewHandleKeys.SORT_TYPE:
+          onChangeUI((p) => ({
+            ...p,
+            subskillSortType: value as ViewHandleValue<0>,
+          }));
+          break;
+        case viewHandleKeys.SORT_ORDER:
+          onChangeUI((p) => ({ ...p, subskillSortReversed: value === 1 }));
+          break;
+        case viewHandleKeys.RARITY: {
+          const callback = value as ViewHandleValue<2>;
+          onChangeUI((p) => ({
+            ...p,
+            subskillRarity: callback(p.subskillRarity),
+          }));
+          break;
+        }
+        case viewHandleKeys.GENERAL:
+          onChangeUI((p) => ({
+            ...p,
+            subskillIsGeneral: value as ViewHandleValue<3>,
+          }));
+          break;
       }
-      case viewHandleKeys.GENERAL:
-        onChangeUI(p => ({ ...p, subskillIsGeneral: value as ViewHandleValue<3> }));
-        break;
-    }
-  }, [onChangeUI]);
+    },
+    [onChangeUI]
+  );
 
   return (
     <>
@@ -166,7 +190,10 @@ function SubskillSelector(props: {
         onHide={selector.handleClose}
         onShow={() => setTab(tabs.SELECT)}
       >
-        <Tab.Container activeKey={tab} onSelect={t => setTab(t ?? tabs.SELECT)}>
+        <Tab.Container
+          activeKey={tab}
+          onSelect={(t) => setTab(t ?? tabs.SELECT)}
+        >
           <Modal.Header className="row">
             <Modal.Title className="col-3">{labelTexts.HEADER}</Modal.Title>
             <CardSelector.RemoveButton onClick={selector.handleRemove} />
@@ -174,21 +201,21 @@ function SubskillSelector(props: {
               <HeaderButton
                 id={groups.ATTACK}
                 checked={isChecked(groupCond.ATTACK, group)}
-                onClick={() => handleGroup(v => v ^ groupCond.ATTACK)}
+                onClick={() => handleGroup((v) => v ^ groupCond.ATTACK)}
               >
                 {groupTexts.ATTACK}
               </HeaderButton>
               <HeaderButton
                 id={groups.DEFENSE}
                 checked={isChecked(groupCond.DEFENSE, group)}
-                onClick={() => handleGroup(v => v ^ groupCond.DEFENSE)}
+                onClick={() => handleGroup((v) => v ^ groupCond.DEFENSE)}
               >
                 {groupTexts.DEFENSE}
               </HeaderButton>
               <HeaderButton
                 id={groups.SUPPORT}
                 checked={isChecked(groupCond.SUPPORT, group)}
-                onClick={() => handleGroup(v => v ^ groupCond.SUPPORT)}
+                onClick={() => handleGroup((v) => v ^ groupCond.SUPPORT)}
               >
                 {groupTexts.SUPPORT}
               </HeaderButton>
@@ -211,7 +238,7 @@ function SubskillSelector(props: {
           <Modal.Body>
             <Tab.Content>
               <Tab.Pane eventKey={tabs.SELECT}>
-                {Data.Rarity.list.map(v => (
+                {Data.Rarity.list.map((v) => (
                   <CardSelector.RarityContainer key={v} {...p} rarity={v} />
                 ))}
               </Tab.Pane>
@@ -239,13 +266,15 @@ const TabView = memo(function TabView({
   isGeneral,
   onChange,
 }: {
-  sortType: number
-  sortOrder: boolean
-  rarity: number
-  isGeneral: boolean
-  onChange: <T extends ViewHandleKey>(key: T, value: ViewHandleValue<T>) => void
+  sortType: number;
+  sortOrder: boolean;
+  rarity: number;
+  isGeneral: boolean;
+  onChange: <T extends ViewHandleKey>(
+    key: T,
+    value: ViewHandleValue<T>
+  ) => void;
 }) {
-
   const handleRarity = (fn: HandleCond) => onChange(viewHandleKeys.RARITY, fn);
 
   return (
@@ -256,7 +285,7 @@ const TabView = memo(function TabView({
             name="sort-type"
             items={Object.values(sortTexts)}
             value={sortType}
-            onChange={n => onChange(viewHandleKeys.SORT_TYPE, n)}
+            onChange={(n) => onChange(viewHandleKeys.SORT_TYPE, n)}
           />
         </ModalUI.FormGrid>
         <ModalUI.FormGrid sm={3}>
@@ -264,18 +293,18 @@ const TabView = memo(function TabView({
             name="sort-order"
             items={sortOrderTexts}
             value={sortOrder ? 1 : 0}
-            onChange={n => onChange(viewHandleKeys.SORT_ORDER, n)}
+            onChange={(n) => onChange(viewHandleKeys.SORT_ORDER, n)}
           />
         </ModalUI.FormGrid>
       </ModalUI.FormGroup>
       <ModalUI.FormGroup label={labelTexts.RARITY}>
         <ModalUI.FormCheckboxGroup>
-          {Data.Rarity.list.map(v => (
+          {Data.Rarity.list.map((v) => (
             <ModalUI.RarityCheckbox
               key={v}
               rarity={v}
               checked={isChecked(rarityCond[v], rarity)}
-              onClick={() => handleRarity(p => p ^ rarityCond[v])}
+              onClick={() => handleRarity((p) => p ^ rarityCond[v])}
             />
           ))}
         </ModalUI.FormCheckboxGroup>
@@ -292,14 +321,13 @@ const TabView = memo(function TabView({
       </ModalUI.FormGroup>
     </Form>
   );
-
 });
 
 function HeaderButton(props: {
-  id: string
-  checked: boolean
-  onClick: () => void
-  children: ReactNode
+  id: string;
+  checked: boolean;
+  onClick: () => void;
+  children: ReactNode;
 }) {
   return (
     <Col xs={4} className="d-grid">
@@ -318,6 +346,9 @@ function HeaderButton(props: {
   );
 }
 
-export default Object.assign({}, {
-  Selector: SubskillSelector
-});
+export default Object.assign(
+  {},
+  {
+    Selector: SubskillSelector,
+  }
+);

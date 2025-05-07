@@ -11,7 +11,7 @@ import {
 import * as Data from "./Data";
 import cn from "classnames";
 import bcn from "classnames/bind";
-import style from "./ModalUI.module.css";
+import style from "./PanelUI.module.css";
 
 const cx = bcn.bind(style);
 
@@ -27,7 +27,7 @@ function FormGroup({
   return (
     <Container>
       <Form.Group as={Row} className="mb-1 border p-1 rounded">
-        <Form.Label column="sm" sm={2}>
+        <Form.Label column="sm" sm={2} className={cx("label")}>
           {label}
         </Form.Label>
         {children}
@@ -58,11 +58,17 @@ function FormCheckbox({
       checked={checked}
       value={0}
       onClick={() => onClick(!checked)}
+      className={cx("button")}
     >
       {label}
     </ToggleButton>
   );
-  if (grid) return <FormGrid sm={3}>{ret}</FormGrid>;
+  if (grid)
+    return (
+      <FormGrid xs={6} sm={4} md={3} lg={2}>
+        {ret}
+      </FormGrid>
+    );
   return ret;
 }
 
@@ -177,18 +183,19 @@ function ElementCheckbox({
   ];
 
   return (
-    <FormCheckbox
-      name={element}
-      label={
-        <>
-          <span className={cn("badge me-2", className)}>&#8203;</span>
-          {Data.Element.name[element]}
-        </>
-      }
-      checked={checked}
-      onClick={onClick}
-      grid
-    />
+    <FormGrid xs={4} sm={3} md={2}>
+      <FormCheckbox
+        name={element}
+        label={
+          <>
+            <span className={cn("badge me-2", className)}>&#8203;</span>
+            {Data.Element.name[element]}
+          </>
+        }
+        checked={checked}
+        onClick={onClick}
+      />
+    </FormGrid>
   );
 }
 

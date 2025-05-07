@@ -6,6 +6,7 @@ import Panel from "./Panel";
 
 function Page() {
   const [panelOpen, setPanelOpen] = useState(true);
+
   return (
     <Panel.Contexts.Open.Provider value={panelOpen}>
       <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>

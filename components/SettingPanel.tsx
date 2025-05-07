@@ -31,7 +31,7 @@ import * as Data from "./Data";
 import styles from "./SettingPanel.module.css";
 import SubskillUI from "./SubskillUI";
 import BeastUI from "./BeastUI";
-import ModalUI from "./ModalUI";
+import ModalUI from "./PanelUI";
 
 const stat = Data.stat;
 
