@@ -8226,6 +8226,59 @@
     ]
   },
   {
+    "TODO_DESC": "ex1射程はwiki情報",
+    "id": 130,
+    "unitName": "【転校生ジャイアント娘】メロン",
+    "unitShortName": "メロン/学園",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "風",
+    "hp": 7128,
+    "attack": 920,
+    "defense": 316,
+    "resist": 149,
+    "moveType": "突進",
+    "exSkill1": {
+      "skillName": "勝利を掴む明日への拳",
+      "attackMul": 360,
+      "range": 200,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック→命中",
+        "即死"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃力+75"
+    ],
+    "features": [
+      {
+        "featureName": "class-attack",
+        "supplements": [
+          "即死(超高)"
+        ]
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 140,
+    "attackMul": 120,
+    "moveSpeedMul": 200,
+    "potentialBonus": {
+      "moveSpeedMul": 250
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 133,
     "unitName": "【サンドワーム娘】ヘディア",
     "unitShortName": "ヘディア",
