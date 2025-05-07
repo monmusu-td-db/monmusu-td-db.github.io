@@ -584,8 +584,10 @@ export default class Situation implements TableSource<Keys> {
 
         const fn = (arg: boolean | undefined) =>
           arg && !base ? 1 : arg === false && base ? -1 : 0;
-        const conditionPoint = fn(fea.cond?.splash);
-        const skillPoint = fn(sk?.splash);
+        const conditionPoint = fea.cond?.splashEmphasis
+          ? 1
+          : fn(fea.cond?.splash);
+        const skillPoint = fea.skillCond?.splashEmphasis ? 1 : fn(sk?.splash);
         // const buffPoint = fn(fea.skillBuffs?.splash);
 
         return {

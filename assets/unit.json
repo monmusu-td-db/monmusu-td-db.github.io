@@ -19054,6 +19054,57 @@
     ]
   },
   {
+    "id": 326,
+    "unitName": "【デスワーム娘】ヘディア",
+    "unitShortName": "ヘディア/進化",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "地",
+    "hp": 2651,
+    "attack": 981,
+    "defense": 239,
+    "resist": 287,
+    "supplements": [
+      "猛毒付与(稀)"
+    ],
+    "exSkill1": {
+      "skillName": "デスワームカノン",
+      "attackMul": 300,
+      "rangeMul": 200,
+      "duration": 10,
+      "cooldown": 30,
+      "supplements": [
+        "範囲拡大"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "delayMul": 140
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "splashEmphasis": true
+      }
+    ],
+    "isEventUnit": true,
+    "rangeAdd": 70,
+    "splash": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 327,
     "unitName": "【フロストドレイク娘】フリス",
     "unitShortName": "フリス/進化",
