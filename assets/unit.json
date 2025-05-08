@@ -15713,7 +15713,7 @@
       "cooldown": 30,
       "damageType": "魔法",
       "supplements": [
-        "移動不可付与(3秒)→命中"
+        "移動不可(3秒)→命中"
       ]
     },
     "potentials": [
@@ -17812,6 +17812,67 @@
       "physicalEvasion": 40,
       "magicalEvasion": 40
     }
+  },
+  {
+    "id": 295,
+    "unitName": "【聖飾のローパー娘】ネル",
+    "unitShortName": "ネル/Xmas",
+    "rarity": "E",
+    "class": "アーチャー",
+    "element": "水",
+    "hp": 2335,
+    "attack": 692,
+    "defense": 326,
+    "resist": 203,
+    "supplements": [
+      "移動不可(5秒)/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ぬるっとアイス！",
+      "attackMul": 170,
+      "targetAdd": 2,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "凍結付与(稀)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "鈍足-10%(20秒)→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-13%(20秒)→命中"
+          ]
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "移動不可(5秒)/発動→射程内"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 302,
