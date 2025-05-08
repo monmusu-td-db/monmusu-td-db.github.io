@@ -16405,6 +16405,56 @@
     ]
   },
   {
+    "id": 273,
+    "unitName": "【チェシャキャット娘】ティッチェ",
+    "unitShortName": "ティッチェ",
+    "rarity": "E",
+    "class": "アーチャー",
+    "element": "闇",
+    "hp": 2569,
+    "attack": 607,
+    "defense": 317,
+    "resist": 195,
+    "moveType": "ワープ",
+    "exSkill1": {
+      "skillName": "あざ笑う影",
+      "attackMul": 260,
+      "targetAdd": 1,
+      "rangeMul": 160,
+      "duration": 40,
+      "cooldown": 50,
+      "supplements": [
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "暗闇付与(稀)"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "暗闇付与(低)"
+          ]
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 275,
     "unitName": "【ハンプティダンプティ娘】エッシェル",
     "unitShortName": "エッシェル",
