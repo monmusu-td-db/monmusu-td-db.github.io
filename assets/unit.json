@@ -8073,6 +8073,76 @@
     }
   },
   {
+    "id": 124,
+    "unitName": "【インプ娘】ラミ",
+    "unitShortName": "ラミ",
+    "rarity": "E",
+    "class": "コンジャラー",
+    "element": "風",
+    "hp": 2345,
+    "attack": 594,
+    "defense": 260,
+    "resist": 572,
+    "exSkill1": {
+      "skillName": "火遊びしちゃう♪",
+      "attackMul": 240,
+      "splash": true,
+      "rangeMul": 150,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "反射20%"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "反射25%"
+          ]
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "defenseMul": 150,
+    "moveSpeedMul": 70,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "exclude": [
+          "class-enemy1"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      }
+    ]
+  },
+  {
     "id": 128,
     "unitName": "【トロール娘】ロイエ",
     "unitShortName": "ロイエ",
