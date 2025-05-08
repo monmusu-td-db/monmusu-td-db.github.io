@@ -2,19 +2,40 @@
 
 import "./Panel.css";
 import * as Data from "@/components/Data";
-import { createContext, memo, useCallback, useContext, useState } from "react";
-import { Collapse, Container, Form, Nav, Row, Tab } from "react-bootstrap";
+import {
+  createContext,
+  memo,
+  useCallback,
+  useContext,
+  useState,
+  type SetStateAction,
+} from "react";
+import {
+  Button,
+  Col,
+  Collapse,
+  Container,
+  Form,
+  Nav,
+  Row,
+  Tab,
+  type ColProps,
+} from "react-bootstrap";
 import SearchInput from "./SearchInput";
 import ModalUI from "@/components/PanelUI";
 import {
   FilterCondition,
   FilterEquipment,
+  Setting,
   Contexts as StatesContexts,
   type Filter,
   type FilterObject,
+  type UISetting,
 } from "@/components/States";
+import SubskillUI from "@/components/SubskillUI";
 
 const ID = "panel";
+const stat = Data.stat;
 
 const tabs = {
   FILTER: "filter",
@@ -23,8 +44,29 @@ const tabs = {
   OTHER: "other",
 } as const;
 
-function Panel({ open }: { open: boolean }) {
+function Panel({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [tab, setTab] = useState<string>(tabs.FILTER);
+  const [resetKey, setResetKey] = useState(0);
+  const dispatchFilter = StatesContexts.useDispatchFilter();
+  const dispatchSetting = StatesContexts.useDispatchSetting();
+
+  function handleReset(): void {
+    setResetKey((p) => p + 1);
+    switch (tab) {
+      case tabs.FILTER:
+        dispatchFilter({ type: StatesContexts.FilterAction.reset });
+        break;
+      case tabs.UNIT:
+        dispatchSetting({ type: StatesContexts.SettingAction.resetUnit });
+        break;
+      case tabs.FORMATION:
+        dispatchSetting({ type: StatesContexts.SettingAction.resetFormation });
+        break;
+      case tabs.OTHER:
+        dispatchSetting({ type: StatesContexts.SettingAction.resetOther });
+        break;
+    }
+  }
 
   return (
     <Collapse in={open}>
@@ -62,11 +104,27 @@ function Panel({ open }: { open: boolean }) {
               <Tab.Pane eventKey={tabs.FILTER}>
                 <TabFilter />
               </Tab.Pane>
-              <Tab.Pane eventKey={tabs.UNIT}>AAAA</Tab.Pane>
+              <Tab.Pane eventKey={tabs.UNIT}>
+                <TabUnit key={resetKey} />
+              </Tab.Pane>
               <Tab.Pane eventKey={tabs.FORMATION}>AAAA</Tab.Pane>
               <Tab.Pane eventKey={tabs.OTHER}>AAAA</Tab.Pane>
             </Tab.Content>
           </Tab.Container>
+          <footer>
+            <div className="d-flex justify-content-end">
+              <Button
+                variant="secondary"
+                onClick={handleReset}
+                className="me-3"
+              >
+                リセット
+              </Button>
+              <Button variant="primary" onClick={onClose}>
+                閉じる
+              </Button>
+            </div>
+          </footer>
         </Container>
       </section>
     </Collapse>
@@ -225,6 +283,192 @@ const _TabFilter = memo(function TabFilter({
           })}
         </ModalUI.FormCheckboxGroup>
       </ModalUI.FormGroup>
+    </Form>
+  );
+});
+
+function TabUnit() {
+  const setting = StatesContexts.useSetting();
+  const dispatchSetting = StatesContexts.useDispatchSetting();
+  const uISetting = StatesContexts.useUISetting();
+  const dispatchUISetting = StatesContexts.useDispatchUISetting();
+  const isSituation = true; // TODO
+
+  const handleChangeSetting = useCallback(
+    (nextValue: Partial<Setting>) => {
+      dispatchSetting({ type: StatesContexts.SettingAction.change, nextValue });
+    },
+    [dispatchSetting]
+  );
+
+  const handleChangeUISetting = useCallback(
+    (updater: SetStateAction<UISetting>) => {
+      dispatchUISetting({
+        type: StatesContexts.UISettingAction.update,
+        updater,
+      });
+    },
+    [dispatchUISetting]
+  );
+
+  return (
+    <_TabUnit
+      setting={setting}
+      onChangeSetting={handleChangeSetting}
+      uISetting={uISetting}
+      onChangeUISetting={handleChangeUISetting}
+      isSituation={isSituation}
+    />
+  );
+}
+
+const _TabUnit = memo(function TabUnit({
+  setting,
+  onChangeSetting,
+  uISetting,
+  onChangeUISetting,
+  isSituation,
+}: {
+  setting: Setting;
+  onChangeSetting: (nextValue: Partial<Setting>) => void;
+  uISetting: UISetting;
+  onChangeUISetting: (updater: SetStateAction<UISetting>) => void;
+  isSituation: boolean;
+}) {
+  const subSkillColProps: ColProps = {
+    xs: 12,
+    md: 6,
+    xl: 4,
+  };
+
+  return (
+    <Form>
+      <ModalUI.FormGroup label="サブスキル">
+        <Col xs={12} sm={10}>
+          <Row>
+            <Col {...subSkillColProps} className="pb-1 pb-md-0">
+              <SubskillUI.Selector
+                id={setting.subskill1}
+                uiSetting={uISetting}
+                onSelect={useCallback(
+                  (id) => onChangeSetting({ subskill1: id }),
+                  [onChangeSetting]
+                )}
+                onChangeUI={useCallback(
+                  (updater) => onChangeUISetting(updater),
+                  [onChangeUISetting]
+                )}
+              />
+            </Col>
+            <Col {...subSkillColProps}>
+              <SubskillUI.Selector
+                id={setting.subskill2}
+                uiSetting={uISetting}
+                onSelect={useCallback(
+                  (id) => onChangeSetting({ subskill2: id }),
+                  [onChangeSetting]
+                )}
+                onChangeUI={useCallback(
+                  (updater) => onChangeUISetting(updater),
+                  [onChangeUISetting]
+                )}
+              />
+            </Col>
+          </Row>
+        </Col>
+      </ModalUI.FormGroup>
+      {isSituation && (
+        <>
+          <ModalUI.FormGroup label="乗算バフ">
+            <Col>
+              <Row>
+                {[stat.attack, stat.defense, stat.resist].map((v) => (
+                  <ModalUI.FormNumber
+                    key={v}
+                    name={`${v}-mul-buff`}
+                    label={Data.BaseStatType.name[v]}
+                    value={setting[Data.BaseStatType.mulKey[v]]}
+                    onChange={(n) =>
+                      onChangeSetting({
+                        [Data.BaseStatType.mulKey[v]]: n,
+                      })
+                    }
+                    isValid={Setting.isValidMul}
+                  />
+                ))}
+              </Row>
+            </Col>
+          </ModalUI.FormGroup>
+          <ModalUI.FormGroup label="加算バフ">
+            <Col>
+              <Row>
+                {[stat.attack, stat.defense, stat.resist].map((v) => (
+                  <ModalUI.FormNumber
+                    key={v}
+                    name={`${v}-add-buff`}
+                    label={Data.BaseStatType.name[v]}
+                    value={setting[Data.BaseStatType.addKey[v]]}
+                    onChange={(n) =>
+                      onChangeSetting({
+                        [Data.BaseStatType.addKey[v]]: n,
+                      })
+                    }
+                    isValid={Setting.isValidAdd}
+                    isAdd
+                  />
+                ))}
+              </Row>
+            </Col>
+          </ModalUI.FormGroup>
+          <ModalUI.FormGroup label="ダメージ倍率">
+            <Col>
+              <Row>
+                <ModalUI.FormNumber
+                  name={"damage-factor"}
+                  label={"攻撃倍率"}
+                  value={setting.damageFactor}
+                  onChange={(n) => onChangeSetting({ damageFactor: n })}
+                  isValid={Setting.isValidMul}
+                />
+                <ModalUI.FormNumber
+                  name={"physical-damage-cut"}
+                  label={"物理攻撃軽減"}
+                  value={setting.physicalDamageCut}
+                  onChange={(n) => onChangeSetting({ physicalDamageCut: n })}
+                  isValid={Setting.isValidDamageCut}
+                />
+                <ModalUI.FormNumber
+                  name={"magical-damage-cut"}
+                  label={"魔法攻撃軽減"}
+                  value={setting.magicalDamageCut}
+                  onChange={(n) => onChangeSetting({ magicalDamageCut: n })}
+                  isValid={Setting.isValidDamageCut}
+                />
+              </Row>
+            </Col>
+          </ModalUI.FormGroup>
+          <ModalUI.FormGroup label="その他">
+            <Col>
+              <Row>
+                <ModalUI.FormNumber
+                  name={"attack-speed-buff"}
+                  label={"攻撃速度バフ"}
+                  value={setting.attackSpeedBuff}
+                  onChange={(n) => onChangeSetting({ attackSpeedBuff: n })}
+                  isValid={Setting.isValidMul}
+                />
+                <ModalUI.FormNumber
+                  name={"delay-cut"}
+                  label={"待機時間短縮"}
+                  value={setting.delayCut}
+                  onChange={(n) => onChangeSetting({ delayCut: n })}
+                  isValid={Setting.isValidCut}
+                />
+              </Row>
+            </Col>
+          </ModalUI.FormGroup>
+        </>
+      )}
     </Form>
   );
 });

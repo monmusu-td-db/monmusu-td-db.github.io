@@ -12,7 +12,7 @@ function Page() {
       <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
         <header>
           <Header />
-          <Panel open={panelOpen} />
+          <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
         </header>
       </Panel.Contexts.Toggle.Provider>
     </Panel.Contexts.Open.Provider>

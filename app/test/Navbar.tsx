@@ -18,7 +18,7 @@ function Header() {
   const labelId = "navbar-offcanvas-label";
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" sticky="top" className="bg-body-tertiary">
       <Container>
         <div className="d-flex">
           <Navbar.Toggle aria-controls={offcanvasId} />

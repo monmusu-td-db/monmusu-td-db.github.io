@@ -14,7 +14,7 @@ import {
   type ReactNode,
   type SetStateAction,
 } from "react";
-import ModalUI from "./PanelUI";
+import PanelUI from "./PanelUI";
 import type { UISetting } from "./States";
 
 // Const
@@ -279,46 +279,46 @@ const TabView = memo(function TabView({
 
   return (
     <Form>
-      <ModalUI.FormGroup label={labelTexts.SORT}>
-        <ModalUI.FormGrid sm={3}>
-          <ModalUI.FormRadio
+      <PanelUI.FormGroup label={labelTexts.SORT}>
+        <PanelUI.FormGrid sm={3}>
+          <PanelUI.FormRadio
             name="sort-type"
             items={Object.values(sortTexts)}
             value={sortType}
             onChange={(n) => onChange(viewHandleKeys.SORT_TYPE, n)}
           />
-        </ModalUI.FormGrid>
-        <ModalUI.FormGrid sm={3}>
-          <ModalUI.FormRadio
+        </PanelUI.FormGrid>
+        <PanelUI.FormGrid sm={3}>
+          <PanelUI.FormRadio
             name="sort-order"
             items={sortOrderTexts}
             value={sortOrder ? 1 : 0}
             onChange={(n) => onChange(viewHandleKeys.SORT_ORDER, n)}
           />
-        </ModalUI.FormGrid>
-      </ModalUI.FormGroup>
-      <ModalUI.FormGroup label={labelTexts.RARITY}>
-        <ModalUI.FormCheckboxGroup>
+        </PanelUI.FormGrid>
+      </PanelUI.FormGroup>
+      <PanelUI.FormGroup label={labelTexts.RARITY}>
+        <PanelUI.FormCheckboxGroup>
           {Data.Rarity.list.map((v) => (
-            <ModalUI.RarityCheckbox
+            <PanelUI.RarityCheckbox
               key={v}
               rarity={v}
               checked={isChecked(rarityCond[v], rarity)}
               onClick={() => handleRarity((p) => p ^ rarityCond[v])}
             />
           ))}
-        </ModalUI.FormCheckboxGroup>
-      </ModalUI.FormGroup>
-      <ModalUI.FormGroup label={labelTexts.OTHER}>
-        <ModalUI.FormGrid sm={5}>
-          <ModalUI.FormCheckbox
+        </PanelUI.FormCheckboxGroup>
+      </PanelUI.FormGroup>
+      <PanelUI.FormGroup label={labelTexts.OTHER}>
+        <PanelUI.FormGrid sm={5}>
+          <PanelUI.FormCheckbox
             name="general-skill"
             label={GENERAL_SKILL_TEXT}
             checked={isGeneral}
             onClick={() => onChange(viewHandleKeys.GENERAL, !isGeneral)}
           />
-        </ModalUI.FormGrid>
-      </ModalUI.FormGroup>
+        </PanelUI.FormGrid>
+      </PanelUI.FormGroup>
     </Form>
   );
 });

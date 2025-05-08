@@ -1,8 +1,11 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useRef, useState, type ReactNode } from "react";
 import {
   Col,
   Container,
   Form,
+  InputGroup,
   Row,
   ToggleButton,
   ToggleButtonGroup,
@@ -199,6 +202,79 @@ function ElementCheckbox({
   );
 }
 
+function FormItem(props: {
+  children: ReactNode;
+  name: string;
+  label: ReactNode;
+}) {
+  return (
+    <Col xs={12} sm={6} lg={4} xxl={3} className="mb-1">
+      <Form.Group as={Row} controlId={props.name}>
+        <Form.Label column="sm" xs={5} sm={6} lg={5} className="ps-1 pe-1">
+          {props.label}
+        </Form.Label>
+        <Col xs={7} sm={6} lg={7} className="ps-1 pe-1">
+          {props.children}
+        </Col>
+      </Form.Group>
+    </Col>
+  );
+}
+
+function FormNumber(props: {
+  name: string;
+  label: ReactNode;
+  value: number;
+  onChange: (value: number) => void;
+  isValid: (arg: number) => boolean;
+  isAdd?: boolean;
+}) {
+  const [text, setText] = useState<string>(props.value.toString());
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const isInvalid = !props.isValid(Number.parseInt(text));
+
+  function handleChange(value: string) {
+    setText(value);
+    const v = Number.parseInt(value);
+    if (props.isValid(v)) props.onChange(v);
+  }
+
+  function handleReset() {
+    handleChange("0");
+    inputRef.current?.focus();
+  }
+
+  return (
+    <FormItem {...props}>
+      <InputGroup size="sm" hasValidation={isInvalid}>
+        {/* <InputGroup.Text role="button" onClick={() => handleChange("0")}>
+          +
+        </InputGroup.Text> */}
+        <Form.Control
+          type="number"
+          value={text}
+          onChange={(e) => handleChange(e.target.value)}
+          isInvalid={isInvalid}
+          ref={inputRef}
+        />
+        <InputGroup.Text
+          role="button"
+          onClick={handleReset}
+          style={{ width: "2em" }}
+        >
+          {!props.isAdd && "%"}
+        </InputGroup.Text>
+        {isInvalid && (
+          <Form.Control.Feedback type="invalid">
+            無効な値です。
+          </Form.Control.Feedback>
+        )}
+      </InputGroup>
+    </FormItem>
+  );
+}
+
 export default Object.assign(
   {},
   {
@@ -209,5 +285,7 @@ export default Object.assign(
     FormGrid,
     RarityCheckbox,
     ElementCheckbox,
+    FormItem,
+    FormNumber,
   }
 );
