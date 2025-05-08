@@ -17875,6 +17875,62 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 298,
+    "unitName": "【颯明巫フェアリー娘】ネリー",
+    "unitShortName": "ネリー/正月",
+    "rarity": "E",
+    "class": "プリースト",
+    "element": "風",
+    "species": "妖精",
+    "hp": 3478,
+    "attack": 697,
+    "defense": 261,
+    "resist": 428,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "新たな門出と初日の出",
+      "attackMul": 220,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "石化無効→射程内",
+        "暗闇無効→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "features": [
+      {
+        "require": [
+          "風マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "physicalEvasion": 30,
+    "magicalEvasion": 30,
+    "potentialBonus": {
+      "physicalEvasion": 40,
+      "magicalEvasion": 40
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 302,
     "unitName": "【デーモンロード娘】ダムストー",
     "unitShortName": "ダムストー",
