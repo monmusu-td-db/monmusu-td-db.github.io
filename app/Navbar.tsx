@@ -4,9 +4,9 @@ import "./Navbar.css";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
 import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
-import Icon from "../Icon";
-import { type ReactNode } from "react";
-import Theme from "../Theme";
+import Icon from "./Icon";
+import { useState, type ReactNode } from "react";
+import Theme from "./Theme";
 import Panel from "./Panel";
 import cn from "classnames";
 import SearchInput from "./SearchInput";
@@ -14,11 +14,26 @@ import SearchInput from "./SearchInput";
 const ICON_SIZE = 18;
 
 function Header() {
+  const [panelOpen, setPanelOpen] = useState(false);
+
+  return (
+    <Panel.Contexts.Open.Provider value={panelOpen}>
+      <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
+        <header className="mb-2 sticky-top">
+          <NavArea />
+          <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
+        </header>
+      </Panel.Contexts.Toggle.Provider>
+    </Panel.Contexts.Open.Provider>
+  );
+}
+
+function NavArea() {
   const offcanvasId = "navbar-offcanvas";
   const labelId = "navbar-offcanvas-label";
 
   return (
-    <Navbar expand="lg" sticky="top" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <div className="d-flex">
           <Navbar.Toggle aria-controls={offcanvasId} />
@@ -36,8 +51,8 @@ function Header() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-start flex-grow-1 pe-3">
-              <Nav.Link href="#unit">ユニット</Nav.Link>
-              <Nav.Link href="#buff">バフ</Nav.Link>
+              <Nav.Link href="/unit">ユニット</Nav.Link>
+              <Nav.Link href="/buff">バフ</Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
@@ -53,7 +68,7 @@ function Header() {
 
 function Brand() {
   return (
-    <Navbar.Brand href="#home" className="d-flex ms-3 align-items-center">
+    <Navbar.Brand href="/" className="d-flex ms-3 align-items-center">
       <Image src={Logo} width={32} height={32} alt="Monmusu DB Logo" />
       <span className="ms-2">Monmusu DB</span>
     </Navbar.Brand>

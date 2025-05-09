@@ -3,7 +3,7 @@
 import { Contexts } from "@/components/States";
 import { useRef } from "react";
 import { Form, InputGroup } from "react-bootstrap";
-import Icon from "../Icon";
+import Icon from "./Icon";
 
 function SearchInput({ className }: { className?: string }) {
   const query = Contexts.useQuery();

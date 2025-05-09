@@ -1,6 +1,11 @@
 "use client";
 
-import { useRef, useState, type ReactNode } from "react";
+import {
+  useRef,
+  useState,
+  type ChangeEventHandler,
+  type ReactNode,
+} from "react";
 import {
   Col,
   Container,
@@ -109,6 +114,7 @@ function FormRadio({
           key={i}
           variant={BUTTON_VARIANT}
           onClick={() => onChange(i)}
+          className={cx("button")}
         >
           {v}
         </ToggleButton>
@@ -210,15 +216,49 @@ function FormItem(props: {
   return (
     <Col xs={12} sm={6} lg={4} xxl={3} className="mb-1">
       <Form.Group as={Row} controlId={props.name}>
-        <Form.Label column="sm" xs={5} sm={6} lg={5} className="ps-1 pe-1">
+        <Form.Label column="sm" xs={5} className="ps-2 pe-1">
           {props.label}
         </Form.Label>
-        <Col xs={7} sm={6} lg={7} className="ps-1 pe-1">
+        <Col xs={7} className="ps-1 pe-2">
           {props.children}
         </Col>
       </Form.Group>
     </Col>
   );
+}
+
+function FormSelect(props: {
+  children: ReactNode;
+  name: string;
+  label: string;
+  value: number;
+  onChange: ChangeEventHandler<HTMLSelectElement>;
+  disabled?: boolean;
+}) {
+  return (
+    <FormItem {...props}>
+      <Form.Select
+        value={props.value}
+        onChange={props.onChange}
+        size="sm"
+        disabled={props.disabled}
+      >
+        {props.children}
+      </Form.Select>
+    </FormItem>
+  );
+}
+
+function SelectOptions({ value }: { value: number }) {
+  const ret = [];
+  for (let i = 0; i <= value; i++) {
+    ret.push(
+      <option value={i} key={i}>
+        {i}
+      </option>
+    );
+  }
+  return ret;
 }
 
 function FormNumber(props: {
@@ -275,6 +315,33 @@ function FormNumber(props: {
   );
 }
 
+function CardButtonGroup({
+  label,
+  children,
+}: {
+  label: string;
+  children: [ReactNode, ReactNode];
+}) {
+  const cardColProps: ColProps = {
+    xs: 12,
+    md: 6,
+    xl: 4,
+  };
+
+  return (
+    <FormGroup label={label}>
+      <Col xs={12} sm={10}>
+        <Row>
+          <Col {...cardColProps} className="pb-1 pb-md-0">
+            {children[0]}
+          </Col>
+          <Col {...cardColProps}>{children[1]}</Col>
+        </Row>
+      </Col>
+    </FormGroup>
+  );
+}
+
 export default Object.assign(
   {},
   {
@@ -286,6 +353,9 @@ export default Object.assign(
     RarityCheckbox,
     ElementCheckbox,
     FormItem,
+    FormSelect,
+    SelectOptions,
     FormNumber,
+    CardButtonGroup,
   }
 );
