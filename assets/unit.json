@@ -19341,6 +19341,88 @@
     ]
   },
   {
+    "id": 322,
+    "unitName": "【奏響のマンドレイク娘】ドネ",
+    "unitShortName": "ドネ/学園",
+    "rarity": "E",
+    "class": "バード",
+    "element": "地",
+    "hp": 3283,
+    "attack": 256,
+    "defense": 371,
+    "resist": 322,
+    "exSkill1": {
+      "skillName": "怪根のクレッシェンド",
+      "attackMul": 160,
+      "rangeMul": 160,
+      "duration": 40,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-12"
+    ],
+    "features": [
+      {
+        "require": [
+          "地マス"
+        ],
+        "rangeMul": 120
+      },
+      {
+        "skill": 1,
+        "fieldElements": [
+          "地"
+        ]
+      },
+      {
+        "featureName": "support",
+        "isAbility": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          "援"
+        ],
+        "staticDefense": {
+          "key": "defense",
+          "value": 50
+        },
+        "target": "射程内",
+        "damageType": null,
+        "potentialBonus": {
+          "staticDefense": {
+            "key": "defense",
+            "value": 60
+          }
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "support"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "スタン付与量/ex1射程/スタン時間延長",
     "id": 323,
     "unitName": "【呪剣のファフニール娘】ニッドラ",
