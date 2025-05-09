@@ -18892,6 +18892,109 @@
     ]
   },
   {
+    "id": 316,
+    "unitName": "【ヴォジャノーイ娘】リグラーナ",
+    "unitShortName": "リグラーナ",
+    "rarity": "E",
+    "class": "ウォーロック",
+    "element": "水",
+    "hp": 2594,
+    "attack": 996,
+    "defense": 208,
+    "resist": 523,
+    "exSkill1": {
+      "skillName": "雨の支配者",
+      "attackMul": 180,
+      "targetAdd": 2,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-12"
+    ],
+    "features": [
+      {
+        "require": [
+          "水マス"
+        ],
+        "supplements": [
+          "CT-1秒/3秒"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalBuff": true,
+        "supplements": [
+          "雨(10秒)/発動"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "天候：雨"
+        ],
+        "damageFactor": 130,
+        "supplements": [
+          "CT-1秒/3秒"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "common-3hits"
+        ]
+      }
+    ]
+  },
+  {
     "id": 317,
     "unitName": "【シームルグ娘】パリンダーヴァ",
     "unitShortName": "パリンダーヴァ",
