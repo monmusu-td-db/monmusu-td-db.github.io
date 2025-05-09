@@ -58,6 +58,10 @@ const additionFactorKeys = {
   MOVE_SPEED: "move-speed",
   CURRENT_HP: "current-hp",
   ACCUMULATION: "accumulation",
+  PARENT_HP: "parent-hp",
+  PARENT_ATTACK: "parent-attack",
+  PARENT_DEFENSE: "parent-defense",
+  PARENT_RESIST: "parent-resist",
 } as const;
 type AdditionFactorKey =
   (typeof additionFactorKeys)[keyof typeof additionFactorKeys];

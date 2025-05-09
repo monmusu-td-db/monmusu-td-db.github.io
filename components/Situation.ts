@@ -1665,6 +1665,28 @@ export default class Situation implements TableSource<Keys> {
               Accumulation.calculate(this.getAccumulationProps(setting, f.time))
             );
           }
+          case AdditionFactor.PARENT_HP:
+          case AdditionFactor.PARENT_ATTACK:
+          case AdditionFactor.PARENT_DEFENSE:
+          case AdditionFactor.PARENT_RESIST: {
+            const key = (() => {
+              switch (f.key) {
+                case AdditionFactor.PARENT_HP:
+                  return stat.hp;
+                case AdditionFactor.PARENT_ATTACK:
+                  return stat.attack;
+                case AdditionFactor.PARENT_DEFENSE:
+                  return stat.defense;
+                case AdditionFactor.PARENT_RESIST:
+                  return stat.resist;
+              }
+            })();
+            return Percent.multiply(
+              this.getTokenParent(setting)?.[key].getFactors(setting)
+                ?.inBattleResult,
+              f.value
+            );
+          }
         }
       })
       .reduce((a, c) => a + c, 0);

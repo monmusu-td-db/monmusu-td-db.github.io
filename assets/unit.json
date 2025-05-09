@@ -5154,9 +5154,9 @@
       {
         "supplements": [
           "毒耐性+30→全体",
-          "毒耐性+60→30→全体竜特性",
-          "石化耐性+30→30→全体",
-          "石化耐性+60→30→全体竜特性"
+          "毒耐性+60→全体竜特性",
+          "石化耐性+30→全体",
+          "石化耐性+60→全体竜特性"
         ],
         "potentialBonus": {
           "supplements": [
@@ -7172,6 +7172,118 @@
         }
       }
     ]
+  },
+  {
+    "id": 102,
+    "unitName": "【アルラウネ娘】ウルネッラ",
+    "unitShortName": "ウルネッラ",
+    "rarity": "L",
+    "class": "バード",
+    "element": "地",
+    "hp": 3777,
+    "attack": 284,
+    "defense": 356,
+    "resist": 314,
+    "exSkill1": {
+      "skillName": "過激な毒蜜",
+      "rangeMul": 220,
+      "duration": 10,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "毒耐性-40%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "毒耐性-50%→射程内敵"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalBuff": true,
+        "supplements": [
+          "tkn+2/発動",
+          "HP0/発動→妖花トークン"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "射程",
+    "id": 1020001,
+    "parentId": 102,
+    "unitName": "妖花",
+    "unitShortName": "妖花T",
+    "rarity": "C",
+    "element": "地",
+    "cost": 7,
+    "hp": 1796,
+    "attack": 758,
+    "defense": 0,
+    "resist": 0,
+    "interval": null,
+    "block": 1,
+    "target": 0,
+    "range": 999,
+    "moveSpeed": 0,
+    "placement": "両",
+    "features": [
+      {
+        "attackAdd": {
+          "key": "parent-attack",
+          "value": 30
+        }
+      },
+      {
+        "featureName": "attack",
+        "annotations": [
+          "死亡時"
+        ],
+        "currentHp": 0,
+        "target": "射程内",
+        "damageType": "魔法",
+        "supplements": [
+          "猛毒付与(高)"
+        ]
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackMul": 250
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "attack"
+        ]
+      },
+      {
+        "features": [
+          "attack",
+          "skill1-buff"
+        ]
+      }
+    ],
+    "isUnhealable": true
   },
   {
     "id": 104,
