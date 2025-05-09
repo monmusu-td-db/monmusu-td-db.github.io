@@ -930,6 +930,197 @@
     "rangeAdd": 100
   },
   {
+    "id": 18,
+    "unitName": "【ゴースト娘】アメリ",
+    "unitShortName": "アメリ",
+    "rarity": "E",
+    "class": "ガンナー",
+    "element": "闇",
+    "hp": 2500,
+    "attack": 840,
+    "defense": 235,
+    "resist": 335,
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "エージェント招集",
+      "attackMul": 180,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "インビジブルゴースト",
+      "attackMul": 220,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "隠密",
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "weapon": {
+      "weaponName": "シークレットファントム",
+      "attack": 50,
+      "resist": 30
+    },
+    "features": [
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "背面攻撃"
+        ],
+        "damageFactor": 180,
+        "potentialBonus": {
+          "damageFactor": 210
+        }
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "RES-20→命中"
+        ]
+      },
+      {
+        "featureName": "10-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "resistDebuff": {
+          "time": 300,
+          "valueAdd": 20
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-0-sec",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-0-sec",
+          "common-proper"
+        ]
+      },
+      {
+        "features": [
+          "10-sec",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "10-sec",
+          "common-proper"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 180001,
+    "parentId": 18,
+    "unitName": "アメリ",
+    "unitShortName": "アメリトークン",
+    "rarity": "C",
+    "class": "ガンナー",
+    "element": "闇",
+    "hp": 2500,
+    "attack": 840,
+    "defense": 235,
+    "resist": 335,
+    "block": null,
+    "moveSpeed": 0,
+    "placement": "付",
+    "supplements": [
+      "limit30秒"
+    ],
+    "features": [
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "背面攻撃"
+        ],
+        "damageFactor": 180
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackMul": 180
+      }
+    ],
+    "isUnhealable": true,
+    "costAdd": -1,
+    "situations": [
+      {},
+      {
+        "features": [
+          "skill1-buff"
+        ]
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "features": [
+          "common-proper",
+          "skill1-buff"
+        ]
+      }
+    ]
+  },
+  {
     "id": 20,
     "unitName": "【ペガサス娘】スズ",
     "unitShortName": "スズ",
