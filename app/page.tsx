@@ -14,7 +14,7 @@ export default function App() {
       <Panel.Contexts.PageType.Provider value="situation">
         <Header />
       </Panel.Contexts.PageType.Provider>
-      <Container as="main">
+      <Container as="main" style={{ maxWidth: "100vw" }}>
         <StatTable
           src={useMemo(
             () => ({
