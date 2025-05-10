@@ -1,10 +1,17 @@
 .table {
+  display: block;
   width: auto;
+  height: calc(97vh - 58px);
+  overflow: auto;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60svh;
   border-collapse: separate;
   border-spacing: 0;
+}
+
+.table > thead {
+  position: sticky;
+  top: 0px;
 }
 
 .table > :not(caption) > * > * {
@@ -18,11 +25,6 @@
 
 .table > :not(caption) > * > *:first-child {
   border-left-width: 1px;
-}
-
-.table > thead {
-  position: sticky;
-  top: 56px;
 }
 
 @media (min-width: 1024px) {

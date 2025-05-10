@@ -11,7 +11,6 @@ import {
   Col,
   Form,
   FormGroup,
-  FormLabel,
   InputGroup,
   Modal,
   Nav,
@@ -31,7 +30,7 @@ import * as Data from "./Data";
 import styles from "./SettingPanel.module.css";
 import SubskillUI from "./SubskillUI";
 import BeastUI from "./BeastUI";
-import ModalUI from "./ModalUI";
+import ModalUI from "./PanelUI";
 
 const stat = Data.stat;
 
@@ -670,9 +669,9 @@ function FormItem(props: {
   return (
     <Col sm={6} className="mb-1">
       <FormGroup as={Row} controlId={props.name}>
-        <FormLabel column="sm" sm={5}>
+        <Form.Label column="sm" sm={5}>
           {props.label}
-        </FormLabel>
+        </Form.Label>
         <Col sm={7}>{props.children}</Col>
       </FormGroup>
     </Col>

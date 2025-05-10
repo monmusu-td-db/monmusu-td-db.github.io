@@ -1,3 +1,13 @@
+@media (max-width: 575.98px) {
+  .label {
+    text-align: center;
+  }
+}
+
+.button {
+  color: inherit;
+}
+
 .text-bg-epic {
   color: #fff !important;
   background-color: var(--bs-indigo) !important;
@@ -19,16 +29,20 @@
 
 .bg-e-water {
   --mix-percentage: 50%;
-  background-color: color-mix(in srgb,
-      var(--bs-blue) var(--mix-percentage),
-      #000 calc(100% - var(--mix-percentage))) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--bs-blue) var(--mix-percentage),
+    #000 calc(100% - var(--mix-percentage))
+  ) !important;
 }
 
 .bg-e-earth {
   --mix-percentage: 50%;
-  background-color: color-mix(in srgb,
-      var(--bs-orange) var(--mix-percentage),
-      #000 calc(100% - var(--mix-percentage))) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--bs-orange) var(--mix-percentage),
+    #000 calc(100% - var(--mix-percentage))
+  ) !important;
 }
 
 .bg-e-dark {

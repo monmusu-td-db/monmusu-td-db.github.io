@@ -1,0 +1,45 @@
+html[data-bs-theme="light"] .theme-light {
+  display: flex !important;
+}
+
+html[data-bs-theme="dark"] .theme-dark {
+  display: flex !important;
+}
+
+.header {
+  max-height: 58px;
+  overflow: visible;
+}
+
+.header-search-input {
+  width: 280px;
+}
+
+@media (min-width: 992px) {
+  .header-search-input {
+    left: 50%;
+    position: absolute;
+    margin-left: -140px;
+  }
+}
+
+.header-btn {
+  display: flex;
+  border-radius: 9999px;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-width: 0;
+  --bs-btn-color: inherit;
+}
+
+.header-btn:hover {
+  background-color: var(--bs-btn-hover-bg) !important;
+}
+
+.header-btn.header-btn-checked {
+  color: var(--bs-btn-active-color) !important;
+  background-color: var(--bs-btn-active-bg) !important;
+}
