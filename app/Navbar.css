@@ -6,6 +6,11 @@ html[data-bs-theme="dark"] .theme-dark {
   display: flex !important;
 }
 
+.header {
+  max-height: 58px;
+  overflow: visible;
+}
+
 .header-search-input {
   width: 280px;
 }

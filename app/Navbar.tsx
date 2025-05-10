@@ -19,7 +19,7 @@ function Header() {
   return (
     <Panel.Contexts.Open.Provider value={panelOpen}>
       <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
-        <header className="mb-2 sticky-top">
+        <header className="mb-2 sticky-top header">
           <NavArea />
           <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
         </header>

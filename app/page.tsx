@@ -6,6 +6,7 @@ import Situation from "@/components/Situation";
 import { StatTable } from "@/components/LazyLoading";
 import Panel from "./Panel";
 import Header from "./Navbar";
+import { Container } from "react-bootstrap";
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
       <Panel.Contexts.PageType.Provider value="situation">
         <Header />
       </Panel.Contexts.PageType.Provider>
-      <main>
+      <Container as="main">
         <StatTable
           src={useMemo(
             () => ({
@@ -25,7 +26,7 @@ export default function App() {
             []
           )}
         />
-      </main>
+      </Container>
     </>
   );
 }

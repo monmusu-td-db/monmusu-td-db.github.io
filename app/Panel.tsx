@@ -7,7 +7,10 @@ import {
   memo,
   useCallback,
   useContext,
+  useEffect,
+  useRef,
   useState,
+  type ReactNode,
   type SetStateAction,
 } from "react";
 import {
@@ -33,6 +36,8 @@ import {
 } from "@/components/States";
 import SubskillUI from "@/components/SubskillUI";
 import BeastUI from "@/components/BeastUI";
+import { createPortal } from "react-dom";
+import cn from "classnames";
 
 const ID = "panel";
 const stat = Data.stat;
@@ -44,7 +49,9 @@ const tabs = {
   OTHER: "other",
 } as const;
 
-function Panel({ open, onClose }: { open: boolean; onClose: () => void }) {
+type PanelProps = { open: boolean; onClose: () => void };
+
+function Panel({ open, onClose }: PanelProps) {
   const [tab, setTab] = useState<string>(tabs.FILTER);
   const [resetKey, setResetKey] = useState(0);
   const dispatchFilter = Contexts.useDispatchFilter();
@@ -69,69 +76,72 @@ function Panel({ open, onClose }: { open: boolean; onClose: () => void }) {
   }
 
   return (
-    <Collapse in={open}>
-      <section id={ID} className="bg-body-tertiary">
-        <Container fluid="sm" className="pb-2">
-          <SearchInput className="d-block d-md-none mb-2" />
-          <Tab.Container
-            activeKey={tab}
-            onSelect={(t) => setTab(t ?? tabs.FILTER)}
-          >
-            <Row as="header">
-              <h1 className="panel-label col-12 col-sm-3 text-center pt-1">
-                各種設定
-              </h1>
-              <Nav
-                variant="underline"
-                justify
-                className="col-12 col-sm-9 ps-3 pe-3 me-auto ms-auto mb-2"
-              >
-                <Nav.Item>
-                  <Nav.Link eventKey={tabs.FILTER}>フィルター</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey={tabs.UNIT}>ユニット</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey={tabs.FORMATION}>編成</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey={tabs.OTHER}>その他</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Row>
-            <Tab.Content>
-              <Tab.Pane eventKey={tabs.FILTER}>
-                <TabFilter />
-              </Tab.Pane>
-              <Tab.Pane eventKey={tabs.UNIT}>
-                <TabUnit key={resetKey} />
-              </Tab.Pane>
-              <Tab.Pane eventKey={tabs.FORMATION}>
-                <TabFormation key={resetKey} />
-              </Tab.Pane>
-              <Tab.Pane eventKey={tabs.OTHER}>
-                <TabOther />
-              </Tab.Pane>
-            </Tab.Content>
-          </Tab.Container>
-          <footer>
-            <div className="d-flex justify-content-end">
-              <Button
-                variant="secondary"
-                onClick={handleReset}
-                className="me-3"
-              >
-                リセット
-              </Button>
-              <Button variant="primary" onClick={onClose}>
-                閉じる
-              </Button>
-            </div>
-          </footer>
-        </Container>
-      </section>
-    </Collapse>
+    <>
+      <Collapse in={open}>
+        <section id={ID} className="bg-body-tertiary panel">
+          <Container fluid="sm" className="pb-2">
+            <SearchInput className="d-block d-md-none mb-2" />
+            <Tab.Container
+              activeKey={tab}
+              onSelect={(t) => setTab(t ?? tabs.FILTER)}
+            >
+              <Row as="header">
+                <h1 className="panel-label col-12 col-sm-3 text-center pt-1">
+                  各種設定
+                </h1>
+                <Nav
+                  variant="underline"
+                  justify
+                  className="col-12 col-sm-9 ps-3 pe-3 me-auto ms-auto mb-2"
+                >
+                  <Nav.Item>
+                    <Nav.Link eventKey={tabs.FILTER}>フィルター</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey={tabs.UNIT}>ユニット</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey={tabs.FORMATION}>編成</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey={tabs.OTHER}>その他</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Row>
+              <Tab.Content>
+                <Tab.Pane eventKey={tabs.FILTER}>
+                  <TabFilter />
+                </Tab.Pane>
+                <Tab.Pane eventKey={tabs.UNIT}>
+                  <TabUnit key={resetKey} />
+                </Tab.Pane>
+                <Tab.Pane eventKey={tabs.FORMATION}>
+                  <TabFormation key={resetKey} />
+                </Tab.Pane>
+                <Tab.Pane eventKey={tabs.OTHER}>
+                  <TabOther />
+                </Tab.Pane>
+              </Tab.Content>
+            </Tab.Container>
+            <footer>
+              <div className="d-flex justify-content-end">
+                <Button
+                  variant="secondary"
+                  onClick={handleReset}
+                  className="me-3"
+                >
+                  リセット
+                </Button>
+                <Button variant="primary" onClick={onClose}>
+                  閉じる
+                </Button>
+              </div>
+            </footer>
+          </Container>
+        </section>
+      </Collapse>
+      <Backdrop open={open} onClose={onClose} />
+    </>
   );
 }
 
@@ -680,6 +690,29 @@ const _TabOther = memo(function _TabOther({
     </Form>
   );
 });
+
+function Backdrop({ open, onClose }: PanelProps) {
+  const [item, setItem] = useState<ReactNode>();
+
+  useEffect(() => {
+    setItem(
+      <>
+        {createPortal(
+          <div
+            className={cn("fade modal-backdrop panel-backdrop", {
+              show: open,
+              "pe-none": !open,
+            })}
+            onClick={onClose}
+          />,
+          document.body
+        )}
+      </>
+    );
+  }, [open, onClose]);
+
+  return item;
+}
 
 const pageType = {
   SITUATION: "situation",
