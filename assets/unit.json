@@ -8446,6 +8446,129 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 126,
+    "unitName": "【ドヴェルグ娘】ベルティオ",
+    "unitShortName": "ベルティオ",
+    "rarity": "E",
+    "class": "アーチャー",
+    "element": "闇",
+    "hp": 2779,
+    "attack": 586,
+    "defense": 309,
+    "resist": 191,
+    "exSkill1": {
+      "skillName": "工作準備",
+      "attackMul": 180,
+      "rangeMul": 160,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃力+75"
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 1260001,
+    "parentId": 126,
+    "unitName": "悪魔のギロチン",
+    "unitShortName": "ギロチンT",
+    "rarity": "C",
+    "element": "地",
+    "cost": 10,
+    "hp": 1993,
+    "attack": 748,
+    "defense": 0,
+    "resist": 0,
+    "attackSpeedFrame": 35,
+    "delay": 65,
+    "block": 0,
+    "target": 99,
+    "range": 30,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "両",
+    "exSkill1": {
+      "skillName": "悪魔のギロチン",
+      "duration": 5,
+      "cooldown": 5
+    },
+    "features": [
+      {
+        "attackAdd": {
+          "key": "parent-attack",
+          "value": 30
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "parent-attack",
+            "value": 40
+          }
+        }
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackAdd": {
+          "key": "parent-attack",
+          "value": 30
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "parent-attack",
+            "value": 40
+          }
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalBuff": true,
+        "attackSpeedBuff": 250,
+        "delayMul": 10
+      },
+      {
+        "skill": 1,
+        "supplements": [
+          "HP0/終了時"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "skill1-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
+  },
+  {
     "id": 128,
     "unitName": "【トロール娘】ロイエ",
     "unitShortName": "ロイエ",
