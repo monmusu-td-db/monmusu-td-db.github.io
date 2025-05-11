@@ -14,7 +14,7 @@ export default function App() {
       <Panel.Contexts.PageType.Provider value="situation">
         <Header />
       </Panel.Contexts.PageType.Provider>
-      <Container as="main">
+      <main>
         <StatTable
           src={useMemo(
             () => ({
@@ -26,7 +26,7 @@ export default function App() {
             []
           )}
         />
-      </Container>
+      </main>
     </>
   );
 }
