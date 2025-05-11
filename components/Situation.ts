@@ -777,10 +777,14 @@ export default class Situation implements TableSource<Keys> {
         factors: (s) => {
           const base = this.unit?.[statType].getValue(s);
           const skill = this.getSkill(s)?.[statType];
-          const fea = this.getFeature(s)[statType];
+          const feature = this.getFeature(s);
+          const fea = feature[statType];
           const subskill = this.getSubskillFactor(s, ssKeys[statType]);
           const potential = this.unit?.getPotentialFactor(s, ret.statType);
 
+          const cond = feature.cond?.[statType];
+          const condColor =
+            cond === undefined || cond === 0 ? undefined : cond > 0;
           const skillColor =
             (skill ?? 0) > 0 && Percent.sum(base, skill, fea) < 100;
           const result = Percent.accumulate(
@@ -791,6 +795,7 @@ export default class Situation implements TableSource<Keys> {
             potential
           );
           return {
+            condColor,
             skillColor,
             result,
           };
@@ -846,9 +851,12 @@ export default class Situation implements TableSource<Keys> {
         if (this.getSkill(s)?.supplements && !this.getFeature(s).isAbility)
           return tableColor.positive;
 
-        const skillCond = (fea.skillCond?.supplements?.size ?? 0) > 0;
         const phyDamageCut = this.physicalDamageCut.getFactors(s);
         const magDamageCut = this.magicalDamageCut.getFactors(s);
+        const phyEvasion = this.physicalEvasion.getFactors(s);
+        const magEvasion = this.magicalEvasion.getFactors(s);
+
+        const skillCond = (fea.skillCond?.supplements?.size ?? 0) > 0;
         const phySkillCond = phyDamageCut.skillCondColor;
         const magSkillCond = magDamageCut.skillCondColor;
 
@@ -856,8 +864,8 @@ export default class Situation implements TableSource<Keys> {
           (skillCond && fea.isConditionalSkillBuff) ||
           phySkillCond ||
           magSkillCond ||
-          this.physicalEvasion.getFactors(s).skillColor ||
-          this.magicalEvasion.getFactors(s).skillColor
+          phyEvasion.skillColor ||
+          magEvasion.skillColor
         )
           return tableColor.positive;
 
@@ -877,9 +885,15 @@ export default class Situation implements TableSource<Keys> {
 
         const phyCond = phyDamageCut.condColor;
         const magCond = magDamageCut.condColor;
-        if (phyCond || magCond) return tableColor.positiveWeak;
+        if (phyCond || magCond || phyEvasion.condColor || magEvasion.condColor)
+          return tableColor.positiveWeak;
 
-        if (phyCond === false || magCond === false)
+        if (
+          phyCond === false ||
+          magCond === false ||
+          phyEvasion.condColor === false ||
+          magEvasion.condColor === false
+        )
           return tableColor.negativeWeak;
       },
     });

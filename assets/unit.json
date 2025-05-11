@@ -3835,6 +3835,105 @@
     ]
   },
   {
+    "id": 62,
+    "unitName": "【ケットシー娘】ニャルタン",
+    "unitShortName": "ニャルタン",
+    "rarity": "E",
+    "class": "ブレイダー",
+    "element": "光",
+    "hp": 5657,
+    "attack": 901,
+    "defense": 435,
+    "resist": 107,
+    "exSkill1": {
+      "skillName": "アにゃウンド・スラッシュ",
+      "attackMul": 320,
+      "fixedDelay": 1,
+      "target": 5,
+      "rounds": 2,
+      "duration": "単発",
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "ニャントムサーベル",
+      "attack": 50,
+      "defense": 30
+    },
+    "features": [
+      {
+        "featureName": "normal",
+        "physicalEvasion": 40,
+        "magicalEvasion": 40,
+        "potentialBonus": {
+          "physicalEvasion": 45,
+          "magicalEvasion": 45
+        }
+      },
+      {
+        "featureName": "moving",
+        "annotations": [
+          "移動中"
+        ],
+        "physicalEvasion": 90,
+        "magicalEvasion": 90
+      },
+      {
+        "featureName": "common-charge-attack",
+        "isConditionalBuff": true,
+        "supplements": [
+          "引き付け"
+        ]
+      },
+      {
+        "featureName": "common-regenerate-weapon",
+        "require": [
+          "武器"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 12
+        },
+        "interval": 60
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "features": [
+          "common-charge-attack",
+          "moving"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-regenerate-weapon",
+          "moving"
+        ]
+      }
+    ]
+  },
+  {
     "id": 63,
     "unitName": "【クーシー娘】ユーシィ",
     "unitShortName": "ユーシィ",

@@ -375,6 +375,21 @@
     "damageType": "再生"
   },
   {
+    "featureName": "common-regenerate-weapon",
+    "isAbility": true,
+    "annotations": [
+      "武器特性"
+    ],
+    "conditions": [
+      "再"
+    ],
+    "interval": 30,
+    "target": "自分",
+    "rounds": 1,
+    "duration": "常時",
+    "damageType": "再生"
+  },
+  {
     "featureName": "common-regenerate-2%",
     "isAbility": true,
     "annotations": [

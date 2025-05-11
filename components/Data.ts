@@ -1614,6 +1614,7 @@ export interface DamageCutFactors {
 }
 
 export interface EvasionFactors {
+  readonly condColor: boolean | undefined;
   readonly skillColor: boolean;
   readonly result: number;
 }
