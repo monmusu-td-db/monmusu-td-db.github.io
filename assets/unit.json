@@ -8775,6 +8775,86 @@
     ]
   },
   {
+    "id": 132,
+    "unitName": "【ヒッポカムポス娘】プテリア",
+    "unitShortName": "プテリア",
+    "rarity": "E",
+    "class": "シールドナイト",
+    "element": "水",
+    "hp": 6363,
+    "attack": 565,
+    "defense": 834,
+    "resist": 216,
+    "moveType": "突進",
+    "supplements": [
+      "移動速度+70(10秒)/配置後",
+      "移動速度+70(10秒)/移動後"
+    ],
+    "exSkill1": {
+      "skillName": "ジェットスライダー",
+      "attackMul": 220,
+      "defenseMul": 220,
+      "duration": 20,
+      "cooldown": 30,
+      "skillFeatures": [
+        {
+          "featureName": "common-charge-attack",
+          "supplements": []
+        }
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "moveSpeedAdd": 250
+      },
+      {
+        "featureName": "common-charge-attack",
+        "isConditionalBuff": true,
+        "annotations": [
+          "移動中"
+        ],
+        "moveSpeedAdd": 70
+      },
+      {
+        "featureName": "common-charge-attack",
+        "skill": 1,
+        "physicalEvasion": 70,
+        "magicalEvasion": 70
+      }
+    ],
+    "isEventUnit": true,
+    "moveSpeedMul": 250,
+    "potentialBonus": {
+      "moveSpeedMul": 300
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      }
+    ]
+  },
+  {
     "id": 133,
     "unitName": "【サンドワーム娘】ヘディア",
     "unitShortName": "ヘディア",
@@ -14513,11 +14593,11 @@
           3
         ],
         "supplements": [
-          "バリア{attack-base*200}付与/20s"
+          "バリア{attack-base*200}付与/20秒"
         ],
         "potentialBonus": {
           "supplements": [
-            "バリア{attack-base*240}付与/20s"
+            "バリア{attack-base*240}付与/20秒"
           ]
         }
       }

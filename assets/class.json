@@ -252,7 +252,7 @@
     "damageType": "物理",
     "placement": "近",
     "supplements": [
-      "バリア2000付与/45s"
+      "バリア2000付与/45秒"
     ],
     "features": [
       {

@@ -528,6 +528,7 @@ export class Feature {
           case keys.criChanceLimitAdd:
           case keys.criDamageLimitAdd:
           case keys.rangeAdd:
+          case keys.moveSpeedAdd:
             return (ret[key] += feature[key]);
 
           default:
