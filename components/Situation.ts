@@ -456,7 +456,7 @@ export default class Situation implements TableSource<Keys> {
         const laser = fea.laser ?? sk?.laser ?? false;
 
         const color: Data.TableColor | undefined = (() => {
-          if (typeof target !== "number") return;
+          if (typeof target !== "number" && !Array.isArray(target)) return;
           if (isFixed) return tableColor.warning;
 
           const average = (arg: Data.Target) => {

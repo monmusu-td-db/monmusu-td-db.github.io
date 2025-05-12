@@ -2750,6 +2750,97 @@
     ]
   },
   {
+    "id": 48,
+    "unitName": "【オルトロス娘】トルス",
+    "unitShortName": "トルス",
+    "rarity": "E",
+    "class": "ガンナー",
+    "element": "火",
+    "hp": 2328,
+    "attack": 887,
+    "defense": 213,
+    "resist": 287,
+    "exSkill1": {
+      "skillName": "がう！がう！",
+      "attackMul": 140,
+      "rangeMul": 140,
+      "rounds": 2,
+      "duration": 20,
+      "cooldown": 25
+    },
+    "exSkill2": {
+      "skillName": "ががう！ががう！",
+      "attackMul": 140,
+      "targetAdd": 1,
+      "rounds": 2,
+      "duration": 15,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "魔法防御力+90"
+    ],
+    "weapon": {
+      "weaponName": "オルトロスファング",
+      "attack": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "attack-base",
+          "value": 12
+        },
+        "supplements": [
+          "ATK-{attack-base*12}/配置→全体"
+        ]
+      },
+      {
+        "skill": 0,
+        "target": [
+          1,
+          2
+        ]
+      },
+      {
+        "skill": 1,
+        "target": [
+          1,
+          2
+        ]
+      },
+      {
+        "skill": 0,
+        "require": [
+          "武器"
+        ],
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 1
+          },
+          {
+            "ratio": 1,
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 49,
     "unitName": "【ジャイアント娘】メロン",
     "unitShortName": "メロン",
