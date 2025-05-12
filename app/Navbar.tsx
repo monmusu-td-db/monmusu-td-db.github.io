@@ -12,19 +12,24 @@ import cn from "classnames";
 import SearchInput from "./SearchInput";
 
 const ICON_SIZE = 18;
+type PageType =
+  | (typeof Panel.pageType)[keyof typeof Panel.pageType]
+  | undefined;
 
-function Header() {
+function Header({ pageType }: { pageType?: PageType }) {
   const [panelOpen, setPanelOpen] = useState(false);
 
   return (
-    <Panel.Contexts.Open.Provider value={panelOpen}>
-      <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
-        <header className="mb-2 sticky-top header">
-          <NavArea />
-          <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
-        </header>
-      </Panel.Contexts.Toggle.Provider>
-    </Panel.Contexts.Open.Provider>
+    <Panel.Contexts.PageType.Provider value={pageType}>
+      <Panel.Contexts.Open.Provider value={panelOpen}>
+        <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
+          <header className="mb-2 sticky-top header">
+            <NavArea />
+            <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
+          </header>
+        </Panel.Contexts.Toggle.Provider>
+      </Panel.Contexts.Open.Provider>
+    </Panel.Contexts.PageType.Provider>
   );
 }
 

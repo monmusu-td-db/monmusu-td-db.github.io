@@ -8,7 +8,6 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useRef,
   useState,
   type ReactNode,
   type SetStateAction,
@@ -731,4 +730,5 @@ const PanelContexts = {
 export default Object.assign(Panel, {
   ID,
   Contexts: PanelContexts,
+  pageType,
 });
