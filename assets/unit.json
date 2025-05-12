@@ -20509,5 +20509,56 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 330,
+    "unitName": "【シーエルフ娘】アズレア",
+    "unitShortName": "アズレア",
+    "rarity": "E",
+    "class": "アーチャー",
+    "element": "水",
+    "hp": 2569,
+    "attack": 692,
+    "defense": 298,
+    "resist": 203,
+    "exSkill1": {
+      "skillName": "タイダルスナイプ",
+      "attackMul": 220,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRI率/CRI率上限+20%"
+    ],
+    "features": [
+      {
+        "require": [
+          "水マス"
+        ],
+        "criChanceAdd": 30
+      },
+      {
+        "skill": 1,
+        "fieldElements": [
+          "水"
+        ],
+        "penetrationAdd": 25
+      }
+    ],
+    "isEventUnit": true,
+    "delayMul": 130,
+    "penetrationAdd": 25,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   }
 ]
