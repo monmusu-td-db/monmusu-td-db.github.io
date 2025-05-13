@@ -98,6 +98,10 @@ const BuffType = {
   moveSpeedMul: "move-speed-mul",
   redeployTimeCut: "redeploy-time-cut",
   withdrawCostReturn: "withdraw-cost-return",
+  poisonNullify: "poison-nullify",
+  blindNullify: "blind-nullify",
+  stanNullify: "stan-nullify",
+  petrifyNullify: "petrify-nullify",
   freezeNullify: "freeze-nullify",
   poisonResist: "poison-resist",
   blindResist: "blind-resist",
@@ -388,6 +392,18 @@ function getSupplement(buff: JsonBuff): ReactNode {
   buff.supplements?.forEach((text) => add(text));
 
   switch (buff.type) {
+    case BuffType.poisonNullify:
+      add("毒無効化");
+      break;
+    case BuffType.blindNullify:
+      add("暗闇無効化");
+      break;
+    case BuffType.stanNullify:
+      add("スタン無効化");
+      break;
+    case BuffType.petrifyNullify:
+      add("石化無効化");
+      break;
     case BuffType.freezeNullify:
       add("凍結無効化");
       break;

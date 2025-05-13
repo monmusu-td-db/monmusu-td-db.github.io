@@ -479,7 +479,11 @@ export default class Situation implements TableSource<Keys> {
             return Data.Target.sum(target, ...values);
           };
           const getPoint = (v: Data.Target | undefined) => {
-            if (typeof v !== "number") return 0;
+            if (
+              typeof v !== "number" ||
+              (v !== Infinity && target === Infinity)
+            )
+              return 0;
             if (v > base) return 1;
             if (v < base) return -1;
             return 0;

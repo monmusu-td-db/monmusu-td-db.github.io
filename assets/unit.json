@@ -1398,6 +1398,160 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 26,
+    "unitName": "【ウンディーネ娘】プネーマ",
+    "unitShortName": "プネーマ",
+    "rarity": "E",
+    "class": "ウォーロック",
+    "element": "水",
+    "hp": 2594,
+    "attack": 892,
+    "defense": 227,
+    "resist": 537,
+    "exSkill1": {
+      "skillName": "水精の猛り",
+      "attackMul": 140,
+      "target": 3,
+      "rangeMul": 170,
+      "duration": 20,
+      "cooldown": 25
+    },
+    "exSkill2": {
+      "skillName": "アクアリフレッシュ",
+      "rangeMul": 200,
+      "duration": 25,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "weapon": {
+      "weaponName": "幻水霊杖",
+      "attack": 50,
+      "resist": 30
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "features": [
+      {
+        "fieldBuffFactor": 200
+      },
+      {
+        "skill": 2,
+        "isBuffSkill": true,
+        "supplements": [
+          "毒無効→射程内",
+          "石化無効→射程内"
+        ]
+      },
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 4
+        },
+        "target": "射程内"
+      },
+      {
+        "featureName": "common-regenerate",
+        "skill": 2,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 12
+        }
+      },
+      {
+        "featureName": "common-regenerate-weapon",
+        "require": [
+          "武器"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 3
+        },
+        "target": "全体",
+        "supplements": [
+          "回復→全体水属性"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-weapon"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "poison-nullify",
+        "skill": 2,
+        "target": "射程内"
+      },
+      {
+        "type": "petrify-nullify",
+        "skill": 2,
+        "target": "射程内"
+      }
+    ]
+  },
+  {
     "id": 27,
     "unitName": "【インキュバス娘】タンタル",
     "unitShortName": "タンタル",
