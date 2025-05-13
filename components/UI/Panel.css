@@ -3,10 +3,6 @@
   overflow-y: scroll;
 }
 
-.panel-label {
-  font-size: calc(1.15rem + 0.6vw);
-}
-
 .panel-backdrop {
   z-index: 1015;
 }

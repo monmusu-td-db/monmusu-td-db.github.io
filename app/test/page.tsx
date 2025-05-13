@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Header from "../Navbar";
-import Panel from "../Panel";
+import Header from "../../components/UI/Navbar";
+import Panel from "../../components/UI/Panel";
 
 function Page() {
   const [panelOpen, setPanelOpen] = useState(true);

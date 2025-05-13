@@ -4,7 +4,7 @@ import { useMemo } from "react";
 
 import Situation from "@/components/Situation";
 import { StatTable } from "@/components/LazyLoading";
-import Header from "./Navbar";
+import Header from "../components/UI/Navbar";
 
 export default function App() {
   return (

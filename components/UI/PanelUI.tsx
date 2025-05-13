@@ -16,7 +16,7 @@ import {
   ToggleButtonGroup,
   type ColProps,
 } from "react-bootstrap";
-import * as Data from "./Data";
+import * as Data from "../Data";
 import cn from "classnames";
 import bcn from "classnames/bind";
 import style from "./PanelUI.module.css";

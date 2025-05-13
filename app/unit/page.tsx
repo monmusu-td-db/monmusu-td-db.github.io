@@ -3,8 +3,8 @@
 import Unit from "@/components/Unit";
 import { useMemo } from "react";
 import { StatTable } from "@/components/LazyLoading";
-import Panel from "../Panel";
-import Header from "../Navbar";
+import Panel from "../../components/UI/Panel";
+import Header from "../../components/UI/Navbar";
 
 export default function Page() {
   return (

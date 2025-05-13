@@ -1,5 +1,5 @@
 import Beast from "./Beast";
-import CardSelector from "./CardSelector";
+import CardSelector from "./UI/CardSelector";
 import { Contexts } from "./States";
 
 interface SelectorProps {

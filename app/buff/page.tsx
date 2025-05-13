@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import { FormationBuffTable } from "./FormationBuffTable";
 import type { ReactNode } from "react";
 import { InBattleBuffTable } from "./InBattleBuffTable";
-import Header from "../Navbar";
+import Header from "../../components/UI/Navbar";
 
 export default function Page() {
   return (

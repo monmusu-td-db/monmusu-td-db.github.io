@@ -23,7 +23,7 @@ import {
   Tab,
 } from "react-bootstrap";
 import SearchInput from "./SearchInput";
-import PanelUI from "@/components/PanelUI";
+import PanelUI from "@/components/UI/PanelUI";
 import {
   FilterCondition,
   FilterEquipment,
@@ -33,7 +33,7 @@ import {
   type FilterObject,
   type UISetting,
 } from "@/components/States";
-import SubskillUI from "@/components/SubskillUI";
+import SubskillUI from "@/components/UI/SubskillUI";
 import BeastUI from "@/components/BeastUI";
 import { createPortal } from "react-dom";
 import cn from "classnames";
@@ -85,9 +85,9 @@ function Panel({ open, onClose }: PanelProps) {
               onSelect={(t) => setTab(t ?? tabs.FILTER)}
             >
               <Row as="header">
-                <h1 className="panel-label col-12 col-sm-3 text-center pt-1">
+                <div className="h4 col-12 col-sm-3 text-center pt-1">
                   各種設定
-                </h1>
+                </div>
                 <Nav
                   variant="underline"
                   justify

@@ -1,9 +1,9 @@
 "use client";
 
 import { Col, Form, Modal, Nav, Row, Tab, ToggleButton } from "react-bootstrap";
-import * as Data from "./Data";
+import * as Data from "../Data";
 import CardSelector from "./CardSelector";
-import Subskill from "./Subskill";
+import Subskill from "../Subskill";
 import {
   memo,
   useCallback,
@@ -15,7 +15,7 @@ import {
   type SetStateAction,
 } from "react";
 import PanelUI from "./PanelUI";
-import type { UISetting } from "./States";
+import type { UISetting } from "../States";
 
 // Const
 
@@ -194,31 +194,36 @@ function SubskillSelector(props: {
           activeKey={tab}
           onSelect={(t) => setTab(t ?? tabs.SELECT)}
         >
-          <Modal.Header className="row">
-            <Modal.Title className="col-3">{labelTexts.HEADER}</Modal.Title>
-            <CardSelector.RemoveButton onClick={selector.handleRemove} />
-            <Row className="col-3 gx-2">
-              <HeaderButton
-                id={groups.ATTACK}
-                checked={isChecked(groupCond.ATTACK, group)}
-                onClick={() => handleGroup((v) => v ^ groupCond.ATTACK)}
-              >
-                {groupTexts.ATTACK}
-              </HeaderButton>
-              <HeaderButton
-                id={groups.DEFENSE}
-                checked={isChecked(groupCond.DEFENSE, group)}
-                onClick={() => handleGroup((v) => v ^ groupCond.DEFENSE)}
-              >
-                {groupTexts.DEFENSE}
-              </HeaderButton>
-              <HeaderButton
-                id={groups.SUPPORT}
-                checked={isChecked(groupCond.SUPPORT, group)}
-                onClick={() => handleGroup((v) => v ^ groupCond.SUPPORT)}
-              >
-                {groupTexts.SUPPORT}
-              </HeaderButton>
+          <Modal.Header>
+            <Row>
+              <Modal.Title className="col-4">{labelTexts.HEADER}</Modal.Title>
+              <CardSelector.RemoveButton
+                className="ms-5 me-auto"
+                onClick={selector.handleRemove}
+              />
+              <Col xs={12}>
+                <HeaderButton
+                  id={groups.ATTACK}
+                  checked={isChecked(groupCond.ATTACK, group)}
+                  onClick={() => handleGroup((v) => v ^ groupCond.ATTACK)}
+                >
+                  {groupTexts.ATTACK}
+                </HeaderButton>
+                <HeaderButton
+                  id={groups.DEFENSE}
+                  checked={isChecked(groupCond.DEFENSE, group)}
+                  onClick={() => handleGroup((v) => v ^ groupCond.DEFENSE)}
+                >
+                  {groupTexts.DEFENSE}
+                </HeaderButton>
+                <HeaderButton
+                  id={groups.SUPPORT}
+                  checked={isChecked(groupCond.SUPPORT, group)}
+                  onClick={() => handleGroup((v) => v ^ groupCond.SUPPORT)}
+                >
+                  {groupTexts.SUPPORT}
+                </HeaderButton>
+              </Col>
             </Row>
             <Nav variant="underline" justify className="col-3 ps-2 pe-4">
               <Nav.Item>
