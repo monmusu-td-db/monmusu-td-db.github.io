@@ -2570,6 +2570,119 @@
     ]
   },
   {
+    "TODO_DESC": "statはwiki情報/ex2毒付与間隔はwiki情報",
+    "id": 41,
+    "unitName": "【アラクネ娘】フランシ",
+    "unitShortName": "フランシ",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "地",
+    "hp": 4300,
+    "attack": 493,
+    "defense": 409,
+    "resist": 121,
+    "moveType": "ワープ",
+    "exSkill1": {
+      "skillName": "スパイダーテリトリー",
+      "rangeMul": 260,
+      "duration": 10,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "ポイズンテリトリー",
+      "block": 0,
+      "rangeMul": 140,
+      "duration": 10,
+      "cooldown": 20
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "射程+15"
+    ],
+    "weapon": {
+      "weaponName": "スパイダーアイ",
+      "hp": 100,
+      "attack": 70
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "鈍足-18%→射程内",
+          "攻撃速度-18%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-21%→射程内",
+            "攻撃速度-21%→射程内敵"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "interval": null,
+        "damageType": null,
+        "supplements": [
+          "鈍足(大)→射程内",
+          "攻撃速度減少(大)→射程内敵"
+        ]
+      },
+      {
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "interval": null,
+        "damageType": null,
+        "supplements": [
+          "隠密",
+          "鈍足(中)→射程内",
+          "攻撃速度減少(中)→射程内敵",
+          "毒付与/1秒→射程内"
+        ]
+      },
+      {
+        "featureName": "dot",
+        "require": [
+          "スキル"
+        ],
+        "annotations": [
+          "武器特性"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 80
+        },
+        "interval": 30,
+        "target": "射程内",
+        "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "dot"
+        ]
+      }
+    ]
+  },
+  {
     "id": 43,
     "unitName": "【マタンゴ娘】シジメ",
     "unitShortName": "シジメ",
