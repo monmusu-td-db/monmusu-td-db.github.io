@@ -4777,7 +4777,7 @@
       "cooldown": 35,
       "supplements": [
         "tkn+1",
-        "敵攻撃-35→命中"
+        "ATK-35→命中"
       ]
     },
     "potentials": [
