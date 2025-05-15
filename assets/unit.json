@@ -8943,6 +8943,67 @@
     }
   },
   {
+    "id": 123,
+    "unitName": "【スライム娘】ライム",
+    "unitShortName": "ライム",
+    "rarity": "E",
+    "class": "ガンナー",
+    "element": "水",
+    "hp": 2414,
+    "attack": 895,
+    "defense": 241,
+    "resist": 289,
+    "exSkill1": {
+      "skillName": "ぬるぬるしよ～♪",
+      "attackMul": 220,
+      "splash": true,
+      "rangeMul": 140,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "features": [
+      {
+        "physicalDamageCut": 25,
+        "potentialBonus": {
+          "physicalDamageCut": 32
+        }
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "鈍足-20%(3秒)→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "鈍足-40%(3秒)→命中"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-2%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 124,
     "unitName": "【インプ娘】ラミ",
     "unitShortName": "ラミ",
