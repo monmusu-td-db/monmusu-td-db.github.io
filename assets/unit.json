@@ -3324,6 +3324,67 @@
     }
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 50,
+    "unitName": "【ミノタウロス娘】シルバ",
+    "unitShortName": "シルバ",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "光",
+    "hp": 6628,
+    "attack": 977,
+    "defense": 438,
+    "resist": 129,
+    "exSkill1": {
+      "skillName": "全力フルスイング",
+      "attackMul": 170,
+      "target": "ブロック",
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃力+75"
+    ],
+    "weapon": {
+      "weaponName": "ミルキーアックス",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "attackAdd": {
+          "key": "hp",
+          "value": 3
+        }
+      },
+      {
+        "featureName": "dungeon",
+        "hpMul": 180,
+        "attackMul": 150,
+        "potentialBonus": {
+          "attackMul": 160
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 52,
     "unitName": "【ユニコーン娘】パステノ",
     "unitShortName": "パステノ",
