@@ -2780,6 +2780,116 @@
     "isUnhealable": true
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 45,
+    "unitName": "【クィーンビー娘】メリッサ",
+    "unitShortName": "メリッサ",
+    "rarity": "E",
+    "class": "シャーマン",
+    "element": "闇",
+    "hp": 2750,
+    "attack": 0,
+    "defense": 289,
+    "resist": 447,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "クィーンフェロモン",
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "ポイズンフェロモン",
+      "rangeMul": 150,
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
+        "猛毒付与(高)→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "トークン所持数+2",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "女王蜂の巣",
+      "defense": 25,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "tkn+1/15秒"
+        ]
+      },
+      {
+        "skill": 2,
+        "isBuffSkill": true,
+        "damageFactor": 110
+      }
+    ],
+    "hpMul": 105,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": 2,
+        "require": [
+          "毒特効"
+        ],
+        "target": "全体",
+        "value": 110
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 450001,
+    "parentId": 45,
+    "unitName": "ビー",
+    "unitShortName": "ビーT",
+    "rarity": "C",
+    "element": "風",
+    "cost": 1,
+    "hp": 798,
+    "attack": 597,
+    "defense": 59,
+    "resist": 0,
+    "attackSpeed": 100,
+    "delay": 25,
+    "block": 0,
+    "target": 1,
+    "range": 120,
+    "moveSpeed": 130,
+    "damageType": "物理",
+    "placement": "近",
+    "supplements": [
+      "毒付与→命中"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 46,
     "unitName": "【ゴブリン娘】アニシラ",
     "unitShortName": "アニシラ",
