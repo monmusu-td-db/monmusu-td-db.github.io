@@ -554,7 +554,18 @@ const JsonSkillFeature = {
     if (value === undefined) return;
     return value.map((v) => {
       const raw: Partial<Omit<JsonSkill, keyof JsonSkillDiff>> = v;
-      const ret: Partial<SkillBase> = { ...raw };
+      const duration =
+        v.duration === Duration.single
+          ? Duration.single
+          : v.duration === undefined
+          ? undefined
+          : JsonDuration.parse(v.duration);
+      let ret: Partial<SkillBase>;
+      if (duration !== undefined) {
+        ret = { ...raw, duration };
+      } else {
+        ret = { ...raw };
+      }
       parseSkill(ret, v);
       return {
         featureName: v.featureName,
