@@ -136,7 +136,7 @@ function Selector(props: SelectorModalProps) {
           />
         </Modal.Header>
         <Modal.Body>
-          <Row className="gx-2 gy-2 pb-2 mb-3">
+          <Row className="g-2 pb-2 mb-3">
             <Items
               {...props}
               disabled={!selector.show}
@@ -191,7 +191,7 @@ function Items(props: ItemsProps) {
   return (
     <>
       {props.list.map((item) => (
-        <Col key={item.id} lg={4} sm={6}>
+        <Col key={item.id} className={styles["card-col"]}>
           <Button
             disabled={props.disabled}
             src={item}
@@ -213,7 +213,7 @@ const RarityContainer = memo(function RarityContainer(
   if (list.length === 0) return;
 
   return (
-    <Row className="border p-1 rounded gx-2 gy-2 pb-2 mb-3">
+    <Row className="border p-1 rounded g-2 pb-2 mb-3">
       <Col xs={12} className="d-grid gy-0">
         <div className="ms-auto me-auto">
           <span className="me-2">{props.rarity}</span>

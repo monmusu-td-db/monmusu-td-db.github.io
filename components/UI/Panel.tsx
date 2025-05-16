@@ -34,7 +34,7 @@ import {
   type UISetting,
 } from "@/components/States";
 import SubskillUI from "@/components/UI/SubskillUI";
-import BeastUI from "@/components/BeastUI";
+import BeastUI from "@/components/UI/BeastUI";
 import { createPortal } from "react-dom";
 import cn from "classnames";
 

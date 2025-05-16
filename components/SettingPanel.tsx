@@ -29,7 +29,7 @@ import {
 import * as Data from "./Data";
 import styles from "./SettingPanel.module.css";
 import SubskillUI from "./UI/SubskillUI";
-import BeastUI from "./BeastUI";
+import BeastUI from "./UI/BeastUI";
 import ModalUI from "./UI/PanelUI";
 
 const stat = Data.stat;

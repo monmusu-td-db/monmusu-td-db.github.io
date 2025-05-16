@@ -1,5 +1,6 @@
 "use client";
 
+import style from "./PanelUI.module.css";
 import { Col, Form, Modal, Nav, Row, Tab, ToggleButton } from "react-bootstrap";
 import * as Data from "../Data";
 import CardSelector from "./CardSelector";
@@ -194,51 +195,62 @@ function SubskillSelector(props: {
           activeKey={tab}
           onSelect={(t) => setTab(t ?? tabs.SELECT)}
         >
-          <Modal.Header>
-            <Row>
-              <Modal.Title className="col-4">{labelTexts.HEADER}</Modal.Title>
-              <CardSelector.RemoveButton
-                className="ms-5 me-auto"
-                onClick={selector.handleRemove}
-              />
-              <Col xs={12}>
-                <HeaderButton
-                  id={groups.ATTACK}
-                  checked={isChecked(groupCond.ATTACK, group)}
-                  onClick={() => handleGroup((v) => v ^ groupCond.ATTACK)}
-                >
-                  {groupTexts.ATTACK}
-                </HeaderButton>
-                <HeaderButton
-                  id={groups.DEFENSE}
-                  checked={isChecked(groupCond.DEFENSE, group)}
-                  onClick={() => handleGroup((v) => v ^ groupCond.DEFENSE)}
-                >
-                  {groupTexts.DEFENSE}
-                </HeaderButton>
-                <HeaderButton
-                  id={groups.SUPPORT}
-                  checked={isChecked(groupCond.SUPPORT, group)}
-                  onClick={() => handleGroup((v) => v ^ groupCond.SUPPORT)}
-                >
-                  {groupTexts.SUPPORT}
-                </HeaderButton>
+          <Modal.Header className="pb-2">
+            <Row className="col">
+              <Col xs={10} sm={11}>
+                <Row className="gy-2">
+                  <Modal.Title className="col-8 col-sm-4 col-md-3">
+                    {labelTexts.HEADER}
+                  </Modal.Title>
+                  <CardSelector.RemoveButton onClick={selector.handleRemove} />
+                  <Col xs={12} sm={5} className="d-flex align-items-center">
+                    <Row className="gx-1 col">
+                      <HeaderButton
+                        id={groups.ATTACK}
+                        checked={isChecked(groupCond.ATTACK, group)}
+                        onClick={() => handleGroup((v) => v ^ groupCond.ATTACK)}
+                      >
+                        {groupTexts.ATTACK}
+                      </HeaderButton>
+                      <HeaderButton
+                        id={groups.DEFENSE}
+                        checked={isChecked(groupCond.DEFENSE, group)}
+                        onClick={() =>
+                          handleGroup((v) => v ^ groupCond.DEFENSE)
+                        }
+                      >
+                        {groupTexts.DEFENSE}
+                      </HeaderButton>
+                      <HeaderButton
+                        id={groups.SUPPORT}
+                        checked={isChecked(groupCond.SUPPORT, group)}
+                        onClick={() =>
+                          handleGroup((v) => v ^ groupCond.SUPPORT)
+                        }
+                      >
+                        {groupTexts.SUPPORT}
+                      </HeaderButton>
+                    </Row>
+                  </Col>
+                </Row>
               </Col>
+              <Col xs={2} sm={1} className="text-end">
+                <button
+                  className="btn-close"
+                  type="button"
+                  onClick={selector.handleClose}
+                  aria-label="Close"
+                />
+              </Col>
+              <Nav variant="underline" justify className="col-12 ps-2 pe-4">
+                <Nav.Item>
+                  <Nav.Link eventKey={tabs.SELECT}>{tabTexts.SELECT}</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey={tabs.VIEW}>{tabTexts.VIEW}</Nav.Link>
+                </Nav.Item>
+              </Nav>
             </Row>
-            <Nav variant="underline" justify className="col-3 ps-2 pe-4">
-              <Nav.Item>
-                <Nav.Link eventKey={tabs.SELECT}>{tabTexts.SELECT}</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey={tabs.VIEW}>{tabTexts.VIEW}</Nav.Link>
-              </Nav.Item>
-            </Nav>
-            <button
-              className="btn-close me-2"
-              type="button"
-              onClick={selector.handleClose}
-              aria-label="Close"
-            />
           </Modal.Header>
           <Modal.Body>
             <Tab.Content>
@@ -285,22 +297,24 @@ const TabView = memo(function TabView({
   return (
     <Form>
       <PanelUI.FormGroup label={labelTexts.SORT}>
-        <PanelUI.FormGrid sm={3}>
-          <PanelUI.FormRadio
-            name="sort-type"
-            items={Object.values(sortTexts)}
-            value={sortType}
-            onChange={(n) => onChange(viewHandleKeys.SORT_TYPE, n)}
-          />
-        </PanelUI.FormGrid>
-        <PanelUI.FormGrid sm={3}>
-          <PanelUI.FormRadio
-            name="sort-order"
-            items={sortOrderTexts}
-            value={sortOrder ? 1 : 0}
-            onChange={(n) => onChange(viewHandleKeys.SORT_ORDER, n)}
-          />
-        </PanelUI.FormGrid>
+        <PanelUI.FormCheckboxGroup>
+          <PanelUI.FormGrid sm={6}>
+            <PanelUI.FormRadio
+              name="sort-type"
+              items={Object.values(sortTexts)}
+              value={sortType}
+              onChange={(n) => onChange(viewHandleKeys.SORT_TYPE, n)}
+            />
+          </PanelUI.FormGrid>
+          <PanelUI.FormGrid sm={6}>
+            <PanelUI.FormRadio
+              name="sort-order"
+              items={sortOrderTexts}
+              value={sortOrder ? 1 : 0}
+              onChange={(n) => onChange(viewHandleKeys.SORT_ORDER, n)}
+            />
+          </PanelUI.FormGrid>
+        </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
       <PanelUI.FormGroup label={labelTexts.RARITY}>
         <PanelUI.FormCheckboxGroup>
@@ -310,19 +324,22 @@ const TabView = memo(function TabView({
               rarity={v}
               checked={isChecked(rarityCond[v], rarity)}
               onClick={() => handleRarity((p) => p ^ rarityCond[v])}
+              lg
             />
           ))}
         </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
       <PanelUI.FormGroup label={labelTexts.OTHER}>
-        <PanelUI.FormGrid sm={5}>
-          <PanelUI.FormCheckbox
-            name="general-skill"
-            label={GENERAL_SKILL_TEXT}
-            checked={isGeneral}
-            onClick={() => onChange(viewHandleKeys.GENERAL, !isGeneral)}
-          />
-        </PanelUI.FormGrid>
+        <PanelUI.FormCheckboxGroup>
+          <PanelUI.FormGrid>
+            <PanelUI.FormCheckbox
+              name="general-skill"
+              label={GENERAL_SKILL_TEXT}
+              checked={isGeneral}
+              onClick={() => onChange(viewHandleKeys.GENERAL, !isGeneral)}
+            />
+          </PanelUI.FormGrid>
+        </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
     </Form>
   );
@@ -344,6 +361,7 @@ function HeaderButton(props: {
         checked={props.checked}
         value={props.id}
         onClick={props.onClick}
+        className={style.button}
       >
         {props.children}
       </ToggleButton>
