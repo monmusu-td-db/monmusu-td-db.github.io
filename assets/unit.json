@@ -3441,6 +3441,71 @@
     }
   },
   {
+    "id": 53,
+    "unitName": "【ワータイガー娘】ガウミィ",
+    "unitShortName": "ガウミィ",
+    "rarity": "E",
+    "class": "ランサー",
+    "element": "風",
+    "hp": 4439,
+    "attack": 655,
+    "defense": 460,
+    "resist": 60,
+    "exSkill1": {
+      "skillName": "準備運動なんだぞ！",
+      "hpMul": 180,
+      "attackMul": 160,
+      "defenseMul": 160,
+      "delayMul": 10,
+      "duration": 10,
+      "cooldown": 60,
+      "supplements": [
+        "コスト-17/発動"
+      ],
+      "skillFeatures": [
+        {
+          "featureName": "common-skill1-phase2",
+          "duration": "永続"
+        }
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "移動速度1.5倍"
+    ],
+    "features": [
+      {
+        "featureName": "common-skill1-phase2",
+        "phaseName": "MAXタイガーモード！"
+      }
+    ],
+    "isEventUnit": true,
+    "potentialBonus": {
+      "attackMul": 104
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-skill1-phase2"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 54,
     "unitName": "【グリフォン娘】クリフォ",
     "unitShortName": "クリフォ",
