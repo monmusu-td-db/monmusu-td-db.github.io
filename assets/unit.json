@@ -6848,6 +6848,58 @@
     ]
   },
   {
+    "id": 90,
+    "unitName": "【バイコーン娘】ヴァリナ",
+    "unitShortName": "ヴァリナ",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "闇",
+    "hp": 4933,
+    "attack": 628,
+    "defense": 489,
+    "resist": 63,
+    "rounds": 2,
+    "exSkill1": {
+      "skillName": "イービルサンダー",
+      "attackMul": 220,
+      "rangeMul": 220,
+      "duration": 15,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+16/発動",
+        "スタン付与10%→命中",
+        "猛毒付与(稀)→命中",
+        "石化付与(稀)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "deleteSupplements": [
+          "対地限定攻撃"
+        ]
+      }
+    ],
+    "rangeAdd": 20,
+    "potentialBonus": {
+      "rangeAdd": 27
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 91,
     "unitName": "【アルプ娘】ルププ",
