@@ -16,7 +16,7 @@ import {
   ToggleButtonGroup,
   type ColProps,
 } from "react-bootstrap";
-import * as Data from "./Data";
+import * as Data from "../Data";
 import cn from "classnames";
 import bcn from "classnames/bind";
 import style from "./PanelUI.module.css";
@@ -125,7 +125,7 @@ function FormRadio({
 
 function FormGrid(props: ColProps) {
   return (
-    <Col {...props} className="d-grid">
+    <Col {...props} className="d-grid gy-1">
       {props.children}
     </Col>
   );
@@ -135,10 +135,12 @@ function RarityCheckbox({
   rarity,
   checked,
   onClick,
+  lg,
 }: {
   rarity: Data.Rarity;
   checked: boolean;
   onClick: () => void;
+  lg?: boolean;
 }) {
   const className = [
     {
@@ -150,7 +152,7 @@ function RarityCheckbox({
       "text-bg-common": rarity === Data.Rarity.C,
     }),
   ];
-  return (
+  const ret = (
     <FormCheckbox
       name={Data.Rarity[rarity]}
       label={
@@ -163,9 +165,18 @@ function RarityCheckbox({
       }
       checked={checked}
       onClick={onClick}
-      grid
+      grid={!lg}
     />
   );
+  if (lg) {
+    return (
+      <FormGrid xs={6} md={3}>
+        {ret}
+      </FormGrid>
+    );
+  } else {
+    return ret;
+  }
 }
 
 function ElementCheckbox({

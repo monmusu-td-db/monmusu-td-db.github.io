@@ -33,3 +33,17 @@
   max-width: 875px !important;
   width: 92vw;
 }
+
+@media (min-width: 631px) {
+  .card-col {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+@media (min-width: 927px) {
+  .card-col {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+}

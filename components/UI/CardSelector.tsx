@@ -13,8 +13,8 @@ import {
   Row,
   type ModalProps,
 } from "react-bootstrap";
-import * as Data from "./Data";
-import classNames from "classnames";
+import * as Data from "../Data";
+import cn from "classnames";
 import bClassNames from "classnames/bind";
 import styles from "./CardSelector.module.css";
 
@@ -63,10 +63,10 @@ function Button(props: ButtonProps) {
   }
 
   return (
-    <Card className={classNames(cardClassNames)} role={role} onClick={onClick}>
+    <Card className={cn(cardClassNames)} role={role} onClick={onClick}>
       {src !== undefined && (
         <>
-          <Card.Header className={classNames(cardHeaderColor)}>
+          <Card.Header className={cn(cardHeaderColor)}>
             <span className="me-2">{src.rarity}</span>
             <span>{src.name}</span>
           </Card.Header>
@@ -131,12 +131,12 @@ function Selector(props: SelectorModalProps) {
         <Modal.Header closeButton>
           <Modal.Title>{props.title}</Modal.Title>
           <RemoveButton
-            className="ms-5 me-auto"
+            className="ms-4 ms-sm-5 me-auto"
             onClick={selector.handleRemove}
           />
         </Modal.Header>
         <Modal.Body>
-          <Row className="gx-2 gy-2 pb-2 mb-3">
+          <Row className="g-2 pb-2 mb-3">
             <Items
               {...props}
               disabled={!selector.show}
@@ -175,7 +175,7 @@ function RemoveButton({
   className?: string | undefined;
 }) {
   return (
-    <Col xs={2} className={classNames("d-grid", className)}>
+    <Col xs={4} sm={3} md={2} className={cn("d-grid", className)}>
       <BButton variant="danger" onClick={onClick}>
         はずす
       </BButton>
@@ -191,7 +191,7 @@ function Items(props: ItemsProps) {
   return (
     <>
       {props.list.map((item) => (
-        <Col key={item.id} lg={4} sm={6}>
+        <Col key={item.id} className={styles["card-col"]}>
           <Button
             disabled={props.disabled}
             src={item}
@@ -213,7 +213,7 @@ const RarityContainer = memo(function RarityContainer(
   if (list.length === 0) return;
 
   return (
-    <Row className="border p-1 rounded gx-2 gy-2 pb-2 mb-3">
+    <Row className="border p-1 rounded g-2 pb-2 mb-3">
       <Col xs={12} className="d-grid gy-0">
         <div className="ms-auto me-auto">
           <span className="me-2">{props.rarity}</span>

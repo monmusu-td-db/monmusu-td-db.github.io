@@ -1,6 +1,6 @@
-import Beast from "./Beast";
+import Beast from "../Beast";
 import CardSelector from "./CardSelector";
-import { Contexts } from "./States";
+import { Contexts } from "../States";
 
 interface SelectorProps {
   id: number;
