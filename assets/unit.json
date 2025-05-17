@@ -3385,6 +3385,112 @@
     ]
   },
   {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 51,
+    "unitName": "【アラクネ娘】カヅネ",
+    "unitShortName": "カヅネ",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "地",
+    "hp": 3128,
+    "attack": 0,
+    "defense": 302,
+    "resist": 467,
+    "moveType": "ワープ",
+    "exSkill1": {
+      "skillName": "白蜘蛛の絡糸",
+      "rangeMul": 140,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "CT-10秒/発動→味方遠"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "隠蜘蛛の帳",
+      "rangeMul": 140,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "CT-7秒/発動→味方遠"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 2,
+        "isNotAbility": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "鈍足-20%→射程内",
+          "攻撃速度-20%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-25%→射程内",
+            "攻撃速度-25%→射程内敵"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isNotAbility": true,
+        "supplements": [
+          "鈍足-40%→射程内",
+          "攻撃速度-40%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-50%→射程内",
+            "攻撃速度-50%→射程内敵"
+          ]
+        }
+      },
+      {
+        "skill": 2,
+        "isNotAbility": true,
+        "supplements": [
+          "鈍足-60%→射程内",
+          "攻撃速度-60%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-75%→射程内",
+            "攻撃速度-75%→射程内敵"
+          ]
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 52,
     "unitName": "【ユニコーン娘】パステノ",
     "unitShortName": "パステノ",
