@@ -1,0 +1,37 @@
+.stat-table {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.8125rem;
+}
+
+.stat-table > thead {
+  position: sticky;
+  top: 58px;
+}
+
+@media (max-width: 767.98px) {
+  .stat-table {
+    display: block;
+    overflow: auto;
+  }
+
+  .stat-table > thead {
+    top: 0px;
+  }
+}
+
+.stat-table > :not(caption) > * > * {
+  border-width: 0px 1px 1px 0px;
+}
+
+.stat-table > :not(caption) > * > th {
+  border-top-width: 1px;
+  border-bottom-width: 2px;
+}
+
+.stat-table > :not(caption) > * > *:first-child {
+  border-left-width: 1px;
+}

@@ -1,24 +1,18 @@
 "use client";
 
-import { useState } from "react";
-import Header from "../../components/UI/Navbar";
-import Panel from "../../components/UI/Panel";
+import { useMemo } from "react";
 
-function Page() {
-  const [panelOpen, setPanelOpen] = useState(true);
+import Situation from "@/components/Situation";
+import Header from "@/components/UI/Navbar";
+import StatTable from "@/components/UI/StatTable";
 
+export default function App() {
   return (
-    <Panel.Contexts.Open.Provider value={panelOpen}>
-      <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
-        <Panel.Contexts.PageType.Provider value="situation">
-          <header>
-            <Header />
-            <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
-          </header>
-        </Panel.Contexts.PageType.Provider>
-      </Panel.Contexts.Toggle.Provider>
-    </Panel.Contexts.Open.Provider>
+    <>
+      <Header pageType="situation" />
+      <main>
+        <StatTable />
+      </main>
+    </>
   );
 }
-
-export default Page;
