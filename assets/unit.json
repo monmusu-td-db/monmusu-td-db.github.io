@@ -21002,6 +21002,9 @@
     "isEventUnit": true,
     "rangeAdd": 70,
     "splash": true,
+    "potentialBonus": {
+      "rangeAdd": 90
+    },
     "situations": [
       {},
       {
