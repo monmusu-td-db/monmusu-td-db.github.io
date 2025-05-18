@@ -4884,6 +4884,114 @@
     }
   },
   {
+    "id": 66,
+    "unitName": "【アルミラージ娘】ルナミーラ",
+    "unitShortName": "ルナミーラ",
+    "rarity": "E",
+    "class": "ランサー",
+    "element": "光",
+    "hp": 4364,
+    "attack": 606,
+    "defense": 485,
+    "resist": 63,
+    "exSkill1": {
+      "skillName": "コールホーン",
+      "attackMul": 220,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "コスト+7/発動",
+        "tkn+1/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "串刺し祭りぴょん♪",
+      "attackMotionMul": 155,
+      "rounds": 5,
+      "duration": 15,
+      "cooldown": 40,
+      "supplements": [
+        "コスト+8/発動",
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "penetrationAdd": 20,
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "potentialBonus": {
+      "physicalEvasion": 45,
+      "magicalEvasion": 45
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "スキル初動はクラス特性で短縮されない",
+    "id": 660001,
+    "parentId": 66,
+    "unitName": "ルナミーラ",
+    "unitShortName": "ルナミーラT",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "光",
+    "cost": 10,
+    "hp": 4364,
+    "attack": 606,
+    "defense": 485,
+    "resist": 63,
+    "exSkill1": {
+      "skillName": "コールホーン",
+      "attackMul": 220,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "コスト+7/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "串刺し祭りぴょん♪",
+      "attackMotionMul": 155,
+      "rounds": 5,
+      "duration": 15,
+      "cooldown": 40,
+      "supplements": [
+        "コスト+8/発動"
+      ]
+    },
+    "features": [
+      {
+        "initialTimeCut": 0
+      }
+    ],
+    "isUnhealable": true,
+    "penetrationAdd": 20,
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 67,
     "unitName": "【ヒポグリフ娘】リクリフ",
