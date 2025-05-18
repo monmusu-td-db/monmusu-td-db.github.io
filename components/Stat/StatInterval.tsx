@@ -1,11 +1,12 @@
 import type { ReactNode } from "react";
 
 import * as Data from "../Data";
-import { StatTooltip, Tooltip as Tt } from "./StatTooltip";
+import { StatTooltip } from "./StatTooltip";
 import { Setting } from "../States";
 import type { StatHandler } from "./StatRoot";
 import { DelayTooltip } from "./StatDelay";
 import { AttackSpeedTooltip } from "./StatAttackSpeed";
+import { Tooltip as Tt } from "../UI/Tooltip";
 
 type Factors = Data.IntervalFactors | undefined;
 const sign = Tt.sign;

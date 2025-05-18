@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from "react-bootstrap";
 import { FormationBuffTable } from "./FormationBuffTable";
 import type { ReactNode } from "react";

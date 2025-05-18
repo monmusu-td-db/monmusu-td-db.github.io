@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
-import { Tooltip as T } from "./StatTooltip";
+import { Tooltip as T } from "../UI/Tooltip";
 
 const sign = T.sign;
 

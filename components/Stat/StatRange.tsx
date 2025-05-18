@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import type { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
-import { Tooltip as T } from "./StatTooltip";
+import { Tooltip as T } from "../UI/Tooltip";
 
 type Factors = Required<Data.RangeFactor> | undefined;
 const sign = T.sign;

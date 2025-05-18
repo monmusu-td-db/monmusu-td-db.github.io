@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 
 import * as Data from "../Data";
-import { StatTooltip, Tooltip as Tt } from "./StatTooltip";
+import { StatTooltip } from "./StatTooltip";
 import { Setting } from "../States";
+import { Tooltip as Tt } from "../UI/Tooltip";
 
 type Factors = Data.LimitFactors | undefined;
 const sign = Tt.sign;
