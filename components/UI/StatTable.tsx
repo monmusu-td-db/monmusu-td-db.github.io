@@ -1,6 +1,8 @@
 import {
   createContext,
+  useCallback,
   useContext,
+  useMemo,
   useRef,
   useState,
   type ReactNode,
@@ -16,8 +18,16 @@ type CellData = {
 };
 
 type CellEventHandler = (cell: CellData) => void;
-
-const HandleClickContext = createContext<CellEventHandler>(() => {});
+type CellEventHandlers = {
+  onClick: CellEventHandler;
+  onMouseOver: CellEventHandler;
+  onMouseOut: CellEventHandler;
+};
+const CellEventHandlersContext = createContext<CellEventHandlers>({
+  onClick: () => {},
+  onMouseOver: () => {},
+  onMouseOut: () => {},
+});
 
 const DATA_X = 20;
 const data = (() => {
@@ -78,48 +88,95 @@ function Row() {
 
 function Cell({ str }: { str: string }) {
   const ref = useRef(null);
-  const onClick = useContext(HandleClickContext);
-
+  const { onClick, onMouseOver, onMouseOut } = useContext(
+    CellEventHandlersContext
+  );
+  const arg = { ref, str };
   return (
     <>
-      <td ref={ref} onClick={() => onClick({ ref, str })}>
+      <td
+        ref={ref}
+        onClick={() => onClick(arg)}
+        onMouseOver={() => onMouseOver(arg)}
+        onMouseOut={() => onMouseOut(arg)}
+      >
         {str}
       </td>
     </>
   );
 }
 
+type TooltipCond = {
+  show: boolean;
+  cell: CellData | null;
+};
+
 function Tooltip({ children }: { children: ReactNode }) {
-  const [show, setShow] = useState(false);
-  const [cell, setCell] = useState<CellData | null>(null);
+  const [cond, setCond] = useState<TooltipCond>({ show: false, cell: null });
 
-  function handleClick(newCell: CellData) {
-    if (newCell.ref === cell?.ref) {
-      setShow((p) => !p);
-    } else {
-      setCell(newCell);
-      setShow(true);
-    }
-  }
+  const handleClick = useCallback((target: CellData) => {
+    setCond((p) => {
+      return {
+        show: p.cell?.ref === target.ref ? !p.show : true,
+        cell: target,
+      };
+    });
+  }, []);
 
-  const ref = cell?.ref ?? null;
+  const handleMouseOver = useCallback((target: CellData) => {
+    setCond({
+      show: true,
+      cell: target,
+    });
+  }, []);
+
+  const handleMouseOut = useCallback((target: CellData) => {
+    setTimeout(() => {
+      // ちらつきを抑えるために遅延させる
+      setCond((p) => {
+        if (p.cell?.ref !== target.ref) {
+          return p;
+        } else {
+          return {
+            show: false,
+            cell: p.cell,
+          };
+        }
+      });
+    }, 50);
+  }, []);
+
+  const handlers: CellEventHandlers = useMemo(
+    () => ({
+      onClick: handleClick,
+      onMouseOver: handleMouseOver,
+      onMouseOut: handleMouseOut,
+    }),
+    [handleClick, handleMouseOver, handleMouseOut]
+  );
+
+  const cellRef = cond.cell?.ref ?? null;
   const placement = "auto";
   const flip = placement && placement.indexOf("auto") !== -1;
 
   return (
-    <HandleClickContext.Provider value={handleClick}>
+    <CellEventHandlersContext.Provider value={handlers}>
       {children}
-      <Overlay target={ref} show={show} placement={placement} flip={flip}>
+      <Overlay
+        target={cellRef}
+        show={cond.show}
+        placement={placement}
+        flip={flip}
+      >
         {(p) => {
           return tooltip(p);
         }}
       </Overlay>
-    </HandleClickContext.Provider>
+    </CellEventHandlersContext.Provider>
   );
 }
 
 function tooltip(props: OverlayInjectedProps) {
-  console.log(props);
   return (
     <Popover {...props} placement="auto">
       <Popover.Header as="h3">Header</Popover.Header>
