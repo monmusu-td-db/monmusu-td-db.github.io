@@ -10885,6 +10885,91 @@
     }
   },
   {
+    "id": 145,
+    "unitName": "【フレッシュゴーレム娘】ランケ",
+    "unitShortName": "ランケ",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "闇",
+    "hp": 6681,
+    "attack": 960,
+    "defense": 446,
+    "resist": 127,
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "伴侶を求めて",
+      "attackMul": 400,
+      "attackMotionMul": 153,
+      "blockAdd": 1,
+      "target": "ブロック",
+      "duration": 30,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "スタン5秒/終了後→自分"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "supplements": [
+          "スタン付与20%→命中男性"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalSkillBuff": true,
+        "damageFactor": 200
+      }
+    ],
+    "isEventUnit": true,
+    "hpMul": 120,
+    "potentialBonus": {
+      "hpMul": 130
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 146,
     "unitName": "【ファイアジャイアント娘】バーダギ",
     "unitShortName": "バーダギ",
