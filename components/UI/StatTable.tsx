@@ -1,7 +1,10 @@
+import style from "./th.module.css";
 import {
   createContext,
+  memo,
   useCallback,
   useContext,
+  useDeferredValue,
   useMemo,
   useRef,
   useState,
@@ -11,6 +14,10 @@ import {
 import "./StatTable.css";
 import { Overlay, Popover, Table } from "react-bootstrap";
 import type { OverlayInjectedProps } from "react-bootstrap/esm/Overlay";
+import type { StatRoot } from "../Stat/StatRoot";
+import { Contexts, Setting } from "../States";
+
+type Stat = StatRoot<unknown, unknown> | undefined;
 
 type CellData = {
   ref: RefObject<HTMLElement>;
@@ -29,68 +36,94 @@ const CellEventHandlersContext = createContext<CellEventHandlers>({
   onMouseOut: () => {},
 });
 
-const DATA_X = 20;
-const data = (() => {
-  const x = DATA_X;
-  const y = 100;
+export type TableData<T extends string> = {
+  headers: readonly TableHeader<T>[];
+  rows: readonly TableRow<T>[];
+};
 
-  const arr: string[][] = [];
-  for (let iy = 0; iy < y; iy++) {
-    const row: string[] = [];
-    arr[iy] = row;
-    for (let ix = 0; ix < x; ix++) {
-      row[ix] = `${iy}-${ix}`;
-    }
-  }
-  return arr;
-})();
+export type TableHeader<T extends string> = {
+  id: T;
+  name: string;
+};
 
-function StatTable() {
+export type TableRow<T extends string> = {
+  readonly [key in T]: StatRoot<unknown, unknown>;
+} & {
+  readonly id: number;
+};
+
+function StatTable<T extends string>({ src }: { src: TableData<T> }) {
   return (
     <div className="d-flex justify-content-center">
       <Tooltip>
-        <Table striped size="sm" className="stat-table">
-          <Header />
-          <tbody>
-            <Row />
-          </tbody>
-        </Table>
+        <TableRoot src={src} />
       </Tooltip>
     </div>
   );
 }
 
-function Header() {
+function TableRoot<T extends string>({ src }: { src: TableData<T> }) {
+  const setting = Contexts.useSetting();
+  const deferredSetting = useDeferredValue(setting);
   return (
-    <thead>
-      <tr>
-        {(() => {
-          const arr = [];
-          for (let i = 0; i < DATA_X; i++) {
-            arr[i] = <th key={i}>{`h${i}`}</th>;
-          }
-          return arr;
-        })()}
-      </tr>
-    </thead>
+    <Table striped size="sm" className="stat-table">
+      <Header headers={src.headers} />
+      <tbody>
+        <Row tableData={src} setting={deferredSetting} />
+      </tbody>
+    </Table>
   );
 }
 
-function Row() {
-  return data.map((row, i) => (
-    <tr key={i}>
-      {row.map((item, i) => (
-        <Cell key={i} str={item} />
+const Header = memo(function Header({
+  headers,
+}: {
+  headers: readonly TableHeader<string>[];
+}) {
+  console.log("re");
+  return (
+    <thead>
+      <tr>
+        {headers.map((col) => (
+          <th key={col.id} className={style[col.id]}>
+            {col.name}
+          </th>
+        ))}
+      </tr>
+    </thead>
+  );
+});
+
+const Row = memo(function Row({
+  tableData,
+  setting,
+}: {
+  tableData: TableData<string>;
+  setting: Setting;
+}) {
+  return tableData.rows.map((row) => (
+    <tr key={row.id}>
+      {tableData.headers.map((col) => (
+        <Cell key={col.id} stat={row[col.id]} setting={setting}></Cell>
       ))}
     </tr>
   ));
-}
+});
 
-function Cell({ str }: { str: string }) {
+const Cell = memo(function Cell({
+  stat,
+  setting,
+}: {
+  stat: Stat;
+  setting: Setting;
+}) {
   const ref = useRef(null);
   const { onClick, onMouseOver, onMouseOut } = useContext(
     CellEventHandlersContext
   );
+
+  const str = stat?.statType ?? "undefined";
+
   const arg = { ref, str };
   return (
     <>
@@ -100,11 +133,11 @@ function Cell({ str }: { str: string }) {
         onMouseOver={() => onMouseOver(arg)}
         onMouseOut={() => onMouseOut(arg)}
       >
-        {str}
+        {stat?.getItem(setting)}
       </td>
     </>
   );
-}
+});
 
 type TooltipCond = {
   show: boolean;

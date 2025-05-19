@@ -1,8 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
-
-import Situation from "@/components/Situation";
+import Unit from "@/components/Unit";
 import Header from "@/components/UI/Navbar";
 import StatTable from "@/components/UI/StatTable";
 
@@ -11,7 +9,7 @@ export default function App() {
     <>
       <Header pageType="situation" />
       <main>
-        <StatTable />
+        <StatTable src={Unit.tableData} />
       </main>
     </>
   );

@@ -15,6 +15,7 @@ import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
 import type { TableSource } from "./StatTable";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
+import type { TableData, TableHeader } from "./UI/StatTable";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -1315,6 +1316,24 @@ export default class Unit implements TableSource<Keys> {
   static get keys(): readonly Keys[] {
     return keys;
   }
+
+  // START wip 新レイアウト
+
+  static get headers(): readonly TableHeader<Keys>[] {
+    return keys.map((key) => ({
+      id: key,
+      name: Data.StatType.nameOf(key),
+    }));
+  }
+
+  static get tableData(): TableData<Keys> {
+    return {
+      headers: Unit.headers,
+      rows: units,
+    };
+  }
+
+  // END wip 新レイアウト
 }
 
 const units = (() => {
