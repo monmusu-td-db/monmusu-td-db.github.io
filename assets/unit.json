@@ -661,6 +661,104 @@
     "physicalEvasion": 30
   },
   {
+    "id": 11,
+    "unitName": "【ケンタウロス娘】エテジア",
+    "unitShortName": "エテジア",
+    "rarity": "R",
+    "class": "シールドナイト",
+    "element": "風",
+    "hp": 5886,
+    "attack": 531,
+    "defense": 834,
+    "resist": 208,
+    "moveType": "隠密",
+    "exSkill1": {
+      "skillName": "騎士の矜持",
+      "attackMul": 240,
+      "defenseMul": 170,
+      "duration": 30,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "騎士の誇り",
+      "defenseMul": 140,
+      "resistMul": 140,
+      "blockAdd": 2,
+      "target": "ブロック",
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "物理防御力+60",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "早馬の剣",
+      "hp": 200,
+      "defense": 30,
+      "resist": 30
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "range": 120
+      },
+      {
+        "featureName": "common-block1",
+        "skill": 2,
+        "attackMul": 105,
+        "defenseMul": 105,
+        "resistMul": 105
+      },
+      {
+        "featureName": "common-block4",
+        "skill": 2,
+        "attackMul": 120,
+        "defenseMul": 120,
+        "resistMul": 120
+      },
+      {
+        "featureName": "common-block7",
+        "skill": 2,
+        "attackMul": 135,
+        "defenseMul": 135,
+        "resistMul": 135
+      }
+    ],
+    "criChanceAdd": 20,
+    "criDamageAdd": 50,
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-block7"
+        ]
+      }
+    ]
+  },
+  {
     "id": 13,
     "unitName": "【リザードマン娘】サウラ",
     "unitShortName": "サウラ",
