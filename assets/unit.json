@@ -1182,6 +1182,85 @@
     "rangeAdd": 20
   },
   {
+    "TODO_DESC": "StatはWiki情報/配置数に含まれない",
+    "id": 21,
+    "unitName": "【フェアリー娘】ネリー",
+    "unitShortName": "ネリー",
+    "rarity": "R",
+    "class": "アーチャー",
+    "element": "光",
+    "species": "妖怪",
+    "hp": 2102,
+    "attack": 535,
+    "defense": 271,
+    "resist": 180,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "フェアリーシュート",
+      "attackMul": 180,
+      "duration": 15,
+      "cooldown": 20,
+      "damageType": "魔法"
+    },
+    "exSkill2": {
+      "skillName": "妖精のイタズラ",
+      "attackMul": 140,
+      "duration": 15,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "タイニィボウ",
+      "hp": 250,
+      "defense": 25,
+      "resist": 30
+    },
+    "features": [
+      {
+        "exclude": [
+          "光マス"
+        ],
+        "physicalEvasion": 20,
+        "magicalEvasion": 20
+      },
+      {
+        "require": [
+          "光マス"
+        ],
+        "physicalEvasion": 40,
+        "magicalEvasion": 40
+      },
+      {
+        "skill": 0,
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "physicalEvasion": 40,
+        "magicalEvasion": 40
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 22,
     "unitName": "【ヘルハウンド娘】ケィナ",
     "unitShortName": "ケィナ",
