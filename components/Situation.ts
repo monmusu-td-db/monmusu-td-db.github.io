@@ -1307,8 +1307,8 @@ export default class Situation implements TableSource<Keys> {
         return ret;
       }
 
-      if (phy > 0) fn("物理", phy);
-      if (mag > 0) fn("魔法", mag);
+      if (phy !== 0) fn("物理", phy);
+      if (mag !== 0) fn("魔法", mag);
     }
     return ret;
   }
