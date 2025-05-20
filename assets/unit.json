@@ -16500,6 +16500,64 @@
     "magicalEvasion": 30
   },
   {
+    "id": 245,
+    "unitName": "【ドヴェルグ娘】ラルヴァ",
+    "unitShortName": "ラルヴァ",
+    "rarity": "R",
+    "class": "バーバリアン",
+    "element": "闇",
+    "hp": 5409,
+    "attack": 1043,
+    "defense": 422,
+    "resist": 127,
+    "exSkill1": {
+      "skillName": "ドヴェルグレイジ",
+      "attackMul": 180,
+      "attackSpeedBuff": 150,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "攻撃力+50",
+      "攻撃速度+10"
+    ],
+    "features": [
+      {
+        "featureName": "common-absorb",
+        "skill": 1,
+        "staticDamage": {
+          "key": "hp",
+          "value": 2
+        },
+        "supplements": [
+          "回復2%/命中"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "attackMul": 80,
+    "rounds": 2,
+    "potentialBonus": {
+      "attackMul": 90
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "id": 246,
     "unitName": "【リトルグレイ娘】パープロープ",
     "unitShortName": "パープロープ",
