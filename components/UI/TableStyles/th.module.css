@@ -1,0 +1,80 @@
+.hp,
+.attack,
+.defense,
+.resist,
+.physicalLimit,
+.magicalLimit,
+.dps0,
+.dps1,
+.dps2,
+.dps3,
+.dps4,
+.dps5 {
+  width: 3.3em;
+}
+
+.conditions,
+.target {
+  width: 3.4em;
+}
+
+.rarity,
+.cost,
+.attackSpeed,
+.delay {
+  width: 1.7em;
+}
+
+.block {
+  width: 2.2em;
+}
+
+.interval {
+  width: 2.4em;
+}
+
+.unitId,
+.situationId,
+.element,
+.range,
+.moveSpeed,
+.placement {
+  width: 2.5em;
+}
+
+.initialTime,
+.duration,
+.cooldown,
+.damageType {
+  width: 3em;
+}
+
+.moveType {
+  width: 4em;
+}
+
+.species {
+  width: 5em;
+}
+
+.className {
+  width: 6em;
+}
+
+.unitShortName {
+  width: 6.5em;
+}
+
+.skillName,
+.exSkill1,
+.exSkill2 {
+  width: 11em;
+}
+
+.unitName {
+  width: 15em;
+}
+
+.supplements {
+  width: 12.51em;
+}

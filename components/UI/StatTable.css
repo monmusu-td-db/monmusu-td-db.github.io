@@ -25,6 +25,7 @@
 
 .stat-table > :not(caption) > * > * {
   border-width: 0px 1px 1px 0px;
+  padding: 0.125rem;
 }
 
 .stat-table > :not(caption) > * > th {
@@ -34,4 +35,14 @@
 
 .stat-table > :not(caption) > * > *:first-child {
   border-left-width: 1px;
+}
+
+.stat-table > thead > tr:first-child {
+  text-align: center;
+}
+
+@media (max-width: 992.98px) {
+  .stat-table > :not(caption) > * > * {
+    padding: 0.05rem;
+  }
 }
