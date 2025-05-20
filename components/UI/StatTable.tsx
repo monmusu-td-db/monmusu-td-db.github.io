@@ -1,19 +1,18 @@
 import "./StatTable.css";
 import thStyle from "./TableStyles/th.module.css";
-import colStyle from "./TableStyles/col.module.css";
 import {
   createContext,
   memo,
   useContext,
   useDeferredValue,
   useRef,
-  type CSSProperties,
   type RefObject,
 } from "react";
 import { Table } from "react-bootstrap";
 import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting } from "../States";
 import TooltipControl from "./TooltipControl";
+import { stat } from "../Data";
 
 type Stat = StatRoot<unknown, unknown> | undefined;
 
@@ -64,18 +63,79 @@ function TableRoot<T extends string>({ src }: { src: TableData<T> }) {
   const setting = Contexts.useSetting();
   const deferredSetting = useDeferredValue(setting);
   return (
-    <Table striped size="sm" className="stat-table" style={getInlineStyle()}>
-      <Header headers={src.headers} />
-      <tbody>
-        <Row tableData={src} setting={deferredSetting} />
-      </tbody>
-    </Table>
+    <>
+      <Style headers={src.headers} />
+      <Table striped size="sm" className="stat-table">
+        <Header headers={src.headers} />
+        <tbody>
+          <Row tableData={src} setting={deferredSetting} />
+        </tbody>
+      </Table>
+    </>
   );
 }
 
-function getInlineStyle(): CSSProperties {
-  return { ["--st-col-hp"]: 1 } as CSSProperties;
-}
+const Style = memo(function Style({
+  headers,
+}: {
+  headers: readonly TableHeader<string>[];
+}) {
+  const endIndexes: number[] = [];
+  const centerIndexes: number[] = [];
+  headers.forEach((col, index) => {
+    switch (col.id) {
+      case stat.cost:
+      case stat.hp:
+      case stat.attack:
+      case stat.defense:
+      case stat.resist:
+      case stat.physicalLimit:
+      case stat.magicalLimit:
+      case stat.initialTime:
+      case stat.duration:
+      case stat.cooldown:
+      case stat.dps0:
+      case stat.dps1:
+      case stat.dps2:
+      case stat.dps3:
+      case stat.dps4:
+      case stat.dps5:
+        endIndexes.push(index);
+        break;
+      case stat.rarity:
+      case stat.element:
+      case stat.species:
+      case stat.attackSpeed:
+      case stat.delay:
+      case stat.interval:
+      case stat.block:
+      case stat.target:
+      case stat.range:
+      case stat.moveSpeed:
+      case stat.moveType:
+      case stat.damageType:
+      case stat.placement:
+        centerIndexes.push(index);
+    }
+  });
+
+  return (
+    <style jsx global>
+      {`
+        ${endIndexes
+          .map((i) => `.stat-table > tbody > tr > td:nth-child(${i + 1})`)
+          .join()} {
+          text-align: end;
+        }
+        ${centerIndexes
+          .map((i) => `.stat-table > tbody > tr > td:nth-child(${i + 1})`)
+          .join()} {
+          text-align: center;
+        }
+      `}
+    </style>
+  );
+});
 
 const Header = memo(function Header({
   headers,
@@ -86,7 +146,7 @@ const Header = memo(function Header({
     <thead>
       <tr>
         {headers.map((col) => (
-          <th key={col.id} className={thStyle[col.id]}>
+          <th key={col.id} className={thStyle[col.id]} scope="col">
             {col.name}
           </th>
         ))}
@@ -104,8 +164,13 @@ const Row = memo(function Row({
 }) {
   return tableData.rows.map((row) => (
     <tr key={row.id}>
-      {tableData.headers.map((col) => (
-        <Cell key={col.id} stat={row[col.id]} setting={setting}></Cell>
+      {tableData.headers.map((col, i) => (
+        <Cell
+          key={col.id}
+          stat={row[col.id]}
+          setting={setting}
+          scope={i === 0}
+        ></Cell>
       ))}
     </tr>
   ));
@@ -114,9 +179,11 @@ const Row = memo(function Row({
 const Cell = memo(function Cell({
   stat,
   setting,
+  scope,
 }: {
   stat: Stat;
   setting: Setting;
+  scope: boolean;
 }) {
   const ref = useRef(null);
   const { onClick, onMouseOver, onMouseOut } = useContext(
@@ -133,6 +200,7 @@ const Cell = memo(function Cell({
         onClick={() => onClick(arg)}
         onMouseOver={() => onMouseOver(arg)}
         onMouseOut={() => onMouseOut(arg)}
+        scope={scope ? "row" : undefined}
       >
         {stat?.getItem(setting)}
       </td>
