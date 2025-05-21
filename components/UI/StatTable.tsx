@@ -116,24 +116,46 @@ const Style = memo(function Style({
       case stat.damageType:
       case stat.placement:
         centerIndexes.push(index);
+        break;
     }
   });
 
+  const emptyIndexes: number[] = [];
+  headers.forEach((col, index) => {
+    switch (col.id) {
+      case stat.skillName:
+      case stat.conditions:
+      case stat.supplements:
+      case stat.damageType:
+      case stat.dps0:
+      case stat.dps1:
+      case stat.dps2:
+      case stat.dps3:
+      case stat.dps4:
+      case stat.dps5:
+        break;
+      default:
+        emptyIndexes.push(index);
+        break;
+    }
+  });
+
+  const getSelector = (index: number) =>
+    `.stat-table>tbody>tr>td:nth-child(${index + 1})`;
+
   return (
-    <style jsx global>
-      {`
-        ${endIndexes
-          .map((i) => `.stat-table > tbody > tr > td:nth-child(${i + 1})`)
-          .join()} {
-          text-align: end;
-        }
-        ${centerIndexes
-          .map((i) => `.stat-table > tbody > tr > td:nth-child(${i + 1})`)
-          .join()} {
-          text-align: center;
-        }
-      `}
-    </style>
+    <style
+      precedence="medium"
+      href="stat-table"
+      dangerouslySetInnerHTML={{
+        __html:
+          `${endIndexes.map(getSelector).join()}{text-align:end;}` +
+          `${centerIndexes.map(getSelector).join()}{text-align:center;}` +
+          `${emptyIndexes
+            .map((i) => getSelector(i) + ":empty::before")
+            .join()}{content:"-"}`,
+      }}
+    />
   );
 });
 
