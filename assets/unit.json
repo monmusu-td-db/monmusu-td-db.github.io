@@ -1277,6 +1277,7 @@
     "attack": 592,
     "defense": 293,
     "resist": 183,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "ウインドアロー",
@@ -1335,11 +1336,12 @@
     "rarity": "R",
     "class": "アーチャー",
     "element": "光",
-    "species": "妖怪",
+    "species": "妖精",
     "hp": 2102,
     "attack": 535,
     "defense": 271,
     "resist": 180,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "フェアリーシュート",
@@ -3016,6 +3018,7 @@
     "attack": 0,
     "defense": 289,
     "resist": 447,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "クィーンフェロモン",
@@ -6038,7 +6041,7 @@
     "attack": 924,
     "defense": 467,
     "resist": 110,
-    "moveType": "飛行",
+    "moveType": "隠密",
     "exSkill1": {
       "skillName": "翼竜爪連斬",
       "attackMul": 140,
@@ -6641,6 +6644,7 @@
     "attack": 286,
     "defense": 347,
     "resist": 299,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "安息の音色",
@@ -7937,6 +7941,7 @@
     "attack": 297,
     "defense": 374,
     "resist": 311,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "静かなるフーガ",
@@ -10312,6 +10317,7 @@
     "attack": 653,
     "defense": 309,
     "resist": 196,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "スタン付与7%"
@@ -10626,6 +10632,7 @@
     "attack": 602,
     "defense": 312,
     "resist": 188,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "ノックバック→命中"
@@ -12546,6 +12553,7 @@
     "attack": 1163,
     "defense": 237,
     "resist": 292,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "スタン付与15%"
@@ -13016,6 +13024,7 @@
     "attack": 1021,
     "defense": 229,
     "resist": 284,
+    "block": 0,
     "rounds": 3,
     "moveType": "飛行",
     "exSkill1": {
@@ -13928,6 +13937,7 @@
     "attack": 1027,
     "defense": 224,
     "resist": 286,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "ノックバック→命中"
@@ -16284,6 +16294,7 @@
     "attack": 644,
     "defense": 244,
     "resist": 611,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "リリステンプテーション",
@@ -17339,6 +17350,7 @@
     "attack": 310,
     "defense": 392,
     "resist": 299,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "コスト回復加速(小)"
@@ -17813,6 +17825,7 @@
     "attack": 1012,
     "defense": 229,
     "resist": 510,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "ナイトドリーム",
@@ -18682,6 +18695,7 @@
     "attack": 1004,
     "defense": 222,
     "resist": 555,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "スタン耐性減少→射程内敵"
@@ -19647,6 +19661,7 @@
     "attack": 669,
     "defense": 304,
     "resist": 208,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "火傷付与(稀)"
@@ -19833,6 +19848,7 @@
     "attack": 697,
     "defense": 261,
     "resist": 428,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "新たな門出と初日の出",
@@ -19888,6 +19904,7 @@
     "attack": 643,
     "defense": 304,
     "resist": 205,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "火傷付与(稀)"
@@ -20232,6 +20249,7 @@
     "attack": 648,
     "defense": 331,
     "resist": 207,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "正義執行",
@@ -20308,6 +20326,7 @@
     "attack": 669,
     "defense": 312,
     "resist": 203,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "火傷付与(稀)",
@@ -20474,6 +20493,7 @@
     "attack": 697,
     "defense": 284,
     "resist": 411,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "慈悲の光",
@@ -20839,6 +20859,7 @@
     "attack": 440,
     "defense": 352,
     "resist": 453,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "鳥王の加護",
