@@ -1882,6 +1882,58 @@
     ]
   },
   {
+    "id": 28,
+    "unitName": "【ジャックランタン娘】テナ",
+    "unitShortName": "テナ",
+    "rarity": "R",
+    "class": "ウォーロック",
+    "element": "火",
+    "hp": 2478,
+    "attack": 884,
+    "defense": 210,
+    "resist": 514,
+    "exSkill1": {
+      "skillName": "火霊の悪戯",
+      "attackMul": 300,
+      "rangeMul": 150,
+      "duration": 15,
+      "cooldown": 25,
+      "supplements": [
+        "スタン10秒/終了後→自分"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "weapon": {
+      "weaponName": "灯火ランタン",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "require": [
+          "火マス"
+        ],
+        "isConditionalBuff": true,
+        "damageFactor": 120,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 30,
     "unitName": "【サキュバス娘】クロミ",
     "unitShortName": "クロミ",
