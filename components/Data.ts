@@ -100,6 +100,13 @@ export class Percent {
   }
 }
 
+export class CSSSelector {
+  static getTableColor(color: TableColor | undefined): string | undefined {
+    if (color === undefined) return;
+    return `table-c-${color}`;
+  }
+}
+
 // Stat
 
 const statTypeList = [
@@ -676,32 +683,32 @@ export type TableData<TData, TColumn extends keyof TData> = Readonly<{
 }>;
 
 export const tableColor = {
-  red: "c-red",
-  blue: "c-blue",
-  orange: "c-orange",
-  green: "c-green",
-  yellow: "c-yellow",
-  indigo: "c-indigo",
-  red100: "c-red-100",
-  red300: "c-red-300",
-  red500: "c-red-500",
-  red700: "c-red-700",
-  red900: "c-red-900",
-  blue100: "c-blue-100",
-  blue300: "c-blue-300",
-  blue500: "c-blue-500",
-  blue700: "c-blue-700",
-  blue900: "c-blue-900",
-  green100: "c-green-100",
-  green300: "c-green-300",
-  green500: "c-green-500",
-  green700: "c-green-700",
-  green900: "c-green-900",
-  yellow100: "c-yellow-100",
-  yellow300: "c-yellow-300",
-  yellow500: "c-yellow-500",
-  yellow600: "c-yellow-600",
-  yellow800: "c-yellow-800",
+  red: "red",
+  blue: "blue",
+  orange: "orange",
+  green: "green",
+  yellow: "yellow",
+  indigo: "indigo",
+  red100: "red-100",
+  red300: "red-300",
+  red500: "red-500",
+  red700: "red-700",
+  red900: "red-900",
+  blue100: "blue-100",
+  blue300: "blue-300",
+  blue500: "blue-500",
+  blue700: "blue-700",
+  blue900: "blue-900",
+  green100: "green-100",
+  green300: "green-300",
+  green500: "green-500",
+  green700: "green-700",
+  green900: "green-900",
+  yellow100: "yellow-100",
+  yellow300: "yellow-300",
+  yellow500: "yellow-500",
+  yellow600: "yellow-600",
+  yellow800: "yellow-800",
 } as const;
 export type TableColor = (typeof tableColor)[keyof typeof tableColor];
 export const tableColorAlias = {

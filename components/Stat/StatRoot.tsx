@@ -4,6 +4,7 @@ import * as Data from "../Data";
 import { Setting } from "../States";
 
 export type StatHandler<T> = (setting: Setting) => T;
+type Styles = string | readonly (string | undefined)[] | undefined;
 
 interface StatPropsBase<TStat> {
   statType: Data.StatType;
@@ -13,6 +14,7 @@ interface StatPropsBase<TStat> {
   text?: StatHandler<string | undefined> | undefined;
   item?: StatHandler<ReactNode> | undefined;
   color?: StatHandler<Data.TableColor | undefined> | undefined;
+  styles?: StatHandler<Styles> | undefined;
 }
 
 interface StatPropsWithFactors<TStat, TFactors> extends StatPropsBase<TStat> {
@@ -34,11 +36,13 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   private readonly comparer: StatHandler<string | number | undefined>;
   private readonly item: StatHandler<ReactNode>;
   private readonly color: StatHandler<Data.TableColor | undefined>;
+  private readonly styles: StatHandler<Styles>;
   private readonly factors: StatHandler<TFactors>;
   private calculaterCache = new Data.Cache<TStat>();
   private comparerCache = new Data.Cache<string | number | undefined>();
   private itemCache = new Data.Cache<ReactNode>();
   private colorCache = new Data.Cache<Data.TableColor | undefined>();
+  private stylesCache = new Data.Cache<string | undefined>();
   private factorsCache = new Data.Cache<TFactors>();
 
   constructor(props: StatProps<TStat, TFactors>) {
@@ -49,6 +53,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     this.getText = props.text ?? this.getDefaultText;
     this.item = props.item ?? ((s) => this.getDefaultItem(s));
     this.color = props.color ?? (() => undefined);
+    this.styles = props.styles ?? (() => undefined);
     if ("factors" in props) this.factors = props.factors;
     else this.factors = () => undefined as TFactors;
   }
@@ -67,6 +72,17 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
 
   getColor(setting: Setting): Data.TableColor | undefined {
     return this.colorCache.getCache((s) => this.color(s), setting);
+  }
+
+  getStyles(setting: Setting): string | undefined {
+    return this.stylesCache.getCache((s) => {
+      const styles = this.styles(s);
+      if (typeof styles === "string") {
+        return styles;
+      } else {
+        return styles?.filter((v) => v !== undefined || v !== "").join(" ");
+      }
+    }, setting);
   }
 
   getFactors(setting: Setting): TFactors {

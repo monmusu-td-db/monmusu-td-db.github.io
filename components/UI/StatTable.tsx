@@ -223,6 +223,7 @@ const Cell = memo(function Cell({
         onMouseOver={() => onMouseOver(arg)}
         onMouseOut={() => onMouseOut(arg)}
         scope={scope ? "row" : undefined}
+        className={stat?.getStyles(setting)}
       >
         {stat?.getItem(setting)}
       </td>

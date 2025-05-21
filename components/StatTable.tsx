@@ -458,7 +458,7 @@ const RowItem = memo(function RowItem<
 
   const itemClassNames = [];
   if (alignment !== undefined) itemClassNames.push(alignment);
-  if (color !== undefined) itemClassNames.push(`table-${color}`);
+  if (color !== undefined) itemClassNames.push(`table-c-${color}`);
 
   const item = (
     <td

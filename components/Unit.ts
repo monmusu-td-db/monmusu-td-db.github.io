@@ -255,6 +255,7 @@ export default class Unit implements TableSource<Keys> {
         calculater: () => rarity,
         comparer: () => comparer,
         color: () => color,
+        styles: () => Data.CSSSelector.getTableColor(color),
       });
     }
 
@@ -279,6 +280,7 @@ export default class Unit implements TableSource<Keys> {
         calculater: () => element,
         comparer: () => comparer,
         color: () => color,
+        styles: () => Data.CSSSelector.getTableColor(color),
       });
     }
 
