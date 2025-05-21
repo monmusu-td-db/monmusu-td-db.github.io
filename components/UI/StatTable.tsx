@@ -5,12 +5,14 @@ import {
   memo,
   useContext,
   useDeferredValue,
+  useMemo,
   useRef,
+  type CSSProperties,
   type RefObject,
 } from "react";
 import { Table } from "react-bootstrap";
 import type { StatRoot } from "../Stat/StatRoot";
-import { Contexts, Setting } from "../States";
+import { Contexts, Setting, type States } from "../States";
 import TooltipControl from "./TooltipControl";
 import { stat } from "../Data";
 
@@ -33,10 +35,14 @@ export const CellEventHandlersContext = createContext<CellEventHandlers>({
   onMouseOut: () => {},
 });
 
-export type TableData<T extends string> = {
+export interface TableData<T extends string> {
   headers: readonly TableHeader<T>[];
   rows: readonly TableRow<T>[];
-};
+}
+
+export interface TableSourceX<T extends string> extends TableData<T> {
+  filter: (states: States) => readonly TableRow<T>[];
+}
 
 export type TableHeader<T extends string> = {
   id: T;
@@ -49,31 +55,76 @@ export type TableRow<T extends string> = {
   readonly id: number;
 };
 
-function StatTable<T extends string>({ src }: { src: TableData<T> }) {
+function StatTable<T extends string>({ src }: { src: TableSourceX<T> }) {
   return (
     <div className="d-flex justify-content-center">
       <TooltipControl>
-        <TableRoot src={src} />
+        <TableControl src={src} />
       </TooltipControl>
     </div>
   );
 }
 
-function TableRoot<T extends string>({ src }: { src: TableData<T> }) {
+function getPendingStyle(isPending: boolean): CSSProperties {
+  return {
+    opacity: isPending ? 0.5 : 1,
+    transition: "opacity 0.2s 0.2s linear",
+  };
+}
+
+function TableControl<T extends string>({ src }: { src: TableSourceX<T> }) {
+  const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
-  const deferredSetting = useDeferredValue(setting);
+  const query = Contexts.useQuery();
+  const uISetting = Contexts.useUISetting();
+  const states = useMemo((): States => {
+    return {
+      filter,
+      setting,
+      query,
+      uISetting,
+    };
+  }, [filter, query, setting, uISetting]);
+
+  return <TableRoot src={src} states={states} />;
+}
+
+const TableRoot = memo(function TableRoot<T extends string>({
+  src,
+  states,
+}: {
+  src: TableSourceX<T>;
+  states: States;
+}) {
+  const deferredStates = useDeferredValue(states);
+  const isPending = states !== deferredStates;
+
+  const data: TableData<T> = useMemo(
+    () => ({
+      headers: src.headers,
+      rows: src.filter(states),
+    }),
+    [src, states]
+  );
+  const deferredData = useDeferredValue(data);
+
   return (
     <>
-      <Style headers={src.headers} />
-      <Table striped size="sm" className="stat-table">
-        <Header headers={src.headers} />
+      <Style headers={deferredData.headers} />
+      <Table
+        striped
+        size="sm"
+        className="stat-table"
+        style={getPendingStyle(isPending)}
+      >
+        <Header headers={deferredData.headers} />
         <tbody>
-          <Row tableData={src} setting={deferredSetting} />
+          <Row tableData={deferredData} setting={deferredStates.setting} />
         </tbody>
       </Table>
     </>
   );
-}
+});
 
 const Style = memo(function Style({
   headers,
@@ -168,7 +219,7 @@ const Header = memo(function Header({
     <thead>
       <tr>
         {headers.map((col) => (
-          <th key={col.id} className={thStyle[col.id]} scope="col">
+          <th key={col.id} className={thStyle[col.id]}>
             {col.name}
           </th>
         ))}
@@ -186,13 +237,8 @@ const Row = memo(function Row({
 }) {
   return tableData.rows.map((row) => (
     <tr key={row.id}>
-      {tableData.headers.map((col, i) => (
-        <Cell
-          key={col.id}
-          stat={row[col.id]}
-          setting={setting}
-          scope={i === 0}
-        ></Cell>
+      {tableData.headers.map((col) => (
+        <Cell key={col.id} stat={row[col.id]} setting={setting}></Cell>
       ))}
     </tr>
   ));
@@ -201,11 +247,9 @@ const Row = memo(function Row({
 const Cell = memo(function Cell({
   stat,
   setting,
-  scope,
 }: {
   stat: Stat;
   setting: Setting;
-  scope: boolean;
 }) {
   const ref = useRef(null);
   const { onClick, onMouseOver, onMouseOut } = useContext(
@@ -222,7 +266,6 @@ const Cell = memo(function Cell({
         onClick={() => onClick(arg)}
         onMouseOver={() => onMouseOver(arg)}
         onMouseOut={() => onMouseOut(arg)}
-        scope={scope ? "row" : undefined}
         className={stat?.getStyles(setting)}
       >
         {stat?.getItem(setting)}

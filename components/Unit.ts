@@ -15,7 +15,7 @@ import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
 import type { TableSource } from "./StatTable";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
-import type { TableData, TableHeader } from "./UI/StatTable";
+import type { TableSourceX, TableHeader } from "./UI/StatTable";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -505,13 +505,18 @@ export default class Unit implements TableSource<Keys> {
       },
     });
 
-    this.damageType = new Stat.Root({
-      statType: stat.damageType,
-      calculater: () =>
-        Data.JsonDamageType.parse(src.damageType) ?? classData?.damageType,
-      comparer: (s) => Data.DamageType.indexOf(this.damageType.getValue(s)),
-      color: (s) => Data.DamageType.colorOf(this.damageType.getValue(s)),
-    });
+    const damageType =
+      Data.JsonDamageType.parse(src.damageType) ?? classData?.damageType;
+    {
+      const color = Data.DamageType.colorOf(damageType);
+      this.damageType = new Stat.Root({
+        statType: stat.damageType,
+        calculater: () => damageType,
+        comparer: () => Data.DamageType.indexOf(damageType),
+        color: () => color,
+        styles: () => Data.CSSSelector.getTableColor(color),
+      });
+    }
 
     this.moveSpeed = new Stat.Root({
       statType: stat.moveSpeed,
@@ -571,6 +576,10 @@ export default class Unit implements TableSource<Keys> {
       },
       comparer: (s) => -Data.MoveType.indexOf(this.moveType.getValue(s)),
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
+      styles: (s) => {
+        const color = Data.MoveType.colorOf(this.moveType.getValue(s));
+        return Data.CSSSelector.getTableColor(color);
+      },
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);
@@ -597,6 +606,12 @@ export default class Unit implements TableSource<Keys> {
         const v = this.placement.getValue(s);
         if (v === undefined) return;
         return Data.Placement.color[v];
+      },
+      styles: (s) => {
+        const value = this.placement.getValue(s);
+        if (value === undefined) return;
+        const color = Data.Placement.color[value];
+        return Data.CSSSelector.getTableColor(color);
       },
     });
 
@@ -1328,10 +1343,11 @@ export default class Unit implements TableSource<Keys> {
     }));
   }
 
-  static get tableData(): TableData<Keys> {
+  static get tableData(): TableSourceX<Keys> {
     return {
       headers: Unit.headers,
       rows: units,
+      filter: (states) => Unit.filter(states, units),
     };
   }
 
