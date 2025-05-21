@@ -1219,6 +1219,54 @@
     ]
   },
   {
+    "id": 19,
+    "unitName": "【ガーゴイル娘】ユイル",
+    "unitShortName": "ユイル",
+    "rarity": "R",
+    "class": "ガンナー",
+    "element": "水",
+    "hp": 2436,
+    "attack": 832,
+    "defense": 239,
+    "resist": 259,
+    "block": 0,
+    "moveType": "飛行",
+    "supplements": [
+      "石化無効"
+    ],
+    "exSkill1": {
+      "skillName": "水流の呻き",
+      "attackMul": 95,
+      "attackMotionMul": 134,
+      "rounds": 4,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "物理防御力+60",
+      "物理防御力+60"
+    ],
+    "features": [
+      {
+        "require": [
+          "地マス"
+        ],
+        "fieldElements": [
+          "水"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 20,
     "unitName": "【ペガサス娘】スズ",
     "unitShortName": "スズ",
