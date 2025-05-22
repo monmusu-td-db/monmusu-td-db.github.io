@@ -1230,7 +1230,7 @@ export default class Unit implements TableSource<Keys> {
     target: Unit
   ): string | number | undefined {
     return target[key].getSortOrder(setting);
-  }
+  } // TODO 消す
 
   static filter(states: States, list: readonly Unit[]): readonly Unit[] {
     return list.filter((item) => {
@@ -1336,7 +1336,7 @@ export default class Unit implements TableSource<Keys> {
 
   // START wip 新レイアウト
 
-  static get headers(): readonly TableHeader<Keys>[] {
+  private static get headers(): readonly TableHeader<Keys>[] {
     return keys.map((key) => ({
       id: key,
       name: Data.StatType.nameOf(key),
@@ -1348,6 +1348,13 @@ export default class Unit implements TableSource<Keys> {
       headers: Unit.headers,
       rows: units,
       filter: (states) => Unit.filter(states, units),
+      sort: (setting, column, isReversed) => {
+        return Data.mapSort(
+          units,
+          (target) => Unit.comparer(setting, column, target),
+          isReversed
+        );
+      },
     };
   }
 

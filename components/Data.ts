@@ -107,6 +107,34 @@ export class CSSSelector {
   }
 }
 
+export function mapSort<T>(
+  data: readonly T[],
+  comparer: (value: T) => string | number | undefined,
+  isReversed?: boolean
+): readonly T[] {
+  const mapped = data.map((v, i) => {
+    return { i, value: comparer(v) };
+  });
+  mapped.sort((a, b) => {
+    if (isReversed) {
+      return compare(b.value, a.value);
+    } else {
+      return compare(a.value, b.value);
+    }
+  });
+  return mapped.map((v) => data[v.i] as T);
+}
+
+function compare(a: unknown, b: unknown): number {
+  if (a === b) return 0;
+  if (a === undefined || a === null) return 1;
+  if (b === undefined || b === null) return -1;
+  if (typeof a === "string" && typeof b === "string") {
+    return a.localeCompare(b);
+  }
+  return a < b ? -1 : 1;
+}
+
 // Stat
 
 const statTypeList = [

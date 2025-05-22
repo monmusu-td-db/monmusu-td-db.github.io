@@ -3,10 +3,12 @@ import thStyle from "./TableStyles/th.module.css";
 import {
   createContext,
   memo,
+  useCallback,
   useContext,
   useDeferredValue,
   useMemo,
   useRef,
+  useState,
   type RefObject,
 } from "react";
 import { Table } from "react-bootstrap";
@@ -16,6 +18,10 @@ import TooltipControl from "./TooltipControl";
 import { stat } from "../Data";
 import cn from "classnames";
 import Panel from "./Panel";
+import * as Data from "../Data";
+
+//
+// Types
 
 type Stat = StatRoot<unknown, unknown> | undefined;
 
@@ -43,6 +49,11 @@ export interface TableData<T extends string> {
 
 export interface TableSourceX<T extends string> extends TableData<T> {
   filter: (states: States) => readonly TableRow<T>[];
+  sort: (
+    setting: Setting,
+    column: T,
+    isReversed: boolean
+  ) => readonly TableRow<T>[];
 }
 
 export type TableHeader<T extends string> = {
@@ -51,20 +62,20 @@ export type TableHeader<T extends string> = {
 };
 
 export type TableRow<T extends string> = {
-  readonly [key in T]: StatRoot<unknown, unknown>;
+  readonly [key in T]: Stat;
 } & {
   readonly id: number;
 };
 
-function StatTable<T extends string>({ src }: { src: TableSourceX<T> }) {
-  return (
-    <div className="d-flex justify-content-center">
-      <TableControl src={src} />
-    </div>
-  );
-}
+type Sort<T extends string> = {
+  column: T | undefined;
+  isReversed: boolean;
+};
 
-function TableControl<T extends string>({ src }: { src: TableSourceX<T> }) {
+//
+// Components
+
+function StatTable<T extends string>({ src }: { src: TableSourceX<T> }) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
   const query = Contexts.useQuery();
@@ -78,44 +89,86 @@ function TableControl<T extends string>({ src }: { src: TableSourceX<T> }) {
     };
   }, [filter, query, setting, uISetting]);
 
-  return <TableRoot src={src} states={states} />;
+  return (
+    <div className="d-flex justify-content-center">
+      <TableRoot src={src} states={states} />
+    </div>
+  );
 }
 
-const TableRoot = memo(function TableRoot<T extends string>({
+const TableRoot = memo(TableRoot_) as typeof TableRoot_;
+function TableRoot_<T extends string>({
   src,
   states,
 }: {
   src: TableSourceX<T>;
   states: States;
 }) {
+  const [sort, toggleSort] = useSort(src);
   const panelOpen = Panel.Contexts.useOpen();
   const deferredStates = useDeferredValue(states);
   const isPending = states !== deferredStates;
 
-  const data: TableData<T> = useMemo(
-    () => ({
-      headers: src.headers,
-      rows: src.filter(deferredStates),
-    }),
+  const filteredList = useMemo(
+    () => src.filter(deferredStates),
     [src, deferredStates]
   );
 
+  const data: TableData<T> = useMemo(() => {
+    let sortedList;
+    if (sort.column === undefined) {
+      sortedList = filteredList;
+    } else {
+      sortedList = src.sort(
+        deferredStates.setting,
+        sort.column,
+        sort.isReversed
+      );
+    }
+    return {
+      headers: src.headers,
+      rows: sortedList,
+    };
+  }, [filteredList, src, deferredStates, sort]);
+  const deferredData = useDeferredValue(data);
+
   return (
     <TooltipControl hide={isPending || panelOpen}>
-      <Style headers={data.headers} />
+      <Style headers={deferredData.headers} />
       <Table
         striped
         size="sm"
         className={cn("stat-table", { pending: isPending })}
       >
-        <Header headers={data.headers} />
-        <tbody>
-          <Row tableData={data} setting={deferredStates.setting} />
-        </tbody>
+        <Header
+          headers={deferredData.headers}
+          sort={sort}
+          onClick={toggleSort}
+        />
+        <Body tableData={deferredData} setting={deferredStates.setting} />
       </Table>
     </TooltipControl>
   );
-});
+}
+
+type HandleSort<T extends string> = (column: T) => void;
+function useSort<T extends string>(
+  src: TableSourceX<T>
+): [Sort<T>, HandleSort<T>] {
+  const [sort, setSort] = useState<Sort<T>>({
+    column: src.headers[0]?.id,
+    isReversed: false,
+  });
+
+  const handleToggle = useCallback((column: T) => {
+    setSort((p) => ({
+      column,
+      isReversed: p.column === column ? !p.isReversed : p.isReversed,
+    }));
+  }, []);
+
+  return [sort, handleToggle];
+}
 
 const Style = memo(function Style({
   headers,
@@ -201,38 +254,85 @@ const Style = memo(function Style({
   );
 });
 
-const Header = memo(function Header({
+const Header = memo(Header_) as typeof Header_;
+function Header_<T extends string>({
   headers,
+  sort,
+  onClick,
 }: {
-  headers: readonly TableHeader<string>[];
+  headers: readonly TableHeader<T>[];
+  sort: Sort<T>;
+  onClick: HandleSort<T>;
 }) {
+  const sortColor = Data.CSSSelector.getTableColor(
+    sort.isReversed ? Data.tableColor.blue : Data.tableColor.red
+  );
+
   return (
     <thead>
       <tr>
-        {headers.map((col) => (
-          <th key={col.id} className={thStyle[col.id]}>
-            {col.name}
-          </th>
-        ))}
+        {headers.map((col) => {
+          const sortCn = col.id === sort.column ? sortColor : undefined;
+          let role, handleClick: HandleSort<T> | undefined;
+          switch (col.id) {
+            case stat.conditions:
+            case stat.supplements:
+              break;
+            default:
+              role = "button";
+              handleClick = onClick;
+          }
+
+          return (
+            <th
+              key={col.id}
+              className={cn(thStyle[col.id], sortCn)}
+              role={role}
+              onClick={() => handleClick?.(col.id)}
+            >
+              {col.name}
+            </th>
+          );
+        })}
       </tr>
     </thead>
   );
-});
+}
 
-const Row = memo(function Row({
+const Body = memo(function Body({
   tableData,
   setting,
 }: {
   tableData: TableData<string>;
   setting: Setting;
 }) {
-  return tableData.rows.map((row) => (
-    <tr key={row.id}>
-      {tableData.headers.map((col) => (
+  return (
+    <tbody>
+      {tableData.rows.map((row) => (
+        <tr key={row.id}>
+          <Row headers={tableData.headers} row={row} setting={setting} />
+        </tr>
+      ))}
+    </tbody>
+  );
+});
+
+const Row = memo(function Row({
+  headers,
+  row,
+  setting,
+}: {
+  headers: readonly TableHeader<string>[];
+  row: TableRow<string>;
+  setting: Setting;
+}) {
+  return (
+    <>
+      {headers.map((col) => (
         <Cell key={col.id} stat={row[col.id]} setting={setting}></Cell>
       ))}
-    </tr>
-  ));
+    </>
+  );
 });
 
 const Cell = memo(function Cell({

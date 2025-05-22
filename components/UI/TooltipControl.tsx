@@ -54,7 +54,6 @@ const TooltipControl = memo(function TooltipControl({
 
   const handleMouseOver = useCallback((target: CellData) => {
     clearTimers();
-    console.log(target);
     setCond((p) => ({
       show: false,
       cell: p.cell,
