@@ -7,7 +7,6 @@ import {
   useDeferredValue,
   useMemo,
   useRef,
-  type CSSProperties,
   type RefObject,
 } from "react";
 import { Table } from "react-bootstrap";
@@ -15,6 +14,8 @@ import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting, type States } from "../States";
 import TooltipControl from "./TooltipControl";
 import { stat } from "../Data";
+import cn from "classnames";
+import Panel from "./Panel";
 
 type Stat = StatRoot<unknown, unknown> | undefined;
 
@@ -58,18 +59,9 @@ export type TableRow<T extends string> = {
 function StatTable<T extends string>({ src }: { src: TableSourceX<T> }) {
   return (
     <div className="d-flex justify-content-center">
-      <TooltipControl>
-        <TableControl src={src} />
-      </TooltipControl>
+      <TableControl src={src} />
     </div>
   );
-}
-
-function getPendingStyle(isPending: boolean): CSSProperties {
-  return {
-    opacity: isPending ? 0.5 : 1,
-    transition: "opacity 0.2s 0.2s linear",
-  };
 }
 
 function TableControl<T extends string>({ src }: { src: TableSourceX<T> }) {
@@ -96,33 +88,32 @@ const TableRoot = memo(function TableRoot<T extends string>({
   src: TableSourceX<T>;
   states: States;
 }) {
+  const panelOpen = Panel.Contexts.useOpen();
   const deferredStates = useDeferredValue(states);
   const isPending = states !== deferredStates;
 
   const data: TableData<T> = useMemo(
     () => ({
       headers: src.headers,
-      rows: src.filter(states),
+      rows: src.filter(deferredStates),
     }),
-    [src, states]
+    [src, deferredStates]
   );
-  const deferredData = useDeferredValue(data);
 
   return (
-    <>
-      <Style headers={deferredData.headers} />
+    <TooltipControl hide={isPending || panelOpen}>
+      <Style headers={data.headers} />
       <Table
         striped
         size="sm"
-        className="stat-table"
-        style={getPendingStyle(isPending)}
+        className={cn("stat-table", { pending: isPending })}
       >
-        <Header headers={deferredData.headers} />
+        <Header headers={data.headers} />
         <tbody>
-          <Row tableData={deferredData} setting={deferredStates.setting} />
+          <Row tableData={data} setting={deferredStates.setting} />
         </tbody>
       </Table>
-    </>
+    </TooltipControl>
   );
 });
 

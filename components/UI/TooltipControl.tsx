@@ -1,6 +1,13 @@
 "use client";
 
-import { type ReactNode, useRef, useState, useCallback, useMemo } from "react";
+import {
+  type ReactNode,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+  memo,
+} from "react";
 import { Overlay, Popover } from "react-bootstrap";
 import type { OverlayInjectedProps } from "react-bootstrap/esm/Overlay";
 import {
@@ -15,10 +22,17 @@ type TooltipCond = {
 };
 
 const TOOLTIP_DELAY = 25;
+const defaultCond: TooltipCond = { show: false, cell: null };
 
-export default function TooltipControl({ children }: { children: ReactNode }) {
+const TooltipControl = memo(function TooltipControl({
+  children,
+  hide,
+}: {
+  children: ReactNode;
+  hide: boolean;
+}) {
   const timerIds = useRef<Set<number>>(new Set<number>());
-  const [cond, setCond] = useState<TooltipCond>({ show: false, cell: null });
+  const [cond, setCond] = useState<TooltipCond>(defaultCond);
 
   function clearTimers() {
     const ids = timerIds.current;
@@ -82,6 +96,11 @@ export default function TooltipControl({ children }: { children: ReactNode }) {
     [handleClick, handleMouseOver, handleMouseOut]
   );
 
+  if (hide && cond.show) {
+    setCond(defaultCond);
+    return;
+  }
+
   const cellRef = cond.cell?.ref ?? null;
   const placement = "auto";
   const flip = placement && placement.indexOf("auto") !== -1;
@@ -101,7 +120,8 @@ export default function TooltipControl({ children }: { children: ReactNode }) {
       </Overlay>
     </CellEventHandlersContext.Provider>
   );
-}
+});
+export default TooltipControl;
 
 function tooltip(props: OverlayInjectedProps) {
   return (

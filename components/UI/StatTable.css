@@ -5,6 +5,7 @@
   border-collapse: separate;
   border-spacing: 0;
   font-size: 0.8125rem;
+  opacity: 1;
 }
 
 .stat-table > thead {
@@ -45,4 +46,9 @@
   .stat-table > :not(caption) > * > * {
     padding: 0.05rem;
   }
+}
+
+.stat-table.pending {
+  opacity: 0.5;
+  transition: opacity 0.2s 0.2s linear;
 }

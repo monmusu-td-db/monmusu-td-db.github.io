@@ -720,10 +720,10 @@ type PageType = typeof pageType.SITUATION | undefined;
 
 const PanelContexts = {
   Open: createContext(false),
-  Toggle: createContext(() => {}),
+  SetOpen: createContext<(action: SetStateAction<boolean>) => void>(() => {}),
   PageType: createContext<PageType>(undefined),
   useOpen: () => useContext(PanelContexts.Open),
-  useToggle: () => useContext(PanelContexts.Toggle),
+  useSetOpen: () => useContext(PanelContexts.SetOpen),
   usePageType: () => useContext(PanelContexts.PageType),
 };
 

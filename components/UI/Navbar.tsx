@@ -5,31 +5,23 @@ import Image from "next/image";
 import Logo from "@/assets/logo.svg";
 import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Icon from "./Icon";
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import Theme from "./Theme";
 import Panel from "./Panel";
 import cn from "classnames";
 import SearchInput from "./SearchInput";
 
 const ICON_SIZE = 18;
-type PageType =
-  | (typeof Panel.pageType)[keyof typeof Panel.pageType]
-  | undefined;
 
-function Header({ pageType }: { pageType?: PageType }) {
-  const [panelOpen, setPanelOpen] = useState(false);
+function Header() {
+  const open = Panel.Contexts.useOpen();
+  const setOpen = Panel.Contexts.useSetOpen();
 
   return (
-    <Panel.Contexts.PageType.Provider value={pageType}>
-      <Panel.Contexts.Open.Provider value={panelOpen}>
-        <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
-          <header className="mb-2 sticky-top header">
-            <NavArea />
-            <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
-          </header>
-        </Panel.Contexts.Toggle.Provider>
-      </Panel.Contexts.Open.Provider>
-    </Panel.Contexts.PageType.Provider>
+    <header className="mb-2 sticky-top header">
+      <NavArea />
+      <Panel open={open} onClose={() => setOpen(false)} />
+    </header>
   );
 }
 
@@ -99,14 +91,14 @@ function ThemeToggler() {
 
 function PanelToggler() {
   const open = Panel.Contexts.useOpen();
-  const toggle = Panel.Contexts.useToggle();
+  const setOpen = Panel.Contexts.useSetOpen();
 
   return (
     <div className="flex ms-1 me-1">
       <Button
         variant="outline-secondary"
         className={cn("header-btn", { "header-btn-checked": open })}
-        onClick={toggle}
+        onClick={() => setOpen((p) => !p)}
         aria-controls={Panel.ID}
         aria-expanded={open}
       >

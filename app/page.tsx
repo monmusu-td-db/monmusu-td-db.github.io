@@ -4,25 +4,22 @@ import { useMemo } from "react";
 
 import Situation from "@/components/Situation";
 import { StatTable } from "@/components/LazyLoading";
-import Header from "../components/UI/Navbar";
+import PageRoot from "@/components/UI/PageRoot";
 
 export default function App() {
   return (
-    <>
-      <Header pageType="situation" />
-      <main>
-        <StatTable
-          src={useMemo(
-            () => ({
-              list: Situation.list,
-              columns: Situation.keys,
-              comparer: Situation.comparer,
-              filter: Situation.filter,
-            }),
-            []
-          )}
-        />
-      </main>
-    </>
+    <PageRoot pageType="situation">
+      <StatTable
+        src={useMemo(
+          () => ({
+            list: Situation.list,
+            columns: Situation.keys,
+            comparer: Situation.comparer,
+            filter: Situation.filter,
+          }),
+          []
+        )}
+      />
+    </PageRoot>
   );
 }
