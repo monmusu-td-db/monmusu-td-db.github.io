@@ -14,6 +14,8 @@ type TooltipCond = {
   cell: CellData | null;
 };
 
+const TOOLTIP_DELAY = 25;
+
 export default function TooltipControl({ children }: { children: ReactNode }) {
   const timerIds = useRef<Set<number>>(new Set<number>());
   const [cond, setCond] = useState<TooltipCond>({ show: false, cell: null });
@@ -38,15 +40,24 @@ export default function TooltipControl({ children }: { children: ReactNode }) {
 
   const handleMouseOver = useCallback((target: CellData) => {
     clearTimers();
-    setCond({
-      show: true,
-      cell: target,
-    });
+    console.log(target);
+    setCond((p) => ({
+      show: false,
+      cell: p.cell,
+    }));
+    const timerId = window.setTimeout(() => {
+      // ちらつきを抑えるために遅延させる
+      timerIds.current.delete(timerId);
+      setCond({
+        show: true,
+        cell: target,
+      });
+    }, TOOLTIP_DELAY);
+    timerIds.current.add(timerId);
   }, []);
 
   const handleMouseOut = useCallback((target: CellData) => {
     const timerId = window.setTimeout(() => {
-      // ちらつきを抑えるために遅延させる
       timerIds.current.delete(timerId);
       setCond((p) => {
         if (p.cell?.ref !== target.ref) {
@@ -58,7 +69,7 @@ export default function TooltipControl({ children }: { children: ReactNode }) {
           };
         }
       });
-    }, 50);
+    }, TOOLTIP_DELAY);
     timerIds.current.add(timerId);
   }, []);
 
