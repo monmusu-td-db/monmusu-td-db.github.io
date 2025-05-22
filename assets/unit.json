@@ -759,6 +759,80 @@
     ]
   },
   {
+    "id": 12,
+    "unitName": "【マミー娘】ミィマ",
+    "unitShortName": "ミィマ",
+    "rarity": "R",
+    "class": "デストロイヤー",
+    "element": "闇",
+    "hp": 7723,
+    "attack": 920,
+    "defense": 591,
+    "resist": 102,
+    "exSkill1": {
+      "skillName": "カースアンデッド",
+      "attackMul": 220,
+      "defenseMul": 220,
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
+        "ATK-{attack-base*1}→命中",
+        "DEF-{attack-base*1}→命中"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "呪ってあげる…",
+      "duration": "単発",
+      "cooldown": 30,
+      "supplements": [
+        "HP0/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "物理防御力+60",
+      "再出撃時間50%短縮"
+    ],
+    "weapon": {
+      "weaponName": "太古の石棺",
+      "hp": 250,
+      "attack": 55
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 8
+      },
+      {
+        "supplements": [
+          "ATK-{attack-base*20}/死亡時→ブロック敵",
+          "DEF-{attack-base*20}/死亡時→ブロック敵"
+        ]
+      },
+      {
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "interval": null,
+        "target": "全体",
+        "damageFactor": 400,
+        "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 13,
     "unitName": "【リザードマン娘】サウラ",
     "unitShortName": "サウラ",
