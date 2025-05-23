@@ -21,7 +21,7 @@ export class BaseStat<
     super(props);
   }
 
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     return this.getFormationTooltip(setting);
   }
 

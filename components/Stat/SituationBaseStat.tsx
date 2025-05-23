@@ -12,7 +12,7 @@ export type StatFactors = Data.InBattleFactors | undefined;
 export class SituationBaseStat<
   TFactors extends StatFactors = StatFactors
 > extends BaseStat<number | undefined, TFactors> {
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     return this.getTooltipBodyBase(setting);
   }
 

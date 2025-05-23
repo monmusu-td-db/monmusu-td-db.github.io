@@ -15,6 +15,7 @@ export class StatTarget extends StatTooltip<
 > {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s) !== undefined;
+  override isTable: boolean = true;
 
   protected override getDefaultComparer(setting: Setting): number | undefined {
     const value = this.getValue(setting);
@@ -109,7 +110,7 @@ export class StatTarget extends StatTooltip<
     return ret;
   }
 
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;
 
@@ -127,7 +128,7 @@ export class StatTarget extends StatTooltip<
           });
 
     return (
-      <table>
+      <table className="mb-3">
         <tbody>
           <Row label="対象">
             {Data.Target.getString(f.target)}

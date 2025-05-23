@@ -9,7 +9,7 @@ type Factors = Data.LimitFactors | undefined;
 const sign = Tt.sign;
 
 export class StatLimit extends StatTooltip<number | undefined, Factors> {
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;
 

@@ -9,7 +9,7 @@ type Factors = Data.AttackSpeedFactors | undefined;
 export class StatAttackSpeed extends StatTooltip<number | undefined, Factors> {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s) !== undefined;
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;
     return <AttackSpeedTooltip parent={this} factors={f} />;

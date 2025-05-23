@@ -29,7 +29,7 @@ export class StatUnitName extends StatTooltip<string> {
     this.situation = props.situation;
   }
 
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     if (this.unit === undefined) return;
 
     const unit = this.unit;
@@ -47,7 +47,7 @@ export class StatUnitName extends StatTooltip<string> {
     const placement = valueOf(unit.placement);
 
     return (
-      <table>
+      <table className="mb-3">
         <tbody>
           <Tr>
             <Th>{nameOf(stat.unitName)}</Th>

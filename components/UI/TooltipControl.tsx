@@ -9,19 +9,21 @@ import {
   memo,
 } from "react";
 import { Overlay, Popover } from "react-bootstrap";
-import type { OverlayInjectedProps } from "react-bootstrap/esm/Overlay";
 import {
   CellEventHandlersContext,
   type CellData,
   type CellEventHandlers,
 } from "./StatTable";
+import { Tooltip } from "./Tooltip";
+import { StatTooltip } from "../Stat/StatTooltip";
+import { Contexts } from "../States";
 
 type TooltipCond = {
   show: boolean;
   cell: CellData | null;
 };
 
-const TOOLTIP_DELAY = 25;
+const TOOLTIP_DELAY = 35;
 const defaultCond: TooltipCond = { show: false, cell: null };
 
 const TooltipControl = memo(function TooltipControl({
@@ -33,6 +35,8 @@ const TooltipControl = memo(function TooltipControl({
 }) {
   const timerIds = useRef<Set<number>>(new Set<number>());
   const [cond, setCond] = useState<TooltipCond>(defaultCond);
+
+  const setting = Contexts.useSetting();
 
   function clearTimers() {
     const ids = timerIds.current;
@@ -101,32 +105,29 @@ const TooltipControl = memo(function TooltipControl({
   }
 
   const cellRef = cond.cell?.ref ?? null;
+  const cellStat = cond.cell?.stat;
   const placement = "auto";
   const flip = placement && placement.indexOf("auto") !== -1;
+  const isEnabled =
+    cellStat instanceof StatTooltip && cellStat.isEnabled(setting);
 
   return (
     <CellEventHandlersContext.Provider value={handlers}>
       {children}
-      <Overlay
-        target={cellRef}
-        show={cond.show}
-        placement={placement}
-        flip={flip}
-      >
-        {(p) => {
-          return tooltip(p);
-        }}
-      </Overlay>
+      {isEnabled && (
+        <Overlay
+          target={cellRef}
+          show={cond.show}
+          placement={placement}
+          flip={flip}
+        >
+          <Popover id="stat-tooltip" placement="auto">
+            <Tooltip stat={cellStat} setting={setting} />
+          </Popover>
+        </Overlay>
+      )}
     </CellEventHandlersContext.Provider>
   );
 });
-export default TooltipControl;
 
-function tooltip(props: OverlayInjectedProps) {
-  return (
-    <Popover {...props} placement="auto">
-      <Popover.Header as="h3">Header</Popover.Header>
-      <Popover.Body>test</Popover.Body>
-    </Popover>
-  );
-}
+export default TooltipControl;

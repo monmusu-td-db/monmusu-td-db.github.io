@@ -27,7 +27,7 @@ type Stat = StatRoot<unknown, unknown> | undefined;
 
 export type CellData = {
   ref: RefObject<HTMLElement>;
-  str: string;
+  stat: Stat;
 };
 
 export type CellEventHandler = (cell: CellData) => void;
@@ -349,16 +349,14 @@ const Cell = memo(function Cell({
     CellEventHandlersContext
   );
 
-  const str = stat?.statType ?? "undefined";
-
-  const arg = { ref, str };
+  const cellData = { ref, stat };
   return (
     <>
       <td
         ref={ref}
-        onClick={() => onClick(arg)}
-        onMouseOver={() => onMouseOver(arg)}
-        onMouseOut={() => onMouseOut(arg)}
+        onClick={() => onClick(cellData)}
+        onMouseOver={() => onMouseOver(cellData)}
+        onMouseOut={() => onMouseOut(cellData)}
         className={stat?.getStyles(setting)}
       >
         {stat?.getItem(setting)}

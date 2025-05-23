@@ -12,6 +12,7 @@ export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
   TFactors
 > {
   readonly isEnabled: StatHandler<boolean> = () => true;
+  readonly isTable: boolean = false;
   readonly placement: Placement = "auto";
   readonly equal = " = ";
   readonly plus = " + ";
@@ -44,5 +45,5 @@ export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
     );
   }
 
-  protected abstract getTooltipBody(setting: Setting): ReactNode;
+  public abstract getTooltipBody(setting: Setting): ReactNode;
 }

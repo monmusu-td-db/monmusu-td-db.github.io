@@ -1,6 +1,10 @@
 "use client";
 
+import * as Data from "../Data";
 import { createContext, useContext, type ReactNode } from "react";
+import { Popover } from "react-bootstrap";
+import { StatTooltip } from "../Stat/StatTooltip";
+import { type Setting } from "../States";
 
 const textColor = {
   RESULT: "text-warning",
@@ -30,6 +34,24 @@ interface TextBaseProps {
 
 interface TextProps extends TextBaseProps {
   className: string | undefined;
+}
+
+function Body({
+  stat,
+  setting,
+}: {
+  stat: StatTooltip<unknown, unknown>;
+  setting: Setting;
+}) {
+  const body = stat.getTooltipBody(setting);
+  return (
+    <>
+      <Popover.Header as="h3">
+        {Data.StatType.nameOf(stat.statType)}
+      </Popover.Header>
+      <Popover.Body>{stat.isTable ? body : <dl>{body}</dl>}</Popover.Body>
+    </>
+  );
 }
 
 function Text({ className, children, b }: TextProps) {
@@ -205,7 +227,7 @@ function ListItem({
   );
 }
 
-export const Tooltip = {
+export const Tooltip = Object.assign(Body, {
   sign,
   Positive,
   Negative,
@@ -221,4 +243,4 @@ export const Tooltip = {
   Divide,
   List,
   ListItem,
-};
+});

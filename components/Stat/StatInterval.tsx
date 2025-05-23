@@ -14,7 +14,7 @@ const sign = Tt.sign;
 export class StatInterval extends StatTooltip<number | undefined, Factors> {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s)?.result !== undefined;
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f?.result === undefined) return;
     const b = f.base;
