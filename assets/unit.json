@@ -10370,14 +10370,18 @@
       },
       {
         "featureName": "skill2-attack",
-        "isConditionalBuff": true,
         "annotations": [
           "ダメージフィールド"
         ],
+        "criChanceAdd": -1000,
         "interval": 30,
         "target": "射程内",
         "range": 240,
-        "damageType": "貫通",
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "skill2-attack",
+        "isConditionalBuff": true,
         "supplements": [
           "移動不可",
           "DEF-20→命中"
