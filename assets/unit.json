@@ -15812,6 +15812,74 @@
     ]
   },
   {
+    "TODO_DESC": "継続ダメージ",
+    "id": 221,
+    "unitName": "【ビヨンデッタ娘】ペッシェ",
+    "unitShortName": "ペッシェ",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "闇",
+    "hp": 2696,
+    "attack": 634,
+    "defense": 242,
+    "resist": 591,
+    "species": "悪魔",
+    "exSkill1": {
+      "skillName": "本物の愛を見せてあげる",
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "ATK-{attack-base*50}/常時→射程外",
+          "ATK-{attack-base*100}/常時→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK-{attack-base*65}/常時→射程外",
+            "ATK-{attack-base*130}/常時→射程内"
+          ]
+        }
+      },
+      {
+        "featureName": "skill1-extra",
+        "annotations": [
+          "ダメージフィールド"
+        ],
+        "damageFactor": 66,
+        "interval": 99,
+        "target": "射程内",
+        "range": 999,
+        "damageType": "貫通",
+        "supplements": [
+          "RES-10→命中",
+          "鈍足-70%→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-extra"
+        ]
+      }
+    ]
+  },
+  {
     "id": 224,
     "unitName": "【ロックバード娘】ログダンノ",
     "unitShortName": "ログダンノ",
