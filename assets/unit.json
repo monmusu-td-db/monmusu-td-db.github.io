@@ -2480,6 +2480,74 @@
     ]
   },
   {
+    "id": 36,
+    "unitName": "【マーメイド娘】オキシー",
+    "unitShortName": "オキシー",
+    "rarity": "R",
+    "class": "プリースト",
+    "element": "水",
+    "hp": 3510,
+    "attack": 622,
+    "defense": 271,
+    "resist": 389,
+    "supplements": [
+      "毒回復/配置→射程内",
+      "石化回復/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "マーメイドソング",
+      "target": "射程内",
+      "rangeMul": 170,
+      "duration": "単発",
+      "cooldown": 40,
+      "supplements": [
+        "毒回復/発動→射程内",
+        "石化回復/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "魔法防御力+60"
+    ],
+    "weapon": {
+      "weaponName": "ホラガイメガホン",
+      "attack": 40,
+      "resist": 40
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "スタン付与30%/発動→全体"
+        ]
+      },
+      {
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 400
+        }
+      },
+      {
+        "featureName": "class-proper",
+        "damageFactor": 160
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 37,
     "unitName": "【スライム娘】リン",
     "unitShortName": "リン",
