@@ -51,6 +51,7 @@ export interface TableSourceX<T extends string> extends TableData<T> {
   filter: (states: States) => readonly TableRow<T>[];
   sort: (
     setting: Setting,
+    rows: readonly TableRow<T>[],
     column: T,
     isReversed: boolean
   ) => readonly TableRow<T>[];
@@ -62,7 +63,7 @@ export type TableHeader<T extends string> = {
 };
 
 export type TableRow<T extends string> = {
-  readonly [key in T]: Stat;
+  readonly [key in T]: StatRoot<unknown, unknown>;
 } & {
   readonly id: number;
 };
@@ -121,6 +122,7 @@ function TableRoot_<T extends string>({
     } else {
       sortedList = src.sort(
         deferredStates.setting,
+        filteredList,
         sort.column,
         sort.isReversed
       );

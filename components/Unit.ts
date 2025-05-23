@@ -13,9 +13,8 @@ import {
 import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
-import type { TableSource } from "./StatTable";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
-import type { TableSourceX, TableHeader } from "./UI/StatTable";
+import type { TableSourceX, TableHeader, TableRow } from "./UI/StatTable";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -159,7 +158,7 @@ const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
 
-export default class Unit implements TableSource<Keys> {
+export default class Unit implements TableRow<Keys> {
   readonly id: number;
   readonly src: Readonly<JsonUnit>;
 
@@ -1227,7 +1226,7 @@ export default class Unit implements TableSource<Keys> {
   static comparer(
     setting: Setting,
     key: Keys,
-    target: Unit
+    target: TableRow<Keys>
   ): string | number | undefined {
     return target[key].getSortOrder(setting);
   } // TODO 消す
@@ -1348,9 +1347,9 @@ export default class Unit implements TableSource<Keys> {
       headers: Unit.headers,
       rows: units,
       filter: (states) => Unit.filter(states, units),
-      sort: (setting, column, isReversed) => {
+      sort: (setting, rows, column, isReversed) => {
         return Data.mapSort(
-          units,
+          rows,
           (target) => Unit.comparer(setting, column, target),
           isReversed
         );
