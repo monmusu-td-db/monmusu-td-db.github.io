@@ -4723,6 +4723,64 @@
     "delayMul": 120
   },
   {
+    "id": 59,
+    "unitName": "【ハーピー娘】フェルミ",
+    "unitShortName": "フェルミ",
+    "rarity": "R",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 4104,
+    "attack": 626,
+    "defense": 335,
+    "resist": 98,
+    "exSkill1": {
+      "skillName": "疾風",
+      "attackMul": 180,
+      "fixedDelay": 1,
+      "target": 5,
+      "rangeMul": 160,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "ノックバック(大)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "射程+10"
+    ],
+    "weapon": {
+      "weaponName": "ホワールウィンド",
+      "hp": 150,
+      "attack": 40,
+      "defense": 25
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "即死(高)→命中"
+        ]
+      }
+    ],
+    "costAdd": -1,
+    "criChanceAdd": 20,
+    "criDamageAdd": 50,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 60,
     "unitName": "【エキドナ娘】ミテラス",
     "unitShortName": "ミテラス",
