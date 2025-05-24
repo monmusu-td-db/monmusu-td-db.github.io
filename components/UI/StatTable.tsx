@@ -110,31 +110,36 @@ function TableRoot_<T extends string>({
 }) {
   const [sort, toggleSort] = useSort(src);
   const panelOpen = Panel.Contexts.useOpen();
-  const deferredStates = useDeferredValue(states);
-  const isPending = states !== deferredStates;
-
-  const filteredList = useMemo(
-    () => src.filter(deferredStates),
-    [src, deferredStates]
+  const cond = useMemo(
+    () => ({
+      sort,
+      states,
+    }),
+    [sort, states]
   );
+  const deferredCond = useDeferredValue(cond);
+  const isPending = cond !== deferredCond;
+  const { sort: dSort, states: dStates } = deferredCond;
+
+  const filteredList = useMemo(() => src.filter(dStates), [src, dStates]);
 
   const data: TableData<T> = useMemo(() => {
     let sortedList;
-    if (sort.column === undefined) {
+    if (dSort.column === undefined) {
       sortedList = filteredList;
     } else {
       sortedList = src.sort(
-        deferredStates.setting,
+        dStates.setting,
         filteredList,
-        sort.column,
-        sort.isReversed
+        dSort.column,
+        dSort.isReversed
       );
     }
     return {
       headers: src.headers,
       rows: sortedList,
     };
-  }, [filteredList, src, deferredStates, sort]);
+  }, [filteredList, src, dStates, dSort]);
   const deferredData = useDeferredValue(data);
 
   return (
@@ -150,7 +155,7 @@ function TableRoot_<T extends string>({
           sort={sort}
           onClick={toggleSort}
         />
-        <Body tableData={deferredData} setting={deferredStates.setting} />
+        <Body tableData={deferredData} setting={dStates.setting} />
       </Table>
     </TooltipControl>
   );

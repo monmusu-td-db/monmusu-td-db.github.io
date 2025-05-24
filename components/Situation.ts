@@ -12,7 +12,6 @@ import {
 } from "./States";
 import Unit from "./Unit";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
-import type { TableSource } from "./StatTable";
 import {
   Accumulation,
   AdditionFactor,
@@ -22,6 +21,7 @@ import {
   type FeatureOutput,
   type FeatureOutputCore,
 } from "./Feature";
+import type { TableHeader, TableRow, TableSource } from "./UI/StatTable";
 
 const tableColor = Data.tableColorAlias;
 
@@ -91,7 +91,7 @@ const Require = {
   },
 } as const;
 
-export default class Situation implements TableSource<Keys> {
+export default class Situation implements TableRow<Keys> {
   readonly id: number;
   readonly parentId: number | undefined;
   private readonly unit: Unit | undefined;
@@ -2455,7 +2455,7 @@ export default class Situation implements TableSource<Keys> {
   static comparer(
     setting: Setting,
     key: Keys,
-    target: Situation
+    target: TableRow<Keys>
   ): string | number | undefined {
     return target[key].getSortOrder(setting);
   }
@@ -2667,6 +2667,32 @@ export default class Situation implements TableSource<Keys> {
   static get keys(): readonly Keys[] {
     return keys;
   }
+
+  // START wip 新レイアウト
+
+  private static get headers(): readonly TableHeader<Keys>[] {
+    return keys.map((key) => ({
+      id: key,
+      name: Data.StatType.nameOf(key),
+    }));
+  }
+
+  static get tableData(): TableSource<Keys> {
+    return {
+      headers: Situation.headers,
+      rows: situations,
+      filter: (states) => Situation.filter(states, situations),
+      sort: (setting, rows, column, isReversed) => {
+        return Data.mapSort(
+          rows,
+          (target) => Situation.comparer(setting, column, target),
+          isReversed
+        );
+      },
+    };
+  }
+
+  // END wip 新レイアウト
 }
 
 function getSituations(): readonly Situation[] {
