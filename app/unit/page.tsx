@@ -1,24 +1,13 @@
 "use client";
 
 import Unit from "@/components/Unit";
-import { useMemo } from "react";
-import { StatTable } from "@/components/LazyLoading";
+import { StatTable } from "@/components/UI/LazyLoading";
 import PageRoot from "@/components/UI/PageRoot";
 
-export default function Page() {
+export default function App() {
   return (
     <PageRoot>
-      <StatTable
-        src={useMemo(
-          () => ({
-            list: Unit.list,
-            columns: Unit.keys,
-            comparer: Unit.comparer,
-            filter: Unit.filter,
-          }),
-          []
-        )}
-      />
+      <StatTable src={Unit.tableData} />
     </PageRoot>
   );
 }

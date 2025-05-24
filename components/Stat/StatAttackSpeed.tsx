@@ -2,13 +2,24 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
-import type { StatHandler } from "./StatRoot";
+import type { StatHandler, StatStyles } from "./StatRoot";
 import { Level, Positive, Result } from "../Util";
 
 type Factors = Data.AttackSpeedFactors | undefined;
 export class StatAttackSpeed extends StatTooltip<number | undefined, Factors> {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s) !== undefined;
+
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const origin = super.getDefaultStyles(setting);
+    const value = this.getValue(setting);
+    if (value === undefined || value < 100) {
+      return origin;
+    } else {
+      return StatAttackSpeed.mergeStyles(origin, Data.TableClass.sm);
+    }
+  }
+
   public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;

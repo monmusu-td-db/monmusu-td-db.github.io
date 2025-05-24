@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, type ReactNode } from "react";
 import Panel from "./Panel";
 import Header from "./Navbar";

@@ -10,27 +10,30 @@
 .dps3,
 .dps4,
 .dps5 {
-  width: 3.3em;
+  width: 2.7rem;
 }
 
 .conditions,
 .target {
-  width: 3.4em;
+  width: 2.8rem;
 }
 
 .rarity,
-.cost,
+.cost {
+  width: 1.4rem;
+}
+
 .attackSpeed,
 .delay {
-  width: 1.7em;
+  width: 1.55rem;
 }
 
 .block {
-  width: 2.2em;
+  width: 1.8rem;
 }
 
 .interval {
-  width: 2.4em;
+  width: 2rem;
 }
 
 .unitId,
@@ -39,42 +42,42 @@
 .range,
 .moveSpeed,
 .placement {
-  width: 2.5em;
+  width: 2rem;
 }
 
 .initialTime,
 .duration,
 .cooldown,
 .damageType {
-  width: 3em;
+  width: 2.4rem;
 }
 
 .moveType {
-  width: 4em;
+  width: 3.2rem;
 }
 
 .species {
-  width: 5em;
+  width: 4.1rem;
 }
 
 .className {
-  width: 6em;
+  width: 4.9rem;
 }
 
 .unitShortName {
-  width: 6.5em;
+  width: 5.3rem;
 }
 
 .skillName,
 .exSkill1,
 .exSkill2 {
-  width: 11em;
+  width: 8.9rem;
 }
 
 .unitName {
-  width: 15em;
+  width: 12.2em;
 }
 
 .supplements {
-  width: 12.51em;
+  width: 10.16rem;
 }

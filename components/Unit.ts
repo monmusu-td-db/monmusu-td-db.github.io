@@ -14,7 +14,7 @@ import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
-import type { TableSourceX, TableHeader, TableRow } from "./UI/StatTable";
+import type { TableSource, TableHeader, TableRow } from "./UI/StatTable";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -1342,7 +1342,7 @@ export default class Unit implements TableRow<Keys> {
     }));
   }
 
-  static get tableData(): TableSourceX<Keys> {
+  static get tableData(): TableSource<Keys> {
     return {
       headers: Unit.headers,
       rows: units,

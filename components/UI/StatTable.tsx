@@ -1,3 +1,5 @@
+"use client";
+
 import "./StatTable.css";
 import thStyle from "./TableStyles/th.module.css";
 import {
@@ -48,7 +50,7 @@ export interface TableData<T extends string> {
   rows: readonly TableRow<T>[];
 }
 
-export interface TableSourceX<T extends string> extends TableData<T> {
+export interface TableSource<T extends string> extends TableData<T> {
   filter: (states: States) => readonly TableRow<T>[];
   sort: (
     setting: Setting,
@@ -77,7 +79,7 @@ type Sort<T extends string> = {
 //
 // Components
 
-function StatTable<T extends string>({ src }: { src: TableSourceX<T> }) {
+function StatTable<T extends string>({ src }: { src: TableSource<T> }) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
   const query = Contexts.useQuery();
@@ -103,7 +105,7 @@ function TableRoot_<T extends string>({
   src,
   states,
 }: {
-  src: TableSourceX<T>;
+  src: TableSource<T>;
   states: States;
 }) {
   const [sort, toggleSort] = useSort(src);
@@ -156,7 +158,7 @@ function TableRoot_<T extends string>({
 
 type HandleSort<T extends string> = (column: T) => void;
 function useSort<T extends string>(
-  src: TableSourceX<T>
+  src: TableSource<T>
 ): [Sort<T>, HandleSort<T>] {
   const [sort, setSort] = useState<Sort<T>>({
     column: src.headers[0]?.id,

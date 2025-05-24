@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import { StatTooltip } from "./StatTooltip";
 import { Setting } from "../States";
-import type { StatHandler } from "./StatRoot";
+import type { StatHandler, StatStyles } from "./StatRoot";
 import { Level, Neutral, Result } from "../Util";
 
 type Factors = Data.DelayFactors | undefined;
@@ -11,6 +11,17 @@ type Factors = Data.DelayFactors | undefined;
 export class StatDelay extends StatTooltip<number | undefined, Factors> {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s) !== undefined;
+
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const origin = super.getDefaultStyles(setting);
+    const value = this.getValue(setting);
+    if (value === undefined || value < 100) {
+      return origin;
+    } else {
+      return StatDelay.mergeStyles(origin, Data.TableClass.sm);
+    }
+  }
+
   public override getTooltipBody(setting: Setting): ReactNode {
     return <DelayTooltip parent={this} factors={this.getFactors(setting)} />;
   }
