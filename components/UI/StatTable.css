@@ -57,3 +57,11 @@
 .stat-table > :not(caption) > * > .fsm {
   font-size: 0.75rem;
 }
+
+.stat-table > tbody > tr.separator > td {
+  border-top: double var(--bs-dark);
+}
+
+[data-bs-theme="dark"] .stat-table > tbody > tr.separator > td {
+  border-top: double var(--bs-light);
+}

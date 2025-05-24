@@ -22,6 +22,7 @@ import cn from "classnames";
 import Panel from "./Panel";
 import * as Data from "../Data";
 import { TableStyle } from "./TableStyles/TableStyle";
+import Situation from "../Situation";
 
 //
 // Types
@@ -155,7 +156,11 @@ function TableRoot_<T extends string>({
           sort={sort}
           onClick={toggleSort}
         />
-        <Body tableData={deferredData} setting={dStates.setting} />
+        <Body
+          tableData={deferredData}
+          setting={dStates.setting}
+          sortColumn={dSort.column}
+        />
       </Table>
     </TooltipControl>
   );
@@ -225,23 +230,53 @@ function Header_<T extends string>({
   );
 }
 
-const Body = memo(function Body({
+const Body = memo(Body_) as typeof Body_;
+function Body_<T extends string>({
   tableData,
   setting,
+  sortColumn,
 }: {
-  tableData: TableData<string>;
+  tableData: TableData<T>;
   setting: Setting;
+  sortColumn: T | undefined;
 }) {
+  let previousId: number | undefined;
+
+  function isBorderEnabled(column: T | undefined): boolean {
+    switch (column as Data.StatType) {
+      case stat.unitId:
+      case stat.situationId:
+      case stat.unitName:
+      case stat.unitShortName:
+      case stat.skillName:
+      case stat.exSkill1:
+      case stat.exSkill2:
+      case stat.damageType:
+        return true;
+    }
+    return false;
+  }
+
   return (
     <tbody>
-      {tableData.rows.map((row) => (
-        <tr key={row.id}>
-          <Row headers={tableData.headers} row={row} setting={setting} />
-        </tr>
-      ))}
+      {tableData.rows.map((row) => {
+        let separator;
+        if (row instanceof Situation && isBorderEnabled(sortColumn)) {
+          const id = row.unitId.getValue(setting);
+          if (id !== previousId && previousId !== undefined) {
+            separator = true;
+          }
+          previousId = id;
+        }
+        return (
+          <tr key={row.id} className={separator ? "separator" : undefined}>
+            <Row headers={tableData.headers} row={row} setting={setting} />
+          </tr>
+        );
+      })}
     </tbody>
   );
-});
+}
 
 const Row = memo(function Row({
   headers,
