@@ -4,7 +4,7 @@ import * as Data from "../Data";
 import { Setting } from "../States";
 
 export type StatHandler<T> = (setting: Setting) => T;
-type Styles = string | readonly (string | undefined)[] | undefined;
+export type StatStyles = string | readonly (string | undefined)[] | undefined;
 
 interface StatPropsBase<TStat> {
   statType: Data.StatType;
@@ -14,7 +14,7 @@ interface StatPropsBase<TStat> {
   text?: StatHandler<string | undefined> | undefined;
   item?: StatHandler<ReactNode> | undefined;
   color?: StatHandler<Data.TableColor | undefined> | undefined;
-  styles?: StatHandler<Styles> | undefined;
+  styles?: StatHandler<StatStyles> | undefined;
 }
 
 interface StatPropsWithFactors<TStat, TFactors> extends StatPropsBase<TStat> {
@@ -36,7 +36,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   private readonly comparer: StatHandler<string | number | undefined>;
   private readonly item: StatHandler<ReactNode>;
   private readonly color: StatHandler<Data.TableColor | undefined>;
-  private readonly styles: StatHandler<Styles>;
+  private readonly styles: StatHandler<StatStyles>;
   private readonly factors: StatHandler<TFactors>;
   private calculaterCache = new Data.Cache<TStat>();
   private comparerCache = new Data.Cache<string | number | undefined>();
@@ -76,7 +76,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
 
   getStyles(setting: Setting): string | undefined {
     return this.stylesCache.getCache((s) => {
-      const styles = this.styles(s);
+      const styles = this.getDefaultStyles(s);
       if (typeof styles === "string") {
         return styles;
       } else {
@@ -118,6 +118,10 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     return this.getText(setting);
   }
 
+  protected getDefaultStyles(setting: Setting): StatStyles {
+    return this.styles(setting);
+  }
+
   protected NumberItem({
     value,
     plus,
@@ -144,6 +148,34 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
       return text;
     } else {
       return (value / 1000).toFixed(0) + "K";
+    }
+  }
+
+  protected static mergeStyles(...values: readonly StatStyles[]): StatStyles {
+    const styles = new Set<string>();
+    values.forEach((value) => {
+      if (typeof value === "string") {
+        styles.add(value);
+      } else {
+        value?.forEach((v) => {
+          if (v !== undefined && v !== "") {
+            styles.add(v);
+          }
+        });
+      }
+    });
+
+    const ret: string[] = [];
+    for (const style of styles.values()) {
+      ret.push(style);
+    }
+    switch (ret.length) {
+      case 0:
+        return;
+      case 1:
+        return ret[0];
+      default:
+        return ret;
     }
   }
 }

@@ -3,7 +3,7 @@ import * as Data from "../Data";
 import * as Util from "../Util";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
-import type { StatHandler } from "./StatRoot";
+import type { StatHandler, StatStyles } from "./StatRoot";
 import { Level, Positive } from "../Util";
 
 const PLUS = "+";
@@ -95,6 +95,17 @@ export class StatTarget extends StatTooltip<
     const ret = (
       <Util.JoinTexts texts={contents} separator={<>&#8203;or&#8203;</>} />
     );
+    return ret;
+  }
+
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const f = this.getFactors(setting);
+    const origin = super.getDefaultStyles(setting);
+    if (f === undefined) {
+      return origin;
+    }
+
+    const { target, splash, rounds, wideTarget, laser } = f;
     if (
       target === Infinity ||
       target === Data.Target.self ||
@@ -105,9 +116,11 @@ export class StatTarget extends StatTooltip<
       wideTarget ||
       laser ||
       (Array.isArray(rounds) && rounds.length > 1)
-    )
-      return <small>{ret}</small>;
-    return ret;
+    ) {
+      return StatTarget.mergeStyles(origin, Data.TableClass.sm);
+    } else {
+      return origin;
+    }
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {

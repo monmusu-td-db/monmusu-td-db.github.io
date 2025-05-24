@@ -6,6 +6,7 @@
   border-spacing: 0;
   font-size: 0.8125rem;
   opacity: 1;
+  table-layout: fixed;
 }
 
 .stat-table > thead {
@@ -51,4 +52,8 @@
 .stat-table.pending {
   opacity: 0.5;
   transition: opacity 0.2s 0.2s linear;
+}
+
+.stat-table > :not(caption) > * > .fsm {
+  font-size: 0.75rem;
 }

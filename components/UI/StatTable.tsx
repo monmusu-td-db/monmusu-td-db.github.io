@@ -19,6 +19,7 @@ import { stat } from "../Data";
 import cn from "classnames";
 import Panel from "./Panel";
 import * as Data from "../Data";
+import { TableStyle } from "./TableStyles/TableStyle";
 
 //
 // Types
@@ -136,7 +137,7 @@ function TableRoot_<T extends string>({
 
   return (
     <TooltipControl hide={isPending || panelOpen}>
-      <Style headers={deferredData.headers} />
+      <TableStyle headers={deferredData.headers} />
       <Table
         striped
         size="sm"
@@ -171,90 +172,6 @@ function useSort<T extends string>(
 
   return [sort, handleToggle];
 }
-
-const Style = memo(function Style({
-  headers,
-}: {
-  headers: readonly TableHeader<string>[];
-}) {
-  const endIndexes: number[] = [];
-  const centerIndexes: number[] = [];
-  headers.forEach((col, index) => {
-    switch (col.id) {
-      case stat.cost:
-      case stat.hp:
-      case stat.attack:
-      case stat.defense:
-      case stat.resist:
-      case stat.physicalLimit:
-      case stat.magicalLimit:
-      case stat.initialTime:
-      case stat.duration:
-      case stat.cooldown:
-      case stat.dps0:
-      case stat.dps1:
-      case stat.dps2:
-      case stat.dps3:
-      case stat.dps4:
-      case stat.dps5:
-        endIndexes.push(index);
-        break;
-      case stat.rarity:
-      case stat.element:
-      case stat.species:
-      case stat.attackSpeed:
-      case stat.delay:
-      case stat.interval:
-      case stat.block:
-      case stat.target:
-      case stat.range:
-      case stat.moveSpeed:
-      case stat.moveType:
-      case stat.damageType:
-      case stat.placement:
-        centerIndexes.push(index);
-        break;
-    }
-  });
-
-  const emptyIndexes: number[] = [];
-  headers.forEach((col, index) => {
-    switch (col.id) {
-      case stat.skillName:
-      case stat.conditions:
-      case stat.supplements:
-      case stat.damageType:
-      case stat.dps0:
-      case stat.dps1:
-      case stat.dps2:
-      case stat.dps3:
-      case stat.dps4:
-      case stat.dps5:
-        break;
-      default:
-        emptyIndexes.push(index);
-        break;
-    }
-  });
-
-  const getSelector = (index: number) =>
-    `.stat-table>tbody>tr>td:nth-child(${index + 1})`;
-
-  return (
-    <style
-      precedence="medium"
-      href="stat-table"
-      dangerouslySetInnerHTML={{
-        __html:
-          `${endIndexes.map(getSelector).join()}{text-align:end;}` +
-          `${centerIndexes.map(getSelector).join()}{text-align:center;}` +
-          `${emptyIndexes
-            .map((i) => getSelector(i) + ":empty::before")
-            .join()}{content:"-"}`,
-      }}
-    />
-  );
-});
 
 const Header = memo(Header_) as typeof Header_;
 function Header_<T extends string>({
