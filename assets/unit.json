@@ -2496,6 +2496,7 @@
     ],
     "exSkill1": {
       "skillName": "マーメイドソング",
+      "fixedDelay": 1,
       "target": "射程内",
       "rangeMul": 170,
       "duration": "単発",
@@ -2696,6 +2697,7 @@
     "resist": 378,
     "exSkill1": {
       "skillName": "怪根の癒し",
+      "fixedDelay": 1,
       "rangeMul": 160,
       "duration": "単発",
       "cooldown": 30,
@@ -15892,6 +15894,7 @@
     "resist": 129,
     "exSkill1": {
       "skillName": "メガロスプラッシュ",
+      "fixedDelay": 1,
       "duration": "単発",
       "cooldown": 15,
       "skillFeatures": [
@@ -19677,6 +19680,7 @@
     "exSkill1": {
       "skillName": "伸びろ如意棒！",
       "attackMul": 140,
+      "fixedDelay": 1,
       "target": "射程内",
       "rounds": 4,
       "range": 300,
@@ -19748,6 +19752,7 @@
     "exSkill1": {
       "skillName": "伸びろ如意棒！",
       "attackMul": 140,
+      "fixedDelay": 1,
       "target": "射程内",
       "rounds": 4,
       "range": 300,
