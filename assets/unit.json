@@ -3257,6 +3257,66 @@
     ]
   },
   {
+    "id": 42,
+    "unitName": "【ローパー娘】ネル",
+    "unitShortName": "ネル",
+    "rarity": "R",
+    "class": "チーフアサシン",
+    "element": "水",
+    "hp": 4054,
+    "attack": 480,
+    "defense": 384,
+    "resist": 118,
+    "supplements": [
+      "移動不可(5秒)/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ぬるぬる乱れ撃ち",
+      "delayMul": 50,
+      "target": "射程内",
+      "rangeMul": 200,
+      "duration": 10,
+      "cooldown": 25,
+      "supplements": [
+        "鈍足-10%(5秒)→命中"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "ぬるぬるエイム",
+      "attackMul": 250,
+      "splash": true,
+      "rangeMul": 150,
+      "duration": 15,
+      "cooldown": 35,
+      "damageType": "魔法",
+      "supplements": [
+        "鈍足-50%(10秒)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "再出撃時間50%短縮"
+    ],
+    "weapon": {
+      "weaponName": "ディルクフィーラ",
+      "attack": 40,
+      "attackSpeed": 5,
+      "range": 6
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 43,
     "unitName": "【マタンゴ娘】シジメ",
     "unitShortName": "シジメ",
