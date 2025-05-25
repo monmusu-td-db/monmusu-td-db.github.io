@@ -100,7 +100,7 @@ export class Percent {
   }
 }
 
-export class CSSSelector {
+export class StyleSelector {
   static getTableColor(color: TableColor | undefined): string | undefined {
     if (color === undefined) return;
     return `table-c-${color}`;

@@ -254,7 +254,7 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => rarity,
         comparer: () => comparer,
         color: () => color,
-        styles: () => Data.CSSSelector.getTableColor(color),
+        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -279,7 +279,7 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => element,
         comparer: () => comparer,
         color: () => color,
-        styles: () => Data.CSSSelector.getTableColor(color),
+        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -513,7 +513,7 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => damageType,
         comparer: () => Data.DamageType.indexOf(damageType),
         color: () => color,
-        styles: () => Data.CSSSelector.getTableColor(color),
+        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -577,7 +577,7 @@ export default class Unit implements TableRow<Keys> {
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
       styles: (s) => {
         const color = Data.MoveType.colorOf(this.moveType.getValue(s));
-        return Data.CSSSelector.getTableColor(color);
+        return Data.StyleSelector.getTableColor(color);
       },
     });
 
@@ -610,7 +610,7 @@ export default class Unit implements TableRow<Keys> {
         const value = this.placement.getValue(s);
         if (value === undefined) return;
         const color = Data.Placement.color[value];
-        return Data.CSSSelector.getTableColor(color);
+        return Data.StyleSelector.getTableColor(color);
       },
     });
 
