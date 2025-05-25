@@ -187,6 +187,8 @@ export const tableColorAlias = {
 
 export const TableClass = {
   sm: "fsm",
+  skillNormal: "skill-normal",
+  annotations: "annotations",
 } as const;
 
 // Stat
@@ -1504,6 +1506,14 @@ export interface ColorFactor<T = number> {
   readonly conditionPoint: number;
   readonly skillPoint: number;
   readonly buffPoint?: number;
+}
+
+export interface SkillNameFactors {
+  readonly skillName: string | null | undefined;
+  readonly annotations: readonly string[] | undefined;
+  readonly phase: number | undefined;
+  readonly phaseName: string | undefined;
+  readonly isOverCharge: boolean | undefined;
 }
 
 export interface BarrackFactorsBase {

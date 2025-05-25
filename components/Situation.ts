@@ -100,7 +100,7 @@ export default class Situation implements TableRow<Keys> {
   readonly unitId: Stat.Root;
   readonly situationId: Stat.Root;
   readonly unitShortName: Stat.Root<string | undefined>;
-  readonly skillName: Stat.Root<string | undefined | null>;
+  readonly skillName: Stat.SkillName;
   readonly conditions: Stat.Root<readonly Data.Condition[]>;
   readonly cost: Stat.Root;
   readonly hp: Stat.SituationBase;
@@ -179,25 +179,26 @@ export default class Situation implements TableRow<Keys> {
       situation: this,
     });
 
-    this.skillName = new Stat.Root({
+    this.skillName = new Stat.SkillName({
       statType: stat.skillName,
       calculater: (s) => {
         if (this.skill === -1) return null;
         return this.getSkill(s)?.skillName;
       },
-      item: (s) => {
+      factors: (s) => {
         const f = this.getFeature(s);
         const p = this.getTokenParent(s)?.skillName.getValue(s);
         const annotations = !p
           ? f.annotations
           : [`+${p}`].concat(f.annotations ?? []);
-        return Util.getSkillItem({
+
+        return {
           skillName: this.skillName.getValue(s),
           annotations,
           phase: f.phase,
           phaseName: f.phaseName,
           isOverCharge: this.getSkill(s)?.isOverCharge,
-        });
+        };
       },
     });
 

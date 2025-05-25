@@ -65,3 +65,19 @@
 [data-bs-theme="dark"] .stat-table > tbody > tr.separator > td {
   border-top: double var(--bs-light);
 }
+
+.stat-table .skill-normal {
+  color: var(--bs-gray-600);
+}
+
+.stat-table .annotations {
+  font-size: 0.75rem;
+  color: var(--bs-red);
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+}
+
+.stat-table .annotations > * {
+  white-space: nowrap;
+}

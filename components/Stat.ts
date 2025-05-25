@@ -1,5 +1,6 @@
 import { StatRoot } from "./Stat/StatRoot";
 import { StatUnitName } from "./Stat/StatUnitName";
+import { StatSkillName } from "./Stat/StatSkillName";
 import { BaseStat } from "./Stat/BaseStat";
 import { SituationBaseStat } from "./Stat/SituationBaseStat";
 import { StatHp } from "./Stat/StatHp";
@@ -16,6 +17,7 @@ import { StatDps } from "./Stat/StatDps";
 
 export { StatRoot as Root };
 export { StatUnitName as UnitName };
+export { StatSkillName as SkillName };
 export { BaseStat as Base };
 export { SituationBaseStat as SituationBase };
 export { StatHp as Hp };
