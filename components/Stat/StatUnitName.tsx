@@ -7,8 +7,8 @@ import { StatRoot, type StatHandler, type StatProps } from "./StatRoot";
 import Unit from "../Unit";
 import { Setting } from "../States";
 import type Situation from "../Situation";
+import { Tooltip as T } from "../UI/Tooltip";
 
-const COLON = "：";
 const stat = Data.stat;
 
 type Props = {
@@ -47,70 +47,39 @@ export class StatUnitName extends StatTooltip<string> {
     const placement = valueOf(unit.placement);
 
     return (
-      <table className="mb-3">
-        <tbody>
-          <Tr>
-            <Th>{nameOf(stat.unitName)}</Th>
-            <Td>{textOf(unit.unitName)}</Td>
-          </Tr>
-          {!!parent && (
-            <Tr>
-              <Th>トークン所有者</Th>
-              <Td>{textOf(parent.unitName)}</Td>
-            </Tr>
-          )}
-          <Tr>
-            <Th>{nameOf(stat.rarity)}</Th>
-            <Td>{Util.getRarityText(valueOf(unit.rarity))}</Td>
-          </Tr>
-          <Tr enabled={!!className}>
-            <Th>{nameOf(stat.className)}</Th>
-            <Td>{className}</Td>
-          </Tr>
-          <Tr enabled={!!element}>
-            <Th>{nameOf(stat.element)}</Th>
-            <Td>
-              <Util.ElementText element={element} />
-            </Td>
-          </Tr>
-          <Tr enabled={!!species}>
-            <Th>{nameOf(stat.species)}</Th>
-            <Td>{species}</Td>
-          </Tr>
-          <Tr enabled={!!moveType}>
-            <Th>{nameOf(stat.moveType)}</Th>
-            <Td>{moveType}</Td>
-          </Tr>
-          <Tr>
-            <Th>{nameOf(stat.moveSpeed)}</Th>
-            <Td>{moveSpeed}</Td>
-          </Tr>
-          {placement && (
-            <Tr>
-              <Th>{nameOf(stat.placement)}</Th>
-              <Td>{Data.Placement.desc[placement]}</Td>
-            </Tr>
-          )}
-        </tbody>
-      </table>
+      <T.List>
+        <T.ListItem label={nameOf(stat.unitName)}>
+          {textOf(unit.unitName)}
+        </T.ListItem>
+        {!!parent && (
+          <T.ListItem label="トークン所有者">
+            {textOf(parent.unitName)}
+          </T.ListItem>
+        )}
+        <T.ListItem label={nameOf(stat.rarity)}>
+          {Util.getRarityText(valueOf(unit.rarity))}
+        </T.ListItem>
+        {!!className && (
+          <T.ListItem label={nameOf(stat.className)}>{className}</T.ListItem>
+        )}
+        {!!element && (
+          <T.ListItem label={nameOf(stat.element)}>
+            <Util.ElementText element={element} />
+          </T.ListItem>
+        )}
+        {!!species && (
+          <T.ListItem label={nameOf(stat.species)}>{species}</T.ListItem>
+        )}
+        {!!moveType && (
+          <T.ListItem label={nameOf(stat.moveType)}>{moveType}</T.ListItem>
+        )}
+        <T.ListItem label={nameOf(stat.moveSpeed)}>{moveSpeed}</T.ListItem>
+        {placement && (
+          <T.ListItem label={nameOf(stat.placement)}>
+            {Data.Placement.desc[placement]}
+          </T.ListItem>
+        )}
+      </T.List>
     );
   }
-}
-
-function Tr({ children, enabled }: { children: ReactNode; enabled?: boolean }) {
-  if (enabled === false) return;
-  else return <tr>{children}</tr>;
-}
-
-function Th({ children }: { children: ReactNode }) {
-  return <th className="text-warning">{children}</th>;
-}
-
-function Td({ children }: { children: ReactNode }) {
-  return (
-    <td>
-      {COLON}
-      {children}
-    </td>
-  );
 }

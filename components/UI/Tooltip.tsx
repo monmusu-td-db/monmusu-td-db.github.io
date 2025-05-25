@@ -1,5 +1,6 @@
 "use client";
 
+import "./Tooltip.css";
 import * as Data from "../Data";
 import { createContext, useContext, type ReactNode } from "react";
 import { Popover } from "react-bootstrap";
@@ -24,7 +25,6 @@ const sign = {
   BEND: ")",
   FRAME: "f",
   SECOND: "秒",
-  COLON: "：",
 } as const;
 
 interface TextBaseProps {
@@ -203,7 +203,7 @@ function Divide({ enabled, children }: ExpressionItemProps) {
 
 function List({ children }: { children: ReactNode }) {
   return (
-    <table>
+    <table className="stat-tooltip-table">
       <tbody>{children}</tbody>
     </table>
   );
@@ -218,11 +218,8 @@ function ListItem({
 }) {
   return (
     <tr>
-      <th className={textColor.RESULT}>{label}</th>
-      <td>
-        {sign.COLON}
-        {children}
-      </td>
+      <th>{label}</th>
+      <td>{children}</td>
     </tr>
   );
 }
