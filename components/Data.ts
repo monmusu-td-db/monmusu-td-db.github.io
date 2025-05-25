@@ -1408,6 +1408,7 @@ export type Weapon = Readonly<{
   attack?: number;
   defense?: number;
   resist?: number;
+  attackSpeed?: number;
   block?: number;
   range?: number;
   hpMul?: number;
@@ -1421,6 +1422,7 @@ export const Weapon = {
       stat.attack,
       stat.defense,
       stat.resist,
+      stat.attackSpeed,
       stat.block,
       stat.range,
     ];
@@ -1471,6 +1473,7 @@ export const attackSpeedList = {
   143: 29,
   144: 29,
   146: 28,
+  147: 28,
   149: 28,
   152: 27,
   153: 27,
@@ -1576,6 +1579,7 @@ export interface PenetrationFactors {
 
 export interface AttackSpeedFactors {
   readonly attackSpeedBase: number | undefined;
+  readonly attackSpeedWeapon: number;
   readonly attackSpeedPotential: number;
   readonly fixedAttackSpeed: number | undefined;
   readonly attackSpeedResult: number;

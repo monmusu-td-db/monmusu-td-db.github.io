@@ -2207,6 +2207,7 @@ export default class Situation implements TableRow<Keys> {
 
     return {
       attackSpeedBase: asf?.attackSpeedBase,
+      attackSpeedWeapon: asf?.attackSpeedWeapon ?? 0,
       attackSpeedPotential: asf?.attackSpeedPotential ?? 0,
       fixedAttackSpeed: asf?.fixedAttackSpeed,
       attackMotionMul,
