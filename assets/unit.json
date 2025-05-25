@@ -2097,6 +2097,68 @@
     ]
   },
   {
+    "id": 29,
+    "unitName": "【ジャックフロスト娘】スゥノ",
+    "unitShortName": "スゥノ",
+    "rarity": "R",
+    "class": "コンジャラー",
+    "element": "水",
+    "hp": 2345,
+    "attack": 563,
+    "defense": 234,
+    "resist": 562,
+    "exSkill1": {
+      "skillName": "氷霊の悪戯",
+      "attackMul": 220,
+      "rangeMul": 190,
+      "duration": 15,
+      "cooldown": 25
+    },
+    "exSkill2": {
+      "skillName": "フロストボールラッシュ",
+      "attackMul": 150,
+      "targetAdd": 1,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "凍結付与(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "features": [
+      {
+        "require": [
+          "水マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "スタン10秒/終了後→自分"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 30,
     "unitName": "【サキュバス娘】クロミ",
     "unitShortName": "クロミ",
