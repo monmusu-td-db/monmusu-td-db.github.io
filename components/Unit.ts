@@ -13,8 +13,8 @@ import {
 import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
-import type { TableSource } from "./StatTable";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
+import type { TableSource, TableHeader, TableRow } from "./UI/StatTable";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -158,7 +158,7 @@ const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
 
-export default class Unit implements TableSource<Keys> {
+export default class Unit implements TableRow<Keys> {
   readonly id: number;
   readonly src: Readonly<JsonUnit>;
 
@@ -254,6 +254,7 @@ export default class Unit implements TableSource<Keys> {
         calculater: () => rarity,
         comparer: () => comparer,
         color: () => color,
+        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -278,6 +279,7 @@ export default class Unit implements TableSource<Keys> {
         calculater: () => element,
         comparer: () => comparer,
         color: () => color,
+        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -502,13 +504,18 @@ export default class Unit implements TableSource<Keys> {
       },
     });
 
-    this.damageType = new Stat.Root({
-      statType: stat.damageType,
-      calculater: () =>
-        Data.JsonDamageType.parse(src.damageType) ?? classData?.damageType,
-      comparer: (s) => Data.DamageType.indexOf(this.damageType.getValue(s)),
-      color: (s) => Data.DamageType.colorOf(this.damageType.getValue(s)),
-    });
+    const damageType =
+      Data.JsonDamageType.parse(src.damageType) ?? classData?.damageType;
+    {
+      const color = Data.DamageType.colorOf(damageType);
+      this.damageType = new Stat.Root({
+        statType: stat.damageType,
+        calculater: () => damageType,
+        comparer: () => Data.DamageType.indexOf(damageType),
+        color: () => color,
+        styles: () => Data.StyleSelector.getTableColor(color),
+      });
+    }
 
     this.moveSpeed = new Stat.Root({
       statType: stat.moveSpeed,
@@ -568,6 +575,10 @@ export default class Unit implements TableSource<Keys> {
       },
       comparer: (s) => -Data.MoveType.indexOf(this.moveType.getValue(s)),
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
+      styles: (s) => {
+        const color = Data.MoveType.colorOf(this.moveType.getValue(s));
+        return Data.StyleSelector.getTableColor(color);
+      },
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);
@@ -594,6 +605,12 @@ export default class Unit implements TableSource<Keys> {
         const v = this.placement.getValue(s);
         if (v === undefined) return;
         return Data.Placement.color[v];
+      },
+      styles: (s) => {
+        const value = this.placement.getValue(s);
+        if (value === undefined) return;
+        const color = Data.Placement.color[value];
+        return Data.StyleSelector.getTableColor(color);
       },
     });
 
@@ -1209,10 +1226,10 @@ export default class Unit implements TableSource<Keys> {
   static comparer(
     setting: Setting,
     key: Keys,
-    target: Unit
+    target: TableRow<Keys>
   ): string | number | undefined {
     return target[key].getSortOrder(setting);
-  }
+  } // TODO 消す
 
   static filter(states: States, list: readonly Unit[]): readonly Unit[] {
     return list.filter((item) => {
@@ -1315,6 +1332,32 @@ export default class Unit implements TableSource<Keys> {
   static get keys(): readonly Keys[] {
     return keys;
   }
+
+  // START wip 新レイアウト
+
+  private static get headers(): readonly TableHeader<Keys>[] {
+    return keys.map((key) => ({
+      id: key,
+      name: Data.StatType.nameOf(key),
+    }));
+  }
+
+  static get tableData(): TableSource<Keys> {
+    return {
+      headers: Unit.headers,
+      rows: units,
+      filter: (states) => Unit.filter(states, units),
+      sort: (setting, rows, column, isReversed) => {
+        return Data.mapSort(
+          rows,
+          (target) => Unit.comparer(setting, column, target),
+          isReversed
+        );
+      },
+    };
+  }
+
+  // END wip 新レイアウト
 }
 
 const units = (() => {

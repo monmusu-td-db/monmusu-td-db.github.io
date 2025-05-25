@@ -1,24 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import Header from "../../components/UI/Navbar";
-import Panel from "../../components/UI/Panel";
+import Situation from "@/components/Situation";
+import { StatTable } from "@/components/UI/LazyLoading";
+import PageRoot from "@/components/UI/PageRoot";
 
-function Page() {
-  const [panelOpen, setPanelOpen] = useState(true);
-
+export default function App() {
   return (
-    <Panel.Contexts.Open.Provider value={panelOpen}>
-      <Panel.Contexts.Toggle.Provider value={() => setPanelOpen((p) => !p)}>
-        <Panel.Contexts.PageType.Provider value="situation">
-          <header>
-            <Header />
-            <Panel open={panelOpen} onClose={() => setPanelOpen(false)} />
-          </header>
-        </Panel.Contexts.PageType.Provider>
-      </Panel.Contexts.Toggle.Provider>
-    </Panel.Contexts.Open.Provider>
+    <PageRoot pageType="situation">
+      <StatTable src={Situation.tableData} />
+    </PageRoot>
   );
 }
-
-export default Page;

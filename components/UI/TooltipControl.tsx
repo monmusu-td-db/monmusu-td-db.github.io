@@ -1,0 +1,133 @@
+"use client";
+
+import {
+  type ReactNode,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+  memo,
+} from "react";
+import { Overlay, Popover } from "react-bootstrap";
+import {
+  CellEventHandlersContext,
+  type CellData,
+  type CellEventHandlers,
+} from "./StatTable";
+import { Tooltip } from "./Tooltip";
+import { StatTooltip } from "../Stat/StatTooltip";
+import { Contexts } from "../States";
+
+type TooltipCond = {
+  show: boolean;
+  cell: CellData | null;
+};
+
+const TOOLTIP_DELAY = 35;
+const defaultCond: TooltipCond = { show: false, cell: null };
+
+const TooltipControl = memo(function TooltipControl({
+  children,
+  hide,
+}: {
+  children: ReactNode;
+  hide: boolean;
+}) {
+  const timerIds = useRef<Set<number>>(new Set<number>());
+  const [cond, setCond] = useState<TooltipCond>(defaultCond);
+
+  const setting = Contexts.useSetting();
+
+  function clearTimers() {
+    const ids = timerIds.current;
+    ids.forEach((id) => {
+      window.clearTimeout(id);
+    });
+    ids.clear();
+  }
+
+  const handleClick = useCallback((target: CellData) => {
+    clearTimers();
+    setCond((p) => {
+      return {
+        show: p.cell?.ref === target.ref ? !p.show : true,
+        cell: target,
+      };
+    });
+  }, []);
+
+  const handleMouseOver = useCallback((target: CellData) => {
+    clearTimers();
+    setCond((p) => ({
+      show: false,
+      cell: p.cell,
+    }));
+    const timerId = window.setTimeout(() => {
+      // ちらつきを抑えるために遅延させる
+      timerIds.current.delete(timerId);
+      setCond({
+        show: true,
+        cell: target,
+      });
+    }, TOOLTIP_DELAY);
+    timerIds.current.add(timerId);
+  }, []);
+
+  const handleMouseOut = useCallback((target: CellData) => {
+    const timerId = window.setTimeout(() => {
+      timerIds.current.delete(timerId);
+      setCond((p) => {
+        if (p.cell?.ref !== target.ref) {
+          return p;
+        } else {
+          return {
+            show: false,
+            cell: p.cell,
+          };
+        }
+      });
+    }, TOOLTIP_DELAY);
+    timerIds.current.add(timerId);
+  }, []);
+
+  const handlers: CellEventHandlers = useMemo(
+    () => ({
+      onClick: handleClick,
+      onMouseOver: handleMouseOver,
+      onMouseOut: handleMouseOut,
+    }),
+    [handleClick, handleMouseOver, handleMouseOut]
+  );
+
+  if (hide && cond.show) {
+    setCond(defaultCond);
+    return;
+  }
+
+  const cellRef = cond.cell?.ref ?? null;
+  const cellStat = cond.cell?.stat;
+  const placement = "auto";
+  const flip = placement && placement.indexOf("auto") !== -1;
+  const isEnabled =
+    cellStat instanceof StatTooltip && cellStat.isEnabled(setting);
+
+  return (
+    <CellEventHandlersContext.Provider value={handlers}>
+      {children}
+      {isEnabled && (
+        <Overlay
+          target={cellRef}
+          show={cond.show}
+          placement={placement}
+          flip={flip}
+        >
+          <Popover id="stat-tooltip" placement="auto">
+            <Tooltip stat={cellStat} setting={setting} />
+          </Popover>
+        </Overlay>
+      )}
+    </CellEventHandlersContext.Provider>
+  );
+});
+
+export default TooltipControl;

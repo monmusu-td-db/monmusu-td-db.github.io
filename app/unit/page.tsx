@@ -1,30 +1,13 @@
 "use client";
 
 import Unit from "@/components/Unit";
-import { useMemo } from "react";
-import { StatTable } from "@/components/LazyLoading";
-import Panel from "../../components/UI/Panel";
-import Header from "../../components/UI/Navbar";
+import { StatTable } from "@/components/UI/LazyLoading";
+import PageRoot from "@/components/UI/PageRoot";
 
-export default function Page() {
+export default function App() {
   return (
-    <>
-      <Panel.Contexts.PageType.Provider value={undefined}>
-        <Header />
-      </Panel.Contexts.PageType.Provider>
-      <main>
-        <StatTable
-          src={useMemo(
-            () => ({
-              list: Unit.list,
-              columns: Unit.keys,
-              comparer: Unit.comparer,
-              filter: Unit.filter,
-            }),
-            []
-          )}
-        />
-      </main>
-    </>
+    <PageRoot>
+      <StatTable src={Unit.tableData} />
+    </PageRoot>
   );
 }

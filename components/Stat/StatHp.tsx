@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import type { Setting } from "../States";
 import { SituationBaseStat } from "./SituationBaseStat";
-import { Tooltip as Tt } from "./StatTooltip";
+import { Tooltip as Tt } from "../UI/Tooltip";
 
 const sign = Tt.sign;
 type Factors = Data.ActualHpFactors | undefined;

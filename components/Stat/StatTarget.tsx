@@ -3,8 +3,9 @@ import * as Data from "../Data";
 import * as Util from "../Util";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
-import type { StatHandler } from "./StatRoot";
+import type { StatHandler, StatStyles } from "./StatRoot";
 import { Level, Positive } from "../Util";
+import { Tooltip as T } from "../UI/Tooltip";
 
 const PLUS = "+";
 const MULTIPLY = <>&#8203;×</>;
@@ -15,6 +16,7 @@ export class StatTarget extends StatTooltip<
 > {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s) !== undefined;
+  override isTable: boolean = true;
 
   protected override getDefaultComparer(setting: Setting): number | undefined {
     const value = this.getValue(setting);
@@ -66,13 +68,13 @@ export class StatTarget extends StatTooltip<
 
           return (
             <>
-              <Brackets
+              <T.Brackets
                 enabled={targetText && wideTarget && (splash || round > 1)}
               >
                 {targetText && base}
                 {targetText && wideTarget && PLUS}
                 {wideTarget && "​周囲"}
-              </Brackets>
+              </T.Brackets>
               {(noOmit || wideTarget) && splash && MULTIPLY}
               {splash && "範囲"}
               {!(noOmit || splash || wideTarget) && 1}
@@ -94,6 +96,17 @@ export class StatTarget extends StatTooltip<
     const ret = (
       <Util.JoinTexts texts={contents} separator={<>&#8203;or&#8203;</>} />
     );
+    return ret;
+  }
+
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const f = this.getFactors(setting);
+    const origin = super.getDefaultStyles(setting);
+    if (f === undefined) {
+      return origin;
+    }
+
+    const { target, splash, rounds, wideTarget, laser } = f;
     if (
       target === Infinity ||
       target === Data.Target.self ||
@@ -104,12 +117,14 @@ export class StatTarget extends StatTooltip<
       wideTarget ||
       laser ||
       (Array.isArray(rounds) && rounds.length > 1)
-    )
-      return <small>{ret}</small>;
-    return ret;
+    ) {
+      return StatTarget.mergeStyles(origin, Data.TableClass.sm);
+    } else {
+      return origin;
+    }
   }
 
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;
 
@@ -127,89 +142,52 @@ export class StatTarget extends StatTooltip<
           });
 
     return (
-      <table>
-        <tbody>
-          <Row label="対象">
-            {Data.Target.getString(f.target)}
-            {f.wideTarget && (
-              <>
-                {this.plus}
-                周囲
-              </>
-            )}
-            {(f.splash || f.isBlock || f.laser) && (
-              <>
-                {this.bStart}
-                {f.isBlock && <Positive>ブロック全敵</Positive>}
-                {f.isBlock && f.splash && " / "}
-                {f.splash && <Positive>範囲攻撃</Positive>}
-                {f.laser && (f.splash || f.isBlock) && " / "}
-                {f.laser && <Positive>直線上対象攻撃</Positive>}
-                {this.bEnd}
-              </>
-            )}
-          </Row>
-          {round !== undefined && round !== 1 ? (
-            <Row label="連射数">
-              <Level level={round > 1}>
-                {multiply}
-                {round.toFixed(0)}
-              </Level>
-            </Row>
-          ) : (
+      <T.List>
+        <T.ListItem label="対象">
+          {Data.Target.getString(f.target)}
+          {f.wideTarget && (
             <>
-              {average !== 1 && (
-                <Row label="平均連射数">
-                  <Level level={average > 1}>
-                    {multiply}
-                    {average.toFixed(1)}
-                  </Level>
-                </Row>
-              )}
-              {roundDetails !== undefined && roundDetails.length > 0 && (
-                <Row label="連射内訳">{roundDetails.join(" / ")}</Row>
-              )}
+              {this.plus}
+              周囲
             </>
           )}
-        </tbody>
-      </table>
+          {(f.splash || f.isBlock || f.laser) && (
+            <>
+              {this.bStart}
+              {f.isBlock && <Positive>ブロック全敵</Positive>}
+              {f.isBlock && f.splash && " / "}
+              {f.splash && <Positive>範囲攻撃</Positive>}
+              {f.laser && (f.splash || f.isBlock) && " / "}
+              {f.laser && <Positive>直線上対象攻撃</Positive>}
+              {this.bEnd}
+            </>
+          )}
+        </T.ListItem>
+        {round !== undefined && round !== 1 ? (
+          <T.ListItem label="連射数">
+            <Level level={round > 1}>
+              {multiply}
+              {round.toFixed(0)}
+            </Level>
+          </T.ListItem>
+        ) : (
+          <>
+            {average !== 1 && (
+              <T.ListItem label="平均連射数">
+                <Level level={average > 1}>
+                  {multiply}
+                  {average.toFixed(1)}
+                </Level>
+              </T.ListItem>
+            )}
+            {roundDetails !== undefined && roundDetails.length > 0 && (
+              <T.ListItem label="連射内訳">
+                {roundDetails.join(" / ")}
+              </T.ListItem>
+            )}
+          </>
+        )}
+      </T.List>
     );
-  }
-}
-
-function Row({ label, children }: { label: ReactNode; children: ReactNode }) {
-  return (
-    <tr>
-      <Th>{label}</Th>
-      <Td>{children}</Td>
-    </tr>
-  );
-}
-
-function Th({ children }: { children?: ReactNode }) {
-  return <th className="text-warning">{children}</th>;
-}
-
-function Td({ children }: { children?: ReactNode }) {
-  return <td>：{children}</td>;
-}
-
-function Brackets({
-  enabled,
-  children,
-}: {
-  enabled?: boolean;
-  children: ReactNode;
-}) {
-  if (enabled !== false) {
-    return (
-      <>
-        {"("}
-        {children}
-        {")"}
-      </>
-    );
-  } else {
-    return children;
   }
 }

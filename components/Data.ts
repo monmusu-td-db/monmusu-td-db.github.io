@@ -101,6 +101,95 @@ export class Percent {
   }
 }
 
+export class StyleSelector {
+  static getTableColor(color: TableColor | undefined): string | undefined {
+    if (color === undefined) return;
+    return `table-c-${color}`;
+  }
+}
+
+export function mapSort<T>(
+  data: readonly T[],
+  comparer: (value: T) => string | number | undefined,
+  isReversed?: boolean
+): readonly T[] {
+  const mapped = data.map((v, i) => {
+    return { i, value: comparer(v) };
+  });
+  mapped.sort((a, b) => {
+    if (isReversed) {
+      return compare(b.value, a.value);
+    } else {
+      return compare(a.value, b.value);
+    }
+  });
+  return mapped.map((v) => data[v.i] as T);
+}
+
+function compare(a: unknown, b: unknown): number {
+  if (a === b) return 0;
+  if (a === undefined || a === null) return 1;
+  if (b === undefined || b === null) return -1;
+  if (typeof a === "string" && typeof b === "string") {
+    return a.localeCompare(b);
+  }
+  return a < b ? -1 : 1;
+}
+
+export type TableData<TData, TColumn extends keyof TData> = Readonly<{
+  list: readonly TData[];
+  columns: readonly TColumn[];
+  comparer: (
+    setting: Setting,
+    key: TColumn,
+    target: TData
+  ) => string | number | undefined;
+  filter: (states: States, list: readonly TData[]) => readonly TData[];
+}>;
+
+export const tableColor = {
+  red: "red",
+  blue: "blue",
+  orange: "orange",
+  green: "green",
+  yellow: "yellow",
+  indigo: "indigo",
+  red100: "red-100",
+  red300: "red-300",
+  red500: "red-500",
+  red700: "red-700",
+  red900: "red-900",
+  blue100: "blue-100",
+  blue300: "blue-300",
+  blue500: "blue-500",
+  blue700: "blue-700",
+  blue900: "blue-900",
+  green100: "green-100",
+  green300: "green-300",
+  green500: "green-500",
+  green700: "green-700",
+  green900: "green-900",
+  yellow100: "yellow-100",
+  yellow300: "yellow-300",
+  yellow500: "yellow-500",
+  yellow600: "yellow-600",
+  yellow800: "yellow-800",
+} as const;
+export type TableColor = (typeof tableColor)[keyof typeof tableColor];
+export const tableColorAlias = {
+  positive: tableColor.red,
+  negative: tableColor.blue,
+  positiveStrong: tableColor.red300,
+  negativeStrong: tableColor.blue300,
+  positiveWeak: tableColor.red100,
+  negativeWeak: tableColor.blue100,
+  warning: tableColor.yellow,
+} as const;
+
+export const TableClass = {
+  sm: "fsm",
+} as const;
+
 // Stat
 
 const statTypeList = [
@@ -664,56 +753,6 @@ export const FormationBuffRequire = {
 } as const;
 
 // Unit
-
-export type TableData<TData, TColumn extends keyof TData> = Readonly<{
-  list: readonly TData[];
-  columns: readonly TColumn[];
-  comparer: (
-    setting: Setting,
-    key: TColumn,
-    target: TData
-  ) => string | number | undefined;
-  filter: (states: States, list: readonly TData[]) => readonly TData[];
-}>;
-
-export const tableColor = {
-  red: "c-red",
-  blue: "c-blue",
-  orange: "c-orange",
-  green: "c-green",
-  yellow: "c-yellow",
-  indigo: "c-indigo",
-  red100: "c-red-100",
-  red300: "c-red-300",
-  red500: "c-red-500",
-  red700: "c-red-700",
-  red900: "c-red-900",
-  blue100: "c-blue-100",
-  blue300: "c-blue-300",
-  blue500: "c-blue-500",
-  blue700: "c-blue-700",
-  blue900: "c-blue-900",
-  green100: "c-green-100",
-  green300: "c-green-300",
-  green500: "c-green-500",
-  green700: "c-green-700",
-  green900: "c-green-900",
-  yellow100: "c-yellow-100",
-  yellow300: "c-yellow-300",
-  yellow500: "c-yellow-500",
-  yellow600: "c-yellow-600",
-  yellow800: "c-yellow-800",
-} as const;
-export type TableColor = (typeof tableColor)[keyof typeof tableColor];
-export const tableColorAlias = {
-  positive: tableColor.red,
-  negative: tableColor.blue,
-  positiveStrong: tableColor.red300,
-  negativeStrong: tableColor.blue300,
-  positiveWeak: tableColor.red100,
-  negativeWeak: tableColor.blue100,
-  warning: tableColor.yellow,
-} as const;
 
 const rarityList = ["L", "E", "R", "C"] as const;
 const rarity = Enum(rarityList);

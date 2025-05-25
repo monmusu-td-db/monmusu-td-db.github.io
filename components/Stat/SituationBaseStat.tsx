@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
-import { Tooltip as T } from "./StatTooltip";
+import { Tooltip as T } from "../UI/Tooltip";
 
 const sign = T.sign;
 
@@ -12,7 +12,7 @@ export type StatFactors = Data.InBattleFactors | undefined;
 export class SituationBaseStat<
   TFactors extends StatFactors = StatFactors
 > extends BaseStat<number | undefined, TFactors> {
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     return this.getTooltipBodyBase(setting);
   }
 

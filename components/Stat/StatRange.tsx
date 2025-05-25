@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import type { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
-import { Tooltip as T } from "./StatTooltip";
+import { Tooltip as T } from "../UI/Tooltip";
 
 type Factors = Required<Data.RangeFactor> | undefined;
 const sign = T.sign;
@@ -16,7 +16,7 @@ export class StatRange extends BaseStat<number | undefined, Factors> {
     return <Item value={value} length={3} />;
   }
 
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f: Data.RangeFactor | undefined = this.getFactors(setting);
     if (f === undefined) return;
 

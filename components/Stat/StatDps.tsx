@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 
 import * as Data from "../Data";
 import { Setting } from "../States";
-import { StatTooltip, Tooltip as Tt } from "./StatTooltip";
+import { StatTooltip } from "./StatTooltip";
 import type { StatHandler, StatProps } from "./StatRoot";
+import { Tooltip as Tt } from "../UI/Tooltip";
 
 type Factors = Data.DpsFactors | undefined;
 
@@ -29,7 +30,7 @@ export class StatDps<
     return ret;
   }
 
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;
     const frequency = Math.round(f.frequency * 100);

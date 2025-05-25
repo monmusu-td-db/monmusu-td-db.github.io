@@ -1,0 +1,11 @@
+.stat-tooltip-table {
+  margin-bottom: 1rem;
+}
+
+.stat-tooltip-table > tbody > tr > th {
+  color: var(--bs-yellow);
+}
+
+.stat-tooltip-table > tbody > tr > td::before {
+  content: "：";
+}

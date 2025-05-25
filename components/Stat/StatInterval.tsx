@@ -1,11 +1,12 @@
 import type { ReactNode } from "react";
 
 import * as Data from "../Data";
-import { StatTooltip, Tooltip as Tt } from "./StatTooltip";
+import { StatTooltip } from "./StatTooltip";
 import { Setting } from "../States";
 import type { StatHandler } from "./StatRoot";
 import { DelayTooltip } from "./StatDelay";
 import { AttackSpeedTooltip } from "./StatAttackSpeed";
+import { Tooltip as Tt } from "../UI/Tooltip";
 
 type Factors = Data.IntervalFactors | undefined;
 const sign = Tt.sign;
@@ -13,7 +14,7 @@ const sign = Tt.sign;
 export class StatInterval extends StatTooltip<number | undefined, Factors> {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s)?.result !== undefined;
-  protected override getTooltipBody(setting: Setting): ReactNode {
+  public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f?.result === undefined) return;
     const b = f.base;
