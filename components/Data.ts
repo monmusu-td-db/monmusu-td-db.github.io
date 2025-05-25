@@ -22,10 +22,11 @@ TODOリスト
   1つのオブジェクトに複数のバフ効果を入れられるようにする
   補足をツールチップに一覧表示
   補足をspanで囲んで背景色をつけて視認性を向上させる
+  フィルターに移動タイプ追加
 
 メモ
   モンクの射程は固定だが表示上だけ変動する
-  攻撃速度バフの上限は200%?(wikiの学園アルギュロのページ曰く)
+  飛行ユニットのブロック数を確認(アルギュロのブロック数はなぜか1)
 */
 
 // Const
@@ -1409,6 +1410,7 @@ export type Weapon = Readonly<{
   attack?: number;
   defense?: number;
   resist?: number;
+  attackSpeed?: number;
   block?: number;
   range?: number;
   hpMul?: number;
@@ -1422,6 +1424,7 @@ export const Weapon = {
       stat.attack,
       stat.defense,
       stat.resist,
+      stat.attackSpeed,
       stat.block,
       stat.range,
     ];
@@ -1472,6 +1475,7 @@ export const attackSpeedList = {
   143: 29,
   144: 29,
   146: 28,
+  147: 28,
   149: 28,
   152: 27,
   153: 27,
@@ -1585,6 +1589,7 @@ export interface PenetrationFactors {
 
 export interface AttackSpeedFactors {
   readonly attackSpeedBase: number | undefined;
+  readonly attackSpeedWeapon: number;
   readonly attackSpeedPotential: number;
   readonly fixedAttackSpeed: number | undefined;
   readonly attackSpeedResult: number;

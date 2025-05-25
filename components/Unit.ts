@@ -384,15 +384,22 @@ export default class Unit implements TableRow<Keys> {
           return;
         const attackSpeedBase = Data.getAttackSpeed(attackSpeed);
         const fixedAttackSpeed = src.attackSpeedFrame;
+        const weapon = this.getWeaponBaseFactor(s, stat.attackSpeed);
         const p = this.getPotentialFactor(s, stat.attackSpeed);
+        const subtotalWeapon = Data.getAttackSpeed((attackSpeed ?? 0) + weapon);
         const attackSpeedResult =
-          fixedAttackSpeed ?? Data.getAttackSpeed((attackSpeed ?? 0) + p);
-        const attackSpeedPotential =
-          attackSpeedBase === undefined
-            ? 0
-            : attackSpeedBase - attackSpeedResult;
+          fixedAttackSpeed ??
+          Data.getAttackSpeed((attackSpeed ?? 0) + weapon + p);
+
+        const exp =
+          attackSpeedBase === undefined || this.fixedDelay !== undefined;
+        const attackSpeedWeapon = exp ? 0 : attackSpeedBase - subtotalWeapon;
+        const attackSpeedPotential = exp
+          ? 0
+          : subtotalWeapon - attackSpeedResult;
         return {
           attackSpeedBase,
+          attackSpeedWeapon,
           attackSpeedPotential,
           fixedAttackSpeed,
           attackSpeedResult,

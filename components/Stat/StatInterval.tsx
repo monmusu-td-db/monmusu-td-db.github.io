@@ -23,7 +23,7 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
       <>
         {!f.staticValue && !f.staticCooldown && b !== undefined && (
           <>
-            <AttackSpeedTooltip parent={this} factors={b} />
+            <AttackSpeedTooltip factors={b} />
             <DelayTooltip
               parent={this}
               factors={{

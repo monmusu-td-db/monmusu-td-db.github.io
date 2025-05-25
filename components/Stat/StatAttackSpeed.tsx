@@ -3,7 +3,9 @@ import * as Data from "../Data";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
 import type { StatHandler, StatStyles } from "./StatRoot";
-import { Level, Positive, Result } from "../Util";
+import { Tooltip as T } from "../UI/Tooltip";
+
+const sign = T.sign;
 
 type Factors = Data.AttackSpeedFactors | undefined;
 export class StatAttackSpeed extends StatTooltip<number | undefined, Factors> {
@@ -23,15 +25,13 @@ export class StatAttackSpeed extends StatTooltip<number | undefined, Factors> {
   public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;
-    return <AttackSpeedTooltip parent={this} factors={f} />;
+    return <AttackSpeedTooltip factors={f} />;
   }
 }
 
 export function AttackSpeedTooltip({
-  parent,
   factors,
 }: {
-  parent: StatTooltip<unknown, unknown>;
   factors: Data.AttackSpeedFactors & Partial<Data.AttackSpeedInBattleFactors>;
 }) {
   const f = factors;
@@ -41,81 +41,47 @@ export function AttackSpeedTooltip({
   const ammCol = (f.attackMotionMul ?? 100) < 100;
   const asbCol = attackSpeedBuff > 100;
   return (
-    <>
-      <dt>
-        <Result>攻撃動作速度</Result>
-        {parent.equal}
-        <small>
-          {f.fixedAttackSpeed !== undefined ? (
-            <>基礎値</>
-          ) : (
-            <>
-              {b && parent.bStart}
-              基礎値
-              {p && (
-                <>
-                  {parent.minus}
-                  <Positive>潜在覚醒</Positive>
-                </>
-              )}
-              {b && parent.bEnd}
-            </>
-          )}
-          {!!f.attackMotionMul && (
-            <>
-              {parent.multiply}
-              <Level level={ammCol}>攻撃モーション倍率</Level>
-            </>
-          )}
-          {attackSpeedBuff !== 100 && (
-            <>
-              {parent.divide}
-              <Level level={asbCol}>攻撃速度倍率</Level>
-            </>
-          )}
-        </small>
-      </dt>
-      <dd>
-        <Result b>
-          {f.attackSpeedResult}
-          {parent.frame}
-        </Result>
-        {parent.equal}
-        {f.fixedAttackSpeed !== undefined ? (
-          <>
-            {f.fixedAttackSpeed}
-            {parent.frame}
-          </>
-        ) : (
-          <>
-            {b && parent.bStart}
-            {f.attackSpeedBase}
-            {parent.frame}
-            {p && (
-              <>
-                {parent.minus}
-                <Positive>
-                  {f.attackSpeedPotential}
-                  {parent.frame}
-                </Positive>
-              </>
+    <T.Equation>
+      {(d) => (
+        <>
+          <T.Result>
+            {d ? "攻撃動作速度" : f.attackSpeedResult + sign.FRAME}
+          </T.Result>
+          <T.Expression>
+            {f.fixedAttackSpeed !== undefined ? (
+              d ? (
+                "基礎値"
+              ) : (
+                f.fixedAttackSpeed + sign.FRAME
+              )
+            ) : (
+              <T.Brackets enabled={b}>
+                {d ? "基礎値" : f.attackSpeedBase + sign.FRAME}
+                <T.Minus enabled={p}>
+                  <T.Positive>
+                    {d ? "潜在覚醒" : f.attackSpeedPotential + sign.FRAME}
+                  </T.Positive>
+                </T.Minus>
+                <T.Minus enabled={f.attackSpeedWeapon > 0}>
+                  <T.Positive>
+                    {d ? "専用武器" : f.attackSpeedWeapon + sign.FRAME}
+                  </T.Positive>
+                </T.Minus>
+              </T.Brackets>
             )}
-            {b && parent.bEnd}
-          </>
-        )}
-        {!!f.attackMotionMul && (
-          <>
-            {parent.multiply}
-            <Level level={ammCol}>{f.attackMotionMul + parent.percent}</Level>
-          </>
-        )}
-        {attackSpeedBuff !== 100 && (
-          <>
-            {parent.divide}
-            <Level level={asbCol}>{attackSpeedBuff + parent.percent}</Level>
-          </>
-        )}
-      </dd>
-    </>
+            <T.Multiply enabled={!!f.attackMotionMul}>
+              <T.Value isPositive={ammCol}>
+                {d ? "攻撃モーション倍率" : f.attackMotionMul + sign.PERCENT}
+              </T.Value>
+            </T.Multiply>
+            <T.Divide enabled={attackSpeedBuff !== 100}>
+              <T.Value isPositive={asbCol}>
+                {d ? "攻撃速度倍率" : attackSpeedBuff + sign.PERCENT}
+              </T.Value>
+            </T.Divide>
+          </T.Expression>
+        </>
+      )}
+    </T.Equation>
   );
 }

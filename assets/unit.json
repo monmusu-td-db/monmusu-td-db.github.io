@@ -230,6 +230,95 @@
     ]
   },
   {
+    "id": 5,
+    "unitName": "【コカトリス娘】カリス",
+    "unitShortName": "カリス",
+    "rarity": "R",
+    "class": "バーバリアン",
+    "element": "地",
+    "hp": 5939,
+    "attack": 919,
+    "defense": 426,
+    "resist": 132,
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "ビビるフラッシュ",
+      "fixedDelay": 1,
+      "range": 100,
+      "duration": "単発",
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "石化付与→射程内"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "ロックブレス",
+      "range": 200,
+      "splash": true,
+      "duration": 15,
+      "cooldown": 35,
+      "damageType": "魔法",
+      "supplements": [
+        "石化付与20%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "攻撃力+50"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "石化付与5%→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "supplements": [
+          "石化付与5%→命中"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 250
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-proper"
+        ]
+      }
+    ]
+  },
+  {
     "id": 8,
     "unitName": "【オーク娘】ポデル",
     "unitShortName": "ポデル",
@@ -659,6 +748,178 @@
       }
     ],
     "physicalEvasion": 30
+  },
+  {
+    "id": 11,
+    "unitName": "【ケンタウロス娘】エテジア",
+    "unitShortName": "エテジア",
+    "rarity": "R",
+    "class": "シールドナイト",
+    "element": "風",
+    "hp": 5886,
+    "attack": 531,
+    "defense": 834,
+    "resist": 208,
+    "moveType": "隠密",
+    "exSkill1": {
+      "skillName": "騎士の矜持",
+      "attackMul": 240,
+      "defenseMul": 170,
+      "duration": 30,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "騎士の誇り",
+      "defenseMul": 140,
+      "resistMul": 140,
+      "blockAdd": 2,
+      "target": "ブロック",
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "物理防御力+60",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "早馬の剣",
+      "hp": 200,
+      "defense": 30,
+      "resist": 30
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "range": 120
+      },
+      {
+        "featureName": "common-block1",
+        "skill": 2,
+        "attackMul": 105,
+        "defenseMul": 105,
+        "resistMul": 105
+      },
+      {
+        "featureName": "common-block4",
+        "skill": 2,
+        "attackMul": 120,
+        "defenseMul": 120,
+        "resistMul": 120
+      },
+      {
+        "featureName": "common-block7",
+        "skill": 2,
+        "attackMul": 135,
+        "defenseMul": 135,
+        "resistMul": 135
+      }
+    ],
+    "criChanceAdd": 20,
+    "criDamageAdd": 50,
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-block1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-block7"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "unitName": "【マミー娘】ミィマ",
+    "unitShortName": "ミィマ",
+    "rarity": "R",
+    "class": "デストロイヤー",
+    "element": "闇",
+    "hp": 7723,
+    "attack": 920,
+    "defense": 591,
+    "resist": 102,
+    "exSkill1": {
+      "skillName": "カースアンデッド",
+      "attackMul": 220,
+      "defenseMul": 220,
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
+        "ATK-{attack-base*1}→命中",
+        "DEF-{attack-base*1}→命中"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "呪ってあげる…",
+      "duration": "単発",
+      "cooldown": 30,
+      "supplements": [
+        "HP0/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "物理防御力+60",
+      "再出撃時間50%短縮"
+    ],
+    "weapon": {
+      "weaponName": "太古の石棺",
+      "hp": 250,
+      "attack": 55
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 8
+      },
+      {
+        "supplements": [
+          "ATK-{attack-base*20}/死亡時→ブロック敵",
+          "DEF-{attack-base*20}/死亡時→ブロック敵"
+        ]
+      },
+      {
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "interval": null,
+        "target": "全体",
+        "damageFactor": 400,
+        "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
   },
   {
     "id": 13,
@@ -1121,6 +1382,54 @@
     ]
   },
   {
+    "id": 19,
+    "unitName": "【ガーゴイル娘】ユイル",
+    "unitShortName": "ユイル",
+    "rarity": "R",
+    "class": "ガンナー",
+    "element": "水",
+    "hp": 2436,
+    "attack": 832,
+    "defense": 239,
+    "resist": 259,
+    "block": 0,
+    "moveType": "飛行",
+    "supplements": [
+      "石化無効"
+    ],
+    "exSkill1": {
+      "skillName": "水流の呻き",
+      "attackMul": 95,
+      "attackMotionMul": 134,
+      "rounds": 4,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "物理防御力+60",
+      "物理防御力+60"
+    ],
+    "features": [
+      {
+        "require": [
+          "地マス"
+        ],
+        "fieldElements": [
+          "水"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 20,
     "unitName": "【ペガサス娘】スズ",
     "unitShortName": "スズ",
@@ -1131,6 +1440,7 @@
     "attack": 592,
     "defense": 293,
     "resist": 183,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "ウインドアロー",
@@ -1180,6 +1490,86 @@
       }
     ],
     "rangeAdd": 20
+  },
+  {
+    "TODO_DESC": "StatはWiki情報/配置数に含まれない",
+    "id": 21,
+    "unitName": "【フェアリー娘】ネリー",
+    "unitShortName": "ネリー",
+    "rarity": "R",
+    "class": "アーチャー",
+    "element": "光",
+    "species": "妖精",
+    "hp": 2102,
+    "attack": 535,
+    "defense": 271,
+    "resist": 180,
+    "block": 0,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "フェアリーシュート",
+      "attackMul": 180,
+      "duration": 15,
+      "cooldown": 20,
+      "damageType": "魔法"
+    },
+    "exSkill2": {
+      "skillName": "妖精のイタズラ",
+      "attackMul": 140,
+      "duration": 15,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "タイニィボウ",
+      "hp": 250,
+      "defense": 25,
+      "resist": 30
+    },
+    "features": [
+      {
+        "exclude": [
+          "光マス"
+        ],
+        "physicalEvasion": 20,
+        "magicalEvasion": 20
+      },
+      {
+        "require": [
+          "光マス"
+        ],
+        "physicalEvasion": 40,
+        "magicalEvasion": 40
+      },
+      {
+        "skill": 0,
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "physicalEvasion": 40,
+        "magicalEvasion": 40
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
   },
   {
     "id": 22,
@@ -1651,6 +2041,120 @@
         "supplements": [
           "回復5%/命中(女性)"
         ]
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "unitName": "【ジャックランタン娘】テナ",
+    "unitShortName": "テナ",
+    "rarity": "R",
+    "class": "ウォーロック",
+    "element": "火",
+    "hp": 2478,
+    "attack": 884,
+    "defense": 210,
+    "resist": 514,
+    "exSkill1": {
+      "skillName": "火霊の悪戯",
+      "attackMul": 300,
+      "rangeMul": 150,
+      "duration": 15,
+      "cooldown": 25,
+      "supplements": [
+        "スタン10秒/終了後→自分"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "weapon": {
+      "weaponName": "灯火ランタン",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "require": [
+          "火マス"
+        ],
+        "isConditionalBuff": true,
+        "damageFactor": 120,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "unitName": "【ジャックフロスト娘】スゥノ",
+    "unitShortName": "スゥノ",
+    "rarity": "R",
+    "class": "コンジャラー",
+    "element": "水",
+    "hp": 2345,
+    "attack": 563,
+    "defense": 234,
+    "resist": 562,
+    "exSkill1": {
+      "skillName": "氷霊の悪戯",
+      "attackMul": 220,
+      "rangeMul": 190,
+      "duration": 15,
+      "cooldown": 25
+    },
+    "exSkill2": {
+      "skillName": "フロストボールラッシュ",
+      "attackMul": 150,
+      "targetAdd": 1,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "凍結付与(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "features": [
+      {
+        "require": [
+          "水マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "スタン10秒/終了後→自分"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
@@ -2127,6 +2631,75 @@
     ]
   },
   {
+    "id": 36,
+    "unitName": "【マーメイド娘】オキシー",
+    "unitShortName": "オキシー",
+    "rarity": "R",
+    "class": "プリースト",
+    "element": "水",
+    "hp": 3510,
+    "attack": 622,
+    "defense": 271,
+    "resist": 389,
+    "supplements": [
+      "毒回復/配置→射程内",
+      "石化回復/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "マーメイドソング",
+      "fixedDelay": 1,
+      "target": "射程内",
+      "rangeMul": 170,
+      "duration": "単発",
+      "cooldown": 40,
+      "supplements": [
+        "毒回復/発動→射程内",
+        "石化回復/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "魔法防御力+60"
+    ],
+    "weapon": {
+      "weaponName": "ホラガイメガホン",
+      "attack": 40,
+      "resist": 40
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "スタン付与30%/発動→全体"
+        ]
+      },
+      {
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 400
+        }
+      },
+      {
+        "featureName": "class-proper",
+        "damageFactor": 160
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 37,
     "unitName": "【スライム娘】リン",
     "unitShortName": "リン",
@@ -2275,6 +2848,7 @@
     "resist": 378,
     "exSkill1": {
       "skillName": "怪根の癒し",
+      "fixedDelay": 1,
       "rangeMul": 160,
       "duration": "単発",
       "cooldown": 30,
@@ -2683,6 +3257,66 @@
     ]
   },
   {
+    "id": 42,
+    "unitName": "【ローパー娘】ネル",
+    "unitShortName": "ネル",
+    "rarity": "R",
+    "class": "チーフアサシン",
+    "element": "水",
+    "hp": 4054,
+    "attack": 480,
+    "defense": 384,
+    "resist": 118,
+    "supplements": [
+      "移動不可(5秒)/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ぬるぬる乱れ撃ち",
+      "delayMul": 50,
+      "target": "射程内",
+      "rangeMul": 200,
+      "duration": 10,
+      "cooldown": 25,
+      "supplements": [
+        "鈍足-10%(5秒)→命中"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "ぬるぬるエイム",
+      "attackMul": 250,
+      "splash": true,
+      "rangeMul": 150,
+      "duration": 15,
+      "cooldown": 35,
+      "damageType": "魔法",
+      "supplements": [
+        "鈍足-50%(10秒)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "再出撃時間50%短縮"
+    ],
+    "weapon": {
+      "weaponName": "ディルクフィーラ",
+      "attack": 40,
+      "attackSpeed": 5,
+      "range": 6
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 43,
     "unitName": "【マタンゴ娘】シジメ",
     "unitShortName": "シジメ",
@@ -2791,6 +3425,7 @@
     "attack": 0,
     "defense": 289,
     "resist": 447,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "クィーンフェロモン",
@@ -3381,6 +4016,112 @@
       {},
       {
         "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 51,
+    "unitName": "【アラクネ娘】カヅネ",
+    "unitShortName": "カヅネ",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "地",
+    "hp": 3128,
+    "attack": 0,
+    "defense": 302,
+    "resist": 467,
+    "moveType": "ワープ",
+    "exSkill1": {
+      "skillName": "白蜘蛛の絡糸",
+      "rangeMul": 140,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "CT-10秒/発動→味方遠"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "隠蜘蛛の帳",
+      "rangeMul": 140,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "CT-7秒/発動→味方遠"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 2,
+        "isNotAbility": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "鈍足-20%→射程内",
+          "攻撃速度-20%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-25%→射程内",
+            "攻撃速度-25%→射程内敵"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isNotAbility": true,
+        "supplements": [
+          "鈍足-40%→射程内",
+          "攻撃速度-40%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-50%→射程内",
+            "攻撃速度-50%→射程内敵"
+          ]
+        }
+      },
+      {
+        "skill": 2,
+        "isNotAbility": true,
+        "supplements": [
+          "鈍足-60%→射程内",
+          "攻撃速度-60%→射程内敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-75%→射程内",
+            "攻撃速度-75%→射程内敵"
+          ]
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
@@ -4193,6 +4934,64 @@
     "delayMul": 120
   },
   {
+    "id": 59,
+    "unitName": "【ハーピー娘】フェルミ",
+    "unitShortName": "フェルミ",
+    "rarity": "R",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 4104,
+    "attack": 626,
+    "defense": 335,
+    "resist": 98,
+    "exSkill1": {
+      "skillName": "疾風",
+      "attackMul": 180,
+      "fixedDelay": 1,
+      "target": 5,
+      "rangeMul": 160,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "ノックバック(大)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "射程+10"
+    ],
+    "weapon": {
+      "weaponName": "ホワールウィンド",
+      "hp": 150,
+      "attack": 40,
+      "defense": 25
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "即死(高)→命中"
+        ]
+      }
+    ],
+    "costAdd": -1,
+    "criChanceAdd": 20,
+    "criDamageAdd": 50,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 60,
     "unitName": "【エキドナ娘】ミテラス",
     "unitShortName": "ミテラス",
@@ -4776,6 +5575,114 @@
     "potentialBonus": {
       "hpMul": 150
     }
+  },
+  {
+    "id": 66,
+    "unitName": "【アルミラージ娘】ルナミーラ",
+    "unitShortName": "ルナミーラ",
+    "rarity": "E",
+    "class": "ランサー",
+    "element": "光",
+    "hp": 4364,
+    "attack": 606,
+    "defense": 485,
+    "resist": 63,
+    "exSkill1": {
+      "skillName": "コールホーン",
+      "attackMul": 220,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "コスト+7/発動",
+        "tkn+1/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "串刺し祭りぴょん♪",
+      "attackMotionMul": 155,
+      "rounds": 5,
+      "duration": 15,
+      "cooldown": 40,
+      "supplements": [
+        "コスト+8/発動",
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "物理防御力+90"
+    ],
+    "penetrationAdd": 20,
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "potentialBonus": {
+      "physicalEvasion": 45,
+      "magicalEvasion": 45
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "スキル初動はクラス特性で短縮されない",
+    "id": 660001,
+    "parentId": 66,
+    "unitName": "ルナミーラ",
+    "unitShortName": "ルナミーラT",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "光",
+    "cost": 10,
+    "hp": 4364,
+    "attack": 606,
+    "defense": 485,
+    "resist": 63,
+    "exSkill1": {
+      "skillName": "コールホーン",
+      "attackMul": 220,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "コスト+7/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "串刺し祭りぴょん♪",
+      "attackMotionMul": 155,
+      "rounds": 5,
+      "duration": 15,
+      "cooldown": 40,
+      "supplements": [
+        "コスト+8/発動"
+      ]
+    },
+    "features": [
+      {
+        "initialTimeCut": 0
+      }
+    ],
+    "isUnhealable": true,
+    "penetrationAdd": 20,
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -5599,7 +6506,7 @@
     "attack": 924,
     "defense": 467,
     "resist": 110,
-    "moveType": "飛行",
+    "moveType": "隠密",
     "exSkill1": {
       "skillName": "翼竜爪連斬",
       "attackMul": 140,
@@ -6202,6 +7109,7 @@
     "attack": 286,
     "defense": 347,
     "resist": 299,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "安息の音色",
@@ -6738,6 +7646,58 @@
       },
       {
         "skill": 2
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "unitName": "【バイコーン娘】ヴァリナ",
+    "unitShortName": "ヴァリナ",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "闇",
+    "hp": 4933,
+    "attack": 628,
+    "defense": 489,
+    "resist": 63,
+    "rounds": 2,
+    "exSkill1": {
+      "skillName": "イービルサンダー",
+      "attackMul": 220,
+      "rangeMul": 220,
+      "duration": 15,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+16/発動",
+        "スタン付与10%→命中",
+        "猛毒付与(稀)→命中",
+        "石化付与(稀)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "deleteSupplements": [
+          "対地限定攻撃"
+        ]
+      }
+    ],
+    "rangeAdd": 20,
+    "potentialBonus": {
+      "rangeAdd": 27
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },
@@ -7446,6 +8406,7 @@
     "attack": 297,
     "defense": 374,
     "resist": 311,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "静かなるフーガ",
@@ -9680,14 +10641,18 @@
       },
       {
         "featureName": "skill2-attack",
-        "isConditionalBuff": true,
         "annotations": [
           "ダメージフィールド"
         ],
+        "criChanceAdd": -1000,
         "interval": 30,
         "target": "射程内",
         "range": 240,
-        "damageType": "貫通",
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "skill2-attack",
+        "isConditionalBuff": true,
         "supplements": [
           "移動不可",
           "DEF-20→命中"
@@ -9821,6 +10786,7 @@
     "attack": 653,
     "defense": 309,
     "resist": 196,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "スタン付与7%"
@@ -10135,6 +11101,7 @@
     "attack": 602,
     "defense": 312,
     "resist": 188,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "ノックバック→命中"
@@ -10619,6 +11586,91 @@
     }
   },
   {
+    "id": 145,
+    "unitName": "【フレッシュゴーレム娘】ランケ",
+    "unitShortName": "ランケ",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "闇",
+    "hp": 6681,
+    "attack": 960,
+    "defense": 446,
+    "resist": 127,
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "伴侶を求めて",
+      "attackMul": 400,
+      "attackMotionMul": 153,
+      "blockAdd": 1,
+      "target": "ブロック",
+      "duration": 30,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "スタン5秒/終了後→自分"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "supplements": [
+          "スタン付与20%→命中男性"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalSkillBuff": true,
+        "damageFactor": 200
+      }
+    ],
+    "isEventUnit": true,
+    "hpMul": 120,
+    "potentialBonus": {
+      "hpMul": 130
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": -1,
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 146,
     "unitName": "【ファイアジャイアント娘】バーダギ",
     "unitShortName": "バーダギ",
@@ -10689,6 +11741,58 @@
     "costAdd": 5,
     "hpMul": 130,
     "attackMul": 120
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 151,
+    "unitName": "【塗壁娘】チカ",
+    "unitShortName": "チカ",
+    "rarity": "E",
+    "class": "デストロイヤー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 8566,
+    "attack": 896,
+    "defense": 834,
+    "resist": 101,
+    "exSkill1": {
+      "skillName": "ここは通さんけんね！",
+      "defenseMul": 340,
+      "duration": 60,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+90",
+      "物理防御力+90",
+      "配置時バリア1500"
+    ],
+    "features": [
+      {
+        "physicalDamageCut": 20,
+        "magicalDamageCut": -20,
+        "potentialBonus": {
+          "physicalDamageCut": 28
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "attackAdd": {
+          "key": "defense",
+          "value": 70
+        }
+      }
+    ],
+    "blockAdd": 1,
+    "costAdd": 5,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 156,
@@ -11918,6 +13022,7 @@
     "attack": 1163,
     "defense": 237,
     "resist": 292,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "スタン付与15%"
@@ -12388,6 +13493,7 @@
     "attack": 1021,
     "defense": 229,
     "resist": 284,
+    "block": 0,
     "rounds": 3,
     "moveType": "飛行",
     "exSkill1": {
@@ -13300,6 +14406,7 @@
     "attack": 1027,
     "defense": 224,
     "resist": 286,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "ノックバック→命中"
@@ -14976,6 +16083,74 @@
     ]
   },
   {
+    "TODO_DESC": "継続ダメージ",
+    "id": 221,
+    "unitName": "【ビヨンデッタ娘】ペッシェ",
+    "unitShortName": "ペッシェ",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "闇",
+    "hp": 2696,
+    "attack": 634,
+    "defense": 242,
+    "resist": 591,
+    "species": "悪魔",
+    "exSkill1": {
+      "skillName": "本物の愛を見せてあげる",
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "ATK-{attack-base*50}/常時→射程外",
+          "ATK-{attack-base*100}/常時→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK-{attack-base*65}/常時→射程外",
+            "ATK-{attack-base*130}/常時→射程内"
+          ]
+        }
+      },
+      {
+        "featureName": "skill1-extra",
+        "annotations": [
+          "ダメージフィールド"
+        ],
+        "damageFactor": 66,
+        "interval": 99,
+        "target": "射程内",
+        "range": 999,
+        "damageType": "貫通",
+        "supplements": [
+          "RES-10→命中",
+          "鈍足-70%→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-extra"
+        ]
+      }
+    ]
+  },
+  {
     "id": 224,
     "unitName": "【ロックバード娘】ログダンノ",
     "unitShortName": "ログダンノ",
@@ -14988,6 +16163,7 @@
     "resist": 129,
     "exSkill1": {
       "skillName": "メガロスプラッシュ",
+      "fixedDelay": 1,
       "duration": "単発",
       "cooldown": 15,
       "skillFeatures": [
@@ -15656,6 +16832,7 @@
     "attack": 644,
     "defense": 244,
     "resist": 611,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "リリステンプテーション",
@@ -16096,6 +17273,64 @@
     ],
     "physicalEvasion": 30,
     "magicalEvasion": 30
+  },
+  {
+    "id": 245,
+    "unitName": "【ドヴェルグ娘】ラルヴァ",
+    "unitShortName": "ラルヴァ",
+    "rarity": "R",
+    "class": "バーバリアン",
+    "element": "闇",
+    "hp": 5409,
+    "attack": 1043,
+    "defense": 422,
+    "resist": 127,
+    "exSkill1": {
+      "skillName": "ドヴェルグレイジ",
+      "attackMul": 180,
+      "attackSpeedBuff": 150,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "攻撃力+50",
+      "攻撃速度+10"
+    ],
+    "features": [
+      {
+        "featureName": "common-absorb",
+        "skill": 1,
+        "staticDamage": {
+          "key": "hp",
+          "value": 2
+        },
+        "supplements": [
+          "回復2%/命中"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "attackMul": 80,
+    "rounds": 2,
+    "potentialBonus": {
+      "attackMul": 90
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
   },
   {
     "id": 246,
@@ -16653,6 +17888,7 @@
     "attack": 310,
     "defense": 392,
     "resist": 299,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "コスト回復加速(小)"
@@ -17127,6 +18363,7 @@
     "attack": 1012,
     "defense": 229,
     "resist": 510,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "ナイトドリーム",
@@ -17996,6 +19233,7 @@
     "attack": 1004,
     "defense": 222,
     "resist": 555,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "スタン耐性減少→射程内敵"
@@ -18711,6 +19949,7 @@
     "exSkill1": {
       "skillName": "伸びろ如意棒！",
       "attackMul": 140,
+      "fixedDelay": 1,
       "target": "射程内",
       "rounds": 4,
       "range": 300,
@@ -18782,6 +20021,7 @@
     "exSkill1": {
       "skillName": "伸びろ如意棒！",
       "attackMul": 140,
+      "fixedDelay": 1,
       "target": "射程内",
       "rounds": 4,
       "range": 300,
@@ -18961,6 +20201,7 @@
     "attack": 669,
     "defense": 304,
     "resist": 208,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "火傷付与(稀)"
@@ -19147,6 +20388,7 @@
     "attack": 697,
     "defense": 261,
     "resist": 428,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "新たな門出と初日の出",
@@ -19202,6 +20444,7 @@
     "attack": 643,
     "defense": 304,
     "resist": 205,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "火傷付与(稀)"
@@ -19546,6 +20789,7 @@
     "attack": 648,
     "defense": 331,
     "resist": 207,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "正義執行",
@@ -19622,6 +20866,7 @@
     "attack": 669,
     "defense": 312,
     "resist": 203,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "火傷付与(稀)",
@@ -19788,6 +21033,7 @@
     "attack": 697,
     "defense": 284,
     "resist": 411,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "慈悲の光",
@@ -20153,6 +21399,7 @@
     "attack": 440,
     "defense": 352,
     "resist": 453,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "鳥王の加護",
@@ -20844,6 +22091,9 @@
     "isEventUnit": true,
     "rangeAdd": 70,
     "splash": true,
+    "potentialBonus": {
+      "rangeAdd": 90
+    },
     "situations": [
       {},
       {

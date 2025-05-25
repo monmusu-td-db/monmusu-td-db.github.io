@@ -1510,8 +1510,8 @@ export default class Situation implements TableRow<Keys> {
         return ret;
       }
 
-      if (phy > 0) fn("物理", phy);
-      if (mag > 0) fn("魔法", mag);
+      if (phy !== 0) fn("物理", phy);
+      if (mag !== 0) fn("魔法", mag);
     }
     return ret;
   }
@@ -2208,6 +2208,7 @@ export default class Situation implements TableRow<Keys> {
 
     return {
       attackSpeedBase: asf?.attackSpeedBase,
+      attackSpeedWeapon: asf?.attackSpeedWeapon ?? 0,
       attackSpeedPotential: asf?.attackSpeedPotential ?? 0,
       fixedAttackSpeed: asf?.fixedAttackSpeed,
       attackMotionMul,
