@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import * as Data from "../Data";
-import * as Util from "../Util";
+import * as Util from "../UI/Util";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
 import type { StatHandler, StatStyles } from "./StatRoot";
-import { Level, Positive } from "../Util";
+import { Level, Positive } from "../UI/Util";
 import { Tooltip as T } from "../UI/Tooltip";
 
 const PLUS = "+";

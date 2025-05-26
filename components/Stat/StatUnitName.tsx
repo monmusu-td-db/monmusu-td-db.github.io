@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import * as Data from "../Data";
-import * as Util from "../Util";
+import * as Util from "../UI/Util";
 import { StatTooltip } from "./StatTooltip";
 import { StatRoot, type StatHandler, type StatProps } from "./StatRoot";
 import Unit from "../Unit";

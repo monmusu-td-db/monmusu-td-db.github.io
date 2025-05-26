@@ -1,12 +1,12 @@
 "use client";
 
 import * as Data from "@/components/Data";
-import * as Util from "@/components/Util";
+import * as Util from "@/components/UI/Util";
 import {
   BuffTable,
   type BuffTableItem,
   type BuffTableSource,
-} from "@/components/BuffTable";
+} from "@/components/UI/BuffTable";
 import Unit, { type JsonBuff, type JsonUnit } from "@/components/Unit";
 import type { ReactNode } from "react";
 import styles from "./InBattleBuffTable.module.css";

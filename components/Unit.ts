@@ -1,8 +1,6 @@
-"use client";
-
 import jsonUnits from "@/assets/unit.json";
 import * as Data from "./Data";
-import * as Util from "./Util";
+import * as Util from "./UI/Util";
 import * as Stat from "./Stat";
 import {
   FilterEquipment,

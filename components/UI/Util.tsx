@@ -1,7 +1,7 @@
 import { Fragment, type ReactNode } from "react";
 
 import styles from "./Util.module.css";
-import * as Data from "./Data";
+import * as Data from "../Data";
 
 const text = {
   positive: "text-dark-teal",

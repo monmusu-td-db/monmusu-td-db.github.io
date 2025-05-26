@@ -4,7 +4,7 @@ import * as Data from "../Data";
 import { StatTooltip } from "./StatTooltip";
 import { Setting } from "../States";
 import type { StatHandler, StatStyles } from "./StatRoot";
-import { Level, Neutral, Result } from "../Util";
+import { Level, Neutral, Result } from "../UI/Util";
 
 type Factors = Data.DelayFactors | undefined;
 

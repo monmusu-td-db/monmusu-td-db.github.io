@@ -1,7 +1,7 @@
 import { StatRoot } from "./StatRoot";
 import type { ReactNode } from "react";
 import type { Setting } from "../States";
-import { JoinTexts } from "../Util";
+import { JoinTexts } from "../UI/Util";
 
 export class StatSupplement extends StatRoot<ReadonlySet<string>> {
   protected override getDefaultItem(setting: Setting): ReactNode {

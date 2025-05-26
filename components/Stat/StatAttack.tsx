@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import { Setting } from "../States";
 import { SituationBaseStat } from "./SituationBaseStat";
-import { Level, Positive, Result } from "../Util";
+import { Level, Positive, Result } from "../UI/Util";
 
 export type Factors = Data.ActualAttackFactors | undefined;
 

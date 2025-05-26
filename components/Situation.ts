@@ -1,6 +1,6 @@
 import jsonSituations from "@/assets/situation.json";
 import * as Data from "./Data";
-import * as Util from "./Util";
+import * as Util from "./UI/Util";
 import * as Stat from "./Stat";
 import {
   Filter,

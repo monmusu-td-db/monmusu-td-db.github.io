@@ -1,7 +1,7 @@
 "use client";
 
 import * as Data from "@/components/Data";
-import * as Util from "@/components/Util";
+import * as Util from "@/components/UI/Util";
 import Unit from "@/components/Unit";
 import type { ReactNode } from "react";
 import styles from "./FormationBuffTable.module.css";
@@ -9,7 +9,7 @@ import {
   BuffTable,
   type BuffTableItem,
   type BuffTableSource,
-} from "@/components/BuffTable";
+} from "@/components/UI/BuffTable";
 
 const columns = [
   "id",
