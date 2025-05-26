@@ -13,9 +13,13 @@
   width: 2.7rem;
 }
 
-.conditions,
+.conditions {
+  width: 2.8rem;
+}
+
 .target {
   width: 2.8rem;
+  min-width: 2.1rem;
 }
 
 .rarity,
@@ -66,12 +70,14 @@
 
 .unitShortName {
   width: 5.3rem;
+  min-width: 3.3rem;
 }
 
 .skillName,
 .exSkill1,
 .exSkill2 {
   width: 8.9rem;
+  min-width: 5rem;
 }
 
 .unitName {
@@ -80,4 +86,5 @@
 
 .supplements {
   width: 10.16rem;
+  min-width: 7.62rem;
 }

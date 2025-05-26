@@ -77,7 +77,3 @@
   flex-wrap: wrap;
   column-gap: 0.5em;
 }
-
-.stat-table .annotations > * {
-  white-space: nowrap;
-}
