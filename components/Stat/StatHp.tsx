@@ -8,20 +8,6 @@ const sign = Tt.sign;
 type Factors = Data.ActualHpFactors | undefined;
 
 export class StatHp extends SituationBaseStat<Factors> {
-  protected override getDefaultItem(setting: Setting): ReactNode {
-    const value = this.getValue(setting);
-    if (value === undefined) return;
-    const Item = super.NumberItem;
-    const factors = this.getFactors(setting);
-    const ret = <Item value={value} />;
-
-    if (factors?.isUnhealable) {
-      return <u>{ret}</u>;
-    }
-
-    return ret;
-  }
-
   public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f === undefined) return;

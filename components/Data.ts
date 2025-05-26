@@ -179,6 +179,7 @@ export const TableClass = {
   sm: "fsm",
   skillNormal: "skill-normal",
   annotations: "annotations",
+  unhealable: "unhealable",
 } as const;
 
 // Stat

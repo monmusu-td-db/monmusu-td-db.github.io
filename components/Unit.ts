@@ -1,6 +1,5 @@
 import jsonUnits from "@/assets/unit.json";
 import * as Data from "./Data";
-import * as Util from "./UI/Util";
 import * as Stat from "./Stat";
 import {
   FilterEquipment,
@@ -155,6 +154,7 @@ type Keys = (typeof keys)[number];
 const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
+const getTableColor = Data.StyleSelector.getTableColor;
 
 export default class Unit implements TableRow<Keys> {
   readonly id: number;
@@ -252,7 +252,7 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => rarity,
         comparer: () => comparer,
         color: () => color,
-        styles: () => Data.StyleSelector.getTableColor(color),
+        styles: () => getTableColor(color),
       });
     }
 
@@ -277,7 +277,7 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => element,
         comparer: () => comparer,
         color: () => color,
-        styles: () => Data.StyleSelector.getTableColor(color),
+        styles: () => getTableColor(color),
       });
     }
 
@@ -518,7 +518,7 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => damageType,
         comparer: () => Data.DamageType.indexOf(damageType),
         color: () => color,
-        styles: () => Data.StyleSelector.getTableColor(color),
+        styles: () => getTableColor(color),
       });
     }
 
@@ -582,7 +582,7 @@ export default class Unit implements TableRow<Keys> {
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
       styles: (s) => {
         const color = Data.MoveType.colorOf(this.moveType.getValue(s));
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
     });
 
@@ -615,7 +615,7 @@ export default class Unit implements TableRow<Keys> {
         const value = this.placement.getValue(s);
         if (value === undefined) return;
         const color = Data.Placement.color[value];
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
     });
 
@@ -749,13 +749,12 @@ export default class Unit implements TableRow<Keys> {
     const ret: Stat.Base<number> = new Stat.Base({
       statType: key,
       calculater: (s) => ret.getFactors(s)?.deploymentResult ?? 0,
-      item: (s) => {
-        const c = ret.getText(s);
-        if (key === stat.hp && this.isUnhealable)
-          return Util.getUnhealableText(c);
-        return c;
-      },
       isReversed: true,
+      styles: () => {
+        if (this.isUnhealable) {
+          return Data.TableClass.unhealable;
+        }
+      },
       factors: (s) => this.getDeploymentFactors(s, key, data[key]),
     });
     return ret;

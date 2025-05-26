@@ -22,6 +22,7 @@ import {
   type FeatureOutputCore,
 } from "./Feature";
 import type { TableHeader, TableRow, TableSource } from "./UI/StatTable";
+import cn from "classnames";
 
 const tableColor = Data.tableColorAlias;
 
@@ -76,6 +77,7 @@ type Keys = (typeof keys)[number];
 const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
+const getTableColor = Data.StyleSelector.getTableColor;
 
 const require = {
   DISABLED: "disabled",
@@ -252,7 +254,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = this.conditions.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
     });
 
@@ -391,7 +393,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = this.interval.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => this.getIntervalFactors(s),
     });
@@ -412,7 +414,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = this.block.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => {
         const sk = this.getSkill(s);
@@ -443,7 +445,7 @@ export default class Situation implements TableRow<Keys> {
       color: (s) => this.target.getFactors(s)?.color,
       styles: (s) => {
         const color = this.target.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => {
         const u = this.unit?.target.getFactors(s);
@@ -627,7 +629,7 @@ export default class Situation implements TableRow<Keys> {
       color: (s) => this.range.getFactors(s)?.color,
       styles: (s) => {
         const color = this.range.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => {
         const unitFactor = this.unit?.range.getFactors(s);
@@ -725,7 +727,7 @@ export default class Situation implements TableRow<Keys> {
       color: (s) => Util.getPhysicalLimitColor(this.physicalLimit.getValue(s)),
       styles: (s) => {
         const color = this.physicalLimit.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => this.getStatLimitFactors(s, stat.physicalLimit),
     });
@@ -739,7 +741,7 @@ export default class Situation implements TableRow<Keys> {
       color: (s) => Util.getMagicalLimitColor(this.magicalLimit.getValue(s)),
       styles: (s) => {
         const color = this.magicalLimit.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => this.getStatLimitFactors(s, stat.magicalLimit),
     });
@@ -931,7 +933,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = this.supplements.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
     });
 
@@ -959,7 +961,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = this.initialTime.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
     });
 
@@ -998,7 +1000,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = this.duration.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
     });
 
@@ -1023,7 +1025,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = this.cooldown.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => {
         const f = this.getFeature(s);
@@ -1109,7 +1111,7 @@ export default class Situation implements TableRow<Keys> {
       color: (s) => Data.DamageType.colorOf(this.damageType.getValue(s)),
       styles: (s) => {
         const color = this.damageType.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
     });
 
@@ -1122,7 +1124,7 @@ export default class Situation implements TableRow<Keys> {
           Util.getDpsColor(ret.getValue(s), this.damageType.getValue(s)),
         styles: (s) => {
           const color = ret.getColor(s);
-          return Data.StyleSelector.getTableColor(color);
+          return getTableColor(color);
         },
         factors: (s) => this.getDpsFactors(s, i),
       });
@@ -1404,8 +1406,11 @@ export default class Situation implements TableRow<Keys> {
       isReversed: true,
       color: (s) => this.getBaseStatColor(s, statType),
       styles: (s) => {
-        const color = ret.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        const color = getTableColor(ret.getColor(s));
+        const unhealable = ret.getFactors(s)?.isUnhealable
+          ? Data.TableClass.unhealable
+          : undefined;
+        return cn(color, unhealable);
       },
       factors: (s) => this.getActualHpFactors(s),
     });
@@ -1429,7 +1434,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = ret.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => this.getActualAttackFactors(s),
     });
@@ -1448,7 +1453,7 @@ export default class Situation implements TableRow<Keys> {
       },
       styles: (s) => {
         const color = ret.getColor(s);
-        return Data.StyleSelector.getTableColor(color);
+        return getTableColor(color);
       },
       factors: (s) => this.getActualDefResFactors(s, statType),
     });

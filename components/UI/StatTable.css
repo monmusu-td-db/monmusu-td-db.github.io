@@ -77,3 +77,7 @@
   flex-wrap: wrap;
   column-gap: 0.5em;
 }
+
+.stat-table .unhealable {
+  text-decoration-line: underline;
+}

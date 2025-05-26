@@ -4,7 +4,11 @@ import * as Data from "../Data";
 import { Setting } from "../States";
 
 export type StatHandler<T> = (setting: Setting) => T;
-export type StatStyles = string | readonly (string | undefined)[] | undefined;
+export type StatStyles =
+  | string
+  | readonly (string | undefined)[]
+  | undefined
+  | void;
 
 interface StatPropsBase<TStat> {
   statType: Data.StatType;
@@ -77,11 +81,13 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   getStyles(setting: Setting): string | undefined {
     return this.stylesCache.getCache((s) => {
       const styles = this.getDefaultStyles(s);
+      let ret;
       if (typeof styles === "string") {
-        return styles;
+        ret = styles;
       } else {
-        return styles?.filter((v) => v !== undefined || v !== "").join(" ");
+        ret = styles?.filter((v) => v !== undefined || v !== "").join(" ");
       }
+      return ret === "" ? undefined : ret;
     }, setting);
   }
 
