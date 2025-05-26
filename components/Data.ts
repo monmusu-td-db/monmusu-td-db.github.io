@@ -101,13 +101,6 @@ export class Percent {
   }
 }
 
-export class StyleSelector {
-  static getTableColor(color: TableColor | undefined): string | undefined {
-    if (color === undefined) return;
-    return `table-c-${color}`;
-  }
-}
-
 export function mapSort<T>(
   data: readonly T[],
   comparer: (value: T) => string | number | undefined,
@@ -165,6 +158,15 @@ export const tableColor = {
   yellow800: "yellow-800",
 } as const;
 export type TableColor = (typeof tableColor)[keyof typeof tableColor];
+export const TableColor = {
+  getSelector(color: TableColor | undefined): string | undefined {
+    if (color === undefined) {
+      return;
+    } else {
+      return `table-c-${color}`;
+    }
+  },
+} as const;
 export const tableColorAlias = {
   positive: tableColor.red,
   negative: tableColor.blue,
@@ -180,6 +182,7 @@ export const TableClass = {
   skillNormal: "skill-normal",
   annotations: "annotations",
   unhealable: "unhealable",
+  critical: "critical",
 } as const;
 
 // Stat

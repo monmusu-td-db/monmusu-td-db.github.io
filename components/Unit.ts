@@ -154,7 +154,7 @@ type Keys = (typeof keys)[number];
 const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
-const getTableColor = Data.StyleSelector.getTableColor;
+const getTableColor = Data.TableColor.getSelector;
 
 export default class Unit implements TableRow<Keys> {
   readonly id: number;
@@ -745,17 +745,17 @@ export default class Unit implements TableRow<Keys> {
       .deploymentResult as T;
   }
 
-  private getBaseStat(data: Readonly<JsonUnit>, key: Data.BaseStatType) {
+  private getBaseStat(data: Readonly<JsonUnit>, statType: Data.BaseStatType) {
     const ret: Stat.Base<number> = new Stat.Base({
-      statType: key,
+      statType: statType,
       calculater: (s) => ret.getFactors(s)?.deploymentResult ?? 0,
       isReversed: true,
       styles: () => {
-        if (this.isUnhealable) {
+        if (this.isUnhealable && statType === stat.hp) {
           return Data.TableClass.unhealable;
         }
       },
-      factors: (s) => this.getDeploymentFactors(s, key, data[key]),
+      factors: (s) => this.getDeploymentFactors(s, statType, data[statType]),
     });
     return ret;
   }

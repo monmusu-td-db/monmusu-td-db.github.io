@@ -20,10 +20,6 @@ export class StatAttack extends SituationBaseStat<Factors> {
       return <Item value={value} plus />;
     }
 
-    if ((factors?.criticalChance ?? 0) >= 100) {
-      return <b>{ret}</b>;
-    }
-
     return ret;
   }
 

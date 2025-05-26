@@ -22,7 +22,6 @@ import {
   type FeatureOutputCore,
 } from "./Feature";
 import type { TableHeader, TableRow, TableSource } from "./UI/StatTable";
-import cn from "classnames";
 
 const tableColor = Data.tableColorAlias;
 
@@ -77,7 +76,7 @@ type Keys = (typeof keys)[number];
 const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
-const getTableColor = Data.StyleSelector.getTableColor;
+const getTableColor = Data.TableColor.getSelector;
 
 const require = {
   DISABLED: "disabled",
@@ -1410,7 +1409,7 @@ export default class Situation implements TableRow<Keys> {
         const unhealable = ret.getFactors(s)?.isUnhealable
           ? Data.TableClass.unhealable
           : undefined;
-        return cn(color, unhealable);
+        return [color, unhealable];
       },
       factors: (s) => this.getActualHpFactors(s),
     });
@@ -1433,8 +1432,12 @@ export default class Situation implements TableRow<Keys> {
         return this.getBaseStatColor(s, stat.attack);
       },
       styles: (s) => {
-        const color = ret.getColor(s);
-        return getTableColor(color);
+        const color = getTableColor(ret.getColor(s));
+        const critical =
+          (ret.getFactors(s)?.criticalChance ?? 0) >= 100
+            ? Data.TableClass.critical
+            : undefined;
+        return [color, critical];
       },
       factors: (s) => this.getActualAttackFactors(s),
     });

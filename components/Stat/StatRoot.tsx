@@ -2,13 +2,10 @@ import type { ReactNode } from "react";
 
 import * as Data from "../Data";
 import { Setting } from "../States";
+import cn from "classnames";
 
 export type StatHandler<T> = (setting: Setting) => T;
-export type StatStyles =
-  | string
-  | readonly (string | undefined)[]
-  | undefined
-  | void;
+export type StatStyles = string | readonly (string | undefined)[] | undefined;
 
 interface StatPropsBase<TStat> {
   statType: Data.StatType;
@@ -81,12 +78,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   getStyles(setting: Setting): string | undefined {
     return this.stylesCache.getCache((s) => {
       const styles = this.getDefaultStyles(s);
-      let ret;
-      if (typeof styles === "string") {
-        ret = styles;
-      } else {
-        ret = styles?.filter((v) => v !== undefined || v !== "").join(" ");
-      }
+      const ret = cn(styles);
       return ret === "" ? undefined : ret;
     }, setting);
   }

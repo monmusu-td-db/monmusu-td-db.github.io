@@ -81,3 +81,7 @@
 .stat-table .unhealable {
   text-decoration-line: underline;
 }
+
+.stat-table .critical {
+  font-weight: bold;
+}
