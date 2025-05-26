@@ -1,5 +1,5 @@
 import jsonWord from "@/assets/word.json";
-import { type Setting, type States } from "./States";
+import { type Setting } from "./States";
 
 /* 
 TODOリスト
@@ -135,17 +135,6 @@ function compare(a: unknown, b: unknown): number {
   }
   return a < b ? -1 : 1;
 }
-
-export type TableData<TData, TColumn extends keyof TData> = Readonly<{
-  list: readonly TData[];
-  columns: readonly TColumn[];
-  comparer: (
-    setting: Setting,
-    key: TColumn,
-    target: TData
-  ) => string | number | undefined;
-  filter: (states: States, list: readonly TData[]) => readonly TData[];
-}>;
 
 export const tableColor = {
   red: "red",
