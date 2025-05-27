@@ -1472,11 +1472,18 @@ export default class Situation implements TableRow<Keys> {
           const [key, value] = match.split("*");
           return (
             (() => {
+              const v =
+                value !== undefined ? Number.parseInt(value) : undefined;
               switch (key) {
                 case "attack-base":
                   return Data.Percent.multiply(
                     this.attack.getFactors(setting)?.deploymentResult ?? 0,
-                    value !== undefined ? Number.parseInt(value) : undefined
+                    v
+                  );
+                case "attack":
+                  return Data.Percent.multiply(
+                    this.attack.getFactors(setting)?.inBattleResult ?? 0,
+                    v
                   );
               }
             })()?.toString() ?? ""

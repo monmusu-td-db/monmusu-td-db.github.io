@@ -10722,7 +10722,11 @@
           "key": "attack",
           "value": -30
         },
-        "target": "射程内"
+        "target": "射程内",
+        "supplements": [
+          "DEF-{attack*30}/常時→射程内",
+          "RES-{attack*30}/常時→射程内"
+        ]
       },
       {
         "featureName": "regenerate",
