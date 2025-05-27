@@ -367,6 +367,7 @@ export const JsonCondition = {
 };
 export const Condition = {
   ...condition,
+  texts: conditionTexts,
 
   get(key: ConditionKey, value?: number | undefined): Condition {
     return {
@@ -396,22 +397,22 @@ export const Condition = {
     return list.toSorted((a, b) => fn(a) - fn(b));
   },
 
-  textOf(list: readonly Condition[]): string {
-    return list
-      .map((v) => {
-        const a = conditionTexts[v.key];
-        const b = v.value !== undefined ? `${v.value}` : "";
-        switch (v.key) {
-          case condition.hit:
-            const s = (v.value ?? 0) > 1 ? a + "s" : a;
-            return b + s + " ";
-          case condition.second:
-            return b + a + " ";
-          default:
-            return a + b + (v.value !== undefined ? " " : "");
-        }
-      })
-      .join("");
+  getText(kvp: Condition) {
+    const key = Condition.texts[kvp.key];
+    const value = kvp.value !== undefined ? kvp.value.toString() : "";
+    switch (kvp.key) {
+      case condition.hit:
+        const s = (kvp.value ?? 0) > 1 ? key + "s" : key;
+        return value + s + " ";
+      case condition.second:
+        return value + key + " ";
+      default:
+        return key + value + (kvp.value !== undefined ? " " : "");
+    }
+  },
+
+  listTextOf(list: readonly Condition[]): string {
+    return list.map((kvp) => Condition.getText(kvp)).join("");
   },
 } as const;
 
