@@ -2275,17 +2275,21 @@ export default class Situation implements TableRow<Keys> {
 
   private getAttackDebuff(setting: Setting, limit: number): number {
     const f = this.getFeature(setting);
-    const v = f.attackDebuff;
-    if (v === undefined || typeof v === "number") return v ?? 0;
-    switch (v.key) {
-      case Data.StaticDamage.ATTACK_BASE: {
-        const a = this.attack.getFactors(setting)?.deploymentResult;
-        if (a === undefined) return 0;
-        return Percent.multiply(a, v.value);
+
+    const ret = f.attackDebuffs?.map((v) => {
+      if (typeof v === "number") return v ?? 0;
+      switch (v.key) {
+        case Data.StaticDamage.ATTACK_BASE: {
+          const a = this.attack.getFactors(setting)?.deploymentResult;
+          if (a === undefined) return 0;
+          return Percent.multiply(a, v.value);
+        }
+        case AttackDebuff.enemyAttack:
+          return Percent.divide(limit, 100 - v.value) - limit;
       }
-      case AttackDebuff.enemyAttack:
-        return Percent.divide(limit, 100 - v.value) - limit;
-    }
+    });
+
+    return ret?.reduce((a, c) => a + c) ?? 0;
   }
 
   private getInitialTime(setting: Setting) {

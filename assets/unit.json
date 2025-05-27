@@ -22387,8 +22387,7 @@
     "defense": 359,
     "resist": 332,
     "supplements": [
-      "スタン付与100%/配置→射程内",
-      "ATK-{attack-base*15}/常時→射程内"
+      "スタン付与100%/配置→射程内"
     ],
     "exSkill1": {
       "skillName": "テンタクルバインド",
@@ -22411,7 +22410,10 @@
         "attackDebuff": {
           "key": "attack-base",
           "value": 15
-        }
+        },
+        "supplements": [
+          "ATK-{attack-base*15}/常時→射程内"
+        ]
       }
     ],
     "isEventUnit": true,
