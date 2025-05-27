@@ -304,7 +304,7 @@ interface FeatureDiff {
   staticDamage: Data.StaticDamage;
   staticDefense: Data.StaticDamage;
   staticResist: Data.StaticDamage;
-  attackDebuff: number | AttackDebuff;
+  attackDebuffs: (number | AttackDebuff)[];
   target: Data.TargetBase;
   fixedTarget: Data.TargetBase;
   rounds: Data.Rounds;
@@ -438,7 +438,7 @@ export class Feature {
         typeof v === "number" ||
         (v !== undefined && JsonAttackDebuff.isKvp(v))
       )
-        ret.attackDebuff = v;
+        ret.attackDebuffs = [v];
     }
     {
       const v = Data.JsonTarget.parse(src.target);
@@ -578,8 +578,11 @@ export class Feature {
         ret.staticDefense = feature.staticDefense;
       if (feature.staticResist !== undefined)
         ret.staticResist = feature.staticResist;
-      if (feature.attackDebuff !== undefined)
-        ret.attackDebuff = feature.attackDebuff;
+      if (feature.attackDebuffs !== undefined)
+        ret.attackDebuffs = this.concatItems(
+          ret.attackDebuffs,
+          feature.attackDebuffs
+        );
       {
         const v = feature.target;
         if (v !== undefined) ret.target = v;

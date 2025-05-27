@@ -1016,6 +1016,15 @@
     "placement": "遠",
     "features": [
       {
+        "attackDebuff": {
+          "key": "attack-base",
+          "value": 50
+        },
+        "supplements": [
+          "ATK-{attack-base*50}/常時→射程内"
+        ]
+      },
+      {
         "featureName": "class-buff",
         "isAbility": true,
         "isSupport": true,
