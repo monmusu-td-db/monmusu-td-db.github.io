@@ -22374,5 +22374,62 @@
         "skill": 1
       }
     ]
+  },
+  {
+    "id": 331,
+    "unitName": "【アイドル】エミリ",
+    "unitShortName": "エミリ",
+    "rarity": "L",
+    "class": "バード",
+    "element": "水",
+    "hp": 3516,
+    "attack": 286,
+    "defense": 359,
+    "resist": 332,
+    "supplements": [
+      "スタン付与100%/配置→射程内",
+      "ATK-{attack-base*15}/常時→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "テンタクルバインド",
+      "attackMul": 160,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "移動不可(5秒)/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "attack-base",
+          "value": 15
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
   }
 ]
