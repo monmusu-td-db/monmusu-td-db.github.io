@@ -7,18 +7,17 @@ import { SituationBaseStat } from "./SituationBaseStat";
 export type Factors = Data.ActualDefResFactors | undefined;
 
 export class StatDefRes extends SituationBaseStat<Factors> {
-  protected override getDefaultItem(setting: Setting): ReactNode {
+  protected override getNumberText(setting: Setting): string | undefined {
     const value = this.getValue(setting);
     if (value === undefined) return;
 
-    const Item = super.NumberItem;
     const factors = this.getFactors(setting);
-
-    if (factors?.staticDamage !== undefined) {
-      return <Item value={factors.staticDamage.result} plus />;
+    const staticDamage = factors?.staticDamage;
+    if (staticDamage !== undefined) {
+      return StatDefRes.getNumber({ value: staticDamage.result, plus: true });
+    } else {
+      return StatDefRes.getNumber({ value });
     }
-
-    return <Item value={value} />;
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {

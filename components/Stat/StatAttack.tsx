@@ -4,33 +4,17 @@ import * as Data from "../Data";
 import { Setting } from "../States";
 import { SituationBaseStat } from "./SituationBaseStat";
 import { Level, Positive, Result } from "../UI/Util";
-import type { StatStyles } from "./StatRoot";
 
 export type Factors = Data.ActualAttackFactors | undefined;
 
 export class StatAttack extends SituationBaseStat<Factors> {
-  private getNumberText(setting: Setting): string | undefined {
+  protected override getNumberText(setting: Setting): string | undefined {
     const value = this.getValue(setting);
     if (value === undefined) return;
 
     const factors = this.getFactors(setting);
     const plus = factors?.isSupport;
-    const text = StatAttack.getNumber({ value, plus });
-    return text;
-  }
-
-  protected override getDefaultItem(setting: Setting): ReactNode {
-    return this.getNumberText(setting);
-  }
-  protected override getDefaultStyles(setting: Setting): StatStyles {
-    const base = super.getDefaultStyles(setting);
-    const text = this.getNumberText(setting);
-    const length = text?.length ?? 0;
-    if (length <= StatAttack.NUMBER_LENGTH_LIMIT) {
-      return base;
-    } else {
-      return StatAttack.mergeStyles(base, Data.TableClass.small);
-    }
+    return StatAttack.getNumber({ value, plus });
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {
