@@ -46,6 +46,8 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   private stylesCache = new Data.Cache<string | undefined>();
   private factorsCache = new Data.Cache<TFactors>();
 
+  protected static readonly NUMBER_LENGTH_LIMIT = 5;
+
   constructor(props: StatProps<TStat, TFactors>) {
     this.statType = props.statType;
     this.calculater = props.calculater;
@@ -120,7 +122,22 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     return this.styles(setting);
   }
 
+  protected static getNumber({
+    value,
+    plus,
+    length,
+  }: {
+    value: number;
+    plus?: boolean | undefined;
+    length?: number;
+  }) {
+    const limit = length ?? this.NUMBER_LENGTH_LIMIT;
+    const text = this.getNumberText(value, limit);
+    return plus && value >= 0 ? "+" + text : text;
+  }
+
   protected NumberItem({
+    // TODO Obsolete
     value,
     plus,
     length,
@@ -145,7 +162,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     if (text.length <= limit + 1) {
       return text;
     } else {
-      return (value / 1000).toFixed(0) + "K";
+      return Math.trunc(value / 1000) + "K";
     }
   }
 

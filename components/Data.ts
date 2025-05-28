@@ -178,7 +178,7 @@ export const tableColorAlias = {
 } as const;
 
 export const TableClass = {
-  sm: "fsm",
+  small: "fsm",
   skillNormal: "skill-normal",
   annotations: "annotations",
   unhealable: "unhealable",

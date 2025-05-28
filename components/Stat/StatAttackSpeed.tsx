@@ -18,7 +18,7 @@ export class StatAttackSpeed extends StatTooltip<number | undefined, Factors> {
     if (value === undefined || value < 100) {
       return origin;
     } else {
-      return StatAttackSpeed.mergeStyles(origin, Data.TableClass.sm);
+      return StatAttackSpeed.mergeStyles(origin, Data.TableClass.small);
     }
   }
 

@@ -118,7 +118,7 @@ export class StatTarget extends StatTooltip<
       laser ||
       (Array.isArray(rounds) && rounds.length > 1)
     ) {
-      return StatTarget.mergeStyles(origin, Data.TableClass.sm);
+      return StatTarget.mergeStyles(origin, Data.TableClass.small);
     } else {
       return origin;
     }

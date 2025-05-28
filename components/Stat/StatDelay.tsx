@@ -18,7 +18,7 @@ export class StatDelay extends StatTooltip<number | undefined, Factors> {
     if (value === undefined || value < 100) {
       return origin;
     } else {
-      return StatDelay.mergeStyles(origin, Data.TableClass.sm);
+      return StatDelay.mergeStyles(origin, Data.TableClass.small);
     }
   }
 
