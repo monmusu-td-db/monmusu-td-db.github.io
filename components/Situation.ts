@@ -2116,9 +2116,21 @@ export default class Situation implements TableRow<Keys> {
     const getAtkSpdResult = (motionSpeed: number, speedBuff: number) =>
       Math.round((motionSpeed * 100) / speedBuff);
     const sk = this.getSkill(setting);
-    const attackSpeed = this.unit?.attackSpeed.getValue(setting);
-    if (attackSpeed === undefined) return;
-    const asf = this.unit?.attackSpeed.getFactors(setting);
+
+    const unitASF = this.unit?.attackSpeed.getFactors(setting);
+    if (unitASF === undefined) return;
+    const {
+      attackSoeedIndicator,
+      attackSpeedBase,
+      attackSpeedWeapon,
+      attackSpeedPotential,
+      attackSpeedIndicatorBuff,
+      attackSpeedResult: attackSpeed,
+    } = Data.getAttackSpeedFactorsSituation(
+      unitASF,
+      f.attackSpeedIndicatorBuff ?? 0
+    );
+
     const attackMotionMul = f.attackMotionMul ?? sk?.attackMotionMul;
     const attackMotionSpeed = Percent.multiply(attackSpeed, attackMotionMul);
     const attackSpeedBuffPos = Percent.max(
@@ -2214,10 +2226,11 @@ export default class Situation implements TableRow<Keys> {
     const result = attackSpeedResult + delayResult;
 
     return {
-      attackSpeedBase: asf?.attackSpeedBase,
-      attackSpeedWeapon: asf?.attackSpeedWeapon ?? 0,
-      attackSpeedPotential: asf?.attackSpeedPotential ?? 0,
-      fixedAttackSpeed: asf?.fixedAttackSpeed,
+      attackSoeedIndicator,
+      attackSpeedBase,
+      attackSpeedWeapon,
+      attackSpeedPotential,
+      attackSpeedIndicatorBuff,
       attackMotionMul,
       attackSpeedBuff,
       attackSpeedResult,

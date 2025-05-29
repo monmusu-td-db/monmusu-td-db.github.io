@@ -1490,12 +1490,47 @@ export const Weapon = {
 //   return NaN as T;
 // }
 
-export function getAttackSpeed<T extends number | undefined>(value: T): T {
+export function getAttackSpeed<T extends number | undefined>(
+  value: T
+): number | Exclude<T, number> {
   // Wikiの表からの推測値
+  if (value === undefined) return value as Exclude<T, number>;
   const V1 = 0.0595;
   const V2 = 4.7155;
-  if (value === undefined) return undefined as T;
-  return Math.round(40 / ((value - (value * V1 - V2)) / 100)) as T;
+  return Math.round(4000 / (value - (value * V1 - V2)));
+}
+
+export function getAttackSpeedFactors(
+  indicator: AttackSpeedIndicator
+): AttackSpeedFactors {
+  const attackSpeedBase = getAttackSpeed(indicator.base);
+  const subtotalWeapon = getAttackSpeed(indicator.base + indicator.weapon);
+  const attackSpeedResult = getAttackSpeed(
+    indicator.base + indicator.weapon + indicator.potential
+  );
+  const attackSpeedWeapon = attackSpeedBase - subtotalWeapon;
+  const attackSpeedPotential = subtotalWeapon - attackSpeedResult;
+  return {
+    attackSoeedIndicator: indicator,
+    attackSpeedBase,
+    attackSpeedWeapon,
+    attackSpeedPotential,
+    attackSpeedResult,
+  };
+}
+
+export function getAttackSpeedFactorsSituation(
+  factors: AttackSpeedFactors,
+  indicatorBuff: number
+): AttackSpeedFactorsSituation {
+  const { base, weapon, potential } = factors.attackSoeedIndicator;
+  const result = getAttackSpeed(base + weapon + potential + indicatorBuff);
+  const attackSpeedIndicatorBuff = factors.attackSpeedResult - result;
+  return {
+    ...factors,
+    attackSpeedIndicatorBuff,
+    attackSpeedResult: result,
+  };
 }
 
 export interface StaticDamageFactor {
@@ -1595,15 +1630,26 @@ export interface PenetrationFactors {
   readonly multiply: number;
 }
 
+export interface AttackSpeedIndicator {
+  readonly base: number;
+  readonly weapon: number;
+  readonly potential: number;
+}
+
 export interface AttackSpeedFactors {
-  readonly attackSpeedBase: number | undefined;
+  readonly attackSoeedIndicator: AttackSpeedIndicator;
+  readonly attackSpeedBase: number;
   readonly attackSpeedWeapon: number;
   readonly attackSpeedPotential: number;
-  readonly fixedAttackSpeed: number | undefined;
   readonly attackSpeedResult: number;
 }
 
-export interface AttackSpeedInBattleFactors extends AttackSpeedFactors {
+export interface AttackSpeedFactorsSituation extends AttackSpeedFactors {
+  readonly attackSpeedIndicatorBuff: number;
+}
+
+export interface AttackSpeedInBattleFactors
+  extends AttackSpeedFactorsSituation {
   readonly attackMotionMul: number | undefined;
   readonly attackSpeedBuff: number;
 }

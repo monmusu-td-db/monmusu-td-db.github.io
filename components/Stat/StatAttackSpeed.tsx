@@ -40,6 +40,7 @@ export function AttackSpeedTooltip({
   const b = p && (!!f.attackMotionMul || attackSpeedBuff !== 100);
   const ammCol = (f.attackMotionMul ?? 100) < 100;
   const asbCol = attackSpeedBuff > 100;
+  const indicatorBuff = f.attackSpeedIndicatorBuff ?? 0;
   return (
     <T.Equation>
       {(d) => (
@@ -48,27 +49,24 @@ export function AttackSpeedTooltip({
             {d ? "攻撃動作速度" : f.attackSpeedResult + sign.FRAME}
           </T.Result>
           <T.Expression>
-            {f.fixedAttackSpeed !== undefined ? (
-              d ? (
-                "基礎値"
-              ) : (
-                f.fixedAttackSpeed + sign.FRAME
-              )
-            ) : (
-              <T.Brackets enabled={b}>
-                {d ? "基礎値" : f.attackSpeedBase + sign.FRAME}
-                <T.Minus enabled={p}>
-                  <T.Positive>
-                    {d ? "潜在覚醒" : f.attackSpeedPotential + sign.FRAME}
-                  </T.Positive>
-                </T.Minus>
-                <T.Minus enabled={f.attackSpeedWeapon > 0}>
-                  <T.Positive>
-                    {d ? "専用武器" : f.attackSpeedWeapon + sign.FRAME}
-                  </T.Positive>
-                </T.Minus>
-              </T.Brackets>
-            )}
+            <T.Brackets enabled={b}>
+              {d ? "基礎値" : f.attackSpeedBase + sign.FRAME}
+              <T.Minus enabled={p}>
+                <T.Positive>
+                  {d ? "潜在覚醒" : f.attackSpeedPotential + sign.FRAME}
+                </T.Positive>
+              </T.Minus>
+              <T.Minus enabled={f.attackSpeedWeapon > 0}>
+                <T.Positive>
+                  {d ? "専用武器" : f.attackSpeedWeapon + sign.FRAME}
+                </T.Positive>
+              </T.Minus>
+              <T.Minus enabled={indicatorBuff > 0}>
+                <T.Positive>
+                  {d ? "基礎攻撃速度バフ" : indicatorBuff + sign.FRAME}
+                </T.Positive>
+              </T.Minus>
+            </T.Brackets>
             <T.Multiply enabled={!!f.attackMotionMul}>
               <T.Value isPositive={ammCol}>
                 {d ? "攻撃モーション倍率" : f.attackMotionMul + sign.PERCENT}

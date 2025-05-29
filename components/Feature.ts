@@ -249,6 +249,7 @@ const commonFeature = {
   magicalEvasion: 0,
   attackMotionMul: 0,
   attackSpeedBuff: 0,
+  attackSpeedIndicatorBuff: 0,
   delayMul: 0,
   fixedDelay: 0,
   interval: 0 as number | null,
