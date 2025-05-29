@@ -22437,5 +22437,80 @@
         ]
       }
     ]
+  },
+  {
+    "id": 333,
+    "unitName": "【クィーンハーピー】ルクレツィア",
+    "unitShortName": "ルクレツィア",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 4393,
+    "attack": 740,
+    "defense": 351,
+    "resist": 104,
+    "exSkill1": {
+      "skillName": "女王嵐舞",
+      "attackMul": 200,
+      "splash": true,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": []
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "物理攻撃回避40%"
+    ],
+    "features": [
+      {
+        "criChanceLimitAdd": 30,
+        "attackSpeedBuff": 130,
+        "supplements": [
+          "CRIダメージ+10%(5秒)/撃破"
+        ],
+        "potentialBonus": {
+          "criChanceLimitAdd": 35
+        }
+      },
+      {
+        "skill": 1,
+        "physicalEvasion": 35,
+        "magicalEvasion": 35
+      }
+    ],
+    "criChanceAdd": 30,
+    "potentialBonus": {
+      "criChanceLimitAdd": 35
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-speed-buff",
+        "target": "射程内",
+        "duration": "常時",
+        "value": 999
+      },
+      {
+        "type": "physical-evasion",
+        "skill": 1,
+        "target": "射程内",
+        "value": 35
+      },
+      {
+        "type": "magical-evasion",
+        "skill": 1,
+        "target": "射程内",
+        "value": 35
+      }
+    ]
   }
 ]
