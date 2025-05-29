@@ -1436,58 +1436,66 @@ export const Weapon = {
   },
 } as const;
 
-export const attackSpeedList = {
-  80: 50,
-  85: 47,
-  90: 45,
-  95: 43,
-  100: 40,
-  102: 40,
-  105: 39,
-  110: 37,
-  112: 36,
-  113: 36,
-  115: 35,
-  116: 35,
-  118: 35,
-  119: 34,
-  120: 34,
-  121: 34,
-  122: 33,
-  123: 33,
-  125: 33,
-  126: 32,
-  127: 32,
-  128: 32,
-  129: 32,
-  130: 32,
-  131: 31,
-  132: 31,
-  134: 31,
-  135: 30,
-  136: 30,
-  137: 30,
-  138: 30,
-  139: 30,
-  140: 29,
-  141: 29,
-  142: 29,
-  143: 29,
-  144: 29,
-  146: 28,
-  147: 28,
-  149: 28,
-  152: 27,
-  153: 27,
-  154: 27,
-  157: 26,
-} as const;
+// export const attackSpeedList = {
+//   80: 50,
+//   85: 47,
+//   90: 45,
+//   95: 43,
+//   100: 40,
+//   102: 40,
+//   105: 39,
+//   110: 37,
+//   112: 36,
+//   113: 36,
+//   115: 35,
+//   116: 35,
+//   118: 35,
+//   119: 34,
+//   120: 34,
+//   121: 34,
+//   122: 33,
+//   123: 33,
+//   125: 33,
+//   126: 32,
+//   127: 32,
+//   128: 32,
+//   129: 32,
+//   130: 32,
+//   131: 31,
+//   132: 31,
+//   134: 31,
+//   135: 30,
+//   136: 30,
+//   137: 30,
+//   138: 30,
+//   139: 30,
+//   140: 29,
+//   141: 29,
+//   142: 29,
+//   143: 29,
+//   144: 29,
+//   146: 28,
+//   147: 28,
+//   149: 28,
+//   152: 27,
+//   153: 27,
+//   154: 27,
+//   157: 26,
+// } as const;
+// export function getAttackSpeed<T extends number | undefined>(value: T): T {
+//   if (value === undefined) return undefined as T;
+//   if (value in attackSpeedList) {
+//     return attackSpeedList[value as keyof typeof attackSpeedList] as T;
+//   }
+//   return NaN as T;
+// }
+
 export function getAttackSpeed<T extends number | undefined>(value: T): T {
+  // Wikiの表からの推測値
+  const V1 = 0.0595;
+  const V2 = 4.7155;
   if (value === undefined) return undefined as T;
-  if (value in attackSpeedList) {
-    return attackSpeedList[value as keyof typeof attackSpeedList] as T;
-  }
-  return NaN as T;
+  return Math.round(40 / ((value - (value * V1 - V2)) / 100)) as T;
 }
 
 export interface StaticDamageFactor {
