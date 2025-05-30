@@ -25,7 +25,6 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
           <>
             <AttackSpeedTooltip factors={b} />
             <DelayTooltip
-              parent={this}
               factors={{
                 ...b,
                 result: b.delayResult,

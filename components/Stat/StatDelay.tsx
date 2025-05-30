@@ -4,8 +4,9 @@ import * as Data from "../Data";
 import { StatTooltip } from "./StatTooltip";
 import { Setting } from "../States";
 import type { StatHandler, StatStyles } from "./StatRoot";
-import { Level, Neutral, Result } from "../UI/Util";
+import { Tooltip as T } from "../UI/Tooltip";
 
+const sign = T.sign;
 type Factors = Data.DelayFactors | undefined;
 
 export class StatDelay extends StatTooltip<number | undefined, Factors> {
@@ -23,17 +24,11 @@ export class StatDelay extends StatTooltip<number | undefined, Factors> {
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {
-    return <DelayTooltip parent={this} factors={this.getFactors(setting)} />;
+    return <DelayTooltip factors={this.getFactors(setting)} />;
   }
 }
 
-export function DelayTooltip({
-  parent,
-  factors,
-}: {
-  parent: StatTooltip<unknown, unknown>;
-  factors: Factors;
-}): ReactNode {
+export function DelayTooltip({ factors }: { factors: Factors }): ReactNode {
   const f = factors;
   if (f === undefined) return;
   let fdCol;
@@ -47,92 +42,43 @@ export function DelayTooltip({
   const beastFormationBuff = f.beastFormationBuff ?? 100;
 
   return (
-    <>
-      <dt>
-        <Result>攻撃待機時間</Result>
-        {parent.equal}
-        <small>
-          {f.fixedDelay ? (
-            <>
-              <Level level={fdCol}>固定値</Level>
-            </>
-          ) : (
-            <>
-              基礎値
-              {delayMul !== 100 && (
-                <>
-                  {parent.multiply}
-                  <Level level={dmCol}>攻撃待機時間倍率</Level>
-                </>
-              )}
-              {subskillBuff !== 100 && (
-                <>
-                  {parent.multiply}
-                  <Neutral>サブスキル倍率</Neutral>
-                </>
-              )}
-              {formationBuff !== 100 && (
-                <>
-                  {parent.multiply}
-                  <Level level={formationBuff < 100}>編成バフ</Level>
-                </>
-              )}
-              {beastFormationBuff !== 100 && (
-                <>
-                  {parent.multiply}
-                  <Neutral>獣神編成バフ</Neutral>
-                </>
-              )}
-            </>
-          )}
-        </small>
-      </dt>
-      <dd>
-        <Result b>
-          {f.result}
-          {parent.frame}
-        </Result>
-        {parent.equal}
-        {f.fixedDelay ? (
-          <>
-            <Level level={fdCol}>
-              {f.fixedDelay}
-              {parent.frame}
-            </Level>
-          </>
-        ) : (
-          <>
-            {f.delay}
-            {parent.frame}
-            {delayMul !== 100 && (
+    <T.Equation>
+      {(d) => (
+        <>
+          <T.Result>{d ? "攻撃待機時間" : f.result + sign.FRAME}</T.Result>
+          <T.Expression>
+            {f.fixedDelay ? (
+              <T.Value isPositive={fdCol}>
+                {d ? "固定値" : f.fixedDelay + sign.FRAME}
+              </T.Value>
+            ) : (
               <>
-                {parent.multiply}
-                <Level level={dmCol}>{delayMul + parent.percent}</Level>
+                {d ? "基礎値" : f.delay + sign.FRAME}
+                <T.Multiply enabled={delayMul !== 100}>
+                  <T.Value isPositive={dmCol}>
+                    {d ? "攻撃待機時間倍率" : delayMul + sign.PERCENT}
+                  </T.Value>
+                </T.Multiply>
+                <T.Multiply enabled={subskillBuff !== 100}>
+                  <T.Info>
+                    {d ? "サブスキル倍率" : subskillBuff + sign.PERCENT}
+                  </T.Info>
+                </T.Multiply>
+                <T.Multiply enabled={formationBuff !== 100}>
+                  <T.Value isPositive={formationBuff < 100}>
+                    {d ? "編成バフ" : formationBuff + sign.PERCENT}
+                  </T.Value>
+                </T.Multiply>
+                <T.Multiply enabled={beastFormationBuff !== 100}>
+                  <T.Info>
+                    {d ? "獣神編成バフ" : beastFormationBuff + sign.PERCENT}
+                  </T.Info>
+                </T.Multiply>
               </>
             )}
-            {subskillBuff !== 100 && (
-              <>
-                {parent.multiply}
-                <Neutral>{subskillBuff + parent.percent}</Neutral>
-              </>
-            )}
-            {formationBuff !== 100 && (
-              <>
-                {parent.multiply}
-                <Level level={formationBuff < 100}>
-                  {formationBuff + parent.percent}
-                </Level>
-              </>
-            )}
-            {beastFormationBuff !== 100 && (
-              <>
-                {parent.multiply}
-                <Neutral>{beastFormationBuff + parent.percent}</Neutral>
-              </>
-            )}
-          </>
-        )}
-      </dd>
-    </>
+          </T.Expression>
+        </>
+      )}
+    </T.Equation>
   );
 }
