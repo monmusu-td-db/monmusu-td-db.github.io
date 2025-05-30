@@ -122,6 +122,19 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     return this.styles(setting);
   }
 
+  protected getSmallFontStyles(
+    setting: Setting,
+    style: StatStyles,
+    maxValue: number
+  ): StatStyles {
+    const value = this.getValue(setting);
+    if (typeof value !== "number" || value <= maxValue) {
+      return style;
+    } else {
+      return StatRoot.mergeStyles(style, Data.TableClass.small);
+    }
+  }
+
   protected static getNumber({
     value,
     plus,

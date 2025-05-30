@@ -3,17 +3,23 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import { StatTooltip } from "./StatTooltip";
 import { Setting } from "../States";
-import type { StatHandler } from "./StatRoot";
+import type { StatHandler, StatStyles } from "./StatRoot";
 import { DelayTooltip } from "./StatDelay";
 import { AttackSpeedTooltip } from "./StatAttackSpeed";
-import { Tooltip as Tt } from "../UI/Tooltip";
+import { Tooltip as T } from "../UI/Tooltip";
 
 type Factors = Data.IntervalFactors | undefined;
-const sign = Tt.sign;
+const sign = T.sign;
 
 export class StatInterval extends StatTooltip<number | undefined, Factors> {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s)?.result !== undefined;
+
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const style = super.getDefaultStyles(setting);
+    return this.getSmallFontStyles(setting, style, 999);
+  }
+
   public override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
     if (f?.result === undefined) return;
@@ -34,64 +40,64 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
         )}
 
         {!f.staticCooldown && (
-          <Tt.Equation>
+          <T.Equation>
             {(d) => (
               <>
-                <Tt.Result>
+                <T.Result>
                   {d ? "攻撃間隔" : f.actualResult + sign.FRAME}
-                </Tt.Result>
-                <Tt.Expression>
+                </T.Result>
+                <T.Expression>
                   {!!f.staticValue || b === undefined ? (
                     <>{d ? "固有値" : f.staticValue + sign.FRAME}</>
                   ) : (
                     <>
                       {d ? "攻撃動作速度" : b.attackSpeedResult + sign.FRAME}
-                      <Tt.Plus>
+                      <T.Plus>
                         {d ? "攻撃待機時間" : b.delayResult + sign.FRAME}
-                      </Tt.Plus>
+                      </T.Plus>
                     </>
                   )}
-                </Tt.Expression>
+                </T.Expression>
               </>
             )}
-          </Tt.Equation>
+          </T.Equation>
         )}
 
         {f.cooldown !== undefined && (
-          <Tt.Equation>
+          <T.Equation>
             {(d) => (
               <>
-                <Tt.Result>
+                <T.Result>
                   {d ? "単発スキル発動間隔" : f.result + sign.FRAME}
-                </Tt.Result>
-                <Tt.Expression>
+                </T.Result>
+                <T.Expression>
                   {f.staticCooldown ? (
-                    <Tt.Negative>
+                    <T.Negative>
                       {d ? "最低間隔" : f.minInterval + sign.FRAME}
-                    </Tt.Negative>
+                    </T.Negative>
                   ) : (
                     <>
                       {d ? "攻撃間隔" : f.actualResult + sign.FRAME}
                       {f.cooldownFrame === 1 ? (
-                        <Tt.Plus>{d ? "再動(下限)" : 1 + sign.FRAME}</Tt.Plus>
+                        <T.Plus>{d ? "再動(下限)" : 1 + sign.FRAME}</T.Plus>
                       ) : (
                         <>
-                          <Tt.Plus>
+                          <T.Plus>
                             {d ? "再動" : f.cooldown + sign.SECOND}
-                          </Tt.Plus>
-                          <Tt.Multiply>
+                          </T.Plus>
+                          <T.Multiply>
                             {d
                               ? "フレームレート"
                               : Data.fps + sign.FRAME + "/" + sign.SECOND}
-                          </Tt.Multiply>
+                          </T.Multiply>
                         </>
                       )}
                     </>
                   )}
-                </Tt.Expression>
+                </T.Expression>
               </>
             )}
-          </Tt.Equation>
+          </T.Equation>
         )}
       </>
     );

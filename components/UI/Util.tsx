@@ -149,65 +149,6 @@ export function getBaseStatItem(
   return <small>{content}</small>;
 }
 
-export function getSkillItem({
-  skillName,
-  annotations,
-  phase,
-  phaseName,
-  isOverCharge,
-}: {
-  skillName: string | undefined | null;
-  annotations: readonly string[] | undefined;
-  phase: number | undefined;
-  phaseName: string | undefined;
-  isOverCharge: boolean | undefined;
-}): ReactNode {
-  if (skillName === null) {
-    if (annotations === undefined) return;
-    skillName = annotations[0];
-    annotations = annotations.slice(1);
-  } else if (
-    phaseName !== undefined &&
-    skillName !== undefined &&
-    phase !== undefined &&
-    phase > 1
-  ) {
-    phase = undefined;
-    skillName = phaseName;
-  }
-  const annotationText = <JoinTexts texts={annotations} nowrap />;
-  let additionText;
-  if (phase !== undefined || isOverCharge) {
-    const p = phase !== undefined ? phase : "";
-    const oc = isOverCharge ? "OC" : "";
-    const slash = phase !== undefined && isOverCharge ? "/" : "";
-    additionText = `(${p}${slash}${oc})`;
-  }
-  return (
-    <>
-      {skillName ? (
-        <>
-          {skillName}
-          {additionText}
-        </>
-      ) : (
-        <span className="text-secondary">通常{additionText}</span>
-      )}
-      {annotations !== undefined && (
-        <>
-          <br />
-          <small className="text-danger">{annotationText}</small>
-        </>
-      )}
-    </>
-  );
-}
-
-export function getInterval(value: number | undefined): ReactNode {
-  if (value === undefined || value < 100) return value;
-  return <small>{value}</small>;
-}
-
 export function getLimitText(value: number | undefined) {
   if (value === Infinity) return "∞";
   return value?.toFixed(0);

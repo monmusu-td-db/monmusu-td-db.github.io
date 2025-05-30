@@ -373,7 +373,6 @@ export default class Situation implements TableRow<Keys> {
         }
         return ret;
       },
-      item: (s) => Util.getInterval(this.interval.getValue(s)),
       color: (s) => {
         const f = this.interval.getFactors(s);
         if (f?.actualResult === undefined) return;
