@@ -1430,58 +1430,101 @@ export const Weapon = {
   },
 } as const;
 
-export const attackSpeedList = {
-  80: 50,
-  85: 47,
-  90: 45,
-  95: 43,
-  100: 40,
-  102: 40,
-  105: 39,
-  110: 37,
-  112: 36,
-  113: 36,
-  115: 35,
-  116: 35,
-  118: 35,
-  119: 34,
-  120: 34,
-  121: 34,
-  122: 33,
-  123: 33,
-  125: 33,
-  126: 32,
-  127: 32,
-  128: 32,
-  129: 32,
-  130: 32,
-  131: 31,
-  132: 31,
-  134: 31,
-  135: 30,
-  136: 30,
-  137: 30,
-  138: 30,
-  139: 30,
-  140: 29,
-  141: 29,
-  142: 29,
-  143: 29,
-  144: 29,
-  146: 28,
-  147: 28,
-  149: 28,
-  152: 27,
-  153: 27,
-  154: 27,
-  157: 26,
-} as const;
-export function getAttackSpeed<T extends number | undefined>(value: T): T {
-  if (value === undefined) return undefined as T;
-  if (value in attackSpeedList) {
-    return attackSpeedList[value as keyof typeof attackSpeedList] as T;
-  }
-  return NaN as T;
+// export const attackSpeedList = {
+//   80: 50,
+//   85: 47,
+//   90: 45,
+//   95: 43,
+//   100: 40,
+//   102: 40,
+//   105: 39,
+//   110: 37,
+//   112: 36,
+//   113: 36,
+//   115: 35,
+//   116: 35,
+//   118: 35,
+//   119: 34,
+//   120: 34,
+//   121: 34,
+//   122: 33,
+//   123: 33,
+//   125: 33,
+//   126: 32,
+//   127: 32,
+//   128: 32,
+//   129: 32,
+//   130: 32,
+//   131: 31,
+//   132: 31,
+//   134: 31,
+//   135: 30,
+//   136: 30,
+//   137: 30,
+//   138: 30,
+//   139: 30,
+//   140: 29,
+//   141: 29,
+//   142: 29,
+//   143: 29,
+//   144: 29,
+//   146: 28,
+//   147: 28,
+//   149: 28,
+//   152: 27,
+//   153: 27,
+//   154: 27,
+//   157: 26,
+// } as const;
+// export function getAttackSpeed<T extends number | undefined>(value: T): T {
+//   if (value === undefined) return undefined as T;
+//   if (value in attackSpeedList) {
+//     return attackSpeedList[value as keyof typeof attackSpeedList] as T;
+//   }
+//   return NaN as T;
+// }
+
+export function getAttackSpeed<T extends number | undefined>(
+  value: T
+): number | Exclude<T, number> {
+  // Wikiの表からの推測値
+  if (value === undefined) return value as Exclude<T, number>;
+  const V1 = 0.0595;
+  const V2 = 4.7155;
+  return Math.round(4000 / (value - (value * V1 - V2)));
+}
+
+export function getAttackSpeedFactors(
+  indicator: AttackSpeedIndicator
+): AttackSpeedFactors {
+  const attackSpeedBase = getAttackSpeed(indicator.base);
+  const subtotalWeapon = getAttackSpeed(indicator.base + indicator.weapon);
+  const attackSpeedResult = getAttackSpeed(
+    indicator.base + indicator.weapon + indicator.potential
+  );
+  const attackSpeedWeapon = attackSpeedBase - subtotalWeapon;
+  const attackSpeedPotential = subtotalWeapon - attackSpeedResult;
+  return {
+    attackSoeedIndicator: indicator,
+    attackSpeedBase,
+    attackSpeedWeapon,
+    attackSpeedPotential,
+    attackSpeedResult,
+  };
+}
+
+export function getAttackSpeedFactorsSituation(
+  factors: AttackSpeedFactors,
+  indicatorBuff: number
+): AttackSpeedFactorsSituation {
+  const { base, weapon, potential } = factors.attackSoeedIndicator;
+  const result = getAttackSpeed(base + weapon + potential + indicatorBuff);
+  const attackSpeedIndicatorBuff = factors.attackSpeedResult - result;
+  return {
+    ...factors,
+    attackSpeedIndicatorBuff,
+    attackSpeedResult: result,
+  };
 }
 
 export interface StaticDamageFactor {
@@ -1581,15 +1624,26 @@ export interface PenetrationFactors {
   readonly multiply: number;
 }
 
+export interface AttackSpeedIndicator {
+  readonly base: number;
+  readonly weapon: number;
+  readonly potential: number;
+}
+
 export interface AttackSpeedFactors {
-  readonly attackSpeedBase: number | undefined;
+  readonly attackSoeedIndicator: AttackSpeedIndicator;
+  readonly attackSpeedBase: number;
   readonly attackSpeedWeapon: number;
   readonly attackSpeedPotential: number;
-  readonly fixedAttackSpeed: number | undefined;
   readonly attackSpeedResult: number;
 }
 
-export interface AttackSpeedInBattleFactors extends AttackSpeedFactors {
+export interface AttackSpeedFactorsSituation extends AttackSpeedFactors {
+  readonly attackSpeedIndicatorBuff: number;
+}
+
+export interface AttackSpeedInBattleFactors
+  extends AttackSpeedFactorsSituation {
   readonly attackMotionMul: number | undefined;
   readonly attackSpeedBuff: number;
 }

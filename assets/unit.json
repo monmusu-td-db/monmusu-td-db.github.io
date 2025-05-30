@@ -441,7 +441,7 @@
     "attack": 747,
     "defense": 298,
     "resist": 44,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 25,
     "block": null,
     "target": 1,
@@ -485,7 +485,7 @@
     "attack": 747,
     "defense": 298,
     "resist": 44,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 26,
     "block": null,
     "target": 1,
@@ -614,7 +614,7 @@
     "attack": 747,
     "defense": 298,
     "resist": 44,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 25,
     "block": null,
     "target": 1,
@@ -654,7 +654,7 @@
     "attack": 859,
     "defense": 240,
     "resist": 36,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 25,
     "block": null,
     "target": 1,
@@ -9542,7 +9542,7 @@
     "attack": 219,
     "defense": 79,
     "resist": 0,
-    "attackSpeedFrame": 23,
+    "attackSpeed": 180,
     "delay": 37,
     "block": 0,
     "target": 1,
@@ -10210,7 +10210,7 @@
     "attack": 748,
     "defense": 0,
     "resist": 0,
-    "attackSpeedFrame": 35,
+    "attackSpeed": 116,
     "delay": 65,
     "block": 0,
     "target": 99,
@@ -11057,7 +11057,7 @@
     "attack": 399,
     "defense": 56,
     "resist": 193,
-    "attackSpeedFrame": 45,
+    "attackSpeed": 90,
     "delay": 26,
     "block": 1,
     "target": 2,
@@ -12405,7 +12405,7 @@
     "attack": 1108,
     "defense": 179,
     "resist": 74,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 25,
     "block": 1,
     "target": 1,
@@ -12928,7 +12928,7 @@
     "attack": 938,
     "defense": 0,
     "resist": 0,
-    "attackSpeedFrame": 13,
+    "attackSpeed": 322,
     "delay": 73,
     "block": 0,
     "target": 99,
@@ -15442,7 +15442,7 @@
     "attack": 1195,
     "defense": 996,
     "resist": 49,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 150,
     "block": 3,
     "target": 1,
@@ -15632,7 +15632,7 @@
     "attack": 564,
     "defense": 244,
     "resist": 141,
-    "attackSpeedFrame": 30,
+    "attackSpeed": 137,
     "delay": 30,
     "target": 1,
     "range": 250,
@@ -15771,7 +15771,7 @@
     "attack": 1095,
     "defense": 988,
     "resist": 506,
-    "attackSpeedFrame": 67,
+    "attackSpeed": 58,
     "delay": 32,
     "target": 1,
     "range": 225,
@@ -16616,7 +16616,7 @@
     "attack": 538,
     "defense": 119,
     "resist": 184,
-    "attackSpeedFrame": 99,
+    "attackSpeed": 999,
     "delay": 99,
     "block": null,
     "target": 1,
@@ -17436,7 +17436,7 @@
     "attack": 999,
     "defense": 999,
     "resist": 999,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 25,
     "block": null,
     "target": 1,
@@ -17792,7 +17792,6 @@
     "isEventUnit": true
   },
   {
-    "DISABLED": true,
     "id": 256,
     "unitName": "【ドヴェルグ娘】クルクリ",
     "unitShortName": "クルクリ",
@@ -17848,7 +17847,6 @@
     }
   },
   {
-    "DISABLED": true,
     "id": 2560001,
     "parentId": 256,
     "unitName": "偵察ドローン",
@@ -17860,7 +17858,7 @@
     "attack": 638,
     "defense": 189,
     "resist": 111,
-    "attackSpeedFrame": 99,
+    "attackSpeed": 999,
     "delay": 99,
     "block": 0,
     "target": 1,
@@ -17969,7 +17967,7 @@
     "attack": 597,
     "defense": 59,
     "resist": 0,
-    "attackSpeedFrame": 45,
+    "attackSpeed": 90,
     "delay": 20,
     "block": 1,
     "target": 1,
@@ -18821,7 +18819,7 @@
     "defense": 119,
     "resist": 119,
     "range": 230,
-    "attackSpeedFrame": 99,
+    "attackSpeed": 999,
     "delay": 99,
     "block": 1,
     "target": 1,
@@ -20670,7 +20668,7 @@
     "attack": 559,
     "defense": 78,
     "resist": 271,
-    "attackSpeedFrame": 37,
+    "attackSpeed": 110,
     "delay": 26,
     "block": 1,
     "target": 1,
@@ -21707,7 +21705,7 @@
     "attack": 812,
     "defense": 146,
     "resist": 179,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 30,
     "block": null,
     "target": 1,
@@ -22020,7 +22018,7 @@
     "attack": 458,
     "defense": 93,
     "resist": 289,
-    "attackSpeedFrame": 40,
+    "attackSpeed": 100,
     "delay": 20,
     "block": 1,
     "target": 1,
@@ -22435,6 +22433,81 @@
         "features": [
           "common-potential-regenerate-3%"
         ]
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "unitName": "【クィーンハーピー】ルクレツィア",
+    "unitShortName": "ルクレツィア",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "風",
+    "hp": 4393,
+    "attack": 740,
+    "defense": 351,
+    "resist": 104,
+    "exSkill1": {
+      "skillName": "女王嵐舞",
+      "attackMul": 200,
+      "splash": true,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": []
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "物理攻撃回避40%"
+    ],
+    "features": [
+      {
+        "criChanceLimitAdd": 30,
+        "attackSpeedIndicatorBuff": 40,
+        "supplements": [
+          "CRIダメージ+10%(5秒)/撃破"
+        ],
+        "potentialBonus": {
+          "criChanceLimitAdd": 35
+        }
+      },
+      {
+        "skill": 1,
+        "physicalEvasion": 35,
+        "magicalEvasion": 35
+      }
+    ],
+    "criChanceAdd": 30,
+    "potentialBonus": {
+      "criChanceLimitAdd": 35
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-speed-buff",
+        "target": "射程内",
+        "duration": "常時",
+        "value": 999
+      },
+      {
+        "type": "physical-evasion",
+        "skill": 1,
+        "target": "射程内",
+        "value": 35
+      },
+      {
+        "type": "magical-evasion",
+        "skill": 1,
+        "target": "射程内",
+        "value": 35
       }
     ]
   }

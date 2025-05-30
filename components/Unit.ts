@@ -29,7 +29,6 @@ export interface JsonUnit {
   defense: number;
   resist: number;
   attackSpeed?: number;
-  attackSpeedFrame?: number;
   delay?: number;
   block?: number | null;
   target?: Data.JsonTarget;
@@ -378,30 +377,13 @@ export default class Unit implements TableRow<Keys> {
       statType: stat.attackSpeed,
       calculater: (s) => this.attackSpeed.getFactors(s)?.attackSpeedResult,
       factors: (s) => {
-        if (attackSpeed === undefined && src.attackSpeedFrame === undefined)
-          return;
-        const attackSpeedBase = Data.getAttackSpeed(attackSpeed);
-        const fixedAttackSpeed = src.attackSpeedFrame;
-        const weapon = this.getWeaponBaseFactor(s, stat.attackSpeed);
-        const p = this.getPotentialFactor(s, stat.attackSpeed);
-        const subtotalWeapon = Data.getAttackSpeed((attackSpeed ?? 0) + weapon);
-        const attackSpeedResult =
-          fixedAttackSpeed ??
-          Data.getAttackSpeed((attackSpeed ?? 0) + weapon + p);
+        if (attackSpeed === undefined) return;
 
-        const exp =
-          attackSpeedBase === undefined || this.fixedDelay !== undefined;
-        const attackSpeedWeapon = exp ? 0 : attackSpeedBase - subtotalWeapon;
-        const attackSpeedPotential = exp
-          ? 0
-          : subtotalWeapon - attackSpeedResult;
-        return {
-          attackSpeedBase,
-          attackSpeedWeapon,
-          attackSpeedPotential,
-          fixedAttackSpeed,
-          attackSpeedResult,
-        };
+        return Data.getAttackSpeedFactors({
+          base: attackSpeed,
+          weapon: this.getWeaponBaseFactor(s, stat.attackSpeed),
+          potential: this.getPotentialFactor(s, stat.attackSpeed),
+        });
       },
     });
 
