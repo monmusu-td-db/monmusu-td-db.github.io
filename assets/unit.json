@@ -20378,6 +20378,128 @@
     ]
   },
   {
+    "id": 296,
+    "unitName": "【聖霊鈴ワイト娘】バロウ",
+    "unitShortName": "バロウ/Xm",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "光",
+    "hp": 3108,
+    "attack": 605,
+    "defense": 275,
+    "resist": 447,
+    "exSkill1": {
+      "skillName": "ライトロード",
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "require": [
+          "光マス"
+        ],
+        "supplements": [
+          "ACT+1%/秒"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "staticDamage": {
+          "key": "static",
+          "value": 150
+        },
+        "interval": 30,
+        "duration": 20,
+        "damageType": "貫通",
+        "supplements": [
+          "HP-10%/ACT発動→射程内",
+          "tkn+(射程内敵分)/ACT発動"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change-light",
+        "skill": 1,
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報/ex1射程",
+    "id": 2960001,
+    "parentId": 296,
+    "unitName": "グロウソウル",
+    "unitShortName": "グロウソウルT",
+    "rarity": "C",
+    "element": "光",
+    "cost": 3,
+    "hp": 0,
+    "attack": 3981,
+    "defense": 0,
+    "resist": 0,
+    "block": null,
+    "target": "射程内",
+    "range": 999,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "的",
+    "features": [
+      {
+        "damageFactor": 120
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "damageFactor": 160
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 298,
     "unitName": "【颯明巫フェアリー娘】ネリー",
