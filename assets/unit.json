@@ -10284,6 +10284,147 @@
     ]
   },
   {
+    "TODO_DESC": "再出撃時間短縮70%+10%",
+    "id": 127,
+    "unitName": "【ワイアーム娘】プリムヴィル",
+    "unitShortName": "プリムヴィル",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "地",
+    "species": "竜",
+    "hp": 2717,
+    "attack": 599,
+    "defense": 251,
+    "resist": 601,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "不死竜の恩寵",
+      "attackMul": 260,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "hp",
+          "value": 10
+        },
+        "supplements": [
+          "回復10%/秒"
+        ]
+      },
+      {
+        "featureName": "regenerate-area",
+        "isAbility": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          "再area"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "interval": 30,
+        "target": "射程内",
+        "damageType": "再生",
+        "supplements": [
+          "回復3%/秒→射程内竜特性"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "skill": 1,
+        "damageFactor": 200
+      },
+      {
+        "featureName": "skill1-regenerate",
+        "annotations": [
+          "スキル効果"
+        ],
+        "conditions": [
+          "再area"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 5
+        },
+        "interval": 30,
+        "target": "射程内",
+        "damageType": "再生",
+        "supplements": [
+          "回復5%/秒→射程内"
+        ]
+      }
+    ],
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "regenerate-area"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action",
+          "skill1-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "regenerate-area"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-action",
+          "regenerate-area"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action",
+          "regenerate-area"
+        ]
+      }
+    ]
+  },
+  {
     "id": 128,
     "unitName": "【トロール娘】ロイエ",
     "unitShortName": "ロイエ",

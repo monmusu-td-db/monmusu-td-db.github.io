@@ -551,7 +551,7 @@
     "damageType": "魔法",
     "placement": "遠",
     "supplements": [
-      "鈍足→射程内"
+      "鈍足-40%→射程内"
     ],
     "features": [
       {
