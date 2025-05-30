@@ -48,9 +48,9 @@ const tabs = {
   OTHER: "other",
 } as const;
 
-type PanelProps = { open: boolean; onClose: () => void };
+type PanelProps = { open: boolean; onClose: () => void; pageType?: PageType };
 
-function Panel({ open, onClose }: PanelProps) {
+function Panel({ open, onClose, pageType }: PanelProps) {
   const [tab, setTab] = useState<string>(tabs.FILTER);
   const [resetKey, setResetKey] = useState(0);
   const dispatchFilter = Contexts.useDispatchFilter();
@@ -73,6 +73,8 @@ function Panel({ open, onClose }: PanelProps) {
         break;
     }
   }
+
+  const isSituation = pageType === pageTypes.SITUATION;
 
   return (
     <>
@@ -109,16 +111,16 @@ function Panel({ open, onClose }: PanelProps) {
               </Row>
               <Tab.Content>
                 <Tab.Pane eventKey={tabs.FILTER}>
-                  <TabFilter />
+                  <TabFilter isSituation={isSituation} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.UNIT}>
-                  <TabUnit key={resetKey} />
+                  <TabUnit key={resetKey} isSituation={isSituation} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.FORMATION}>
                   <TabFormation key={resetKey} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.OTHER}>
-                  <TabOther />
+                  <TabOther isSituation={isSituation} />
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
@@ -144,7 +146,7 @@ function Panel({ open, onClose }: PanelProps) {
   );
 }
 
-function TabFilter() {
+function TabFilter({ isSituation }: { isSituation: boolean }) {
   const filter = Contexts.useFilter();
   const dispatchFilter = Contexts.useDispatchFilter();
   const handleChange = useCallback(
@@ -153,7 +155,6 @@ function TabFilter() {
     },
     [dispatchFilter]
   );
-  const isSituation = PanelContexts.usePageType() === pageType.SITUATION;
 
   return (
     <_TabFilter
@@ -300,12 +301,11 @@ const _TabFilter = memo(function TabFilter({
   );
 });
 
-function TabUnit() {
+function TabUnit({ isSituation }: { isSituation: boolean }) {
   const setting = Contexts.useSetting();
   const dispatchSetting = Contexts.useDispatchSetting();
   const uISetting = Contexts.useUISetting();
   const dispatchUISetting = Contexts.useDispatchUISetting();
-  const isSituation = PanelContexts.usePageType() === pageType.SITUATION;
 
   const handleChangeSetting = useCallback(
     (nextValue: Partial<Setting>) => {
@@ -590,10 +590,9 @@ const _TabFormation = memo(function _TabFormation({
   );
 });
 
-function TabOther() {
+function TabOther({ isSituation }: { isSituation: boolean }) {
   const setting = Contexts.useSetting();
   const dispatch = Contexts.useDispatchSetting();
-  const isSituation = PanelContexts.usePageType() === pageType.SITUATION;
 
   const handleChange = useCallback(
     (nextValue: Partial<Setting>) => {
@@ -713,22 +712,20 @@ function Backdrop({ open, onClose }: PanelProps) {
   return item;
 }
 
-const pageType = {
+const pageTypes = {
   SITUATION: "situation",
 } as const;
-type PageType = typeof pageType.SITUATION | undefined;
+export type PageType = typeof pageTypes.SITUATION | undefined;
 
 const PanelContexts = {
   Open: createContext(false),
   SetOpen: createContext<(action: SetStateAction<boolean>) => void>(() => {}),
-  PageType: createContext<PageType>(undefined),
   useOpen: () => useContext(PanelContexts.Open),
   useSetOpen: () => useContext(PanelContexts.SetOpen),
-  usePageType: () => useContext(PanelContexts.PageType),
 };
 
 export default Object.assign(Panel, {
   ID,
   Contexts: PanelContexts,
-  pageType,
+  pageType: pageTypes,
 });

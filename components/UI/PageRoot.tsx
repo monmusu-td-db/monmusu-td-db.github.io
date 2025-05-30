@@ -18,13 +18,11 @@ export default function PageRoot({
   const [panelOpen, setPanelOpen] = useState(false);
 
   return (
-    <Panel.Contexts.PageType.Provider value={pageType}>
-      <Panel.Contexts.Open.Provider value={panelOpen}>
-        <Panel.Contexts.SetOpen.Provider value={setPanelOpen}>
-          <Header />
-          <main>{children}</main>
-        </Panel.Contexts.SetOpen.Provider>
-      </Panel.Contexts.Open.Provider>
-    </Panel.Contexts.PageType.Provider>
+    <Panel.Contexts.Open.Provider value={panelOpen}>
+      <Panel.Contexts.SetOpen.Provider value={setPanelOpen}>
+        <Header pageType={pageType} />
+        <main>{children}</main>
+      </Panel.Contexts.SetOpen.Provider>
+    </Panel.Contexts.Open.Provider>
   );
 }

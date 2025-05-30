@@ -7,20 +7,20 @@ import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Icon from "./Icon";
 import { type ReactNode } from "react";
 import Theme from "./Theme";
-import Panel from "./Panel";
+import Panel, { type PageType } from "./Panel";
 import cn from "classnames";
 import SearchInput from "./SearchInput";
 
 const ICON_SIZE = 18;
 
-function Header() {
+function Header({ pageType }: { pageType?: PageType }) {
   const open = Panel.Contexts.useOpen();
   const setOpen = Panel.Contexts.useSetOpen();
 
   return (
     <header className="mb-2 sticky-top header">
       <NavArea />
-      <Panel open={open} onClose={() => setOpen(false)} />
+      <Panel open={open} onClose={() => setOpen(false)} pageType={pageType} />
     </header>
   );
 }
