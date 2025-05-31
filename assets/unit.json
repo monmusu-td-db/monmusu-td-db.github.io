@@ -22741,6 +22741,33 @@
         "skill": 1,
         "physicalEvasion": 35,
         "magicalEvasion": 35
+      },
+      {
+        "featureName": "attack-speed-buff1",
+        "isConditionalBuff": true,
+        "annotations": [
+          "撃破バフ(1体)"
+        ],
+        "criDamageAdd": 10,
+        "attackSpeedIndicatorBuff": 50
+      },
+      {
+        "featureName": "attack-speed-buff2",
+        "isConditionalBuff": true,
+        "annotations": [
+          "撃破バフ(2体)"
+        ],
+        "criDamageAdd": 20,
+        "attackSpeedIndicatorBuff": 60
+      },
+      {
+        "featureName": "attack-speed-buff3",
+        "isConditionalBuff": true,
+        "annotations": [
+          "撃破バフ(3体)"
+        ],
+        "criDamageAdd": 30,
+        "attackSpeedIndicatorBuff": 70
       }
     ],
     "criChanceAdd": 30,
@@ -22751,6 +22778,39 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "features": [
+          "attack-speed-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-speed-buff1"
+        ]
+      },
+      {
+        "features": [
+          "attack-speed-buff2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-speed-buff2"
+        ]
+      },
+      {
+        "features": [
+          "attack-speed-buff3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-speed-buff3"
+        ]
       }
     ],
     "buffs": [
