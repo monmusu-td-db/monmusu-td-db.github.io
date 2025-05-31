@@ -2190,8 +2190,13 @@ export default class Situation implements TableRow<Keys> {
       f.skillBuffs?.attackSpeedBuff
     );
     const buffAtkSpdResult = getAtkSpdResult(buffMotionSpeed, buffAtkSpdBuff);
+    const { attackSpeedResult: condAttackSpeed } =
+      Data.getAttackSpeedFactorsSituation(
+        unitASF,
+        f.cond?.attackSpeedIndicatorBuff ?? 0
+      );
     const condMotionSpeed = Percent.multiply(
-      attackSpeed,
+      condAttackSpeed,
       f.cond?.attackMotionMul
     );
     const condAtkSpdResult = getAtkSpdResult(
@@ -2221,7 +2226,8 @@ export default class Situation implements TableRow<Keys> {
       baseResult <= buffResult
         ? undefined
         : Util.getTableColor(skillResult, buffResult, true);
-    const conditionalColor = Util.getTableColorWeak(baseResult, condResult);
+    const condBaseResult = unitASF.attackSpeedResult + baseDelayResult;
+    const conditionalColor = Util.getTableColorWeak(condBaseResult, condResult);
 
     const result = attackSpeedResult + delayResult;
 
