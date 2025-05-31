@@ -1717,6 +1717,7 @@ export interface LimitFactors {
   readonly isMaxAttackDebuff: boolean;
   readonly damageCut: number;
   readonly evasion: number;
+  readonly isUnhealable: boolean;
 }
 
 export interface DamageCutFactors {

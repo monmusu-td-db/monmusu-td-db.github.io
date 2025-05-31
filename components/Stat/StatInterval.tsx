@@ -16,8 +16,9 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
     this.getFactors(s)?.result !== undefined;
 
   protected override getDefaultStyles(setting: Setting): StatStyles {
+    const text = this.getText(setting);
     const style = super.getDefaultStyles(setting);
-    return this.getSmallFontStyles(setting, style, 999);
+    return this.getSmallFontStyles(text, style, 3);
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {

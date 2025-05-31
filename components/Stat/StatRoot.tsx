@@ -46,7 +46,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   private stylesCache = new Data.Cache<string | undefined>();
   private factorsCache = new Data.Cache<TFactors>();
 
-  protected static readonly NUMBER_LENGTH_LIMIT = 5;
+  protected static readonly NUMBER_LENGTH_LIMIT = 6;
 
   constructor(props: StatProps<TStat, TFactors>) {
     this.statType = props.statType;
@@ -102,7 +102,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     }
   }
 
-  private getDefaultText(setting: Setting): string | undefined {
+  protected getDefaultText(setting: Setting): string | undefined {
     const ret = this.getValue(setting);
     switch (typeof ret) {
       case "number":
@@ -123,12 +123,11 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   }
 
   protected getSmallFontStyles(
-    setting: Setting,
+    text: string | undefined,
     style: StatStyles,
-    maxValue: number
+    maxLength: number
   ): StatStyles {
-    const value = this.getValue(setting);
-    if (typeof value !== "number" || value <= maxValue) {
+    if (text === undefined || text.length <= maxLength) {
       return style;
     } else {
       return StatRoot.mergeStyles(style, Data.TableClass.small);
@@ -172,7 +171,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
 
   private static getNumberText(value: number, limit: number): string {
     const text = value.toFixed(0);
-    if (text.length <= limit + 1) {
+    if (text.length <= limit) {
       return text;
     } else {
       return Math.trunc(value / 1000) + "K";

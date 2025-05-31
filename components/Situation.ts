@@ -706,27 +706,10 @@ export default class Situation implements TableRow<Keys> {
       },
     });
 
-    const getLimitItem = (
-      arg: Stat.Limit,
-      setting: Setting
-    ): string | JSX.Element | undefined => {
-      return Util.getLimitItem(
-        arg.getValue(setting),
-        this.getIsUnhealable(setting)
-      );
-    };
-
     this.physicalLimit = new Stat.Limit({
       statType: stat.physicalLimit,
       calculater: (s) => this.physicalLimit.getFactors(s)?.result,
       isReversed: true,
-      text: (s) => Util.getLimitText(this.physicalLimit.getValue(s)),
-      item: (s) => getLimitItem(this.physicalLimit, s),
-      color: (s) => Util.getPhysicalLimitColor(this.physicalLimit.getValue(s)),
-      styles: (s) => {
-        const color = this.physicalLimit.getColor(s);
-        return getTableColor(color);
-      },
       factors: (s) => this.getStatLimitFactors(s, stat.physicalLimit),
     });
 
@@ -734,13 +717,6 @@ export default class Situation implements TableRow<Keys> {
       statType: stat.magicalLimit,
       calculater: (s) => this.magicalLimit.getFactors(s)?.result,
       isReversed: true,
-      text: (s) => Util.getLimitText(this.magicalLimit.getValue(s)),
-      item: (s) => getLimitItem(this.magicalLimit, s),
-      color: (s) => Util.getMagicalLimitColor(this.magicalLimit.getValue(s)),
-      styles: (s) => {
-        const color = this.magicalLimit.getColor(s);
-        return getTableColor(color);
-      },
       factors: (s) => this.getStatLimitFactors(s, stat.magicalLimit),
     });
 
@@ -2129,6 +2105,8 @@ export default class Situation implements TableRow<Keys> {
         : this.magicalEvasion
     ).getValue(setting);
 
+    const isUnhealable = this.getIsUnhealable(setting);
+
     return {
       result,
       hp,
@@ -2138,6 +2116,7 @@ export default class Situation implements TableRow<Keys> {
       isMaxAttackDebuff,
       damageCut,
       evasion,
+      isUnhealable,
     };
   }
 

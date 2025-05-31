@@ -10,8 +10,9 @@ const sign = T.sign;
 
 export class StatRange extends BaseStat<number | undefined, Factors> {
   protected override getDefaultStyles(setting: Setting): StatStyles {
+    const text = this.getText(setting);
     const style = super.getDefaultStyles(setting);
-    return this.getSmallFontStyles(setting, style, 999);
+    return this.getSmallFontStyles(text, style, 3);
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {

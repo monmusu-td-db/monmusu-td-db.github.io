@@ -26,11 +26,9 @@ export class StatDefRes extends SituationBaseStat<Factors> {
 
     return (
       <>
-        {f.staticDamage === undefined ? (
-          <>{super.getTooltipBody(setting)}</>
-        ) : (
-          <>{this.getStaticDamageTooltip(setting, f)}</>
-        )}
+        {f.staticDamage === undefined
+          ? super.getTooltipBody(setting)
+          : this.getStaticDamageTooltip(setting, f)}
       </>
     );
   }
