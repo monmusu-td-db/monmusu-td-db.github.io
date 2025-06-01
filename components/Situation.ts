@@ -76,7 +76,6 @@ type Keys = (typeof keys)[number];
 const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
-const getTableColor = Data.TableColor.getSelector;
 
 const require = {
   DISABLED: "disabled",
@@ -251,10 +250,6 @@ export default class Situation implements TableRow<Keys> {
           if (f.isConditionalDebuff) return tableColor.negativeWeak;
         }
       },
-      styles: (s) => {
-        const color = this.conditions.getColor(s);
-        return getTableColor(color);
-      },
     });
 
     this.cost = this.getStat(stat.cost, this.unit?.cost);
@@ -389,10 +384,6 @@ export default class Situation implements TableRow<Keys> {
         const c = f?.base?.conditionalColor;
         if (c) return c;
       },
-      styles: (s) => {
-        const color = this.interval.getColor(s);
-        return getTableColor(color);
-      },
       factors: (s) => this.getIntervalFactors(s),
     });
 
@@ -409,10 +400,6 @@ export default class Situation implements TableRow<Keys> {
           return skillColor;
         }
         return Util.getTableColorWeak(f.condFeature, f.skill);
-      },
-      styles: (s) => {
-        const color = this.block.getColor(s);
-        return getTableColor(color);
       },
       factors: (s) => {
         const sk = this.getSkill(s);
@@ -441,10 +428,6 @@ export default class Situation implements TableRow<Keys> {
       statType: stat.target,
       calculater: (s) => this.target.getFactors(s)?.target,
       color: (s) => this.target.getFactors(s)?.color,
-      styles: (s) => {
-        const color = this.target.getColor(s);
-        return getTableColor(color);
-      },
       factors: (s) => {
         const u = this.unit?.target.getFactors(s);
         const fea = this.getFeature(s);
@@ -625,10 +608,6 @@ export default class Situation implements TableRow<Keys> {
       calculater: (s) => this.range.getFactors(s)?.result,
       isReversed: true,
       color: (s) => this.range.getFactors(s)?.color,
-      styles: (s) => {
-        const color = this.range.getColor(s);
-        return getTableColor(color);
-      },
       factors: (s) => {
         const unitFactor = this.unit?.range.getFactors(s);
         const fea = this.getFeature(s);
@@ -905,10 +884,6 @@ export default class Situation implements TableRow<Keys> {
         )
           return tableColor.negativeWeak;
       },
-      styles: (s) => {
-        const color = this.supplements.getColor(s);
-        return getTableColor(color);
-      },
     });
 
     this.initialTime = new Stat.Root({
@@ -932,10 +907,6 @@ export default class Situation implements TableRow<Keys> {
         if (cp > 0) return tableColor.positiveWeak;
         if (cp < 0) return tableColor.negativeWeak;
         if (f.cooldownReductions !== undefined) return tableColor.positiveWeak;
-      },
-      styles: (s) => {
-        const color = this.initialTime.getColor(s);
-        return getTableColor(color);
       },
     });
 
@@ -972,10 +943,6 @@ export default class Situation implements TableRow<Keys> {
         )
           return tableColor.warning;
       },
-      styles: (s) => {
-        const color = this.duration.getColor(s);
-        return getTableColor(color);
-      },
     });
 
     this.cooldown = new Stat.Root({
@@ -996,10 +963,6 @@ export default class Situation implements TableRow<Keys> {
 
         if (this.getFeature(s).cooldownReductions !== undefined)
           return tableColor.positiveWeak;
-      },
-      styles: (s) => {
-        const color = this.cooldown.getColor(s);
-        return getTableColor(color);
       },
       factors: (s) => {
         const f = this.getFeature(s);
@@ -1083,10 +1046,6 @@ export default class Situation implements TableRow<Keys> {
       },
       comparer: (s) => Data.DamageType.indexOf(this.damageType.getValue(s)),
       color: (s) => Data.DamageType.colorOf(this.damageType.getValue(s)),
-      styles: (s) => {
-        const color = this.damageType.getColor(s);
-        return getTableColor(color);
-      },
     });
 
     const dps = (i: 0 | 1 | 2 | 3 | 4 | 5) => {
@@ -1096,10 +1055,6 @@ export default class Situation implements TableRow<Keys> {
         isReversed: true,
         color: (s) =>
           Util.getDpsColor(ret.getValue(s), this.damageType.getValue(s)),
-        styles: (s) => {
-          const color = ret.getColor(s);
-          return getTableColor(color);
-        },
         factors: (s) => this.getDpsFactors(s, i),
       });
       return ret;
@@ -1386,13 +1341,6 @@ export default class Situation implements TableRow<Keys> {
       calculater: (s) => ret.getFactors(s)?.actualResult,
       isReversed: true,
       color: (s) => this.getBaseStatColor(s, statType),
-      styles: (s) => {
-        const color = getTableColor(ret.getColor(s));
-        const unhealable = ret.getFactors(s)?.isUnhealable
-          ? Data.TableClass.unhealable
-          : undefined;
-        return [color, unhealable];
-      },
       factors: (s) => this.getActualHpFactors(s),
     });
     return ret;
@@ -1413,14 +1361,6 @@ export default class Situation implements TableRow<Keys> {
         }
         return this.getBaseStatColor(s, stat.attack);
       },
-      styles: (s) => {
-        const color = getTableColor(ret.getColor(s));
-        const critical =
-          (ret.getFactors(s)?.criticalChance ?? 0) >= 100
-            ? Data.TableClass.critical
-            : undefined;
-        return [color, critical];
-      },
       factors: (s) => this.getActualAttackFactors(s),
     });
     return ret;
@@ -1435,10 +1375,6 @@ export default class Situation implements TableRow<Keys> {
         if (ret.getFactors(s)?.staticDamage !== undefined)
           return tableColor.warning;
         return this.getBaseStatColor(s, statType);
-      },
-      styles: (s) => {
-        const color = ret.getColor(s);
-        return getTableColor(color);
       },
       factors: (s) => this.getActualDefResFactors(s, statType),
     });

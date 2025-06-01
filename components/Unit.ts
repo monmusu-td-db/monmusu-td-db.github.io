@@ -153,7 +153,6 @@ type Keys = (typeof keys)[number];
 const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
-const getTableColor = Data.TableColor.getSelector;
 
 export default class Unit implements TableRow<Keys> {
   readonly id: number;
@@ -251,7 +250,6 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => rarity,
         comparer: () => comparer,
         color: () => color,
-        styles: () => getTableColor(color),
       });
     }
 
@@ -276,7 +274,6 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => element,
         comparer: () => comparer,
         color: () => color,
-        styles: () => getTableColor(color),
       });
     }
 
@@ -500,7 +497,6 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => damageType,
         comparer: () => Data.DamageType.indexOf(damageType),
         color: () => color,
-        styles: () => getTableColor(color),
       });
     }
 
@@ -562,10 +558,6 @@ export default class Unit implements TableRow<Keys> {
       },
       comparer: (s) => -Data.MoveType.indexOf(this.moveType.getValue(s)),
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
-      styles: (s) => {
-        const color = Data.MoveType.colorOf(this.moveType.getValue(s));
-        return getTableColor(color);
-      },
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);
@@ -592,12 +584,6 @@ export default class Unit implements TableRow<Keys> {
         const v = this.placement.getValue(s);
         if (v === undefined) return;
         return Data.Placement.color[v];
-      },
-      styles: (s) => {
-        const value = this.placement.getValue(s);
-        if (value === undefined) return;
-        const color = Data.Placement.color[value];
-        return getTableColor(color);
       },
     });
 

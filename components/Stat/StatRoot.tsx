@@ -119,7 +119,9 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   }
 
   protected getDefaultStyles(setting: Setting): StatStyles {
-    return this.styles(setting);
+    const styles = this.styles(setting);
+    const color = Data.TableColor.getSelector(this.getColor(setting));
+    return StatRoot.mergeStyles(styles, color);
   }
 
   protected getSmallFontStyles(

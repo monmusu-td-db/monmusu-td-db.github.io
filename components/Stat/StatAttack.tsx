@@ -4,6 +4,7 @@ import * as Data from "../Data";
 import { Setting } from "../States";
 import { SituationBaseStat } from "./SituationBaseStat";
 import { Tooltip as T } from "../UI/Tooltip";
+import type { StatStyles } from "./StatRoot";
 
 const sign = T.sign;
 export type Factors = Data.ActualAttackFactors | undefined;
@@ -16,6 +17,17 @@ export class StatAttack extends SituationBaseStat<Factors> {
     const factors = this.getFactors(setting);
     const plus = factors?.isSupport;
     return StatAttack.getNumber({ value, plus });
+  }
+
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const defaultStyle = super.getDefaultStyles(setting);
+    const criticalStyle = this.getCriticalStyle(setting);
+    return StatAttack.mergeStyles(defaultStyle, criticalStyle);
+  }
+
+  private getCriticalStyle(setting: Setting): StatStyles {
+    const b = (this.getFactors(setting)?.criticalChance ?? 0) >= 100;
+    return b ? Data.TableClass.critical : undefined;
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {
