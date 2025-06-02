@@ -22700,6 +22700,107 @@
     ]
   },
   {
+    "id": 332,
+    "unitName": "【魔導師】ウィッチ",
+    "unitShortName": "ウィッチ",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "闇",
+    "hp": 2849,
+    "attack": 629,
+    "defense": 255,
+    "resist": 532,
+    "supplements": [
+      "回復100%/撃破→自分"
+    ],
+    "exSkill1": {
+      "skillName": "バストユニオン",
+      "attackMul": 280,
+      "targetAdd": 3,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "スタン付与40%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "スタン付与10%→命中"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 180,
+        "potentialBonus": {
+          "damageFactor": 200
+        }
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 300
+          }
+        ],
+        "attackMul": 300
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "common-proper"
+        ]
+      }
+    ]
+  },
+  {
     "id": 333,
     "unitName": "【クィーンハーピー】ルクレツィア",
     "unitShortName": "ルクレツィア",
