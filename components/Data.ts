@@ -165,6 +165,45 @@ export const TableColor = {
       return `table-c-${color}`;
     }
   },
+
+  valueCompare(
+    v1: number | undefined,
+    v2: number | undefined = 0
+  ): TableColor | undefined {
+    if (v1 !== undefined) {
+      if (v1 > v2) {
+        return tableColorAlias.positive;
+      } else if (v1 < v2) {
+        return tableColorAlias.negative;
+      }
+    }
+  },
+
+  valueCompareStrong(
+    v1: number | undefined,
+    v2: number | undefined = 0
+  ): TableColor | undefined {
+    if (v1 !== undefined) {
+      if (v1 > v2) {
+        return tableColorAlias.positiveStrong;
+      } else if (v1 < v2) {
+        return tableColorAlias.negativeStrong;
+      }
+    }
+  },
+
+  valueCompareWeak(
+    v1: number | undefined,
+    v2: number | undefined = 0
+  ): TableColor | undefined {
+    if (v1 !== undefined) {
+      if (v1 > v2) {
+        return tableColorAlias.positiveStrong;
+      } else if (v1 < v2) {
+        return tableColorAlias.negativeStrong;
+      }
+    }
+  },
 } as const;
 export const tableColorAlias = {
   positive: tableColor.red,

@@ -395,11 +395,11 @@ export default class Situation implements TableRow<Keys> {
         const f = this.block.getFactors(s);
         if (f === undefined) return;
 
-        const skillColor = Util.getTableColor(f.skill, f.base);
+        const skillColor = Data.TableColor.valueCompare(f.skill, f.base);
         if (skillColor !== undefined) {
           return skillColor;
         }
-        return Util.getTableColorWeak(f.condFeature, f.skill);
+        return Data.TableColor.valueCompareWeak(f.condFeature, f.skill);
       },
       factors: (s) => {
         const sk = this.getSkill(s);
@@ -1976,12 +1976,15 @@ export default class Situation implements TableRow<Keys> {
     const skillResult = skAtkSpdResult + skDelayResult;
     const buffResult = buffAtkSpdResult + buffDelayResult;
     const condResult = condAtkSpdResult + condDelayResult;
-    const skillColor = Util.getTableColor(baseResult, skillResult);
+    const skillColor = Data.TableColor.valueCompare(baseResult, skillResult);
     const buffColor =
       baseResult <= buffResult
         ? undefined
-        : Util.getTableColor(skillResult, buffResult, true);
-    const conditionalColor = Util.getTableColorWeak(baseResult, condResult);
+        : Data.TableColor.valueCompareStrong(skillResult, buffResult);
+    const conditionalColor = Data.TableColor.valueCompareWeak(
+      baseResult,
+      condResult
+    );
 
     const result = attackSpeedResult + delayResult;
 

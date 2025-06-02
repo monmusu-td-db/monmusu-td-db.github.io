@@ -3,7 +3,6 @@ import * as Data from "../Data";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
 import type { StatHandler, StatStyles } from "./StatRoot";
-import { Level, Positive } from "../UI/Util";
 import { Tooltip as T } from "../UI/Tooltip";
 
 const PLUS = "+";
@@ -142,39 +141,28 @@ export class StatTarget extends StatTooltip<
       <T.List>
         <T.ListItem label="対象">
           {Data.Target.getString(f.target)}
-          {f.wideTarget && (
-            <>
-              {this.plus}
-              周囲
-            </>
-          )}
-          {(f.splash || f.isBlock || f.laser) && (
-            <>
-              {this.bStart}
-              {f.isBlock && <Positive>ブロック全敵</Positive>}
-              {f.isBlock && f.splash && " / "}
-              {f.splash && <Positive>範囲攻撃</Positive>}
-              {f.laser && (f.splash || f.isBlock) && " / "}
-              {f.laser && <Positive>直線上対象攻撃</Positive>}
-              {this.bEnd}
-            </>
-          )}
+          <T.Plus enabled={f.wideTarget}>周囲</T.Plus>
+          <T.Brackets enabled={f.splash || f.isBlock || f.laser}>
+            {f.isBlock && <T.Positive>ブロック全敵</T.Positive>}
+            {f.isBlock && f.splash && " / "}
+            {f.splash && <T.Positive>範囲攻撃</T.Positive>}
+            {f.laser && (f.splash || f.isBlock) && " / "}
+            {f.laser && <T.Positive>直線上対象攻撃</T.Positive>}
+          </T.Brackets>
         </T.ListItem>
         {round !== undefined && round !== 1 ? (
           <T.ListItem label="連射数">
-            <Level level={round > 1}>
-              {multiply}
-              {round.toFixed(0)}
-            </Level>
+            <T.Value isPositive={round > 1}>
+              <T.Multiply>{round.toFixed(0)}</T.Multiply>
+            </T.Value>
           </T.ListItem>
         ) : (
           <>
             {average !== 1 && (
               <T.ListItem label="平均連射数">
-                <Level level={average > 1}>
-                  {multiply}
-                  {average.toFixed(1)}
-                </Level>
+                <T.Value isPositive={average > 1}>
+                  <T.Multiply>{average.toFixed(1)}</T.Multiply>
+                </T.Value>
               </T.ListItem>
             )}
             {roundDetails !== undefined && roundDetails.length > 0 && (
