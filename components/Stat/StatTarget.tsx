@@ -1,6 +1,5 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import * as Data from "../Data";
-import * as Util from "../UI/Util";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
 import type { StatHandler, StatStyles } from "./StatRoot";
@@ -8,7 +7,7 @@ import { Level, Positive } from "../UI/Util";
 import { Tooltip as T } from "../UI/Tooltip";
 
 const PLUS = "+";
-const MULTIPLY = <>&#8203;×</>;
+const MULTIPLY = "×";
 
 export class StatTarget extends StatTooltip<
   Data.Target | undefined,
@@ -39,7 +38,7 @@ export class StatTarget extends StatTooltip<
     if (f === undefined) return;
     const { target, splash, rounds, wideTarget, laser } = f;
 
-    const contents: ReactNode[] = (() => {
+    const contents: string[] = (() => {
       switch (target) {
         case Data.Target.self:
         case Data.Target.all:
@@ -59,33 +58,27 @@ export class StatTarget extends StatTooltip<
             base = "直線上";
             noOmit = true;
           } else {
-            if (target < 1) return 0;
+            if (target < 1) return "0";
             base = target === Infinity ? Data.Target.inRange : target;
             noOmit = target > 1;
           }
 
           const targetText = noOmit || (target === 1 && wideTarget);
+          const brac = targetText && wideTarget && (splash || round > 1);
 
-          return (
-            <>
-              <T.Brackets
-                enabled={targetText && wideTarget && (splash || round > 1)}
-              >
-                {targetText && base}
-                {targetText && wideTarget && PLUS}
-                {wideTarget && "​周囲"}
-              </T.Brackets>
-              {(noOmit || wideTarget) && splash && MULTIPLY}
-              {splash && "範囲"}
-              {!(noOmit || splash || wideTarget) && 1}
-              {round > 1 && (
-                <>
-                  {MULTIPLY}
-                  {round}
-                </>
-              )}
-            </>
-          );
+          return [
+            brac && "(",
+            targetText && base,
+            targetText && wideTarget && PLUS,
+            wideTarget && "​周囲",
+            brac && ")",
+            (noOmit || wideTarget) && splash && MULTIPLY,
+            splash && "範囲",
+            !(noOmit || splash || wideTarget) && 1,
+            round > 1 && MULTIPLY + round,
+          ]
+            .filter((str) => str !== false)
+            .join("");
         }
 
         if (typeof rounds === "number") return fn(rounds);
@@ -93,10 +86,14 @@ export class StatTarget extends StatTooltip<
       });
     })();
 
-    const ret = (
-      <Util.JoinTexts texts={contents} separator={<>&#8203;or&#8203;</>} />
-    );
-    return ret;
+    return contents.map((str, i) => {
+      return (
+        <Fragment key={str}>
+          {i > 0 && <>&#8203;or&#8203;</>}
+          {str}
+        </Fragment>
+      );
+    });
   }
 
   protected override getDefaultStyles(setting: Setting): StatStyles {
