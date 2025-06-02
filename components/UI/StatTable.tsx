@@ -195,7 +195,7 @@ function Header_<T extends string>({
   sort: Sort<T>;
   onClick: HandleSort<T>;
 }) {
-  const sortColor = Data.StyleSelector.getTableColor(
+  const sortColor = Data.TableColor.getSelector(
     sort.isReversed ? Data.tableColor.blue : Data.tableColor.red
   );
 

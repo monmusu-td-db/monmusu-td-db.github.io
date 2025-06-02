@@ -1,6 +1,5 @@
 import jsonUnits from "@/assets/unit.json";
 import * as Data from "./Data";
-import * as Util from "./UI/Util";
 import * as Stat from "./Stat";
 import {
   FilterEquipment,
@@ -251,7 +250,6 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => rarity,
         comparer: () => comparer,
         color: () => color,
-        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -276,7 +274,6 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => element,
         comparer: () => comparer,
         color: () => color,
-        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -500,7 +497,6 @@ export default class Unit implements TableRow<Keys> {
         calculater: () => damageType,
         comparer: () => Data.DamageType.indexOf(damageType),
         color: () => color,
-        styles: () => Data.StyleSelector.getTableColor(color),
       });
     }
 
@@ -562,10 +558,6 @@ export default class Unit implements TableRow<Keys> {
       },
       comparer: (s) => -Data.MoveType.indexOf(this.moveType.getValue(s)),
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
-      styles: (s) => {
-        const color = Data.MoveType.colorOf(this.moveType.getValue(s));
-        return Data.StyleSelector.getTableColor(color);
-      },
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);
@@ -592,12 +584,6 @@ export default class Unit implements TableRow<Keys> {
         const v = this.placement.getValue(s);
         if (v === undefined) return;
         return Data.Placement.color[v];
-      },
-      styles: (s) => {
-        const value = this.placement.getValue(s);
-        if (value === undefined) return;
-        const color = Data.Placement.color[value];
-        return Data.StyleSelector.getTableColor(color);
       },
     });
 
@@ -727,18 +713,17 @@ export default class Unit implements TableRow<Keys> {
       .deploymentResult as T;
   }
 
-  private getBaseStat(data: Readonly<JsonUnit>, key: Data.BaseStatType) {
+  private getBaseStat(data: Readonly<JsonUnit>, statType: Data.BaseStatType) {
     const ret: Stat.Base<number> = new Stat.Base({
-      statType: key,
+      statType: statType,
       calculater: (s) => ret.getFactors(s)?.deploymentResult ?? 0,
-      item: (s) => {
-        const c = ret.getText(s);
-        if (key === stat.hp && this.isUnhealable)
-          return Util.getUnhealableText(c);
-        return c;
-      },
       isReversed: true,
-      factors: (s) => this.getDeploymentFactors(s, key, data[key]),
+      styles: () => {
+        if (this.isUnhealable && statType === stat.hp) {
+          return Data.TableClass.unhealable;
+        }
+      },
+      factors: (s) => this.getDeploymentFactors(s, statType, data[statType]),
     });
     return ret;
   }

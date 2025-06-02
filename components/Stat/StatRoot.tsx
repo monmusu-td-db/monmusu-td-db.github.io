@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import * as Data from "../Data";
 import { Setting } from "../States";
+import cn from "classnames";
 
 export type StatHandler<T> = (setting: Setting) => T;
 export type StatStyles = string | readonly (string | undefined)[] | undefined;
@@ -45,6 +46,8 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   private stylesCache = new Data.Cache<string | undefined>();
   private factorsCache = new Data.Cache<TFactors>();
 
+  protected static readonly NUMBER_LENGTH_LIMIT = 6;
+
   constructor(props: StatProps<TStat, TFactors>) {
     this.statType = props.statType;
     this.calculater = props.calculater;
@@ -77,11 +80,8 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   getStyles(setting: Setting): string | undefined {
     return this.stylesCache.getCache((s) => {
       const styles = this.getDefaultStyles(s);
-      if (typeof styles === "string") {
-        return styles;
-      } else {
-        return styles?.filter((v) => v !== undefined || v !== "").join(" ");
-      }
+      const ret = cn(styles);
+      return ret === "" ? undefined : ret;
     }, setting);
   }
 
@@ -102,7 +102,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     }
   }
 
-  private getDefaultText(setting: Setting): string | undefined {
+  protected getDefaultText(setting: Setting): string | undefined {
     const ret = this.getValue(setting);
     switch (typeof ret) {
       case "number":
@@ -119,10 +119,39 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   }
 
   protected getDefaultStyles(setting: Setting): StatStyles {
-    return this.styles(setting);
+    const styles = this.styles(setting);
+    const color = Data.TableColor.getSelector(this.getColor(setting));
+    return StatRoot.mergeStyles(styles, color);
+  }
+
+  protected getSmallFontStyles(
+    text: string | undefined,
+    style: StatStyles,
+    maxLength: number
+  ): StatStyles {
+    if (text === undefined || text.length <= maxLength) {
+      return style;
+    } else {
+      return StatRoot.mergeStyles(style, Data.TableClass.small);
+    }
+  }
+
+  protected static getNumber({
+    value,
+    plus,
+    length,
+  }: {
+    value: number;
+    plus?: boolean | undefined;
+    length?: number;
+  }) {
+    const limit = length ?? this.NUMBER_LENGTH_LIMIT;
+    const text = this.getNumberText(value, limit);
+    return plus && value >= 0 ? "+" + text : text;
   }
 
   protected NumberItem({
+    // TODO Obsolete
     value,
     plus,
     length,
@@ -144,10 +173,10 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
 
   private static getNumberText(value: number, limit: number): string {
     const text = value.toFixed(0);
-    if (text.length <= limit + 1) {
+    if (text.length <= limit) {
       return text;
     } else {
-      return (value / 1000).toFixed(0) + "K";
+      return Math.trunc(value / 1000) + "K";
     }
   }
 

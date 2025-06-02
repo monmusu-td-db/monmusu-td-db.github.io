@@ -4,6 +4,7 @@ import * as Data from "../Data";
 import { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
 import { Tooltip as T } from "../UI/Tooltip";
+import type { StatStyles } from "./StatRoot";
 
 const sign = T.sign;
 
@@ -12,6 +13,29 @@ export type StatFactors = Data.InBattleFactors | undefined;
 export class SituationBaseStat<
   TFactors extends StatFactors = StatFactors
 > extends BaseStat<number | undefined, TFactors> {
+  protected getNumberText(setting: Setting): string | undefined {
+    const value = this.getValue(setting);
+    if (value === undefined) return;
+
+    const text = SituationBaseStat.getNumber({ value });
+    return text;
+  }
+
+  protected override getDefaultItem(setting: Setting): ReactNode {
+    return this.getNumberText(setting);
+  }
+
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const base = super.getDefaultStyles(setting);
+    const text = this.getNumberText(setting);
+    const length = text?.length ?? 0;
+    if (length <= SituationBaseStat.NUMBER_LENGTH_LIMIT) {
+      return base;
+    } else {
+      return SituationBaseStat.mergeStyles(base, Data.TableClass.small);
+    }
+  }
+
   public override getTooltipBody(setting: Setting): ReactNode {
     return this.getTooltipBodyBase(setting);
   }

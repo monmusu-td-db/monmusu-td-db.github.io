@@ -3,17 +3,16 @@ import * as Data from "../Data";
 import type { Setting } from "../States";
 import { BaseStat } from "./BaseStat";
 import { Tooltip as T } from "../UI/Tooltip";
+import type { StatStyles } from "./StatRoot";
 
 type Factors = Required<Data.RangeFactor> | undefined;
 const sign = T.sign;
 
 export class StatRange extends BaseStat<number | undefined, Factors> {
-  protected override getDefaultItem(setting: Setting): ReactNode {
-    const value = this.getValue(setting);
-    if (value === undefined) return;
-
-    const Item = super.NumberItem;
-    return <Item value={value} length={3} />;
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const text = this.getText(setting);
+    const style = super.getDefaultStyles(setting);
+    return this.getSmallFontStyles(text, style, 3);
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {

@@ -2,24 +2,22 @@ import type { ReactNode } from "react";
 import * as Data from "../Data";
 import type { Setting } from "../States";
 import { SituationBaseStat } from "./SituationBaseStat";
-import { Tooltip as Tt } from "../UI/Tooltip";
+import { Tooltip as T } from "../UI/Tooltip";
+import type { StatStyles } from "./StatRoot";
 
-const sign = Tt.sign;
+const sign = T.sign;
 type Factors = Data.ActualHpFactors | undefined;
 
 export class StatHp extends SituationBaseStat<Factors> {
-  protected override getDefaultItem(setting: Setting): ReactNode {
-    const value = this.getValue(setting);
-    if (value === undefined) return;
-    const Item = super.NumberItem;
-    const factors = this.getFactors(setting);
-    const ret = <Item value={value} />;
+  protected override getDefaultStyles(setting: Setting): StatStyles {
+    const defaultStyle = super.getDefaultStyles(setting);
+    const unhealableStyle = this.getUnhealableStyle(setting);
+    return StatHp.mergeStyles(defaultStyle, unhealableStyle);
+  }
 
-    if (factors?.isUnhealable) {
-      return <u>{ret}</u>;
-    }
-
-    return ret;
+  private getUnhealableStyle(setting: Setting): StatStyles {
+    const isUnhealable = this.getFactors(setting)?.isUnhealable;
+    return isUnhealable ? Data.TableClass.unhealable : undefined;
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {
@@ -29,23 +27,23 @@ export class StatHp extends SituationBaseStat<Factors> {
     return (
       <>
         {super.getTooltipBody(setting)}
-        <Tt.Equation disabled={f.currentFactor === 100}>
+        <T.Equation disabled={f.currentFactor === 100}>
           {(d) => (
             <>
-              <Tt.Result>{d ? "現在HP" : f.actualResult}</Tt.Result>
-              <Tt.Expression>
+              <T.Result>{d ? "現在HP" : f.actualResult}</T.Result>
+              <T.Expression>
                 {d ? "最大HP" : f.inBattleResult}
-                <Tt.Multiply>
-                  <Tt.Value isPositive={f.currentFactor > 100}>
+                <T.Multiply>
+                  <T.Value isPositive={f.currentFactor > 100}>
                     {d
                       ? "現在値割合"
                       : Math.round(f.currentFactor) + sign.PERCENT}
-                  </Tt.Value>
-                </Tt.Multiply>
-              </Tt.Expression>
+                  </T.Value>
+                </T.Multiply>
+              </T.Expression>
             </>
           )}
-        </Tt.Equation>
+        </T.Equation>
       </>
     );
   }

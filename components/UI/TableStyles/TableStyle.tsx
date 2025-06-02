@@ -67,8 +67,33 @@ export const TableStyle = memo(function TableStyle({
     }
   });
 
-  const getSelector = (index: number) =>
-    `.stat-table>tbody>tr>td:nth-child(${index + 1})`;
+  const getSelector = (
+    index: number | readonly number[],
+    end: string = ""
+  ): string => {
+    const fn = (index: number) =>
+      `.stat-table>tbody>tr>td:nth-child(${index + 1})`;
+    let ret: string;
+    if (typeof index === "number") {
+      ret = index === -1 ? "" : fn(index) + end;
+    } else {
+      ret = index
+        .filter((i) => i !== -1)
+        .map((i) => fn(i) + end)
+        .join();
+    }
+    return ret;
+  };
+  const getStyle = (selector: string, props: string) => {
+    if (selector.length === 0) {
+      return "";
+    } else {
+      return `${selector}{${props}}`;
+    }
+  };
+  const getIndex = (statType: string) =>
+    headers.findIndex((col) => col.id === statType);
+  const supSelector = getSelector(getIndex(stat.supplements), ">span");
 
   return (
     <style
@@ -76,11 +101,14 @@ export const TableStyle = memo(function TableStyle({
       href="stat-table"
       dangerouslySetInnerHTML={{
         __html:
-          `${end.map(getSelector).join()}{text-align:end;}` +
-          `${center.map(getSelector).join()}{text-align:center;}` +
-          `${empty
-            .map((i) => getSelector(i) + ":empty::before")
-            .join()}{content:"-";}`,
+          getStyle(getSelector(end), "text-align:end;") +
+          getStyle(getSelector(center), "text-align:center;") +
+          getStyle(getSelector(empty, ":empty::before"), 'content:"-";') +
+          getStyle(supSelector, "font-size:0.75rem;") +
+          `@media(min-width:992px){${getStyle(
+            supSelector,
+            "white-space:nowrap;"
+          )}}`,
       }}
     />
   );

@@ -1,5 +1,5 @@
 import jsonWord from "@/assets/word.json";
-import { type Setting, type States } from "./States";
+import { type Setting } from "./States";
 
 /* 
 TODOリスト
@@ -21,7 +21,6 @@ TODOリスト
   貫通率が複数ある場合、加算か乗算か調べる
   1つのオブジェクトに複数のバフ効果を入れられるようにする
   補足をツールチップに一覧表示
-  補足をspanで囲んで背景色をつけて視認性を向上させる
   フィルターに移動タイプ追加
 
 メモ
@@ -101,13 +100,6 @@ export class Percent {
   }
 }
 
-export class StyleSelector {
-  static getTableColor(color: TableColor | undefined): string | undefined {
-    if (color === undefined) return;
-    return `table-c-${color}`;
-  }
-}
-
 export function mapSort<T>(
   data: readonly T[],
   comparer: (value: T) => string | number | undefined,
@@ -135,17 +127,6 @@ function compare(a: unknown, b: unknown): number {
   }
   return a < b ? -1 : 1;
 }
-
-export type TableData<TData, TColumn extends keyof TData> = Readonly<{
-  list: readonly TData[];
-  columns: readonly TColumn[];
-  comparer: (
-    setting: Setting,
-    key: TColumn,
-    target: TData
-  ) => string | number | undefined;
-  filter: (states: States, list: readonly TData[]) => readonly TData[];
-}>;
 
 export const tableColor = {
   red: "red",
@@ -176,6 +157,54 @@ export const tableColor = {
   yellow800: "yellow-800",
 } as const;
 export type TableColor = (typeof tableColor)[keyof typeof tableColor];
+export const TableColor = {
+  getSelector(color: TableColor | undefined): string | undefined {
+    if (color === undefined) {
+      return;
+    } else {
+      return `table-c-${color}`;
+    }
+  },
+
+  valueCompare(
+    v1: number | undefined,
+    v2: number | undefined = 0
+  ): TableColor | undefined {
+    if (v1 !== undefined) {
+      if (v1 > v2) {
+        return tableColorAlias.positive;
+      } else if (v1 < v2) {
+        return tableColorAlias.negative;
+      }
+    }
+  },
+
+  valueCompareStrong(
+    v1: number | undefined,
+    v2: number | undefined = 0
+  ): TableColor | undefined {
+    if (v1 !== undefined) {
+      if (v1 > v2) {
+        return tableColorAlias.positiveStrong;
+      } else if (v1 < v2) {
+        return tableColorAlias.negativeStrong;
+      }
+    }
+  },
+
+  valueCompareWeak(
+    v1: number | undefined,
+    v2: number | undefined = 0
+  ): TableColor | undefined {
+    if (v1 !== undefined) {
+      if (v1 > v2) {
+        return tableColorAlias.positiveStrong;
+      } else if (v1 < v2) {
+        return tableColorAlias.negativeStrong;
+      }
+    }
+  },
+} as const;
 export const tableColorAlias = {
   positive: tableColor.red,
   negative: tableColor.blue,
@@ -187,9 +216,11 @@ export const tableColorAlias = {
 } as const;
 
 export const TableClass = {
-  sm: "fsm",
+  small: "fsm",
   skillNormal: "skill-normal",
   annotations: "annotations",
+  unhealable: "unhealable",
+  critical: "critical",
 } as const;
 
 // Stat
@@ -374,6 +405,7 @@ export const JsonCondition = {
 };
 export const Condition = {
   ...condition,
+  texts: conditionTexts,
 
   get(key: ConditionKey, value?: number | undefined): Condition {
     return {
@@ -403,22 +435,22 @@ export const Condition = {
     return list.toSorted((a, b) => fn(a) - fn(b));
   },
 
-  textOf(list: readonly Condition[]): string {
-    return list
-      .map((v) => {
-        const a = conditionTexts[v.key];
-        const b = v.value !== undefined ? `${v.value}` : "";
-        switch (v.key) {
-          case condition.hit:
-            const s = (v.value ?? 0) > 1 ? a + "s" : a;
-            return b + s + " ";
-          case condition.second:
-            return b + a + " ";
-          default:
-            return a + b + (v.value !== undefined ? " " : "");
-        }
-      })
-      .join("");
+  getText(kvp: Condition) {
+    const key = Condition.texts[kvp.key];
+    const value = kvp.value !== undefined ? kvp.value.toString() : "";
+    switch (kvp.key) {
+      case condition.hit:
+        const s = (kvp.value ?? 0) > 1 ? key + "s" : key;
+        return value + s + " ";
+      case condition.second:
+        return value + key + " ";
+      default:
+        return key + value + (kvp.value !== undefined ? " " : "");
+    }
+  },
+
+  listTextOf(list: readonly Condition[]): string {
+    return list.map((kvp) => Condition.getText(kvp)).join("");
   },
 } as const;
 
@@ -1723,6 +1755,7 @@ export interface LimitFactors {
   readonly isMaxAttackDebuff: boolean;
   readonly damageCut: number;
   readonly evasion: number;
+  readonly isUnhealable: boolean;
 }
 
 export interface DamageCutFactors {

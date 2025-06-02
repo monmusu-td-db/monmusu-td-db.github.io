@@ -1,14 +1,12 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import * as Data from "../Data";
-import * as Util from "../UI/Util";
 import type { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
 import type { StatHandler, StatStyles } from "./StatRoot";
-import { Level, Positive } from "../UI/Util";
 import { Tooltip as T } from "../UI/Tooltip";
 
 const PLUS = "+";
-const MULTIPLY = <>&#8203;×</>;
+const MULTIPLY = "×";
 
 export class StatTarget extends StatTooltip<
   Data.Target | undefined,
@@ -39,7 +37,7 @@ export class StatTarget extends StatTooltip<
     if (f === undefined) return;
     const { target, splash, rounds, wideTarget, laser } = f;
 
-    const contents: ReactNode[] = (() => {
+    const contents: string[] = (() => {
       switch (target) {
         case Data.Target.self:
         case Data.Target.all:
@@ -59,33 +57,27 @@ export class StatTarget extends StatTooltip<
             base = "直線上";
             noOmit = true;
           } else {
-            if (target < 1) return 0;
+            if (target < 1) return "0";
             base = target === Infinity ? Data.Target.inRange : target;
             noOmit = target > 1;
           }
 
           const targetText = noOmit || (target === 1 && wideTarget);
+          const brac = targetText && wideTarget && (splash || round > 1);
 
-          return (
-            <>
-              <T.Brackets
-                enabled={targetText && wideTarget && (splash || round > 1)}
-              >
-                {targetText && base}
-                {targetText && wideTarget && PLUS}
-                {wideTarget && "​周囲"}
-              </T.Brackets>
-              {(noOmit || wideTarget) && splash && MULTIPLY}
-              {splash && "範囲"}
-              {!(noOmit || splash || wideTarget) && 1}
-              {round > 1 && (
-                <>
-                  {MULTIPLY}
-                  {round}
-                </>
-              )}
-            </>
-          );
+          return [
+            brac && "(",
+            targetText && base,
+            targetText && wideTarget && PLUS,
+            wideTarget && "​周囲",
+            brac && ")",
+            (noOmit || wideTarget) && splash && MULTIPLY,
+            splash && "範囲",
+            !(noOmit || splash || wideTarget) && 1,
+            round > 1 && MULTIPLY + round,
+          ]
+            .filter((str) => str !== false)
+            .join("");
         }
 
         if (typeof rounds === "number") return fn(rounds);
@@ -93,10 +85,14 @@ export class StatTarget extends StatTooltip<
       });
     })();
 
-    const ret = (
-      <Util.JoinTexts texts={contents} separator={<>&#8203;or&#8203;</>} />
-    );
-    return ret;
+    return contents.map((str, i) => {
+      return (
+        <Fragment key={str}>
+          {i > 0 && <>&#8203;or&#8203;</>}
+          {str}
+        </Fragment>
+      );
+    });
   }
 
   protected override getDefaultStyles(setting: Setting): StatStyles {
@@ -118,7 +114,7 @@ export class StatTarget extends StatTooltip<
       laser ||
       (Array.isArray(rounds) && rounds.length > 1)
     ) {
-      return StatTarget.mergeStyles(origin, Data.TableClass.sm);
+      return StatTarget.mergeStyles(origin, Data.TableClass.small);
     } else {
       return origin;
     }
@@ -145,39 +141,28 @@ export class StatTarget extends StatTooltip<
       <T.List>
         <T.ListItem label="対象">
           {Data.Target.getString(f.target)}
-          {f.wideTarget && (
-            <>
-              {this.plus}
-              周囲
-            </>
-          )}
-          {(f.splash || f.isBlock || f.laser) && (
-            <>
-              {this.bStart}
-              {f.isBlock && <Positive>ブロック全敵</Positive>}
-              {f.isBlock && f.splash && " / "}
-              {f.splash && <Positive>範囲攻撃</Positive>}
-              {f.laser && (f.splash || f.isBlock) && " / "}
-              {f.laser && <Positive>直線上対象攻撃</Positive>}
-              {this.bEnd}
-            </>
-          )}
+          <T.Plus enabled={f.wideTarget}>周囲</T.Plus>
+          <T.Brackets enabled={f.splash || f.isBlock || f.laser}>
+            {f.isBlock && <T.Positive>ブロック全敵</T.Positive>}
+            {f.isBlock && f.splash && " / "}
+            {f.splash && <T.Positive>範囲攻撃</T.Positive>}
+            {f.laser && (f.splash || f.isBlock) && " / "}
+            {f.laser && <T.Positive>直線上対象攻撃</T.Positive>}
+          </T.Brackets>
         </T.ListItem>
         {round !== undefined && round !== 1 ? (
           <T.ListItem label="連射数">
-            <Level level={round > 1}>
-              {multiply}
-              {round.toFixed(0)}
-            </Level>
+            <T.Value isPositive={round > 1}>
+              <T.Multiply>{round.toFixed(0)}</T.Multiply>
+            </T.Value>
           </T.ListItem>
         ) : (
           <>
             {average !== 1 && (
               <T.ListItem label="平均連射数">
-                <Level level={average > 1}>
-                  {multiply}
-                  {average.toFixed(1)}
-                </Level>
+                <T.Value isPositive={average > 1}>
+                  <T.Multiply>{average.toFixed(1)}</T.Multiply>
+                </T.Value>
               </T.ListItem>
             )}
             {roundDetails !== undefined && roundDetails.length > 0 && (
