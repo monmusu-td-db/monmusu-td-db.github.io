@@ -10113,6 +10113,118 @@
     }
   },
   {
+    "id": 120,
+    "unitName": "【四天王】エルベティエ",
+    "unitShortName": "エルベティエ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "水",
+    "hp": 2520,
+    "attack": 452,
+    "defense": 364,
+    "resist": 457,
+    "exSkill1": {
+      "skillName": "ドロドロにしてあげる",
+      "attackMul": 180,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "physicalDamageCut": 40,
+        "potentialBonus": {
+          "physicalDamageCut": 50
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "DEF-{attack*20}/スキル中→射程内",
+          "RES-{attack*20}/スキル中→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1200001,
+    "parentId": 120,
+    "unitName": "エルベティエ",
+    "unitShortName": "エルベティエT",
+    "class": "ハーミット",
+    "element": "水",
+    "cost": 15,
+    "hp": 2520,
+    "attack": 452,
+    "defense": 364,
+    "resist": 457,
+    "supplements": [
+      "limit45秒"
+    ],
+    "exSkill1": {
+      "skillName": "ドロドロにしてあげる",
+      "attackMul": 180,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "features": [
+      {
+        "physicalDamageCut": 40,
+        "potentialBonus": {
+          "physicalDamageCut": 50
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "DEF-{attack*20}/スキル中→射程内",
+          "RES-{attack*20}/スキル中→射程内"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 123,
     "unitName": "【スライム娘】ライム",
     "unitShortName": "ライム",
