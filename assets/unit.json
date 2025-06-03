@@ -10225,6 +10225,78 @@
     ]
   },
   {
+    "TODO_DESC": "ex1 delay",
+    "id": 122,
+    "unitName": "【四天王】アルマエルマ",
+    "unitShortName": "アルマエルマ",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "風",
+    "hp": 6903,
+    "attack": 906,
+    "defense": 339,
+    "resist": 146,
+    "exSkill1": {
+      "skillName": "たっぷり遊んであげる♪",
+      "attackMul": 160,
+      "delayMul": 99,
+      "rounds": 5
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "rounds": [
+          {
+            "ratio": 3,
+            "value": 2
+          },
+          {
+            "ratio": 2,
+            "value": 5
+          }
+        ],
+        "potentialBonus": {
+          "rounds": [
+            {
+              "ratio": 12,
+              "value": 2
+            },
+            {
+              "ratio": 13,
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "featureName": "common-absorb",
+        "staticDamage": {
+          "key": "hp",
+          "value": 4
+        },
+        "supplements": [
+          "回復4%/命中"
+        ]
+      }
+    ],
+    "physicalEvasion": 50,
+    "magicalEvasion": 50,
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 123,
     "unitName": "【スライム娘】ライム",
     "unitShortName": "ライム",
