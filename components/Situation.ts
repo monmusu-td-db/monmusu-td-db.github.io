@@ -1,6 +1,5 @@
 import jsonSituations from "@/assets/situation.json";
 import * as Data from "./Data";
-import * as Util from "./UI/Util";
 import * as Stat from "./Stat";
 import {
   Filter,
@@ -1053,8 +1052,6 @@ export default class Situation implements TableRow<Keys> {
         statType: `dps${i}`,
         calculater: (s) => ret.getFactors(s)?.result,
         isReversed: true,
-        color: (s) =>
-          Util.getDpsColor(ret.getValue(s), this.damageType.getValue(s)),
         factors: (s) => this.getDpsFactors(s, i),
       });
       return ret;
