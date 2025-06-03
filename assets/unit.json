@@ -9970,6 +9970,89 @@
     ]
   },
   {
+    "TODO_DESC": "スタン蓄積値",
+    "id": 118,
+    "unitName": "【魔王】アリスフィーズ",
+    "unitShortName": "アリスフィーズ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "hp": 2710,
+    "attack": 1012,
+    "defense": 229,
+    "resist": 532,
+    "exSkill1": {
+      "skillName": "余の力を見せてやろう",
+      "attackMul": 240,
+      "rounds": 3,
+      "rangeMul": 150,
+      "duration": 25,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "featureName": "deploy-attack",
+        "annotations": [
+          "配置時攻撃"
+        ],
+        "interval": null,
+        "target": "全体",
+        "range": null,
+        "damageType": "貫通",
+        "supplements": [
+          "スタン付与XX%(大)"
+        ]
+      },
+      {
+        "featureName": "skill1-attack",
+        "skill": 1,
+        "annotations": [
+          "発動時攻撃"
+        ],
+        "interval": null,
+        "target": "全体",
+        "rounds": 1,
+        "range": null,
+        "damageType": "貫通",
+        "supplements": [
+          "スタン付与XX%(大)"
+        ]
+      }
+    ],
+    "attackMul": 115,
+    "potentialBonus": {
+      "attackMul": 122
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 119,
     "unitName": "【四天王】グランベリア",
