@@ -26,14 +26,10 @@ export class SituationBaseStat<
   }
 
   protected override getDefaultStyles(setting: Setting): StatStyles {
-    const base = super.getDefaultStyles(setting);
+    const defaultStyle = super.getDefaultStyles(setting);
     const text = this.getNumberText(setting);
-    const length = text?.length ?? 0;
-    if (length <= SituationBaseStat.NUMBER_LENGTH_LIMIT) {
-      return base;
-    } else {
-      return SituationBaseStat.mergeStyles(base, Data.TableClass.small);
-    }
+    const fontStyle = this.getSmallFontStyles(text, defaultStyle, 5);
+    return SituationBaseStat.mergeStyles(defaultStyle, fontStyle);
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {
