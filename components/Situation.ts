@@ -2497,10 +2497,13 @@ export default class Situation implements TableRow<Keys> {
       const parent = item.getTokenParent(setting);
       const target = parent === undefined ? item : parent;
 
-      if (target.unit?.filterRarity(states)) return false;
-      if (target.unit?.filterElement(states)) return false;
-      if (target.unit?.filterSpecies(states)) return false;
-      if (item.unit?.filterPlacement(states)) return false;
+      if (
+        target.unit?.filterRarity(states) ||
+        target.unit?.filterElement(states) ||
+        target.unit?.filterSpecies(states) ||
+        item.unit?.filterPlacement(states)
+      )
+        return false;
 
       const className = target.unit?.className.getValue(setting);
       const classNameKey = Data.ClassName.keyOf(className);
@@ -2510,7 +2513,10 @@ export default class Situation implements TableRow<Keys> {
       )
         return false;
 
-      if (!Situation.filterCondition(item, className, conditionFilters))
+      if (
+        !Situation.filterCondition(item, className, conditionFilters) ||
+        item.filterDamageType(states)
+      )
         return false;
 
       if (!states.query) {
@@ -2556,6 +2562,12 @@ export default class Situation implements TableRow<Keys> {
         }
       }
     });
+  }
+
+  private filterDamageType(states: States) {
+    const value = this.damageType.getValue(states.setting);
+    const key = Data.DamageType.keyOf(value);
+    return Unit.filterItem(states, Data.DamageType.list, key);
   }
 
   private static filterCondition(

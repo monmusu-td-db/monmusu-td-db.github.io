@@ -1212,25 +1212,35 @@ export const damageType = {
   heal: "回復",
   regenerate: "再生",
   absorb: "吸収",
+  none: "なし",
 } as const;
-export const damageTypeColor: Record<keyof typeof damageType, TableColor> = {
+export const damageTypeColor: Record<
+  keyof typeof damageType,
+  TableColor | undefined
+> = {
   physical: tableColor.blue,
   magic: tableColor.green,
   true: tableColor.red,
   heal: tableColor.yellow,
   regenerate: tableColor.yellow300,
   absorb: tableColor.yellow500,
+  none: undefined,
 } as const;
 type DamageTypeKey = keyof typeof damageType;
+const damageTypeList = Object.keys(damageType) as DamageTypeKey[];
+const damageTypeKeys = Enum(damageTypeList);
 export type DamageType = (typeof damageType)[DamageTypeKey];
 export const DamageType = {
   ...damageType,
+  list: damageTypeList,
+  keys: damageTypeKeys,
   indexOf(value: DamageType | undefined): number | undefined {
     if (value === undefined) return;
     return Object.values(damageType).indexOf(value);
   },
 
-  keyOf(value: DamageType): DamageTypeKey {
+  keyOf(value: DamageType | undefined): DamageTypeKey {
+    if (value === undefined) return this.keys.none;
     return Object.entries(damageType).find(
       (v) => v[1] === value
     )?.[0] as DamageTypeKey;

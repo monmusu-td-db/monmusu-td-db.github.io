@@ -280,6 +280,34 @@ const _TabFilter = memo(function TabFilter({
           })}
         </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
+      <PanelUI.FormGroup label="攻撃属性">
+        <PanelUI.FormCheckboxGroup>
+          {Data.DamageType.list
+            .filter((v) => {
+              if (!isSituation) {
+                switch (v) {
+                  case Data.DamageType.keys.regenerate:
+                  case Data.DamageType.keys.absorb:
+                    return false;
+                }
+              }
+              return true;
+            })
+            .map((v) => {
+              const checked = filter.get(v) ?? false;
+              return (
+                <PanelUI.FormCheckbox
+                  key={v}
+                  name={v}
+                  label={Data.DamageType[v]}
+                  checked={checked}
+                  onClick={() => onChange({ [v]: !checked })}
+                  grid
+                />
+              );
+            })}
+        </PanelUI.FormCheckboxGroup>
+      </PanelUI.FormGroup>
       <PanelUI.FormGroup label="配置タイプ">
         <PanelUI.FormCheckboxGroup>
           {Data.Placement.list.map((v) => {

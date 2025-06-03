@@ -1217,10 +1217,15 @@ export default class Unit implements TableRow<Keys> {
       )
         return false;
 
-      if (target.filterRarity(states)) return false;
-      if (target.filterElement(states)) return false;
-      if (target.filterSpecies(states)) return false;
-      if (item.filterPlacement(states)) return false;
+      if (
+        target.filterRarity(states) ||
+        target.filterElement(states) ||
+        target.filterSpecies(states) ||
+        item.filterDamageType(states) ||
+        item.filterPlacement(states)
+      ) {
+        return false;
+      }
 
       if (!states.query) {
         return true;
@@ -1255,7 +1260,7 @@ export default class Unit implements TableRow<Keys> {
     });
   }
 
-  private filterItem<T extends FilterKeys>(
+  static filterItem<T extends FilterKeys>(
     states: States,
     list: readonly T[],
     value: T | undefined | null
@@ -1269,7 +1274,7 @@ export default class Unit implements TableRow<Keys> {
   }
 
   filterRarity(states: States): boolean {
-    return this.filterItem(
+    return Unit.filterItem(
       states,
       Data.Rarity.list,
       this.rarity.getValue(states.setting)
@@ -1280,17 +1285,23 @@ export default class Unit implements TableRow<Keys> {
     const element = this.element.getValue(states.setting);
     const value =
       element === undefined ? undefined : Data.Element.keyOf(element);
-    return this.filterItem(states, Data.Element.list, value);
+    return Unit.filterItem(states, Data.Element.list, value);
   }
 
   filterSpecies(states: States): boolean {
     const species = this.species.getValue(states.setting);
     const value = Data.Species.keyOf(species) ?? null;
-    return this.filterItem(states, Data.Species.list, value);
+    return Unit.filterItem(states, Data.Species.list, value);
+  }
+
+  filterDamageType(states: States): boolean {
+    const value = this.damageType.getValue(states.setting);
+    const key = Data.DamageType.keyOf(value);
+    return Unit.filterItem(states, Data.DamageType.list, key);
   }
 
   filterPlacement(states: States): boolean {
-    return this.filterItem(
+    return Unit.filterItem(
       states,
       Data.Placement.list,
       this.placement.getValue(states.setting)
@@ -1304,8 +1315,6 @@ export default class Unit implements TableRow<Keys> {
   static get keys(): readonly Keys[] {
     return keys;
   }
-
-  // START wip 新レイアウト
 
   private static get headers(): readonly TableHeader<Keys>[] {
     return keys.map((key) => ({
@@ -1328,8 +1337,6 @@ export default class Unit implements TableRow<Keys> {
       },
     };
   }
-
-  // END wip 新レイアウト
 }
 
 const units = (() => {

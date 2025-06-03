@@ -451,6 +451,9 @@ export class FilterCondition {
   }
 }
 
+const filterDamageTypeKeys = Data.DamageType.list;
+type FilterDamageType = (typeof filterDamageTypeKeys)[number];
+
 const filterPlacementKeys = Data.Placement.list;
 type FilterPlacement = (typeof filterPlacementKeys)[number];
 
@@ -461,6 +464,7 @@ export type FilterKeys =
   | FilterSpecies
   | FilterEquipment
   | FilterConditionKey
+  | FilterDamageType
   | FilterPlacement;
 const filterKeys: FilterKeys[] = [
   ...filterRarityKeys,
@@ -468,6 +472,7 @@ const filterKeys: FilterKeys[] = [
   ...filterSpeciesKeys,
   ...filterConditionKeys,
   ...filterEquipmentKeys,
+  ...filterDamageTypeKeys,
   ...filterPlacementKeys,
 ];
 
@@ -479,6 +484,7 @@ export const Filter = {
     ...filterElementKeys,
     ...filterSpeciesKeys,
     ...filterEquipmentKeys,
+    ...filterDamageTypeKeys,
     ...filterPlacementKeys,
   ],
 } as const;
