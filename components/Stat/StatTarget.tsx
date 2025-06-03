@@ -153,7 +153,8 @@ export class StatTarget extends StatTooltip<
         {round !== undefined && round !== 1 ? (
           <T.ListItem label="連射数">
             <T.Value isPositive={round > 1}>
-              <T.Multiply>{round.toFixed(0)}</T.Multiply>
+              {multiply}
+              {round.toFixed(0)}
             </T.Value>
           </T.ListItem>
         ) : (
@@ -161,7 +162,8 @@ export class StatTarget extends StatTooltip<
             {average !== 1 && (
               <T.ListItem label="平均連射数">
                 <T.Value isPositive={average > 1}>
-                  <T.Multiply>{average.toFixed(1)}</T.Multiply>
+                  {multiply}
+                  {average.toFixed(1)}
                 </T.Value>
               </T.ListItem>
             )}
