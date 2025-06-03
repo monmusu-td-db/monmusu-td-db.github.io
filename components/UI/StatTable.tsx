@@ -251,7 +251,6 @@ function Body_<T extends string>({
       case stat.skillName:
       case stat.exSkill1:
       case stat.exSkill2:
-      case stat.damageType:
         return true;
     }
     return false;
