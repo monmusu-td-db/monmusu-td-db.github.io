@@ -150,27 +150,6 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     return plus && value >= 0 ? "+" + text : text;
   }
 
-  protected NumberItem({
-    // TODO Obsolete
-    value,
-    plus,
-    length,
-  }: {
-    value: number;
-    plus?: boolean;
-    length?: number;
-  }) {
-    const limit = length ?? 5;
-    const text = StatRoot.getNumberText(value, limit);
-    const ret = plus && value >= 0 ? "+" + text : text;
-
-    if (ret.length <= limit) {
-      return ret;
-    } else {
-      return <small>{ret}</small>;
-    }
-  }
-
   private static getNumberText(value: number, limit: number): string {
     const text = value.toFixed(0);
     if (text.length <= limit) {
