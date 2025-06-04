@@ -25,6 +25,8 @@ const columnKeys = [
   "attackMul",
   "defenseMul",
   "resistMul",
+  "physicalDamageCut",
+  "magicalDamageCut",
   "criChanceAdd",
   "criDamageAdd",
   "damageFactor",
@@ -59,6 +61,8 @@ const columnName = {
   attackMul: "攻撃乗算",
   defenseMul: "物防乗算",
   resistMul: "魔防乗算",
+  physicalDamageCut: "物理攻撃軽減",
+  magicalDamageCut: "魔法攻撃軽減",
   damageFactor: "ダメージ倍率",
   damageDebuff: "敵被ダメージ増加",
   criChanceAdd: "クリティカル率増加",
@@ -84,6 +88,8 @@ const BuffType = {
   attackMul: "attack-mul",
   defenseMul: "defense-mul",
   resistMul: "resist-mul",
+  physicalDamageCut: "physical-damage-cut",
+  magicalDamageCut: "magical-damage-cut",
   damageFactor: "damage-factor",
   damageDebuff: "damage-debuff",
   physicalDamageDebuff: "physical-damage-debuff",
@@ -174,6 +180,8 @@ function getItems(): readonly Item[] {
       const attackMul = getMulFactor(fn(BuffType.attackMul));
       const defenseMul = getMulFactor(fn(BuffType.defenseMul));
       const resistMul = getMulFactor(fn(BuffType.resistMul));
+      const physicalDamageCut = getPercent(fn(BuffType.physicalDamageCut));
+      const magicalDamageCut = getPercent(fn(BuffType.magicalDamageCut));
       const damageFactor = getDamageFactor(fn(BuffType.damageFactor));
       const damageDebuff = getMulFactor(fn(BuffType.damageDebuff));
       const criChanceAdd = getPercent(fn(BuffType.criChanceAdd));
@@ -210,6 +218,8 @@ function getItems(): readonly Item[] {
         attackMul,
         defenseMul,
         resistMul,
+        physicalDamageCut,
+        magicalDamageCut,
         damageFactor,
         damageDebuff,
         criChanceAdd,
