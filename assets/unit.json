@@ -16829,6 +16829,179 @@
     ]
   },
   {
+    "TODO_DESC": "種族特性の属性指定回復量増加は乗算か調べる",
+    "id": 227,
+    "unitName": "【学者】プロメスティン",
+    "unitShortName": "プロメスティン",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "火",
+    "hp": 3575,
+    "attack": 654,
+    "defense": 289,
+    "resist": 479,
+    "block": 0,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "ちょっとした増強剤です",
+      "attackMul": 170,
+      "targetAdd": 3,
+      "rangeMul": 140,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "hpMul": 130
+      },
+      {
+        "featureName": "support",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "20秒間持続"
+        ],
+        "conditions": [
+          "援"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 40
+        },
+        "target": "命中",
+        "damageType": null,
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 50
+          }
+        }
+      },
+      {
+        "featureName": "hp-100%",
+        "currentHp": 100,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ]
+      },
+      {
+        "featureName": "hp-99%",
+        "isConditionalBuff": true,
+        "currentHp": 99,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 99
+          }
+        ],
+        "damageFactor": 110
+      },
+      {
+        "featureName": "class-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "火属性特効"
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "光属性特効"
+        ],
+        "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-proper",
+          "hp-100%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "hp-100%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-proper",
+          "hp-99%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "hp-99%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "support"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "hp-mul",
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 228,
     "unitName": "【うさ耳ロボ】ブリュンヒルデ",
