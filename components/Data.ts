@@ -19,7 +19,6 @@ TODOリスト
   貫通率が複数ある場合、加算か乗算か調べる
   1つのオブジェクトに複数のバフ効果を入れられるようにする
   補足をツールチップに一覧表示
-  フィルターに移動タイプ追加
 
 メモ
   モンクの射程は固定だが表示上だけ変動する
@@ -1179,9 +1178,17 @@ const moveTypeColor: Record<MoveTypeKey, TableColor | undefined> = {
   warping: tableColor.red,
   stealth: tableColor.blue,
 } as const;
+
+type MoveTypeFilterKey = `movetype-${MoveTypeKey}`;
+const getMoveTypeFilterKey = (key: MoveTypeKey): MoveTypeFilterKey =>
+  `movetype-${key}`;
+const moveTypeFilterKeys = Object.keys(moveType).map((key) =>
+  getMoveTypeFilterKey(key as MoveTypeKey)
+);
 export type MoveType = (typeof moveType)[MoveTypeKey];
 export const MoveType = {
   ...moveType,
+  filterKeys: moveTypeFilterKeys,
 
   parse(value: string | undefined): MoveType | undefined {
     return Object.values(moveType).find((v) => v === value);
@@ -1200,6 +1207,12 @@ export const MoveType = {
   colorOf(value: MoveType | undefined): TableColor | undefined {
     if (value === undefined) return;
     return moveTypeColor[this.keyOf(value)];
+  },
+
+  getFilterKey: getMoveTypeFilterKey,
+
+  parseFilterKey(key: MoveTypeFilterKey): MoveTypeKey {
+    return key.replace("movetype-", "") as MoveTypeKey;
   },
 } as const;
 

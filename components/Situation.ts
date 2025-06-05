@@ -2501,6 +2501,7 @@ export default class Situation implements TableRow<Keys> {
         target.unit?.filterRarity(states) ||
         target.unit?.filterElement(states) ||
         target.unit?.filterSpecies(states) ||
+        item.unit?.filterMoveType(states) ||
         item.unit?.filterPlacement(states)
       )
         return false;

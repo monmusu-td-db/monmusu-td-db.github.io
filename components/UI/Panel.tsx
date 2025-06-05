@@ -308,6 +308,24 @@ const _TabFilter = memo(function TabFilter({
             })}
         </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
+      <PanelUI.FormGroup label="移動タイプ">
+        <PanelUI.FormCheckboxGroup>
+          {Data.MoveType.filterKeys.map((v) => {
+            const checked = filter.get(v) ?? false;
+            const key = Data.MoveType.parseFilterKey(v);
+            return (
+              <PanelUI.FormCheckbox
+                key={v}
+                name={v}
+                label={Data.MoveType[key]}
+                checked={checked}
+                onClick={() => onChange({ [v]: !checked })}
+                grid
+              />
+            );
+          })}
+        </PanelUI.FormCheckboxGroup>
+      </PanelUI.FormGroup>
       <PanelUI.FormGroup label="配置タイプ">
         <PanelUI.FormCheckboxGroup>
           {Data.Placement.list.map((v) => {

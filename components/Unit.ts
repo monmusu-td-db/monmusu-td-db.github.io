@@ -1222,6 +1222,7 @@ export default class Unit implements TableRow<Keys> {
         target.filterElement(states) ||
         target.filterSpecies(states) ||
         item.filterDamageType(states) ||
+        item.filterMoveType(states) ||
         item.filterPlacement(states)
       ) {
         return false;
@@ -1298,6 +1299,13 @@ export default class Unit implements TableRow<Keys> {
     const value = this.damageType.getValue(states.setting);
     const key = Data.DamageType.keyOf(value);
     return Unit.filterItem(states, Data.DamageType.list, key);
+  }
+
+  filterMoveType(states: States): boolean {
+    const value = this.moveType.getValue(states.setting);
+    if (value === undefined) return true;
+    const key = Data.MoveType.getFilterKey(Data.MoveType.keyOf(value));
+    return Unit.filterItem(states, Data.MoveType.filterKeys, key);
   }
 
   filterPlacement(states: States): boolean {
