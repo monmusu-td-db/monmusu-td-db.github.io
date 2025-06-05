@@ -6118,6 +6118,88 @@
     "isUnhealable": true
   },
   {
+    "id": 72,
+    "unitName": "【ジンニーヤ娘】ラプワーン",
+    "unitShortName": "ラプワーン",
+    "rarity": "E",
+    "class": "ブレイダー",
+    "element": "風",
+    "hp": 5468,
+    "attack": 932,
+    "defense": 451,
+    "resist": 104,
+    "exSkill1": {
+      "skillName": "旋風の剣舞",
+      "attackMul": 460,
+      "criChanceAdd": 100,
+      "criChanceLimitAdd": 100,
+      "fixedDelay": 1,
+      "target": 4,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃速度+15"
+    ],
+    "features": [
+      {
+        "featureName": "heal-all",
+        "annotations": [
+          "範囲攻撃時"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 200
+        },
+        "target": "全体",
+        "damageType": "回復"
+      },
+      {
+        "featureName": "heal-all",
+        "skill": 0,
+        "interval": null
+      },
+      {
+        "featureName": "heal-all",
+        "require": [
+          "スキル"
+        ],
+        "annotations": [
+          "スキル発動時"
+        ]
+      }
+    ],
+    "potentialBonus": {
+      "attackMul": 104
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "heal-all"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "heal-all"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 73,
     "unitName": "【ワーラット娘】ラタ",
