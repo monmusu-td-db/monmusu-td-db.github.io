@@ -26,8 +26,11 @@ export class StatAttack extends SituationBaseStat<Factors> {
   }
 
   private getCriticalStyle(setting: Setting): StatStyles {
-    const b = (this.getFactors(setting)?.criticalChance ?? 0) >= 100;
-    return b ? Data.TableClass.critical : undefined;
+    const factor = this.getFactors(setting);
+    const cond =
+      factor?.staticDamage === undefined &&
+      (factor?.criticalChance ?? 0) >= 100;
+    return cond ? Data.TableClass.critical : undefined;
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {
