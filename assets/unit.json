@@ -10256,6 +10256,7 @@
     "parentId": 120,
     "unitName": "エルベティエ",
     "unitShortName": "エルベティエT",
+    "rarity": "C",
     "class": "ハーミット",
     "element": "水",
     "cost": 15,
@@ -10322,7 +10323,9 @@
       "skillName": "たっぷり遊んであげる♪",
       "attackMul": 160,
       "delayMul": 99,
-      "rounds": 5
+      "rounds": 5,
+      "duration": 30,
+      "cooldown": 30
     },
     "potentials": [
       "出撃コスト-1",
