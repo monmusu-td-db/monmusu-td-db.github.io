@@ -6118,6 +6118,88 @@
     "isUnhealable": true
   },
   {
+    "id": 72,
+    "unitName": "【ジンニーヤ娘】ラプワーン",
+    "unitShortName": "ラプワーン",
+    "rarity": "E",
+    "class": "ブレイダー",
+    "element": "風",
+    "hp": 5468,
+    "attack": 932,
+    "defense": 451,
+    "resist": 104,
+    "exSkill1": {
+      "skillName": "旋風の剣舞",
+      "attackMul": 460,
+      "criChanceAdd": 100,
+      "criChanceLimitAdd": 100,
+      "fixedDelay": 1,
+      "target": 4,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃速度+15"
+    ],
+    "features": [
+      {
+        "featureName": "heal-all",
+        "annotations": [
+          "範囲攻撃時"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 200
+        },
+        "target": "全体",
+        "damageType": "回復"
+      },
+      {
+        "featureName": "heal-all",
+        "skill": 0,
+        "interval": null
+      },
+      {
+        "featureName": "heal-all",
+        "require": [
+          "スキル"
+        ],
+        "annotations": [
+          "スキル発動時"
+        ]
+      }
+    ],
+    "potentialBonus": {
+      "attackMul": 104
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "heal-all"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "heal-all"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 73,
     "unitName": "【ワーラット娘】ラタ",
@@ -9970,6 +10052,89 @@
     ]
   },
   {
+    "TODO_DESC": "スタン蓄積値",
+    "id": 118,
+    "unitName": "【魔王】アリスフィーズ",
+    "unitShortName": "アリスフィーズ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "hp": 2710,
+    "attack": 1012,
+    "defense": 229,
+    "resist": 532,
+    "exSkill1": {
+      "skillName": "余の力を見せてやろう",
+      "attackMul": 240,
+      "rounds": 3,
+      "rangeMul": 150,
+      "duration": 25,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "featureName": "deploy-attack",
+        "annotations": [
+          "配置時攻撃"
+        ],
+        "interval": null,
+        "target": "全体",
+        "range": null,
+        "damageType": "貫通",
+        "supplements": [
+          "スタン付与XX%(大)"
+        ]
+      },
+      {
+        "featureName": "skill1-attack",
+        "skill": 1,
+        "annotations": [
+          "発動時攻撃"
+        ],
+        "interval": null,
+        "target": "全体",
+        "rounds": 1,
+        "range": null,
+        "damageType": "貫通",
+        "supplements": [
+          "スタン付与XX%(大)"
+        ]
+      }
+    ],
+    "attackMul": 115,
+    "potentialBonus": {
+      "attackMul": 122
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 119,
     "unitName": "【四天王】グランベリア",
@@ -10028,6 +10193,193 @@
       "attackMul": 119,
       "defenseMul": 119
     }
+  },
+  {
+    "id": 120,
+    "unitName": "【四天王】エルベティエ",
+    "unitShortName": "エルベティエ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "水",
+    "hp": 2520,
+    "attack": 452,
+    "defense": 364,
+    "resist": 457,
+    "exSkill1": {
+      "skillName": "ドロドロにしてあげる",
+      "attackMul": 180,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "physicalDamageCut": 40,
+        "potentialBonus": {
+          "physicalDamageCut": 50
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "DEF-{attack*20}/スキル中→射程内",
+          "RES-{attack*20}/スキル中→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1200001,
+    "parentId": 120,
+    "unitName": "エルベティエ",
+    "unitShortName": "エルベティエT",
+    "rarity": "C",
+    "class": "ハーミット",
+    "element": "水",
+    "cost": 15,
+    "hp": 2520,
+    "attack": 452,
+    "defense": 364,
+    "resist": 457,
+    "supplements": [
+      "limit45秒"
+    ],
+    "exSkill1": {
+      "skillName": "ドロドロにしてあげる",
+      "attackMul": 180,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "features": [
+      {
+        "physicalDamageCut": 40,
+        "potentialBonus": {
+          "physicalDamageCut": 50
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "DEF-{attack*20}/スキル中→射程内",
+          "RES-{attack*20}/スキル中→射程内"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "ex1 delay",
+    "id": 122,
+    "unitName": "【四天王】アルマエルマ",
+    "unitShortName": "アルマエルマ",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "風",
+    "hp": 6903,
+    "attack": 906,
+    "defense": 339,
+    "resist": 146,
+    "exSkill1": {
+      "skillName": "たっぷり遊んであげる♪",
+      "attackMul": 160,
+      "delayMul": 99,
+      "rounds": 5,
+      "duration": 30,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "rounds": [
+          {
+            "ratio": 3,
+            "value": 2
+          },
+          {
+            "ratio": 2,
+            "value": 5
+          }
+        ],
+        "potentialBonus": {
+          "rounds": [
+            {
+              "ratio": 12,
+              "value": 2
+            },
+            {
+              "ratio": 13,
+              "value": 5
+            }
+          ]
+        }
+      },
+      {
+        "featureName": "common-absorb",
+        "staticDamage": {
+          "key": "hp",
+          "value": 4
+        },
+        "supplements": [
+          "回復4%/命中"
+        ]
+      }
+    ],
+    "physicalEvasion": 50,
+    "magicalEvasion": 50,
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 123,
@@ -16455,6 +16807,282 @@
     "isUnhealable": true,
     "situations": [
       {}
+    ]
+  },
+  {
+    "id": 226,
+    "unitName": "【女神】イリアス",
+    "unitShortName": "イリアス",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "光",
+    "hp": 2887,
+    "attack": 0,
+    "defense": 289,
+    "resist": 525,
+    "block": 0,
+    "moveType": "飛行",
+    "supplements": [
+      "スタン付与100%/20s→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "守護をもたらしなさい…！",
+      "rangeMul": 170,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スキル初回待ち時間-6秒"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 50,
+        "magicalDamageCut": 50
+      },
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "hp-base",
+          "value": 2
+        },
+        "target": "射程内",
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "hp-base",
+            "value": 3
+          }
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "physical-damage-cut",
+        "skill": 1,
+        "target": "射程内",
+        "value": 40
+      },
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "target": "射程内",
+        "value": 40
+      },
+      {
+        "type": "physical-damage-cut",
+        "skill": 1,
+        "require": [
+          "光属性"
+        ],
+        "target": "射程内",
+        "value": 50
+      },
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "require": [
+          "光属性"
+        ],
+        "target": "射程内",
+        "value": 50
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "種族特性の属性指定回復量増加は乗算か調べる",
+    "id": 227,
+    "unitName": "【学者】プロメスティン",
+    "unitShortName": "プロメスティン",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "火",
+    "hp": 3575,
+    "attack": 654,
+    "defense": 289,
+    "resist": 479,
+    "block": 0,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "ちょっとした増強剤です",
+      "attackMul": 170,
+      "targetAdd": 3,
+      "rangeMul": 140,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "hpMul": 130
+      },
+      {
+        "featureName": "support",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "20秒間持続"
+        ],
+        "conditions": [
+          "援"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 40
+        },
+        "target": "命中",
+        "damageType": null,
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 50
+          }
+        }
+      },
+      {
+        "featureName": "hp-100%",
+        "currentHp": 100,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ]
+      },
+      {
+        "featureName": "hp-99%",
+        "isConditionalBuff": true,
+        "currentHp": 99,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 99
+          }
+        ],
+        "damageFactor": 110
+      },
+      {
+        "featureName": "class-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "火属性特効"
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "annotations": [
+          "光属性特効"
+        ],
+        "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-proper",
+          "hp-100%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "hp-100%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-proper",
+          "hp-99%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "hp-99%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "support"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "hp-mul",
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
     ]
   },
   {
