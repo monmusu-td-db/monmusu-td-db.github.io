@@ -10983,6 +10983,82 @@
     ]
   },
   {
+    "id": 131,
+    "unitName": "【マミーキング娘】メジエ",
+    "unitShortName": "メジエ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "hp": 2826,
+    "attack": 980,
+    "defense": 222,
+    "resist": 546,
+    "supplements": [
+      "DEF-{attack-base*20}/配置→全体",
+      "RES-{attack-base*20}/配置→全体"
+    ],
+    "exSkill1": {
+      "skillName": "冥府への誘い",
+      "attackMul": 260,
+      "target": 2,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "鈍足/スキル中→射程内",
+        "攻撃速度減少/スキル中→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "isConditionalSkillBuff": true,
+        "skill": 1,
+        "supplements": [
+          "DEF-{attack-base*20}/発動→全体",
+          "RES-{attack-base*20}/発動→全体"
+        ]
+      },
+      {
+        "featureName": "explosion",
+        "annotations": [
+          "死亡時"
+        ],
+        "currentHp": 0,
+        "damageFactor": 500,
+        "interval": null,
+        "target": "射程内",
+        "splash": false,
+        "damageType": "貫通",
+        "potentialBonus": {
+          "damageFactor": 650
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "explosion"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "explosion"
+        ]
+      }
+    ]
+  },
+  {
     "id": 132,
     "unitName": "【ヒッポカムポス娘】プテリア",
     "unitShortName": "プテリア",
