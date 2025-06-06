@@ -21451,6 +21451,121 @@
     "costAdd": -1
   },
   {
+    "TODO_DESC": "持続ダメージはWiki情報",
+    "id": 304,
+    "unitName": "【ベルゼブブ娘】アゼプ",
+    "unitShortName": "アゼプ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "風",
+    "species": "悪魔",
+    "hp": 2548,
+    "attack": 1111,
+    "defense": 218,
+    "resist": 577,
+    "supplements": [
+      "猛毒付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "ソウルサクリファイス",
+      "rangeMul": 180,
+      "duration": "永続",
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "悪魔"
+        ],
+        "attack": 114,
+        "potentialBonus": {
+          "attack": 117
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "damage-field",
+        "annotations": [
+          "ダメージフィールド"
+        ],
+        "criChanceAdd": -1000,
+        "interval": 15,
+        "target": "射程内",
+        "splash": false,
+        "range": null,
+        "damageType": "魔法"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-field"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報/射程",
+    "id": 3040001,
+    "parentId": 304,
+    "unitName": "執事",
+    "unitShortName": "執事T",
+    "rarity": "C",
+    "element": "風",
+    "species": "悪魔",
+    "cost": 10,
+    "hp": 6973,
+    "attack": 1196,
+    "defense": 99,
+    "resist": 299,
+    "block": 0,
+    "target": 1,
+    "range": 999,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "近",
+    "supplements": [
+      "猛毒付与(稀)→命中"
+    ],
+    "features": [
+      {
+        "featureName": "damage-field",
+        "parentSkill": 1,
+        "annotations": [
+          "ダメージフィールド"
+        ],
+        "criChanceAdd": -1000,
+        "interval": 15,
+        "target": "射程内",
+        "splash": false,
+        "range": null,
+        "damageType": "魔法"
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "features": [
+          "damage-field"
+        ]
+      }
+    ]
+  },
+  {
     "DISABLED": true,
     "id": 305,
     "unitName": "【アスモデウス娘】エシュマナ",
