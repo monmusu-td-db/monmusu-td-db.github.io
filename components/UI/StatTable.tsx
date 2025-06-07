@@ -131,17 +131,25 @@ function TableControl_<T extends string>({
     };
   }, [src, states, sort]);
 
+  const handlers = useContext(CellEventHandlersContext);
+
   const cond = useMemo(
     () => ({
       sort,
       states,
       data,
+      handlers,
     }),
-    [sort, states, data]
+    [sort, states, data, handlers]
   );
   const deferredCond = useDeferredValue(cond);
   const isPending = cond !== deferredCond;
-  const { sort: dSort, states: dStates, data: dData } = deferredCond;
+  const {
+    sort: dSort,
+    states: dStates,
+    data: dData,
+    handlers: dHandlers,
+  } = deferredCond;
 
   return (
     <TooltipControl hide={isPending || panelOpen}>
@@ -156,6 +164,7 @@ function TableControl_<T extends string>({
           tableData={dData}
           setting={dStates.setting}
           sortColumn={dSort.column}
+          handlers={dHandlers}
         />
       </Table>
     </TooltipControl>
@@ -231,10 +240,12 @@ function Body_<T extends string>({
   tableData,
   setting,
   sortColumn,
+  handlers,
 }: {
   tableData: TableData<T>;
   setting: Setting;
   sortColumn: T | undefined;
+  handlers: CellEventHandlers;
 }) {
   let previousId: number | undefined;
 
@@ -265,7 +276,12 @@ function Body_<T extends string>({
         }
         return (
           <tr key={row.id} className={separator ? "separator" : undefined}>
-            <Row headers={tableData.headers} row={row} setting={setting} />
+            <Row
+              headers={tableData.headers}
+              row={row}
+              setting={setting}
+              handlers={handlers}
+            />
           </tr>
         );
       })}
@@ -277,32 +293,25 @@ const Row = memo(function Row({
   headers,
   row,
   setting,
+  handlers,
 }: {
   headers: readonly TableHeader<string>[];
   row: TableRow<string>;
   setting: Setting;
+  handlers: CellEventHandlers;
 }) {
   return (
     <>
       {headers.map((col) => (
-        <CellControl
+        <Cell
           key={col.id}
           stat={row[col.id]}
           setting={setting}
-        ></CellControl>
+          handlers={handlers}
+        />
       ))}
     </>
   );
-});
-
-const CellControl = memo(function CellControl(props: {
-  stat: Stat;
-  setting: Setting;
-}) {
-  const handlers = useContext(CellEventHandlersContext);
-  const dHandlers = useDeferredValue(handlers);
-
-  return <Cell {...props} handlers={dHandlers} />;
 });
 
 const Cell = memo(function Cell({
