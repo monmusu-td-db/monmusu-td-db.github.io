@@ -460,5 +460,15 @@
         "value": 0
       }
     ]
+  },
+  {
+    "featureName": "common-hp-100%",
+    "currentHp": 100,
+    "conditions": [
+      {
+        "key": "HP",
+        "value": 100
+      }
+    ]
   }
 ]

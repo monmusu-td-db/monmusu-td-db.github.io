@@ -6652,6 +6652,109 @@
     }
   },
   {
+    "id": 78,
+    "unitName": "【シャイターン娘】シャバフ",
+    "unitShortName": "シャバフ",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "火",
+    "hp": 3475,
+    "attack": 722,
+    "defense": 398,
+    "resist": 122,
+    "exSkill1": {
+      "skillName": "熱砂の幻炎",
+      "attackMul": 340,
+      "splash": true,
+      "duration": 25,
+      "cooldown": 40,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "魔法防御力+90",
+      "攻撃速度+15"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "HP-60%/発動→自身"
+        ]
+      },
+      {
+        "featureName": "hp-49%",
+        "isConditionalBuff": true,
+        "currentHp": 49,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 49
+          }
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "skill1-attack",
+        "isAbility": true,
+        "annotations": [
+          "熱砂の幻炎",
+          "発動時攻撃"
+        ],
+        "damageFactor": 600,
+        "interval": null,
+        "target": "射程内",
+        "damageType": "魔法"
+      }
+    ],
+    "hpMul": 85,
+    "attackMul": 125,
+    "potentialBonus": {
+      "attackMul": 132
+    },
+    "situations": [
+      {
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "skill": -1,
+        "features": [
+          "common-hp-100%",
+          "skill1-attack"
+        ]
+      },
+      {
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": -1,
+        "features": [
+          "hp-49%",
+          "skill1-attack"
+        ]
+      }
+    ]
+  },
+  {
     "id": 79,
     "unitName": "【トレント娘】レントープ",
     "unitShortName": "レントープ",
@@ -17047,16 +17150,6 @@
         }
       },
       {
-        "featureName": "hp-100%",
-        "currentHp": 100,
-        "conditions": [
-          {
-            "key": "HP",
-            "value": 100
-          }
-        ]
-      },
-      {
         "featureName": "hp-99%",
         "isConditionalBuff": true,
         "currentHp": 99,
@@ -17088,13 +17181,13 @@
     "situations": [
       {
         "features": [
-          "hp-100%"
+          "common-hp-100%"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "hp-100%"
+          "common-hp-100%"
         ]
       },
       {
@@ -17112,7 +17205,7 @@
         "proper": true,
         "features": [
           "common-proper",
-          "hp-100%"
+          "common-hp-100%"
         ]
       },
       {
@@ -17120,7 +17213,7 @@
         "skill": 1,
         "features": [
           "common-proper",
-          "hp-100%"
+          "common-hp-100%"
         ]
       },
       {
