@@ -48,6 +48,10 @@ class Valid {
     return typeof value === "number" && value >= -50 && value <= 100; // TODO下限値を調べる
   }
 
+  static isCooldownCut(value: unknown): boolean {
+    return typeof value === "number" && value >= 0 && value <= 100;
+  }
+
   static isBeast(value: unknown): boolean {
     return (
       Valid.isNumber(value) && value >= -1 && value < Data.Beast.list.length
@@ -513,6 +517,7 @@ type SettingUnit = {
   readonly magicalDamageCut: number;
   readonly attackSpeedBuff: number;
   readonly delayCut: number;
+  readonly cooldownCut: number;
 };
 const defaultSettingUnit = {
   subskill1: -1,
@@ -530,6 +535,7 @@ const defaultSettingUnit = {
   damageFactor: 0,
   physicalDamageCut: 0,
   magicalDamageCut: 0,
+  cooldownCut: 0,
 } as const satisfies SettingUnit;
 const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
   subskill1: Valid.isNumber,
@@ -547,6 +553,7 @@ const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
   damageFactor: Valid.isMul,
   physicalDamageCut: Valid.isDamageCut,
   magicalDamageCut: Valid.isDamageCut,
+  cooldownCut: Valid.isCooldownCut,
 } as const;
 
 type SettingFormation = {
@@ -633,6 +640,7 @@ export const Setting = {
   isValidCut: Valid.isCut,
   isValidDamageCut: Valid.isDamageCut,
   isValidAttackSpeed: Valid.isAttackSpeed,
+  isValidCooldownCut: Valid.isCooldownCut,
 
   formation: {
     key: {

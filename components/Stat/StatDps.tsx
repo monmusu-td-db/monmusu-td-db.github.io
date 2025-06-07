@@ -292,7 +292,7 @@ export class StatDps<
                   )}
                 </T.Brackets>
                 <T.Multiply>
-                  {d ? "攻撃速度" : frequency + sign.PERCENT}
+                  {d ? "攻撃間隔" : frequency + sign.PERCENT}
                 </T.Multiply>
               </T.Expression>
             </>

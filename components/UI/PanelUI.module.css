@@ -48,3 +48,8 @@
 .bg-e-dark {
   background-color: var(--bs-indigo) !important;
 }
+
+.form-number-button {
+  width: 2em;
+  justify-content: center;
+}
