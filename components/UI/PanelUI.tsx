@@ -278,7 +278,7 @@ function FormNumber(props: {
   value: number;
   onChange: (value: number) => void;
   isValid: (arg: number) => boolean;
-  isAdd?: boolean;
+  sign?: ReactNode;
 }) {
   const [text, setText] = useState<string>(props.value.toString());
   const inputRef = useRef<HTMLInputElement>(null);
@@ -299,9 +299,6 @@ function FormNumber(props: {
   return (
     <FormItem {...props}>
       <InputGroup size="sm" hasValidation={isInvalid}>
-        {/* <InputGroup.Text role="button" onClick={() => handleChange("0")}>
-          +
-        </InputGroup.Text> */}
         <Form.Control
           type="number"
           value={text}
@@ -312,9 +309,9 @@ function FormNumber(props: {
         <InputGroup.Text
           role="button"
           onClick={handleReset}
-          style={{ width: "2em" }}
+          className={cx("form-number-button")}
         >
-          {!props.isAdd && "%"}
+          {props.sign ?? "%"}
         </InputGroup.Text>
         {isInvalid && (
           <Form.Control.Feedback type="invalid">

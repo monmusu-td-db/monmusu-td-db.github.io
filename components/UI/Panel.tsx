@@ -463,7 +463,7 @@ const _TabUnit = memo(function TabUnit({
                       })
                     }
                     isValid={Setting.isValidAdd}
-                    isAdd
+                    sign=""
                   />
                 ))}
               </Row>
@@ -504,7 +504,7 @@ const _TabUnit = memo(function TabUnit({
                   label={"攻撃速度バフ"}
                   value={setting.attackSpeedBuff}
                   onChange={(n) => onChangeSetting({ attackSpeedBuff: n })}
-                  isValid={Setting.isValidAttackSpeed}
+                  isValid={Setting.isValidMul}
                 />
                 <PanelUI.FormNumber
                   name={"delay-cut"}
@@ -512,6 +512,14 @@ const _TabUnit = memo(function TabUnit({
                   value={setting.delayCut}
                   onChange={(n) => onChangeSetting({ delayCut: n })}
                   isValid={Setting.isValidCut}
+                />
+                <PanelUI.FormNumber
+                  name={"cooldown-cut"}
+                  label={"スキルCT短縮"}
+                  value={setting.cooldownCut}
+                  onChange={(n) => onChangeSetting({ cooldownCut: n })}
+                  isValid={Setting.isValidCooldownCut}
+                  sign="秒"
                 />
               </Row>
             </Col>

@@ -977,13 +977,20 @@ export default class Situation implements TableRow<Keys> {
         const feature = -(f.cooldownCut ?? 0);
         const potential = this.unit?.getPotentialFactor(s, stat.cooldown) ?? 0;
         const subskill = this.getSubskillFactor(s, ssKeys.cooldown);
+        const panel = s.cooldownCut;
         let baseResult, result;
         const isOverCharge = sk?.isOverCharge;
         if (base === undefined) {
-          baseResult = this.getTokenParent(s)?.cooldown.getValue(s);
+          const parent = this.getTokenParent(s)?.cooldown.getValue(s);
+          if (parent !== undefined) {
+            baseResult = Math.max(0, parent - panel);
+          }
           result = baseResult;
         } else {
-          baseResult = Math.max(0, base + feature + potential + subskill);
+          baseResult = Math.max(
+            0,
+            base + feature + potential + subskill - panel
+          );
           const oc = isOverCharge ? baseResult / 2 : 0;
           result = baseResult + oc;
         }
