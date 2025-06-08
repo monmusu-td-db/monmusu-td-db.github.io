@@ -30,8 +30,8 @@
 }
 
 .selector-dialog {
-  max-width: 875px !important;
-  width: 92vw;
+  max-width: 875px;
+  width: calc(100% - var(--bs-modal-margin) * 2);
 }
 
 @media (min-width: 631px) {

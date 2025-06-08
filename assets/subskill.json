@@ -114,6 +114,7 @@
     "class": "リジェネレーション",
     "desc": "HPが1秒ごとに30回復する",
     "isGeneral": true,
+    "isIneffective": true,
     "regenerate": 30
   },
   {
@@ -123,6 +124,7 @@
     "class": "リジェネレーション",
     "desc": "HPが1秒ごとに40回復する",
     "isGeneral": true,
+    "isIneffective": true,
     "regenerate": 40
   },
   {
@@ -132,6 +134,7 @@
     "class": "リジェネレーション",
     "desc": "HPが1秒ごとに50回復する",
     "isGeneral": true,
+    "isIneffective": true,
     "regenerate": 50
   },
   {
@@ -249,6 +252,7 @@
     "class": "再出撃時間短縮",
     "desc": "再出撃までの時間を30%短縮",
     "isGeneral": true,
+    "isIneffective": true,
     "redeployTimeCut": 30
   },
   {
@@ -258,6 +262,7 @@
     "class": "再出撃時間短縮",
     "desc": "再出撃までの時間を40%短縮",
     "isGeneral": true,
+    "isIneffective": true,
     "redeployTimeCut": 40
   },
   {
@@ -267,6 +272,7 @@
     "class": "再出撃時間短縮",
     "desc": "再出撃までの時間を50%短縮",
     "isGeneral": true,
+    "isIneffective": true,
     "redeployTimeCut": 50
   },
   {
@@ -276,6 +282,7 @@
     "class": "生命力吸収",
     "desc": "攻撃時、HPが最大値の1%回復",
     "isGeneral": true,
+    "isIneffective": true,
     "absorb": 1
   },
   {
@@ -285,6 +292,7 @@
     "class": "生命力吸収",
     "desc": "攻撃時、HPが最大値の2%回復",
     "isGeneral": true,
+    "isIneffective": true,
     "absorb": 2
   },
   {
@@ -294,6 +302,7 @@
     "class": "生命力吸収",
     "desc": "攻撃時、HPが最大値の3%回復",
     "isGeneral": true,
+    "isIneffective": true,
     "absorb": 3
   },
   {
@@ -411,6 +420,7 @@
     "class": "撤退時コスト回復",
     "desc": "撤退時のコスト回復量が70%になる",
     "isGeneral": true,
+    "isIneffective": true,
     "withdrawCostReturn": 70
   },
   {
@@ -420,6 +430,7 @@
     "class": "撤退時コスト回復",
     "desc": "撤退時のコスト回復量が80%になる",
     "isGeneral": true,
+    "isIneffective": true,
     "withdrawCostReturn": 80
   },
   {
@@ -429,6 +440,7 @@
     "class": "撤退時コスト回復",
     "desc": "撤退時のコスト回復量が90%になる",
     "isGeneral": true,
+    "isIneffective": true,
     "withdrawCostReturn": 90
   },
   {
@@ -452,7 +464,8 @@
     "rarity": "L",
     "group": "防御",
     "desc": "敵の攻撃力の10%を反射しダメージを与える",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
     "name": "エレメンタルブースト",
@@ -466,6 +479,7 @@
     "rarity": "L",
     "group": "支援",
     "desc": "HPが1秒ごとに45回復し、再出撃時間を40%短縮",
+    "isIneffective": true,
     "regenerate": 45,
     "redeployTimeCut": 40
   },
@@ -593,7 +607,8 @@
     "rarity": "L",
     "group": "攻撃",
     "desc": "場から離れる時に爆発し、周囲の敵に攻撃力の2倍ダメージ",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
     "name": "捨て身の一撃",
@@ -627,6 +642,7 @@
     "group": "支援",
     "desc": "スキル使用後10秒間、全味方(トークン含)のHPを1秒ごとに75回復させる",
     "isGeneral": true,
+    "isIneffective": true,
     "regenerate": 75,
     "features": [
       {
@@ -712,7 +728,8 @@
     "name": "ゴブリンパーティ！",
     "rarity": "L",
     "group": "支援",
-    "desc": "ゴブリン戦士トークンを5体まで使役可能"
+    "desc": "ゴブリン戦士トークンを5体まで使役可能",
+    "isIneffective": true
   },
   {
     "name": "高貴なる狩人",
@@ -778,7 +795,8 @@
     "name": "ぐねぐねスライムくん（緑）",
     "rarity": "L",
     "group": "支援",
-    "desc": "緑スライムトークンを2体まで使役可能"
+    "desc": "緑スライムトークンを2体まで使役可能",
+    "isIneffective": true
   },
   {
     "name": "攻撃強化+リジェネレーション",
@@ -899,7 +917,8 @@
     "rarity": "L",
     "group": "攻撃",
     "desc": "配置時に周囲の敵に攻撃力2.5倍のダメージを与え、高確率で猛毒状態にする",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
     "name": "41ストーン",
@@ -960,18 +979,22 @@
     "resistAdd": 111
   },
   {
+    "TODO": "",
     "name": "プロトバリア",
     "rarity": "L",
     "group": "支援",
     "desc": "スキル発動時、自身に戦闘前の攻撃力の200%のバリアを付与",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
+    "TODO": "",
     "name": "アタッチヒール",
     "rarity": "L",
     "group": "支援",
     "desc": "スキル発動時、自身のHPを20%回復",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
     "name": "屍山血河",
@@ -1077,6 +1100,7 @@
     "group": "支援",
     "desc": "HPが1秒ごとに60回復する\nスキル発動後10秒間回復量3倍",
     "isGeneral": true,
+    "isIneffective": true,
     "regenerate": 180
   },
   {
@@ -1084,7 +1108,8 @@
     "rarity": "L",
     "group": "防御",
     "desc": "毒、石化、スタン耐性+50",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
     "name": "アサルトチャージ",
@@ -1103,6 +1128,7 @@
     ]
   },
   {
+    "TODO": "",
     "name": "MAXマッスル",
     "rarity": "L",
     "group": "攻撃",
@@ -1130,7 +1156,8 @@
     "name": "触手も付けとくでぇ！",
     "rarity": "L",
     "group": "支援",
-    "desc": "スキル発動時、被ダメージを半分肩代わりする触手トークンを自身のマスに召喚"
+    "desc": "スキル発動時、被ダメージを半分肩代わりする触手トークンを自身のマスに召喚",
+    "isIneffective": true
   },
   {
     "name": "ハイテンションサマー",
@@ -1186,6 +1213,7 @@
     "magicalEvasion": 20
   },
   {
+    "TODO": "",
     "name": "逆境の力",
     "rarity": "L",
     "group": "攻撃",
@@ -1251,6 +1279,7 @@
     "rarity": "E",
     "group": "支援",
     "desc": "再出撃までの時間を45%短縮\n撤退時のコスト回復量が70%になる",
+    "isIneffective": true,
     "redeployTimeCut": 45,
     "withdrawCostReturn": 70
   },
@@ -1260,6 +1289,7 @@
     "group": "支援",
     "desc": "再出撃までの時間を60%短縮",
     "isGeneral": true,
+    "isIneffective": true,
     "redeployTimeCut": 60
   },
   {
@@ -1316,7 +1346,8 @@
     "name": "麗しき藝術家",
     "rarity": "L",
     "group": "支援",
-    "desc": "配置時、マップ上のマスをランダムで\n火水風属性に変更する(各属性最大3マス)"
+    "desc": "配置時、マップ上のマスをランダムで\n火水風属性に変更する(各属性最大3マス)",
+    "isIneffective": true
   },
   {
     "name": "聖女の加護",
@@ -1501,7 +1532,8 @@
     "rarity": "L",
     "group": "支援",
     "desc": "クリティカル時、全味方のHPを160回復",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
     "name": "ケルベロスソウル",
@@ -1699,14 +1731,17 @@
     "class": "生命力吸収",
     "desc": "攻撃時、HPが最大値の4%回復",
     "isGeneral": true,
+    "isIneffective": true,
     "absorb": 4
   },
   {
+    "TODO": "",
     "name": "パワードバリア",
     "rarity": "L",
     "group": "支援",
     "desc": "スキル発動時、自身のHPを25%回復し、自身に戦闘前の攻撃力の250%のバリアを付与",
-    "isGeneral": true
+    "isGeneral": true,
+    "isIneffective": true
   },
   {
     "name": "鉄壁の守り",
@@ -1753,7 +1788,8 @@
     "name": "被検体R13",
     "rarity": "L",
     "group": "支援",
-    "desc": "【改造リザードマン娘】サウラをトークンとして使役可能"
+    "desc": "【改造リザードマン娘】サウラをトークンとして使役可能",
+    "isIneffective": true
   },
   {
     "name": "暗部の聖衣",
@@ -1790,7 +1826,8 @@
     "name": "エンジョイサマーリゾート",
     "rarity": "L",
     "group": "支援",
-    "desc": "配置時、マップ上のマスをランダムで\n水地光属性に変更する(各属性最大3マス)"
+    "desc": "配置時、マップ上のマスをランダムで\n水地光属性に変更する(各属性最大3マス)",
+    "isIneffective": true
   },
   {
     "name": "アセンションバケーション",
@@ -1849,7 +1886,8 @@
     "name": "被検体T42",
     "rarity": "L",
     "group": "支援",
-    "desc": "【改造ローパー娘】ネルをトークンとして使役可能"
+    "desc": "【改造ローパー娘】ネルをトークンとして使役可能",
+    "isIneffective": true
   },
   {
     "name": "巨擬嶺の討伐証",
@@ -1954,7 +1992,8 @@
     "name": "被検体O8",
     "rarity": "L",
     "group": "支援",
-    "desc": "【改造オーク娘】ポデルをトークンとして使役可能"
+    "desc": "【改造オーク娘】ポデルをトークンとして使役可能",
+    "isIneffective": true
   },
   {
     "name": "盛大鏡開き",

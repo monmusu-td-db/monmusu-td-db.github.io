@@ -64,12 +64,14 @@ const sortTexts = {
 const sortOrderTexts = ["▲昇順", "▼降順"] as const;
 
 const GENERAL_SKILL_TEXT = "ダンジョンor大迷宮産スキルのみ表示";
+const EFFECTIVE_SKILL_TEXT = "表に反映されるスキルのみ表示";
 
 const viewHandleKeys = {
   SORT_TYPE: 0,
   SORT_ORDER: 1,
   RARITY: 2,
   GENERAL: 3,
+  EFFECTIVE: 4,
 } as const;
 type ViewHandleKey = (typeof viewHandleKeys)[keyof typeof viewHandleKeys];
 type ViewHandleValue<T extends ViewHandleKey> = T extends 0 | 1
@@ -98,6 +100,7 @@ function SubskillSelector(props: {
   const group = s.subskillGroup;
   const rarity = s.subskillRarity;
   const isGeneral = s.subskillIsGeneral;
+  const isEffective = s.subskillIsEffective;
 
   const filteredList = useMemo(
     () =>
@@ -119,10 +122,11 @@ function SubskillSelector(props: {
           (isChecked(rarityCond.C, rarity) && item.rarity === Data.Rarity.C);
 
         const c = isGeneral ? item.isGeneral : true;
+        const effective = isEffective ? item.isEffective : true;
 
-        return a && b && c;
+        return a && b && c && effective;
       }),
-    [group, isGeneral, rarity]
+    [group, isGeneral, rarity, isEffective]
   );
 
   const sortType = s.subskillSortType;
@@ -178,6 +182,11 @@ function SubskillSelector(props: {
             subskillIsGeneral: value as ViewHandleValue<3>,
           }));
           break;
+        case viewHandleKeys.EFFECTIVE:
+          onChangeUI((p) => ({
+            ...p,
+            subskillIsEffective: value as ViewHandleValue<4>,
+          }));
       }
     },
     [onChangeUI]
@@ -265,6 +274,7 @@ function SubskillSelector(props: {
                   sortOrder={sortOrder}
                   rarity={rarity}
                   isGeneral={isGeneral}
+                  isEffective={isEffective}
                   onChange={handleTabView}
                 />
               </Tab.Pane>
@@ -281,12 +291,14 @@ const TabView = memo(function TabView({
   sortOrder,
   rarity,
   isGeneral,
+  isEffective,
   onChange,
 }: {
   sortType: number;
   sortOrder: boolean;
   rarity: number;
   isGeneral: boolean;
+  isEffective: boolean;
   onChange: <T extends ViewHandleKey>(
     key: T,
     value: ViewHandleValue<T>
@@ -331,7 +343,15 @@ const TabView = memo(function TabView({
       </PanelUI.FormGroup>
       <PanelUI.FormGroup label={labelTexts.OTHER}>
         <PanelUI.FormCheckboxGroup>
-          <PanelUI.FormGrid>
+          <PanelUI.FormGrid md={6}>
+            <PanelUI.FormCheckbox
+              name="effective-skill"
+              label={EFFECTIVE_SKILL_TEXT}
+              checked={isEffective}
+              onClick={() => onChange(viewHandleKeys.EFFECTIVE, !isEffective)}
+            />
+          </PanelUI.FormGrid>
+          <PanelUI.FormGrid md={6}>
             <PanelUI.FormCheckbox
               name="general-skill"
               label={GENERAL_SKILL_TEXT}

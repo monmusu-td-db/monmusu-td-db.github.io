@@ -9,6 +9,7 @@ interface JsonSubskill extends Partial<JsonSubskillFactors> {
   desc: string;
   features?: JsonSubskillFeature[];
   isGeneral?: boolean;
+  isIneffective?: boolean;
 }
 
 interface JsonSubskillFeature extends Partial<JsonSubskillFactors> {
@@ -214,6 +215,7 @@ class Subskill {
   readonly className: string | undefined;
   readonly desc: string;
   readonly isGeneral: boolean;
+  readonly isEffective: boolean;
 
   private readonly factors: SubskillFactors;
   private readonly features: SubskillFeature[] | undefined;
@@ -226,6 +228,7 @@ class Subskill {
     this.className = src.class;
     this.desc = src.desc;
     this.isGeneral = src.isGeneral ?? false;
+    this.isEffective = !(src.isIneffective ?? false);
 
     this.factors = new SubskillFactors(src);
     this.features = src.features?.map((f) => new SubskillFeature(f));

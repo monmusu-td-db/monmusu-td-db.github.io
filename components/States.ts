@@ -666,7 +666,8 @@ const defaultUISetting = {
   subskillRarity: 0 as number,
   subskillSortType: 0 as number,
   subskillSortReversed: false as boolean,
-  subskillIsGeneral: true as boolean,
+  subskillIsGeneral: false as boolean,
+  subskillIsEffective: true as boolean,
 } as const;
 
 // Hooks
