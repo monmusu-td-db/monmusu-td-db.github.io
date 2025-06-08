@@ -96,13 +96,13 @@ function StatTable<T extends string>({ src }: { src: TableSource<T> }) {
 
   return (
     <div className="d-flex justify-content-center">
-      <TableRoot src={src} states={states} />
+      <TableControl src={src} states={states} />
     </div>
   );
 }
 
-const TableRoot = memo(TableRoot_) as typeof TableRoot_;
-function TableRoot_<T extends string>({
+const TableControl = memo(TableControl_) as typeof TableControl_;
+function TableControl_<T extends string>({
   src,
   states,
 }: {
@@ -111,55 +111,60 @@ function TableRoot_<T extends string>({
 }) {
   const [sort, toggleSort] = useSort(src);
   const panelOpen = Panel.Contexts.useOpen();
-  const cond = useMemo(
-    () => ({
-      sort,
-      states,
-    }),
-    [sort, states]
-  );
-  const deferredCond = useDeferredValue(cond);
-  const isPending = cond !== deferredCond;
-  const { sort: dSort, states: dStates } = deferredCond;
-
-  const filteredList = useMemo(() => src.filter(dStates), [src, dStates]);
 
   const data: TableData<T> = useMemo(() => {
+    const filteredList = src.filter(states);
     let sortedList;
-    if (dSort.column === undefined) {
+    if (sort.column === undefined) {
       sortedList = filteredList;
     } else {
       sortedList = src.sort(
-        dStates.setting,
+        states.setting,
         filteredList,
-        dSort.column,
-        dSort.isReversed
+        sort.column,
+        sort.isReversed
       );
     }
     return {
       headers: src.headers,
       rows: sortedList,
     };
-  }, [filteredList, src, dStates, dSort]);
-  const deferredData = useDeferredValue(data);
+  }, [src, states, sort]);
+
+  const handlers = useContext(CellEventHandlersContext);
+
+  const cond = useMemo(
+    () => ({
+      sort,
+      states,
+      data,
+      handlers,
+    }),
+    [sort, states, data, handlers]
+  );
+  const deferredCond = useDeferredValue(cond);
+  const isPending = cond !== deferredCond;
+  const {
+    sort: dSort,
+    states: dStates,
+    data: dData,
+    handlers: dHandlers,
+  } = deferredCond;
 
   return (
     <TooltipControl hide={isPending || panelOpen}>
-      <TableStyle headers={deferredData.headers} />
+      <TableStyle headers={dData.headers} />
       <Table
         striped
         size="sm"
         className={cn("stat-table", { pending: isPending })}
       >
-        <Header
-          headers={deferredData.headers}
-          sort={sort}
-          onClick={toggleSort}
-        />
+        <Header headers={dData.headers} sort={sort} onClick={toggleSort} />
         <Body
-          tableData={deferredData}
+          tableData={dData}
           setting={dStates.setting}
           sortColumn={dSort.column}
+          handlers={dHandlers}
         />
       </Table>
     </TooltipControl>
@@ -235,10 +240,12 @@ function Body_<T extends string>({
   tableData,
   setting,
   sortColumn,
+  handlers,
 }: {
   tableData: TableData<T>;
   setting: Setting;
   sortColumn: T | undefined;
+  handlers: CellEventHandlers;
 }) {
   let previousId: number | undefined;
 
@@ -269,7 +276,12 @@ function Body_<T extends string>({
         }
         return (
           <tr key={row.id} className={separator ? "separator" : undefined}>
-            <Row headers={tableData.headers} row={row} setting={setting} />
+            <Row
+              headers={tableData.headers}
+              row={row}
+              setting={setting}
+              handlers={handlers}
+            />
           </tr>
         );
       })}
@@ -281,15 +293,22 @@ const Row = memo(function Row({
   headers,
   row,
   setting,
+  handlers,
 }: {
   headers: readonly TableHeader<string>[];
   row: TableRow<string>;
   setting: Setting;
+  handlers: CellEventHandlers;
 }) {
   return (
     <>
       {headers.map((col) => (
-        <Cell key={col.id} stat={row[col.id]} setting={setting}></Cell>
+        <Cell
+          key={col.id}
+          stat={row[col.id]}
+          setting={setting}
+          handlers={handlers}
+        />
       ))}
     </>
   );
@@ -298,28 +317,26 @@ const Row = memo(function Row({
 const Cell = memo(function Cell({
   stat,
   setting,
+  handlers,
 }: {
   stat: Stat;
   setting: Setting;
+  handlers: CellEventHandlers;
 }) {
   const ref = useRef(null);
-  const { onClick, onMouseOver, onMouseOut } = useContext(
-    CellEventHandlersContext
-  );
-
+  const { onClick, onMouseOver, onMouseOut } = handlers;
   const cellData = { ref, stat };
+
   return (
-    <>
-      <td
-        ref={ref}
-        onClick={() => onClick(cellData)}
-        onMouseOver={() => onMouseOver(cellData)}
-        onMouseOut={() => onMouseOut(cellData)}
-        className={stat?.getStyles(setting)}
-      >
-        {stat?.getItem(setting)}
-      </td>
-    </>
+    <td
+      ref={ref}
+      onClick={() => onClick(cellData)}
+      onMouseOver={() => onMouseOver(cellData)}
+      onMouseOut={() => onMouseOut(cellData)}
+      className={stat?.getStyles(setting)}
+    >
+      {stat?.getItem(setting)}
+    </td>
   );
 });
 
