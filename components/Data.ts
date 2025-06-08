@@ -1066,6 +1066,7 @@ export const Element = {
 } as const;
 
 const species = {
+  speciesNone: "なし",
   dragon: "竜",
   goblin: "ゴブリン",
   kobold: "コボルト",
@@ -1075,10 +1076,12 @@ const species = {
   demon: "悪魔",
 } as const;
 type SpeciesKey = keyof typeof species;
+const SpeciesKey = Enum(Object.keys(species) as SpeciesKey[]);
 export type Species = (typeof species)[SpeciesKey];
 export const Species = {
   name: species,
   list: Object.keys(species) as SpeciesKey[],
+  key: SpeciesKey,
 
   parse(value: string | undefined): Species | undefined {
     return Object.values(species).find((v) => v === value);

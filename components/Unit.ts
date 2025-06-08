@@ -1291,7 +1291,7 @@ export default class Unit implements TableRow<Keys> {
 
   filterSpecies(states: States): boolean {
     const species = this.species.getValue(states.setting);
-    const value = Data.Species.keyOf(species) ?? null;
+    const value = Data.Species.keyOf(species) ?? Data.Species.key.speciesNone;
     return Unit.filterItem(states, Data.Species.list, value);
   }
 
