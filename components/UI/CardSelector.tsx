@@ -15,10 +15,7 @@ import {
 } from "react-bootstrap";
 import * as Data from "../Data";
 import cn from "classnames";
-import bClassNames from "classnames/bind";
-import styles from "./CardSelector.module.css";
-
-const cx = bClassNames.bind(styles);
+import "./CardSelector.css";
 
 interface Resource {
   id: number;
@@ -40,7 +37,7 @@ function Button(props: ButtonProps) {
 
   const cardClassNames = [
     "ms-auto me-auto",
-    cx("button", {
+    cn("card-button", {
       disabled: props.disabled,
       "table-c-yellow": src?.rarity === Data.Rarity.L,
       "table-c-indigo": src?.rarity === Data.Rarity.E,
@@ -150,15 +147,13 @@ function Selector(props: SelectorModalProps) {
 }
 
 function SelectorModal(props: ModalProps) {
-  const modalClassNames = cx("selector-modal", { disabled: !props.show });
-  const dialogClassNames = cx("selector-dialog");
-  const backdropClassNames = cx("selector-backdrop");
+  const modalClassNames = cn("selector-modal", { disabled: !props.show });
+  const backdropClassNames = cn("selector-backdrop");
 
   return (
     <Modal
       {...props}
       className={modalClassNames}
-      dialogClassName={dialogClassNames}
       backdropClassName={backdropClassNames}
       scrollable
     >
@@ -191,7 +186,7 @@ function Items(props: ItemsProps) {
   return (
     <>
       {props.list.map((item) => (
-        <Col key={item.id} className={styles["card-col"]}>
+        <Col key={item.id} className="card-column">
           <Button
             disabled={props.disabled}
             src={item}

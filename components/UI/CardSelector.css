@@ -1,0 +1,55 @@
+.card-button {
+  width: 16.5rem;
+  height: 4.7rem;
+  font-size: 0.8125rem;
+  background-color: var(--bs-table-bg);
+  color: var(--bs-table-color);
+}
+
+.card-button > .card-header {
+  padding: 0.125rem 0.5rem;
+  background-color: var(--bs-table-bg);
+  color: var(--bs-table-color);
+}
+
+.card-button > .card-body {
+  padding: 0.125rem 0.5rem;
+}
+
+.card-button.disabled {
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (min-width: 631px) {
+  .card-column {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+@media (min-width: 927px) {
+  .card-column {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+}
+
+.modal.selector-modal {
+  z-index: calc(var(--bs-modal-zindex) + 20);
+}
+
+@media (max-height: 450px) {
+  .modal.selector-modal {
+    --bs-modal-margin: 0.5rem;
+  }
+}
+
+.modal.selector-modal .modal-dialog {
+  max-width: 875px;
+  width: calc(100% - var(--bs-modal-margin) * 2);
+}
+
+.modal-backdrop.selector-backdrop {
+  z-index: calc(var(--bs-backdrop-zindex) + 20);
+}
