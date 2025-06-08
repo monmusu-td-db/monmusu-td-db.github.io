@@ -3,10 +3,8 @@
 import "./StatTable.css";
 import thStyle from "./TableStyles/th.module.css";
 import {
-  createContext,
   memo,
   useCallback,
-  useContext,
   useDeferredValue,
   useMemo,
   useRef,
@@ -16,7 +14,7 @@ import {
 import { Table } from "react-bootstrap";
 import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting, type States } from "../States";
-import TooltipControl from "./TooltipControl";
+import TooltipControl, { type TooltipEventHandlers } from "./TooltipControl";
 import { stat } from "../Data";
 import cn from "classnames";
 import Panel from "./Panel";
@@ -33,18 +31,6 @@ export type CellData = {
   ref: RefObject<HTMLElement>;
   stat: Stat;
 };
-
-export type CellEventHandler = (cell: CellData) => void;
-export type CellEventHandlers = {
-  onClick: CellEventHandler;
-  onMouseOver: CellEventHandler;
-  onMouseOut: CellEventHandler;
-};
-export const CellEventHandlersContext = createContext<CellEventHandlers>({
-  onClick: () => {},
-  onMouseOver: () => {},
-  onMouseOut: () => {},
-});
 
 export interface TableData<T extends string> {
   headers: readonly TableHeader<T>[];
@@ -131,7 +117,7 @@ function TableControl_<T extends string>({
     };
   }, [src, states, sort]);
 
-  const handlers = useContext(CellEventHandlersContext);
+  const [tooltipCond, handlers] = TooltipControl.useTooltip();
 
   const cond = useMemo(
     () => ({
@@ -151,8 +137,12 @@ function TableControl_<T extends string>({
     handlers: dHandlers,
   } = deferredCond;
 
+  if ((isPending || panelOpen) && tooltipCond.show) {
+    handlers.hide();
+  }
+
   return (
-    <TooltipControl hide={isPending || panelOpen}>
+    <TooltipControl cond={tooltipCond} setting={dStates.setting}>
       <TableStyle headers={dData.headers} />
       <Table
         striped
@@ -245,7 +235,7 @@ function Body_<T extends string>({
   tableData: TableData<T>;
   setting: Setting;
   sortColumn: T | undefined;
-  handlers: CellEventHandlers;
+  handlers: TooltipEventHandlers;
 }) {
   let previousId: number | undefined;
 
@@ -298,7 +288,7 @@ const Row = memo(function Row({
   headers: readonly TableHeader<string>[];
   row: TableRow<string>;
   setting: Setting;
-  handlers: CellEventHandlers;
+  handlers: TooltipEventHandlers;
 }) {
   return (
     <>
@@ -321,7 +311,7 @@ const Cell = memo(function Cell({
 }: {
   stat: Stat;
   setting: Setting;
-  handlers: CellEventHandlers;
+  handlers: TooltipEventHandlers;
 }) {
   const ref = useRef(null);
   const { onClick, onMouseOver, onMouseOut } = handlers;

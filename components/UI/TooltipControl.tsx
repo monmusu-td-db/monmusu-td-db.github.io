@@ -9,14 +9,18 @@ import {
   memo,
 } from "react";
 import { Overlay, Popover } from "react-bootstrap";
-import {
-  CellEventHandlersContext,
-  type CellData,
-  type CellEventHandlers,
-} from "./StatTable";
+import { type CellData } from "./StatTable";
 import { Tooltip } from "./Tooltip";
 import { StatTooltip } from "../Stat/StatTooltip";
-import { Contexts } from "../States";
+import { Contexts, Setting } from "../States";
+
+type TooltipEventHandler = (cell: CellData) => void;
+export type TooltipEventHandlers = {
+  onClick: TooltipEventHandler;
+  onMouseOver: TooltipEventHandler;
+  onMouseOut: TooltipEventHandler;
+  hide: () => void;
+};
 
 type TooltipCond = {
   enabled: boolean;
@@ -27,13 +31,14 @@ type TooltipCond = {
 const TOOLTIP_DELAY = 5;
 const defaultCond: TooltipCond = { show: false, enabled: false, cell: null };
 
-const TooltipControl = memo(function TooltipControl({
-  children,
-  hide,
-}: {
-  children: ReactNode;
-  hide: boolean;
-}) {
+const isEnabledStat = (
+  stat: unknown,
+  setting: Setting
+): stat is StatTooltip<unknown, unknown> => {
+  return stat instanceof StatTooltip && stat.isEnabled(setting);
+};
+
+function useTooltip(): [TooltipCond, TooltipEventHandlers] {
   const timerIds = useRef<Set<number>>(new Set<number>());
   const [cond, setCond] = useState<TooltipCond>(defaultCond);
 
@@ -46,13 +51,6 @@ const TooltipControl = memo(function TooltipControl({
     });
     ids.clear();
   }
-
-  const isEnabledStat = useCallback(
-    (stat: unknown): stat is StatTooltip<unknown, unknown> => {
-      return stat instanceof StatTooltip && stat.isEnabled(setting);
-    },
-    [setting]
-  );
 
   const handleClick = useCallback((target: CellData) => {
     clearTimers();
@@ -69,7 +67,7 @@ const TooltipControl = memo(function TooltipControl({
     (target: CellData) => {
       clearTimers();
       setCond((p) => {
-        if (!isEnabledStat(target.stat)) {
+        if (!isEnabledStat(target.stat, setting)) {
           return { enabled: true, show: false, cell: p.cell };
         } else if (p.cell?.ref === target.ref && p.show && p.enabled) {
           return p;
@@ -93,7 +91,7 @@ const TooltipControl = memo(function TooltipControl({
         }
       });
     },
-    [isEnabledStat]
+    [setting]
   );
 
   const handleMouseOut = useCallback((target: CellData) => {
@@ -114,35 +112,49 @@ const TooltipControl = memo(function TooltipControl({
     timerIds.current.add(timerId);
   }, []);
 
-  const handlers: CellEventHandlers = useMemo(
+  const hide = useCallback(() => {
+    setCond(defaultCond);
+  }, []);
+
+  const handlers: TooltipEventHandlers = useMemo(
     () => ({
       onClick: handleClick,
       onMouseOver: handleMouseOver,
       onMouseOut: handleMouseOut,
+      hide,
     }),
-    [handleClick, handleMouseOver, handleMouseOut]
+    [handleClick, handleMouseOver, handleMouseOut, hide]
   );
 
-  if (hide && cond.show) {
-    setCond(defaultCond);
-    return;
-  }
+  return [cond, handlers];
+}
 
+const TooltipControl = memo(function TooltipControl({
+  children,
+  cond,
+  setting,
+}: {
+  children: ReactNode;
+  cond: TooltipCond;
+  setting: Setting;
+}) {
   const cellRef = cond.cell?.ref ?? null;
   const cellStat = cond.cell?.stat;
 
   return (
-    <CellEventHandlersContext.Provider value={handlers}>
+    <>
       {children}
-      {cond.enabled && isEnabledStat(cellStat) && (
+      {cond.enabled && isEnabledStat(cellStat, setting) && (
         <Overlay target={cellRef} show={cond.show} placement={"auto"} flip>
           <Popover id="stat-tooltip" placement="auto">
             <Tooltip stat={cellStat} setting={setting} />
           </Popover>
         </Overlay>
       )}
-    </CellEventHandlersContext.Provider>
+    </>
   );
 });
 
-export default TooltipControl;
+export default Object.assign(TooltipControl, {
+  useTooltip,
+});
