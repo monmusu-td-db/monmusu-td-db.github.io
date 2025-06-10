@@ -17,6 +17,8 @@ import * as Data from "../Data";
 import cn from "classnames";
 import "./CardSelector.css";
 
+const FONT_SMALL_TEXT_LENGTH = 30;
+
 interface Resource {
   id: number;
   name: string;
@@ -59,6 +61,8 @@ function Button(props: ButtonProps) {
     onClick = props.onClick;
   }
 
+  const isSmallFont = (src?.desc.length ?? 0) > FONT_SMALL_TEXT_LENGTH;
+
   return (
     <Card className={cn(cardClassNames)} role={role} onClick={onClick}>
       {src !== undefined && (
@@ -68,9 +72,13 @@ function Button(props: ButtonProps) {
             <span>{src.name}</span>
           </Card.Header>
           <Card.Body>
-            <div className="d-grid h-100 align-items-center text-break">
+            <div
+              className={cn("d-grid h-100 align-items-center text-break", {
+                [Data.TableClass.small]: isSmallFont,
+              })}
+            >
               {src.desc.split("\n").map((v, i) => (
-                <Fragment key={i}>
+                <Fragment key={v}>
                   {i !== 0 && <br />}
                   {v}
                 </Fragment>
