@@ -119,7 +119,7 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     if (Array.isArray(value)) {
       if (value.length > 1) {
         return (
-          <div className={Data.TableClass.items}>
+          <div className={Data.TableClass.species}>
             {value.map((v) => (
               <div key={v}>{v}</div>
             ))}

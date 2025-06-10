@@ -86,7 +86,7 @@
   font-weight: bold;
 }
 
-.stat-table div.items {
+.stat-table div.species {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -218,7 +218,7 @@ export const TableClass = {
   annotations: "annotations",
   unhealable: "unhealable",
   critical: "critical",
-  items: "items",
+  species: "species",
 } as const;
 
 // Stat
