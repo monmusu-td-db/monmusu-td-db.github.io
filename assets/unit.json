@@ -23872,5 +23872,75 @@
         "value": 35
       }
     ]
+  },
+  {
+    "id": 335,
+    "unitName": "【アースドラゴン娘】ドルセラ",
+    "unitShortName": "ドルセラ",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "地",
+    "species": "ドラゴン",
+    "hp": 4160,
+    "attack": 633,
+    "defense": 319,
+    "resist": 386,
+    "placement": "両",
+    "exSkill1": {
+      "skillName": "地堅牢",
+      "hpMul": 180,
+      "attackMul": 260,
+      "targetAdd": 2,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "魔法ダメージ20%軽減"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "physicalDamageCut": 30,
+        "magicalDamageCut": 30
+      },
+      {
+        "featureName": "heal",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 100
+        },
+        "target": "自分"
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 200,
+    "blockAdd": 2,
+    "potentialBonus": {
+      "hpMul": 220,
+      "blockAdd": 3
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "heal"
+        ]
+      }
+    ]
   }
 ]
