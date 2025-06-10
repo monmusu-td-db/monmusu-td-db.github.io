@@ -12605,6 +12605,107 @@
     ]
   },
   {
+    "id": 162,
+    "unitName": "【化け狸娘】コウタ",
+    "unitShortName": "コウタ",
+    "rarity": "R",
+    "class": "ニンジャ",
+    "element": "光",
+    "species": "妖怪",
+    "hp": 2727,
+    "attack": 470,
+    "defense": 379,
+    "resist": 277,
+    "exSkill1": {
+      "skillName": "ぽんぽこしちゃうよぉ～？",
+      "hpMul": 220,
+      "attackMul": 260,
+      "duration": "永続",
+      "cooldown": 135,
+      "supplements": [
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "物理防御力+60",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "rounds": 1,
+        "range": null
+      },
+      {
+        "physicalDamageCut": 50
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-field-stealth"
+        ]
+      },
+      {
+        "skill": 1,
+        "exclude": [
+          "class-field-stealth"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 163,
     "unitName": "【猫又娘】ブンコ",
     "unitShortName": "ブンコ",

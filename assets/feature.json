@@ -59,6 +59,15 @@
     ]
   },
   {
+    "featureName": "common-dark-field",
+    "fieldElements": [
+      "闇"
+    ],
+    "annotations": [
+      "闇マス配置時"
+    ]
+  },
+  {
     "featureName": "common-block0",
     "conditions": [
       {

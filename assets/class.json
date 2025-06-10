@@ -819,6 +819,24 @@
     "placement": "両",
     "features": [
       {
+        "isNotAbility": true,
+        "require": [
+          "光マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "isNotAbility": true,
+        "require": [
+          "闇マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
         "featureName": "class-fire-field",
         "isConditionalBuff": true,
         "fieldElements": [
@@ -890,9 +908,6 @@
         ],
         "annotations": [
           "光/闇マス配置時"
-        ],
-        "supplements": [
-          "隠密"
         ]
       }
     ],
