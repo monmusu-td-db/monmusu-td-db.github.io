@@ -115,7 +115,22 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
   }
 
   protected getDefaultItem(setting: Setting): ReactNode {
-    return this.getText(setting);
+    const value = this.getValue(setting);
+    if (Array.isArray(value)) {
+      if (value.length > 1) {
+        return (
+          <div className={Data.TableClass.items}>
+            {value.map((v) => (
+              <div key={v}>{v}</div>
+            ))}
+          </div>
+        );
+      } else {
+        return value[0];
+      }
+    } else {
+      return this.getText(setting);
+    }
   }
 
   protected getDefaultStyles(setting: Setting): StatStyles {

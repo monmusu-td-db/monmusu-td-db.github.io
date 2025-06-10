@@ -22,7 +22,7 @@ export interface JsonUnit {
   rarity: string;
   class?: string;
   element?: string;
-  species?: string;
+  species?: string | readonly string[];
   cost?: number;
   hp: number;
   attack: number;
@@ -166,7 +166,7 @@ export default class Unit implements TableRow<Keys> {
   readonly rarity: Stat.Root<Data.Rarity | undefined>;
   readonly className: Stat.Root<Data.ClassName | undefined>;
   readonly element: Stat.Root<Data.Element | undefined>;
-  readonly species: Stat.Root<Data.Species | undefined>;
+  readonly species: Stat.Root<readonly Data.Species[]>;
   readonly cost: Stat.Root;
   readonly hp: Stat.Base<number>;
   readonly attack: Stat.Base<number>;
@@ -983,7 +983,7 @@ export default class Unit implements TableRow<Keys> {
           Data.FormationBuff.all,
           this.element.getValue(setting),
           Data.ClassName.baseNameOf(this.className.getValue(setting)),
-          this.species.getValue(setting),
+          ...this.species.getValue(setting),
         ].some((s) => {
           if (s === undefined) return false;
           return buff.targets.has(s);
@@ -1029,7 +1029,7 @@ export default class Unit implements TableRow<Keys> {
     const types = [
       Data.ClassName.baseNameOf(className),
       this.element.getValue(setting),
-      this.species.getValue(setting),
+      ...this.species.getValue(setting),
     ];
     const fn = (ss: Beast | undefined) => {
       if (ss === undefined) return;
@@ -1116,7 +1116,7 @@ export default class Unit implements TableRow<Keys> {
       className,
       Data.ClassName.baseNameOf(className),
       this.element.getValue(setting),
-      this.species.getValue(setting),
+      ...this.species.getValue(setting),
     ];
     const fn = (ss: Subskill | undefined) => {
       if (ss === undefined) return;
@@ -1264,12 +1264,24 @@ export default class Unit implements TableRow<Keys> {
   static filterItem<T extends FilterKeys>(
     states: States,
     list: readonly T[],
-    value: T | undefined | null
+    value: T | readonly T[] | undefined | null
   ): boolean {
     const filters = list.filter((v) => states.filter.get(v));
     if (filters.length > 0) {
-      if (value === null || (value !== undefined && !filters.includes(value)))
+      if (value === null) {
         return true;
+      }
+      if (value !== undefined) {
+        if (Array.isArray(value)) {
+          if (value.every((v) => !filters.includes(v))) {
+            return true;
+          }
+        } else {
+          if (!filters.includes(value as T)) {
+            return true;
+          }
+        }
+      }
     }
     return false;
   }
@@ -1290,9 +1302,9 @@ export default class Unit implements TableRow<Keys> {
   }
 
   filterSpecies(states: States): boolean {
-    const species = this.species.getValue(states.setting);
-    const value = Data.Species.keyOf(species) ?? Data.Species.key.speciesNone;
-    return Unit.filterItem(states, Data.Species.list, value);
+    const speciesList = this.species.getValue(states.setting);
+    const keys = Data.Species.getKeys(speciesList);
+    return Unit.filterItem(states, Data.Species.list, keys);
   }
 
   filterDamageType(states: States): boolean {

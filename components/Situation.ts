@@ -220,6 +220,7 @@ export default class Situation implements TableRow<Keys> {
         return Data.Condition.toSorted(ret);
       },
       text: (s) => Data.Condition.listTextOf(this.conditions.getValue(s)),
+      item: (s) => this.conditions.getText(s),
       color: (s) => {
         const c = Data.condition;
         const cond = this.conditions.getValue(s);

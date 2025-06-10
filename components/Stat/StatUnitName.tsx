@@ -41,7 +41,7 @@ export class StatUnitName extends StatTooltip<string> {
     const parent = unit.getTokenParent();
     const className = unit.className.getValue(setting);
     const element = unit.element.getValue(setting);
-    const species = unit.species.getValue(setting);
+    const species = unit.species.getValue(setting).join(" / ");
     const moveType = textOf(unit.moveType);
     const moveSpeed = situation.moveSpeed.getValue(setting);
     const placement = valueOf(unit.placement);

@@ -218,6 +218,7 @@ export const TableClass = {
   annotations: "annotations",
   unhealable: "unhealable",
   critical: "critical",
+  items: "items",
 } as const;
 
 // Stat
@@ -759,7 +760,7 @@ export const JsonFormationBuff = {
               const cls = BaseClassName.parse(t);
               if (cls !== undefined) return cls;
 
-              const spe = Species.parse(t);
+              const spe = Species.find(t);
               if (spe !== undefined) return spe;
             })
             .filter((f) => f !== undefined)
@@ -1067,28 +1068,52 @@ export const Element = {
 
 const species = {
   speciesNone: "なし",
-  dragon: "竜",
+  dragon: "ドラゴン",
+  yokai: "妖怪",
   goblin: "ゴブリン",
   kobold: "コボルト",
-  yokai: "妖怪",
-  fairy: "妖精",
   alien: "エイリアン",
+  fairy: "妖精",
   demon: "悪魔",
+  undead: "アンデッド",
 } as const;
 type SpeciesKey = keyof typeof species;
 const SpeciesKey = Enum(Object.keys(species) as SpeciesKey[]);
+const speciesValues = Object.values(species);
+const speciesEntries = Object.entries(species);
 export type Species = (typeof species)[SpeciesKey];
 export const Species = {
   name: species,
   list: Object.keys(species) as SpeciesKey[],
   key: SpeciesKey,
 
-  parse(value: string | undefined): Species | undefined {
-    return Object.values(species).find((v) => v === value);
+  find(value: string | undefined): Species | undefined {
+    return speciesValues.find((v) => v === value);
+  },
+
+  parse(value: string | readonly string[] | undefined): readonly Species[] {
+    if (Array.isArray(value)) {
+      return value.map((v) => Species.find(v)).filter((v) => v !== undefined);
+    } else {
+      return [Species.find(value as string | undefined)].filter(
+        (v) => v !== undefined
+      );
+    }
+  },
+
+  getKeys(list: readonly Species[]): readonly SpeciesKey[] {
+    const ret = list
+      .map((v) => Species.keyOf(v))
+      .filter((v) => v !== undefined);
+    if (ret.length > 0) {
+      return ret;
+    } else {
+      return [SpeciesKey.speciesNone];
+    }
   },
 
   keyOf(value: unknown): SpeciesKey | undefined {
-    return Object.entries(species).find((v) => v[1] === value)?.[0] as
+    return speciesEntries.find((v) => v[1] === value)?.[0] as
       | SpeciesKey
       | undefined;
   },

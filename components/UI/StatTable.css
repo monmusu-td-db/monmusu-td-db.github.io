@@ -85,3 +85,10 @@
 .stat-table .critical {
   font-weight: bold;
 }
+
+.stat-table div.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.5em;
+}
