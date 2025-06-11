@@ -14,7 +14,7 @@ export class StatTarget extends StatTooltip<
 > {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s) !== undefined;
-  override isTable: boolean = true;
+  override isNotDescList: boolean = true;
 
   protected override getDefaultComparer(setting: Setting): number | undefined {
     const value = this.getValue(setting);

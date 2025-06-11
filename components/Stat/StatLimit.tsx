@@ -10,7 +10,7 @@ type Factors = Data.LimitFactors | undefined;
 const sign = T.sign;
 
 export class StatLimit extends StatTooltip<number | undefined, Factors> {
-  override isTable: boolean = true;
+  override isNotDescList: boolean = true;
 
   protected override getDefaultText(setting: Setting): string | undefined {
     const value = this.getValue(setting);

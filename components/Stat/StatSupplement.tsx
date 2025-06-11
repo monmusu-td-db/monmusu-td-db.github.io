@@ -1,8 +1,14 @@
-import { StatRoot } from "./StatRoot";
 import { Fragment, type ReactNode } from "react";
 import type { Setting } from "../States";
+import { StatRoot } from "./StatRoot";
 
 export class StatSupplement extends StatRoot<ReadonlySet<string>> {
+  // override isNotDescList: boolean = true;
+  // override isEnabled: StatHandler<boolean> = (s) => {
+  //   const value = this.getValue(s);
+  //   return value.size > 0;
+  // };
+
   protected override getDefaultItem(setting: Setting): ReactNode {
     const list = this.getValue(setting);
     const ret: ReactNode[] = [];
@@ -18,6 +24,18 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
     }
     return ret;
   }
+
+  // public override getTooltipBody(setting: Setting): ReactNode {
+  //   const value = this.getValue(setting);
+  //   const list = (() => {
+  //     const ret = [];
+  //     for (const str of value) {
+  //       ret.push(<li key={str}>{str}</li>);
+  //     }
+  //     return ret;
+  //   })();
+  //   return <ul className="ps-3">{list}</ul>;
+  // }
 
   // protected getDefaultItemOld(setting: Setting): ReactNode {
   //   const value = this.getValue(setting);

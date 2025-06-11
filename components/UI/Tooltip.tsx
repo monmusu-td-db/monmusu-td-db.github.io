@@ -49,7 +49,7 @@ function Body({
       <Popover.Header as="h3">
         {Data.StatType.nameOf(stat.statType)}
       </Popover.Header>
-      <Popover.Body>{stat.isTable ? body : <dl>{body}</dl>}</Popover.Body>
+      <Popover.Body>{stat.isNotDescList ? body : <dl>{body}</dl>}</Popover.Body>
     </>
   );
 }

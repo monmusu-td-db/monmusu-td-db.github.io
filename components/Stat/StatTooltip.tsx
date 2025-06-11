@@ -12,7 +12,7 @@ export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
   TFactors
 > {
   readonly isEnabled: StatHandler<boolean> = () => true;
-  readonly isTable: boolean = false;
+  readonly isNotDescList: boolean = false;
   readonly placement: Placement = "auto";
   readonly equal = " = ";
   readonly plus = " + ";
