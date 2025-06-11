@@ -852,8 +852,7 @@ export default class Situation implements TableRow<Keys> {
           (skillCond && fea.isConditionalSkillBuff) ||
           phySkillCond ||
           magSkillCond ||
-          phyEvasion.skillColor ||
-          magEvasion.skillColor
+          (!fea.isAbility && (phyEvasion.skillColor || magEvasion.skillColor))
         )
           return tableColor.positive;
 
