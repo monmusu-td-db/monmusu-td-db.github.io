@@ -805,9 +805,15 @@ export default class Situation implements TableRow<Keys> {
           const potential = this.unit?.isPotentialApplied(s)
             ? Data.Potential.filter(stat.supplements, this.unit?.potentials)
             : undefined;
-          const damageCut = this.getDamageCutSupplements(s);
-          const evasion = this.getEvasionSupplements(s);
-          const ret = this.mergeSupplements(
+          const damageCut = Stat.Supplement.getDamageCut(
+            this.physicalDamageCut.getFactors(s),
+            this.magicalDamageCut.getFactors(s)
+          );
+          const evasion = Stat.Supplement.getEvasion(
+            this.physicalEvasion.getValue(s),
+            this.magicalEvasion.getValue(s)
+          );
+          const ret = Stat.Supplement.merge(
             damageCut,
             evasion,
             potential,
@@ -817,18 +823,18 @@ export default class Situation implements TableRow<Keys> {
 
           if (f.isAbility) {
             if (f.showDamageCut) {
-              return this.mergeSupplements(damageCut, feature);
+              return Stat.Supplement.merge(damageCut, feature);
             } else {
-              return this.mergeSupplements(feature);
+              return Stat.Supplement.merge(feature);
             }
           } else if (f.noBaseSupplements) {
-            return this.mergeSupplements(ret);
+            return Stat.Supplement.merge(ret);
           } else {
-            return this.mergeSupplements(ret, base);
+            return Stat.Supplement.merge(ret, base);
           }
         })();
-        const ret = this.filterSupplements(supplements, f.deleteSupplements);
-        return this.parseSupplements(ret, s);
+        const ret = Stat.Supplement.filter(supplements, f.deleteSupplements);
+        return Stat.Supplement.parse(ret, this.attack.getFactors(s));
       },
       text: (s) => [...this.supplements.getValue(s)].join(" "),
       color: (s) => {
@@ -1218,112 +1224,6 @@ export default class Situation implements TableRow<Keys> {
       isPotentialApplied
     );
 
-    return ret;
-  }
-
-  private mergeSupplements(
-    ...values: (ReadonlySet<string> | undefined)[]
-  ): ReadonlySet<string> {
-    const ret = new Set<string>();
-    for (const v of values) {
-      if (v !== undefined) {
-        for (const str of v) ret.add(str);
-      }
-    }
-    return ret;
-  }
-
-  private filterSupplements(
-    target: ReadonlySet<string>,
-    filter: ReadonlySet<string> | undefined
-  ): ReadonlySet<string> {
-    if (filter === undefined) return target;
-
-    const ret = new Set<string>();
-    target.forEach((str) => {
-      if (!filter.has(str)) ret.add(str);
-    });
-    return ret;
-  }
-
-  private parseSupplements(
-    value: ReadonlySet<string>,
-    setting: Setting
-  ): ReadonlySet<string> {
-    const ret = new Set<string>();
-    for (const str of value) {
-      ret.add(
-        str.replaceAll(/\{([^\{\}])*\}/g, (match) => {
-          match = match.slice(1, match.length - 1);
-          const [key, value] = match.split("*");
-          return (
-            (() => {
-              const v =
-                value !== undefined ? Number.parseInt(value) : undefined;
-              switch (key) {
-                case "attack-base":
-                  return Data.Percent.multiply(
-                    this.attack.getFactors(setting)?.deploymentResult ?? 0,
-                    v
-                  );
-                case "attack":
-                  return Data.Percent.multiply(
-                    this.attack.getFactors(setting)?.inBattleResult ?? 0,
-                    v
-                  );
-              }
-            })()?.toString() ?? ""
-          );
-        })
-      );
-    }
-    return ret;
-  }
-
-  private getDamageCutSupplements(
-    setting: Setting
-  ): ReadonlySet<string> | undefined {
-    const phyFac = this.physicalDamageCut.getFactors(setting);
-    const phy = phyFac.supplement;
-    const mag = this.magicalDamageCut.getFactors(setting).supplement;
-    const gen = phyFac.generalSupplement;
-    if (phy === 0 && mag === 0 && gen === 0) return;
-
-    const ret = new Set<string>();
-    const fn = (type: string, damage: number) => {
-      const sign = damage > 0 ? "-" : "+";
-      ret.add(type + "被Dmg" + sign + Math.abs(damage) + "%");
-    };
-
-    if (gen !== 0) fn("", gen);
-
-    if (gen < 100) {
-      if (phy !== 0 && phy === mag) {
-        fn("物理魔法", phy);
-        return ret;
-      }
-
-      if (phy !== 0) fn("物理", phy);
-      if (mag !== 0) fn("魔法", mag);
-    }
-    return ret;
-  }
-
-  private getEvasionSupplements(
-    setting: Setting
-  ): ReadonlySet<string> | undefined {
-    const phy = this.physicalEvasion.getValue(setting);
-    const mag = this.magicalEvasion.getValue(setting);
-    if (phy <= 0 && mag <= 0) return;
-
-    const ret = new Set<string>();
-    if (phy === mag) {
-      ret.add("物理魔法回避" + phy + "%");
-      return ret;
-    }
-
-    if (phy > 0) ret.add("物理回避" + phy + "%");
-    if (mag > 0) ret.add("魔法回避" + mag + "%");
     return ret;
   }
 
