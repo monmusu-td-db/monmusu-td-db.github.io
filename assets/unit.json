@@ -12485,6 +12485,74 @@
     ]
   },
   {
+    "id": 153,
+    "unitName": "【川熊娘】イオ",
+    "unitShortName": "イオ",
+    "rarity": "R",
+    "class": "ガンナー",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 2587,
+    "attack": 848,
+    "defense": 219,
+    "resist": 261,
+    "placement": "両",
+    "exSkill1": {
+      "skillName": "タマとったるどー！",
+      "hpMul": 200,
+      "attackMul": 220,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "最大HP+400",
+      "物理ダメージ20%軽減"
+    ],
+    "features": [
+      {
+        "featureName": "common-melee",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "range": null,
+        "damageType": "物理"
+      },
+      {
+        "featureName": "common-melee",
+        "skill": 1,
+        "damageFactor": 150
+      }
+    ],
+    "costAdd": 8,
+    "hpMul": 150,
+    "situations": [
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      }
+    ]
+  },
+  {
     "id": 156,
     "unitName": "【座敷童娘】ウスコ",
     "unitShortName": "ウスコ",
