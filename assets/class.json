@@ -837,15 +837,24 @@
         ]
       },
       {
+        "featureName": "class-normal"
+      },
+      {
         "featureName": "class-fire-field",
         "isConditionalBuff": true,
         "fieldElements": [
           "火"
         ],
+        "damageFactor": 140
+      },
+      {
+        "featureName": "class-fire-field",
+        "require": [
+          "パネル無属性"
+        ],
         "annotations": [
           "火マス配置時"
-        ],
-        "damageFactor": 140
+        ]
       },
       {
         "featureName": "class-water-field",
@@ -912,7 +921,11 @@
       }
     ],
     "situations": [
-      {},
+      {
+        "features": [
+          "class-normal"
+        ]
+      },
       {
         "features": [
           "class-fire-field"

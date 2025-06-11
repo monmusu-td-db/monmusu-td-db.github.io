@@ -14,6 +14,7 @@ const require = {
   light: "光マス",
   dark: "闇マス",
   skill: "スキル",
+  panelNone: "パネル無属性",
 } as const;
 type Require = (typeof require)[keyof typeof require];
 const Require = {

@@ -1164,11 +1164,14 @@ export default class Situation implements TableRow<Keys> {
 
       const noWeapon = setting.weapon === Setting.NONE;
       const noSkill = this.getSkill(setting) === undefined;
+      const hasPanelNone = setting.fieldElement !== Setting.NONE;
       if (
         (f.require?.has(Feature.require.weapon) && noWeapon) ||
         (f.require?.has(Feature.require.skill) && noSkill) ||
+        (f.require?.has(Feature.require.panelNone) && hasPanelNone) ||
         (f.exclude?.has(Feature.require.weapon) && !noWeapon) ||
-        (f.exclude?.has(Feature.require.skill) && !noSkill)
+        (f.exclude?.has(Feature.require.skill) && !noSkill) ||
+        (f.exclude?.has(Feature.require.panelNone) && !hasPanelNone)
       )
         return;
 

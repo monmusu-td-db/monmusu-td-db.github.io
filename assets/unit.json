@@ -12711,9 +12711,39 @@
       }
     ],
     "situations": [
-      {},
       {
-        "skill": 1
+        "require": [
+          "no-panel-field-element"
+        ],
+        "exclude": [
+          "class-fire-field",
+          "class-water-field",
+          "class-wind-field",
+          "class-field-stealth"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "exclude": [
+          "class-fire-field",
+          "class-water-field",
+          "class-wind-field",
+          "class-field-stealth"
+        ]
+      },
+      {
+        "exclude": [
+          "class-normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "exclude": [
+          "class-normal"
+        ]
       }
     ]
   },
