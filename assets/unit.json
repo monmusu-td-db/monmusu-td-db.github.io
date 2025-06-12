@@ -319,6 +319,118 @@
     ]
   },
   {
+    "id": 7,
+    "unitName": "【コボルト娘】バウ",
+    "unitShortName": "バウ",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "地",
+    "hp": 3605,
+    "attack": 487,
+    "defense": 376,
+    "resist": 48,
+    "exSkill1": {
+      "skillName": "仲間をよぶであります！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 35,
+      "damageType": null,
+      "supplements": [
+        "コスト+13/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "一緒に戦うであります！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 35,
+      "damageType": null,
+      "supplements": [
+        "コスト+9/発動",
+        "友達トークン配置/発動→自分"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "射程+10",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "attackMul": 115
+      }
+    ],
+    "costAdd": -2,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "require": [
+          "コボルト特性"
+        ],
+        "target": "全体",
+        "value": 115
+      },
+      {
+        "type": "field-change-earth",
+        "skill": 1,
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "field-change-earth",
+        "skill": 2,
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "射程は推測値",
+    "TODO_STAT_INFERRED": true,
+    "id": 70001,
+    "parentId": 7,
+    "unitName": "コボルトフレンズ",
+    "unitShortName": "コボルトT",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 1617,
+    "attack": 537,
+    "defense": 119,
+    "resist": 184,
+    "attackSpeed": 100,
+    "delay": 26,
+    "block": null,
+    "target": 1,
+    "range": 200,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "attackMul": 115
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 8,
     "unitName": "【オーク娘】ポデル",
     "unitShortName": "ポデル",
