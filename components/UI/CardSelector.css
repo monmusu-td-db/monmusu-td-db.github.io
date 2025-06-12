@@ -1,7 +1,7 @@
 .card-button {
   width: 16.5rem;
   height: 4.7rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   background-color: var(--bs-table-bg);
   color: var(--bs-table-color);
 }
@@ -14,6 +14,10 @@
 
 .card-button > .card-body {
   padding: 0.125rem 0.5rem;
+}
+
+.card-button > .card-body > div.fsm {
+  font-size: 0.8125rem;
 }
 
 .card-button.disabled {
