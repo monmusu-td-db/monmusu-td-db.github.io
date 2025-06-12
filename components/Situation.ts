@@ -1508,8 +1508,9 @@ export default class Situation implements TableRow<Keys> {
     return {
       ...factors,
       actualResult: fn(factors.inBattleResult),
-      criticalAttack: fn(
-        Percent.multiply(factors.inBattleResult, factors.criticalDamage)
+      criticalAttack: Percent.multiply(
+        fn(factors.inBattleResult),
+        factors.criticalDamage
       ),
     };
   }
