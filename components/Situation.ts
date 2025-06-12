@@ -813,12 +813,31 @@ export default class Situation implements TableRow<Keys> {
             this.physicalEvasion.getValue(s),
             this.magicalEvasion.getValue(s)
           );
+          const damageAmount = (() => {
+            const isSingleSkill = this.interval.getFactors(s)?.cooldown;
+            if (isSingleSkill === undefined) return;
+
+            const dpsFactor = this.dps0.getFactors(s);
+            if (dpsFactor === undefined) return;
+
+            const rounds = this.rounds.getFactors(s).result;
+            if (rounds === 1) return;
+
+            const criChance = this.criticalChance.getFactors(s).result;
+            const amount =
+              criChance < 100
+                ? dpsFactor.normal.damageAmount
+                : dpsFactor.critical.damageAmount;
+
+            return new Set([`計${amount}dmg`]);
+          })();
           const ret = Stat.Supplement.merge(
             damageCut,
             evasion,
             potential,
             feature,
-            skill
+            skill,
+            damageAmount
           );
 
           if (f.isAbility) {
