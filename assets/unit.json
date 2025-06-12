@@ -3530,6 +3530,56 @@
     "isUnhealable": true
   },
   {
+    "id": 44,
+    "unitName": "【インプ娘】エピル",
+    "unitShortName": "エピル",
+    "rarity": "C",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 3631,
+    "attack": 530,
+    "defense": 380,
+    "resist": 181,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "小悪魔ダンス",
+      "target": 3,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 20
+    },
+    "exSkill2": {
+      "skillName": "デビルステップ",
+      "attackMul": 150,
+      "attackSpeedBuff": 165,
+      "delayMul": 35,
+      "duration": 15,
+      "cooldown": 15,
+      "damageType": "魔法",
+      "supplements": [
+        "移動可"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "攻撃速度+10",
+      "魔法防御力+60"
+    ],
+    "moveSpeedMul": 150,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 45,
     "unitName": "【クィーンビー娘】メリッサ",
