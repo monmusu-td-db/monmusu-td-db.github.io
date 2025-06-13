@@ -319,6 +319,59 @@
     ]
   },
   {
+    "id": 6,
+    "unitName": "【サハギン娘】ハギナ",
+    "unitShortName": "ハギナ",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "水",
+    "hp": 4098,
+    "attack": 585,
+    "defense": 451,
+    "resist": 57,
+    "exSkill1": {
+      "skillName": "必槍！水流烈破！",
+      "attackMul": 170,
+      "duration": 20,
+      "cooldown": 20,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+11/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "物理防御力+60",
+      "魔法防御力+60"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "physicalEvasion": 20,
+        "magicalEvasion": 20
+      },
+      {
+        "skill": 1,
+        "physicalEvasion": 40,
+        "magicalEvasion": 40
+      },
+      {
+        "require": [
+          "水マス"
+        ],
+        "attackSpeedBuff": 120
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 7,
     "unitName": "【コボルト娘】バウ",
     "unitShortName": "バウ",
