@@ -12715,6 +12715,76 @@
     ]
   },
   {
+    "id": 155,
+    "unitName": "【鉄鼠娘】チヅ",
+    "unitShortName": "チヅ",
+    "rarity": "C",
+    "class": "コンジャラー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2323,
+    "attack": 538,
+    "defense": 236,
+    "resist": 537,
+    "supplements": [
+      "ATK-{attack-base*20}/死亡時→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ねねずみざん",
+      "attackMul": 160,
+      "rangeMul": 140,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+2/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 1550001,
+    "parentId": 155,
+    "unitName": "鉄鼠",
+    "unitShortName": "鉄鼠T",
+    "rarity": "C",
+    "element": "闇",
+    "cost": 5,
+    "hp": 1296,
+    "attack": 0,
+    "defense": 79,
+    "resist": 79,
+    "block": 1,
+    "target": 0,
+    "range": 180,
+    "moveSpeed": 300,
+    "placement": "近",
+    "features": [
+      {
+        "supplements": [
+          "ATK-30/死亡時→射程内",
+          "limit5秒"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 156,
     "unitName": "【座敷童娘】ウスコ",
     "unitShortName": "ウスコ",
