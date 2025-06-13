@@ -641,6 +641,7 @@ export const Setting = {
   isValidDamageCut: Valid.isDamageCut,
   isValidAttackSpeed: Valid.isAttackSpeed,
   isValidCooldownCut: Valid.isCooldownCut,
+  defaultValue: defaultSetting,
 
   formation: {
     key: {
@@ -649,6 +650,10 @@ export const Setting = {
       defense: "formationDefense",
       resist: "formationResist",
     } as const satisfies Record<Data.BaseStatType, keyof SettingFormation>,
+  },
+
+  getDpsKey<T extends 1 | 2 | 3 | 4 | 5>(i: T): `dps${T}` {
+    return `dps${i}`;
   },
 } as const;
 

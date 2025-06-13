@@ -223,14 +223,34 @@ function FormItem(props: {
   children: ReactNode;
   name: string;
   label: ReactNode;
+  labelHidden?: boolean;
 }) {
+  const labelHidden = props.labelHidden ?? false;
+  const size = !labelHidden
+    ? {
+        xs: 12,
+        sm: 6,
+        lg: 4,
+        xxl: 3,
+      }
+    : {
+        xs: 6,
+        sm: 4,
+        lg: 3,
+        xxl: 2,
+      };
   return (
-    <Col xs={12} sm={6} lg={4} xxl={3} className="mb-1">
+    <Col {...size} className="mb-1">
       <Form.Group as={Row} controlId={props.name}>
-        <Form.Label column="sm" xs={5} className="ps-2 pe-1">
+        <Form.Label
+          column="sm"
+          xs={5}
+          className="ps-2 pe-1"
+          visuallyHidden={labelHidden}
+        >
           {props.label}
         </Form.Label>
-        <Col xs={7} className="ps-1 pe-2">
+        <Col xs={labelHidden ? 12 : 7} className="ps-1 pe-2">
           {props.children}
         </Col>
       </Form.Group>
@@ -275,15 +295,19 @@ function SelectOptions({ value }: { value: number }) {
 function FormNumber(props: {
   name: string;
   label: ReactNode;
+  labelHidden?: boolean;
   value: number;
+  defaultValue?: number;
   onChange: (value: number) => void;
   isValid: (arg: number) => boolean;
   sign?: ReactNode;
+  leftButton?: boolean;
 }) {
   const [text, setText] = useState<string>(props.value.toString());
   const inputRef = useRef<HTMLInputElement>(null);
 
   const isInvalid = !props.isValid(Number.parseInt(text));
+  const defaultValue = (props.defaultValue ?? 0).toString();
 
   function handleChange(value: string) {
     setText(value);
@@ -292,13 +316,24 @@ function FormNumber(props: {
   }
 
   function handleReset() {
-    handleChange("0");
+    handleChange(defaultValue);
     inputRef.current?.focus();
   }
+
+  const button = (
+    <InputGroup.Text
+      role="button"
+      onClick={handleReset}
+      className={cx("form-number-button")}
+    >
+      {props.sign ?? "%"}
+    </InputGroup.Text>
+  );
 
   return (
     <FormItem {...props}>
       <InputGroup size="sm" hasValidation={isInvalid}>
+        {props.leftButton && button}
         <Form.Control
           type="number"
           value={text}
@@ -306,13 +341,7 @@ function FormNumber(props: {
           isInvalid={isInvalid}
           ref={inputRef}
         />
-        <InputGroup.Text
-          role="button"
-          onClick={handleReset}
-          className={cx("form-number-button")}
-        >
-          {props.sign ?? "%"}
-        </InputGroup.Text>
+        {!props.leftButton && button}
         {isInvalid && (
           <Form.Control.Feedback type="invalid">
             無効な値です。

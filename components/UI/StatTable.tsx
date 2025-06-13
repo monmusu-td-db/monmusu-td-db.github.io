@@ -149,7 +149,12 @@ function TableControl_<T extends string>({
         size="sm"
         className={cn("stat-table", { pending: isPending })}
       >
-        <Header headers={dData.headers} sort={sort} onClick={toggleSort} />
+        <Header
+          headers={dData.headers}
+          setting={dStates.setting}
+          sort={sort}
+          onClick={toggleSort}
+        />
         <Body
           tableData={dData}
           setting={dStates.setting}
@@ -183,10 +188,12 @@ function useSort<T extends string>(
 const Header = memo(Header_) as typeof Header_;
 function Header_<T extends string>({
   headers,
+  setting,
   sort,
   onClick,
 }: {
   headers: readonly TableHeader<T>[];
+  setting: Setting;
   sort: Sort<T>;
   onClick: HandleSort<T>;
 }) {
@@ -216,7 +223,7 @@ function Header_<T extends string>({
               role={role}
               onClick={() => handleClick?.(col.id)}
             >
-              {col.name}
+              {Data.StatType.getHeaderName(col.id, setting, col.name)}
             </th>
           );
         })}

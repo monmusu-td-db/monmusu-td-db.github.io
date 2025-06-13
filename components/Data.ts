@@ -281,6 +281,18 @@ export const stat = Enum(statTypeList);
 export const StatType = {
   isKey: (key: string | number | symbol): key is StatType => key in stat,
   nameOf: (value: StatType): string => jsonWord[value],
+  getHeaderName: (statType: string, setting: Setting, name: string): string => {
+    switch (statType) {
+      case "dps1":
+      case "dps2":
+      case "dps3":
+      case "dps4":
+      case "dps5":
+        return `DPS ${setting[statType]}`;
+      default:
+        return name;
+    }
+  },
 } as const;
 
 export const baseStatList = [

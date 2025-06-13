@@ -120,7 +120,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
                   <TabFormation key={resetKey} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.OTHER}>
-                  <TabOther isSituation={isSituation} />
+                  <TabOther key={resetKey} isSituation={isSituation} />
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
@@ -739,6 +739,34 @@ const _TabOther = memo(function _TabOther({
           </Col>
         </PanelUI.FormGroup>
       )}
+      <PanelUI.FormGroup label="敵防御力">
+        <Col>
+          <Row>
+            {([1, 2, 3, 4, 5] as const).map((i) => {
+              const name = `dps-${i}`;
+              const key = Setting.getDpsKey(i);
+              return (
+                <PanelUI.FormNumber
+                  key={i}
+                  name={name}
+                  label={name}
+                  labelHidden
+                  value={setting[key]}
+                  defaultValue={Setting.defaultValue[key]}
+                  onChange={(n) =>
+                    onChange({
+                      [key]: n,
+                    })
+                  }
+                  isValid={Setting.isValidAdd}
+                  sign={i}
+                  leftButton
+                />
+              );
+            })}
+          </Row>
+        </Col>
+      </PanelUI.FormGroup>
     </Form>
   );
 });
