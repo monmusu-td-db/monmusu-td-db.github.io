@@ -818,6 +818,12 @@ const rarityColorList: TableColor[] = [
   tableColor.blue,
   tableColor.orange,
 ] as const;
+const raritySelector = {
+  L: "legend",
+  E: "epic",
+  R: "rare",
+  C: "common",
+} as const;
 export type Rarity = (typeof rarityList)[number];
 export const Rarity = {
   ...rarity,
@@ -854,6 +860,10 @@ export const Rarity = {
       default:
         return 7;
     }
+  },
+
+  selectorOf(value: Rarity) {
+    return raritySelector[value];
   },
 } as const;
 
@@ -1027,7 +1037,6 @@ const elementTextColor = {
 } as const satisfies Record<ElementKey, string>;
 type ElementTextColor =
   (typeof elementTextColor)[keyof typeof elementTextColor];
-
 const elementList = Object.keys(element) as readonly ElementKey[];
 type ElementKey = keyof typeof element;
 const elementKey = Enum(elementList);
@@ -1074,6 +1083,10 @@ export const Element = {
 
   textColorOf(value: Element): ElementTextColor {
     return elementTextColor[Element.keyOf(value)];
+  },
+
+  selectorOf(value: ElementKey) {
+    return value;
   },
 } as const;
 

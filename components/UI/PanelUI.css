@@ -1,0 +1,67 @@
+@media (max-width: 767.98px) {
+  .panel-form-group > label {
+    text-align: center;
+  }
+}
+
+.btn.panel-btn {
+  color: inherit;
+}
+
+.input-group-text.panel-number-btn {
+  width: 2em;
+  justify-content: center;
+}
+
+.rarity-badge.legend {
+  color: #000;
+  background-color: var(--bs-yellow);
+}
+
+.rarity-badge.epic {
+  color: #fff;
+  background-color: var(--bs-indigo);
+}
+
+.rarity-badge.rare {
+  color: #fff;
+  background-color: var(--bs-blue);
+}
+
+.rarity-badge.common {
+  color: #fff;
+  background-color: var(--bs-gray);
+}
+
+.badge.element-badge {
+  width: 1.8em;
+}
+
+.element-badge.fire {
+  background-color: var(--bs-red);
+}
+
+.element-badge.water {
+  background-color: var(--bs-blue);
+}
+
+.element-badge.earth {
+  --mix-percentage: 50%;
+  background-color: color-mix(
+    in srgb,
+    var(--bs-orange) var(--mix-percentage),
+    #000 calc(100% - var(--mix-percentage))
+  );
+}
+
+.element-badge.wind {
+  background-color: var(--bs-green);
+}
+
+.element-badge.light {
+  background-color: var(--bs-yellow);
+}
+
+.element-badge.dark {
+  background-color: var(--bs-indigo);
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import style from "./PanelUI.module.css";
+import "./PanelUI.css";
 import { Col, Form, Modal, Nav, Row, Tab, ToggleButton } from "react-bootstrap";
 import * as Data from "../Data";
 import CardSelector from "./CardSelector";
@@ -381,7 +381,7 @@ function HeaderButton(props: {
         checked={props.checked}
         value={props.id}
         onClick={props.onClick}
-        className={style.button}
+        className="panel-btn"
       >
         {props.children}
       </ToggleButton>

@@ -18,10 +18,7 @@ import {
 } from "react-bootstrap";
 import * as Data from "../Data";
 import cn from "classnames";
-import bcn from "classnames/bind";
-import style from "./PanelUI.module.css";
-
-const cx = bcn.bind(style);
+import "./PanelUI.css";
 
 const BUTTON_VARIANT = "outline-primary";
 
@@ -34,8 +31,11 @@ function FormGroup({
 }) {
   return (
     <Container>
-      <Form.Group as={Row} className="mb-1 border p-1 rounded">
-        <Form.Label column="sm" sm={2} className={cx("label")}>
+      <Form.Group
+        as={Row}
+        className="panel-form-group mb-2 mb-md-1 border p-1 rounded"
+      >
+        <Form.Label column="sm" md={2}>
           {label}
         </Form.Label>
         {children}
@@ -66,7 +66,7 @@ function FormCheckbox({
       checked={checked}
       value={0}
       onClick={() => onClick(!checked)}
-      className={cx("button")}
+      className="panel-btn"
     >
       {label}
     </ToggleButton>
@@ -114,7 +114,7 @@ function FormRadio({
           key={i}
           variant={BUTTON_VARIANT}
           onClick={() => onChange(i)}
-          className={cx("button")}
+          className="panel-btn"
         >
           {v}
         </ToggleButton>
@@ -142,22 +142,13 @@ function RarityCheckbox({
   onClick: () => void;
   lg?: boolean;
 }) {
-  const className = [
-    {
-      "text-bg-warning": rarity === Data.Rarity.L,
-    },
-    cx({
-      "text-bg-epic": rarity === Data.Rarity.E,
-      "text-bg-rare": rarity === Data.Rarity.R,
-      "text-bg-common": rarity === Data.Rarity.C,
-    }),
-  ];
+  const badge = Data.Rarity.selectorOf(rarity);
   const ret = (
     <FormCheckbox
       name={Data.Rarity[rarity]}
       label={
         <>
-          <span className={cn("badge me-2", className)}>
+          <span className={cn("badge rarity-badge me-2", badge)}>
             {Data.Rarity[rarity]}
           </span>
           {Data.Rarity.alias[rarity]}
@@ -188,19 +179,7 @@ function ElementCheckbox({
   checked: boolean;
   onClick: () => void;
 }) {
-  const className = [
-    {
-      "bg-danger": element === Data.Element.fire,
-      "bg-success": element === Data.Element.wind,
-      "bg-warning": element === Data.Element.light,
-    },
-    cx({
-      "element-badge": true,
-      "bg-e-water": element === Data.Element.water,
-      "bg-e-earth": element === Data.Element.earth,
-      "bg-e-dark": element === Data.Element.dark,
-    }),
-  ];
+  const badge = Data.Element.selectorOf(element);
 
   return (
     <FormGrid xs={4} sm={3} md={2}>
@@ -208,7 +187,9 @@ function ElementCheckbox({
         name={element}
         label={
           <>
-            <span className={cn("badge me-2", className)}>&#8203;</span>
+            <span className={cn("badge element-badge me-2", badge)}>
+              &#8203;
+            </span>
             {Data.Element.name[element]}
           </>
         }
@@ -328,7 +309,7 @@ function FormNumber(props: {
     <InputGroup.Text
       role="button"
       onClick={handleReset}
-      className={cx("form-number-button")}
+      className="panel-number-btn"
     >
       {props.sign ?? "%"}
     </InputGroup.Text>
@@ -371,7 +352,7 @@ function CardButtonGroup({
 
   return (
     <FormGroup label={label}>
-      <Col xs={12} sm={10}>
+      <Col xs={12} md={10}>
         <Row>
           <Col {...cardColProps} className="pb-1 pb-md-0">
             {children[0]}
