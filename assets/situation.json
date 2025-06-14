@@ -2271,29 +2271,6 @@
     ]
   },
   {
-    "unitId": 69
-  },
-  {
-    "unitId": 69,
-    "skill": 1
-  },
-  {
-    "unitId": 69,
-    "skill": -1,
-    "features": [
-      "debuff-defense"
-    ]
-  },
-  {
-    "unitId": 69,
-    "features": [
-      "token-limit"
-    ]
-  },
-  {
-    "unitId": 690001
-  },
-  {
     "unitId": 70,
     "features": [
       "class-normal"

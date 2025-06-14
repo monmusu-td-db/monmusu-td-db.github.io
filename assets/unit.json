@@ -6037,6 +6037,10 @@
     "attack": 989,
     "defense": 241,
     "resist": 297,
+    "supplements": [
+      "DEF-{attack-base*8}/配置→全体",
+      "RES-{attack-base*8}/配置→全体"
+    ],
     "exSkill1": {
       "skillName": "マルチプルバースト",
       "attackMul": 280,
@@ -6044,6 +6048,17 @@
       "target": 4,
       "duration": 25,
       "cooldown": 35
+    },
+    "exSkill2": {
+      "skillName": "インクリースショット",
+      "attackMul": 600,
+      "attackMotionMul": 130,
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
     },
     "potentials": [
       "出撃コスト-1",
@@ -6060,27 +6075,25 @@
     },
     "features": [
       {
+        "featureName": "common-phase1",
+        "skill": 2,
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-phase2",
+        "skill": 2,
+        "damageFactor": 160
+      },
+      {
+        "featureName": "common-phase3",
+        "skill": 2,
+        "damageFactor": 200
+      },
+      {
         "require": [
           "武器"
         ],
         "criChanceAdd": 30
-      },
-      {
-        "featureName": "debuff-defense",
-        "isAbility": true,
-        "annotations": [
-          "種族特性"
-        ],
-        "staticDamage": {
-          "key": "attack-base",
-          "value": -8
-        },
-        "interval": null,
-        "target": "全体",
-        "damageType": null,
-        "supplements": [
-          "配置時物理魔法防御デバフ"
-        ]
       },
       {
         "featureName": "token-limit",
@@ -6095,7 +6108,37 @@
     ],
     "potentialBonus": {
       "rangeAdd": 10
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "token-limit"
+        ]
+      }
+    ]
   },
   {
     "id": 690001,
@@ -6127,7 +6170,10 @@
       }
     ],
     "isUnhealable": true,
-    "costAdd": 1
+    "costAdd": 1,
+    "situations": [
+      {}
+    ]
   },
   {
     "id": 70,
