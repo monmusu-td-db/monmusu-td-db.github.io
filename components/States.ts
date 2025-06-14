@@ -58,6 +58,10 @@ class Valid {
     );
   }
 
+  static isEnemyDefense(value: unknown): boolean {
+    return typeof value === "number" && value >= 0 && value <= 100000;
+  }
+
   static isStatus1(value: unknown): value is Status1 {
     return value === ALL || value === PARTIAL || value === NONE;
   }
@@ -641,6 +645,7 @@ export const Setting = {
   isValidDamageCut: Valid.isDamageCut,
   isValidAttackSpeed: Valid.isAttackSpeed,
   isValidCooldownCut: Valid.isCooldownCut,
+  isValidDps: Valid.isDps,
   defaultValue: defaultSetting,
 
   formation: {

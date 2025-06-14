@@ -758,7 +758,7 @@ const _TabOther = memo(function _TabOther({
                       [key]: n,
                     })
                   }
-                  isValid={Setting.isValidAdd}
+                  isValid={Setting.isValidDps}
                   sign={i}
                   leftButton
                 />

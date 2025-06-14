@@ -303,16 +303,20 @@ function FormNumber(props: {
   sign?: ReactNode;
   leftButton?: boolean;
 }) {
-  const [text, setText] = useState<string>(props.value.toString());
+  const [text, setText] = useState<null | string>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const isInvalid = !props.isValid(Number.parseInt(text));
+  const isInvalid = text !== null;
   const defaultValue = (props.defaultValue ?? 0).toString();
 
   function handleChange(value: string) {
-    setText(value);
     const v = Number.parseInt(value);
-    if (props.isValid(v)) props.onChange(v);
+    if (props.isValid(v)) {
+      props.onChange(v);
+      setText(null);
+    } else {
+      setText(value);
+    }
   }
 
   function handleReset() {
@@ -336,7 +340,7 @@ function FormNumber(props: {
         {props.leftButton && button}
         <Form.Control
           type="number"
-          value={text}
+          value={isInvalid ? text : props.value}
           onChange={(e) => handleChange(e.target.value)}
           isInvalid={isInvalid}
           ref={inputRef}
