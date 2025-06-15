@@ -621,7 +621,7 @@ const defaultSettingOther = {
   dps4: 2000,
   dps5: 3000,
   fieldElement: NONE,
-  storageOption: STORAGE_LOCAL,
+  storageOption: STORAGE_SESSION,
 } as const satisfies SettingOther;
 const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   potential: Valid.isStatus1,
