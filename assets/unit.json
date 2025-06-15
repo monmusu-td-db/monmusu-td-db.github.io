@@ -9123,7 +9123,7 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "ex1攻撃速度",
+    "TODO_DESC": "ex1攻撃速度/ex2はwiki情報",
     "id": 97,
     "unitName": "【ミスリルゴーレム娘】ミスレナ",
     "unitShortName": "ミスレナ",
@@ -9147,6 +9147,17 @@
       "duration": 30,
       "cooldown": 50
     },
+    "exSkill2": {
+      "skillName": "デュラブルクリスタル",
+      "hpMul": 280,
+      "duration": 30,
+      "cooldown": 40,
+      "damageType": null,
+      "supplements": [
+        "引き付け",
+        "反射100%"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -9167,6 +9178,11 @@
             "value": 52
           }
         }
+      },
+      {
+        "skill": 2,
+        "interval": null,
+        "magicalDamageCut": 80
       }
     ],
     "costAdd": 5,
@@ -9175,6 +9191,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
