@@ -2629,8 +2629,6 @@ export default class Situation implements TableRow<Keys> {
     return keys;
   }
 
-  // START wip 新レイアウト
-
   private static get headers(): readonly TableHeader<Keys>[] {
     return keys.map((key) => ({
       id: key,
@@ -2652,8 +2650,6 @@ export default class Situation implements TableRow<Keys> {
       },
     };
   }
-
-  // END wip 新レイアウト
 }
 
 function getSituations(): readonly Situation[] {

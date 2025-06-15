@@ -319,6 +319,171 @@
     ]
   },
   {
+    "id": 6,
+    "unitName": "【サハギン娘】ハギナ",
+    "unitShortName": "ハギナ",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "水",
+    "hp": 4098,
+    "attack": 585,
+    "defense": 451,
+    "resist": 57,
+    "exSkill1": {
+      "skillName": "必槍！水流烈破！",
+      "attackMul": 170,
+      "duration": 20,
+      "cooldown": 20,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+11/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "物理防御力+60",
+      "魔法防御力+60"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "physicalEvasion": 20,
+        "magicalEvasion": 20
+      },
+      {
+        "skill": 1,
+        "physicalEvasion": 40,
+        "magicalEvasion": 40
+      },
+      {
+        "require": [
+          "水マス"
+        ],
+        "attackSpeedBuff": 120
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "unitName": "【コボルト娘】バウ",
+    "unitShortName": "バウ",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "地",
+    "hp": 3605,
+    "attack": 487,
+    "defense": 376,
+    "resist": 48,
+    "exSkill1": {
+      "skillName": "仲間をよぶであります！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 35,
+      "damageType": null,
+      "supplements": [
+        "コスト+13/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "一緒に戦うであります！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 35,
+      "damageType": null,
+      "supplements": [
+        "コスト+9/発動",
+        "友達トークン配置/発動→自分"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "射程+10",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "attackMul": 115
+      }
+    ],
+    "costAdd": -2,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "require": [
+          "コボルト特性"
+        ],
+        "target": "全体",
+        "value": 115
+      },
+      {
+        "type": "field-change-earth",
+        "skill": 1,
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "field-change-earth",
+        "skill": 2,
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "射程は推測値",
+    "TODO_STAT_INFERRED": true,
+    "id": 70001,
+    "parentId": 7,
+    "unitName": "コボルトフレンズ",
+    "unitShortName": "コボルトT",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 1617,
+    "attack": 537,
+    "defense": 119,
+    "resist": 184,
+    "attackSpeed": 100,
+    "delay": 26,
+    "block": null,
+    "target": 1,
+    "range": 200,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "attackMul": 115
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 8,
     "unitName": "【オーク娘】ポデル",
     "unitShortName": "ポデル",
@@ -3418,6 +3583,56 @@
     "isUnhealable": true
   },
   {
+    "id": 44,
+    "unitName": "【インプ娘】エピル",
+    "unitShortName": "エピル",
+    "rarity": "C",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 3631,
+    "attack": 530,
+    "defense": 380,
+    "resist": 181,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "小悪魔ダンス",
+      "target": 3,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 20
+    },
+    "exSkill2": {
+      "skillName": "デビルステップ",
+      "attackMul": 150,
+      "attackSpeedBuff": 165,
+      "delayMul": 35,
+      "duration": 15,
+      "cooldown": 15,
+      "damageType": "魔法",
+      "supplements": [
+        "移動可"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "攻撃速度+10",
+      "魔法防御力+60"
+    ],
+    "moveSpeedMul": 150,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 45,
     "unitName": "【クィーンビー娘】メリッサ",
@@ -5822,6 +6037,10 @@
     "attack": 989,
     "defense": 241,
     "resist": 297,
+    "supplements": [
+      "DEF-{attack-base*8}/配置→全体",
+      "RES-{attack-base*8}/配置→全体"
+    ],
     "exSkill1": {
       "skillName": "マルチプルバースト",
       "attackMul": 280,
@@ -5829,6 +6048,17 @@
       "target": 4,
       "duration": 25,
       "cooldown": 35
+    },
+    "exSkill2": {
+      "skillName": "インクリースショット",
+      "attackMul": 600,
+      "attackMotionMul": 130,
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
     },
     "potentials": [
       "出撃コスト-1",
@@ -5845,27 +6075,25 @@
     },
     "features": [
       {
+        "featureName": "common-phase1",
+        "skill": 2,
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-phase2",
+        "skill": 2,
+        "damageFactor": 160
+      },
+      {
+        "featureName": "common-phase3",
+        "skill": 2,
+        "damageFactor": 200
+      },
+      {
         "require": [
           "武器"
         ],
         "criChanceAdd": 30
-      },
-      {
-        "featureName": "debuff-defense",
-        "isAbility": true,
-        "annotations": [
-          "種族特性"
-        ],
-        "staticDamage": {
-          "key": "attack-base",
-          "value": -8
-        },
-        "interval": null,
-        "target": "全体",
-        "damageType": null,
-        "supplements": [
-          "配置時物理魔法防御デバフ"
-        ]
       },
       {
         "featureName": "token-limit",
@@ -5880,7 +6108,37 @@
     ],
     "potentialBonus": {
       "rangeAdd": 10
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "token-limit"
+        ]
+      }
+    ]
   },
   {
     "id": 690001,
@@ -5912,7 +6170,10 @@
       }
     ],
     "isUnhealable": true,
-    "costAdd": 1
+    "costAdd": 1,
+    "situations": [
+      {}
+    ]
   },
   {
     "id": 70,
@@ -12550,6 +12811,76 @@
           "common-melee"
         ]
       }
+    ]
+  },
+  {
+    "id": 155,
+    "unitName": "【鉄鼠娘】チヅ",
+    "unitShortName": "チヅ",
+    "rarity": "C",
+    "class": "コンジャラー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2323,
+    "attack": 538,
+    "defense": 236,
+    "resist": 537,
+    "supplements": [
+      "ATK-{attack-base*20}/死亡時→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ねねずみざん",
+      "attackMul": 160,
+      "rangeMul": 140,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+2/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 1550001,
+    "parentId": 155,
+    "unitName": "鉄鼠",
+    "unitShortName": "鉄鼠T",
+    "rarity": "C",
+    "element": "闇",
+    "cost": 5,
+    "hp": 1296,
+    "attack": 0,
+    "defense": 79,
+    "resist": 79,
+    "block": 1,
+    "target": 0,
+    "range": 180,
+    "moveSpeed": 300,
+    "placement": "近",
+    "features": [
+      {
+        "supplements": [
+          "ATK-30/死亡時→射程内",
+          "limit5秒"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {}
     ]
   },
   {
