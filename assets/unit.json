@@ -1277,6 +1277,203 @@
     ]
   },
   {
+    "id": 15,
+    "unitName": "【ゾンビ娘】ロトーナ",
+    "unitShortName": "ロトーナ",
+    "rarity": "C",
+    "class": "シールドナイト",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 6398,
+    "attack": 516,
+    "defense": 834,
+    "resist": 215,
+    "supplements": [
+      "毒無効",
+      "スタン耐性+50"
+    ],
+    "exSkill1": {
+      "skillName": "朽ちぬ騎士道",
+      "defenseMul": 300,
+      "resistMul": 300,
+      "blockAdd": 1,
+      "duration": 40,
+      "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "ドレインスラッシュ",
+      "defenseMul": 220,
+      "resistMul": 220,
+      "duration": 30,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "物理防御力+60",
+      "魔法防御力+60"
+    ],
+    "weapon": {
+      "weaponName": "妄念の剣",
+      "hp": 300,
+      "defense": 30,
+      "resist": 20
+    },
+    "features": [
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          {
+            "key": "*",
+            "value": 160
+          }
+        ],
+        "attackMul": 160
+      },
+      {
+        "featureName": "phase1",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "phase": 1,
+        "defenseMul": 130
+      },
+      {
+        "featureName": "phase2",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "phase": 2,
+        "defenseMul": 160
+      },
+      {
+        "featureName": "phase3",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "phase": 3,
+        "defenseMul": 190
+      },
+      {
+        "featureName": "skill2-absorb",
+        "staticDamage": {
+          "key": "hp",
+          "value": 5
+        },
+        "damageType": "吸収"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "phase1"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "phase2"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "phase1"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "phase2"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "phase3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase1"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "phase2"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "phase3"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "attack-mul",
+          "phase1"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "skill2-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "id": 17,
     "unitName": "【ノーム娘】ペトラ",
     "unitShortName": "ペトラ",
