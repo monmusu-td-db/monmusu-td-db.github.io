@@ -19,6 +19,9 @@ const NONE = "none";
 const SAME = "same";
 type Status1 = typeof ALL | typeof PARTIAL | typeof NONE;
 type Status2 = typeof NONE | typeof SAME;
+const STORAGE_LOCAL = "local";
+const STORAGE_SESSION = "session";
+type StorageStatus = typeof STORAGE_LOCAL | typeof STORAGE_SESSION;
 
 // Utilities
 
@@ -72,6 +75,10 @@ class Valid {
 
   static isDps(value: unknown): boolean {
     return Valid.isNumber(value) && value >= 0 && value < 100000;
+  }
+
+  static isStorageStatus(value: unknown): value is StorageStatus {
+    return value === STORAGE_LOCAL || value === STORAGE_SESSION;
   }
 }
 
@@ -603,6 +610,7 @@ type SettingOther = {
   readonly dps4: number;
   readonly dps5: number;
   readonly fieldElement: Status2;
+  readonly storageOption: StorageStatus;
 };
 const defaultSettingOther = {
   potential: PARTIAL,
@@ -613,6 +621,7 @@ const defaultSettingOther = {
   dps4: 2000,
   dps5: 3000,
   fieldElement: NONE,
+  storageOption: STORAGE_LOCAL,
 } as const satisfies SettingOther;
 const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   potential: Valid.isStatus1,
@@ -623,6 +632,7 @@ const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   dps4: Valid.isDps,
   dps5: Valid.isDps,
   fieldElement: Valid.isStatus2,
+  storageOption: Valid.isStorageStatus,
 } as const;
 
 export type Setting = SettingUnit & SettingFormation & SettingOther;
@@ -638,6 +648,8 @@ export const Setting = {
   PARTIAL,
   NONE,
   SAME,
+  STORAGE_LOCAL,
+  STORAGE_SESSION,
   list: Object.keys(defaultSetting) as (keyof Setting)[],
   isValidMul: Valid.isMul,
   isValidAdd: Valid.isAdd,
@@ -721,6 +733,7 @@ function filterReducer(state: Filter, action: FilterAction): Filter {
 export function useFilterState(): [Filter, Dispatch<FilterAction>] {
   const [filter, dispatch] = useReducer(filterReducer, defaultFilter);
   const [init, setInit] = useState(false);
+  const setting = Contexts.useSetting();
 
   useEffect(() => {
     dispatch({
@@ -732,9 +745,9 @@ export function useFilterState(): [Filter, Dispatch<FilterAction>] {
 
   useEffect(() => {
     if (init) {
-      Storage.setFilter(filter);
+      Storage.setFilter(filter, setting.storageOption === STORAGE_LOCAL);
     }
-  }, [filter, init]);
+  }, [filter, init, setting.storageOption]);
 
   return [filter, dispatch];
 }
@@ -846,6 +859,7 @@ function uISettingReducer(
 export function useUISettingState(): [UISetting, Dispatch<UISettingAction>] {
   const [uISetting, dispatch] = useReducer(uISettingReducer, defaultUISetting);
   const [init, setInit] = useState(false);
+  const setting = Contexts.useSetting();
 
   useEffect(() => {
     dispatch({
@@ -857,9 +871,9 @@ export function useUISettingState(): [UISetting, Dispatch<UISettingAction>] {
 
   useEffect(() => {
     if (init) {
-      Storage.setUISetting(uISetting);
+      Storage.setUISetting(uISetting, setting.storageOption === STORAGE_LOCAL);
     }
-  }, [uISetting, init]);
+  }, [uISetting, init, setting.storageOption]);
 
   return [uISetting, dispatch];
 }
@@ -901,16 +915,19 @@ const storageKeys = {
 type StorageKey = (typeof storageKeys)[keyof typeof storageKeys];
 
 class Storage {
-  private static getStorage() {
+  private static getStorage(isLocal?: boolean) {
     try {
-      return sessionStorage;
+      return isLocal ? localStorage : sessionStorage;
     } catch {
       return;
     }
   }
 
-  private static getItem(key: StorageKey): string | undefined {
-    const storage = this.getStorage();
+  private static getItem(
+    key: StorageKey,
+    isLocal?: boolean
+  ): string | undefined {
+    const storage = this.getStorage(isLocal);
     if (storage !== undefined) {
       try {
         const item = storage.getItem(key);
@@ -919,14 +936,34 @@ class Storage {
     }
   }
 
-  private static setItem(key: StorageKey, value: string): void {
-    const storage = this.getStorage();
-    if (storage !== undefined) storage.setItem(key, value);
+  private static setItem(
+    key: StorageKey,
+    value: string,
+    isLocal?: boolean
+  ): void {
+    const storage = this.getStorage(isLocal);
+    if (storage !== undefined) {
+      try {
+        storage.setItem(key, value);
+      } catch {}
+    }
+  }
+
+  private static removeItem(key: StorageKey, isLocal?: boolean) {
+    const storage = this.getStorage(isLocal);
+    if (storage !== undefined) {
+      try {
+        storage.removeItem(key);
+      } catch {}
+    }
   }
 
   private static getObject(key: StorageKey): object | undefined {
-    const item = this.getItem(key);
-    if (item === undefined) return;
+    let item = this.getItem(key);
+    if (item === undefined) {
+      item = this.getItem(key, true);
+      if (item === undefined) return;
+    }
     const ret: unknown = JSON.parse(item);
     if (typeof ret !== "object" || ret === null) return;
     return ret;
@@ -934,14 +971,24 @@ class Storage {
 
   private static setObject(
     key: StorageKey,
-    obj: Record<string, unknown>
+    obj: Record<string, unknown>,
+    isLocal: boolean
   ): void {
-    this.setItem(key, JSON.stringify(obj));
+    const str = JSON.stringify(obj);
+    this.setItem(key, str);
+
+    if (isLocal) {
+      this.setItem(key, str, true);
+    } else {
+      this.removeItem(key, true);
+    }
   }
 
   static getSetting(): Setting {
     const item = this.getObject(storageKeys.SETTING);
-    if (item === undefined) return defaultSetting;
+    if (item === undefined) {
+      return defaultSetting;
+    }
     const obj = item as Record<keyof Setting, unknown>;
     const ret: Partial<Record<keyof Setting, unknown>> = {};
     Setting.list.forEach((key) => {
@@ -956,7 +1003,11 @@ class Storage {
     return ret as Setting;
   }
   static setSetting(obj: Setting): void {
-    this.setObject(storageKeys.SETTING, obj);
+    this.setObject(
+      storageKeys.SETTING,
+      obj,
+      obj.storageOption === STORAGE_LOCAL
+    );
   }
 
   static getFilter(): Map<FilterKeys, boolean> {
@@ -972,10 +1023,10 @@ class Storage {
     }
     return ret;
   }
-  static setFilter(item: Filter): void {
+  static setFilter(item: Filter, isLocal: boolean): void {
     const obj: FilterObject = {};
     for (const [key, value] of item.entries()) obj[key] = value;
-    Storage.setObject(storageKeys.FILTER, obj);
+    Storage.setObject(storageKeys.FILTER, obj, isLocal);
   }
   private static isFilter(obj: unknown): obj is FilterObject {
     if (typeof obj !== "object" || obj === null) return false;
@@ -1000,8 +1051,8 @@ class Storage {
       return obj;
     }
   }
-  static setUISetting(obj: UISetting) {
-    this.setObject(storageKeys.UI_SETTING, obj);
+  static setUISetting(obj: UISetting, isLocal: boolean) {
+    this.setObject(storageKeys.UI_SETTING, obj, isLocal);
   }
   private static isUISetting(obj: unknown): obj is UISetting {
     if (typeof obj !== "object" || obj === null) return false;

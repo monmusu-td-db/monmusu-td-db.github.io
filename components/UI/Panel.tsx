@@ -724,47 +724,64 @@ const _TabOther = memo(function _TabOther({
         </Col>
       </PanelUI.FormGroup>
       {isSituation && (
-        <PanelUI.FormGroup label="属性マス">
-          <Col md={7} className="d-grid">
-            <PanelUI.FormRadio
-              name="s-field-element"
-              items={["無属性", "ユニットと同属性"]}
-              value={setting.fieldElement === Setting.NONE ? 0 : 1}
-              onChange={(v) =>
-                onChange({
-                  fieldElement: v === 0 ? Setting.NONE : Setting.SAME,
-                })
-              }
-            />
-          </Col>
-        </PanelUI.FormGroup>
+        <>
+          <PanelUI.FormGroup label="属性マス">
+            <Col sm={8} md={5} className="d-grid">
+              <PanelUI.FormRadio
+                name="s-field-element"
+                items={["無属性", "ユニットと同属性"]}
+                value={setting.fieldElement === Setting.NONE ? 0 : 1}
+                onChange={(v) =>
+                  onChange({
+                    fieldElement: v === 0 ? Setting.NONE : Setting.SAME,
+                  })
+                }
+              />
+            </Col>
+          </PanelUI.FormGroup>
+          <PanelUI.FormGroup label="敵防御力">
+            <Col>
+              <Row>
+                {([1, 2, 3, 4, 5] as const).map((i) => {
+                  const name = `dps-${i}`;
+                  const key = Setting.getDpsKey(i);
+                  return (
+                    <PanelUI.FormNumber
+                      key={i}
+                      name={name}
+                      label={name}
+                      labelHidden
+                      value={setting[key]}
+                      defaultValue={Setting.defaultValue[key]}
+                      onChange={(n) =>
+                        onChange({
+                          [key]: n,
+                        })
+                      }
+                      isValid={Setting.isValidDps}
+                      sign={i}
+                      leftButton
+                    />
+                  );
+                })}
+              </Row>
+            </Col>
+          </PanelUI.FormGroup>
+        </>
       )}
-      <PanelUI.FormGroup label="敵防御力">
-        <Col>
-          <Row>
-            {([1, 2, 3, 4, 5] as const).map((i) => {
-              const name = `dps-${i}`;
-              const key = Setting.getDpsKey(i);
-              return (
-                <PanelUI.FormNumber
-                  key={i}
-                  name={name}
-                  label={name}
-                  labelHidden
-                  value={setting[key]}
-                  defaultValue={Setting.defaultValue[key]}
-                  onChange={(n) =>
-                    onChange({
-                      [key]: n,
-                    })
-                  }
-                  isValid={Setting.isValidDps}
-                  sign={i}
-                  leftButton
-                />
-              );
-            })}
-          </Row>
+      <PanelUI.FormGroup label="設定の保存">
+        <Col sm={6} md={3} className="d-grid">
+          <PanelUI.FormRadio
+            name="s-storage"
+            items={["する", "しない"]}
+            value={setting.storageOption === Setting.STORAGE_LOCAL ? 0 : 1}
+            onChange={(v) =>
+              onChange({
+                storageOption:
+                  v === 0 ? Setting.STORAGE_LOCAL : Setting.STORAGE_SESSION,
+              })
+            }
+          />
         </Col>
       </PanelUI.FormGroup>
     </Form>

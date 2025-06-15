@@ -11,13 +11,13 @@ import { type ReactNode } from "react";
 
 export function ClientRoot({ children }: { children: ReactNode }) {
   return (
-    <FilterRoot>
-      <SettingRoot>
+    <SettingRoot>
+      <FilterRoot>
         <QueryRoot>
           <UISettingRoot>{children}</UISettingRoot>
         </QueryRoot>
-      </SettingRoot>
-    </FilterRoot>
+      </FilterRoot>
+    </SettingRoot>
   );
 }
 
