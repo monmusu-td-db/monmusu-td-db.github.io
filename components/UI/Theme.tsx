@@ -1,3 +1,6 @@
+const STORAGE_KEY = "theme";
+const SETTER_NAME = "__setTheme";
+
 const Theme = {
   LIGHT: "light",
   DARK: "dark",
@@ -6,53 +9,48 @@ type Theme = (typeof Theme)[keyof typeof Theme];
 
 declare global {
   interface Window {
-    __setPreferredTheme: (theme: Theme) => void;
+    [SETTER_NAME]: (theme: Theme) => void;
   }
 }
 
 function toggle(theme: Theme) {
   const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-  return window.__setPreferredTheme(newTheme);
+  return window[SETTER_NAME](newTheme);
 }
 
-function InitializeTheme() {
-  // 参考 https://github.com/reactjs/react.dev/blob/main/src/pages/_document.tsx
+function Initialize() {
   return (
     <script
       dangerouslySetInnerHTML={{
         __html: `
-        (function (){
-          function setTheme(newTheme){
-            switch(newTheme){
-              case 'light':
-              case 'dark':
-                document.documentElement.setAttribute('data-bs-theme', newTheme);
+        (() => {
+          function setTheme(newTheme) {
+            switch (newTheme) {
+              case ${Theme.LIGHT}:
+              case ${Theme.DARK}:
+                document.documentElement.setAttribute("data-bs-theme", newTheme);
             }
           }
-        
-          var preferredTheme;
+
+          let selectedTheme;
           try {
-            preferredTheme = localStorage.getItem('theme');
-          } catch(err) {}
-        
-          window.__setPreferredTheme = function(newTheme){
-            preferredTheme = newTheme;
+            selectedTheme = localStorage.getItem(${STORAGE_KEY});
+          } catch {}
+
+          window[${SETTER_NAME}] = (newTheme) => {
+            selectedTheme = newTheme;
             setTheme(newTheme);
             try {
-              localStorage.setItem('theme', newTheme);
-            } catch(err) {}
+              localStorage.setItem(${STORAGE_KEY}, newTheme);
+            } catch {}
           };
-        
-          var initialTheme = preferredTheme;
-          var darkQuery = window.matchMedia('prefers-color-scheme: dark');
-          if(!initialTheme){
-            initialTheme = darkQuery.matches ? 'dark': 'light';
-          }
-          setTheme(initialTheme);
 
-          darkQuery.addEventListener('change', function (e) {
-            if(!preferredTheme){
-              setTheme(e.matches ? 'dark' : 'light');
+          const colorQuery = window.matchMedia("prefers-color-scheme: dark");
+          setTheme(selectedTheme ?? (colorQuery.matches ? "dark" : "light"));
+
+          colorQuery.addEventListener("change", (e) => {
+            if (!selectedTheme) {
+              setTheme(e.matches ? "dark" : "light");
             }
           });
         })();
@@ -62,4 +60,4 @@ function InitializeTheme() {
   );
 }
 
-export default Object.assign(Theme, { toggle, Initialize: InitializeTheme });
+export default Object.assign(Theme, { toggle, Initialize });
