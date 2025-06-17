@@ -12486,7 +12486,16 @@
         "damageFactor": 30,
         "criChanceAdd": -1000,
         "target": "命中",
-        "rounds": 1.25,
+        "rounds": [
+          {
+            "ratio": 1,
+            "value": 5
+          },
+          {
+            "ratio": 3,
+            "value": 0
+          }
+        ],
         "splash": true,
         "potentialBonus": {
           "damageFactor": 42
