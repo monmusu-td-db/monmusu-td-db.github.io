@@ -194,9 +194,9 @@ export const TableColor = {
   ): TableColor | undefined {
     if (v1 !== undefined) {
       if (v1 > v2) {
-        return tableColorAlias.positiveStrong;
+        return tableColorAlias.positiveWeak;
       } else if (v1 < v2) {
-        return tableColorAlias.negativeStrong;
+        return tableColorAlias.negativeWeak;
       }
     }
   },

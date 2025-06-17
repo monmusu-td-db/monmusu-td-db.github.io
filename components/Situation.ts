@@ -1798,6 +1798,7 @@ export default class Situation implements TableRow<Keys> {
   private getIntervalBaseFactors(
     setting: Setting
   ): Data.IntervalBaseFactors | undefined {
+    // TODO バグの温床なのでなんとかしたい
     const f = this.getFeature(setting);
 
     const getAtkSpdResult = (motionSpeed: number, speedBuff: number) =>
@@ -1868,7 +1869,7 @@ export default class Situation implements TableRow<Keys> {
     const skMotionSpeed = Percent.multiply(attackSpeed, sk?.attackMotionMul);
     const skAtkSpdResult = getAtkSpdResult(
       skMotionSpeed,
-      sk?.attackSpeedBuff ?? 100
+      Math.max(sk?.attackSpeedBuff ?? 100, f.skillCond?.attackSpeedBuff ?? 100)
     );
     const buffMotionMul = f.skillBuffs?.attackMotionMul ?? sk?.attackMotionMul;
     const buffMotionSpeed = Percent.multiply(attackSpeed, buffMotionMul);
