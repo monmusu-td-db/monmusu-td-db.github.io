@@ -19762,6 +19762,160 @@
     "isEventUnit": true
   },
   {
+    "id": 255,
+    "unitName": "【清姫娘】ナナエ",
+    "unitShortName": "ナナエ",
+    "rarity": "L",
+    "class": "バード",
+    "element": "火",
+    "species": "妖怪",
+    "hp": 3574,
+    "attack": 320,
+    "defense": 350,
+    "resist": 301,
+    "exSkill1": {
+      "skillName": "妬獄炎鐘",
+      "attackMul": 300,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "featureName": "class-buff-proper",
+        "annotations": [
+          "同属性特効"
+        ]
+      },
+      {
+        "featureName": "attack-add-buff",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "種族特性",
+          "加算バフ",
+          "妖怪対象"
+        ],
+        "conditions": [
+          "特",
+          "援"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 20
+        },
+        "target": "射程内"
+      },
+      {
+        "featureName": "dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 5
+        },
+        "interval": 30,
+        "damageType": "貫通",
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 7
+          }
+        }
+      },
+      {
+        "featureName": "dot",
+        "require": [
+          "火マス"
+        ],
+        "rounds": 2
+      }
+    ],
+    "attackMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field",
+          "dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field",
+          "dot"
+        ]
+      },
+      {
+        "bottom": true,
+        "skill": -1,
+        "features": [
+          "attack-add-buff"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change-fire",
+        "skill": 1,
+        "require": [
+          "火属性"
+        ],
+        "target": "射程内火属性",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 256,
     "unitName": "【ドヴェルグ娘】クルクリ",
     "unitShortName": "クルクリ",
