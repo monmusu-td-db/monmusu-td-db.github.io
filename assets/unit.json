@@ -19827,6 +19827,109 @@
     "isEventUnit": true
   },
   {
+    "TODO_DESC": "継続ダメージHit数はWiki情報",
+    "id": 252,
+    "unitName": "【蛇骨婆娘】トモミ",
+    "unitShortName": "トモミ",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 2592,
+    "attack": 723,
+    "defense": 326,
+    "resist": 208,
+    "exSkill1": {
+      "skillName": "凍炎の呪矢",
+      "attackMul": 240,
+      "splash": true,
+      "rangeMul": 180,
+      "duration": 25,
+      "cooldown": 30,
+      "supplements": [
+        "凍結付与(中)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "CRI率/CRI率上限+30%"
+    ],
+    "features": [
+      {
+        "featureName": "normal",
+        "supplements": [
+          "凍結付与(低)/CRI時→命中"
+        ]
+      },
+      {
+        "featureName": "extra-damage",
+        "conditions": [
+          "追"
+        ],
+        "damageFactor": 50,
+        "criChanceAdd": -1000,
+        "target": "命中",
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 2
+          },
+          {
+            "ratio": 1,
+            "value": 8
+          },
+          {
+            "ratio": 12,
+            "value": 0
+          }
+        ],
+        "splash": true
+      },
+      {
+        "featureName": "extra-damage",
+        "skill": 1,
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 2
+          },
+          {
+            "ratio": 1,
+            "value": 8
+          }
+        ]
+      }
+    ],
+    "criChanceAdd": 10,
+    "potentialBonus": {
+      "criChanceAdd": 14
+    },
+    "situations": [
+      {
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      }
+    ]
+  },
+  {
     "id": 255,
     "unitName": "【清姫娘】ナナエ",
     "unitShortName": "ナナエ",
