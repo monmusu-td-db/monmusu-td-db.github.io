@@ -12910,6 +12910,101 @@
     "attackMul": 120
   },
   {
+    "TODO_DESC": "ex1射程はwiki情報",
+    "id": 147,
+    "unitName": "【大蛸娘】ウキスサ",
+    "unitShortName": "ウキスサ",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 5987,
+    "attack": 939,
+    "defense": 467,
+    "resist": 107,
+    "rounds": 3,
+    "exSkill1": {
+      "skillName": "奥義ミズグルマ",
+      "attackMul": 120,
+      "fixedDelay": 1,
+      "target": 1,
+      "splash": true,
+      "rounds": 8,
+      "range": 300,
+      "duration": "単発",
+      "cooldown": 25,
+      "damageType": "魔法",
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "supplements": [
+          "回復3%/秒"
+        ],
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "hp",
+            "value": 4
+          },
+          "supplements": [
+            "回復4%/秒"
+          ]
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 1470001,
+    "parentId": 147,
+    "unitName": "大蛸",
+    "unitShortName": "大蛸T",
+    "rarity": "C",
+    "element": "水",
+    "cost": 9,
+    "hp": 3390,
+    "attack": 738,
+    "defense": 449,
+    "resist": 89,
+    "block": 2,
+    "target": "ブロック",
+    "moveSpeed": 200,
+    "placement": "近",
+    "features": [],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 151,
     "unitName": "【塗壁娘】チカ",
