@@ -17857,6 +17857,71 @@
     ]
   },
   {
+    "TODO_DESC": "スタン蓄積値/攻撃速度強化/ex1射程",
+    "id": 223,
+    "unitName": "【雷神娘】チザネ",
+    "unitShortName": "チザネ",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "光",
+    "species": "妖怪",
+    "hp": 6959,
+    "attack": 906,
+    "defense": 342,
+    "resist": 144,
+    "supplements": [
+      "スタン付与XX%(小)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "大召雷",
+      "attackMul": 240,
+      "target": 5,
+      "range": 999,
+      "duration": 15,
+      "cooldown": 50,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "featureName": "class-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 200
+      },
+      {
+        "featureName": "attack-speed-buff",
+        "annotations": [
+          "攻撃速度強化"
+        ],
+        "attackSpeedBuff": 999,
+        "delayMul": 999
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-speed-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-speed-buff"
+        ]
+      }
+    ]
+  },
+  {
     "id": 224,
     "unitName": "【ロックバード娘】ログダンノ",
     "unitShortName": "ログダンノ",
