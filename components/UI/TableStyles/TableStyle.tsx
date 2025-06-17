@@ -104,11 +104,12 @@ export const TableStyle = memo(function TableStyle({
           getStyle(getSelector(end), "text-align:end;") +
           getStyle(getSelector(center), "text-align:center;") +
           getStyle(getSelector(empty, ":empty::before"), 'content:"-";') +
-          getStyle(supSelector, "font-size:0.75rem;") +
-          `@media(min-width:992px){${getStyle(
-            supSelector,
-            "white-space:nowrap;"
-          )}}`,
+          getStyle(supSelector, "white-space:nowrap;font-size:0.75rem;"),
+        // getStyle(supSelector, "font-size:0.75rem;") +
+        // `@media(min-width:992px){${getStyle(
+        //   supSelector,
+        //   "white-space:nowrap;"
+        // )}}`,
       }}
     />
   );
