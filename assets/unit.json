@@ -16022,6 +16022,131 @@
     "rangeAdd": 30
   },
   {
+    "TODO_DESC": "ex1攻撃速度",
+    "id": 196,
+    "unitName": "【大鬼娘】ハガネ",
+    "unitShortName": "ハガネ",
+    "rarity": "L",
+    "class": "サムライ",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 8655,
+    "attack": 1118,
+    "defense": 566,
+    "resist": 127,
+    "exSkill1": {
+      "skillName": "大鬼斬り",
+      "attackMul": 600,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "featureName": "class-normal",
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "attackSpeedBuff": 999,
+        "delayMul": 99
+      },
+      {
+        "featureName": "class-action",
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "attackSpeedBuff": 999,
+        "delayMul": 99
+      },
+      {
+        "featureName": "hp-49%",
+        "isConditionalBuff": true,
+        "currentHp": 49,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 49
+          }
+        ],
+        "damageFactor": 180
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 200
+          }
+        ],
+        "attackMul": 200,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 220
+            }
+          ],
+          "attackMul": 220
+        }
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul",
+          "common-hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "common-hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul",
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "hp-49%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 198,
     "unitName": "【つらら女娘】シクル",
     "unitShortName": "シクル",
