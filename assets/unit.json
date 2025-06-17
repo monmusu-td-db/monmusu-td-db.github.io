@@ -24953,5 +24953,68 @@
         ]
       }
     ]
+  },
+  {
+    "id": 336,
+    "unitName": "【鳴嫁のコカトリス娘】カリス",
+    "unitShortName": "カリス/嫁",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "地",
+    "hp": 4573,
+    "attack": 740,
+    "defense": 342,
+    "resist": 102,
+    "supplements": [
+      "毒無効",
+      "石化付与5%→命中"
+    ],
+    "exSkill1": {
+      "skillName": "レセプションフラッシュ",
+      "attackMul": 180,
+      "targetAdd": 2,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "石化付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "物理ダメージ20%軽減"
+    ],
+    "features": [
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 170
+        }
+      }
+    ],
+    "hpMul": 140,
+    "moveSpeedMul": 70,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      }
+    ]
   }
 ]
