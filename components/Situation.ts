@@ -505,7 +505,8 @@ export default class Situation implements TableRow<Keys> {
             skillPointBase,
             splashFactor.skillPoint,
             roundsFactor.skillPoint,
-            sk?.laser ? 1 : 0
+            sk?.laser ? 1 : 0,
+            fea.flagTargetSkillBuff ? 1 : 0
           );
           if (skillPoint > 0) return tableColor.positive;
           if (skillPoint < 0) return tableColor.negative;

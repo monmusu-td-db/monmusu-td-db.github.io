@@ -224,6 +224,7 @@ const commonFeature = {
   isMoving: false,
   isUnhealable: false,
   healFlag: false,
+  flagTargetSkillBuff: false,
   currentHp: 0,
   phase: 0,
   phaseName: "",
