@@ -17,6 +17,7 @@ TODOリスト
   パネル/文字サイズ変更、コンテンツ幅変更
   貫通率が複数ある場合、加算か乗算か調べる
   1つのオブジェクトに複数のバフ効果を入れられるようにする
+  ブレイダーのチャージ攻撃に総ダメージ表示
   総ダメージ表示を色分けする
   フリー配布部分とそうでない部分を分割する
 
@@ -196,9 +197,9 @@ export const TableColor = {
   ): TableColor | undefined {
     if (v1 !== undefined) {
       if (v1 > v2) {
-        return tableColorAlias.positiveStrong;
+        return tableColorAlias.positiveWeak;
       } else if (v1 < v2) {
-        return tableColorAlias.negativeStrong;
+        return tableColorAlias.negativeWeak;
       }
     }
   },

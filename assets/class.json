@@ -406,7 +406,11 @@
       }
     ],
     "situations": [
-      {},
+      {
+        "features": [
+          "class-normal"
+        ]
+      },
       {
         "features": [
           "class-action"
