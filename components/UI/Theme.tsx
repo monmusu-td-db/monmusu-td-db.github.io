@@ -26,22 +26,22 @@ function Initialize() {
         (() => {
           function setTheme(newTheme) {
             switch (newTheme) {
-              case ${Theme.LIGHT}:
-              case ${Theme.DARK}:
+              case "${Theme.LIGHT}":
+              case "${Theme.DARK}":
                 document.documentElement.setAttribute("data-bs-theme", newTheme);
             }
           }
 
           let selectedTheme;
           try {
-            selectedTheme = localStorage.getItem(${STORAGE_KEY});
+            selectedTheme = localStorage.getItem("${STORAGE_KEY}");
           } catch {}
 
-          window[${SETTER_NAME}] = (newTheme) => {
+          window.${SETTER_NAME} = (newTheme) => {
             selectedTheme = newTheme;
             setTheme(newTheme);
             try {
-              localStorage.setItem(${STORAGE_KEY}, newTheme);
+              localStorage.setItem("${STORAGE_KEY}", newTheme);
             } catch {}
           };
 
