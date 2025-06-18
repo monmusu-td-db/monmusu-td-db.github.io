@@ -65,7 +65,8 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
 
   public static parse(
     value: ReadonlySet<string>,
-    atkFactor: Data.ActualAttackFactors | undefined
+    atkFactor: Data.ActualAttackFactors | undefined,
+    hpFactor: Data.ActualHpFactors | undefined
   ): ReadonlySet<string> {
     const ret = new Set<string>();
     for (const str of value) {
@@ -77,17 +78,15 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
             (() => {
               const v =
                 value !== undefined ? Number.parseInt(value) : undefined;
+              const fn = (a: number | undefined) =>
+                Data.Percent.multiply(a ?? 0, v);
               switch (key) {
                 case "attack-base":
-                  return Data.Percent.multiply(
-                    atkFactor?.deploymentResult ?? 0,
-                    v
-                  );
+                  return fn(atkFactor?.deploymentResult);
                 case "attack":
-                  return Data.Percent.multiply(
-                    atkFactor?.inBattleResult ?? 0,
-                    v
-                  );
+                  return fn(atkFactor?.inBattleResult);
+                case "max-hp":
+                  return fn(hpFactor?.inBattleResult);
               }
             })()?.toString() ?? ""
           );
