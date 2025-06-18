@@ -22956,11 +22956,11 @@
     ],
     "features": [
       {
-        "featureName": "common-melee",
+        "featureName": "attack",
         "damageType": "魔法"
       },
       {
-        "featureName": "common-melee",
+        "featureName": "attack",
         "skill": 0,
         "target": 1,
         "range": null,
@@ -22969,7 +22969,7 @@
         ]
       },
       {
-        "featureName": "common-melee",
+        "featureName": "attack",
         "flagTargetSkillBuff": true,
         "skill": 1,
         "target": 5,
@@ -22985,7 +22985,7 @@
       {},
       {
         "features": [
-          "common-melee"
+          "attack"
         ]
       },
       {
@@ -22994,7 +22994,7 @@
       {
         "skill": 1,
         "features": [
-          "common-melee"
+          "attack"
         ]
       },
       {
