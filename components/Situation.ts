@@ -102,7 +102,7 @@ export default class Situation implements TableRow<Keys> {
   readonly skillName: Stat.SkillName;
   readonly conditions: Stat.Root<readonly Data.Condition[]>;
   readonly cost: Stat.Root;
-  readonly hp: Stat.SituationBase;
+  readonly hp: Stat.Hp;
   readonly attack: Stat.Attack;
   readonly defense: Stat.DefRes;
   readonly resist: Stat.DefRes;
@@ -505,7 +505,8 @@ export default class Situation implements TableRow<Keys> {
             skillPointBase,
             splashFactor.skillPoint,
             roundsFactor.skillPoint,
-            sk?.laser ? 1 : 0
+            sk?.laser ? 1 : 0,
+            fea.flagTargetSkillBuff ? 1 : 0
           );
           if (skillPoint > 0) return tableColor.positive;
           if (skillPoint < 0) return tableColor.negative;
@@ -853,7 +854,11 @@ export default class Situation implements TableRow<Keys> {
           }
         })();
         const ret = Stat.Supplement.filter(supplements, f.deleteSupplements);
-        return Stat.Supplement.parse(ret, this.attack.getFactors(s));
+        return Stat.Supplement.parse(
+          ret,
+          this.attack.getFactors(s),
+          this.hp.getFactors(s)
+        );
       },
       text: (s) => [...this.supplements.getValue(s)].join(" "),
       color: (s) => {

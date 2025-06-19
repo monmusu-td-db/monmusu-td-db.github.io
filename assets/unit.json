@@ -22911,6 +22911,105 @@
     "costAdd": -1
   },
   {
+    "TODO_DESC": "通常/ex1スタン蓄積値はwiki情報/8体以上",
+    "id": 303,
+    "unitName": "【麒麟娘】ルイシャ",
+    "unitShortName": "ルイシャ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2686,
+    "attack": 440,
+    "defense": 364,
+    "resist": 438,
+    "placement": "両",
+    "exSkill1": {
+      "skillName": "分つ雷霆",
+      "attackMul": 160,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "バリア{max-hp*50}付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃時最大HPの1%回復"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "hp": 110,
+        "attack": 105,
+        "potentialBonus": {
+          "hp": 112,
+          "attack": 107
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "attack",
+        "damageType": "魔法"
+      },
+      {
+        "featureName": "attack",
+        "skill": 0,
+        "target": 1,
+        "range": null,
+        "supplements": [
+          "スタン付与20%(中)→命中"
+        ]
+      },
+      {
+        "featureName": "attack",
+        "flagTargetSkillBuff": true,
+        "skill": 1,
+        "target": 5,
+        "supplements": [
+          "スタン付与50%(大)→命中"
+        ]
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 200,
+    "blockAdd": 2,
+    "situations": [
+      {},
+      {
+        "features": [
+          "attack"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "持続ダメージはWiki情報",
     "id": 304,
     "unitName": "【ベルゼブブ娘】アゼプ",
