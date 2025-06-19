@@ -25535,5 +25535,91 @@
         ]
       }
     ]
+  },
+  {
+    "id": 340,
+    "unitName": "【青龍娘】ランシャン",
+    "unitShortName": "ランシャン",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "風",
+    "species": [
+      "ドラゴン",
+      "妖怪"
+    ],
+    "hp": 4971,
+    "attack": 715,
+    "defense": 447,
+    "resist": 59,
+    "supplements": [
+      "回復100%/撃破→自分",
+      "コスト+1/撃破"
+    ],
+    "exSkill1": {
+      "skillName": "荒ぶ旋風",
+      "attackMul": 260,
+      "target": 3,
+      "range": 200,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "コスト+11/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル初回待ち時間-6秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "require": [
+          "同一属性8体"
+        ],
+        "cost": -1,
+        "attack": 107,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "regenerate-area",
+        "isAbility": true,
+        "conditions": [
+          "再area"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "interval": 30,
+        "target": "射程内",
+        "wideTarget": false,
+        "damageType": "再生",
+        "supplements": [
+          "回復3%/秒→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "regenerate-area"
+        ]
+      }
+    ]
   }
 ]
