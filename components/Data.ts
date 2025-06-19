@@ -1544,6 +1544,7 @@ export const Weapon = {
   },
 } as const;
 
+// 出典：Wiki
 // export const attackSpeedList = {
 //   80: 50,
 //   85: 47,
