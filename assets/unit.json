@@ -22448,6 +22448,9 @@
         "targets": [
           "全て"
         ],
+        "require": [
+          "同一属性8体"
+        ],
         "hp": 107,
         "attack": 107,
         "potentialBonus": {
@@ -22531,6 +22534,9 @@
       {
         "targets": [
           "全て"
+        ],
+        "require": [
+          "同一属性8体"
         ],
         "attack": 110,
         "potentialBonus": {
@@ -22945,6 +22951,9 @@
       {
         "targets": [
           "全て"
+        ],
+        "require": [
+          "同一属性8体"
         ],
         "hp": 110,
         "attack": 105,

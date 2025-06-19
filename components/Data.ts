@@ -11,7 +11,6 @@ TODOリスト
   フィルター状況を見やすく(例：飛行特効)
   situationをunitにまとめてリジェネや吸収を自動表示できるようにする
   condition 特効の内容を表示
-  8体以上同一属性編成
   Buffページに潜在覚醒ボーナスを適用
   isAbilityの挙動改善
   パネル/文字サイズ変更、コンテンツ幅変更
@@ -786,6 +785,7 @@ export const JsonFormationBuff = {
 } as const;
 const formationBuffRequire = {
   weapon: "武器",
+  sameElement8: "同一属性8体",
 } as const;
 export type FormationBuffRequire =
   (typeof formationBuffRequire)[keyof typeof formationBuffRequire];

@@ -640,6 +640,16 @@ const _TabFormation = memo(function _TabFormation({
           </Row>
         </Col>
       </PanelUI.FormGroup>
+      <PanelUI.FormGroup label="同一属性編成">
+        <Col md={7} className="d-grid">
+          <PanelUI.FormRadio
+            name="formation-element"
+            items={["8体以上編成", "適用しない"]}
+            value={setting.sameElement === 8 ? 0 : 1}
+            onChange={(v) => onChange({ sameElement: v === 0 ? 8 : 0 })}
+          />
+        </Col>
+      </PanelUI.FormGroup>
     </Form>
   );
 });

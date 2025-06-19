@@ -975,6 +975,8 @@ export default class Unit implements TableRow<Keys> {
           switch (r) {
             case Data.FormationBuffRequire.weapon:
               return Data.Weapon.isApplied(setting);
+            case Data.FormationBuffRequire.sameElement8:
+              return setting.sameElement === 8;
           }
         });
         if (!req) return defaultValue;
@@ -1030,6 +1032,7 @@ export default class Unit implements TableRow<Keys> {
       Data.ClassName.baseNameOf(className),
       this.element.getValue(setting),
       ...this.species.getValue(setting),
+      setting.sameElement === 8 ? "同一属性8体" : undefined,
     ];
     const fn = (ss: Beast | undefined) => {
       if (ss === undefined) return;

@@ -80,6 +80,10 @@ class Valid {
   static isStorageStatus(value: unknown): value is StorageStatus {
     return value === STORAGE_LOCAL || value === STORAGE_SESSION;
   }
+
+  static isSameElement(value: unknown): value is number {
+    return typeof value === "number" && (value === 0 || value === 8);
+  }
 }
 
 // Types
@@ -576,6 +580,7 @@ type SettingFormation = {
   readonly formationAttack: number;
   readonly formationDefense: number;
   readonly formationResist: number;
+  readonly sameElement: number;
 };
 const defaultSettingFormation = {
   mainBeast: -1,
@@ -586,6 +591,7 @@ const defaultSettingFormation = {
   formationAttack: 0,
   formationDefense: 0,
   formationResist: 0,
+  sameElement: 8,
 } as const satisfies SettingFormation;
 const settingFormationValidation: Record<
   keyof SettingFormation,
@@ -599,6 +605,7 @@ const settingFormationValidation: Record<
   formationAttack: Valid.isMul,
   formationDefense: Valid.isMul,
   formationResist: Valid.isMul,
+  sameElement: Valid.isSameElement,
 } as const;
 
 type SettingOther = {
