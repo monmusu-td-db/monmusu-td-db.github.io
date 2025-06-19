@@ -25455,5 +25455,85 @@
         ]
       }
     ]
+  },
+  {
+    "id": 339,
+    "unitName": "【玄武娘】シュエン",
+    "unitShortName": "シュエン",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 7106,
+    "attack": 624,
+    "defense": 796,
+    "resist": 214,
+    "exSkill1": {
+      "skillName": "揺蕩う守護",
+      "attackMul": 180,
+      "defenseMul": 240,
+      "range": 200,
+      "duration": 40,
+      "cooldown": 50,
+      "supplements": [
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "HPが毎秒3%回復"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "require": [
+          "同一属性8体"
+        ],
+        "attack": 107,
+        "defense": 107,
+        "potentialBonus": {
+          "attack": 109,
+          "defense": 109
+        }
+      }
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "defense",
+          "value": 100
+        }
+      },
+      {
+        "skill": 0,
+        "physicalDamageCut": 25
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 50
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
   }
 ]
