@@ -2,7 +2,8 @@
 
 import "./Navbar.css";
 import Image from "next/image";
-import Logo from "@/assets/logo.svg";
+import LogoPlaceholderImage from "@/assets/logo.svg";
+import LogoImage from "@/assets/icon_40x40.png";
 import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Icon from "./Icon";
 import { type ReactNode } from "react";
@@ -11,7 +12,8 @@ import Panel, { type PageType } from "./Panel";
 import cn from "classnames";
 import SearchInput from "./SearchInput";
 
-const ICON_SIZE = 18;
+const SEARCH_ICON_SIZE = 18;
+const IMAGE_ALT_TEXT = "モンスター娘DB ロゴ";
 
 function Header({ pageType }: { pageType?: PageType }) {
   const open = Panel.Contexts.useOpen();
@@ -65,10 +67,34 @@ function NavArea() {
 
 function Brand() {
   return (
-    <Navbar.Brand href="/" className="d-flex ms-3 align-items-center">
-      <Image src={Logo} width={32} height={32} alt="Monmusu DB Logo" />
-      <span className="ms-2">Monmusu DB</span>
+    <Navbar.Brand href="/" className="d-flex ms-3 align-items-center brand">
+      <Logo />
+      <span className="ms-2">モンスター娘DB</span>
     </Navbar.Brand>
+  );
+}
+
+function Logo() {
+  return (
+    <Image
+      src={LogoImage}
+      width={40}
+      height={40}
+      alt={IMAGE_ALT_TEXT}
+      className="logo"
+    />
+  );
+}
+
+function LogoPlaceholder() {
+  return (
+    <Image
+      src={LogoPlaceholderImage}
+      width={40}
+      height={40}
+      alt={IMAGE_ALT_TEXT}
+      className="logo"
+    />
   );
 }
 
@@ -77,12 +103,15 @@ function ThemeToggler() {
     <>
       <div className="d-none ms-1 me-1 theme-light">
         <HeaderButton onClick={() => Theme.toggle(Theme.LIGHT)}>
-          <Icon.BrightnessHignFill width={ICON_SIZE} height={ICON_SIZE} />
+          <Icon.BrightnessHignFill
+            width={SEARCH_ICON_SIZE}
+            height={SEARCH_ICON_SIZE}
+          />
         </HeaderButton>
       </div>
       <div className="d-none ms-1 me-1 theme-dark">
         <HeaderButton onClick={() => Theme.toggle(Theme.DARK)}>
-          <Icon.MoonFill width={ICON_SIZE} height={ICON_SIZE} />
+          <Icon.MoonFill width={SEARCH_ICON_SIZE} height={SEARCH_ICON_SIZE} />
         </HeaderButton>
       </div>
     </>
@@ -102,7 +131,7 @@ function PanelToggler() {
         aria-controls={Panel.ID}
         aria-expanded={open}
       >
-        <Icon.GearFill width={ICON_SIZE} height={ICON_SIZE} />
+        <Icon.GearFill width={SEARCH_ICON_SIZE} height={SEARCH_ICON_SIZE} />
       </Button>
     </div>
   );

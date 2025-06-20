@@ -43,3 +43,11 @@ html[data-bs-theme="dark"] .theme-dark {
   color: var(--bs-btn-active-color) !important;
   background-color: var(--bs-btn-active-bg) !important;
 }
+
+.navbar-brand.brand {
+  height: 42px;
+}
+
+.navbar-brand.brand > img.logo {
+  border-radius: 9999px;
+}
