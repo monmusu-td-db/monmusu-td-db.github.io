@@ -9395,6 +9395,89 @@
     ]
   },
   {
+    "TODO_DESC": "ex1発動フレーム/継続ダメージHit数はWiki情報",
+    "id": 98,
+    "unitName": "【カリュブディス娘】リュプチェ",
+    "unitShortName": "リュプチェ",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "水",
+    "hp": 2984,
+    "attack": 0,
+    "defense": 312,
+    "resist": 475,
+    "exSkill1": {
+      "skillName": "嵐海の災禍",
+      "fixedDelay": 1,
+      "target": "射程内",
+      "duration": "単発",
+      "cooldown": 40,
+      "supplements": [
+        "HP-8%/発動→射程内",
+        "スタン付与XX%(大)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "射程+15"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "attack": 109,
+        "potentialBonus": {
+          "attack": 112
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "interval": 999
+      },
+      {
+        "featureName": "skill-dot",
+        "isAbility": true,
+        "annotations": [
+          "スキル発動時継続ダメージ"
+        ],
+        "staticDamage": {
+          "key": "static",
+          "value": 300
+        },
+        "target": 1,
+        "splash": true,
+        "rounds": 16,
+        "range": null,
+        "damageType": "貫通",
+        "supplements": [
+          "鈍足-90%→範囲内"
+        ]
+      }
+    ],
+    "rangeAdd": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 1,
+        "features": [
+          "skill-dot"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 99,
     "unitName": "【スプリガン娘】プリン",
