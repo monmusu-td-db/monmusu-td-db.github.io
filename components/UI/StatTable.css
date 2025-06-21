@@ -20,6 +20,7 @@
     overflow: auto;
     height: calc(100vh - 58px);
     margin-top: -0.5rem;
+    padding-right: 12px;
   }
 
   .stat-table > thead {
