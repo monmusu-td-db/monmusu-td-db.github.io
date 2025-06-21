@@ -82,6 +82,7 @@ function Logo() {
       height={40}
       alt={IMAGE_ALT_TEXT}
       className="logo"
+      priority
     />
   );
 }
@@ -94,6 +95,7 @@ function LogoPlaceholder() {
       height={40}
       alt={IMAGE_ALT_TEXT}
       className="logo"
+      priority
     />
   );
 }
