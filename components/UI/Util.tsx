@@ -1,7 +1,9 @@
 import { Fragment, type ReactNode } from "react";
 
+import "./Util.css";
 import styles from "./Util.module.css";
 import * as Data from "../Data";
+import cn from "classnames";
 
 const text = {
   positive: "text-dark-teal",
@@ -65,9 +67,8 @@ export function ElementText({
   element: Data.Element | undefined;
 }) {
   if (element === undefined) return;
+  const key = Data.Element.keyOf(element);
   return (
-    <span className={styles[`text-e-${Data.Element.keyOf(element)}`]}>
-      {element}
-    </span>
+    <span className={cn("text", Data.Element.selectorOf(key))}>{element}</span>
   );
 }

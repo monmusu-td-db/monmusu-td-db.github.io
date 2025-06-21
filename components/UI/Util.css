@@ -1,0 +1,23 @@
+.text.fire {
+  color: var(--bs-red);
+}
+
+.text.water {
+  color: var(--bs-blue);
+}
+
+.text.wind {
+  color: var(--bs-green);
+}
+
+.text.earth {
+  color: color-mix(in srgb, #000 25%, var(--bs-orange));
+}
+
+.text.light {
+  color: color-mix(in srgb, #000 10%, var(--bs-yellow));
+}
+
+.text.dark {
+  color: var(--bs-indigo);
+}
