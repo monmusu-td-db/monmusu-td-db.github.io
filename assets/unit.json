@@ -1994,6 +1994,122 @@
     ]
   },
   {
+    "id": 23,
+    "unitName": "【ゴブリン娘】アニス",
+    "unitShortName": "アニス",
+    "rarity": "C",
+    "class": "アーチャー",
+    "element": "風",
+    "species": "ゴブリン",
+    "hp": 2499,
+    "attack": 556,
+    "defense": 293,
+    "resist": 181,
+    "exSkill1": {
+      "skillName": "ゴブリンの絆",
+      "attackMul": 140,
+      "delayMul": 50,
+      "duration": 25,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "決起！ゴブリン",
+      "rounds": 3,
+      "rangeMul": 150,
+      "duration": 15,
+      "cooldown": 30,
+      "supplements": [
+        "コスト+(1×配置中tkn)/発動",
+        "tkn+(1×配置中tkn)/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "攻撃速度+10",
+      "再出撃時間50%短縮"
+    ],
+    "weapon": {
+      "weaponName": "ゴブリン族の弓",
+      "hp": 50,
+      "attackSpeed": 15
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
+    "id": 230001,
+    "parentId": 23,
+    "unitName": "ゴブリン戦士",
+    "unitShortName": "ゴブリン戦士T",
+    "rarity": "C",
+    "element": "風",
+    "species": "ゴブリン",
+    "cost": 4,
+    "hp": 1893,
+    "attack": 617,
+    "defense": 119,
+    "resist": 59,
+    "attackSpeed": 100,
+    "delay": 25,
+    "block": 1,
+    "target": 1,
+    "moveSpeed": 130,
+    "damageType": "物理",
+    "placement": "近",
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-team-buff1-no-emphasis",
+        "attackMul": 130
+      },
+      {
+        "featureName": "common-team-buff2",
+        "isConditionalBuff": true,
+        "attackMul": 160
+      },
+      {
+        "featureName": "common-team-buff3",
+        "isConditionalBuff": true,
+        "attackMul": 190
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "features": [
+          "common-team-buff1-no-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff2"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff3"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 24,
     "unitName": "【ダークエルフ娘】レティア",
