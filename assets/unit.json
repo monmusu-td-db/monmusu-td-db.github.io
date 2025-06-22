@@ -24342,7 +24342,15 @@
     "formationBuffs": [
       {
         "targets": [
-          "エイリアン",
+          "エイリアン"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      },
+      {
+        "targets": [
           "闇"
         ],
         "attack": 108,
@@ -24398,7 +24406,15 @@
     "formationBuffs": [
       {
         "targets": [
-          "エイリアン",
+          "エイリアン"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      },
+      {
+        "targets": [
           "光"
         ],
         "attack": 108,
