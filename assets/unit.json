@@ -1994,6 +1994,285 @@
     ]
   },
   {
+    "id": 24,
+    "unitName": "【ダークエルフ娘】レティア",
+    "unitShortName": "レティア",
+    "rarity": "C",
+    "class": "アーチャー",
+    "element": "闇",
+    "hp": 2405,
+    "attack": 571,
+    "defense": 282,
+    "resist": 190,
+    "exSkill1": {
+      "skillName": "クイックショット",
+      "attackMul": 190,
+      "target": 2,
+      "duration": 10,
+      "cooldown": 15
+    },
+    "exSkill2": {
+      "skillName": "漆黒秘技の矢",
+      "attackMul": 300,
+      "duration": 10,
+      "cooldown": 15
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "weapon": {
+      "weaponName": "ダークエルフ族の弓",
+      "hp": 100,
+      "attack": 70
+    },
+    "features": [
+      {
+        "skill": 0,
+        "isConditionalBuff": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "damage-type",
+        "skill": 2,
+        "annotations": [
+          "ティーレ配置時"
+        ],
+        "damageType": "貫通"
+      },
+      {
+        "require": [
+          "闇マス"
+        ],
+        "isConditionalBuff": true,
+        "attackMul": 108,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "attack-mul1",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 220
+          }
+        ],
+        "attackMul": 220
+      },
+      {
+        "featureName": "attack-mul2",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 190
+          }
+        ],
+        "attackMul": 190
+      },
+      {
+        "featureName": "attack-mul3",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 160
+          }
+        ],
+        "attackMul": 160
+      },
+      {
+        "featureName": "attack-mul4",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 130
+          }
+        ],
+        "attackMul": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "damage-type"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul1",
+          "damage-type"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul2",
+          "damage-type"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul3",
+          "damage-type"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul4"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul4"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul4"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul4",
+          "damage-type"
+        ]
+      }
+    ]
+  },
+  {
     "id": 25,
     "unitName": "【メデューサ娘】ローレン",
     "unitShortName": "ローレン",
