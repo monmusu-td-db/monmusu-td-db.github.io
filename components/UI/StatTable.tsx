@@ -1,7 +1,6 @@
 "use client";
 
 import "./StatTable.css";
-import thStyle from "./TableStyles/th.module.css";
 import {
   memo,
   useCallback,
@@ -19,7 +18,7 @@ import { stat } from "../Data";
 import cn from "classnames";
 import Panel from "./Panel";
 import * as Data from "../Data";
-import { TableStyle } from "./TableStyles/TableStyle";
+import { TableStyle } from "./TableStyle";
 import Situation from "../Situation";
 
 //
@@ -219,7 +218,7 @@ function Header_<T extends string>({
           return (
             <th
               key={col.id}
-              className={cn(thStyle[col.id], sortCn)}
+              className={cn(col.id, sortCn)}
               role={role}
               onClick={() => handleClick?.(col.id)}
             >

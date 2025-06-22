@@ -1,6 +1,6 @@
 import { stat } from "@/components/Data";
 import { memo } from "react";
-import type { TableHeader } from "../StatTable";
+import type { TableHeader } from "./StatTable";
 
 export const TableStyle = memo(function TableStyle({
   headers,

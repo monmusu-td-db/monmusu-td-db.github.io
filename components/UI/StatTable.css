@@ -93,3 +93,94 @@
   justify-content: center;
   column-gap: 0.5em;
 }
+
+th.hp,
+th.attack,
+th.defense,
+th.resist,
+th.physicalLimit,
+th.magicalLimit,
+th.dps0,
+th.dps1,
+th.dps2,
+th.dps3,
+th.dps4,
+th.dps5 {
+  width: 2.7rem;
+}
+
+th.conditions {
+  width: 2.8rem;
+}
+
+th.target {
+  width: 2.8rem;
+  min-width: 2.1rem;
+}
+
+th.rarity,
+th.cost {
+  width: 1.4rem;
+}
+
+th.attackSpeed,
+th.delay {
+  width: 1.55rem;
+}
+
+th.block {
+  width: 1.8rem;
+}
+
+th.interval {
+  width: 2rem;
+}
+
+th.unitId,
+th.situationId,
+th.element,
+th.range,
+th.moveSpeed,
+th.placement {
+  width: 2rem;
+}
+
+th.initialTime,
+th.duration,
+th.cooldown,
+th.damageType {
+  width: 2.4rem;
+}
+
+th.moveType {
+  width: 3.2rem;
+}
+
+th.species {
+  width: 4.1rem;
+}
+
+th.className {
+  width: 4.9rem;
+}
+
+th.unitShortName {
+  width: 5.3rem;
+  min-width: 3.3rem;
+}
+
+th.skillName,
+th.exSkill1,
+th.exSkill2 {
+  width: 8.9rem;
+  min-width: 5rem;
+}
+
+th.unitName {
+  width: 12.2em;
+}
+
+th.supplements {
+  width: 10.16rem;
+  min-width: 7.62rem;
+}
