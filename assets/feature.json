@@ -166,6 +166,22 @@
     "phase": 5
   },
   {
+    "featureName": "common-phase6",
+    "phase": 6
+  },
+  {
+    "featureName": "common-phase7",
+    "phase": 7
+  },
+  {
+    "featureName": "common-phase8",
+    "phase": 8
+  },
+  {
+    "featureName": "common-phase9",
+    "phase": 9
+  },
+  {
     "featureName": "common-skill1-phase1",
     "phase": 1
   },

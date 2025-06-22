@@ -2934,6 +2934,164 @@
     ]
   },
   {
+    "id": 31,
+    "unitName": "【ラミア娘】アミラミ",
+    "unitShortName": "アミラミ",
+    "rarity": "C",
+    "class": "ウォーロック",
+    "element": "火",
+    "hp": 2432,
+    "attack": 876,
+    "defense": 204,
+    "resist": 496,
+    "exSkill1": {
+      "skillName": "ライフイーター",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 40,
+      "damageType": "物理",
+      "supplements": [
+        "敵HP10%dmg/発動→射程内",
+        "HP回復100%/発動"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "炎の刻印",
+      "targetAdd": 1,
+      "rangeMul": 150,
+      "duration": 10,
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "魔法防御力+60"
+    ],
+    "weapon": {
+      "weaponName": "蛇眼の杖",
+      "hp": 250,
+      "attack": 65
+    },
+    "features": [
+      {
+        "skill": 1,
+        "flagNoDps": true
+      },
+      {
+        "skill": 2,
+        "require": [
+          "火マス"
+        ],
+        "isConditionalBuff": true,
+        "attackMul": 150
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "cooldownCut": 3
+      },
+      {
+        "featureName": "skill-attack-mul",
+        "attackMul": 105
+      },
+      {
+        "featureName": "skill2-dot",
+        "isConditionalSkillBuff": true,
+        "flagNoDps": true,
+        "interval": 60,
+        "damageType": "物理",
+        "supplements": [
+          "敵HP1%dmg/2秒→射程内"
+        ]
+      },
+      {
+        "featureName": "common-phase1",
+        "isConditionalBuff": true,
+        "attackMul": 105
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalBuff": true,
+        "attackMul": 115
+      },
+      {
+        "featureName": "common-phase6",
+        "isConditionalBuff": true,
+        "attackMul": 130
+      },
+      {
+        "featureName": "common-phase9",
+        "isConditionalBuff": true,
+        "attackMul": 145
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 2,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase6"
+        ]
+      },
+      {
+        "features": [
+          "common-phase6"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase9"
+        ]
+      },
+      {
+        "features": [
+          "common-phase9"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill-attack-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "skill-attack-mul",
+          "skill2-dot"
+        ]
+      }
+    ]
+  },
+  {
     "id": 32,
     "unitName": "【ワーペンギン娘】ペリリ",
     "unitShortName": "ペリリ",
@@ -8186,7 +8344,7 @@
       },
       {
         "featureName": "skill",
-        "isNotSustainable": true
+        "flagNoDps": true
       },
       {
         "featureName": "skill1-normal",
@@ -10873,7 +11031,7 @@
     "features": [
       {
         "featureName": "deploy-attack",
-        "isNotSustainable": true,
+        "flagNoDps": true,
         "annotations": [
           "配置時追加攻撃"
         ],
@@ -13248,7 +13406,7 @@
     "features": [
       {
         "featureName": "deploy-attack",
-        "isNotSustainable": true,
+        "flagNoDps": true,
         "annotations": [
           "配置時追加攻撃"
         ],
@@ -16599,7 +16757,7 @@
       },
       {
         "featureName": "deploy-attack",
-        "isNotSustainable": true,
+        "flagNoDps": true,
         "annotations": [
           "配置時攻撃"
         ],

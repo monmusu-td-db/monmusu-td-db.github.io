@@ -14,14 +14,14 @@
         "featureName": "class-charge",
         "skill": 0,
         "isConditionalBuff": true,
-        "isNotSustainable": true,
+        "flagNoDps": true,
         "target": 1,
         "splash": true
       },
       {
         "featureName": "class-charge-normal",
         "isConditionalBuff": true,
-        "isNotSustainable": true,
+        "flagNoDps": true,
         "target": 1,
         "splash": true
       },
@@ -198,7 +198,7 @@
       },
       {
         "featureName": "class-attack",
-        "isNotSustainable": true,
+        "flagNoDps": true,
         "annotations": [
           "配置時攻撃"
         ],

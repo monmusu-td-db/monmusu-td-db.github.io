@@ -214,7 +214,7 @@ const commonFeature = {
   showDamageCut: false,
   noBaseSupplements: false,
   isAction: false,
-  isNotSustainable: false,
+  flagNoDps: false,
   isSupport: false,
   isExtraDamage: false,
   isConditionalBuff: false,

@@ -2059,7 +2059,7 @@ export default class Situation implements TableRow<Keys> {
     index: 0 | 1 | 2 | 3 | 4 | 5
   ): Data.DpsFactors | undefined {
     const fea = this.getFeature(setting);
-    if (fea.isNotSustainable) return;
+    if (fea.flagNoDps) return;
 
     const f = this.attack.getFactors(setting);
     if (f === undefined) return;
