@@ -378,6 +378,7 @@
     "rarity": "C",
     "class": "ランサー",
     "element": "地",
+    "species": "コボルト",
     "hp": 3605,
     "attack": 487,
     "defense": 376,
@@ -480,7 +481,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -2093,16 +2096,19 @@
     "isUnhealable": true,
     "situations": [
       {
+        "proper": true,
         "features": [
           "common-team-buff1-no-emphasis"
         ]
       },
       {
+        "proper": true,
         "features": [
           "common-team-buff2"
         ]
       },
       {
+        "proper": true,
         "features": [
           "common-team-buff3"
         ]
@@ -4491,7 +4497,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -10244,7 +10252,9 @@
       }
     ],
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ],
     "isUnhealable": true
   },
@@ -10420,13 +10430,17 @@
       }
     ],
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "features": [
           "attack"
         ]
       },
       {
+        "proper": true,
         "features": [
           "attack",
           "skill1-buff"
@@ -11843,16 +11857,21 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "skill": 1
       },
       {
+        "proper": true,
         "features": [
           "skill1-buff"
         ]
       },
       {
+        "proper": true,
         "skill": 1,
         "features": [
           "skill1-buff"
@@ -13216,7 +13235,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -13647,7 +13668,9 @@
     "features": [],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -13837,7 +13860,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -14640,7 +14665,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -16019,11 +16046,15 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "skill": 1
       },
       {
+        "proper": true,
         "skill": -1,
         "features": [
           "support"
@@ -17608,7 +17639,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ],
     "buffs": [
       {
@@ -18298,7 +18331,9 @@
     "isEventUnit": true,
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -18726,7 +18761,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -19309,7 +19346,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ],
     "buffs": [
       {
@@ -20135,7 +20174,7 @@
     "isUnhealable": true,
     "situations": [
       {
-        "isGeneral": true
+        "proper": true
       }
     ]
   },
@@ -20924,8 +20963,11 @@
     },
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "skill": 1
       }
     ]
@@ -21198,7 +21240,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -21772,7 +21816,9 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {}
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -23439,8 +23485,11 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "features": [
           "skill1-buff"
         ]
@@ -23762,8 +23811,11 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "features": [
           "damage-field"
         ]
@@ -25032,8 +25084,11 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "features": [
           "skill1-buff"
         ]
@@ -25346,8 +25401,11 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "skill": 1
       }
     ]
