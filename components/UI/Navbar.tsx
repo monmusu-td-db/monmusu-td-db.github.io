@@ -2,8 +2,6 @@
 
 import "./Navbar.css";
 import Image from "next/image";
-import LogoPlaceholderImage from "@/assets/logo.svg";
-import LogoImage from "@/assets/icon_40x40.png";
 import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Icon from "./Icon";
 import { type ReactNode } from "react";
@@ -77,7 +75,7 @@ function Brand() {
 function Logo() {
   return (
     <Image
-      src={LogoImage}
+      src={"/icon_40x40.png"}
       width={40}
       height={40}
       alt={IMAGE_ALT_TEXT}
@@ -90,7 +88,7 @@ function Logo() {
 function LogoPlaceholder() {
   return (
     <Image
-      src={LogoPlaceholderImage}
+      src={"/Logo.svg"}
       width={40}
       height={40}
       alt={IMAGE_ALT_TEXT}
