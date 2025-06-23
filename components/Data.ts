@@ -19,7 +19,6 @@ TODOリスト
   ブレイダーのチャージ攻撃に総ダメージ表示
   総ダメージ表示を色分けする
   フリー配布部分とそうでない部分を分割する
-  同一属性8体を属性ごとに分離
   設定の保存部分を分ける
   単発スキル発動間隔と固定intervalの色を分ける
   トークンの表示有無フィルターを追加
@@ -811,16 +810,15 @@ const formationBuffRequire = {
   sameElement8: "同一属性8体",
 } as const;
 const formationBuffRequireEntries = Object.entries(formationBuffRequire);
-const formationBuffRequireText = {
-  weapon: "専用武器効果",
-  sameElement8: "同一属性8体",
-} as const satisfies Record<FormationBuffRequireKey, string>;
-type FormationBuffRequireKey = keyof typeof formationBuffRequire;
+const formationBuffRequireKeys = Enum(
+  Object.keys(formationBuffRequire) as (keyof typeof formationBuffRequire)[]
+);
+export type FormationBuffRequireKey = keyof typeof formationBuffRequire;
 export type FormationBuffRequire =
   (typeof formationBuffRequire)[keyof typeof formationBuffRequire];
 export const FormationBuffRequire = {
   ...formationBuffRequire,
-  text: formationBuffRequireText,
+  keys: formationBuffRequireKeys,
   parse(value: string): FormationBuffRequire | undefined {
     for (const v of Object.values(formationBuffRequire)) {
       if (v === value) return v;

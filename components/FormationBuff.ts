@@ -97,10 +97,21 @@ export default class FormationBuff implements TableRow<Keys> {
 
     this.buffSupplements = new Stat.Root({
       statType: stat.buffSupplements,
-      calculater: () =>
+      calculater: (s) =>
         buff.require.map((buff) => {
           const key = Data.FormationBuffRequire.keyOf(buff);
-          return Data.FormationBuffRequire.text[key];
+          return FormationBuffUI.getSupplementText(
+            key,
+            unit.element.getValue(s)
+          );
+        }),
+      item: (s) =>
+        buff.require.map((buff) => {
+          const key = Data.FormationBuffRequire.keyOf(buff);
+          return FormationBuffUI.getSupplementItem(
+            key,
+            unit.element.getValue(s)
+          );
         }),
     });
   }
