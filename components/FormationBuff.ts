@@ -28,6 +28,8 @@ interface Source {
 
 export default class FormationBuff implements TableRow<Keys> {
   readonly id: number;
+  readonly unit: Unit;
+
   readonly unitId: Stat.Root;
   readonly unitShortName: Stat.Root<string>;
   readonly buffCost: Stat.Root;
@@ -42,6 +44,8 @@ export default class FormationBuff implements TableRow<Keys> {
     const { id, unit, buff } = src;
 
     this.id = id;
+    this.unit = unit;
+
     this.unitId = unit.unitId;
     this.unitShortName = unit.unitShortName;
 
@@ -140,8 +144,7 @@ export default class FormationBuff implements TableRow<Keys> {
   }
 
   private static filter(states: States, list: readonly FormationBuff[]) {
-    // TODO
-    return list;
+    return list.filter((buff) => buff.unit.filterFn(states));
   }
 
   static get tableData(): TableSource<Keys> {

@@ -1199,61 +1199,63 @@ export default class Unit implements TableRow<Keys> {
   }
 
   static filter(states: States, list: readonly Unit[]): readonly Unit[] {
-    return list.filter((item) => {
-      const parent = item.getTokenParent();
-      const target = parent !== undefined ? parent : item;
-      const className = target.className.getValue(states.setting);
-      const filterKeys = FilterEquipment.getKeys(states.filter);
-      const classNameKey = Data.ClassName.keyOf(className);
-      if (
-        filterKeys.size > 0 &&
-        classNameKey !== undefined &&
-        !filterKeys.has(classNameKey)
-      )
-        return false;
+    return list.filter((item) => item.filterFn(states));
+  }
 
-      if (
-        target.filterRarity(states) ||
-        target.filterElement(states) ||
-        target.filterSpecies(states) ||
-        item.filterDamageType(states) ||
-        target.filterMoveType(states) ||
-        item.filterPlacement(states)
-      ) {
+  public filterFn(states: States): boolean {
+    const parent = this.getTokenParent();
+    const target = parent !== undefined ? parent : this;
+    const className = target.className.getValue(states.setting);
+    const filterKeys = FilterEquipment.getKeys(states.filter);
+    const classNameKey = Data.ClassName.keyOf(className);
+    if (
+      filterKeys.size > 0 &&
+      classNameKey !== undefined &&
+      !filterKeys.has(classNameKey)
+    )
+      return false;
+
+    if (
+      target.filterRarity(states) ||
+      target.filterElement(states) ||
+      target.filterSpecies(states) ||
+      this.filterDamageType(states) ||
+      target.filterMoveType(states) ||
+      this.filterPlacement(states)
+    ) {
+      return false;
+    }
+
+    if (!states.query) {
+      return true;
+    } else {
+      const sb =
+        parent === undefined
+          ? [this.rarity]
+          : [
+              parent.unitName,
+              parent.unitShortName,
+              parent.rarity,
+              parent.element,
+              parent.className,
+            ];
+
+      const s = [
+        ...sb,
+        this.unitName,
+        this.unitShortName,
+        this.element,
+        this.damageType,
+        this.className,
+        this.exSkill1,
+        this.exSkill2,
+      ].map((v) => v.getText(states.setting)?.toString());
+      try {
+        return s.some((str) => str?.match(states.query));
+      } catch {
         return false;
       }
-
-      if (!states.query) {
-        return true;
-      } else {
-        const sb =
-          parent === undefined
-            ? [item.rarity]
-            : [
-                parent.unitName,
-                parent.unitShortName,
-                parent.rarity,
-                parent.element,
-                parent.className,
-              ];
-
-        const s = [
-          ...sb,
-          item.unitName,
-          item.unitShortName,
-          item.element,
-          item.damageType,
-          item.className,
-          item.exSkill1,
-          item.exSkill2,
-        ].map((v) => v.getText(states.setting)?.toString());
-        try {
-          return s.some((str) => str?.match(states.query));
-        } catch {
-          return false;
-        }
-      }
-    });
+    }
   }
 
   static filterItem<T extends FilterKeys>(
