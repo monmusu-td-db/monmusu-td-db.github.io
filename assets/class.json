@@ -961,7 +961,7 @@
     "className": "ウィッパー",
     "cost": 12,
     "attackSpeed": 112,
-    "delay": 15,
+    "delay": 20,
     "range": 170,
     "splash": true,
     "moveSpeed": 260,
@@ -978,7 +978,9 @@
           "テラーペイン"
         ],
         "damageDebuff": 120,
+        "fixedDelay": 1,
         "target": "射程内",
+        "splash": false,
         "duration": 10,
         "supplements": [
           "バインド(300f/10秒)→射程内"

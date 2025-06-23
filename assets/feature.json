@@ -401,7 +401,7 @@
     "flagRangeIsVisible": true,
     "damageType": "吸収",
     "supplements": [
-      "回復1%/攻撃"
+      "回復1%/命中"
     ]
   },
   {

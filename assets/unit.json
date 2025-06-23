@@ -25621,10 +25621,6 @@
         ]
       },
       {
-        "featureName": "class-action",
-        "splash": false
-      },
-      {
         "featureName": "hp-50%",
         "isConditionalBuff": true,
         "conditions": [
@@ -26163,6 +26159,136 @@
         "skill": 1,
         "features": [
           "common-proper"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 337,
+    "unitName": "【銀角大王娘】インジン",
+    "unitShortName": "インジン",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 4523,
+    "attack": 783,
+    "defense": 426,
+    "resist": 222,
+    "exSkill1": {
+      "skillName": "銀速陣",
+      "attackMul": 220,
+      "delayMul": 50,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "停止0.5秒→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 200
+          }
+        ],
+        "attackMul": 200
+      },
+      {
+        "featureName": "damage-factor",
+        "isConditionalBuff": true,
+        "annotations": [
+          "ジンリェ配置時"
+        ],
+        "damageFactor": 110
+      }
+    ],
+    "isEventUnit": true,
+    "physicalEvasion": 30,
+    "magicalEvasion": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "damage-factor"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-factor"
+        ]
+      },
+      {
+        "features": [
+          "damage-factor",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-factor",
+          "attack-mul"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "skill": -1,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
         ]
       }
     ]
