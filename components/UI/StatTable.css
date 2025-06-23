@@ -105,7 +105,11 @@ th.dps1,
 th.dps2,
 th.dps3,
 th.dps4,
-th.dps5 {
+th.dps5,
+th.buffHp,
+th.buffAttack,
+th.buffDefense,
+th.buffResist {
   width: 2.7rem;
 }
 
@@ -148,7 +152,8 @@ th.placement {
 th.initialTime,
 th.duration,
 th.cooldown,
-th.damageType {
+th.damageType,
+th.buffCost {
   width: 2.4rem;
 }
 
@@ -183,4 +188,12 @@ th.unitName {
 th.supplements {
   width: 10.16rem;
   min-width: 7.62rem;
+}
+
+th.buffTarget {
+  width: 5rem;
+}
+
+th.buffSupplements {
+  width: 7.5rem;
 }

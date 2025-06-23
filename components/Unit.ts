@@ -11,7 +11,7 @@ import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
-import type { TableSource, TableHeader, TableRow } from "./UI/StatTable";
+import type { TableSource, TableRow } from "./UI/StatTable";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -1198,14 +1198,6 @@ export default class Unit implements TableRow<Keys> {
     return Data.JsonSkill.parse(value);
   }
 
-  static comparer(
-    setting: Setting,
-    key: Keys,
-    target: TableRow<Keys>
-  ): string | number | undefined {
-    return target[key].getSortOrder(setting);
-  } // TODO 消す
-
   static filter(states: States, list: readonly Unit[]): readonly Unit[] {
     return list.filter((item) => {
       const parent = item.getTokenParent();
@@ -1339,22 +1331,14 @@ export default class Unit implements TableRow<Keys> {
     return keys;
   }
 
-  private static get headers(): readonly TableHeader<Keys>[] {
-    return keys.map((key) => ({
-      id: key,
-      name: Data.StatType.nameOf(key),
-    }));
-  }
-
   static get tableData(): TableSource<Keys> {
     return {
-      headers: Unit.headers,
-      rows: units,
+      headers: Data.StatType.getHeaders(keys),
       filter: (states) => Unit.filter(states, units),
       sort: (setting, rows, column, isReversed) => {
         return Data.mapSort(
           rows,
-          (target) => Unit.comparer(setting, column, target),
+          (target) => target[column].getSortOrder(setting),
           isReversed
         );
       },
