@@ -288,6 +288,8 @@ const statTypeList = [
   "buffAttack",
   "buffDefense",
   "buffResist",
+  "buffCriChance",
+  "buffCriChanceLimit",
   "buffTarget",
   "buffSupplements",
 ] as const satisfies (keyof typeof jsonWord)[];
@@ -760,6 +762,8 @@ export interface FormationBuff {
   readonly attack?: number;
   readonly defense?: number;
   readonly resist?: number;
+  readonly criChanceAdd?: number;
+  readonly criChanceLimitAdd?: number;
   readonly delay?: number;
   readonly moveSpeed?: number;
   readonly potentialBonus?: Omit<
@@ -769,6 +773,22 @@ export interface FormationBuff {
 }
 export const FormationBuff = {
   all: "全て",
+  valueOf(target: FormationBuffValue, statType: StatType): number | undefined {
+    switch (statType) {
+      case stat.cost:
+      case stat.hp:
+      case stat.attack:
+      case stat.defense:
+      case stat.resist:
+      case stat.delay:
+      case stat.moveSpeed:
+        return target[statType];
+      case stat.criticalChance:
+        return target.criChanceAdd;
+      case stat.criticalChanceLimit:
+        return target.criChanceLimitAdd;
+    }
+  },
 } as const;
 export type FormationBuffValue = Omit<FormationBuff, "potentialBonus">;
 interface JsonFormationBuffDiff {

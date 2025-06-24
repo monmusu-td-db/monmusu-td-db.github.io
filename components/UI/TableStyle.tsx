@@ -72,6 +72,8 @@ const TableStyle = memo(function TableStyle({
       case stat.buffAttack:
       case stat.buffDefense:
       case stat.buffResist:
+      case stat.buffCriChance:
+      case stat.buffCriChanceLimit:
       case stat.buffSupplements:
         break;
       default:

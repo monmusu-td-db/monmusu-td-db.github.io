@@ -15,6 +15,8 @@ const keys = [
   stat.buffAttack,
   stat.buffDefense,
   stat.buffResist,
+  stat.buffCriChance,
+  stat.buffCriChanceLimit,
   stat.buffTarget,
   stat.buffSupplements,
 ] as const satisfies Data.StatType[];
@@ -38,6 +40,8 @@ export default class FormationBuff implements TableRow<Keys> {
   readonly buffAttack: Stat.Root;
   readonly buffDefense: Stat.Root;
   readonly buffResist: Stat.Root;
+  readonly buffCriChance: Stat.Root;
+  readonly buffCriChanceLimit: Stat.Root;
   readonly buffTarget: Stat.Root<ReadonlySet<Data.FormationBuffTarget>>;
   readonly buffSupplements: Stat.Root<readonly string[]>;
 
@@ -59,7 +63,12 @@ export default class FormationBuff implements TableRow<Keys> {
 
     function getPercentText(value: number | undefined): string | undefined {
       if (value === undefined) return;
-      return `${value - 100}%`;
+      return `+${value - 100}%`;
+    }
+
+    function getPercentAddText(value: number | undefined): string | undefined {
+      if (value === undefined) return;
+      return `+${value}%`;
     }
 
     this.buffHp = new Stat.Root({
@@ -87,6 +96,20 @@ export default class FormationBuff implements TableRow<Keys> {
       statType: stat.buffResist,
       calculater: (s) => this.getBuff(s).resist,
       item: (s) => getPercentText(this.buffResist.getValue(s)),
+      isReversed: true,
+    });
+
+    this.buffCriChance = new Stat.Root({
+      statType: stat.buffCriChance,
+      calculater: (s) => this.getBuff(s).criChanceAdd,
+      item: (s) => getPercentAddText(this.buffCriChance.getValue(s)),
+      isReversed: true,
+    });
+
+    this.buffCriChanceLimit = new Stat.Root({
+      statType: stat.buffCriChanceLimit,
+      calculater: (s) => this.getBuff(s).criChanceLimitAdd,
+      item: (s) => getPercentAddText(this.buffCriChanceLimit.getValue(s)),
       isReversed: true,
     });
 

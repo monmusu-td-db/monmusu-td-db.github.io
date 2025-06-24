@@ -110,7 +110,9 @@ th.dps5,
 th.buffHp,
 th.buffAttack,
 th.buffDefense,
-th.buffResist {
+th.buffResist,
+th.buffCriChance,
+th.buffCriChanceLimit {
   width: 2.7rem;
 }
 

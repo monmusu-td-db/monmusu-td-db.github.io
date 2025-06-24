@@ -174,6 +174,7 @@ export default class Unit implements TableRow<Keys> {
   readonly resist: Stat.Base<number>;
   readonly criticalChance: Stat.Root;
   readonly criticalDamage: Stat.Root;
+  readonly criticalChanceLimit: Stat.Root;
   readonly penetration: Stat.Root<number | undefined, Data.PenetrationFactors>;
   readonly physicalEvasion: Stat.Root;
   readonly magicalEvasion: Stat.Root;
@@ -320,7 +321,10 @@ export default class Unit implements TableRow<Keys> {
     const criticalChance = Data.defaultCriChance + (src.criChanceAdd ?? 0);
     this.criticalChance = new Stat.Root({
       statType: stat.criticalChance,
-      calculater: () => criticalChance,
+      calculater: (s) => {
+        const formation = this.getFormationBuffFactor(s, stat.criticalChance);
+        return criticalChance + formation;
+      },
     });
 
     this.criticalDamage = new Stat.Root({
@@ -330,6 +334,17 @@ export default class Unit implements TableRow<Keys> {
         if (this.isPotentialApplied(s)) a = this.potentialBonus?.criDamageAdd;
         a ??= src.criDamageAdd ?? 0;
         return Data.defaultCriDamage + a;
+      },
+    });
+
+    this.criticalChanceLimit = new Stat.Root({
+      statType: stat.criticalChanceLimit,
+      calculater: (s) => {
+        const formation = this.getFormationBuffFactor(
+          s,
+          stat.criticalChanceLimit
+        );
+        return formation;
       },
     });
 
@@ -919,6 +934,8 @@ export default class Unit implements TableRow<Keys> {
     let defaultValue;
     switch (statType) {
       case stat.cost:
+      case stat.criticalChance:
+      case stat.criticalChanceLimit:
       case stat.moveSpeed:
         defaultValue = 0;
         break;
@@ -981,14 +998,8 @@ export default class Unit implements TableRow<Keys> {
           return buff.targets.has(s);
         });
 
-        if (
-          isTarget &&
-          (Data.BaseStatType.isKey(statType) ||
-            statType === stat.cost ||
-            statType === stat.delay ||
-            statType === stat.moveSpeed)
-        )
-          return buff[statType] ?? defaultValue;
+        if (isTarget)
+          return Data.FormationBuff.valueOf(buff, statType) ?? defaultValue;
 
         return defaultValue;
       }),

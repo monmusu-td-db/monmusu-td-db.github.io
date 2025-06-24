@@ -324,6 +324,7 @@ export default class Situation implements TableRow<Keys> {
       statType: stat.criticalChanceLimit,
       calculater: (s) => {
         const a =
+          (this.unit?.criticalChanceLimit.getValue(s) ?? 0) +
           (this.getSkill(s)?.criChanceLimitAdd ?? 0) +
           (this.getFeature(s).criChanceLimitAdd ?? 0);
         const p = this.unit?.isPotentialApplied(s)
