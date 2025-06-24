@@ -26,12 +26,10 @@ interface Source {
   readonly buff: Data.FormationBuff;
 }
 
-type BuffCallback = (setting: Setting) => Data.FormationBuffValue;
-
 export default class FormationBuff implements TableRow<Keys> {
   readonly id: number;
   readonly unit: Unit;
-  readonly getBuff: BuffCallback;
+  readonly getBuff: (setting: Setting) => Data.FormationBuffValue;
 
   readonly unitId: Stat.Root;
   readonly unitShortName: Stat.Root<string>;
@@ -163,7 +161,7 @@ export default class FormationBuff implements TableRow<Keys> {
     return list.filter((buff) => buff.unit.filterFn(states));
   }
 
-  static get tableData(): TableSource<Keys> {
+  public static get tableData(): TableSource<Keys> {
     return {
       headers: Data.StatType.getHeaders(keys),
       filter: (states) => this.filter(states, buffs),
