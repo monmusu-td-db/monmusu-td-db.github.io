@@ -22332,6 +22332,65 @@
     ]
   },
   {
+    "id": 279,
+    "unitName": "【大天狗娘】オタギ",
+    "unitShortName": "オタギ",
+    "rarity": "L",
+    "class": "サムライ",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 7886,
+    "attack": 1136,
+    "defense": 607,
+    "resist": 129,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "疾走・竜巻剣",
+      "hpMul": 220,
+      "attackMul": 320,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "即死(低)→命中",
+        "即死(低+)/CRI時→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "CRI率/CRI率上限+30%"
+    ],
+    "features": [
+      {
+        "require": [
+          "風マス"
+        ],
+        "supplements": [
+          "ACT+3%/秒"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ACT+4%/秒"
+          ]
+        }
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 281,
     "unitName": "【ニーズホッグ娘】ニーサ",
     "unitShortName": "ニーサ",
