@@ -56,6 +56,7 @@ interface JsonSubskillFactors {
   isLimitBreak: boolean;
   isRecharge: boolean;
   isLifeBlock: boolean;
+  isDullahanSoul: boolean;
 }
 
 const group = {
@@ -109,6 +110,7 @@ const subskillFactorKeys = [
   "isLimitBreak",
   "isRecharge",
   "isLifeBlock",
+  "isDullahanSoul",
 ] as const;
 const subskillFactor = Data.Enum(subskillFactorKeys);
 export type SubskillFactorKey = (typeof subskillFactorKeys)[number];
@@ -153,6 +155,7 @@ class SubskillFactors implements ISubskillFactors {
   readonly isLimitBreak: boolean | undefined;
   readonly isRecharge: boolean | undefined;
   readonly isLifeBlock: boolean | undefined;
+  readonly isDullahanSoul: boolean | undefined;
 
   constructor(src: Partial<JsonSubskillFactors>) {
     this.cost = src.cost;
@@ -193,6 +196,7 @@ class SubskillFactors implements ISubskillFactors {
     this.isLimitBreak = src.isLimitBreak;
     this.isRecharge = src.isRecharge;
     this.isLifeBlock = src.isLifeBlock;
+    this.isDullahanSoul = src.isDullahanSoul;
   }
 }
 

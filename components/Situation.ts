@@ -1429,19 +1429,27 @@ export default class Situation implements TableRow<Keys> {
   ): Data.InBattleFactors | undefined {
     const f = this.unit?.[statType].getFactors(setting);
     if (f === undefined) return;
-    let lifeBlock;
+
+    let subSkillSpecial;
     if (
       statType === stat.hp &&
       this.getSubskillFactor(setting, ssKeys.isLifeBlock)
     ) {
       const b = this.block.getValue(setting) ?? 0;
-      lifeBlock = 100 + 8 * b;
+      subSkillSpecial = 100 + 8 * b;
+    } else if (
+      statType === stat.attack &&
+      this.getSubskillFactor(setting, ssKeys.isDullahanSoul)
+    ) {
+      const block = this.block.getValue(setting) ?? 0;
+      subSkillSpecial = 100 + 10 * block;
     }
+
     const ret: Data.InBattleFactorsBase = {
       ...f,
       multiFactor: Percent.sum(
         this.getSkillMultiFactor(setting, statType),
-        lifeBlock,
+        subSkillSpecial,
         this.getFeatureMultiFactor(setting, statType),
         this.getFieldElementFactor(setting, statType) + 100,
         this.getSubskillFactorFromStatType(setting, statType) + 100,
@@ -2300,10 +2308,12 @@ export default class Situation implements TableRow<Keys> {
     }
     const [ss1, ss2] = this.unit.getSubskills(setting);
     const className = this.unit.className.getValue(setting);
+    const species = this.unit.species.getValue(setting);
     const fea = this.getFeature(setting);
     const types: (string | undefined)[] = [
       className,
       Data.ClassName.baseNameOf(className),
+      ...species,
     ];
     const fnHp = (n: number) => {
       if ((fea.currentHp ?? 100) >= n) types.push(`HP${n}%以上`);

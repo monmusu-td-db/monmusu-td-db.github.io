@@ -2010,5 +2010,126 @@
     "attackSpeedBuff": 10,
     "delayCut": 10,
     "moveSpeed": 50
+  },
+  {
+    "name": "金煌爆球の討伐証",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃力+17% スナイパー系クラスにセット時追加で人間に対しての攻撃が1.2倍に上昇",
+    "attack": 17,
+    "features": [
+      {
+        "require": [
+          "スナイパー"
+        ],
+        "damageFactor": 20
+      }
+    ]
+  },
+  {
+    "name": "クリティカルフォーカス",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "クリティカル発生時、クリティカル率2%上昇\n（最大25回/死亡撤退時リセット）",
+    "criChanceAdd": 50
+  },
+  {
+    "name": "ダッシュバースト",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "移動速度+100、移動コスト-2 移動開始時、攻撃力10%上昇（最大10回/撤退リセット）",
+    "moveSpeedAdd": 100,
+    "moveCostCut": 2,
+    "features": [
+      {
+        "require": [
+          "移動中"
+        ],
+        "attackMul": 100
+      }
+    ]
+  },
+  {
+    "name": "革新派の暗器",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "毒状態の敵への攻撃時HP4%回復、スカウト系クラスにセット時追加で射程+10",
+    "absorb": 4,
+    "features": [
+      {
+        "require": [
+          "スカウト"
+        ],
+        "rangeAdd": 10
+      }
+    ]
+  },
+  {
+    "name": "スタックアタック",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "スタン/石化/凍結、いずれかの状態の敵に与えるダメージ1.2倍",
+    "damageFactor": 20
+  },
+  {
+    "name": "底力(攻撃) IV",
+    "rarity": "L",
+    "group": "攻撃",
+    "class": "底力(攻撃)",
+    "desc": "HP減少量に応じて攻撃力が上昇する(最大70%)",
+    "isGeneral": true,
+    "attackMul": 70
+  },
+  {
+    "name": "伸るか反るか",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "HPが100%以上の時与ダメージ1.1倍\nHP50%以下の時与ダメージ1.3倍",
+    "damageFactor": 30
+  },
+  {
+    "name": "スタンエンチャント",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "攻撃した相手をスタンさせる(蓄積値：小)\nスタン状態の敵へ与ダメージ1.2倍",
+    "damageFactor": 20
+  },
+  {
+    "name": "デュラハンソウル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "ブロックしている敵1体につき攻撃力10%アップ\nデュラハン（原種）をトークンとして使役可能",
+    "isDullahanSoul": true
+  },
+  {
+    "name": "ドラゴンスピリット",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "ドラゴンにセット時、最大HPと攻撃力+15%、敵撃破時10秒間攻撃力10%上昇",
+    "features": [
+      {
+        "require": [
+          "ドラゴン"
+        ],
+        "hp": 15,
+        "attack": 15
+      }
+    ]
+  },
+  {
+    "name": "亡者の残影",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "アンデッドにセット時、攻撃力+25%、最大HP-15% 敵撃破時、最大HP+5%(最大20回)",
+    "features": [
+      {
+        "require": [
+          "アンデッド"
+        ],
+        "hp": -15,
+        "attack": 25,
+        "hpMul": 100
+      }
+    ]
   }
 ]
