@@ -273,7 +273,8 @@ export default class Situation implements TableRow<Keys> {
           Math.max(0, Math.min(v, this.criticalChanceLimit.getValue(s)));
         const base = this.unit?.criticalChance.getValue(s) ?? 0;
         const skill = this.getSkill(s)?.criChanceAdd ?? 0;
-        const fea = this.getFeature(s).criChanceAdd ?? 0;
+        const feature = this.getFeature(s);
+        const fea = feature.criChanceAdd ?? 0;
         const potential = this.unit?.isPotentialApplied(s)
           ? this.unit?.getPotentialFactor(s, stat.criticalChance) ?? 0
           : 0;
@@ -281,9 +282,12 @@ export default class Situation implements TableRow<Keys> {
         const result = limit(base + skill + fea + potential + subskill);
 
         const skillColor = getColor(limit(base + skill), limit(base));
+        const buffFea = feature.skillBuffs?.criChanceAdd ?? 0;
+        const buffColor = getColor(limit(base + buffFea), limit(base));
 
         return {
           skillColor,
+          buffColor,
           result,
         };
       },
@@ -297,16 +301,20 @@ export default class Situation implements TableRow<Keys> {
           Math.max(0, Math.min(v, this.criticalDamageLimit.getValue(s)));
         const base = this.unit?.criticalDamage.getValue(s) ?? 0;
         const skill = this.getSkill(s)?.criDamageAdd ?? 0;
-        const fea = this.getFeature(s).criDamageAdd ?? 0;
+        const feature = this.getFeature(s);
+        const fea = feature.criDamageAdd ?? 0;
         const potential = this.unit?.isPotentialApplied(s)
           ? this.unit?.getPotentialFactor(s, stat.criticalDamage) ?? 0
           : 0;
         const subskill = this.getSubskillFactor(s, ssKeys.criDamageAdd);
         const result = limit(base + skill + fea + potential + subskill);
         const skillColor = getColor(limit(base + skill), limit(base));
+        const buffFea = feature.skillBuffs?.criDamageAdd ?? 0;
+        const buffColor = getColor(limit(base + buffFea), limit(base));
 
         return {
           skillColor,
+          buffColor,
           result,
         };
       },
@@ -1366,6 +1374,8 @@ export default class Situation implements TableRow<Keys> {
           break;
         case stat.attack:
           checkPercent(this.getBuffDamageFactor(setting));
+          checkBoolean(this.criticalChance.getFactors(setting).buffColor);
+          checkBoolean(this.criticalDamage.getFactors(setting).buffColor);
           break;
       }
       checkPercent(this.getBuffMultiFactor(setting, statType));

@@ -1782,6 +1782,7 @@ export interface ActualAttackFactors extends ActualAttackFactorsBase {
 
 export interface CriticalFactors {
   readonly skillColor: boolean | undefined;
+  readonly buffColor: boolean | undefined;
   readonly result: number;
 }
 
