@@ -14,11 +14,10 @@ import { Table } from "react-bootstrap";
 import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting, type States } from "../States";
 import TooltipControl, { type TooltipEventHandlers } from "./TooltipControl";
-import { stat } from "../Data";
 import cn from "classnames";
 import Panel from "./Panel";
 import * as Data from "../Data";
-import { TableStyle } from "./TableStyle";
+import TableStyle from "./TableStyle";
 import Situation from "../Situation";
 
 //
@@ -31,12 +30,15 @@ export type CellData = {
   stat: Stat;
 };
 
-export interface TableData<T extends string> {
+interface TableHeaders<T extends string> {
   headers: readonly TableHeader<T>[];
+}
+
+export interface TableData<T extends string> extends TableHeaders<T> {
   rows: readonly TableRow<T>[];
 }
 
-export interface TableSource<T extends string> extends TableData<T> {
+export interface TableSource<T extends string> extends TableHeaders<T> {
   filter: (states: States) => readonly TableRow<T>[];
   sort: (
     setting: Setting,
@@ -206,13 +208,9 @@ function Header_<T extends string>({
         {headers.map((col) => {
           const sortCn = col.id === sort.column ? sortColor : undefined;
           let role, handleClick: HandleSort<T> | undefined;
-          switch (col.id) {
-            case stat.conditions:
-            case stat.supplements:
-              break;
-            default:
-              role = "button";
-              handleClick = onClick;
+          if (TableStyle.isSortable(col.id)) {
+            role = "button";
+            handleClick = onClick;
           }
 
           return (
@@ -245,25 +243,14 @@ function Body_<T extends string>({
 }) {
   let previousId: number | undefined;
 
-  function isBorderEnabled(column: T | undefined): boolean {
-    switch (column as Data.StatType) {
-      case stat.unitId:
-      case stat.situationId:
-      case stat.unitName:
-      case stat.unitShortName:
-      case stat.skillName:
-      case stat.exSkill1:
-      case stat.exSkill2:
-        return true;
-    }
-    return false;
-  }
-
   return (
     <tbody>
       {tableData.rows.map((row) => {
         let separator;
-        if (row instanceof Situation && isBorderEnabled(sortColumn)) {
+        if (
+          row instanceof Situation &&
+          TableStyle.isBorderEnabled(sortColumn)
+        ) {
           const id = row.unitId.getValue(setting);
           if (id !== previousId && previousId !== undefined) {
             separator = true;

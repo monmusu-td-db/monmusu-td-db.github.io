@@ -2645,7 +2645,6 @@ export default class Situation implements TableRow<Keys> {
   static get tableData(): TableSource<Keys> {
     return {
       headers: Situation.headers,
-      rows: situations,
       filter: (states) => Situation.filter(states, situations),
       sort: (setting, rows, column, isReversed) => {
         return Data.mapSort(

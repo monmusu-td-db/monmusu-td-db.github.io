@@ -52,5 +52,12 @@
     "dps4": "DPS 2000",
     "dps5": "DPS 3000",
     "conditions": "状態",
-    "fieldBuffFactor": "属性マスボーナス"
+    "fieldBuffFactor": "属性マスボーナス",
+    "buffCost": "コスト",
+    "buffHp": "HP",
+    "buffAttack": "攻撃力",
+    "buffDefense": "物理防御力",
+    "buffResist": "魔法防御力",
+    "buffTarget": "対象",
+    "buffSupplements": "補足"
 }

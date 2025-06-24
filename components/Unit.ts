@@ -11,7 +11,7 @@ import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
-import type { TableSource, TableHeader, TableRow } from "./UI/StatTable";
+import type { TableSource, TableRow } from "./UI/StatTable";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -896,31 +896,20 @@ export default class Unit implements TableRow<Keys> {
     }
   }
 
-  private getFormationBuffValue(
+  public calculateFormationBuff(
     setting: Setting,
-    statType: Data.StatType
-  ): Data.FormationBuffValue[] {
-    if (
-      !(
-        statType === stat.cost ||
-        Data.BaseStatType.isKey(statType) ||
-        statType === stat.delay ||
-        statType === stat.moveSpeed
-      ) ||
-      !this.isPotentialApplied(setting)
-    )
-      return this.formationBuffs;
+    buff: Data.FormationBuff
+  ): Data.FormationBuffValue {
+    if (!this.isPotentialApplied(setting)) {
+      return buff;
+    }
+    return { ...buff, ...buff.potentialBonus };
+  }
 
-    return this.formationBuffs.map((b) => {
-      const p = b.potentialBonus;
-      if (p !== undefined && p[statType] !== undefined) {
-        return {
-          ...b,
-          [statType]: p[statType],
-        };
-      }
-      return b;
-    });
+  private getFormationBuffs(setting: Setting): Data.FormationBuffValue[] {
+    return this.formationBuffs.map((buff) =>
+      this.calculateFormationBuff(setting, buff)
+    );
   }
 
   private getFormationBuffFactor(
@@ -968,9 +957,10 @@ export default class Unit implements TableRow<Keys> {
             return 0;
         }
       })() + defaultValue;
+    const buffs = this.getFormationBuffs(setting);
 
     return [
-      ...this.getFormationBuffValue(setting, statType).map((buff) => {
+      ...buffs.map((buff) => {
         const req = buff.require.every((r) => {
           switch (r) {
             case Data.FormationBuffRequire.weapon:
@@ -1198,70 +1188,64 @@ export default class Unit implements TableRow<Keys> {
     return Data.JsonSkill.parse(value);
   }
 
-  static comparer(
-    setting: Setting,
-    key: Keys,
-    target: TableRow<Keys>
-  ): string | number | undefined {
-    return target[key].getSortOrder(setting);
-  } // TODO 消す
-
   static filter(states: States, list: readonly Unit[]): readonly Unit[] {
-    return list.filter((item) => {
-      const parent = item.getTokenParent();
-      const target = parent !== undefined ? parent : item;
-      const className = target.className.getValue(states.setting);
-      const filterKeys = FilterEquipment.getKeys(states.filter);
-      const classNameKey = Data.ClassName.keyOf(className);
-      if (
-        filterKeys.size > 0 &&
-        classNameKey !== undefined &&
-        !filterKeys.has(classNameKey)
-      )
-        return false;
+    return list.filter((item) => item.filterFn(states));
+  }
 
-      if (
-        target.filterRarity(states) ||
-        target.filterElement(states) ||
-        target.filterSpecies(states) ||
-        item.filterDamageType(states) ||
-        target.filterMoveType(states) ||
-        item.filterPlacement(states)
-      ) {
+  public filterFn(states: States): boolean {
+    const parent = this.getTokenParent();
+    const target = parent !== undefined ? parent : this;
+    const className = target.className.getValue(states.setting);
+    const filterKeys = FilterEquipment.getKeys(states.filter);
+    const classNameKey = Data.ClassName.keyOf(className);
+    if (
+      filterKeys.size > 0 &&
+      classNameKey !== undefined &&
+      !filterKeys.has(classNameKey)
+    )
+      return false;
+
+    if (
+      target.filterRarity(states) ||
+      target.filterElement(states) ||
+      target.filterSpecies(states) ||
+      this.filterDamageType(states) ||
+      target.filterMoveType(states) ||
+      this.filterPlacement(states)
+    ) {
+      return false;
+    }
+
+    if (!states.query) {
+      return true;
+    } else {
+      const sb =
+        parent === undefined
+          ? [this.rarity]
+          : [
+              parent.unitName,
+              parent.unitShortName,
+              parent.rarity,
+              parent.element,
+              parent.className,
+            ];
+
+      const s = [
+        ...sb,
+        this.unitName,
+        this.unitShortName,
+        this.element,
+        this.damageType,
+        this.className,
+        this.exSkill1,
+        this.exSkill2,
+      ].map((v) => v.getText(states.setting)?.toString());
+      try {
+        return s.some((str) => str?.match(states.query));
+      } catch {
         return false;
       }
-
-      if (!states.query) {
-        return true;
-      } else {
-        const sb =
-          parent === undefined
-            ? [item.rarity]
-            : [
-                parent.unitName,
-                parent.unitShortName,
-                parent.rarity,
-                parent.element,
-                parent.className,
-              ];
-
-        const s = [
-          ...sb,
-          item.unitName,
-          item.unitShortName,
-          item.element,
-          item.damageType,
-          item.className,
-          item.exSkill1,
-          item.exSkill2,
-        ].map((v) => v.getText(states.setting)?.toString());
-        try {
-          return s.some((str) => str?.match(states.query));
-        } catch {
-          return false;
-        }
-      }
-    });
+    }
   }
 
   static filterItem<T extends FilterKeys>(
@@ -1339,22 +1323,14 @@ export default class Unit implements TableRow<Keys> {
     return keys;
   }
 
-  private static get headers(): readonly TableHeader<Keys>[] {
-    return keys.map((key) => ({
-      id: key,
-      name: Data.StatType.nameOf(key),
-    }));
-  }
-
   static get tableData(): TableSource<Keys> {
     return {
-      headers: Unit.headers,
-      rows: units,
+      headers: Data.StatType.getHeaders(keys),
       filter: (states) => Unit.filter(states, units),
       sort: (setting, rows, column, isReversed) => {
         return Data.mapSort(
           rows,
-          (target) => Unit.comparer(setting, column, target),
+          (target) => target[column].getSortOrder(setting),
           isReversed
         );
       },

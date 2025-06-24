@@ -1,8 +1,10 @@
-import { stat } from "@/components/Data";
+import * as Data from "@/components/Data";
 import { memo } from "react";
 import type { TableHeader } from "./StatTable";
 
-export const TableStyle = memo(function TableStyle({
+const stat = Data.stat;
+
+const TableStyle = memo(function TableStyle({
   headers,
 }: {
   headers: readonly TableHeader<string>[];
@@ -27,6 +29,11 @@ export const TableStyle = memo(function TableStyle({
       case stat.dps3:
       case stat.dps4:
       case stat.dps5:
+      case stat.buffCost:
+      case stat.buffHp:
+      case stat.buffAttack:
+      case stat.buffDefense:
+      case stat.buffResist:
         end.push(index);
         break;
       case stat.rarity:
@@ -60,6 +67,12 @@ export const TableStyle = memo(function TableStyle({
       case stat.dps3:
       case stat.dps4:
       case stat.dps5:
+      case stat.buffCost:
+      case stat.buffHp:
+      case stat.buffAttack:
+      case stat.buffDefense:
+      case stat.buffResist:
+      case stat.buffSupplements:
         break;
       default:
         empty.push(index);
@@ -113,4 +126,33 @@ export const TableStyle = memo(function TableStyle({
       }}
     />
   );
+});
+
+function isBorderEnabled(column: unknown): boolean {
+  switch (column) {
+    case stat.unitId:
+    case stat.situationId:
+    case stat.unitName:
+    case stat.unitShortName:
+    case stat.skillName:
+    case stat.exSkill1:
+    case stat.exSkill2:
+      return true;
+  }
+  return false;
+}
+
+function isSortable(column: unknown): boolean {
+  switch (column) {
+    case stat.conditions:
+    case stat.supplements:
+    case stat.buffSupplements:
+      return false;
+  }
+  return true;
+}
+
+export default Object.assign(TableStyle, {
+  isBorderEnabled,
+  isSortable,
 });

@@ -22,6 +22,7 @@ TODOリスト
   設定の保存部分を分ける
   単発スキル発動間隔と固定intervalの色を分ける
   トークンの表示有無フィルターを追加
+  フィルターが適用されているかどうかわかりやすくする
 
 メモ
   モンクの射程は固定だが表示上だけ変動する
@@ -282,6 +283,13 @@ const statTypeList = [
   "dps5",
   "conditions",
   "fieldBuffFactor",
+  "buffCost",
+  "buffHp",
+  "buffAttack",
+  "buffDefense",
+  "buffResist",
+  "buffTarget",
+  "buffSupplements",
 ] as const satisfies (keyof typeof jsonWord)[];
 export type StatType = (typeof statTypeList)[number];
 export const stat = Enum(statTypeList);
@@ -299,6 +307,13 @@ export const StatType = {
       default:
         return name;
     }
+  },
+
+  getHeaders<T extends StatType>(statTypes: readonly T[]) {
+    return statTypes.map((key) => ({
+      id: key,
+      name: StatType.nameOf(key),
+    }));
   },
 } as const;
 
@@ -732,10 +747,13 @@ export const Duration = {
   },
 } as const;
 
+export type FormationBuffTarget =
+  | typeof FormationBuff.all
+  | Element
+  | BaseClassName
+  | Species;
 export interface FormationBuff {
-  readonly targets: ReadonlySet<
-    typeof FormationBuff.all | Element | BaseClassName | Species
-  >;
+  readonly targets: ReadonlySet<FormationBuffTarget>;
   readonly require: readonly FormationBuffRequire[];
   readonly cost?: number;
   readonly hp?: number;
@@ -791,14 +809,26 @@ const formationBuffRequire = {
   weapon: "武器",
   sameElement8: "同一属性8体",
 } as const;
+const formationBuffRequireEntries = Object.entries(formationBuffRequire);
+const formationBuffRequireKeys = Enum(
+  Object.keys(formationBuffRequire) as (keyof typeof formationBuffRequire)[]
+);
+export type FormationBuffRequireKey = keyof typeof formationBuffRequire;
 export type FormationBuffRequire =
   (typeof formationBuffRequire)[keyof typeof formationBuffRequire];
 export const FormationBuffRequire = {
   ...formationBuffRequire,
+  keys: formationBuffRequireKeys,
   parse(value: string): FormationBuffRequire | undefined {
     for (const v of Object.values(formationBuffRequire)) {
       if (v === value) return v;
     }
+  },
+
+  keyOf(value: FormationBuffRequire): FormationBuffRequireKey {
+    return formationBuffRequireEntries.find(
+      (kvp) => kvp[1] === value
+    )?.[0] as FormationBuffRequireKey;
   },
 } as const;
 
@@ -931,10 +961,16 @@ const baseClassName = {
 type ClassEquipmentName =
   (typeof classEquipmentName)[keyof typeof classEquipmentName];
 type BaseClassNameKey = keyof typeof baseClassName;
+const baseClassNameValues = Object.values(baseClassName);
 export type BaseClassName = (typeof baseClassName)[BaseClassNameKey];
 export const BaseClassName = {
+  nameList: baseClassNameValues,
   parse(value: string | undefined): BaseClassName | undefined {
-    return Object.values(baseClassName).find((v) => v === value);
+    return baseClassNameValues.find((v) => v === value);
+  },
+
+  isBaseClassName(value: unknown): value is BaseClassName {
+    return baseClassNameValues.findIndex((v) => v === value) !== -1;
   },
 } as const;
 const classNameKeyList = Object.keys(className) as readonly ClassNameKey[];
@@ -1047,17 +1083,20 @@ type ElementTextColor =
 const elementList = Object.keys(element) as readonly ElementKey[];
 type ElementKey = keyof typeof element;
 const elementKey = Enum(elementList);
+const elementValues = Object.values(element);
+const elementEntries = Object.entries(element);
 
 export type Element = (typeof element)[ElementKey];
 export const Element = {
   ...elementKey,
   list: elementList,
   name: element,
+  nameList: elementValues,
   fieldFactor: elementFieldFactor,
   fieldRangeFactor: elementFieldRangeFactor,
 
   parse(value: string | undefined): Element | undefined {
-    return Object.values(element).find((v) => v === value);
+    return elementValues.find((v) => v === value);
   },
 
   parseElements(
@@ -1073,14 +1112,12 @@ export const Element = {
   },
 
   keyOf(value: Element): ElementKey {
-    return Object.entries(element).find(
-      (v) => v[1] === value
-    )?.[0] as ElementKey;
+    return elementEntries.find((v) => v[1] === value)?.[0] as ElementKey;
   },
 
   indexOf(value: Element | undefined): number | undefined {
     if (value === undefined) return;
-    return Object.values(element).indexOf(value);
+    return elementValues.indexOf(value);
   },
 
   colorOf(value: Element | undefined): TableColor | undefined {
@@ -1094,6 +1131,10 @@ export const Element = {
 
   selectorOf(value: ElementKey) {
     return value;
+  },
+
+  isElement(value: unknown): value is Element {
+    return elementValues.findIndex((v) => v === value) !== -1;
   },
 } as const;
 
@@ -1115,6 +1156,7 @@ const speciesEntries = Object.entries(species);
 export type Species = (typeof species)[SpeciesKey];
 export const Species = {
   name: species,
+  nameList: speciesValues.filter((v) => v !== species.speciesNone),
   list: Object.keys(species) as SpeciesKey[],
   key: SpeciesKey,
 
@@ -1147,6 +1189,16 @@ export const Species = {
     return speciesEntries.find((v) => v[1] === value)?.[0] as
       | SpeciesKey
       | undefined;
+  },
+
+  isSpecies(
+    value: unknown
+  ): value is Exclude<Species, typeof species.speciesNone> {
+    return (
+      speciesValues.findIndex(
+        (v) => v === value && v !== species.speciesNone
+      ) !== -1
+    );
   },
 } as const;
 
