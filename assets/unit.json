@@ -10450,6 +10450,108 @@
     "isUnhealable": true
   },
   {
+    "TODO_DESC": "ex1対地限定かどうか調べる",
+    "id": 103,
+    "unitName": "【灯火のエキドナ娘】ミテラス",
+    "unitShortName": "ミテラス/Xmas",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "火",
+    "hp": 4629,
+    "attack": 666,
+    "defense": 485,
+    "resist": 64,
+    "supplements": [
+      "HP-40/秒→自身"
+    ],
+    "exSkill1": {
+      "skillName": "聖夜のプレゼントよぉ♪",
+      "attackMul": 140,
+      "splash": true,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+1/24f(0.8秒)"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "featureName": "support",
+        "isAbility": true,
+        "isSupport": true,
+        "conditions": [
+          "援"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        },
+        "target": "射程内",
+        "damageType": null,
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 25
+          }
+        }
+      },
+      {
+        "featureName": "regenerate-area",
+        "isAbility": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          "再area"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 4
+        },
+        "interval": 30,
+        "target": "射程内",
+        "wideTarget": false,
+        "damageType": "再生",
+        "supplements": [
+          "回復→射程内他者"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "support"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "regenerate-area"
+        ]
+      }
+    ]
+  },
+  {
     "id": 104,
     "unitName": "【鈴音のマーナガルム娘】マズル",
     "unitShortName": "マズル/鈴音",
