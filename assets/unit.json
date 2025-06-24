@@ -25695,7 +25695,6 @@
     ]
   },
   {
-    "TODO_DESC": "攻撃速度要検証",
     "id": 328,
     "unitName": "【ガン・ケン娘】プラチナ",
     "unitShortName": "プラチナ/進化",
@@ -25761,7 +25760,7 @@
         "currentHp": 50,
         "attackMul": 150,
         "attackSpeedBuff": 200,
-        "delayMul": 30,
+        "delayMul": 20,
         "potentialBonus": {
           "attackMul": 163
         }
@@ -25778,7 +25777,7 @@
         "currentHp": 1,
         "attackMul": 200,
         "attackSpeedBuff": 200,
-        "delayMul": 30,
+        "delayMul": 20,
         "potentialBonus": {
           "attackMul": 225
         }
