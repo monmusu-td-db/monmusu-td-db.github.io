@@ -896,31 +896,20 @@ export default class Unit implements TableRow<Keys> {
     }
   }
 
-  private getFormationBuffValue(
+  public calculateFormationBuff(
     setting: Setting,
-    statType: Data.StatType
-  ): Data.FormationBuffValue[] {
-    if (
-      !(
-        statType === stat.cost ||
-        Data.BaseStatType.isKey(statType) ||
-        statType === stat.delay ||
-        statType === stat.moveSpeed
-      ) ||
-      !this.isPotentialApplied(setting)
-    )
-      return this.formationBuffs;
+    buff: Data.FormationBuff
+  ): Data.FormationBuffValue {
+    if (!this.isPotentialApplied(setting)) {
+      return buff;
+    }
+    return { ...buff, ...buff.potentialBonus };
+  }
 
-    return this.formationBuffs.map((b) => {
-      const p = b.potentialBonus;
-      if (p !== undefined && p[statType] !== undefined) {
-        return {
-          ...b,
-          [statType]: p[statType],
-        };
-      }
-      return b;
-    });
+  private getFormationBuffs(setting: Setting): Data.FormationBuffValue[] {
+    return this.formationBuffs.map((buff) =>
+      this.calculateFormationBuff(setting, buff)
+    );
   }
 
   private getFormationBuffFactor(
@@ -968,9 +957,10 @@ export default class Unit implements TableRow<Keys> {
             return 0;
         }
       })() + defaultValue;
+    const buffs = this.getFormationBuffs(setting);
 
     return [
-      ...this.getFormationBuffValue(setting, statType).map((buff) => {
+      ...buffs.map((buff) => {
         const req = buff.require.every((r) => {
           switch (r) {
             case Data.FormationBuffRequire.weapon:

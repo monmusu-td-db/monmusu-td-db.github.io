@@ -26,9 +26,12 @@ interface Source {
   readonly buff: Data.FormationBuff;
 }
 
+type BuffCallback = (setting: Setting) => Data.FormationBuffValue;
+
 export default class FormationBuff implements TableRow<Keys> {
   readonly id: number;
   readonly unit: Unit;
+  readonly getBuff: BuffCallback;
 
   readonly unitId: Stat.Root;
   readonly unitShortName: Stat.Root<string>;
@@ -49,9 +52,11 @@ export default class FormationBuff implements TableRow<Keys> {
     this.unitId = unit.unitId;
     this.unitShortName = unit.unitShortName;
 
+    this.getBuff = (s) => unit.calculateFormationBuff(s, buff);
+
     this.buffCost = new Stat.Root({
       statType: stat.buffCost,
-      calculater: () => buff.cost,
+      calculater: (s) => this.getBuff(s).cost,
     });
 
     function getPercentText(value: number | undefined): string | undefined {
@@ -61,35 +66,35 @@ export default class FormationBuff implements TableRow<Keys> {
 
     this.buffHp = new Stat.Root({
       statType: stat.buffHp,
-      calculater: () => buff.hp,
+      calculater: (s) => this.getBuff(s).hp,
       item: (s) => getPercentText(this.buffHp.getValue(s)),
       isReversed: true,
     });
 
     this.buffAttack = new Stat.Root({
       statType: stat.buffAttack,
-      calculater: () => buff.attack,
+      calculater: (s) => this.getBuff(s).attack,
       item: (s) => getPercentText(this.buffAttack.getValue(s)),
       isReversed: true,
     });
 
     this.buffDefense = new Stat.Root({
       statType: stat.buffDefense,
-      calculater: () => buff.defense,
+      calculater: (s) => this.getBuff(s).defense,
       item: (s) => getPercentText(this.buffDefense.getValue(s)),
       isReversed: true,
     });
 
     this.buffResist = new Stat.Root({
       statType: stat.buffResist,
-      calculater: () => buff.resist,
+      calculater: (s) => this.getBuff(s).resist,
       item: (s) => getPercentText(this.buffResist.getValue(s)),
       isReversed: true,
     });
 
     this.buffTarget = new Stat.Root({
       statType: stat.buffTarget,
-      calculater: () => buff.targets,
+      calculater: (s) => this.getBuff(s).targets,
       text: (s) => this.getTargetText(s),
       item: (s) => FormationBuffUI.getTargetItem(this.buffTarget.getValue(s)),
       comparer: (s) => this.getTargetComparer(s),
@@ -98,7 +103,7 @@ export default class FormationBuff implements TableRow<Keys> {
     this.buffSupplements = new Stat.Root({
       statType: stat.buffSupplements,
       calculater: (s) =>
-        buff.require.map((buff) => {
+        this.getBuff(s).require.map((buff) => {
           const key = Data.FormationBuffRequire.keyOf(buff);
           return FormationBuffUI.getSupplementText(
             key,
@@ -106,7 +111,7 @@ export default class FormationBuff implements TableRow<Keys> {
           );
         }),
       item: (s) =>
-        buff.require.map((buff) => {
+        this.getBuff(s).require.map((buff) => {
           const key = Data.FormationBuffRequire.keyOf(buff);
           return FormationBuffUI.getSupplementItem(
             key,
