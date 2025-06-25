@@ -1005,13 +1005,15 @@ export default class Situation implements TableRow<Keys> {
       factors: (s) => {
         const f = this.getFeature(s);
         const sk = this.getSkill(s);
-        let base;
+        let base, duration;
         if (
           f.duration !== null &&
           f.duration !== Data.Duration.always &&
           !f.isExtraDamage
-        )
+        ) {
           base = sk?.cooldown;
+          duration = f.duration;
+        }
 
         const feature = -(f.cooldownCut ?? 0);
         const potential = this.unit?.getPotentialFactor(s, stat.cooldown) ?? 0;
@@ -1034,7 +1036,6 @@ export default class Situation implements TableRow<Keys> {
           result = baseResult + oc;
         }
         if (result !== undefined) {
-          const duration = this.duration.getValue(s);
           result = this.getCooldownReductions(s, result, duration);
         }
         return {
