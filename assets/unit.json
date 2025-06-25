@@ -1701,6 +1701,7 @@
     "rarity": "C",
     "class": "ガンナー",
     "element": "闇",
+    "species": "アンデッド",
     "hp": 2500,
     "attack": 840,
     "defense": 235,
