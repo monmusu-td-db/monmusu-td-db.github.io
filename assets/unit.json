@@ -7532,7 +7532,7 @@
           "武器"
         ],
         "cooldownReductions": [
-          3
+          4
         ]
       },
       {
@@ -19432,7 +19432,7 @@
           "光マス"
         ],
         "cooldownReductions": [
-          3
+          2
         ],
         "supplements": [
           "バリア{attack-base*200}付与/20秒"
@@ -24356,7 +24356,7 @@
           "隠密"
         ],
         "cooldownReductions": [
-          3
+          2
         ]
       },
       {
