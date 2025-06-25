@@ -1033,8 +1033,10 @@ export default class Situation implements TableRow<Keys> {
           const oc = isOverCharge ? baseResult / 2 : 0;
           result = baseResult + oc;
         }
-        if (result !== undefined)
-          result = this.getCooldownReductions(s, result);
+        if (result !== undefined) {
+          const duration = this.duration.getValue(s);
+          result = this.getCooldownReductions(s, result, duration);
+        }
         return {
           base,
           feature,
@@ -2064,9 +2066,17 @@ export default class Situation implements TableRow<Keys> {
     return this.getCooldownReductions(setting, result);
   }
 
-  private getCooldownReductions(setting: Setting, value: number): number {
-    this.getFeature(setting).cooldownReductions?.forEach((v) => {
-      value -= Math.trunc(value / v);
+  private getCooldownReductions(
+    setting: Setting,
+    value: number,
+    duration?: number
+  ): number {
+    const fea = this.getFeature(setting);
+    const rValue = fea.flagCooldownReductionType
+      ? value + (duration ?? 0)
+      : value;
+    fea.cooldownReductions?.forEach((v) => {
+      value -= Math.trunc(rValue / v);
     });
     if (this.isRecharge(setting)) value -= Math.trunc(value / 2);
     if (this.isHighBeat(setting)) value -= Math.trunc(value / 4);
