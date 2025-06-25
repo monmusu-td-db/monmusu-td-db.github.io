@@ -640,8 +640,23 @@ const _TabFormation = memo(function _TabFormation({
           </Row>
         </Col>
       </PanelUI.FormGroup>
+      <PanelUI.FormGroup label="タイプボーナス">
+        <Col sm={9} md={6} lg={4} className="d-grid">
+          <PanelUI.FormRadio
+            name="formation-type-bonus"
+            items={["適用する", "適用しない"]}
+            value={setting.typeBonus === Setting.TYPE_ENABLED ? 0 : 1}
+            onChange={(v) =>
+              onChange({
+                typeBonus:
+                  v === 0 ? Setting.TYPE_ENABLED : Setting.TYPE_DISABLED,
+              })
+            }
+          />
+        </Col>
+      </PanelUI.FormGroup>
       <PanelUI.FormGroup label="同一属性編成">
-        <Col md={7} className="d-grid">
+        <Col sm={9} md={7} lg={5} className="d-grid">
           <PanelUI.FormRadio
             name="formation-element"
             items={["8体以上編成", "適用しない"]}

@@ -22,6 +22,9 @@ type Status2 = typeof NONE | typeof SAME;
 const STORAGE_LOCAL = "local";
 const STORAGE_SESSION = "session";
 type StorageStatus = typeof STORAGE_LOCAL | typeof STORAGE_SESSION;
+const TYPE_ENABLED = "enabled";
+const TYPE_DISABLED = "disabled";
+type TypeBonusStatus = typeof TYPE_ENABLED | typeof TYPE_DISABLED;
 
 // Utilities
 
@@ -83,6 +86,10 @@ class Valid {
 
   static isSameElement(value: unknown): value is number {
     return typeof value === "number" && (value === 0 || value === 8);
+  }
+
+  static isTypeBonus(value: unknown): value is TypeBonusStatus {
+    return value === TYPE_ENABLED || value === TYPE_DISABLED;
   }
 }
 
@@ -580,6 +587,7 @@ type SettingFormation = {
   readonly formationAttack: number;
   readonly formationDefense: number;
   readonly formationResist: number;
+  readonly typeBonus: TypeBonusStatus;
   readonly sameElement: number;
 };
 const defaultSettingFormation = {
@@ -591,6 +599,7 @@ const defaultSettingFormation = {
   formationAttack: 0,
   formationDefense: 0,
   formationResist: 0,
+  typeBonus: TYPE_ENABLED,
   sameElement: 8,
 } as const satisfies SettingFormation;
 const settingFormationValidation: Record<
@@ -605,6 +614,7 @@ const settingFormationValidation: Record<
   formationAttack: Valid.isMul,
   formationDefense: Valid.isMul,
   formationResist: Valid.isMul,
+  typeBonus: Valid.isTypeBonus,
   sameElement: Valid.isSameElement,
 } as const;
 
@@ -657,6 +667,8 @@ export const Setting = {
   SAME,
   STORAGE_LOCAL,
   STORAGE_SESSION,
+  TYPE_ENABLED,
+  TYPE_DISABLED,
   list: Object.keys(defaultSetting) as (keyof Setting)[],
   isValidMul: Valid.isMul,
   isValidAdd: Valid.isAdd,

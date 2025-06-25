@@ -789,6 +789,7 @@ export default class Unit implements TableRow<Keys> {
       beastPossAmount: this.isToken
         ? 0
         : Data.Beast.getPossAmountFactor(setting, statType),
+      typeBonusBuff: this.getTypeBonusBuffFactor(setting, statType),
     };
     return {
       ...ret,
@@ -811,7 +812,8 @@ export default class Unit implements TableRow<Keys> {
       b = Math.max(0, a + factors.beastFormationBuff);
     else b = Percent.multiply(a, factors.beastFormationBuff);
     const c = Percent.multiply(b, factors.beastPossLevel);
-    return c + factors.beastPossAmount;
+    const d = c + factors.beastPossAmount;
+    return Percent.multiply(d, factors.typeBonusBuff);
   }
 
   public isPotentialApplied(setting: Setting): boolean {
@@ -1083,6 +1085,39 @@ export default class Unit implements TableRow<Keys> {
     })();
     if (key === undefined) return 100;
     return this.getBeastFactor(setting, key);
+  }
+
+  private getTypeBonusBuffFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
+    const isTypeEnabled = (): boolean => {
+      const species = this.species.getValue(setting);
+      return species.some((v) => {
+        switch (v) {
+          case Data.Species.name.dragon:
+          case Data.Species.name.undead:
+            return true;
+        }
+        return false;
+      });
+    };
+
+    if (!this.isToken && isTypeEnabled()) {
+      switch (setting.typeBonus) {
+        case Setting.TYPE_ENABLED:
+          switch (statType) {
+            case stat.hp:
+            case stat.attack:
+            case stat.defense:
+            case stat.resist:
+              return 110;
+            case stat.range:
+              return 105;
+          }
+      }
+    }
+    return 100;
   }
 
   getSubskills(setting: Setting): [Subskill | undefined, Subskill | undefined] {

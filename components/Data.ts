@@ -1768,6 +1768,7 @@ export interface DeploymentFactorsBase extends BarrackFactors {
   readonly beastFormationBuff: number;
   readonly beastPossLevel: number;
   readonly beastPossAmount: number;
+  readonly typeBonusBuff: number;
 }
 export interface DeploymentFactors extends DeploymentFactorsBase {
   readonly deploymentResult: number;

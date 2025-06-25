@@ -35,6 +35,8 @@ export class BaseStat<
         ? Math.abs(f.weaponBaseBuff - 100)
         : f.weaponBaseBuff;
 
+    const isFormationFactorAdd = Data.Beast.isFormationFactorAdd(this.statType);
+
     return (
       <>
         <T.Equation>
@@ -102,29 +104,46 @@ export class BaseStat<
             <>
               <T.Result>{d ? "配置前能力" : f.deploymentResult}</T.Result>
               <T.Expression>
-                {d ? "出撃前能力" : f.barrackResult}
-                <T.Multiply enabled={f.formationBuff !== 100}>
-                  <T.Value isPositive={f.formationBuff > 100}>
-                    {d ? "編成バフ" : f.formationBuff + sign.PERCENT}
-                  </T.Value>
-                </T.Multiply>
-                {Data.Beast.isFormationFactorAdd(this.statType) ? (
-                  <T.Plus enabled={f.beastFormationBuff !== 0}>
-                    <T.Info>{d ? "獣神編成バフ" : f.beastFormationBuff}</T.Info>
+                <T.Brackets
+                  enabled={
+                    ((isFormationFactorAdd && f.beastFormationBuff !== 0) ||
+                      f.beastPossAmount !== 0) &&
+                    f.typeBonusBuff !== 100
+                  }
+                >
+                  {d ? "出撃前能力" : f.barrackResult}
+                  <T.Multiply enabled={f.formationBuff !== 100}>
+                    <T.Value isPositive={f.formationBuff > 100}>
+                      {d ? "編成バフ" : f.formationBuff + sign.PERCENT}
+                    </T.Value>
+                  </T.Multiply>
+                  {isFormationFactorAdd ? (
+                    <T.Plus enabled={f.beastFormationBuff !== 0}>
+                      <T.Info>
+                        {d ? "獣神編成バフ" : f.beastFormationBuff}
+                      </T.Info>
+                    </T.Plus>
+                  ) : (
+                    <T.Multiply enabled={f.beastFormationBuff !== 100}>
+                      <T.Info>
+                        {d
+                          ? "獣神編成バフ"
+                          : f.beastFormationBuff + sign.PERCENT}
+                      </T.Info>
+                    </T.Multiply>
+                  )}
+                  <T.Plus enabled={f.beastPossAmount !== 0}>
+                    <T.Info>{d ? "獣神バフ" : f.beastPossAmount}</T.Info>
                   </T.Plus>
-                ) : (
-                  <T.Multiply enabled={f.beastFormationBuff !== 100}>
+                  <T.Multiply enabled={f.beastPossLevel !== 100}>
                     <T.Info>
-                      {d ? "獣神編成バフ" : f.beastFormationBuff + sign.PERCENT}
+                      {d ? "獣神バフ" : f.beastPossLevel + sign.PERCENT}
                     </T.Info>
                   </T.Multiply>
-                )}
-                <T.Plus enabled={f.beastPossAmount !== 0}>
-                  <T.Info>{d ? "獣神バフ" : f.beastPossAmount}</T.Info>
-                </T.Plus>
-                <T.Multiply enabled={f.beastPossLevel !== 100}>
+                </T.Brackets>
+                <T.Multiply enabled={f.typeBonusBuff !== 100}>
                   <T.Info>
-                    {d ? "獣神バフ" : f.beastPossLevel + sign.PERCENT}
+                    {d ? "タイプボーナス" : f.typeBonusBuff + sign.PERCENT}
                   </T.Info>
                 </T.Multiply>
               </T.Expression>
