@@ -26673,6 +26673,121 @@
     ]
   },
   {
+    "id": 338,
+    "unitName": "【金角大王娘】ジンリェ",
+    "unitShortName": "ジンリェ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "光",
+    "species": "妖怪",
+    "hp": 6893,
+    "attack": 629,
+    "defense": 834,
+    "resist": 210,
+    "exSkill1": {
+      "skillName": "金硬爆",
+      "hpMul": 180,
+      "attackMul": 240,
+      "range": 300,
+      "duration": 30,
+      "cooldown": 40,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-2",
+      "HP+600、攻撃力+75",
+      "HPが毎秒3%回復",
+      "スタン無効",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 30,
+        "magicalDamageCut": 30
+      },
+      {
+        "featureName": "class-melee",
+        "isConditionalBuff": true,
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 20
+          },
+          "supplements": [
+            "ATK-20%→ブロック敵"
+          ]
+        }
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 200
+          }
+        ],
+        "attackMul": 200
+      },
+      {
+        "featureName": "damage-factor",
+        "isConditionalBuff": true,
+        "flagCooldownReductionType": true,
+        "annotations": [
+          "インジン配置時"
+        ],
+        "damageFactor": 120,
+        "cooldownReductions": [
+          4
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "damage-factor"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-factor"
+        ]
+      },
+      {
+        "features": [
+          "damage-factor",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-factor",
+          "attack-mul"
+        ]
+      }
+    ]
+  },
+  {
     "id": 339,
     "unitName": "【玄武娘】シュエン",
     "unitShortName": "シュエン",

@@ -1551,6 +1551,7 @@ const potentialList = [
   { name: "スキル時ACT+30%", stat: null, value: 1 },
   { name: "凍結無効", stat: null, value: 1 },
   { name: "30%で貫通攻撃", stat: stat.penetration, value: 30 },
+  { name: "スタン無効", stat: null, value: 1 },
 ] as const satisfies PotentialEffect[];
 export type Potential = (typeof potentialList)[number]["name"];
 export const Potential = {
