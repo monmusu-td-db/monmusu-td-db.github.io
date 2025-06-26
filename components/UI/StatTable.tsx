@@ -10,7 +10,7 @@ import {
   useState,
   type RefObject,
 } from "react";
-import { Table } from "react-bootstrap";
+import { Alert, Table } from "react-bootstrap";
 import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting, type States } from "../States";
 import TooltipControl, { type TooltipEventHandlers } from "./TooltipControl";
@@ -150,6 +150,7 @@ function TableControl_<T extends string>({
         size="sm"
         className={cn("stat-table", { pending: isPending })}
       >
+        <EmptyAlert tableData={dData} />
         <Header
           headers={dData.headers}
           setting={dStates.setting}
@@ -270,6 +271,24 @@ function Body_<T extends string>({
       })}
     </tbody>
   );
+}
+
+function EmptyAlert<T extends string>({
+  tableData,
+}: {
+  tableData: TableData<T>;
+}) {
+  if (tableData.rows.length > 0) {
+    return;
+  } else {
+    return (
+      <caption>
+        <Alert variant="info">
+          表示結果がありませんでした。フィルターや検索ワードを確認してください。
+        </Alert>
+      </caption>
+    );
+  }
 }
 
 const Row = memo(function Row({

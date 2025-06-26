@@ -95,6 +95,10 @@
   column-gap: 0.5em;
 }
 
+.stat-table > caption {
+  font-size: 1rem;
+}
+
 th.hp,
 th.attack,
 th.defense,
