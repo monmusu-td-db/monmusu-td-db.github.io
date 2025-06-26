@@ -17467,6 +17467,228 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 205,
+    "unitName": "【賀照のゴールドドラゴン娘】ソレイア",
+    "unitShortName": "ソレイア/正月",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "光",
+    "species": "ドラゴン",
+    "hp": 8004,
+    "attack": 919,
+    "defense": 675,
+    "resist": 121,
+    "exSkill1": {
+      "skillName": "光臨演舞",
+      "attackMul": 300,
+      "target": 3,
+      "splash": true,
+      "range": 220,
+      "duration": 12,
+      "cooldown": 25,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "ドラゴン"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 114
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-phase1",
+        "isConditionalBuff": true,
+        "hpMul": 140,
+        "attackMul": 140
+      },
+      {
+        "featureName": "common-phase2",
+        "isConditionalBuff": true,
+        "hpMul": 180,
+        "attackMul": 180
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalBuff": true,
+        "hpMul": 220,
+        "attackMul": 220
+      },
+      {
+        "featureName": "common-phase4",
+        "isConditionalBuff": true,
+        "hpMul": 260,
+        "attackMul": 260
+      },
+      {
+        "featureName": "common-phase5",
+        "isConditionalBuff": true,
+        "hpMul": 300,
+        "attackMul": 300
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-phase1"
+        ]
+      },
+      {
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-phase2"
+        ]
+      },
+      {
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-phase4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-phase4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-phase4"
+        ]
+      },
+      {
+        "features": [
+          "common-phase4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-phase5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-phase5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-phase5"
+        ]
+      },
+      {
+        "features": [
+          "common-phase5"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "ドラゴン特性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 120
+      }
+    ]
+  },
+  {
     "id": 206,
     "unitName": "【参詣のアクアドラゴン娘】ロヴィリス",
     "unitShortName": "ロヴィリス/正月",
