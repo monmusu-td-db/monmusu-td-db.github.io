@@ -6036,7 +6036,7 @@
         "target": "射程内",
         "damageType": "回復",
         "supplements": [
-          "HP-20%/発動→自身"
+          "HP-20%/発動→自分"
         ]
       }
     ]
@@ -7708,7 +7708,7 @@
         "skill": 1,
         "isConditionalSkillDebuff": true,
         "supplements": [
-          "HP-60%/発動→自身"
+          "HP-60%/発動→自分"
         ]
       },
       {
@@ -10177,14 +10177,14 @@
         "skill": 1,
         "isConditionalDebuff": true,
         "supplements": [
-          "HP-20%/発動→自身"
+          "HP-20%/発動→自分"
         ]
       },
       {
         "skill": 2,
         "isConditionalDebuff": true,
         "supplements": [
-          "HP-4%/秒→自身"
+          "HP-4%/秒→自分"
         ]
       }
     ],
@@ -10463,7 +10463,7 @@
     "defense": 485,
     "resist": 64,
     "supplements": [
-      "HP-40/秒→自身"
+      "HP-40/秒→自分"
     ],
     "exSkill1": {
       "skillName": "聖夜のプレゼントよぉ♪",
@@ -15105,6 +15105,102 @@
     "isUnhealable": true
   },
   {
+    "TODO_DESC": "StatはWiki情報/移動コストUP/ex1待機時間は要検証",
+    "id": 173,
+    "unitName": "【グレムリン娘】ノーティー",
+    "unitShortName": "ノーティー",
+    "rarity": "E",
+    "class": "ガンナー",
+    "element": "風",
+    "hp": 2328,
+    "attack": 887,
+    "defense": 213,
+    "resist": 287,
+    "block": 0,
+    "rounds": 2,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "エアーブースト",
+      "attackMul": 240,
+      "fixedDelay": 5,
+      "duration": 10,
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "物理攻撃回避40%"
+    ],
+    "features": [
+      {
+        "damageFactor": 80
+      },
+      {
+        "featureName": "common-phase1",
+        "isConditionalBuff": true,
+        "moveSpeedAdd": 100,
+        "supplements": [
+          "移動速度+100"
+        ]
+      },
+      {
+        "featureName": "common-phase2",
+        "isConditionalBuff": true,
+        "moveSpeedAdd": 200,
+        "supplements": [
+          "移動速度+200"
+        ]
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalBuff": true,
+        "moveSpeedAdd": 300,
+        "supplements": [
+          "移動速度+300"
+        ]
+      }
+    ],
+    "moveSpeedMul": 300,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3"
+        ]
+      }
+    ]
+  },
+  {
     "id": 174,
     "unitName": "【ドッペルゲンガー娘】ラッツェル",
     "unitShortName": "ラッツェル",
@@ -17342,6 +17438,56 @@
     "potentialBonus": {
       "moveSpeedMul": 370
     }
+  },
+  {
+    "id": 203,
+    "unitName": "【オピオタウロス娘】オラムス",
+    "unitShortName": "オラムス",
+    "rarity": "E",
+    "class": "シャーマン",
+    "element": "地",
+    "hp": 3248,
+    "attack": 0,
+    "defense": 269,
+    "resist": 420,
+    "exSkill1": {
+      "skillName": "ホルモン燃焼！",
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 45,
+      "supplements": [
+        "HP-{max-hp*80}/発動→自分",
+        "バリア{max-hp*50}付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "isNotAbility": true,
+        "damageCut": 20,
+        "supplements": [
+          "バリア{max-hp*10}付与/配置"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "バリア{max-hp*20}付与/配置"
+          ]
+        }
+      }
+    ],
+    "hpMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -25994,7 +26140,7 @@
       "duration": 1.4,
       "cooldown": 0,
       "supplements": [
-        "HP-100%→自身"
+        "HP-100%→自分"
       ]
     },
     "features": [
