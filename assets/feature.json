@@ -41,6 +41,14 @@
     ]
   },
   {
+    "hasPotentials": [
+      "スタン無効"
+    ],
+    "supplements": [
+      "スタン耐性+100"
+    ]
+  },
+  {
     "featureName": "common-fire-field",
     "fieldElements": [
       "火"
