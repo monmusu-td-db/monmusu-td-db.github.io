@@ -11,7 +11,9 @@ export default function App() {
       <Container fluid="xxl">
         <h1>バフ一覧</h1>
         <h2>編成バフ</h2>
-        <StatTable src={FormationBuff.tableData} />
+        <StatTable src={FormationBuff.tableData} className="mb-5" />
+        <h2>戦闘中バフ</h2>
+        <StatTable src={FormationBuff.tableData} className="mb-5" />
       </Container>
     </PageRoot>
   );
