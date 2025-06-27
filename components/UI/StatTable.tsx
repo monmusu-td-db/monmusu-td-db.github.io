@@ -67,7 +67,13 @@ type Sort<T extends string> = {
 //
 // Components
 
-function StatTable<T extends string>({ src }: { src: TableSource<T> }) {
+function StatTable<T extends string>({
+  src,
+  className,
+}: {
+  src: TableSource<T>;
+  className?: string;
+}) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
   const query = Contexts.useQuery();
@@ -82,7 +88,7 @@ function StatTable<T extends string>({ src }: { src: TableSource<T> }) {
   }, [filter, query, setting, uISetting]);
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className={cn("d-flex justify-content-center", className)}>
       <TableControl src={src} states={states} />
     </div>
   );

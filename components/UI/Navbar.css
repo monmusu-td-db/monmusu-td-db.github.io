@@ -11,6 +11,12 @@ html[data-bs-theme="dark"] .theme-dark {
   overflow: visible;
 }
 
+@media (min-height: 600px) {
+  .header {
+    margin-bottom: 0.5rem;
+  }
+}
+
 .header-search-input {
   width: 280px;
 }
