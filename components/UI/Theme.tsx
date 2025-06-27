@@ -1,3 +1,5 @@
+// 参考 https://github.com/reactjs/react.dev/blob/main/src/pages/_document.tsx
+
 const STORAGE_KEY = "theme";
 const SETTER_NAME = "__setTheme";
 

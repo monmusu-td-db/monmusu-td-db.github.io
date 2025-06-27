@@ -1,3 +1,5 @@
+// 出典 https://icons.getbootstrap.jp/
+
 type Props = {
   width?: number;
   height?: number;
