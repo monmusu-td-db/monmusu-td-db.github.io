@@ -64,16 +64,21 @@ type Sort<T extends string> = {
   isReversed: boolean;
 };
 
+export interface StatTableProps {
+  className?: string;
+}
+
+interface StatTableSourceProps<T extends string> extends StatTableProps {
+  src: TableSource<T>;
+}
+
 //
 // Components
 
 function StatTable<T extends string>({
   src,
   className,
-}: {
-  src: TableSource<T>;
-  className?: string;
-}) {
+}: StatTableSourceProps<T>) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
   const query = Contexts.useQuery();
