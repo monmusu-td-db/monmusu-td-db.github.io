@@ -195,11 +195,11 @@ export default class FormationBuff implements TableRow<Keys> {
           isReversed
         );
       },
-    };
+    } as const;
   }
 }
 
-const buffs: FormationBuff[] = (() => {
+const buffs: readonly FormationBuff[] = (() => {
   const ret: FormationBuff[] = [];
   const units = Unit.list;
   let index = 0;
