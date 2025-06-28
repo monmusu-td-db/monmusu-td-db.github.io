@@ -65,6 +65,7 @@ type Sort<T extends string> = {
 };
 
 export interface StatTableProps {
+  id: string;
   className?: string;
 }
 
@@ -78,6 +79,7 @@ interface StatTableSourceProps<T extends string> extends StatTableProps {
 function StatTable<T extends string>({
   src,
   className,
+  id,
 }: StatTableSourceProps<T>) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
@@ -94,7 +96,7 @@ function StatTable<T extends string>({
 
   return (
     <div className={cn("d-flex justify-content-center", className)}>
-      <TableControl src={src} states={states} />
+      <TableControl src={src} states={states} id={id} />
     </div>
   );
 }
@@ -103,9 +105,11 @@ const TableControl = memo(TableControl_) as typeof TableControl_;
 function TableControl_<T extends string>({
   src,
   states,
+  id,
 }: {
   src: TableSource<T>;
   states: States;
+  id: string;
 }) {
   const [sort, toggleSort] = useSort(src);
   const panelOpen = Panel.Contexts.useOpen();
@@ -155,10 +159,11 @@ function TableControl_<T extends string>({
 
   return (
     <TooltipControl cond={tooltipCond} setting={dStates.setting}>
-      <TableStyle headers={dData.headers} />
+      <TableStyle headers={dData.headers} id={id} />
       <Table
         striped
         size="sm"
+        id={id}
         className={cn("stat-table", { pending: isPending })}
       >
         <EmptyAlert tableData={dData} />

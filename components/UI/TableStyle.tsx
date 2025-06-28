@@ -6,8 +6,10 @@ const stat = Data.stat;
 
 const TableStyle = memo(function TableStyle({
   headers,
+  id,
 }: {
   headers: readonly TableHeader<string>[];
+  id: string;
 }) {
   const end: number[] = [];
   const center: number[] = [];
@@ -87,7 +89,7 @@ const TableStyle = memo(function TableStyle({
     end: string = ""
   ): string => {
     const fn = (index: number) =>
-      `.stat-table>tbody>tr>td:nth-child(${index + 1})`;
+      `#${id}.stat-table>tbody>tr>td:nth-child(${index + 1})`;
     let ret: string;
     if (typeof index === "number") {
       ret = index === -1 ? "" : fn(index) + end;
@@ -113,7 +115,7 @@ const TableStyle = memo(function TableStyle({
   return (
     <style
       precedence="medium"
-      href="stat-table"
+      href={"stat-table-" + id}
       dangerouslySetInnerHTML={{
         __html:
           getStyle(getSelector(end), "text-align:end;") +

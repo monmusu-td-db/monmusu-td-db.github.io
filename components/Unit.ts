@@ -208,6 +208,7 @@ export default class Unit implements TableRow<Keys> {
   readonly rangeAdd: number | undefined;
   readonly potentialBonus: JsonPotentialBonus | undefined;
   readonly situations: UnitSituations;
+  readonly buffs: JsonBuffs | undefined;
 
   readonly rangeBase: number | undefined;
 
@@ -642,6 +643,7 @@ export default class Unit implements TableRow<Keys> {
     this.rangeAdd = src.rangeAdd;
     this.potentialBonus = src.potentialBonus;
     this.situations = this.getSituations(classData, src.situations);
+    this.buffs = src.buffs;
   }
 
   private getSituations(

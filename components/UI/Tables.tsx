@@ -1,6 +1,7 @@
 "use client";
 
 import FormationBuff from "../FormationBuff";
+import InBattleBuff from "../InBattleBuff";
 import Situation from "../Situation";
 import Unit from "../Unit";
 import type { StatTableProps } from "./StatTable";
@@ -34,8 +35,13 @@ export function TablesFormationBuff(props: StatTableProps) {
   return <LazyLoading {...props} src={FormationBuff.tableData} />;
 }
 
+export function TablesInBattleBuff(props: StatTableProps) {
+  return <LazyLoading {...props} src={InBattleBuff.tableData} />;
+}
+
 export default {
   Unit: TablesUnit,
   Situation: TablesSituation,
   FormationBuff: TablesFormationBuff,
+  InBattleBuff: TablesInBattleBuff,
 } as const;
