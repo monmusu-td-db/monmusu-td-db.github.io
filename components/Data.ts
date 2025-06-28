@@ -1691,16 +1691,22 @@ export function getAttackSpeed<T extends number | undefined>(
 export function getAttackSpeedFactors(
   indicator: AttackSpeedIndicator
 ): AttackSpeedFactors {
+  const ability = indicator.base + indicator.ability;
+  const weapon = ability + indicator.weapon;
+  const result = weapon + indicator.potential;
+
   const attackSpeedBase = getAttackSpeed(indicator.base);
-  const subtotalWeapon = getAttackSpeed(indicator.base + indicator.weapon);
-  const attackSpeedResult = getAttackSpeed(
-    indicator.base + indicator.weapon + indicator.potential
-  );
-  const attackSpeedWeapon = attackSpeedBase - subtotalWeapon;
+  const subtotalAbility = getAttackSpeed(ability);
+  const subtotalWeapon = getAttackSpeed(weapon);
+  const attackSpeedResult = getAttackSpeed(result);
+
+  const attackSpeedAbility = attackSpeedBase - subtotalAbility;
+  const attackSpeedWeapon = subtotalAbility - subtotalWeapon;
   const attackSpeedPotential = subtotalWeapon - attackSpeedResult;
   return {
     attackSoeedIndicator: indicator,
     attackSpeedBase,
+    attackSpeedAbility,
     attackSpeedWeapon,
     attackSpeedPotential,
     attackSpeedResult,
@@ -1711,8 +1717,10 @@ export function getAttackSpeedFactorsSituation(
   factors: AttackSpeedFactors,
   indicatorBuff: number
 ): AttackSpeedFactorsSituation {
-  const { base, weapon, potential } = factors.attackSoeedIndicator;
-  const result = getAttackSpeed(base + weapon + potential + indicatorBuff);
+  const { base, ability, weapon, potential } = factors.attackSoeedIndicator;
+  const result = getAttackSpeed(
+    base + ability + weapon + potential + indicatorBuff
+  );
   const attackSpeedIndicatorBuff = factors.attackSpeedResult - result;
   return {
     ...factors,
@@ -1822,6 +1830,7 @@ export interface PenetrationFactors {
 
 export interface AttackSpeedIndicator {
   readonly base: number;
+  readonly ability: number;
   readonly weapon: number;
   readonly potential: number;
 }
@@ -1829,6 +1838,7 @@ export interface AttackSpeedIndicator {
 export interface AttackSpeedFactors {
   readonly attackSoeedIndicator: AttackSpeedIndicator;
   readonly attackSpeedBase: number;
+  readonly attackSpeedAbility: number;
   readonly attackSpeedWeapon: number;
   readonly attackSpeedPotential: number;
   readonly attackSpeedResult: number;
