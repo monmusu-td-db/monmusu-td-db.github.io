@@ -14089,6 +14089,94 @@
     ]
   },
   {
+    "id": 159,
+    "unitName": "【木の葉天狗娘】キョウ",
+    "unitShortName": "キョウ",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 4248,
+    "attack": 626,
+    "defense": 342,
+    "resist": 111,
+    "exSkill1": {
+      "skillName": "天狗の神風",
+      "attackMul": 220,
+      "attackSpeedBuff": 120,
+      "delayMul": 75,
+      "targetAdd": 1,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "require": [
+          "風マス"
+        ],
+        "moveSpeedAdd": 40
+      }
+    ],
+    "attackSpeedAdd": 20,
+    "moveSpeedAdd": 40,
+    "potentialBonus": {
+      "attackSpeedAdd": 30
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "move-speed-add",
+        "require": [
+          "風属性"
+        ],
+        "target": "全体",
+        "value": 40
+      },
+      {
+        "type": "move-speed-add",
+        "require": [
+          "風属性",
+          "風マス配置中"
+        ],
+        "target": "全体",
+        "value": 80
+      },
+      {
+        "type": "attack-speed-buff",
+        "skill": 1,
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
+        "value": 120
+      },
+      {
+        "type": "delay-mul",
+        "skill": 1,
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
+        "value": 75
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 161,
     "unitName": "【化け狐娘】ツネ",
