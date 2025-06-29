@@ -233,6 +233,7 @@
     "isUnhealable": true,
     "situations": [
       {
+        "proper": true,
         "features": [
           "common-token-limit-nodesc"
         ]
@@ -535,6 +536,17 @@
       },
       {
         "skill": 2
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ],
     "buffs": [
@@ -593,7 +605,10 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -1801,6 +1816,13 @@
           "10-sec",
           "common-proper"
         ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -1842,19 +1864,26 @@
     "isUnhealable": true,
     "costAdd": -1,
     "situations": [
-      {},
       {
         "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "features": [
+          "common-token-limit-nodesc",
           "skill1-buff"
         ]
       },
       {
         "features": [
+          "common-token-limit-nodesc",
           "common-proper"
         ]
       },
       {
         "features": [
+          "common-token-limit-nodesc",
           "common-proper",
           "skill1-buff"
         ]
@@ -6965,16 +6994,6 @@
           "武器"
         ],
         "criChanceAdd": 30
-      },
-      {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
       }
     ],
     "potentialBonus": {
@@ -7006,7 +7025,7 @@
       {
         "proper": true,
         "features": [
-          "token-limit"
+          "common-token-limit"
         ]
       }
     ]
@@ -7028,12 +7047,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "require": [
           "武器"
         ],
@@ -7043,7 +7056,11 @@
     "isUnhealable": true,
     "costAdd": 1,
     "situations": [
-      {}
+      {
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
     ]
   },
   {
@@ -10935,6 +10952,23 @@
           "attackMul": 118
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "token-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "token-buff"
+        ]
+      }
     ]
   },
   {
@@ -10953,7 +10987,12 @@
     "target": 0,
     "moveSpeed": 0,
     "placement": "付",
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -17637,16 +17676,17 @@
       "魔法防御力+60",
       "射程+10"
     ],
-    "features": [
+    "situations": [
+      {},
       {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -17698,7 +17738,22 @@
         }
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "support"
+        ]
+      }
+    ]
   },
   {
     "id": 201,
@@ -20200,6 +20255,13 @@
         "features": [
           "skill1-dot"
         ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -20230,7 +20292,10 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ],
     "buffs": [
@@ -21027,11 +21092,11 @@
     ]
   },
   {
-    "TODO_DESC": "未調査",
+    "TODO_DESC": "未調査 TODO→stat&攻撃速度",
     "id": 2460001,
     "parentId": 246,
     "unitName": "リトルグレイ戦士",
-    "unitShortName": "リトルグレイT TODO→stat&攻撃速度",
+    "unitShortName": "リトルグレイT",
     "rarity": "C",
     "species": "エイリアン",
     "cost": 0,
@@ -21046,18 +21111,13 @@
     "moveSpeed": 0,
     "damageType": "物理",
     "placement": "付",
-    "features": [
-      {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      }
-    ],
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -26118,11 +26178,11 @@
     ]
   },
   {
-    "TODO_DESC": "射程は目測/基礎statはLv45",
+    "TODO_DESC": "射程は目測/基礎statはLv45 TODO→base",
     "id": 3200001,
     "parentId": 320,
     "unitName": "グレイクローン",
-    "unitShortName": "グレイクローンT TODO→base",
+    "unitShortName": "グレイクローンT",
     "rarity": "C",
     "species": "エイリアン",
     "cost": 10,
@@ -26140,12 +26200,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "featureName": "skill1-buff",
         "parentSkill": 1,
         "isBuffSkill": true,
@@ -26155,11 +26209,15 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       },
       {
         "proper": true,
         "features": [
+          "common-token-limit-nodesc",
           "skill1-buff"
         ]
       }

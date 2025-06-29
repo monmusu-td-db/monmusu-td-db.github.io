@@ -4280,85 +4280,6 @@
     ]
   },
   {
-    "unitId": 105
-  },
-  {
-    "unitId": 105,
-    "skill": 1
-  },
-  {
-    "unitId": 105,
-    "features": [
-      "token-buff"
-    ]
-  },
-  {
-    "unitId": 105,
-    "skill": 1,
-    "features": [
-      "token-buff"
-    ]
-  },
-  {
-    "unitId": 105,
-    "features": [
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 105,
-    "skill": 1,
-    "features": [
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 105,
-    "features": [
-      "token-buff",
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 105,
-    "skill": 1,
-    "features": [
-      "token-buff",
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 105,
-    "features": [
-      "class-attack-mul2"
-    ]
-  },
-  {
-    "unitId": 105,
-    "skill": 1,
-    "features": [
-      "class-attack-mul2"
-    ]
-  },
-  {
-    "unitId": 105,
-    "features": [
-      "token-buff",
-      "class-attack-mul2"
-    ]
-  },
-  {
-    "unitId": 105,
-    "skill": 1,
-    "features": [
-      "token-buff",
-      "class-attack-mul2"
-    ]
-  },
-  {
-    "unitId": 1050001
-  },
-  {
     "unitId": 109
   },
   {
@@ -7267,42 +7188,6 @@
     "skill": -1,
     "features": [
       "support10"
-    ]
-  },
-  {
-    "unitId": 200
-  },
-  {
-    "unitId": 200,
-    "skill": 1
-  },
-  {
-    "unitId": 200,
-    "features": [
-      "class-buff"
-    ]
-  },
-  {
-    "unitId": 200,
-    "skill": 1,
-    "features": [
-      "class-buff"
-    ]
-  },
-  {
-    "unitId": 200,
-    "features": [
-      "token-limit"
-    ]
-  },
-  {
-    "unitId": 2000001
-  },
-  {
-    "unitId": 2000001,
-    "skill": -1,
-    "features": [
-      "support"
     ]
   },
   {
