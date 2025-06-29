@@ -129,6 +129,117 @@
     ]
   },
   {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 3,
+    "unitName": "【クラーケン娘】オキュー",
+    "unitShortName": "オキュー",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "水",
+    "hp": 4819,
+    "attack": 671,
+    "defense": 481,
+    "resist": 61,
+    "exSkill1": {
+      "skillName": "熱狂たこパーティー！",
+      "duration": "単発",
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "コスト+12/発動",
+        "tkn配置→自分",
+        "回復{attack-base*480}→全体水属性"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "赤字覚悟の触手祭りや！",
+      "duration": "単発",
+      "cooldown": 50,
+      "damageType": null,
+      "supplements": [
+        "コスト+22/発動",
+        "tkn配置→射程内味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "weapon": {
+      "weaponName": "センキャクバンライ",
+      "hp": 200,
+      "attack": 40,
+      "defense": 20
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "wiki情報/攻撃速度/待機時間",
+    "TODO_STAT_INFERRED": true,
+    "id": 30001,
+    "parentId": 3,
+    "unitName": "触手",
+    "unitShortName": "触手T",
+    "rarity": "C",
+    "cost": 10,
+    "hp": 4983,
+    "attack": 727,
+    "defense": 99,
+    "resist": 99,
+    "attackSpeed": 999,
+    "delay": 99,
+    "block": null,
+    "target": 1,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "potentialBonus": {
+          "attackMul": 110
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "hpMul": 130
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
+    ]
+  },
+  {
     "id": 4,
     "unitName": "【サラマンダー娘】イグニ",
     "unitShortName": "イグニ",

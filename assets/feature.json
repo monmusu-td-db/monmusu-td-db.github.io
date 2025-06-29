@@ -370,6 +370,13 @@
     }
   },
   {
+    "featureName": "common-token-limit-nodesc",
+    "attackDebuff": {
+      "key": "enemy-attack",
+      "value": 50
+    }
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [
