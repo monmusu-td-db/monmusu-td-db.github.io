@@ -753,6 +753,7 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 80001,
     "parentId": 8,
     "unitName": "ハイオーク",
@@ -794,9 +795,19 @@
         "damageType": "物理"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": -1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 80002,
     "parentId": 8,
     "unitName": "ハイオーク(投石)",
@@ -840,7 +851,16 @@
         "damageType": "物理"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": -1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
     "id": 9,

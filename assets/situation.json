@@ -1,29 +1,5 @@
 [
   {
-    "unitId": 80001,
-    "isGeneral": true
-  },
-  {
-    "unitId": 80001,
-    "skill": -1,
-    "isGeneral": true,
-    "features": [
-      "deploy-attack"
-    ]
-  },
-  {
-    "unitId": 80002,
-    "isGeneral": true
-  },
-  {
-    "unitId": 80002,
-    "skill": -1,
-    "isGeneral": true,
-    "features": [
-      "deploy-attack"
-    ]
-  },
-  {
     "unitId": 9,
     "features": [
       "class-melee"
