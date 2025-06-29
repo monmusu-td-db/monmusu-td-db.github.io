@@ -1105,7 +1105,7 @@
       "duration": 20,
       "cooldown": 45,
       "supplements": [
-        "スタン付与50%"
+        "スタン付与50%→命中"
       ]
     },
     "exSkill2": {
@@ -1129,17 +1129,15 @@
     },
     "features": [
       {
-        "featureName": "proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
           "damageFactor": 160
         }
       },
       {
-        "featureName": "proper",
+        "featureName": "common-proper",
         "require": [
           "武器"
         ],
@@ -1150,7 +1148,40 @@
         "noBaseSupplements": true
       }
     ],
-    "physicalEvasion": 30
+    "physicalEvasion": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "id": 11,
