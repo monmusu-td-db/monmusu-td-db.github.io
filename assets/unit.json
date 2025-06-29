@@ -1428,6 +1428,32 @@
         ],
         "attackMul": 140
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "revived"
+        ]
+      }
     ]
   },
   {
