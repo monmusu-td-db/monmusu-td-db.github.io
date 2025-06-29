@@ -8521,6 +8521,130 @@
     "blockAdd": 1
   },
   {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 86,
+    "unitName": "【アンドロスフィンクス娘】ラフーカ",
+    "unitShortName": "ラフーカ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "火",
+    "hp": 2733,
+    "attack": 1036,
+    "defense": 224,
+    "resist": 528,
+    "target": [
+      1,
+      3
+    ],
+    "exSkill1": {
+      "skillName": "獅子の怒り",
+      "attackMul": 170,
+      "target": 3,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "exSkill2": {
+      "skillName": "生命の火",
+      "attackMul": 380,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 113
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "skill2-heal",
+        "skill": 2,
+        "annotations": [
+          "攻撃時"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 30
+        },
+        "target": "射程内",
+        "splash": false,
+        "damageType": "回復"
+      },
+      {
+        "featureName": "common-enemy1",
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-enemy2",
+        "damageFactor": 125
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "skill2-heal"
+        ]
+      }
+    ]
+  },
+  {
     "id": 87,
     "unitName": "【デーモン娘】メド",
     "unitShortName": "メド",

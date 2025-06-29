@@ -523,5 +523,25 @@
         "value": 100
       }
     ]
+  },
+  {
+    "featureName": "common-enemy1",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 1
+      }
+    ],
+    "fixedTarget": 1
+  },
+  {
+    "featureName": "common-enemy2",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 2
+      }
+    ],
+    "fixedTarget": 2
   }
 ]
