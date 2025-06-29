@@ -13,9 +13,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "回復100%/配置",
-      "再出撃時間-40%→全体",
-      "凍結無効"
+      "回復100%/配置→全体"
     ],
     "exSkill1": {
       "skillName": "聖炎の猛火",
@@ -27,12 +25,9 @@
     "exSkill2": {
       "skillName": "フェニックスフェザー",
       "rangeMul": 160,
-      "target": 2,
+      "targetAdd": 1,
       "duration": 30,
-      "cooldown": 40,
-      "supplements": [
-        "再出撃時間-60%→射程内"
-      ]
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -48,17 +43,29 @@
     },
     "features": [
       {
-        "featureName": "dot",
-        "annotations": [
-          "種族特性"
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "凍結無効"
+        ]
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
         ],
+        "isNotAbility": true,
+        "isConditionalBuff": true,
+        "supplements": [
+          "凍結無効→射程内"
+        ]
+      },
+      {
+        "featureName": "common-dot",
         "staticDamage": {
           "key": "attack",
           "value": 4
         },
-        "interval": 30,
-        "target": "射程内",
-        "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
@@ -67,7 +74,8 @@
         }
       },
       {
-        "featureName": "skill1-dot",
+        "featureName": "common-dot",
+        "skill": 1,
         "staticDamage": {
           "key": "attack",
           "value": 20
@@ -86,14 +94,34 @@
           "火マス"
         ],
         "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       },
       {
-        "featureName": "weapon-freeze",
-        "require": [
-          "武器"
-        ],
-        "supplements": [
-          "凍結無効→射程内"
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-dot"
         ]
       }
     ],

@@ -496,6 +496,16 @@
     ]
   },
   {
+    "featureName": "common-dot",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "interval": 30,
+    "target": "射程内",
+    "damageType": "貫通"
+  },
+  {
     "featureName": "common-burn-dot",
     "isAbility": true,
     "isExtraDamage": true,
