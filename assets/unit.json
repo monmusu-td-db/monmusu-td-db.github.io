@@ -797,8 +797,11 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "skill": -1,
         "features": [
           "deploy-attack"
@@ -853,8 +856,11 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {},
       {
+        "proper": true
+      },
+      {
+        "proper": true,
         "skill": -1,
         "features": [
           "deploy-attack"
@@ -932,16 +938,49 @@
           }
         ],
         "attackMul": 150
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       },
       {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
+        "skill": 2
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -983,7 +1022,18 @@
         "attackMul": 150
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 90002,
@@ -1023,7 +1073,18 @@
         "attackMul": 180
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill2-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 10,
