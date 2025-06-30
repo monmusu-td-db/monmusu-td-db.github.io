@@ -25,12 +25,15 @@ TODOリスト
   フィルターが適用されているかどうかわかりやすくする
   武器表示をCC1やCC4に切り替えられるようにする
   属性アイコン追加
+  加算バフにHP追加
 
 メモ
   モンクの射程は固定だが表示上だけ変動する
   飛行ユニットのブロック数を確認
   種族タイプを確認
   トークンのsituationにproper属性をつける
+  付与トークンの耐久値を確認
+  デストロイヤーのACTを確認
 */
 
 // Const
@@ -1691,16 +1694,22 @@ export function getAttackSpeed<T extends number | undefined>(
 export function getAttackSpeedFactors(
   indicator: AttackSpeedIndicator
 ): AttackSpeedFactors {
+  const ability = indicator.base + indicator.ability;
+  const weapon = ability + indicator.weapon;
+  const result = weapon + indicator.potential;
+
   const attackSpeedBase = getAttackSpeed(indicator.base);
-  const subtotalWeapon = getAttackSpeed(indicator.base + indicator.weapon);
-  const attackSpeedResult = getAttackSpeed(
-    indicator.base + indicator.weapon + indicator.potential
-  );
-  const attackSpeedWeapon = attackSpeedBase - subtotalWeapon;
+  const subtotalAbility = getAttackSpeed(ability);
+  const subtotalWeapon = getAttackSpeed(weapon);
+  const attackSpeedResult = getAttackSpeed(result);
+
+  const attackSpeedAbility = attackSpeedBase - subtotalAbility;
+  const attackSpeedWeapon = subtotalAbility - subtotalWeapon;
   const attackSpeedPotential = subtotalWeapon - attackSpeedResult;
   return {
     attackSoeedIndicator: indicator,
     attackSpeedBase,
+    attackSpeedAbility,
     attackSpeedWeapon,
     attackSpeedPotential,
     attackSpeedResult,
@@ -1711,8 +1720,10 @@ export function getAttackSpeedFactorsSituation(
   factors: AttackSpeedFactors,
   indicatorBuff: number
 ): AttackSpeedFactorsSituation {
-  const { base, weapon, potential } = factors.attackSoeedIndicator;
-  const result = getAttackSpeed(base + weapon + potential + indicatorBuff);
+  const { base, ability, weapon, potential } = factors.attackSoeedIndicator;
+  const result = getAttackSpeed(
+    base + ability + weapon + potential + indicatorBuff
+  );
   const attackSpeedIndicatorBuff = factors.attackSpeedResult - result;
   return {
     ...factors,
@@ -1822,6 +1833,7 @@ export interface PenetrationFactors {
 
 export interface AttackSpeedIndicator {
   readonly base: number;
+  readonly ability: number;
   readonly weapon: number;
   readonly potential: number;
 }
@@ -1829,6 +1841,7 @@ export interface AttackSpeedIndicator {
 export interface AttackSpeedFactors {
   readonly attackSoeedIndicator: AttackSpeedIndicator;
   readonly attackSpeedBase: number;
+  readonly attackSpeedAbility: number;
   readonly attackSpeedWeapon: number;
   readonly attackSpeedPotential: number;
   readonly attackSpeedResult: number;

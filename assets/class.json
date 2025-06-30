@@ -314,7 +314,7 @@
     "damageType": "物理",
     "placement": "近",
     "supplements": [
-      "スタン付与20%"
+      "スタン付与20%→命中"
     ],
     "features": [
       {

@@ -13,9 +13,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "回復100%/配置",
-      "再出撃時間-40%→全体",
-      "凍結無効"
+      "回復100%/配置→全体"
     ],
     "exSkill1": {
       "skillName": "聖炎の猛火",
@@ -27,12 +25,9 @@
     "exSkill2": {
       "skillName": "フェニックスフェザー",
       "rangeMul": 160,
-      "target": 2,
+      "targetAdd": 1,
       "duration": 30,
-      "cooldown": 40,
-      "supplements": [
-        "再出撃時間-60%→射程内"
-      ]
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -48,17 +43,29 @@
     },
     "features": [
       {
-        "featureName": "dot",
-        "annotations": [
-          "種族特性"
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "凍結無効"
+        ]
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
         ],
+        "isNotAbility": true,
+        "isConditionalBuff": true,
+        "supplements": [
+          "凍結無効→射程内"
+        ]
+      },
+      {
+        "featureName": "common-dot",
         "staticDamage": {
           "key": "attack",
           "value": 4
         },
-        "interval": 30,
-        "target": "射程内",
-        "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
@@ -67,7 +74,8 @@
         }
       },
       {
-        "featureName": "skill1-dot",
+        "featureName": "common-dot",
+        "skill": 1,
         "staticDamage": {
           "key": "attack",
           "value": 20
@@ -86,14 +94,34 @@
           "火マス"
         ],
         "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       },
       {
-        "featureName": "weapon-freeze",
-        "require": [
-          "武器"
-        ],
-        "supplements": [
-          "凍結無効→射程内"
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-dot"
         ]
       }
     ],
@@ -125,6 +153,118 @@
         ],
         "skill": 2,
         "target": "射程内"
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 3,
+    "unitName": "【クラーケン娘】オキュー",
+    "unitShortName": "オキュー",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "水",
+    "hp": 4819,
+    "attack": 671,
+    "defense": 481,
+    "resist": 61,
+    "exSkill1": {
+      "skillName": "熱狂たこパーティー！",
+      "duration": "単発",
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "コスト+12/発動",
+        "tkn配置→自分",
+        "回復{attack-base*480}→全体水属性"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "赤字覚悟の触手祭りや！",
+      "duration": "単発",
+      "cooldown": 50,
+      "damageType": null,
+      "supplements": [
+        "コスト+22/発動",
+        "tkn配置→射程内味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "weapon": {
+      "weaponName": "センキャクバンライ",
+      "hp": 200,
+      "attack": 40,
+      "defense": 20
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "wiki情報/攻撃速度/待機時間",
+    "TODO_STAT_INFERRED": true,
+    "id": 30001,
+    "parentId": 3,
+    "unitName": "触手",
+    "unitShortName": "触手T",
+    "rarity": "C",
+    "cost": 10,
+    "hp": 4983,
+    "attack": 727,
+    "defense": 99,
+    "resist": 99,
+    "attackSpeed": 999,
+    "delay": 99,
+    "block": null,
+    "target": 1,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "potentialBonus": {
+          "attackMul": 110
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "hpMul": 130
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -424,6 +564,17 @@
       },
       {
         "skill": 2
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ],
     "buffs": [
@@ -482,7 +633,10 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -599,6 +753,7 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 80001,
     "parentId": 8,
     "unitName": "ハイオーク",
@@ -640,9 +795,22 @@
         "damageType": "物理"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 80002,
     "parentId": 8,
     "unitName": "ハイオーク(投石)",
@@ -686,7 +854,19 @@
         "damageType": "物理"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
     "id": 9,
@@ -758,16 +938,49 @@
           }
         ],
         "attackMul": 150
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       },
       {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
+        "skill": 2
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -809,7 +1022,18 @@
         "attackMul": 150
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 90002,
@@ -849,7 +1073,18 @@
         "attackMul": 180
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill2-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 10,
@@ -870,7 +1105,7 @@
       "duration": 20,
       "cooldown": 45,
       "supplements": [
-        "スタン付与50%"
+        "スタン付与50%→命中"
       ]
     },
     "exSkill2": {
@@ -894,17 +1129,15 @@
     },
     "features": [
       {
-        "featureName": "proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
           "damageFactor": 160
         }
       },
       {
-        "featureName": "proper",
+        "featureName": "common-proper",
         "require": [
           "武器"
         ],
@@ -915,7 +1148,40 @@
         "noBaseSupplements": true
       }
     ],
-    "physicalEvasion": 30
+    "physicalEvasion": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "id": 11,
@@ -1161,6 +1427,32 @@
           "武器"
         ],
         "attackMul": 140
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "revived"
+        ]
       }
     ]
   },
@@ -1690,6 +1982,13 @@
           "10-sec",
           "common-proper"
         ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -1731,19 +2030,26 @@
     "isUnhealable": true,
     "costAdd": -1,
     "situations": [
-      {},
       {
         "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "features": [
+          "common-token-limit-nodesc",
           "skill1-buff"
         ]
       },
       {
         "features": [
+          "common-token-limit-nodesc",
           "common-proper"
         ]
       },
       {
         "features": [
+          "common-token-limit-nodesc",
           "common-proper",
           "skill1-buff"
         ]
@@ -6854,16 +7160,6 @@
           "武器"
         ],
         "criChanceAdd": 30
-      },
-      {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
       }
     ],
     "potentialBonus": {
@@ -6895,7 +7191,7 @@
       {
         "proper": true,
         "features": [
-          "token-limit"
+          "common-token-limit"
         ]
       }
     ]
@@ -6917,12 +7213,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "require": [
           "武器"
         ],
@@ -6932,7 +7222,11 @@
     "isUnhealable": true,
     "costAdd": 1,
     "situations": [
-      {}
+      {
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
     ]
   },
   {
@@ -8519,6 +8813,130 @@
     "costAdd": 2,
     "defenseMul": 120,
     "blockAdd": 1
+  },
+  {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 86,
+    "unitName": "【アンドロスフィンクス娘】ラフーカ",
+    "unitShortName": "ラフーカ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "火",
+    "hp": 2733,
+    "attack": 1036,
+    "defense": 224,
+    "resist": 528,
+    "target": [
+      1,
+      3
+    ],
+    "exSkill1": {
+      "skillName": "獅子の怒り",
+      "attackMul": 170,
+      "target": 3,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "exSkill2": {
+      "skillName": "生命の火",
+      "attackMul": 380,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 113
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "skill2-heal",
+        "skill": 2,
+        "annotations": [
+          "攻撃時"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 30
+        },
+        "target": "射程内",
+        "splash": false,
+        "damageType": "回復"
+      },
+      {
+        "featureName": "common-enemy1",
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-enemy2",
+        "damageFactor": 125
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "skill2-heal"
+        ]
+      }
+    ]
   },
   {
     "id": 87,
@@ -10700,6 +11118,23 @@
           "attackMul": 118
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "token-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "token-buff"
+        ]
+      }
     ]
   },
   {
@@ -10718,7 +11153,12 @@
     "target": 0,
     "moveSpeed": 0,
     "placement": "付",
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -14089,6 +14529,94 @@
     ]
   },
   {
+    "id": 159,
+    "unitName": "【木の葉天狗娘】キョウ",
+    "unitShortName": "キョウ",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 4248,
+    "attack": 626,
+    "defense": 342,
+    "resist": 111,
+    "exSkill1": {
+      "skillName": "天狗の神風",
+      "attackMul": 220,
+      "attackSpeedBuff": 120,
+      "delayMul": 75,
+      "targetAdd": 1,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "require": [
+          "風マス"
+        ],
+        "moveSpeedAdd": 40
+      }
+    ],
+    "attackSpeedAdd": 20,
+    "moveSpeedAdd": 40,
+    "potentialBonus": {
+      "attackSpeedAdd": 30
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "move-speed-add",
+        "require": [
+          "風属性"
+        ],
+        "target": "全体",
+        "value": 40
+      },
+      {
+        "type": "move-speed-add",
+        "require": [
+          "風属性",
+          "風マス配置中"
+        ],
+        "target": "全体",
+        "value": 80
+      },
+      {
+        "type": "attack-speed-buff",
+        "skill": 1,
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
+        "value": 120
+      },
+      {
+        "type": "delay-mul",
+        "skill": 1,
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
+        "value": 75
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 161,
     "unitName": "【化け狐娘】ツネ",
@@ -17314,16 +17842,17 @@
       "魔法防御力+60",
       "射程+10"
     ],
-    "features": [
+    "situations": [
+      {},
       {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -17375,7 +17904,22 @@
         }
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "support"
+        ]
+      }
+    ]
   },
   {
     "id": 201,
@@ -19877,6 +20421,13 @@
         "features": [
           "skill1-dot"
         ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -19907,7 +20458,10 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ],
     "buffs": [
@@ -20704,11 +21258,11 @@
     ]
   },
   {
-    "TODO_DESC": "未調査",
+    "TODO_DESC": "未調査 TODO→stat&攻撃速度",
     "id": 2460001,
     "parentId": 246,
     "unitName": "リトルグレイ戦士",
-    "unitShortName": "リトルグレイT TODO→stat&攻撃速度",
+    "unitShortName": "リトルグレイT",
     "rarity": "C",
     "species": "エイリアン",
     "cost": 0,
@@ -20723,18 +21277,13 @@
     "moveSpeed": 0,
     "damageType": "物理",
     "placement": "付",
-    "features": [
-      {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      }
-    ],
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -22701,7 +23250,7 @@
     ]
   },
   {
-    "id": 279,
+    "id": 280,
     "unitName": "【大天狗娘】オタギ",
     "unitShortName": "オタギ",
     "rarity": "L",
@@ -25795,11 +26344,11 @@
     ]
   },
   {
-    "TODO_DESC": "射程は目測/基礎statはLv45",
+    "TODO_DESC": "射程は目測/基礎statはLv45 TODO→base",
     "id": 3200001,
     "parentId": 320,
     "unitName": "グレイクローン",
-    "unitShortName": "グレイクローンT TODO→base",
+    "unitShortName": "グレイクローンT",
     "rarity": "C",
     "species": "エイリアン",
     "cost": 10,
@@ -25817,12 +26366,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "featureName": "skill1-buff",
         "parentSkill": 1,
         "isBuffSkill": true,
@@ -25832,11 +26375,15 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       },
       {
         "proper": true,
         "features": [
+          "common-token-limit-nodesc",
           "skill1-buff"
         ]
       }

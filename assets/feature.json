@@ -370,6 +370,13 @@
     }
   },
   {
+    "featureName": "common-token-limit-nodesc",
+    "attackDebuff": {
+      "key": "enemy-attack",
+      "value": 50
+    }
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [
@@ -489,6 +496,16 @@
     ]
   },
   {
+    "featureName": "common-dot",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "interval": 30,
+    "target": "射程内",
+    "damageType": "貫通"
+  },
+  {
     "featureName": "common-burn-dot",
     "isAbility": true,
     "isExtraDamage": true,
@@ -523,5 +540,25 @@
         "value": 100
       }
     ]
+  },
+  {
+    "featureName": "common-enemy1",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 1
+      }
+    ],
+    "fixedTarget": 1
+  },
+  {
+    "featureName": "common-enemy2",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 2
+      }
+    ],
+    "fixedTarget": 2
   }
 ]

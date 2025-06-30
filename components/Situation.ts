@@ -1837,6 +1837,7 @@ export default class Situation implements TableRow<Keys> {
     const {
       attackSoeedIndicator,
       attackSpeedBase,
+      attackSpeedAbility,
       attackSpeedWeapon,
       attackSpeedPotential,
       attackSpeedIndicatorBuff,
@@ -1952,6 +1953,7 @@ export default class Situation implements TableRow<Keys> {
     return {
       attackSoeedIndicator,
       attackSpeedBase,
+      attackSpeedAbility,
       attackSpeedWeapon,
       attackSpeedPotential,
       attackSpeedIndicatorBuff,

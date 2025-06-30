@@ -57,6 +57,7 @@ export interface JsonUnit {
   criChanceAdd?: number;
   criDamageAdd?: number;
   penetrationAdd?: number;
+  attackSpeedAdd?: number;
   delayMul?: number;
   fixedDelay?: number;
   blockAdd?: number;
@@ -78,6 +79,7 @@ type JsonPotentialBonus = Readonly<
     defenseMul: number;
     resistMul: number;
     criDamageAdd: number;
+    attackSpeedAdd: number;
     rounds: Data.JsonRound;
     rangeAdd: number;
     physicalEvasion: number;
@@ -392,8 +394,16 @@ export default class Unit implements TableRow<Keys> {
       factors: (s) => {
         if (attackSpeed === undefined) return;
 
+        const ability =
+          (this.isPotentialApplied(s)
+            ? src.potentialBonus?.attackSpeedAdd
+            : undefined) ??
+          src.attackSpeedAdd ??
+          0;
+
         return Data.getAttackSpeedFactors({
           base: attackSpeed,
+          ability,
           weapon: this.getWeaponBaseFactor(s, stat.attackSpeed),
           potential: this.getPotentialFactor(s, stat.attackSpeed),
         });
