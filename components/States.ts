@@ -183,6 +183,7 @@ export class FilterCondition {
     "conjurer",
     "assassin",
     "ninja",
+    "whipper",
     "shaman",
     "bard",
   ] as const;
@@ -212,6 +213,8 @@ export class FilterCondition {
     "ninjaWind",
     "ninjaEarth",
     "ninjaStealth",
+    "whipperDebuff",
+    "whipperDebuffAction",
     "shamanBuff",
     "bardBuff",
     "bardBuffProper",
@@ -243,6 +246,8 @@ export class FilterCondition {
     ninjaWind: "手裏剣 風マス",
     ninjaEarth: "手裏剣 地マス",
     ninjaStealth: "手裏剣 光/闇マス",
+    whipperDebuff: "鞭 防御デバフ",
+    whipperDebuffAction: "鞭 デバフ&ACT",
     shamanBuff: "霊枝 加算バフ",
     bardBuff: "楽器 加算バフ",
     bardBuffProper: "楽器 特効加算バフ",
@@ -272,6 +277,8 @@ export class FilterCondition {
     ninjaWind: this.groupKeys.ninja,
     ninjaEarth: this.groupKeys.ninja,
     ninjaStealth: this.groupKeys.ninja,
+    whipperDebuff: this.groupKeys.whipper,
+    whipperDebuffAction: this.groupKeys.whipper,
     shamanBuff: this.groupKeys.shaman,
     bardBuff: this.groupKeys.bard,
     bardBuffProper: this.groupKeys.bard,
@@ -315,6 +322,7 @@ export class FilterCondition {
     ninjaWind: "class-wind-field",
     ninjaEarth: "class-earth-field",
     ninjaStealth: "class-field-stealth",
+    whipperDebuff: "class-debuff",
     shamanBuff: "class-buff",
     bardBuff: "class-buff",
     bardBuffProper: "class-buff-proper",
@@ -324,21 +332,22 @@ export class FilterCondition {
   >;
 
   static getVisibleItems(filter: Filter): FilterConditionKey[] {
-    const e = this.equipment;
+    const eq = this.equipment;
     const fn = (arg: FilterEquipment): boolean => filter.get(arg) ?? false;
 
     const proper = this.properList.some(fn);
     const action = this.actionList.some(fn);
-    const blader = fn(e.blader);
-    const barbarian = fn(e.barbarian);
-    const shieldKnight = fn(e.shieldKnight);
-    const destroyer = fn(e.destroyer);
-    const warlock = fn(e.warlock);
-    const conjurer = fn(e.conjurer);
-    const assassin = fn(e.assassin);
-    const ninja = fn(e.ninja);
-    const shaman = fn(e.shaman);
-    const bard = fn(e.bard);
+    const blader = fn(eq.blader);
+    const barbarian = fn(eq.barbarian);
+    const shieldKnight = fn(eq.shieldKnight);
+    const destroyer = fn(eq.destroyer);
+    const warlock = fn(eq.warlock);
+    const conjurer = fn(eq.conjurer);
+    const assassin = fn(eq.assassin);
+    const ninja = fn(eq.ninja);
+    const whipper = fn(eq.whipper);
+    const shaman = fn(eq.shaman);
+    const bard = fn(eq.bard);
 
     const cond = this.keys;
 
@@ -356,6 +365,7 @@ export class FilterCondition {
             conjurer ||
             assassin ||
             ninja ||
+            whipper ||
             shaman ||
             bard
           );
@@ -392,6 +402,9 @@ export class FilterCondition {
         case cond.ninjaEarth:
         case cond.ninjaStealth:
           return ninja;
+        case cond.whipperDebuff:
+        case cond.whipperDebuffAction:
+          return whipper;
         case cond.shamanBuff:
           return shaman;
         case cond.bardBuff:

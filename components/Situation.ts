@@ -2590,6 +2590,7 @@ export default class Situation implements TableRow<Keys> {
         case cond.properAction:
         case cond.barbarianAddAct:
         case cond.shieldKnightRangedAction:
+        case cond.whipperDebuffAction:
           return false;
         default:
           return true;
@@ -2600,6 +2601,7 @@ export default class Situation implements TableRow<Keys> {
       | typeof cond.properAction
       | typeof cond.barbarianAddAct
       | typeof cond.shieldKnightRangedAction
+      | typeof cond.whipperDebuffAction
     >[];
     type CondKey = (typeof condKeys)[number];
     const condMap = new Map<CondKey, boolean>();
@@ -2632,7 +2634,8 @@ export default class Situation implements TableRow<Keys> {
               fn(filter) &&
               !fn(cond.proper) &&
               !fn(cond.barbarianAttackAdd) &&
-              !fn(cond.shieldKnightRanged)
+              !fn(cond.shieldKnightRanged) &&
+              !fn(cond.whipperDebuff)
             );
           case cond.properAction:
             return fn(cond.proper) && fn(cond.action);
@@ -2652,6 +2655,10 @@ export default class Situation implements TableRow<Keys> {
             return fn(cond.shieldKnightRanged) && fn(cond.action);
           case cond.destroyerRanged:
             return fn(cond.destroyerRanged) || features.includes("class-melee");
+          case cond.whipperDebuff:
+            return fn(cond.whipperDebuff) && !fn(cond.action);
+          case cond.whipperDebuffAction:
+            return fn(cond.whipperDebuff) && fn(cond.action);
           default:
             return fn(filter);
         }
