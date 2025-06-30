@@ -28061,6 +28061,16 @@
         "features": [
           "common-skill-regenerate"
         ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
       }
     ],
     "buffs": [
