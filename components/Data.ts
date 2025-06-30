@@ -297,6 +297,7 @@ const statTypeList = [
   "buffCriChanceLimit",
   "buffTarget",
   "buffSupplements",
+  "buffRange",
 ] as const satisfies (keyof typeof jsonWord)[];
 export type StatType = (typeof statTypeList)[number];
 export const stat = Enum(statTypeList);

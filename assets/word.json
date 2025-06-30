@@ -61,5 +61,6 @@
     "buffCriChance": "CRI率",
     "buffCriChanceLimit": "CRI率上限",
     "buffTarget": "対象",
-    "buffSupplements": "補足"
+    "buffSupplements": "補足",
+    "buffRange": "射程"
 }

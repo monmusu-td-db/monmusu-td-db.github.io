@@ -203,3 +203,7 @@ th.buffTarget {
 th.buffSupplements {
   width: 7.5rem;
 }
+
+th.buffRange {
+  width: 2.4rem;
+}

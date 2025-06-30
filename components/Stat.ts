@@ -14,6 +14,7 @@ import { StatRange } from "./Stat/StatRange";
 import { StatLimit } from "./Stat/StatLimit";
 import { StatSupplement } from "./Stat/StatSupplement";
 import { StatDps } from "./Stat/StatDps";
+import { StatBuffRange } from "./Stat/StatBuffRange";
 
 export { StatRoot as Root };
 export { StatUnitName as UnitName };
@@ -31,3 +32,4 @@ export { StatRange as Range };
 export { StatLimit as Limit };
 export { StatSupplement as Supplement };
 export { StatDps as Dps };
+export { StatBuffRange as BuffRange };

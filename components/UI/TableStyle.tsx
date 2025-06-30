@@ -51,6 +51,7 @@ const TableStyle = memo(function TableStyle({
       case stat.moveType:
       case stat.damageType:
       case stat.placement:
+      case stat.buffRange:
         center.push(index);
         break;
     }

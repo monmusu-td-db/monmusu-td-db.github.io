@@ -1,13 +1,20 @@
 import * as Data from "./Data";
+import Situation from "./Situation";
 import * as Stat from "./Stat";
-import type { States } from "./States";
+import type { Setting, States } from "./States";
 import type { TableRow, TableSource } from "./UI/StatTable";
 import type { JsonBuff } from "./Unit";
 import Unit from "./Unit";
 
 const stat = Data.stat;
 
-const keys = [stat.unitId, stat.unitShortName, stat.skillName] as const;
+const keys = [
+  stat.unitId,
+  stat.unitShortName,
+  stat.skillName,
+  stat.buffTarget,
+  stat.buffRange,
+] as const;
 type Key = (typeof keys)[number];
 
 interface Source {
@@ -16,18 +23,39 @@ interface Source {
   readonly buff: JsonBuff;
 }
 
+const target = {
+  all: "全体",
+  inRange: "射程内",
+  block: "ブロック敵",
+  self: "自分",
+} as const;
+
 export default class InBattleBuff implements TableRow<Key> {
   readonly id: number;
-  readonly unit: Unit;
+  private readonly unit: Unit;
+  private readonly rawBuff: JsonBuff;
+  private readonly situation: Situation;
 
   readonly unitId: Stat.Root<number | undefined>;
   readonly unitShortName: Stat.UnitName;
   readonly skillName: Stat.Root<string | undefined>;
+  readonly buffTarget: Stat.Root<string | undefined>;
+  readonly buffRange: Stat.BuffRange;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
     this.id = id;
     this.unit = unit;
+    this.rawBuff = buff;
+    {
+      let src;
+      if (!buff.skill) {
+        src = { unitId: unit.id };
+      } else {
+        src = { unitId: unit.id, skill: buff.skill };
+      }
+      this.situation = new Situation(src, id);
+    }
 
     this.unitId = unit.unitId;
     this.unitShortName = unit.unitShortName;
@@ -44,6 +72,56 @@ export default class InBattleBuff implements TableRow<Key> {
         return;
       },
     });
+
+    this.buffTarget = new Stat.Root({
+      statType: stat.buffTarget,
+      calculater: () => buff.target,
+      comparer: (s) => this.getTargetComparer(s),
+    });
+
+    this.buffRange = new Stat.BuffRange({
+      statType: stat.range, // TODO
+      calculater: (s) => this.getRangeValue(s),
+      factors: (s) => this.situation.range.getFactors(s),
+      isReversed: true,
+    });
+  }
+
+  private getTargetComparer(setting: Setting): number | undefined {
+    const str = this.buffTarget.getValue(setting);
+    switch (str) {
+      case target.all:
+        return -1000;
+      case target.inRange:
+        return -900;
+      case target.block:
+        return -800;
+      case target.self:
+        return -700;
+    }
+  }
+
+  private getRangeValue(setting: Setting): number | undefined {
+    const rawValue = this.rawBuff.range;
+    const targetValue = this.buffTarget.getValue(setting);
+
+    if (rawValue === null && targetValue === undefined) {
+      return;
+    }
+    if (typeof rawValue === "number") {
+      return rawValue;
+    }
+    switch (targetValue) {
+      case target.self:
+        return;
+      case target.all:
+        return Infinity;
+    }
+
+    const skill = this.rawBuff.skill;
+    if (skill !== undefined && skill > 0) {
+      return this.situation.range.getValue(setting);
+    }
   }
 
   private static filter(states: States, list: readonly InBattleBuff[]) {
