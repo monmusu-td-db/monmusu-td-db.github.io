@@ -823,6 +823,14 @@
     "placement": "両",
     "features": [
       {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "移動可"
+        ]
+      },
+      {
         "isNotAbility": true,
         "require": [
           "光マス"

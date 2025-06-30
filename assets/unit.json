@@ -14617,6 +14617,69 @@
     ]
   },
   {
+    "id": 160,
+    "unitName": "【鎌鼬娘】イチ",
+    "unitShortName": "イチ",
+    "rarity": "E",
+    "class": "ニンジャ",
+    "element": "風",
+    "hp": 2975,
+    "attack": 479,
+    "defense": 404,
+    "resist": 279,
+    "species": "妖怪",
+    "moveType": "突進",
+    "exSkill1": {
+      "skillName": "忍法イタチ風",
+      "attackMul": 220,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "回復{attack-base*20}×3/通過時→味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "移動消費コスト-2"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "moveSpeedAdd": 200
+      },
+      {
+        "featureName": "common-charge-attack",
+        "damageType": "貫通"
+      }
+    ],
+    "moveSpeedMul": 200,
+    "potentialBonus": {
+      "moveSpeedMul": 250
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 161,
     "unitName": "【化け狐娘】ツネ",
