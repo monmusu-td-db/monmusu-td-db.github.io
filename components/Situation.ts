@@ -1596,7 +1596,7 @@ export default class Situation implements TableRow<Keys> {
     const factors = Feature.getAdditionFactors(feature, statType);
     if (factors === undefined) return 0;
     return factors
-      .map((f) => {
+      .map((f): number => {
         switch (f.key) {
           case undefined:
             return f.value;
@@ -1647,6 +1647,12 @@ export default class Situation implements TableRow<Keys> {
             return Percent.multiply(
               this.getTokenParent(setting)?.[key].getFactors(setting)
                 ?.inBattleResult,
+              f.value
+            );
+          }
+          case AdditionFactor.HP_BASE: {
+            return Percent.multiply(
+              this.unit?.hp.getFactors(setting)?.deploymentResult,
               f.value
             );
           }

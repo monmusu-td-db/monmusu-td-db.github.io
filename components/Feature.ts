@@ -63,6 +63,7 @@ const additionFactorKeys = {
   PARENT_ATTACK: "parent-attack",
   PARENT_DEFENSE: "parent-defense",
   PARENT_RESIST: "parent-resist",
+  HP_BASE: "hp-base",
 } as const;
 type AdditionFactorKey =
   (typeof additionFactorKeys)[keyof typeof additionFactorKeys];

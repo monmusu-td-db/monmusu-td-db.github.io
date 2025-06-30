@@ -572,5 +572,11 @@
       }
     ],
     "fixedTarget": 2
+  },
+  {
+    "featureName": "common-ability",
+    "annotations": [
+      "種族特性"
+    ]
   }
 ]

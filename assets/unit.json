@@ -27869,6 +27869,110 @@
     ]
   },
   {
+    "TODO_DESC": "移動コスト上昇",
+    "id": 344,
+    "unitName": "【浜夏のジャバウォック娘】リデル",
+    "unitShortName": "リデル/水着",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "風",
+    "hp": 9057,
+    "attack": 1109,
+    "defense": 580,
+    "resist": 102,
+    "moveType": "突進",
+    "exSkill1": {
+      "skillName": "ソニックスイム",
+      "attackMul": 340,
+      "duration": 35,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "attackAdd": {
+          "key": "hp-base",
+          "value": 20
+        },
+        "moveSpeedAdd": 150
+      },
+      {
+        "featureName": "common-charge-attack",
+        "isConditionalBuff": true,
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-ability",
+        "isConditionalBuff": true,
+        "hpMul": 160,
+        "potentialBonus": {
+          "hpMul": 170
+        }
+      }
+    ],
+    "moveSpeedMul": 250,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ability"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "bottom": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "bottom": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-ability",
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 345,
     "unitName": "【碧海のファロルーチェ娘】ファロリエット",
     "unitShortName": "ファロリエット/水着",
