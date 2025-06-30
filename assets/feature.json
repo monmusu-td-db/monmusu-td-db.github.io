@@ -452,6 +452,18 @@
     "damageType": "再生"
   },
   {
+    "featureName": "common-skill-regenerate",
+    "isAbility": true,
+    "conditions": [
+      "再"
+    ],
+    "interval": 30,
+    "target": "自分",
+    "splash": false,
+    "rounds": 1,
+    "damageType": "再生"
+  },
+  {
     "featureName": "common-regenerate-2%",
     "isAbility": true,
     "annotations": [

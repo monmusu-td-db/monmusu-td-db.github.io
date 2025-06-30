@@ -27867,5 +27867,108 @@
         ]
       }
     ]
+  },
+  {
+    "id": 345,
+    "unitName": "【碧海のファロルーチェ娘】ファロリエット",
+    "unitShortName": "ファロリエット/水着",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "光",
+    "hp": 4413,
+    "attack": 760,
+    "defense": 430,
+    "resist": 235,
+    "block": 0,
+    "moveType": "飛行",
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "ブリリアントウィップ",
+      "attackMul": 260,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 107,
+        "resist": 107,
+        "potentialBonus": {
+          "attack": 109,
+          "resist": 109
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "damage-cut-normal",
+        "magicalDamageCut": 20
+      },
+      {
+        "featureName": "damage-cut-max",
+        "magicalDamageCut": 40
+      },
+      {
+        "featureName": "common-skill-regenerate",
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        },
+        "target": "全体"
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "damage-cut-normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-cut-normal"
+        ]
+      },
+      {
+        "features": [
+          "damage-cut-max"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-cut-max"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-skill-regenerate"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 10
+      }
+    ]
   }
 ]
