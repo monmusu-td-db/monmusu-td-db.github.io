@@ -28,6 +28,7 @@ const target = {
   inRange: "射程内",
   block: "ブロック敵",
   self: "自分",
+  master: "付与対象",
 } as const;
 
 export default class InBattleBuff implements TableRow<Key> {
@@ -96,8 +97,10 @@ export default class InBattleBuff implements TableRow<Key> {
         return -900;
       case target.block:
         return -800;
-      case target.self:
+      case target.master:
         return -700;
+      case target.self:
+        return -600;
     }
   }
 
@@ -113,15 +116,13 @@ export default class InBattleBuff implements TableRow<Key> {
     }
     switch (targetValue) {
       case target.self:
+      case target.master:
         return;
       case target.all:
         return Infinity;
     }
 
-    const skill = this.rawBuff.skill;
-    if (skill !== undefined && skill > 0) {
-      return this.situation.range.getValue(setting);
-    }
+    return this.situation.range.getValue(setting);
   }
 
   private static filter(states: States, list: readonly InBattleBuff[]) {

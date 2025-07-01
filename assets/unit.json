@@ -10089,11 +10089,14 @@
       },
       {
         "type": "move-speed-add",
-        "target": "飛行",
-        "value": 40,
-        "potentialBonus": {
-          "value": 45
-        }
+        "require": [
+          "飛行移動"
+        ],
+        "target": "全体",
+        "value": 20,
+        "supplements": [
+          "※上記全対象効果に加算"
+        ]
       },
       {
         "type": "redeploy-time-cut",
@@ -10742,6 +10745,7 @@
     "buffs": [
       {
         "type": "weather-change",
+        "target": "全体",
         "duration": 5,
         "supplements": [
           "吹雪"
@@ -18556,13 +18560,19 @@
       {
         "type": "attack-mul",
         "skill": 0,
-        "target": "射程内火マス",
+        "require": [
+          "火マス"
+        ],
+        "target": "射程内",
         "value": 106
       },
       {
         "type": "attack-mul",
         "skill": 1,
-        "target": "射程内火マス",
+        "require": [
+          "火マス"
+        ],
+        "target": "射程内",
         "value": 112
       }
     ]
@@ -21870,7 +21880,7 @@
         "require": [
           "火属性"
         ],
-        "target": "射程内火属性",
+        "target": "射程内",
         "supplements": [
           "発動時"
         ]
@@ -22014,7 +22024,10 @@
     "buffs": [
       {
         "type": "defense-mul",
-        "target": "射程内地マス",
+        "require": [
+          "地マス"
+        ],
+        "target": "射程内",
         "duration": "常時",
         "value": 120,
         "potentialBonus": {
@@ -22024,19 +22037,28 @@
       {
         "type": "attack-mul",
         "skill": 1,
-        "target": "射程内他者",
+        "require": [
+          "他者"
+        ],
+        "target": "射程内",
         "value": 130
       },
       {
         "type": "attack-speed-buff",
         "skill": 1,
-        "target": "射程内他者",
+        "require": [
+          "他者"
+        ],
+        "target": "射程内",
         "value": 150
       },
       {
         "type": "delay-mul",
         "skill": 1,
-        "target": "射程内他者",
+        "require": [
+          "他者"
+        ],
+        "target": "射程内",
         "value": 50
       }
     ]
@@ -25654,7 +25676,10 @@
       {
         "type": "damage-factor",
         "skill": 1,
-        "target": "射程内風属性",
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
         "value": 130
       }
     ]
@@ -25782,7 +25807,10 @@
       {
         "type": "field-change-light",
         "skill": 1,
-        "target": "射程内光属性",
+        "require": [
+          "光属性"
+        ],
+        "target": "射程内",
         "supplements": [
           "発動時"
         ]
@@ -25790,7 +25818,10 @@
       {
         "type": "hp-mul",
         "skill": 1,
-        "target": "射程内光マス",
+        "require": [
+          "光マス"
+        ],
+        "target": "射程内",
         "value": 140
       }
     ]

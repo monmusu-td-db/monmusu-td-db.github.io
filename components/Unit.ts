@@ -212,7 +212,7 @@ export default class Unit implements TableRow<Keys> {
   readonly situations: UnitSituations;
   readonly buffs: JsonBuffs | undefined;
 
-  readonly rangeBase: number | undefined;
+  readonly rangeBase: number | undefined; // TODO Obsolete
 
   private tokenParent: Unit | undefined;
   private cacheSubskill = new Data.Cache<
