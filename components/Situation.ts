@@ -81,6 +81,7 @@ const require = {
   WEAPON: "weapon",
   POTENTIAL: "potential",
   NO_PANEL_FIELD_ELEMENT: "no-panel-field-element",
+  PANEL_FIELD_ELEMENT: "panel-field-element",
 } as const;
 type Require = (typeof require)[keyof typeof require];
 const Require = {
@@ -2434,7 +2435,9 @@ export default class Situation implements TableRow<Keys> {
       (!Data.Weapon.isApplied(setting) && this.require.has(require.WEAPON)) ||
       (!isPotentialApplied && this.require.has(require.POTENTIAL)) ||
       (setting.fieldElement !== Setting.NONE &&
-        this.require.has(require.NO_PANEL_FIELD_ELEMENT))
+        this.require.has(require.NO_PANEL_FIELD_ELEMENT)) ||
+      (setting.fieldElement === Setting.NONE &&
+        this.require.has(require.PANEL_FIELD_ELEMENT))
     )
       return false;
 

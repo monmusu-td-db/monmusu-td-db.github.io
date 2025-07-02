@@ -14218,6 +14218,76 @@
   },
   {
     "TODO_DESC": "StatはWiki情報",
+    "id": 148,
+    "unitName": "【河童娘】シリコ",
+    "unitShortName": "シリコ",
+    "rarity": "E",
+    "class": "モンク",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 7071,
+    "attack": 813,
+    "defense": 322,
+    "resist": 141,
+    "supplements": [
+      "即死耐性+/ブロック中"
+    ],
+    "exSkill1": {
+      "skillName": "はっけよーい、のこった！",
+      "attackMul": 360,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "即死(低+)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スタン耐性+50"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "即死(低)→命中"
+        ]
+      },
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "hp",
+          "value": 5
+        },
+        "supplements": [
+          "回復5%/秒"
+        ]
+      }
+    ],
+    "hpMul": 120,
+    "potentialBonus": {
+      "hpMul": 130
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "require": [
+          "panel-field-element"
+        ],
+        "features": [
+          "common-regenerate"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
     "id": 151,
     "unitName": "【塗壁娘】チカ",
     "unitShortName": "チカ",
