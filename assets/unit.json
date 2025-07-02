@@ -11674,6 +11674,109 @@
     "defenseMul": 140
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 115,
+    "unitName": "【コボルト娘】ペント",
+    "unitShortName": "ペント",
+    "rarity": "R",
+    "class": "ウォーロック",
+    "element": "地",
+    "species": "コボルト",
+    "hp": 2085,
+    "attack": 803,
+    "defense": 175,
+    "resist": 496,
+    "supplements": [
+      "スタン付与10%→命中"
+    ],
+    "exSkill1": {
+      "skillName": "弱者の知恵だよ",
+      "target": 3,
+      "rangeMul": 340,
+      "duration": "単発",
+      "cooldown": 35,
+      "damageType": "物理"
+    },
+    "exSkill2": {
+      "skillName": "石心の力",
+      "attackMul": 120,
+      "target": 5,
+      "splash": false,
+      "rangeMul": 130,
+      "duration": 25,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "コボルト"
+        ],
+        "attack": 120
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-proper",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "damageFactor": 300
+      }
+    ],
+    "costAdd": -4,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 116,
     "unitName": "【イエティ娘】エーティ",
     "unitShortName": "エーティ",
