@@ -132,13 +132,10 @@ export default class FormationBuff implements TableRow<Keys> {
           );
         }),
       item: (s) =>
-        this.getBuff(s).require.map((buff) => {
-          const key = Data.FormationBuffRequire.keyOf(buff);
-          return FormationBuffUI.getSupplementItem(
-            key,
-            unit.element.getValue(s)
-          );
-        }),
+        FormationBuffUI.getSupplementItems(
+          this.getBuff(s).require,
+          unit.element.getValue(s)
+        ),
     });
   }
 

@@ -43,25 +43,38 @@ export default class FormationBuffUI {
     }
   }
 
-  static getSupplementItem(
-    key: Data.FormationBuffRequireKey,
+  static getSupplementItems(
+    requests: readonly Data.FormationBuffRequire[],
     element: Data.Element | undefined
   ): ReactNode {
-    const keys = Data.FormationBuffRequire.keys;
-    switch (key) {
-      case keys.weapon:
-        return this.getSupplementText(key, element);
-      case keys.sameElement8:
-        if (element === undefined) {
-          return this.getSupplementText(key, element);
-        } else {
-          return (
-            <>
-              <Util.ElementText element={element} />
-              属性8体
-            </>
-          );
-        }
-    }
+    return requests.map((buff) => {
+      const key = Data.FormationBuffRequire.keyOf(buff);
+      return <SupplementItem key={key} requireKey={key} element={element} />;
+    });
+  }
+}
+
+function SupplementItem({
+  requireKey,
+  element,
+}: {
+  requireKey: Data.FormationBuffRequireKey;
+  element: Data.Element | undefined;
+}): ReactNode {
+  const keys = Data.FormationBuffRequire.keys;
+  switch (requireKey) {
+    case keys.weapon:
+      return FormationBuffUI.getSupplementText(requireKey, element);
+    case keys.sameElement8:
+      if (element === undefined) {
+        return FormationBuffUI.getSupplementText(requireKey, element);
+      } else {
+        return (
+          <>
+            <Util.ElementText element={element} />
+            属性8体
+          </>
+        );
+      }
   }
 }
