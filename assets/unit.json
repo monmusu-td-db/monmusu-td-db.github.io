@@ -28147,5 +28147,75 @@
         "value": 10
       }
     ]
+  },
+  {
+    "TODO_DESC": "stat、potentials、ex1はwiki情報",
+    "id": 346,
+    "unitName": "【爽蒼のワードラゴン娘】ハイルィ",
+    "unitShortName": "ハイルィ/水着",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "水",
+    "species": "ドラゴン",
+    "hp": 4193,
+    "attack": 649,
+    "defense": 296,
+    "resist": 403,
+    "supplements": [
+      "鈍足→射程内",
+      "攻撃速度減少→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "流激涼舞",
+      "attackMul": 240,
+      "targetAdd": 2,
+      "rangeMul": 200,
+      "duration": "永続",
+      "cooldown": 130
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-6秒"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "回復1%(10秒)/秒→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "回復1%(12秒)/秒→命中"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "critical-chance-add",
+        "skill": 1,
+        "target": "射程内",
+        "value": 20
+      },
+      {
+        "type": "critical-chance-limit-add",
+        "skill": 1,
+        "target": "射程内",
+        "value": 20
+      }
+    ]
   }
 ]
