@@ -17876,6 +17876,45 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 197,
+    "unitName": "【一つ目小僧娘】メイム",
+    "unitShortName": "メイム",
+    "rarity": "R",
+    "class": "コンジャラー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2498,
+    "attack": 553,
+    "defense": 227,
+    "resist": 556,
+    "exSkill1": {
+      "skillName": "キューティ・アイ",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 50,
+      "damageType": null,
+      "supplements": [
+        "スタン付与50%→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "最大HP+400",
+      "射程+10"
+    ],
+    "hpMul": 70,
+    "rangeAdd": 70,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 198,
     "unitName": "【つらら女娘】シクル",
     "unitShortName": "シクル",
