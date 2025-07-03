@@ -14,6 +14,9 @@ const keys = [
   stat.skillName,
   stat.buffTarget,
   stat.buffRange,
+  stat.initialTime,
+  stat.duration,
+  stat.cooldown,
 ] as const;
 type Key = (typeof keys)[number];
 
@@ -42,6 +45,9 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly skillName: Stat.Root<string | undefined>;
   readonly buffTarget: Stat.Root<string | undefined>;
   readonly buffRange: Stat.BuffRange;
+  readonly initialTime: Stat.Root;
+  readonly duration: Stat.Root<number | undefined, Data.DurationFactorsResult>;
+  readonly cooldown: Stat.Root<number | undefined, Data.CooldownFactors>;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -86,6 +92,33 @@ export default class InBattleBuff implements TableRow<Key> {
       factors: (s) => this.situation.range.getFactors(s),
       isReversed: true,
     });
+
+    this.initialTime = this.situation.initialTime;
+
+    this.duration = new Stat.Root({
+      statType: stat.duration,
+      calculater: (s) => this.duration.getFactors(s).result,
+      isReversed: true,
+      text: (s) => Situation.getDurationText(this.duration.getFactors(s)),
+      color: (s) => Situation.getDurationColor(this.duration.getFactors(s)),
+      factors: (s) => {
+        function parse(
+          value: unknown
+        ): number | typeof Data.Duration.always | undefined {
+          if (typeof value === "number" || value === Data.Duration.always) {
+            return value;
+          }
+        }
+        const inBattleBuff = parse(buff.duration);
+        const factors: Data.DurationFactors = {
+          ...this.situation.duration.getFactors(s),
+          inBattleBuff,
+        };
+        return Situation.calculateDurationResult(factors);
+      },
+    });
+
+    this.cooldown = this.situation.cooldown;
   }
 
   private getTargetComparer(setting: Setting): number | undefined {

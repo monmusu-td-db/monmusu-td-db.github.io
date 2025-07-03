@@ -318,18 +318,14 @@ const Row = memo(function Row({
   setting: Setting;
   handlers: TooltipEventHandlers;
 }) {
-  return (
-    <>
-      {headers.map((col) => (
-        <Cell
-          key={col.id}
-          stat={row[col.id]}
-          setting={setting}
-          handlers={handlers}
-        />
-      ))}
-    </>
-  );
+  return headers.map((col) => (
+    <Cell
+      key={col.id}
+      stat={row[col.id]}
+      setting={setting}
+      handlers={handlers}
+    />
+  ));
 });
 
 const Cell = memo(function Cell({

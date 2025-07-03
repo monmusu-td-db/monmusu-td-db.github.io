@@ -1951,6 +1951,8 @@ export interface DurationFactors {
   readonly isExtraDamage: boolean;
   readonly isAction: boolean;
   readonly interval: number;
+  readonly parentText: string | undefined;
+  readonly inBattleBuff?: number | typeof Duration.always | undefined;
 }
 export interface DurationFactorsResult extends DurationFactors {
   readonly result: number | undefined;

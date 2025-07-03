@@ -952,11 +952,7 @@ export default class Situation implements TableRow<Keys> {
       statType: stat.duration,
       calculater: (s) => this.duration.getFactors(s).result,
       isReversed: true,
-      text: (s) =>
-        Situation.getDurationText(
-          this.duration.getFactors(s),
-          this.getTokenParent(s)?.duration.getText(s)
-        ),
+      text: (s) => Situation.getDurationText(this.duration.getFactors(s)),
       color: (s) => Situation.getDurationColor(this.duration.getFactors(s)),
       factors: (s) => {
         const skill = this.getSkill(s)?.duration;
@@ -965,12 +961,14 @@ export default class Situation implements TableRow<Keys> {
         const isExtraDamage = fea.isExtraDamage ?? false;
         const isAction = fea.isAction ?? false;
         const interval = this.interval.getFactors(s)?.base?.result ?? 0;
-        const factors = {
+        const parentText = this.getTokenParent(s)?.duration.getText(s);
+        const factors: Data.DurationFactors = {
           skill,
           feature,
           isExtraDamage,
           isAction,
           interval,
+          parentText,
         };
         return Situation.calculateDurationResult(factors);
       },
@@ -2066,6 +2064,13 @@ export default class Situation implements TableRow<Keys> {
     factors: Data.DurationFactors
   ): Data.DurationFactorsResult {
     const result = ((): number | undefined => {
+      if (factors.inBattleBuff !== undefined) {
+        if (factors.inBattleBuff === Data.Duration.always) {
+          return Infinity;
+        } else {
+          return factors.inBattleBuff;
+        }
+      }
       if (factors.feature === null) {
         return;
       }
@@ -2088,17 +2093,19 @@ export default class Situation implements TableRow<Keys> {
   }
 
   public static getDurationText(
-    factors: Data.DurationFactorsResult,
-    parentText: string | undefined
+    factors: Data.DurationFactorsResult
   ): string | undefined {
-    if (factors.feature === Data.Duration.always) {
+    if (
+      factors.inBattleBuff === Data.Duration.always ||
+      factors.feature === Data.Duration.always
+    ) {
       return Data.Duration.always;
     }
 
     const result = factors.isExtraDamage ? undefined : factors.result;
     const duration = result ?? factors.feature;
     if (duration === undefined || duration === null) {
-      return parentText;
+      return factors.parentText;
     }
 
     return Data.Duration.textOf(duration);
@@ -2109,6 +2116,7 @@ export default class Situation implements TableRow<Keys> {
   ): Data.TableColor | undefined {
     if (
       (factors.isAction && factors.result === undefined) ||
+      factors.inBattleBuff !== undefined ||
       factors.feature === Data.Duration.always ||
       factors.isExtraDamage
     ) {
