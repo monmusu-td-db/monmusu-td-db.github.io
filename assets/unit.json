@@ -170,6 +170,7 @@
     "resist": 61,
     "exSkill1": {
       "skillName": "熱狂たこパーティー！",
+      "fixedDelay": 1,
       "duration": "単発",
       "cooldown": 30,
       "damageType": null,
@@ -181,6 +182,7 @@
     },
     "exSkill2": {
       "skillName": "赤字覚悟の触手祭りや！",
+      "fixedDelay": 1,
       "duration": "単発",
       "cooldown": 50,
       "damageType": null,
@@ -11691,6 +11693,7 @@
     ],
     "exSkill1": {
       "skillName": "弱者の知恵だよ",
+      "fixedDelay": 1,
       "target": 3,
       "rangeMul": 340,
       "duration": "単発",
