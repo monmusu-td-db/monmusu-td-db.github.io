@@ -1945,6 +1945,17 @@ export interface EvasionFactors {
   readonly result: number;
 }
 
+export interface DurationFactors {
+  readonly skill: number | typeof Duration.single | undefined;
+  readonly feature: number | typeof Duration.always | null | undefined;
+  readonly isExtraDamage: boolean;
+  readonly isAction: boolean;
+  readonly interval: number;
+}
+export interface DurationFactorsResult extends DurationFactors {
+  readonly result: number | undefined;
+}
+
 export interface CooldownFactors {
   readonly base: number | undefined;
   readonly feature: number;
