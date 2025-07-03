@@ -14445,6 +14445,69 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 152,
+    "unitName": "【鬼娘】ホヅキ",
+    "unitShortName": "ホヅキ",
+    "rarity": "R",
+    "class": "デストロイヤー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 8074,
+    "attack": 945,
+    "defense": 559,
+    "resist": 100,
+    "exSkill1": {
+      "skillName": "不動の構え",
+      "attackMul": 480,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "即死無効",
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "物理ダメージ20%軽減"
+    ],
+    "features": [
+      {
+        "featureName": "hp-50%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ],
+        "currentHp": 50,
+        "damageFactor": 130
+      }
+    ],
+    "hpMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-50%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 153,
     "unitName": "【川熊娘】イオ",
     "unitShortName": "イオ",
