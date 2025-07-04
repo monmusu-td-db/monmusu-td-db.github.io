@@ -81,6 +81,7 @@ const require = {
   WEAPON: "weapon",
   POTENTIAL: "potential",
   NO_PANEL_FIELD_ELEMENT: "no-panel-field-element",
+  PANEL_FIELD_ELEMENT: "panel-field-element",
 } as const;
 type Require = (typeof require)[keyof typeof require];
 const Require = {
@@ -1587,7 +1588,7 @@ export default class Situation implements TableRow<Keys> {
     const factors = Feature.getAdditionFactors(feature, statType);
     if (factors === undefined) return 0;
     return factors
-      .map((f) => {
+      .map((f): number => {
         switch (f.key) {
           case undefined:
             return f.value;
@@ -1638,6 +1639,12 @@ export default class Situation implements TableRow<Keys> {
             return Percent.multiply(
               this.getTokenParent(setting)?.[key].getFactors(setting)
                 ?.inBattleResult,
+              f.value
+            );
+          }
+          case AdditionFactor.HP_BASE: {
+            return Percent.multiply(
+              this.unit?.hp.getFactors(setting)?.deploymentResult,
               f.value
             );
           }
@@ -2483,7 +2490,9 @@ export default class Situation implements TableRow<Keys> {
       (!Data.Weapon.isApplied(setting) && this.require.has(require.WEAPON)) ||
       (!isPotentialApplied && this.require.has(require.POTENTIAL)) ||
       (setting.fieldElement !== Setting.NONE &&
-        this.require.has(require.NO_PANEL_FIELD_ELEMENT))
+        this.require.has(require.NO_PANEL_FIELD_ELEMENT)) ||
+      (setting.fieldElement === Setting.NONE &&
+        this.require.has(require.PANEL_FIELD_ELEMENT))
     )
       return false;
 
@@ -2645,6 +2654,7 @@ export default class Situation implements TableRow<Keys> {
         case cond.properAction:
         case cond.barbarianAddAct:
         case cond.shieldKnightRangedAction:
+        case cond.whipperDebuffAction:
           return false;
         default:
           return true;
@@ -2655,6 +2665,7 @@ export default class Situation implements TableRow<Keys> {
       | typeof cond.properAction
       | typeof cond.barbarianAddAct
       | typeof cond.shieldKnightRangedAction
+      | typeof cond.whipperDebuffAction
     >[];
     type CondKey = (typeof condKeys)[number];
     const condMap = new Map<CondKey, boolean>();
@@ -2687,7 +2698,8 @@ export default class Situation implements TableRow<Keys> {
               fn(filter) &&
               !fn(cond.proper) &&
               !fn(cond.barbarianAttackAdd) &&
-              !fn(cond.shieldKnightRanged)
+              !fn(cond.shieldKnightRanged) &&
+              !fn(cond.whipperDebuff)
             );
           case cond.properAction:
             return fn(cond.proper) && fn(cond.action);
@@ -2707,6 +2719,10 @@ export default class Situation implements TableRow<Keys> {
             return fn(cond.shieldKnightRanged) && fn(cond.action);
           case cond.destroyerRanged:
             return fn(cond.destroyerRanged) || features.includes("class-melee");
+          case cond.whipperDebuff:
+            return fn(cond.whipperDebuff) && !fn(cond.action);
+          case cond.whipperDebuffAction:
+            return fn(cond.whipperDebuff) && fn(cond.action);
           default:
             return fn(filter);
         }
