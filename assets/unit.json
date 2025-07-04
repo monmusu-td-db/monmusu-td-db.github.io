@@ -3006,6 +3006,19 @@
     ],
     "buffs": [
       {
+        "TODO": "TODO",
+        "skill": 2,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "poison-nullify"
+          },
+          {
+            "type": "petrify-nullify"
+          }
+        ]
+      },
+      {
         "type": "poison-nullify",
         "skill": 2,
         "target": "射程内"
