@@ -51,6 +51,18 @@ export const MAX_POSS_BUFF_LEVEL = 45;
 
 // Util
 
+export function getKeys<T extends Record<string, unknown>>(
+  obj: T
+): readonly (keyof T)[] {
+  return Object.keys(obj);
+}
+
+export function getEntries<T extends Record<string, unknown>>(
+  obj: T
+): readonly [keyof T, unknown][] {
+  return Object.entries(obj);
+}
+
 export class Cache<T> {
   setting?: Setting;
   value?: T;
@@ -413,13 +425,13 @@ const conditionKeys = {
   second: "s",
   hit: "hit",
 } as const;
-const conditionKeysEntries = Object.entries(conditionKeys);
+const conditionKeysEntries = getEntries(conditionKeys);
 const conditionTexts = {
   ...conditionKeys,
   multiply: "×",
 } as const;
 type ConditionKey = keyof typeof conditionTexts;
-export const condition = Enum(Object.keys(conditionTexts) as ConditionKey[]);
+export const condition = Enum(getKeys(conditionTexts));
 export type Condition = KeyValuePair<ConditionKey, number | undefined>;
 export type JsonCondition = string | KeyValuePair<string, number>;
 export const JsonCondition = {
@@ -427,7 +439,7 @@ export const JsonCondition = {
     if (list === undefined) return;
     const fn = (obj: JsonCondition): Condition | undefined => {
       for (const kvp of conditionKeysEntries) {
-        const key = kvp[0] as ConditionKey;
+        const key = kvp[0];
         const value = kvp[1];
         if (value === obj) {
           return {
@@ -473,7 +485,7 @@ export const Condition = {
 
   toSorted(list: readonly Condition[]): Condition[] {
     const fn = (c: Condition) => {
-      return Object.keys(conditionTexts).findIndex((v) => v === c.key);
+      return getKeys(conditionTexts).findIndex((v) => v === c.key);
     };
     return list.toSorted((a, b) => fn(a) - fn(b));
   },
@@ -840,10 +852,8 @@ const formationBuffRequire = {
   weapon: "武器",
   sameElement8: "同一属性8体",
 } as const;
-const formationBuffRequireEntries = Object.entries(formationBuffRequire);
-const formationBuffRequireKeys = Enum(
-  Object.keys(formationBuffRequire) as (keyof typeof formationBuffRequire)[]
-);
+const formationBuffRequireEntries = getEntries(formationBuffRequire);
+const formationBuffRequireKeys = Enum(getKeys(formationBuffRequire));
 export type FormationBuffRequireKey = keyof typeof formationBuffRequire;
 export type FormationBuffRequire =
   (typeof formationBuffRequire)[keyof typeof formationBuffRequire];
@@ -1004,7 +1014,7 @@ export const BaseClassName = {
     return baseClassNameValues.findIndex((v) => v === value) !== -1;
   },
 } as const;
-const classNameKeyList = Object.keys(className) as readonly ClassNameKey[];
+const classNameKeyList = getKeys(className);
 const classNameKeys = Enum(classNameKeyList);
 export type ClassName = (typeof className)[ClassNameKey];
 export const ClassName = {
@@ -1017,7 +1027,7 @@ export const ClassName = {
   },
 
   isKey(key: string): key is ClassNameKey {
-    return Object.keys(className).includes(key);
+    return getKeys(className).findIndex((k) => k === key) !== -1;
   },
 
   indexOf(value: ClassName | undefined): number | undefined {
@@ -1027,9 +1037,7 @@ export const ClassName = {
 
   keyOf(value: ClassName | undefined): ClassNameKey | undefined {
     if (value === undefined) return;
-    return Object.entries(className).find((kvp) => kvp[1] === value)?.[0] as
-      | ClassNameKey
-      | undefined;
+    return getEntries(className).find((kvp) => kvp[1] === value)?.[0];
   },
 
   equipmentNameOf(
@@ -1073,14 +1081,14 @@ export const ClassName = {
     }
   },
 
-  equipmentKeysOf(value: BaseClassNameKey): ClassNameKey[] {
+  equipmentKeysOf(value: BaseClassNameKey): readonly ClassNameKey[] {
     return classNameKeyList.filter((k) => {
       return baseClassName[value] === this.baseNameOf(className[k]);
     });
   },
 
-  getBaseKeys(): BaseClassNameKey[] {
-    return Object.keys(baseClassName) as BaseClassNameKey[];
+  getBaseKeys(): readonly BaseClassNameKey[] {
+    return getKeys(baseClassName);
   },
 } as const;
 
@@ -1111,11 +1119,11 @@ const elementTextColor = {
 } as const satisfies Record<ElementKey, string>;
 type ElementTextColor =
   (typeof elementTextColor)[keyof typeof elementTextColor];
-const elementList = Object.keys(element) as readonly ElementKey[];
+const elementList = getKeys(element);
 type ElementKey = keyof typeof element;
 const elementKey = Enum(elementList);
 const elementValues = Object.values(element);
-const elementEntries = Object.entries(element);
+const elementEntries = getEntries(element);
 
 export type Element = (typeof element)[ElementKey];
 export const Element = {
@@ -1181,14 +1189,14 @@ const species = {
   undead: "アンデッド",
 } as const;
 type SpeciesKey = keyof typeof species;
-const SpeciesKey = Enum(Object.keys(species) as SpeciesKey[]);
+const SpeciesKey = Enum(getKeys(species));
 const speciesValues = Object.values(species);
-const speciesEntries = Object.entries(species);
+const speciesEntries = getEntries(species);
 export type Species = (typeof species)[SpeciesKey];
 export const Species = {
   name: species,
   nameList: speciesValues.filter((v) => v !== species.speciesNone),
-  list: Object.keys(species) as SpeciesKey[],
+  list: getKeys(species),
   key: SpeciesKey,
 
   find(value: string | undefined): Species | undefined {
@@ -1217,9 +1225,7 @@ export const Species = {
   },
 
   keyOf(value: unknown): SpeciesKey | undefined {
-    return speciesEntries.find((v) => v[1] === value)?.[0] as
-      | SpeciesKey
-      | undefined;
+    return speciesEntries.find((v) => v[1] === value)?.[0];
   },
 
   isSpecies(
@@ -1324,8 +1330,8 @@ const moveTypeColor: Record<MoveTypeKey, TableColor | undefined> = {
 type MoveTypeFilterKey = `movetype-${MoveTypeKey}`;
 const getMoveTypeFilterKey = (key: MoveTypeKey): MoveTypeFilterKey =>
   `movetype-${key}`;
-const moveTypeFilterKeys = Object.keys(moveType).map((key) =>
-  getMoveTypeFilterKey(key as MoveTypeKey)
+const moveTypeFilterKeys = getKeys(moveType).map((key) =>
+  getMoveTypeFilterKey(key)
 );
 export type MoveType = (typeof moveType)[MoveTypeKey];
 export const MoveType = {
@@ -1337,9 +1343,7 @@ export const MoveType = {
   },
 
   keyOf(value: MoveType): MoveTypeKey {
-    return Object.entries(moveType).find(
-      (v) => v[1] === value
-    )?.[0] as MoveTypeKey;
+    return getEntries(moveType).find((v) => v[1] === value)?.[0] as MoveTypeKey;
   },
 
   indexOf(value: MoveType | undefined): number {
@@ -1380,7 +1384,7 @@ export const damageTypeColor: Record<
   none: undefined,
 } as const;
 type DamageTypeKey = keyof typeof damageType;
-const damageTypeList = Object.keys(damageType) as DamageTypeKey[];
+const damageTypeList = getKeys(damageType);
 const damageTypeKeys = Enum(damageTypeList);
 export type DamageType = (typeof damageType)[DamageTypeKey];
 export const DamageType = {
@@ -1394,7 +1398,7 @@ export const DamageType = {
 
   keyOf(value: DamageType | undefined): DamageTypeKey {
     if (value === undefined) return this.keys.none;
-    return Object.entries(damageType).find(
+    return getEntries(damageType).find(
       (v) => v[1] === value
     )?.[0] as DamageTypeKey;
   },
@@ -1437,10 +1441,7 @@ const placement = {
   servant: "付",
   target: "的",
 } as const;
-const placementEntries = Object.entries(placement) as [
-  PlacementKey,
-  (typeof placement)[PlacementKey]
-][];
+const placementEntries = getEntries(placement);
 const placementColor = {
   vanguard: tableColor.red,
   rearguard: tableColor.green,
@@ -1455,7 +1456,7 @@ const placementDesc = {
   servant: "付与トークン",
   target: "照準トークン",
 } as const satisfies Record<PlacementKey, string>;
-const placementKeys = Object.keys(placement) as PlacementKey[];
+const placementKeys = getKeys(placement);
 type PlacementKey = keyof typeof placement;
 export type Placement = PlacementKey | undefined;
 export const Placement = {

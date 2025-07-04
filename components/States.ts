@@ -113,9 +113,7 @@ type FilterElement = (typeof filterElementKeys)[number];
 const filterSpeciesKeys = Data.Species.list;
 type FilterSpecies = (typeof filterSpeciesKeys)[number];
 
-const filterEquipmentKeys = Object.keys(
-  Data.className
-) as readonly Data.ClassNameKey[];
+const filterEquipmentKeys = Data.getKeys(Data.className);
 export type FilterEquipment = (typeof filterEquipmentKeys)[number];
 export const FilterEquipment = {
   names: Data.classEquipmentName,
@@ -682,7 +680,7 @@ export const Setting = {
   STORAGE_SESSION,
   TYPE_ENABLED,
   TYPE_DISABLED,
-  list: Object.keys(defaultSetting) as (keyof Setting)[],
+  list: Data.getKeys(defaultSetting),
   isValidMul: Valid.isMul,
   isValidAdd: Valid.isAdd,
   isValidCut: Valid.isCut,

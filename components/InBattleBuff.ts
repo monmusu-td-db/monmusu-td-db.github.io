@@ -77,13 +77,8 @@ class BuffType {
     fieldBuffAddDark: "field-buff-add-dark",
   } as const;
 
-  private static entries = Object.entries(this.list) as readonly [
-    BuffTypeKey,
-    BuffType
-  ][];
-  public static key = Data.Enum(
-    Object.keys(this.list) as readonly BuffTypeKey[]
-  );
+  private static entries = Data.getEntries(this.list);
+  public static key = Data.Enum(Data.getKeys(this.list));
 
   public static getKey(value: string): BuffTypeKey | undefined {
     return this.entries.find((kvp) => kvp[1] === value)?.[0];
