@@ -14708,6 +14708,54 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 157,
+    "unitName": "【脛こすり娘】ハギ",
+    "unitShortName": "ハギ",
+    "rarity": "C",
+    "class": "ハーミット",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 2292,
+    "attack": 404,
+    "defense": 310,
+    "resist": 422,
+    "supplements": [
+      "雨(4秒)/配置"
+    ],
+    "exSkill1": {
+      "skillName": "行かないでにゃ",
+      "attackMul": 140,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "鈍足-20%→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "魔法防御力+60",
+      "再出撃時間50%短縮"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "duration": 4,
+        "supplements": [
+          "雨"
+        ]
+      }
+    ]
+  },
+  {
     "id": 158,
     "unitName": "【土蜘蛛娘】ヤソメ",
     "unitShortName": "ヤソメ",
