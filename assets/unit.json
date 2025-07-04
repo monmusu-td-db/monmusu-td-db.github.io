@@ -15248,6 +15248,52 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 164,
+    "unitName": "【ろくろ首娘】ムツ",
+    "unitShortName": "ムツ",
+    "rarity": "C",
+    "class": "バード",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 3195,
+    "attack": 277,
+    "defense": 318,
+    "resist": 273,
+    "supplements": [
+      "停止(2秒)/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "驚かせちゃったかしら",
+      "rangeMul": 160,
+      "duration": "単発",
+      "cooldown": 45,
+      "supplements": [
+        "停止(2秒)/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "射程+10",
+      "射程+10"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "interval": 40
+      }
+    ],
+    "rangeAdd": 20,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 165,
     "unitName": "【槌の子娘】ヤノ",
     "unitShortName": "ヤノ",
