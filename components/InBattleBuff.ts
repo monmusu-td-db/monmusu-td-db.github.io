@@ -87,7 +87,7 @@ export default class InBattleBuff implements TableRow<Key> {
     });
 
     this.buffRange = new Stat.BuffRange({
-      statType: stat.range, // TODO
+      statType: stat.buffRange,
       calculater: (s) => this.getRangeValue(s),
       factors: (s) => this.situation.range.getFactors(s),
       isReversed: true,

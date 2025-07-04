@@ -2066,6 +2066,7 @@ export const Beast = {
       case stat.cost:
       case stat.range:
       case stat.moveSpeed:
+      case stat.buffRange:
         return true;
     }
     return false;
