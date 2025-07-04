@@ -135,7 +135,7 @@ interface JsonBuffMultiple extends JsonBuffBase {
 interface JsonBuffEffect {
   readonly type: string;
   readonly value?: number;
-  readonly potentialBonus?: Omit<JsonBuffEffect, "type">;
+  readonly potentialBonus?: Omit<JsonBuffEffect, "type" | "potentialBonus">;
 }
 export type JsonBuff = JsonBuffSingle | JsonBuffMultiple;
 type JsonBuffs = readonly JsonBuff[];

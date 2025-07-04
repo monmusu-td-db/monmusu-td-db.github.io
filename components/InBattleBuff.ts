@@ -17,6 +17,10 @@ const keys = [
   stat.initialTime,
   stat.duration,
   stat.cooldown,
+  stat.buffHpMul,
+  stat.buffAttackMul,
+  stat.buffDefenseMul,
+  stat.buffResistMul,
 ] as const;
 type Key = (typeof keys)[number];
 
@@ -26,6 +30,67 @@ interface Source {
   readonly buff: JsonBuff;
 }
 
+class BuffType {
+  public static list = {
+    hpMul: "hp-mul",
+    attackMul: "attack-mul",
+    defenseMul: "defense-mul",
+    resistMul: "resist-mul",
+    physicalDamageCut: "physical-damage-cut",
+    magicalDamageCut: "magical-damage-cut",
+    damageFactor: "damage-factor",
+    damageDebuff: "damage-debuff",
+    physicalDamageDebuff: "physical-damage-debuff",
+    magicalDamageDebuff: "magical-damage-debuff",
+    criChanceAdd: "critical-chance-add",
+    criDamageAdd: "critical-damage-add",
+    attackSpeedBuff: "attack-speed-buff",
+    delayMul: "delay-mul",
+    physicalEvasion: "physical-evasion",
+    magicalEvasion: "magical-evasion",
+    moveSpeedAdd: "move-speed-add",
+    moveSpeedMul: "move-speed-mul",
+    redeployTimeCut: "redeploy-time-cut",
+    withdrawCostReturn: "withdraw-cost-return",
+    poisonNullify: "poison-nullify",
+    blindNullify: "blind-nullify",
+    stanNullify: "stan-nullify",
+    petrifyNullify: "petrify-nullify",
+    freezeNullify: "freeze-nullify",
+    poisonResist: "poison-resist",
+    blindResist: "blind-resist",
+    stanResist: "stan-resist",
+    petrifyResist: "petrify-resist",
+    freezeResist: "freeze-resist",
+    fieldBuffFactor: "field-buff-factor",
+    fieldChangeFire: "field-change-fire",
+    fieldChangeWater: "field-change-water",
+    fieldChangeWind: "field-change-wind",
+    fieldChangeEarth: "field-change-earth",
+    fieldChangeLight: "field-change-light",
+    fieldChangeDark: "field-change-dark",
+    fieldBuffAddFire: "field-buff-add-fire",
+    fieldBuffAddWater: "field-buff-add-water",
+    fieldBuffAddWind: "field-buff-add-wind",
+    fieldBuffAddEarth: "field-buff-add-earth",
+    fieldBuffAddLight: "field-buff-add-light",
+    fieldBuffAddDark: "field-buff-add-dark",
+  } as const;
+
+  private static entries = Object.entries(this.list) as readonly [
+    BuffTypeKey,
+    BuffType
+  ][];
+  public static key = Data.Enum(
+    Object.keys(this.list) as readonly BuffTypeKey[]
+  );
+
+  public static getKey(value: string): BuffTypeKey | undefined {
+    return this.entries.find((kvp) => kvp[1] === value)?.[0];
+  }
+}
+type BuffTypeKey = keyof typeof BuffType.list;
+
 const target = {
   all: "全体",
   inRange: "射程内",
@@ -34,11 +99,20 @@ const target = {
   master: "付与対象",
 } as const;
 
+type EffectList = Partial<Record<BuffTypeKey, JsonEffect>>;
+interface Effect {
+  value?: number;
+}
+interface JsonEffect extends Effect {
+  potentialBonus?: Omit<JsonEffect, "potentialBonus">;
+}
+
 export default class InBattleBuff implements TableRow<Key> {
   readonly id: number;
   private readonly unit: Unit;
   private readonly rawBuff: JsonBuff;
   private readonly situation: Situation;
+  private readonly effectList: Readonly<EffectList>;
 
   readonly unitId: Stat.Root<number | undefined>;
   readonly unitShortName: Stat.UnitName;
@@ -48,6 +122,10 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly initialTime: Stat.Root;
   readonly duration: Stat.Root<number | undefined, Data.DurationFactorsResult>;
   readonly cooldown: Stat.Root<number | undefined, Data.CooldownFactors>;
+  readonly buffHpMul: Stat.Root;
+  readonly buffAttackMul: Stat.Root;
+  readonly buffDefenseMul: Stat.Root;
+  readonly buffResistMul: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -62,6 +140,24 @@ export default class InBattleBuff implements TableRow<Key> {
         src = { unitId: unit.id, skill: buff.skill };
       }
       this.situation = new Situation(src, id);
+    }
+
+    {
+      const list: EffectList = {};
+      if ("type" in buff) {
+        const key = BuffType.getKey(buff.type);
+        if (key) {
+          list[key] = buff;
+        }
+      } else {
+        buff.effects.forEach((effect) => {
+          const key = BuffType.getKey(effect.type);
+          if (key) {
+            list[key] = effect;
+          }
+        });
+      }
+      this.effectList = list;
     }
 
     this.unitId = unit.unitId;
@@ -119,6 +215,71 @@ export default class InBattleBuff implements TableRow<Key> {
     });
 
     this.cooldown = this.situation.cooldown;
+
+    const getBuffMul = (
+      statType:
+        | typeof stat.buffHpMul
+        | typeof stat.buffAttackMul
+        | typeof stat.buffDefenseMul
+        | typeof stat.buffResistMul
+    ) => {
+      let effectKey;
+      switch (statType) {
+        case stat.buffHpMul:
+          effectKey = BuffType.key.hpMul;
+          break;
+        case stat.buffAttackMul:
+          effectKey = BuffType.key.attackMul;
+          break;
+        case stat.buffDefenseMul:
+          effectKey = BuffType.key.defenseMul;
+          break;
+        case stat.buffResistMul:
+          effectKey = BuffType.key.resistMul;
+          break;
+      }
+
+      const ret: Stat.Root = new Stat.Root({
+        statType,
+        calculater: (s) => {
+          const effect = this.getEffect(s, this.effectList[effectKey]);
+          return effect?.value;
+        },
+        isReversed: true,
+        text: (s) => this.getPercentText(ret.getValue(s)),
+      });
+
+      return ret;
+    };
+
+    this.buffHpMul = getBuffMul(stat.buffHpMul);
+    this.buffAttackMul = getBuffMul(stat.buffAttackMul);
+    this.buffDefenseMul = getBuffMul(stat.buffDefenseMul);
+    this.buffResistMul = getBuffMul(stat.buffResistMul);
+  }
+
+  private getEffect(
+    setting: Setting,
+    rawEffect: JsonEffect | undefined
+  ): Effect | undefined {
+    if (!rawEffect) {
+      return;
+    }
+    if (this.unit.isPotentialApplied(setting)) {
+      return {
+        ...rawEffect,
+        ...rawEffect.potentialBonus,
+      };
+    } else {
+      return rawEffect;
+    }
+  }
+
+  private getPercentText(value: number | undefined): string | undefined {
+    if (value === undefined) {
+      return;
+    }
+    return value - 100 + "%";
   }
 
   private getTargetComparer(setting: Setting): number | undefined {

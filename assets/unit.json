@@ -8561,6 +8561,24 @@
         "value": 110
       },
       {
+        "require": [
+          "ドラゴン特性"
+        ],
+        "skill": 2,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "defense-mul",
+            "value": 200
+          },
+          {
+            "type": "resist-mul",
+            "value": 200
+          }
+        ]
+      },
+      {
+        "TODO": "TODO",
         "type": "defense-mul",
         "require": [
           "ドラゴン特性"
@@ -8570,6 +8588,7 @@
         "value": 200
       },
       {
+        "TODO": "TODO",
         "type": "resist-mul",
         "require": [
           "ドラゴン特性"
