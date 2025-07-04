@@ -961,7 +961,7 @@ export default class Situation implements TableRow<Keys> {
         const feature = fea.duration;
         const isExtraDamage = fea.isExtraDamage ?? false;
         const isAction = fea.isAction ?? false;
-        const interval = this.interval.getFactors(s)?.base?.result ?? 0;
+        const interval = this.interval.getFactors(s)?.actualResult ?? 0;
         const parentText = this.getTokenParent(s)?.duration.getText(s);
         const factors: Data.DurationFactors = {
           skill,
