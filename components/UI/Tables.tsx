@@ -1,10 +1,10 @@
 "use client";
 
 import FormationBuff from "../FormationBuff";
-import InBattleBuff from "../InBattleBuff";
+import InBattleBuffVariants from "../InBattleBuffVariants";
 import Situation from "../Situation";
 import Unit from "../Unit";
-import type { StatTableProps } from "./StatTable";
+import type { StatTableProps } from "./StatTableUtil";
 import type StatTableType from "./StatTable";
 import dynamic from "next/dynamic";
 
@@ -36,7 +36,11 @@ export function TablesFormationBuff(props: StatTableProps) {
 }
 
 export function TablesInBattleBuff(props: StatTableProps) {
-  return <LazyLoading {...props} src={InBattleBuff.tableData} />;
+  return <LazyLoading {...props} src={InBattleBuffVariants.tableData} />;
+}
+
+export function TablesInBattleBuffBase(props: StatTableProps) {
+  return <LazyLoading {...props} src={InBattleBuffVariants.tableDataBase} />;
 }
 
 export default {

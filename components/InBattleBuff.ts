@@ -357,8 +357,15 @@ export default class InBattleBuff implements TableRow<Key> {
     return this.situation.range.getValue(setting);
   }
 
-  private static filter(states: States, list: readonly InBattleBuff[]) {
+  protected static filter(
+    states: States,
+    list: readonly InBattleBuff[]
+  ): readonly InBattleBuff[] {
     return list.filter((buff) => buff.unit.filterFn(states));
+  }
+
+  protected static get list(): readonly InBattleBuff[] {
+    return buffs;
   }
 
   public static get tableData(): TableSource<Key> {
