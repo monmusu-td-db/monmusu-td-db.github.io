@@ -211,6 +211,8 @@ th.buffRange {
 th.buffHpMul,
 th.buffAttackMul,
 th.buffDefenseMul,
-th.buffResistMul {
+th.buffResistMul,
+th.buffPhysicalDamageCut,
+th.buffMagicalDamageCut {
   width: 2.7rem;
 }

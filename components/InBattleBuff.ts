@@ -26,6 +26,8 @@ const keys = [
   stat.buffAttackMul,
   stat.buffDefenseMul,
   stat.buffResistMul,
+  stat.buffPhysicalDamageCut,
+  stat.buffMagicalDamageCut,
   stat.buffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -127,6 +129,8 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffAttackMul: Stat.Root;
   readonly buffDefenseMul: Stat.Root;
   readonly buffResistMul: Stat.Root;
+  readonly buffPhysicalDamageCut: Stat.Root;
+  readonly buffMagicalDamageCut: Stat.Root;
   readonly buffSupplements: Stat.Root<undefined>;
 
   constructor(src: Source) {
@@ -248,16 +252,35 @@ export default class InBattleBuff implements TableRow<Key> {
           return effect?.value;
         },
         isReversed: true,
-        text: (s) => this.getPercentText(ret.getValue(s)),
+        text: (s) => this.getMulPercentText(ret.getValue(s)),
       });
 
       return ret;
     };
-
     this.buffHpMul = getBuffMul(stat.buffHpMul);
     this.buffAttackMul = getBuffMul(stat.buffAttackMul);
     this.buffDefenseMul = getBuffMul(stat.buffDefenseMul);
     this.buffResistMul = getBuffMul(stat.buffResistMul);
+
+    const getDamageCut = (isPhysical: boolean) => {
+      const ret: Stat.Root = new Stat.Root({
+        statType: isPhysical
+          ? stat.buffPhysicalDamageCut
+          : stat.buffMagicalDamageCut,
+        calculater: (s) => {
+          const key = isPhysical
+            ? BuffType.key.physicalDamageCut
+            : BuffType.key.magicalDamageCut;
+          const effect = this.getEffect(s, this.effectList[key]);
+          return effect?.value;
+        },
+        isReversed: true,
+        text: (s) => this.getPercentText(ret.getValue(s)),
+      });
+      return ret;
+    };
+    this.buffPhysicalDamageCut = getDamageCut(true);
+    this.buffMagicalDamageCut = getDamageCut(false);
 
     this.buffSupplements = new Stat.Root({
       statType: stat.buffSupplements,
@@ -287,7 +310,14 @@ export default class InBattleBuff implements TableRow<Key> {
     if (value === undefined) {
       return;
     }
-    return value - 100 + "%";
+    return value + "%";
+  }
+
+  private getMulPercentText(value: number | undefined): string | undefined {
+    if (value === undefined) {
+      return;
+    }
+    return this.getPercentText(value - 100);
   }
 
   private getTargetComparer(setting: Setting): number | undefined {

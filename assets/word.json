@@ -66,5 +66,7 @@
     "buffHpMul": "HP乗算",
     "buffAttackMul": "攻撃乗算",
     "buffDefenseMul": "物防乗算",
-    "buffResistMul": "魔防乗算"
+    "buffResistMul": "魔防乗算",
+    "buffPhysicalDamageCut": "物理攻撃軽減",
+    "buffMagicalDamageCut": "魔法攻撃軽減"
 }
