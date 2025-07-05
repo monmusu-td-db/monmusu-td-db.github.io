@@ -1,7 +1,7 @@
 import * as Data from "./Data";
 import * as Stat from "./Stat";
 import Unit from "./Unit";
-import type { TableSource, TableRow } from "./UI/StatTable";
+import type { TableSource, TableRow } from "./UI/StatTableUtil";
 import type { Setting, States } from "./States";
 import FormationBuffUI from "./UI/FormationBuffUI";
 

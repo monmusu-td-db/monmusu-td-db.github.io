@@ -1,6 +1,6 @@
 import * as Data from "@/components/Data";
 import { memo } from "react";
-import type { TableHeader } from "./StatTable";
+import type { TableHeader } from "./StatTableUtil";
 
 const stat = Data.stat;
 

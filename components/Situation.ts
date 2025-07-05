@@ -20,7 +20,12 @@ import {
   type FeatureOutput,
   type FeatureOutputCore,
 } from "./Feature";
-import type { TableHeader, TableRow, TableSource } from "./UI/StatTable";
+import {
+  TableSourceUtil,
+  type TableHeader,
+  type TableRow,
+  type TableSource,
+} from "./UI/StatTableUtil";
 
 const tableColor = Data.tableColorAlias;
 
@@ -2751,13 +2756,7 @@ export default class Situation implements TableRow<Keys> {
     return {
       headers: Situation.headers,
       filter: (states) => Situation.filter(states, situations),
-      sort: (setting, rows, column, isReversed) => {
-        return Data.mapSort(
-          rows,
-          (target) => Situation.comparer(setting, column, target),
-          isReversed
-        );
-      },
+      sort: TableSourceUtil.getSortFn(),
     };
   }
 }

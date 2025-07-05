@@ -3,7 +3,11 @@ import Situation from "./Situation";
 import * as Stat from "./Stat";
 import type { Setting, States } from "./States";
 import { InBattleBuffUI } from "./UI/InBattleBuffUI";
-import type { TableRow, TableSource } from "./UI/StatTable";
+import {
+  TableSourceUtil,
+  type TableRow,
+  type TableSource,
+} from "./UI/StatTableUtil";
 import type { JsonBuff } from "./Unit";
 import Unit from "./Unit";
 
@@ -331,13 +335,7 @@ export default class InBattleBuff implements TableRow<Key> {
     return {
       headers: Data.StatType.getHeaders(keys),
       filter: (states) => this.filter(states, buffs),
-      sort: (setting, rows, column, isReversed) => {
-        return Data.mapSort(
-          rows,
-          (target) => target[column].getSortOrder(setting),
-          isReversed
-        );
-      },
+      sort: TableSourceUtil.getSortFn(),
     } as const;
   }
 }

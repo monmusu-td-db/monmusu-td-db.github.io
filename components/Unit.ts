@@ -11,7 +11,11 @@ import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
-import type { TableSource, TableRow } from "./UI/StatTable";
+import {
+  type TableSource,
+  type TableRow,
+  TableSourceUtil,
+} from "./UI/StatTableUtil";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -1400,13 +1404,7 @@ export default class Unit implements TableRow<Keys> {
     return {
       headers: Data.StatType.getHeaders(keys),
       filter: (states) => Unit.filter(states, units),
-      sort: (setting, rows, column, isReversed) => {
-        return Data.mapSort(
-          rows,
-          (target) => target[column].getSortOrder(setting),
-          isReversed
-        );
-      },
+      sort: TableSourceUtil.getSortFn(),
     };
   }
 }

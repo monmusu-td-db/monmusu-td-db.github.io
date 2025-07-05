@@ -19,6 +19,13 @@ import Panel from "./Panel";
 import * as Data from "../Data";
 import TableStyle from "./TableStyle";
 import Situation from "../Situation";
+import type {
+  StatTableProps,
+  TableData,
+  TableHeader,
+  TableRow,
+  TableSource,
+} from "./StatTableUtil";
 
 //
 // Types
@@ -30,44 +37,10 @@ export type CellData = {
   stat: Stat;
 };
 
-interface TableHeaders<T extends string> {
-  headers: readonly TableHeader<T>[];
-}
-
-export interface TableData<T extends string> extends TableHeaders<T> {
-  rows: readonly TableRow<T>[];
-}
-
-export interface TableSource<T extends string> extends TableHeaders<T> {
-  filter: (states: States) => readonly TableRow<T>[];
-  sort: (
-    setting: Setting,
-    rows: readonly TableRow<T>[],
-    column: T,
-    isReversed: boolean
-  ) => readonly TableRow<T>[];
-}
-
-export type TableHeader<T extends string> = {
-  id: T;
-  name: string;
-};
-
-export type TableRow<T extends string> = {
-  readonly [key in T]: StatRoot<unknown, unknown>;
-} & {
-  readonly id: number;
-};
-
 type Sort<T extends string> = {
   column: T | undefined;
   isReversed: boolean;
 };
-
-export interface StatTableProps {
-  id: string;
-  className?: string;
-}
 
 interface StatTableSourceProps<T extends string> extends StatTableProps {
   src: TableSource<T>;
