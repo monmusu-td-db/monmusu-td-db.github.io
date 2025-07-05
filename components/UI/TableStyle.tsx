@@ -36,6 +36,10 @@ const TableStyle = memo(function TableStyle({
       case stat.buffAttack:
       case stat.buffDefense:
       case stat.buffResist:
+      case stat.buffHpMul:
+      case stat.buffAttackMul:
+      case stat.buffDefenseMul:
+      case stat.buffResistMul:
         end.push(index);
         break;
       case stat.rarity:
@@ -78,6 +82,10 @@ const TableStyle = memo(function TableStyle({
       case stat.buffCriChance:
       case stat.buffCriChanceLimit:
       case stat.buffSupplements:
+      case stat.buffHpMul:
+      case stat.buffAttackMul:
+      case stat.buffDefenseMul:
+      case stat.buffResistMul:
         break;
       default:
         empty.push(index);

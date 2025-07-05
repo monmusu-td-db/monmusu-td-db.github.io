@@ -207,3 +207,10 @@ th.buffSupplements {
 th.buffRange {
   width: 2.4rem;
 }
+
+th.buffHpMul,
+th.buffAttackMul,
+th.buffDefenseMul,
+th.buffResistMul {
+  width: 2.7rem;
+}

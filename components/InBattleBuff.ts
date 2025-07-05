@@ -2,6 +2,7 @@ import * as Data from "./Data";
 import Situation from "./Situation";
 import * as Stat from "./Stat";
 import type { Setting, States } from "./States";
+import { InBattleBuffUI } from "./UI/InBattleBuffUI";
 import type { TableRow, TableSource } from "./UI/StatTable";
 import type { JsonBuff } from "./Unit";
 import Unit from "./Unit";
@@ -21,6 +22,7 @@ const keys = [
   stat.buffAttackMul,
   stat.buffDefenseMul,
   stat.buffResistMul,
+  stat.buffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
 
@@ -121,6 +123,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffAttackMul: Stat.Root;
   readonly buffDefenseMul: Stat.Root;
   readonly buffResistMul: Stat.Root;
+  readonly buffSupplements: Stat.Root<undefined>;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -251,6 +254,12 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffAttackMul = getBuffMul(stat.buffAttackMul);
     this.buffDefenseMul = getBuffMul(stat.buffDefenseMul);
     this.buffResistMul = getBuffMul(stat.buffResistMul);
+
+    this.buffSupplements = new Stat.Root({
+      statType: stat.buffSupplements,
+      calculater: () => undefined,
+      item: () => InBattleBuffUI.getSupplement(buff),
+    });
   }
 
   private getEffect(
