@@ -323,11 +323,11 @@ export const StatType = {
   nameOf: (value: StatType): string => jsonWord[value],
   getHeaderName: (statType: string, setting: Setting, name: string): string => {
     switch (statType) {
-      case "dps1":
-      case "dps2":
-      case "dps3":
-      case "dps4":
-      case "dps5":
+      case stat.dps1:
+      case stat.dps2:
+      case stat.dps3:
+      case stat.dps4:
+      case stat.dps5:
         return `DPS ${setting[statType]}`;
       default:
         return name;
