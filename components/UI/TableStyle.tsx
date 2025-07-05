@@ -84,6 +84,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffCriChance:
       case stat.buffCriChanceLimit:
       case stat.buffSupplements:
+      case stat.inBattleBuffSupplements:
       case stat.buffHpMul:
       case stat.buffAttackMul:
       case stat.buffDefenseMul:
@@ -164,6 +165,7 @@ function isSortable(column: unknown): boolean {
     case stat.conditions:
     case stat.supplements:
     case stat.buffSupplements:
+    case stat.inBattleBuffSupplements:
       return false;
   }
   return true;

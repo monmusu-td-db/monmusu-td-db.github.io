@@ -28,7 +28,7 @@ const keys = [
   stat.buffResistMul,
   stat.buffPhysicalDamageCut,
   stat.buffMagicalDamageCut,
-  stat.buffSupplements,
+  stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
 
@@ -131,7 +131,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffResistMul: Stat.Root;
   readonly buffPhysicalDamageCut: Stat.Root;
   readonly buffMagicalDamageCut: Stat.Root;
-  readonly buffSupplements: Stat.Root<undefined>;
+  readonly inBattleBuffSupplements: Stat.Root<undefined>;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -282,8 +282,8 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffPhysicalDamageCut = getDamageCut(true);
     this.buffMagicalDamageCut = getDamageCut(false);
 
-    this.buffSupplements = new Stat.Root({
-      statType: stat.buffSupplements,
+    this.inBattleBuffSupplements = new Stat.Root({
+      statType: stat.inBattleBuffSupplements,
       calculater: () => undefined,
       item: () => InBattleBuffUI.getSupplement(buff),
     });

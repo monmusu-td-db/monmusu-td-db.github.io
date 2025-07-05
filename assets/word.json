@@ -62,6 +62,7 @@
     "buffCriChanceLimit": "CRI率上限",
     "buffTarget": "対象",
     "buffSupplements": "補足",
+    "inBattleBuffSupplements": "補足",
     "buffRange": "射程",
     "buffHpMul": "HP乗算",
     "buffAttackMul": "攻撃乗算",

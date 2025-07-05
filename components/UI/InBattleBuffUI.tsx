@@ -32,5 +32,10 @@ function Supplement({ buff }: { buff: JsonBuff }): ReactNode {
     requirements.push(text);
   });
 
-  return <span className="buff-require">{requirements.join(" ")}</span>;
+  return (
+    <>
+      <span className="buff-require">{requirements.join(" ")} </span>
+      {buff.supplements?.join(" ")}
+    </>
+  );
 }
