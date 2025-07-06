@@ -43,6 +43,10 @@ export function TablesInBattleBuffBase(props: StatTableProps) {
   return <LazyLoading {...props} src={InBattleBuffVariants.tableDataBase} />;
 }
 
+export function TablesInBattleBuffDamage(props: StatTableProps) {
+  return <LazyLoading {...props} src={InBattleBuffVariants.tableDataDamage} />;
+}
+
 export default {
   Unit: TablesUnit,
   Situation: TablesSituation,

@@ -2,6 +2,7 @@ import {
   TablesFormationBuff,
   TablesInBattleBuff,
   TablesInBattleBuffBase,
+  TablesInBattleBuffDamage,
 } from "@/components/UI/Tables";
 import PageRoot from "@/components/UI/PageRoot";
 import { Container } from "react-bootstrap";
@@ -12,8 +13,9 @@ export default function App() {
       <Container fluid="xxl">
         <h1>バフ一覧</h1>
         {/* <FormationBuff/> */}
-        <InBattleBuff />
+        {/* <InBattleBuff /> */}
         {/* <InBattleBaseBuff/> */}
+        <InBattleBuffDamage />
       </Container>
     </PageRoot>
   );
@@ -37,11 +39,20 @@ function InBattleBuff() {
   );
 }
 
-function InBattleBaseBuff() {
+function InBattleBuffBase() {
   return (
     <>
       <h2>基礎バフ</h2>
       <TablesInBattleBuffBase id="in-battle-base" className="mb-5" />
+    </>
+  );
+}
+
+function InBattleBuffDamage() {
+  return (
+    <>
+      <h2>ダメージバフ</h2>
+      <TablesInBattleBuffDamage id="in-battle-damage" className="mb-5" />
     </>
   );
 }

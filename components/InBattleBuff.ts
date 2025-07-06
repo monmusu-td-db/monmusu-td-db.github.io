@@ -37,6 +37,7 @@ const keys = [
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
+export type InBattleBuffKey = Key;
 
 interface Source {
   readonly id: number;
