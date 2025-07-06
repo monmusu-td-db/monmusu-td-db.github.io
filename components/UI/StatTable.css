@@ -221,7 +221,9 @@ th.buffMagicalDamageCut,
 th.buffDamageFactor,
 th.buffDamageDebuff,
 th.buffPhysicalDamageDebuff,
-th.buffMagicalDamageDebuff {
+th.buffMagicalDamageDebuff,
+th.buffAttackSpeed,
+th.buffDelayMul {
   width: 2.7rem;
 }
 

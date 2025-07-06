@@ -75,5 +75,7 @@
     "buffDamageFactor": "ダメージ倍率",
     "buffDamageDebuff": "敵被ダメージ増加",
     "buffPhysicalDamageDebuff": "敵物理被ダメージ増加",
-    "buffMagicalDamageDebuff": "敵魔法被ダメージ増加"
+    "buffMagicalDamageDebuff": "敵魔法被ダメージ増加",
+    "buffAttackSpeed": "攻撃速度バフ",
+    "buffDelayMul": "攻撃待機時間短縮"
 }

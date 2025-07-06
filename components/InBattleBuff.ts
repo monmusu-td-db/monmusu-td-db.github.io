@@ -34,6 +34,8 @@ const keys = [
   stat.buffDamageDebuff,
   stat.buffPhysicalDamageDebuff,
   stat.buffMagicalDamageDebuff,
+  stat.buffAttackSpeed,
+  stat.buffDelayMul,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -148,6 +150,8 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffDamageDebuff: Stat.Root;
   readonly buffPhysicalDamageDebuff: Stat.Root;
   readonly buffMagicalDamageDebuff: Stat.Root;
+  readonly buffAttackSpeed: Stat.Root;
+  readonly buffDelayMul: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -362,6 +366,19 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffMagicalDamageDebuff = getDamageDebuff(
       stat.buffMagicalDamageDebuff
     );
+
+    this.buffAttackSpeed = new Stat.Root({
+      statType: stat.buffAttackSpeed,
+      calculater: this.getEffectCalculater(typeKey.attackSpeedBuff),
+      isReversed: true,
+      text: (s) => this.getMulPercentText(this.buffAttackSpeed.getValue(s)),
+    });
+
+    this.buffDelayMul = new Stat.Root({
+      statType: stat.buffDelayMul,
+      calculater: this.getEffectCalculater(typeKey.delayMul),
+      text: (s) => this.getMulPercentText(this.buffDelayMul.getValue(s)),
+    });
   }
 
   private getEffectCalculater(effectKey: keyof EffectList) {
