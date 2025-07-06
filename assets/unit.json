@@ -28589,16 +28589,18 @@
     ],
     "buffs": [
       {
-        "type": "critical-chance-add",
         "skill": 1,
         "target": "射程内",
-        "value": 20
-      },
-      {
-        "type": "critical-chance-limit-add",
-        "skill": 1,
-        "target": "射程内",
-        "value": 20
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 20
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 20
+          }
+        ]
       }
     ]
   }

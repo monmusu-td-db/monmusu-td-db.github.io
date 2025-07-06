@@ -42,6 +42,8 @@ const TableStyle = memo(function TableStyle({
       case stat.buffResistMul:
       case stat.buffPhysicalDamageCut:
       case stat.buffMagicalDamageCut:
+      case stat.buffCriChanceAdd:
+      case stat.buffCriDamageAdd:
         end.push(index);
         break;
       case stat.rarity:
@@ -91,6 +93,8 @@ const TableStyle = memo(function TableStyle({
       case stat.buffResistMul:
       case stat.buffPhysicalDamageCut:
       case stat.buffMagicalDamageCut:
+      case stat.buffCriChanceAdd:
+      case stat.buffCriDamageAdd:
         break;
       default:
         empty.push(index);

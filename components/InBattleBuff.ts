@@ -28,6 +28,8 @@ const keys = [
   stat.buffResistMul,
   stat.buffPhysicalDamageCut,
   stat.buffMagicalDamageCut,
+  stat.buffCriChanceAdd,
+  stat.buffCriDamageAdd,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -52,6 +54,8 @@ class BuffType {
     magicalDamageDebuff: "magical-damage-debuff",
     criChanceAdd: "critical-chance-add",
     criDamageAdd: "critical-damage-add",
+    criChanceLimitAdd: "critical-chance-limit-add",
+    criDamageLimitAdd: "critical-damage-limit-add",
     attackSpeedBuff: "attack-speed-buff",
     delayMul: "delay-mul",
     physicalEvasion: "physical-evasion",
@@ -93,6 +97,7 @@ class BuffType {
   }
 }
 type BuffTypeKey = keyof typeof BuffType.list;
+const typeKey = BuffType.key;
 
 const target = {
   all: "全体",
@@ -125,13 +130,15 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly initialTime: Stat.Root;
   readonly duration: Stat.Root<number | undefined, Data.DurationFactorsResult>;
   readonly cooldown: Stat.Root<number | undefined, Data.CooldownFactors>;
+  readonly inBattleBuffSupplements: Stat.Root<undefined>;
   readonly buffHpMul: Stat.Root;
   readonly buffAttackMul: Stat.Root;
   readonly buffDefenseMul: Stat.Root;
   readonly buffResistMul: Stat.Root;
   readonly buffPhysicalDamageCut: Stat.Root;
   readonly buffMagicalDamageCut: Stat.Root;
-  readonly inBattleBuffSupplements: Stat.Root<undefined>;
+  readonly buffCriChanceAdd: Stat.Root;
+  readonly buffCriDamageAdd: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -222,6 +229,12 @@ export default class InBattleBuff implements TableRow<Key> {
 
     this.cooldown = this.situation.cooldown;
 
+    this.inBattleBuffSupplements = new Stat.Root({
+      statType: stat.inBattleBuffSupplements,
+      calculater: () => undefined,
+      item: () => InBattleBuffUI.getSupplement(buff),
+    });
+
     const getBuffMul = (
       statType:
         | typeof stat.buffHpMul
@@ -232,16 +245,16 @@ export default class InBattleBuff implements TableRow<Key> {
       let effectKey;
       switch (statType) {
         case stat.buffHpMul:
-          effectKey = BuffType.key.hpMul;
+          effectKey = typeKey.hpMul;
           break;
         case stat.buffAttackMul:
-          effectKey = BuffType.key.attackMul;
+          effectKey = typeKey.attackMul;
           break;
         case stat.buffDefenseMul:
-          effectKey = BuffType.key.defenseMul;
+          effectKey = typeKey.defenseMul;
           break;
         case stat.buffResistMul:
-          effectKey = BuffType.key.resistMul;
+          effectKey = typeKey.resistMul;
           break;
       }
 
@@ -269,8 +282,8 @@ export default class InBattleBuff implements TableRow<Key> {
           : stat.buffMagicalDamageCut,
         calculater: (s) => {
           const key = isPhysical
-            ? BuffType.key.physicalDamageCut
-            : BuffType.key.magicalDamageCut;
+            ? typeKey.physicalDamageCut
+            : typeKey.magicalDamageCut;
           const effect = this.getEffect(s, this.effectList[key]);
           return effect?.value;
         },
@@ -282,11 +295,29 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffPhysicalDamageCut = getDamageCut(true);
     this.buffMagicalDamageCut = getDamageCut(false);
 
-    this.inBattleBuffSupplements = new Stat.Root({
-      statType: stat.inBattleBuffSupplements,
-      calculater: () => undefined,
-      item: () => InBattleBuffUI.getSupplement(buff),
-    });
+    const getCriticalAdd = (isChance: boolean) => {
+      const ret: Stat.Root = new Stat.Root({
+        statType: isChance ? stat.buffCriChanceAdd : stat.buffCriDamageAdd,
+        calculater: (s) => {
+          const key = isChance ? typeKey.criChanceAdd : typeKey.criDamageAdd;
+          const effect = this.getEffect(s, this.effectList[key]);
+          return effect?.value;
+        },
+        isReversed: true,
+        text: (s) => this.getPercentText(ret.getValue(s)),
+        item: (s) => {
+          const limitKey = isChance
+            ? typeKey.criChanceLimitAdd
+            : typeKey.criDamageLimitAdd;
+          const limitEffect = this.getEffect(s, this.effectList[limitKey]);
+          const limitText = this.getPercentText(limitEffect?.value);
+          return InBattleBuffUI.getCritical(ret.getText(s), limitText);
+        },
+      });
+      return ret;
+    };
+    this.buffCriChanceAdd = getCriticalAdd(true);
+    this.buffCriDamageAdd = getCriticalAdd(false);
   }
 
   private getEffect(

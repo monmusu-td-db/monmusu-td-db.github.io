@@ -220,3 +220,8 @@ th.buffPhysicalDamageCut,
 th.buffMagicalDamageCut {
   width: 2.7rem;
 }
+
+th.buffCriChanceAdd,
+th.buffCriDamageAdd {
+  width: 3rem;
+}

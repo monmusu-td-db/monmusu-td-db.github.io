@@ -7,6 +7,13 @@ export class InBattleBuffUI {
   public static getSupplement(buff: JsonBuff): ReactNode {
     return <Supplement buff={buff} />;
   }
+
+  public static getCritical(
+    base: string | undefined,
+    limit: string | undefined
+  ): ReactNode {
+    return <Critical base={base} limit={limit} />;
+  }
 }
 
 function Supplement({ buff }: { buff: JsonBuff }): ReactNode {
@@ -36,6 +43,24 @@ function Supplement({ buff }: { buff: JsonBuff }): ReactNode {
     <>
       <span className="buff-require">{requirements.join(" ")} </span>
       {buff.supplements?.join(" ")}
+    </>
+  );
+}
+
+function Critical({
+  base,
+  limit,
+}: {
+  base: string | undefined;
+  limit: string | undefined;
+}): ReactNode {
+  if (!base && !limit) {
+    return;
+  }
+  return (
+    <>
+      {!!base && base + " "}
+      {!!limit && <b>{"(" + limit + ")"}</b>}
     </>
   );
 }

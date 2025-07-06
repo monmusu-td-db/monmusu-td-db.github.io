@@ -69,5 +69,7 @@
     "buffDefenseMul": "物防乗算",
     "buffResistMul": "魔防乗算",
     "buffPhysicalDamageCut": "物理攻撃軽減",
-    "buffMagicalDamageCut": "魔法攻撃軽減"
+    "buffMagicalDamageCut": "魔法攻撃軽減",
+    "buffCriChanceAdd": "クリティカル率増加",
+    "buffCriDamageAdd": "クリティカルダメージ増加"
 }
