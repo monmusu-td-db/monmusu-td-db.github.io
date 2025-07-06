@@ -77,5 +77,7 @@
     "buffPhysicalDamageDebuff": "敵物理被ダメージ増加",
     "buffMagicalDamageDebuff": "敵魔法被ダメージ増加",
     "buffAttackSpeed": "攻撃速度バフ",
-    "buffDelayMul": "攻撃待機時間短縮"
+    "buffDelayMul": "攻撃待機時間短縮",
+    "buffPhysicalEvasion": "物理回避付与",
+    "buffMagicalEvasion": "魔法回避付与"
 }

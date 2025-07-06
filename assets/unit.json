@@ -27758,16 +27758,18 @@
         "value": 999
       },
       {
-        "type": "physical-evasion",
         "skill": 1,
         "target": "射程内",
-        "value": 35
-      },
-      {
-        "type": "magical-evasion",
-        "skill": 1,
-        "target": "射程内",
-        "value": 35
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 35
+          },
+          {
+            "type": "magical-evasion",
+            "value": 35
+          }
+        ]
       }
     ]
   },

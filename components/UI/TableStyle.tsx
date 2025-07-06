@@ -50,6 +50,8 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMagicalDamageDebuff:
       case stat.buffAttackSpeed:
       case stat.buffDelayMul:
+      case stat.buffPhysicalEvasion:
+      case stat.buffMagicalEvasion:
         end.push(index);
         break;
       case stat.rarity:
@@ -107,6 +109,8 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMagicalDamageDebuff:
       case stat.buffAttackSpeed:
       case stat.buffDelayMul:
+      case stat.buffPhysicalEvasion:
+      case stat.buffMagicalEvasion:
         break;
       default:
         empty.push(index);

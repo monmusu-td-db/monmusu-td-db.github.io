@@ -36,6 +36,8 @@ const keys = [
   stat.buffMagicalDamageDebuff,
   stat.buffAttackSpeed,
   stat.buffDelayMul,
+  stat.buffPhysicalEvasion,
+  stat.buffMagicalEvasion,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -152,6 +154,8 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffMagicalDamageDebuff: Stat.Root;
   readonly buffAttackSpeed: Stat.Root;
   readonly buffDelayMul: Stat.Root;
+  readonly buffPhysicalEvasion: Stat.Root;
+  readonly buffMagicalEvasion: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -273,7 +277,7 @@ export default class InBattleBuff implements TableRow<Key> {
 
       const ret: Stat.Root = new Stat.Root({
         statType,
-        calculater: this.getEffectCalculater(effectKey),
+        calculater: this.getEffectCalculaterFn(effectKey),
         isReversed: true,
         text: (s) => this.getMulPercentText(ret.getValue(s)),
       });
@@ -294,7 +298,7 @@ export default class InBattleBuff implements TableRow<Key> {
         statType: isPhysical
           ? stat.buffPhysicalDamageCut
           : stat.buffMagicalDamageCut,
-        calculater: this.getEffectCalculater(key),
+        calculater: this.getEffectCalculaterFn(key),
         isReversed: true,
         text: (s) => this.getPercentText(ret.getValue(s)),
       });
@@ -311,7 +315,7 @@ export default class InBattleBuff implements TableRow<Key> {
 
       const ret: Stat.Root = new Stat.Root({
         statType: isChance ? stat.buffCriChanceAdd : stat.buffCriDamageAdd,
-        calculater: this.getEffectCalculater(key),
+        calculater: this.getEffectCalculaterFn(key),
         isReversed: true,
         text: (s) => this.getPercentText(ret.getValue(s)),
         item: (s) => {
@@ -327,7 +331,7 @@ export default class InBattleBuff implements TableRow<Key> {
 
     this.buffDamageFactor = new Stat.Root({
       statType: stat.buffDamageFactor,
-      calculater: this.getEffectCalculater(typeKey.damageFactor),
+      calculater: this.getEffectCalculaterFn(typeKey.damageFactor),
       isReversed: true,
       text: (s) => this.getMulPercentText(this.buffDamageFactor.getValue(s)),
     });
@@ -353,7 +357,7 @@ export default class InBattleBuff implements TableRow<Key> {
 
       const ret: Stat.Root = new Stat.Root({
         statType,
-        calculater: this.getEffectCalculater(key),
+        calculater: this.getEffectCalculaterFn(key),
         isReversed: true,
         text: (s) => this.getMulPercentText(ret.getValue(s)),
       });
@@ -369,19 +373,35 @@ export default class InBattleBuff implements TableRow<Key> {
 
     this.buffAttackSpeed = new Stat.Root({
       statType: stat.buffAttackSpeed,
-      calculater: this.getEffectCalculater(typeKey.attackSpeedBuff),
+      calculater: this.getEffectCalculaterFn(typeKey.attackSpeedBuff),
       isReversed: true,
       text: (s) => this.getMulPercentText(this.buffAttackSpeed.getValue(s)),
     });
 
     this.buffDelayMul = new Stat.Root({
       statType: stat.buffDelayMul,
-      calculater: this.getEffectCalculater(typeKey.delayMul),
+      calculater: this.getEffectCalculaterFn(typeKey.delayMul),
       text: (s) => this.getMulPercentText(this.buffDelayMul.getValue(s)),
     });
+
+    const getEvasion = (isPhysical: boolean) => {
+      const key = isPhysical ? typeKey.physicalEvasion : typeKey.magicalEvasion;
+
+      const ret: Stat.Root = new Stat.Root({
+        statType: isPhysical
+          ? stat.buffPhysicalEvasion
+          : stat.buffMagicalEvasion,
+        calculater: this.getEffectCalculaterFn(key),
+        isReversed: true,
+        text: (s) => this.getPercentText(ret.getValue(s)),
+      });
+      return ret;
+    };
+    this.buffPhysicalEvasion = getEvasion(true);
+    this.buffMagicalEvasion = getEvasion(false);
   }
 
-  private getEffectCalculater(effectKey: keyof EffectList) {
+  private getEffectCalculaterFn(effectKey: keyof EffectList) {
     return (setting: Setting) => {
       const effect = this.getEffect(setting, this.effectList[effectKey]);
       return effect?.value;
