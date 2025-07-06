@@ -31,6 +31,9 @@ const keys = [
   stat.buffCriChanceAdd,
   stat.buffCriDamageAdd,
   stat.buffDamageFactor,
+  stat.buffDamageDebuff,
+  stat.buffPhysicalDamageDebuff,
+  stat.buffMagicalDamageDebuff,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -141,6 +144,9 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffCriChanceAdd: Stat.Root;
   readonly buffCriDamageAdd: Stat.Root;
   readonly buffDamageFactor: Stat.Root;
+  readonly buffDamageDebuff: Stat.Root;
+  readonly buffPhysicalDamageDebuff: Stat.Root;
+  readonly buffMagicalDamageDebuff: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -320,6 +326,41 @@ export default class InBattleBuff implements TableRow<Key> {
       isReversed: true,
       text: (s) => this.getMulPercentText(this.buffDamageFactor.getValue(s)),
     });
+
+    const getDamageDebuff = (
+      statType:
+        | typeof stat.buffDamageDebuff
+        | typeof stat.buffPhysicalDamageDebuff
+        | typeof stat.buffMagicalDamageDebuff
+    ) => {
+      let key;
+      switch (statType) {
+        case stat.buffDamageDebuff:
+          key = typeKey.damageDebuff;
+          break;
+        case stat.buffPhysicalDamageDebuff:
+          key = typeKey.physicalDamageDebuff;
+          break;
+        case stat.buffMagicalDamageDebuff:
+          key = typeKey.magicalDamageDebuff;
+          break;
+      }
+
+      const ret: Stat.Root = new Stat.Root({
+        statType,
+        calculater: this.getEffectCalculater(key),
+        isReversed: true,
+        text: (s) => this.getMulPercentText(ret.getValue(s)),
+      });
+      return ret;
+    };
+    this.buffDamageDebuff = getDamageDebuff(stat.buffDamageDebuff);
+    this.buffPhysicalDamageDebuff = getDamageDebuff(
+      stat.buffPhysicalDamageDebuff
+    );
+    this.buffMagicalDamageDebuff = getDamageDebuff(
+      stat.buffMagicalDamageDebuff
+    );
   }
 
   private getEffectCalculater(effectKey: keyof EffectList) {
