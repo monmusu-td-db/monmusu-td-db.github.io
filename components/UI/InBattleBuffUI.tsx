@@ -23,7 +23,7 @@ function Supplement({ buff }: { buff: JsonBuff }): ReactNode {
       case FeatureRequire.wind:
       case FeatureRequire.light:
       case FeatureRequire.dark:
-        text = str + "配置時";
+        text = str + "配置ユニット";
         break;
       default:
         text = str;

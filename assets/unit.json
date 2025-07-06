@@ -19165,28 +19165,38 @@
     ],
     "buffs": [
       {
-        "type": "attack-mul",
-        "target": "付与対象",
-        "range": null,
-        "value": 110
-      },
-      {
-        "type": "hp-mul",
         "require": [
           "近接クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 110
+        "effects": [
+          {
+            "type": "hp-mul",
+            "value": 110
+          },
+          {
+            "type": "attack-mul",
+            "value": 110
+          }
+        ]
       },
       {
-        "type": "delay-mul",
         "require": [
           "遠隔/スカウト系クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 90
+        "effects": [
+          {
+            "type": "attack-mul",
+            "value": 110
+          },
+          {
+            "type": "delay-mul",
+            "value": 90
+          }
+        ]
       }
     ]
   },
@@ -20358,34 +20368,38 @@
     ],
     "buffs": [
       {
-        "type": "physical-damage-cut",
         "skill": 1,
+        "require": [
+          "光属性以外"
+        ],
         "target": "射程内",
-        "value": 40
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 40
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 40
+          }
+        ]
       },
       {
-        "type": "magical-damage-cut",
-        "skill": 1,
-        "target": "射程内",
-        "value": 40
-      },
-      {
-        "type": "physical-damage-cut",
         "skill": 1,
         "require": [
           "光属性"
         ],
         "target": "射程内",
-        "value": 50
-      },
-      {
-        "type": "magical-damage-cut",
-        "skill": 1,
-        "require": [
-          "光属性"
-        ],
-        "target": "射程内",
-        "value": 50
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 50
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 50
+          }
+        ]
       }
     ]
   },
@@ -25174,34 +25188,30 @@
     ],
     "buffs": [
       {
-        "type": "physical-damage-cut",
         "require": [
           "近接クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 20,
         "supplements": [
           "※ex1で付与される場合、対象制限なし"
         ],
-        "potentialBonus": {
-          "value": 24
-        }
-      },
-      {
-        "type": "magical-damage-cut",
-        "require": [
-          "近接クラス"
-        ],
-        "target": "付与対象",
-        "range": null,
-        "value": 20,
-        "supplements": [
-          "※ex1で付与される場合、対象制限なし"
-        ],
-        "potentialBonus": {
-          "value": 24
-        }
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          }
+        ]
       },
       {
         "type": "damage-factor",
