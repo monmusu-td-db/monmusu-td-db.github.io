@@ -58,8 +58,8 @@ export function getKeys<T extends Record<string, unknown>>(
 
 export function getEntries<T extends Record<string, unknown>>(
   obj: T
-): readonly [keyof T, unknown][] {
-  return Object.entries(obj);
+): readonly [keyof T, T[keyof T]][] {
+  return Object.entries(obj) as readonly [keyof T, T[keyof T]][];
 }
 
 export class Cache<T> {

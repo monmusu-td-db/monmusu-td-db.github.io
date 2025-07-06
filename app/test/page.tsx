@@ -13,9 +13,9 @@ export default function App() {
       <Container fluid="xxl">
         <h1>バフ一覧</h1>
         {/* <FormationBuff/> */}
-        {/* <InBattleBuff /> */}
+        <InBattleBuff />
         {/* <InBattleBaseBuff/> */}
-        <InBattleBuffDamage />
+        {/* <InBattleBuffDamage /> */}
       </Container>
     </PageRoot>
   );
