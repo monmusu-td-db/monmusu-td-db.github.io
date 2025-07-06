@@ -217,7 +217,8 @@ th.buffAttackMul,
 th.buffDefenseMul,
 th.buffResistMul,
 th.buffPhysicalDamageCut,
-th.buffMagicalDamageCut {
+th.buffMagicalDamageCut,
+th.buffDamageFactor {
   width: 2.7rem;
 }
 

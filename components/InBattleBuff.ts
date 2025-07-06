@@ -30,6 +30,7 @@ const keys = [
   stat.buffMagicalDamageCut,
   stat.buffCriChanceAdd,
   stat.buffCriDamageAdd,
+  stat.buffDamageFactor,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -139,6 +140,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffMagicalDamageCut: Stat.Root;
   readonly buffCriChanceAdd: Stat.Root;
   readonly buffCriDamageAdd: Stat.Root;
+  readonly buffDamageFactor: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -260,10 +262,7 @@ export default class InBattleBuff implements TableRow<Key> {
 
       const ret: Stat.Root = new Stat.Root({
         statType,
-        calculater: (s) => {
-          const effect = this.getEffect(s, this.effectList[effectKey]);
-          return effect?.value;
-        },
+        calculater: this.getEffectCalculater(effectKey),
         isReversed: true,
         text: (s) => this.getMulPercentText(ret.getValue(s)),
       });
@@ -276,17 +275,15 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffResistMul = getBuffMul(stat.buffResistMul);
 
     const getDamageCut = (isPhysical: boolean) => {
+      const key = isPhysical
+        ? typeKey.physicalDamageCut
+        : typeKey.magicalDamageCut;
+
       const ret: Stat.Root = new Stat.Root({
         statType: isPhysical
           ? stat.buffPhysicalDamageCut
           : stat.buffMagicalDamageCut,
-        calculater: (s) => {
-          const key = isPhysical
-            ? typeKey.physicalDamageCut
-            : typeKey.magicalDamageCut;
-          const effect = this.getEffect(s, this.effectList[key]);
-          return effect?.value;
-        },
+        calculater: this.getEffectCalculater(key),
         isReversed: true,
         text: (s) => this.getPercentText(ret.getValue(s)),
       });
@@ -296,19 +293,17 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffMagicalDamageCut = getDamageCut(false);
 
     const getCriticalAdd = (isChance: boolean) => {
+      const key = isChance ? typeKey.criChanceAdd : typeKey.criDamageAdd;
+      const limitKey = isChance
+        ? typeKey.criChanceLimitAdd
+        : typeKey.criDamageLimitAdd;
+
       const ret: Stat.Root = new Stat.Root({
         statType: isChance ? stat.buffCriChanceAdd : stat.buffCriDamageAdd,
-        calculater: (s) => {
-          const key = isChance ? typeKey.criChanceAdd : typeKey.criDamageAdd;
-          const effect = this.getEffect(s, this.effectList[key]);
-          return effect?.value;
-        },
+        calculater: this.getEffectCalculater(key),
         isReversed: true,
         text: (s) => this.getPercentText(ret.getValue(s)),
         item: (s) => {
-          const limitKey = isChance
-            ? typeKey.criChanceLimitAdd
-            : typeKey.criDamageLimitAdd;
           const limitEffect = this.getEffect(s, this.effectList[limitKey]);
           const limitText = this.getPercentText(limitEffect?.value);
           return InBattleBuffUI.getCritical(ret.getText(s), limitText);
@@ -318,6 +313,20 @@ export default class InBattleBuff implements TableRow<Key> {
     };
     this.buffCriChanceAdd = getCriticalAdd(true);
     this.buffCriDamageAdd = getCriticalAdd(false);
+
+    this.buffDamageFactor = new Stat.Root({
+      statType: stat.buffDamageFactor,
+      calculater: this.getEffectCalculater(typeKey.damageFactor),
+      isReversed: true,
+      text: (s) => this.getMulPercentText(this.buffDamageFactor.getValue(s)),
+    });
+  }
+
+  private getEffectCalculater(effectKey: keyof EffectList) {
+    return (setting: Setting) => {
+      const effect = this.getEffect(setting, this.effectList[effectKey]);
+      return effect?.value;
+    };
   }
 
   private getEffect(

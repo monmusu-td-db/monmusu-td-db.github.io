@@ -25220,12 +25220,12 @@
         ],
         "target": "付与対象",
         "range": null,
-        "value": 20,
+        "value": 120,
         "supplements": [
           "※ex1で付与される場合、対象制限なし"
         ],
         "potentialBonus": {
-          "value": 24
+          "value": 124
         }
       }
     ]
