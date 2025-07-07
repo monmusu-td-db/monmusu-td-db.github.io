@@ -14617,6 +14617,46 @@
     ]
   },
   {
+    "TODO_DESC": "移動コスト+9",
+    "TODO_STAT_INFERRED": true,
+    "id": 154,
+    "unitName": "【不知火娘】ヌイ",
+    "unitShortName": "ヌイ",
+    "rarity": "C",
+    "class": "アーチャー",
+    "element": "火",
+    "species": "妖怪",
+    "hp": 2359,
+    "attack": 566,
+    "defense": 282,
+    "resist": 196,
+    "moveType": "ワープ",
+    "exSkill1": {
+      "skillName": "蜃気楼が如く",
+      "attackMul": 140,
+      "rangeMul": 140,
+      "duration": 10,
+      "cooldown": 25,
+      "damageType": "魔法",
+      "supplements": [
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "射程+10"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 155,
     "unitName": "【鉄鼠娘】チヅ",
     "unitShortName": "チヅ",
