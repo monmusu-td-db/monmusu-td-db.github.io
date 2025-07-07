@@ -14393,6 +14393,48 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 149,
+    "unitName": "【一反木綿娘】シロタエ",
+    "unitShortName": "シロタエ",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 1608,
+    "attack": 606,
+    "defense": 88,
+    "resist": 57,
+    "exSkill1": {
+      "skillName": "ツラヌキの舞",
+      "attackMul": 120,
+      "attackSpeedBuff": 150,
+      "fixedDelay": 10,
+      "duration": 15,
+      "cooldown": 30,
+      "damageType": "貫通",
+      "supplements": [
+        "コスト+10/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "攻撃力+50",
+      "攻撃速度+10"
+    ],
+    "costAdd": -3,
+    "physicalEvasion": 75,
+    "magicalEvasion": 75,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 151,
     "unitName": "【塗壁娘】チカ",
