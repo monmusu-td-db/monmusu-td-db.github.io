@@ -57,6 +57,12 @@ const redeployKeys = [
   stat.buffWithdrawCostReturn,
 ] as const satisfies InBattleBuffKey[];
 
+const fieldKeys = [
+  stat.buffFieldChange,
+  stat.buffFieldAdd,
+  stat.buffFieldFactor,
+] as const satisfies InBattleBuffKey[];
+
 export default class InBattleBuffVariants extends InBattleBuff {
   private static getKeys<T extends InBattleBuffKey>(
     rawKeys: readonly T[]
@@ -103,5 +109,9 @@ export default class InBattleBuffVariants extends InBattleBuff {
 
   public static get tableDataRedeploy() {
     return this.getTableData(redeployKeys);
+  }
+
+  public static get tableDataField() {
+    return this.getTableData(fieldKeys);
   }
 }

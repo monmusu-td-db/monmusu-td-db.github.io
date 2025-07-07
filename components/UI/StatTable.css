@@ -208,7 +208,9 @@ th.inBattleBuffSupplements {
   width: 12.5rem;
 }
 
-th.buffRange {
+th.buffRange,
+th.buffFieldChange,
+th.buffFieldAdd {
   width: 2.4rem;
 }
 
@@ -229,7 +231,8 @@ th.buffMagicalEvasion,
 th.buffMoveSpeedAdd,
 th.buffMoveSpeedMul,
 th.buffRedeployTimeCut,
-th.buffWithdrawCostReturn {
+th.buffWithdrawCostReturn,
+th.buffFieldFactor {
   width: 2.7rem;
 }
 

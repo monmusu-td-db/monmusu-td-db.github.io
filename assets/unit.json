@@ -589,17 +589,19 @@
         "value": 115
       },
       {
-        "type": "field-change-earth",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "地",
         "supplements": [
           "発動時"
         ]
       },
       {
-        "type": "field-change-earth",
+        "type": "field-change",
         "skill": 2,
         "target": "自分",
+        "element": "地",
         "supplements": [
           "発動時"
         ]
@@ -19258,9 +19260,10 @@
     ],
     "buffs": [
       {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -22482,12 +22485,13 @@
     ],
     "buffs": [
       {
-        "type": "field-change-fire",
+        "type": "field-change",
         "skill": 1,
         "require": [
           "火属性"
         ],
         "target": "射程内",
+        "element": "火",
         "supplements": [
           "発動時"
         ]
@@ -25241,9 +25245,10 @@
     ],
     "buffs": [
       {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -26408,12 +26413,13 @@
         }
       },
       {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
         "require": [
           "光属性"
         ],
         "target": "射程内",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -27480,16 +27486,18 @@
         "value": 300
       },
       {
-        "type": "field-change-water",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "水",
         "supplements": [
           "発動時"
         ]
       },
       {
-        "type": "field-buff-add-water",
+        "type": "field-buff-add",
         "skill": 1,
+        "element": "水",
         "target": "射程内"
       }
     ]

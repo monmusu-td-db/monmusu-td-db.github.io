@@ -56,6 +56,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMoveSpeedMul:
       case stat.buffRedeployTimeCut:
       case stat.buffWithdrawCostReturn:
+      case stat.buffFieldFactor:
         end.push(index);
         break;
       case stat.rarity:
@@ -72,6 +73,8 @@ const TableStyle = memo(function TableStyle({
       case stat.damageType:
       case stat.placement:
       case stat.buffRange:
+      case stat.buffFieldChange:
+      case stat.buffFieldAdd:
         center.push(index);
         break;
     }
@@ -119,6 +122,9 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMoveSpeedMul:
       case stat.buffRedeployTimeCut:
       case stat.buffWithdrawCostReturn:
+      case stat.buffFieldChange:
+      case stat.buffFieldAdd:
+      case stat.buffFieldFactor:
         break;
       default:
         empty.push(index);

@@ -42,6 +42,9 @@ const keys = [
   stat.buffMoveSpeedMul,
   stat.buffRedeployTimeCut,
   stat.buffWithdrawCostReturn,
+  stat.buffFieldChange,
+  stat.buffFieldAdd,
+  stat.buffFieldFactor,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -88,18 +91,8 @@ class BuffType {
     petrifyResist: "petrify-resist",
     freezeResist: "freeze-resist",
     fieldBuffFactor: "field-buff-factor",
-    fieldChangeFire: "field-change-fire",
-    fieldChangeWater: "field-change-water",
-    fieldChangeWind: "field-change-wind",
-    fieldChangeEarth: "field-change-earth",
-    fieldChangeLight: "field-change-light",
-    fieldChangeDark: "field-change-dark",
-    fieldBuffAddFire: "field-buff-add-fire",
-    fieldBuffAddWater: "field-buff-add-water",
-    fieldBuffAddWind: "field-buff-add-wind",
-    fieldBuffAddEarth: "field-buff-add-earth",
-    fieldBuffAddLight: "field-buff-add-light",
-    fieldBuffAddDark: "field-buff-add-dark",
+    fieldChange: "field-change",
+    fieldBuffAdd: "field-buff-add",
   } as const;
 
   private static entries = Data.getEntries(this.list);
@@ -123,6 +116,7 @@ const target = {
 type EffectList = Partial<Record<BuffTypeKey, JsonEffect>>;
 interface Effect {
   value?: number;
+  element?: string;
 }
 interface JsonEffect extends Effect {
   potentialBonus?: Omit<JsonEffect, "potentialBonus">;
@@ -164,6 +158,9 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffMoveSpeedMul: Stat.Root;
   readonly buffRedeployTimeCut: Stat.Root;
   readonly buffWithdrawCostReturn: Stat.Root;
+  readonly buffFieldChange: Stat.Root<Data.Element | undefined>;
+  readonly buffFieldAdd: Stat.Root<Data.Element | undefined>;
+  readonly buffFieldFactor: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -433,6 +430,29 @@ export default class InBattleBuff implements TableRow<Key> {
       calculater: this.getEffectCalculaterFn(typeKey.withdrawCostReturn),
       isReversed: true,
       text: (s) => this.getPercentText(this.buffWithdrawCostReturn.getValue(s)),
+    });
+
+    const getField = (isChange: boolean) => {
+      const key = isChange ? typeKey.fieldChange : typeKey.fieldBuffAdd;
+      const ret: Stat.Root<Data.Element | undefined> = new Stat.Root({
+        statType: isChange ? stat.buffFieldChange : stat.buffFieldAdd,
+        calculater: (s) => {
+          const effect = this.getEffect(s, this.effectList[key]);
+          return Data.Element.parse(effect?.element);
+        },
+        comparer: (s) => Data.Element.indexOf(ret.getValue(s)),
+        color: (s) => Data.Element.colorOf(ret.getValue(s)),
+      });
+      return ret;
+    };
+    this.buffFieldChange = getField(true);
+    this.buffFieldAdd = getField(false);
+
+    this.buffFieldFactor = new Stat.Root({
+      statType: stat.buffFieldFactor,
+      calculater: this.getEffectCalculaterFn(typeKey.fieldBuffFactor),
+      isReversed: true,
+      text: (s) => this.getPercentText(this.buffFieldFactor.getValue(s)),
     });
   }
 

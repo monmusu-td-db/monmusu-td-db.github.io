@@ -120,6 +120,7 @@ interface JsonBuffBase {
   readonly range?: number | null;
   readonly duration?: string | number;
   readonly value?: number;
+  readonly element?: string;
   readonly supplements?: readonly string[];
 }
 interface JsonBuffSingle extends JsonBuffBase {
@@ -139,6 +140,7 @@ interface JsonBuffMultiple extends JsonBuffBase {
 interface JsonBuffEffect {
   readonly type: string;
   readonly value?: number;
+  readonly element?: string;
   readonly potentialBonus?: Omit<JsonBuffEffect, "type" | "potentialBonus">;
 }
 export type JsonBuff = JsonBuffSingle | JsonBuffMultiple;

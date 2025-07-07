@@ -5,6 +5,7 @@ import {
   TablesInBattleBuffBase,
   TablesInBattleBuffDamage,
   TablesInBattleBuffDefensive,
+  TablesInBattleBuffField,
   TablesInBattleBuffMoveSpeed,
   TablesInBattleBuffRedeploy,
 } from "@/components/UI/Tables";
@@ -18,12 +19,13 @@ export default function App() {
         <h1>バフ一覧</h1>
         {/* <FormationBuff /> */}
         <InBattleBuff />
-        {/* <InBattleBaseBuff/> */}
-        {/* <InBattleBuffDamage /> */}
+        <InBattleBuffBase />
+        <InBattleBuffDamage />
         <InBattleBuffDefensive />
-        {/* <InBattleBuffAttackSpeed /> */}
-        {/* <InBattleBuffMoveSpeed /> */}
-        {/* <InBattleBuffRedeploy /> */}
+        <InBattleBuffAttackSpeed />
+        <InBattleBuffMoveSpeed />
+        <InBattleBuffRedeploy />
+        <InBattleBuffField />
       </Container>
     </PageRoot>
   );
@@ -100,6 +102,15 @@ function InBattleBuffRedeploy() {
     <>
       <h2>再出撃バフ</h2>
       <TablesInBattleBuffRedeploy id="in-battle-redeploy" className="mb-5" />
+    </>
+  );
+}
+
+function InBattleBuffField() {
+  return (
+    <>
+      <h2>マスバフ</h2>
+      <TablesInBattleBuffField id="in-battle-field" className="mb-5" />
     </>
   );
 }
