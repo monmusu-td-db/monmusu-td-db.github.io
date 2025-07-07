@@ -16,14 +16,14 @@ export default function App() {
     <PageRoot>
       <Container fluid="xxl">
         <h1>バフ一覧</h1>
-        {/* <FormationBuff/> */}
-        {/* <InBattleBuff /> */}
+        {/* <FormationBuff /> */}
+        <InBattleBuff />
         {/* <InBattleBaseBuff/> */}
         {/* <InBattleBuffDamage /> */}
         <InBattleBuffDefensive />
-        <InBattleBuffAttackSpeed />
-        <InBattleBuffMoveSpeed />
-        <InBattleBuffRedeploy />
+        {/* <InBattleBuffAttackSpeed /> */}
+        {/* <InBattleBuffMoveSpeed /> */}
+        {/* <InBattleBuffRedeploy /> */}
       </Container>
     </PageRoot>
   );
