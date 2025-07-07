@@ -81,5 +81,7 @@
     "buffPhysicalEvasion": "物理回避付与",
     "buffMagicalEvasion": "魔法回避付与",
     "buffMoveSpeedAdd": "移動速度加算",
-    "buffMoveSpeedMul": "移動速度乗算"
+    "buffMoveSpeedMul": "移動速度乗算",
+    "buffRedeployTimeCut": "再出撃時間短縮",
+    "buffWithdrawCostReturn": "撤退時コスト回復量"
 }

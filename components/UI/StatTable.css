@@ -227,7 +227,9 @@ th.buffDelayMul,
 th.buffPhysicalEvasion,
 th.buffMagicalEvasion,
 th.buffMoveSpeedAdd,
-th.buffMoveSpeedMul {
+th.buffMoveSpeedMul,
+th.buffRedeployTimeCut,
+th.buffWithdrawCostReturn {
   width: 2.7rem;
 }
 

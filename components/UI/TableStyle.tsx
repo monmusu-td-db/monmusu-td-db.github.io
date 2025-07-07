@@ -54,6 +54,8 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMagicalEvasion:
       case stat.buffMoveSpeedAdd:
       case stat.buffMoveSpeedMul:
+      case stat.buffRedeployTimeCut:
+      case stat.buffWithdrawCostReturn:
         end.push(index);
         break;
       case stat.rarity:
@@ -115,6 +117,8 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMagicalEvasion:
       case stat.buffMoveSpeedAdd:
       case stat.buffMoveSpeedMul:
+      case stat.buffRedeployTimeCut:
+      case stat.buffWithdrawCostReturn:
         break;
       default:
         empty.push(index);

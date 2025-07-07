@@ -40,6 +40,8 @@ const keys = [
   stat.buffMagicalEvasion,
   stat.buffMoveSpeedAdd,
   stat.buffMoveSpeedMul,
+  stat.buffRedeployTimeCut,
+  stat.buffWithdrawCostReturn,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -160,6 +162,8 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffMagicalEvasion: Stat.Root;
   readonly buffMoveSpeedAdd: Stat.Root;
   readonly buffMoveSpeedMul: Stat.Root;
+  readonly buffRedeployTimeCut: Stat.Root;
+  readonly buffWithdrawCostReturn: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -415,6 +419,20 @@ export default class InBattleBuff implements TableRow<Key> {
       calculater: this.getEffectCalculaterFn(typeKey.moveSpeedMul),
       isReversed: true,
       text: (s) => this.getMulPercentText(this.buffMoveSpeedMul.getValue(s)),
+    });
+
+    this.buffRedeployTimeCut = new Stat.Root({
+      statType: stat.buffRedeployTimeCut,
+      calculater: this.getEffectCalculaterFn(typeKey.redeployTimeCut),
+      isReversed: true,
+      text: (s) => this.getPercentText(this.buffRedeployTimeCut.getValue(s)),
+    });
+
+    this.buffWithdrawCostReturn = new Stat.Root({
+      statType: stat.buffWithdrawCostReturn,
+      calculater: this.getEffectCalculaterFn(typeKey.withdrawCostReturn),
+      isReversed: true,
+      text: (s) => this.getPercentText(this.buffWithdrawCostReturn.getValue(s)),
     });
   }
 
