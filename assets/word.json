@@ -79,5 +79,7 @@
     "buffAttackSpeed": "攻撃速度バフ",
     "buffDelayMul": "攻撃待機時間短縮",
     "buffPhysicalEvasion": "物理回避付与",
-    "buffMagicalEvasion": "魔法回避付与"
+    "buffMagicalEvasion": "魔法回避付与",
+    "buffMoveSpeedAdd": "移動速度加算",
+    "buffMoveSpeedMul": "移動速度乗算"
 }

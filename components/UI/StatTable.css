@@ -225,7 +225,9 @@ th.buffMagicalDamageDebuff,
 th.buffAttackSpeed,
 th.buffDelayMul,
 th.buffPhysicalEvasion,
-th.buffMagicalEvasion {
+th.buffMagicalEvasion,
+th.buffMoveSpeedAdd,
+th.buffMoveSpeedMul {
   width: 2.7rem;
 }
 

@@ -38,6 +38,8 @@ const keys = [
   stat.buffDelayMul,
   stat.buffPhysicalEvasion,
   stat.buffMagicalEvasion,
+  stat.buffMoveSpeedAdd,
+  stat.buffMoveSpeedMul,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -156,6 +158,8 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffDelayMul: Stat.Root;
   readonly buffPhysicalEvasion: Stat.Root;
   readonly buffMagicalEvasion: Stat.Root;
+  readonly buffMoveSpeedAdd: Stat.Root;
+  readonly buffMoveSpeedMul: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -399,6 +403,19 @@ export default class InBattleBuff implements TableRow<Key> {
     };
     this.buffPhysicalEvasion = getEvasion(true);
     this.buffMagicalEvasion = getEvasion(false);
+
+    this.buffMoveSpeedAdd = new Stat.Root({
+      statType: stat.buffMoveSpeedAdd,
+      calculater: this.getEffectCalculaterFn(typeKey.moveSpeedAdd),
+      isReversed: true,
+    });
+
+    this.buffMoveSpeedMul = new Stat.Root({
+      statType: stat.buffMoveSpeedMul,
+      calculater: this.getEffectCalculaterFn(typeKey.moveSpeedMul),
+      isReversed: true,
+      text: (s) => this.getMulPercentText(this.buffMoveSpeedMul.getValue(s)),
+    });
   }
 
   private getEffectCalculaterFn(effectKey: keyof EffectList) {
