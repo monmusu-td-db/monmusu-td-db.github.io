@@ -14435,6 +14435,64 @@
   },
   {
     "TODO_DESC": "StatはWiki情報",
+    "id": 150,
+    "unitName": "【烏天狗娘】ヤナギ",
+    "unitShortName": "ヤナギ",
+    "rarity": "C",
+    "class": "ブレイダー",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 5185,
+    "attack": 870,
+    "defense": 427,
+    "resist": 94,
+    "exSkill1": {
+      "skillName": "陰風一文字",
+      "attackMul": 500,
+      "fixedDelay": 1,
+      "range": 280,
+      "duration": "単発",
+      "cooldown": 15,
+      "supplements": [
+        "ノックバック(大)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "攻撃速度+10"
+    ],
+    "physicalEvasion": 25,
+    "magicalEvasion": 25,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "require": [
+          "風属性"
+        ],
+        "target": "全体",
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 25
+          },
+          {
+            "type": "magical-evasion",
+            "value": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
     "id": 151,
     "unitName": "【塗壁娘】チカ",
     "unitShortName": "チカ",
