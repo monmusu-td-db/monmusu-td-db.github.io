@@ -10097,6 +10097,9 @@
     "buffs": [
       {
         "type": "move-speed-add",
+        "require": [
+          "飛行移動以外"
+        ],
         "target": "全体",
         "value": 20,
         "potentialBonus": {
@@ -10109,22 +10112,24 @@
           "飛行移動"
         ],
         "target": "全体",
-        "value": 20,
-        "supplements": [
-          "※上記全対象効果に加算"
+        "value": 40,
+        "potentialBonus": {
+          "value": 45
+        }
+      },
+      {
+        "skill": 2,
+        "target": "全体",
+        "effects": [
+          {
+            "type": "redeploy-time-cut",
+            "value": 80
+          },
+          {
+            "type": "withdraw-cost-return",
+            "value": 90
+          }
         ]
-      },
-      {
-        "type": "redeploy-time-cut",
-        "skill": 2,
-        "target": "全体",
-        "value": 80
-      },
-      {
-        "type": "withdraw-cost-return",
-        "skill": 2,
-        "target": "全体",
-        "value": 90
       }
     ]
   },
@@ -15041,22 +15046,21 @@
         "value": 80
       },
       {
-        "type": "attack-speed-buff",
         "skill": 1,
         "require": [
           "風属性"
         ],
         "target": "射程内",
-        "value": 120
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "require": [
-          "風属性"
-        ],
-        "target": "射程内",
-        "value": 75
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 120
+          },
+          {
+            "type": "delay-mul",
+            "value": 75
+          }
+        ]
       }
     ]
   },
@@ -16659,28 +16663,51 @@
     ],
     "buffs": [
       {
-        "type": "attack-speed-buff",
         "target": "射程内",
         "duration": 5,
-        "value": 115,
         "supplements": [
           "攻撃命中時"
         ],
-        "potentialBonus": {
-          "value": 120
-        }
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 115,
+            "potentialBonus": {
+              "value": 120
+            }
+          },
+          {
+            "type": "delay-mul",
+            "value": 85,
+            "potentialBonus": {
+              "value": 80
+            }
+          }
+        ]
       },
       {
-        "type": "delay-mul",
+        "skill": 1,
         "target": "射程内",
         "duration": 5,
-        "value": 85,
         "supplements": [
           "攻撃命中時"
         ],
-        "potentialBonus": {
-          "value": 80
-        }
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 130,
+            "potentialBonus": {
+              "value": 140
+            }
+          },
+          {
+            "type": "delay-mul",
+            "value": 70,
+            "potentialBonus": {
+              "value": 60
+            }
+          }
+        ]
       },
       {
         "type": "move-speed-mul",
@@ -16692,32 +16719,6 @@
         ],
         "potentialBonus": {
           "value": 120
-        }
-      },
-      {
-        "type": "attack-speed-buff",
-        "skill": 1,
-        "target": "射程内",
-        "duration": 5,
-        "value": 130,
-        "supplements": [
-          "攻撃命中時"
-        ],
-        "potentialBonus": {
-          "value": 140
-        }
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "target": "射程内",
-        "duration": 5,
-        "value": 70,
-        "supplements": [
-          "攻撃命中時"
-        ],
-        "potentialBonus": {
-          "value": 60
         }
       },
       {
@@ -22655,22 +22656,21 @@
         "value": 130
       },
       {
-        "type": "attack-speed-buff",
         "skill": 1,
         "require": [
           "他者"
         ],
         "target": "射程内",
-        "value": 150
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "require": [
-          "他者"
-        ],
-        "target": "射程内",
-        "value": 50
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 150
+          },
+          {
+            "type": "delay-mul",
+            "value": 50
+          }
+        ]
       }
     ]
   },
@@ -27480,12 +27480,6 @@
         "value": 300
       },
       {
-        "type": "field-buff-factor",
-        "skill": 1,
-        "target": "射程内",
-        "value": 300
-      },
-      {
         "type": "field-change",
         "skill": 1,
         "target": "自分",
@@ -27495,10 +27489,18 @@
         ]
       },
       {
-        "type": "field-buff-add",
         "skill": 1,
-        "element": "水",
-        "target": "射程内"
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "field-buff-factor",
+            "value": 300
+          },
+          {
+            "type": "field-buff-add",
+            "element": "水"
+          }
+        ]
       }
     ]
   },
