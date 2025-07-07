@@ -24,8 +24,6 @@ const baseKeys = [
   stat.buffAttackMul,
   stat.buffDefenseMul,
   stat.buffResistMul,
-  stat.buffPhysicalDamageCut,
-  stat.buffMagicalDamageCut,
 ] as const satisfies InBattleBuffKey[];
 
 const damageKeys = [
@@ -35,6 +33,28 @@ const damageKeys = [
   stat.buffDamageDebuff,
   stat.buffPhysicalDamageDebuff,
   stat.buffMagicalDamageDebuff,
+] as const satisfies InBattleBuffKey[];
+
+const defensiveKeys = [
+  stat.buffPhysicalDamageCut,
+  stat.buffMagicalDamageCut,
+  stat.buffPhysicalEvasion,
+  stat.buffMagicalEvasion,
+] as const satisfies InBattleBuffKey[];
+
+const attackSpeedKeys = [
+  stat.buffAttackSpeed,
+  stat.buffDelayMul,
+] as const satisfies InBattleBuffKey[];
+
+const moveSpeedKeys = [
+  stat.buffMoveSpeedAdd,
+  stat.buffMoveSpeedMul,
+] as const satisfies InBattleBuffKey[];
+
+const redeployKeys = [
+  stat.buffRedeployTimeCut,
+  stat.buffWithdrawCostReturn,
 ] as const satisfies InBattleBuffKey[];
 
 export default class InBattleBuffVariants extends InBattleBuff {
@@ -67,5 +87,21 @@ export default class InBattleBuffVariants extends InBattleBuff {
 
   public static get tableDataDamage() {
     return this.getTableData(damageKeys);
+  }
+
+  public static get tableDataDefensive() {
+    return this.getTableData(defensiveKeys);
+  }
+
+  public static get tableDataAttackSpeed() {
+    return this.getTableData(attackSpeedKeys);
+  }
+
+  public static get tableDataMoveSpeed() {
+    return this.getTableData(moveSpeedKeys);
+  }
+
+  public static get tableDataRedeploy() {
+    return this.getTableData(redeployKeys);
   }
 }

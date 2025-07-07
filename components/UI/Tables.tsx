@@ -47,9 +47,39 @@ export function TablesInBattleBuffDamage(props: StatTableProps) {
   return <LazyLoading {...props} src={InBattleBuffVariants.tableDataDamage} />;
 }
 
+export function TablesInBattleBuffDefensive(props: StatTableProps) {
+  return (
+    <LazyLoading {...props} src={InBattleBuffVariants.tableDataDefensive} />
+  );
+}
+
+export function TablesInBattleBuffAttackSpeed(props: StatTableProps) {
+  return (
+    <LazyLoading {...props} src={InBattleBuffVariants.tableDataAttackSpeed} />
+  );
+}
+
+export function TablesInBattleBuffMoveSpeed(props: StatTableProps) {
+  return (
+    <LazyLoading {...props} src={InBattleBuffVariants.tableDataMoveSpeed} />
+  );
+}
+
+export function TablesInBattleBuffRedeploy(props: StatTableProps) {
+  return (
+    <LazyLoading {...props} src={InBattleBuffVariants.tableDataRedeploy} />
+  );
+}
+
 export default {
   Unit: TablesUnit,
   Situation: TablesSituation,
   FormationBuff: TablesFormationBuff,
   InBattleBuff: TablesInBattleBuff,
+  InBattleBuffBase: TablesInBattleBuffBase,
+  InBattleBuffDamage: TablesInBattleBuffDamage,
+  InBattleBuffDefensive: TablesInBattleBuffDefensive,
+  InBattleBuffAttackSpeed: TablesInBattleBuffAttackSpeed,
+  InBattleBuffMoveSpeed: TablesInBattleBuffMoveSpeed,
+  InBattleBuffRedeploy: TablesInBattleBuffRedeploy,
 } as const;
