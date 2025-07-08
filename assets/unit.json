@@ -15894,6 +15894,63 @@
     ]
   },
   {
+    "TODO_DESC": "StatはWiki情報/再配置時間短縮",
+    "id": 170,
+    "unitName": "【スケルトン娘】ペロロス",
+    "unitShortName": "ペロロス",
+    "rarity": "C",
+    "class": "シールドナイト",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 4242,
+    "attack": 393,
+    "defense": 841,
+    "resist": 208,
+    "exSkill1": {
+      "skillName": "反骨精神",
+      "defenseMul": 320,
+      "duration": 40,
+      "cooldown": 40,
+      "supplements": [
+        "スタン耐性+50"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+60",
+      "物理防御力+60",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "featureName": "skill1-hp-25%",
+        "currentHp": 25,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 25
+          }
+        ],
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 70,
+        "magicalDamageCut": 70
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-hp-25%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 171,
     "unitName": "【ビショップフィッシュ娘】グリース",
     "unitShortName": "グリース",
