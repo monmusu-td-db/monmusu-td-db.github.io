@@ -8,6 +8,7 @@ import {
   TablesInBattleBuffField,
   TablesInBattleBuffMoveSpeed,
   TablesInBattleBuffRedeploy,
+  TablesInBattleBuffStatus,
 } from "@/components/UI/Tables";
 import PageRoot from "@/components/UI/PageRoot";
 import { Container } from "react-bootstrap";
@@ -26,6 +27,7 @@ export default function App() {
         <InBattleBuffMoveSpeed />
         <InBattleBuffRedeploy />
         <InBattleBuffField />
+        <InBattleBuffStatus />
       </Container>
     </PageRoot>
   );
@@ -111,6 +113,15 @@ function InBattleBuffField() {
     <>
       <h2>マスバフ</h2>
       <TablesInBattleBuffField id="in-battle-field" className="mb-5" />
+    </>
+  );
+}
+
+function InBattleBuffStatus() {
+  return (
+    <>
+      <h2>状態異常耐性バフ</h2>
+      <TablesInBattleBuffStatus id="in-battle-status" className="mb-5" />
     </>
   );
 }

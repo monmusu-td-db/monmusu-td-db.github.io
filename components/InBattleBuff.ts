@@ -8,7 +8,7 @@ import {
   type TableRow,
   type TableSource,
 } from "./UI/StatTableUtil";
-import type { JsonBuff } from "./Unit";
+import type { JsonBuff, JsonBuffValue } from "./Unit";
 import Unit from "./Unit";
 
 const stat = Data.stat;
@@ -45,6 +45,11 @@ const keys = [
   stat.buffFieldChange,
   stat.buffFieldAdd,
   stat.buffFieldFactor,
+  stat.buffPoisonImmune,
+  stat.buffBlindImmune,
+  stat.buffStanImmune,
+  stat.buffPetrifyImmune,
+  stat.buffFreezeImmune,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -80,11 +85,13 @@ class BuffType {
     moveSpeedMul: "move-speed-mul",
     redeployTimeCut: "redeploy-time-cut",
     withdrawCostReturn: "withdraw-cost-return",
-    poisonNullify: "poison-nullify",
-    blindNullify: "blind-nullify",
-    stanNullify: "stan-nullify",
-    petrifyNullify: "petrify-nullify",
-    freezeNullify: "freeze-nullify",
+    statusInvalid: "status-invalid",
+    statusResist: "status-resist",
+    poisonInvalid: "poison-invalid", // TODO
+    blindInvalid: "blind-invalid",
+    stanInvalid: "stan-invalid",
+    petrifyInvalid: "petrify-invalid",
+    freezeInvalid: "freeze-invalid",
     poisonResist: "poison-resist",
     blindResist: "blind-resist",
     stanResist: "stan-resist",
@@ -101,6 +108,48 @@ class BuffType {
   public static getKey(value: string): BuffTypeKey | undefined {
     return this.entries.find((kvp) => kvp[1] === value)?.[0];
   }
+
+  public static getKeyFromStatus(
+    isInvalid: boolean,
+    status: unknown
+  ): BuffTypeKey | undefined {
+    const name = Data.Status.names;
+    if (isInvalid) {
+      switch (status) {
+        case name.poison:
+          return this.key.poisonInvalid;
+        case name.blind:
+          return this.key.blindInvalid;
+        case name.stan:
+          return this.key.stanInvalid;
+        case name.petrify:
+          return this.key.petrifyInvalid;
+        case name.freeze:
+          return this.key.freezeInvalid;
+      }
+    } else {
+      switch (status) {
+        case name.poison:
+          return this.key.poisonResist;
+        case name.blind:
+          return this.key.blindResist;
+        case name.stan:
+          return this.key.stanResist;
+        case name.petrify:
+          return this.key.petrifyResist;
+        case name.freeze:
+          return this.key.freezeResist;
+      }
+    }
+  }
+
+  public static getKeyFromStatType(
+    isInvalid: boolean,
+    statType: Data.StatType
+  ): BuffTypeKey | undefined {
+    const status = Data.Status.getValueFromStatType(statType);
+    return this.getKeyFromStatus(isInvalid, status);
+  }
 }
 type BuffTypeKey = keyof typeof BuffType.list;
 const typeKey = BuffType.key;
@@ -114,10 +163,7 @@ const target = {
 } as const;
 
 type EffectList = Partial<Record<BuffTypeKey, JsonEffect>>;
-interface Effect {
-  value?: number;
-  element?: string;
-}
+type Effect = JsonBuffValue;
 interface JsonEffect extends Effect {
   potentialBonus?: Omit<JsonEffect, "potentialBonus">;
 }
@@ -161,6 +207,11 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffFieldChange: Stat.Root<Data.Element | undefined>;
   readonly buffFieldAdd: Stat.Root<Data.Element | undefined>;
   readonly buffFieldFactor: Stat.Root;
+  readonly buffPoisonImmune: Stat.Root;
+  readonly buffBlindImmune: Stat.Root;
+  readonly buffStanImmune: Stat.Root;
+  readonly buffPetrifyImmune: Stat.Root;
+  readonly buffFreezeImmune: Stat.Root;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -179,14 +230,25 @@ export default class InBattleBuff implements TableRow<Key> {
 
     {
       const list: EffectList = {};
+      function getKey(type: string, status: unknown): BuffTypeKey | undefined {
+        const key = BuffType.getKey(type);
+        switch (key) {
+          case typeKey.statusInvalid:
+            return BuffType.getKeyFromStatus(true, status);
+          case typeKey.statusResist:
+            return BuffType.getKeyFromStatus(false, status);
+          default:
+            return key;
+        }
+      }
       if ("type" in buff) {
-        const key = BuffType.getKey(buff.type);
+        const key = getKey(buff.type, buff.status);
         if (key) {
           list[key] = buff;
         }
       } else {
         buff.effects.forEach((effect) => {
-          const key = BuffType.getKey(effect.type);
+          const key = getKey(effect.type, effect.status);
           if (key) {
             list[key] = effect;
           }
@@ -454,6 +516,53 @@ export default class InBattleBuff implements TableRow<Key> {
       isReversed: true,
       text: (s) => this.getPercentText(this.buffFieldFactor.getValue(s)),
     });
+
+    const getImmune = (
+      statType:
+        | typeof stat.buffPoisonImmune
+        | typeof stat.buffBlindImmune
+        | typeof stat.buffStanImmune
+        | typeof stat.buffPetrifyImmune
+        | typeof stat.buffFreezeImmune
+    ) => {
+      const ret: Stat.Root = new Stat.Root({
+        statType,
+        calculater: (s) => {
+          const invalidKey = BuffType.getKeyFromStatType(true, statType);
+          if (invalidKey) {
+            const effect = this.getEffect(s, this.effectList[invalidKey]);
+            const result = Data.Status.parse(effect?.status);
+            if (result === Data.Status.getValueFromStatType(statType)) {
+              return Infinity;
+            }
+          }
+
+          const resistKey = BuffType.getKeyFromStatType(false, statType);
+          if (resistKey) {
+            const effect = this.getEffect(s, this.effectList[resistKey]);
+            const result = Data.Status.parse(effect?.status);
+            if (result === Data.Status.getValueFromStatType(statType)) {
+              return effect?.value;
+            }
+          }
+        },
+        isReversed: true,
+        text: (s) => {
+          const value = ret.getValue(s);
+          if (value === Infinity) {
+            return "無効";
+          } else {
+            return this.getPercentText(value);
+          }
+        },
+      });
+      return ret;
+    };
+    this.buffPoisonImmune = getImmune(stat.buffPoisonImmune);
+    this.buffBlindImmune = getImmune(stat.buffBlindImmune);
+    this.buffStanImmune = getImmune(stat.buffStanImmune);
+    this.buffPetrifyImmune = getImmune(stat.buffPetrifyImmune);
+    this.buffFreezeImmune = getImmune(stat.buffFreezeImmune);
   }
 
   private getEffectCalculaterFn(effectKey: keyof EffectList) {

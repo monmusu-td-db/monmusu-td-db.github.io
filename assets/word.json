@@ -86,5 +86,10 @@
     "buffWithdrawCostReturn": "撤退時コスト回復量",
     "buffFieldChange": "マス属性変化",
     "buffFieldAdd": "マスボーナス付与",
-    "buffFieldFactor": "マスボーナス強化"
+    "buffFieldFactor": "マスボーナス強化",
+    "buffPoisonImmune": "毒耐性",
+    "buffBlindImmune": "暗闇耐性",
+    "buffStanImmune": "スタン耐性",
+    "buffPetrifyImmune": "石化耐性",
+    "buffFreezeImmune": "凍結耐性"
 }

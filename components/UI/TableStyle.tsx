@@ -57,6 +57,11 @@ const TableStyle = memo(function TableStyle({
       case stat.buffRedeployTimeCut:
       case stat.buffWithdrawCostReturn:
       case stat.buffFieldFactor:
+      case stat.buffPoisonImmune:
+      case stat.buffBlindImmune:
+      case stat.buffStanImmune:
+      case stat.buffPetrifyImmune:
+      case stat.buffFreezeImmune:
         end.push(index);
         break;
       case stat.rarity:
@@ -125,6 +130,11 @@ const TableStyle = memo(function TableStyle({
       case stat.buffFieldChange:
       case stat.buffFieldAdd:
       case stat.buffFieldFactor:
+      case stat.buffPoisonImmune:
+      case stat.buffBlindImmune:
+      case stat.buffStanImmune:
+      case stat.buffPetrifyImmune:
+      case stat.buffFreezeImmune:
         break;
       default:
         empty.push(index);

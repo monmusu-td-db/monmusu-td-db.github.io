@@ -63,6 +63,14 @@ const fieldKeys = [
   stat.buffFieldFactor,
 ] as const satisfies InBattleBuffKey[];
 
+const statusKey = [
+  stat.buffPoisonImmune,
+  stat.buffBlindImmune,
+  stat.buffStanImmune,
+  stat.buffPetrifyImmune,
+  stat.buffFreezeImmune,
+] as const satisfies InBattleBuffKey[];
+
 export default class InBattleBuffVariants extends InBattleBuff {
   private static getKeys<T extends InBattleBuffKey>(
     rawKeys: readonly T[]
@@ -113,5 +121,9 @@ export default class InBattleBuffVariants extends InBattleBuff {
 
   public static get tableDataField() {
     return this.getTableData(fieldKeys);
+  }
+
+  public static get tableDataStatus() {
+    return this.getTableData(statusKey);
   }
 }

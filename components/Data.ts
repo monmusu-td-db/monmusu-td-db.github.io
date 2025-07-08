@@ -1684,6 +1684,47 @@ export class Penetration {
   }
 }
 
+const statusName = {
+  poison: "毒",
+  blind: "暗闇",
+  stan: "スタン",
+  petrify: "石化",
+  freeze: "凍結",
+} as const;
+type StatusKey = keyof typeof statusName;
+type StatusValue = (typeof statusName)[StatusKey];
+export class Status {
+  public static names = statusName;
+  private static list = getKeys(statusName);
+  private static key = Enum(this.list);
+
+  public static parse(value: unknown): StatusValue | undefined {
+    for (const key of this.list) {
+      const name = statusName[key];
+      if (value === name) {
+        return name;
+      }
+    }
+  }
+
+  public static getValueFromStatType(
+    statType: StatType
+  ): StatusValue | undefined {
+    switch (statType) {
+      case stat.buffPoisonImmune:
+        return statusName[this.key.poison];
+      case stat.buffBlindImmune:
+        return statusName[this.key.blind];
+      case stat.buffStanImmune:
+        return statusName[this.key.stan];
+      case stat.buffPetrifyImmune:
+        return statusName[this.key.petrify];
+      case stat.buffFreezeImmune:
+        return statusName[this.key.freeze];
+    }
+  }
+}
+
 // Factors
 
 export interface ColorFactor<T = number> {

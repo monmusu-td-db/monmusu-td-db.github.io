@@ -75,6 +75,10 @@ export function TablesInBattleBuffField(props: StatTableProps) {
   return <LazyLoading {...props} src={InBattleBuffVariants.tableDataField} />;
 }
 
+export function TablesInBattleBuffStatus(props: StatTableProps) {
+  return <LazyLoading {...props} src={InBattleBuffVariants.tableDataStatus} />;
+}
+
 export default {
   Unit: TablesUnit,
   Situation: TablesSituation,
@@ -87,4 +91,5 @@ export default {
   InBattleBuffMoveSpeed: TablesInBattleBuffMoveSpeed,
   InBattleBuffRedeploy: TablesInBattleBuffRedeploy,
   InBattleBuffField: TablesInBattleBuffField,
+  InBattleBuffStatus: TablesInBattleBuffStatus,
 } as const;

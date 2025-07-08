@@ -232,7 +232,12 @@ th.buffMoveSpeedAdd,
 th.buffMoveSpeedMul,
 th.buffRedeployTimeCut,
 th.buffWithdrawCostReturn,
-th.buffFieldFactor {
+th.buffFieldFactor,
+th.buffPoisonImmune,
+th.buffBlindImmune,
+th.buffStanImmune,
+th.buffPetrifyImmune,
+th.buffFreezeImmune {
   width: 2.7rem;
 }
 

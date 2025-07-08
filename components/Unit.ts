@@ -113,14 +113,18 @@ interface JsonUnitSituation extends UnitSituation {
 }
 type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
 
-interface JsonBuffBase {
+export interface JsonBuffValue {
+  readonly status?: string;
+  readonly value?: number;
+  readonly element?: string;
+}
+
+interface JsonBuffBase extends JsonBuffValue {
   readonly require?: readonly string[];
   readonly skill?: number;
   readonly target?: string;
   readonly range?: number | null;
   readonly duration?: string | number;
-  readonly value?: number;
-  readonly element?: string;
   readonly supplements?: readonly string[];
 }
 interface JsonBuffSingle extends JsonBuffBase {
@@ -137,10 +141,8 @@ interface JsonBuffMultiple extends JsonBuffBase {
   >;
   readonly effects: readonly JsonBuffEffect[];
 }
-interface JsonBuffEffect {
+interface JsonBuffEffect extends JsonBuffValue {
   readonly type: string;
-  readonly value?: number;
-  readonly element?: string;
   readonly potentialBonus?: Omit<JsonBuffEffect, "type" | "potentialBonus">;
 }
 export type JsonBuff = JsonBuffSingle | JsonBuffMultiple;

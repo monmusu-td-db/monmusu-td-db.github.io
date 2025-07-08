@@ -139,20 +139,22 @@
         "value": 60
       },
       {
-        "type": "freeze-nullify",
+        "type": "status-invalid",
         "require": [
           "武器"
         ],
         "skill": 1,
-        "target": "射程内"
+        "target": "射程内",
+        "status": "凍結"
       },
       {
-        "type": "freeze-nullify",
+        "type": "status-invalid",
         "require": [
           "武器"
         ],
         "skill": 2,
-        "target": "射程内"
+        "target": "射程内",
+        "status": "凍結"
       }
     ]
   },
@@ -3008,27 +3010,18 @@
     ],
     "buffs": [
       {
-        "TODO": "TODO",
         "skill": 2,
         "target": "射程内",
         "effects": [
           {
-            "type": "poison-nullify"
+            "type": "status-invalid",
+            "status": "毒"
           },
           {
-            "type": "petrify-nullify"
+            "type": "status-invalid",
+            "status": "石化"
           }
         ]
-      },
-      {
-        "type": "poison-nullify",
-        "skill": 2,
-        "target": "射程内"
-      },
-      {
-        "type": "petrify-nullify",
-        "skill": 2,
-        "target": "射程内"
       }
     ]
   },
@@ -8580,42 +8573,49 @@
         ]
       },
       {
-        "type": "poison-resist",
         "target": "全体",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
+        "effects": [
+          {
+            "type": "status-resist",
+            "status": "毒",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "status-resist",
+            "status": "石化",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          }
+        ]
       },
       {
-        "type": "poison-resist",
         "require": [
           "ドラゴン特性"
         ],
         "target": "全体",
-        "value": 60,
-        "potentialBonus": {
-          "value": 70
-        }
-      },
-      {
-        "type": "petrify-resist",
-        "target": "全体",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "petrify-resist",
-        "require": [
-          "ドラゴン特性"
-        ],
-        "target": "全体",
-        "value": 60,
-        "potentialBonus": {
-          "value": 70
-        }
+        "effects": [
+          {
+            "type": "status-resist",
+            "status": "毒",
+            "value": 60,
+            "potentialBonus": {
+              "value": 70
+            }
+          },
+          {
+            "type": "status-resist",
+            "status": "石化",
+            "value": 60,
+            "potentialBonus": {
+              "value": 70
+            }
+          }
+        ]
       }
     ]
   },
@@ -26377,40 +26377,42 @@
     ],
     "buffs": [
       {
-        "type": "blind-resist",
         "target": "射程内",
         "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "stan-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "petrify-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "freeze-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
+        "effects": [
+          {
+            "type": "status-resist",
+            "status": "暗闇",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "status-resist",
+            "status": "スタン",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "status-resist",
+            "status": "石化",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "status-resist",
+            "status": "凍結",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          }
+        ]
       },
       {
         "type": "field-change",
