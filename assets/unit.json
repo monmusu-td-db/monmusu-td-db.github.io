@@ -157,7 +157,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報/ex1/ex2射程はwiki情報",
+    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報/ex1/ex2射程はwiki情報/攻撃モーション速度はwiki情報からの推測",
     "id": 2,
     "unitName": "【キマイラ娘】ラゴス",
     "unitShortName": "ラゴス",
@@ -227,6 +227,9 @@
       }
     ],
     "features": [
+      {
+        "attackMotionMul": 154
+      },
       {
         "featureName": "weapon-attack-mul",
         "isConditionalBuff": true,
@@ -17166,6 +17169,7 @@
     "features": [
       {
         "featureName": "normal",
+        "attackMotionMul": 177,
         "supplements": [
           "猛毒付与"
         ]
