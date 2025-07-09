@@ -10766,10 +10766,12 @@
     "buffs": [
       {
         "type": "weather-change",
+        "skill": 1,
         "target": "全体",
         "duration": 5,
+        "weather": "吹雪",
         "supplements": [
-          "吹雪"
+          "発動時"
         ],
         "potentialBonus": {
           "duration": 7
@@ -14910,9 +14912,11 @@
     "buffs": [
       {
         "type": "weather-change",
+        "target": "全体",
         "duration": 4,
+        "weather": "雨",
         "supplements": [
-          "雨"
+          "配置時"
         ]
       }
     ]
@@ -26663,6 +26667,18 @@
         "features": [
           "common-proper",
           "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "雨",
+        "supplements": [
+          "発動時"
         ]
       }
     ]

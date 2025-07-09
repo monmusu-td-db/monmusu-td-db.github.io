@@ -80,6 +80,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffRange:
       case stat.buffFieldChange:
       case stat.buffFieldAdd:
+      case stat.buffWeatherChange:
         center.push(index);
         break;
     }

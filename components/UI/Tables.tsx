@@ -79,6 +79,10 @@ export function TablesInBattleBuffStatus(props: StatTableProps) {
   return <LazyLoading {...props} src={InBattleBuffVariants.tableDataStatus} />;
 }
 
+export function TablesInBattleBuffWeather(props: StatTableProps) {
+  return <LazyLoading {...props} src={InBattleBuffVariants.tableDataWeather} />;
+}
+
 export default {
   Unit: TablesUnit,
   Situation: TablesSituation,
@@ -92,4 +96,5 @@ export default {
   InBattleBuffRedeploy: TablesInBattleBuffRedeploy,
   InBattleBuffField: TablesInBattleBuffField,
   InBattleBuffStatus: TablesInBattleBuffStatus,
+  InBattleBuffWeather: TablesInBattleBuffWeather,
 } as const;

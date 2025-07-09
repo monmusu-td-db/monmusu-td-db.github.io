@@ -237,7 +237,8 @@ th.buffPoisonImmune,
 th.buffBlindImmune,
 th.buffStanImmune,
 th.buffPetrifyImmune,
-th.buffFreezeImmune {
+th.buffFreezeImmune,
+th.buffWeatherChange {
   width: 2.7rem;
 }
 

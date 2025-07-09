@@ -71,6 +71,10 @@ const statusKey = [
   stat.buffFreezeImmune,
 ] as const satisfies InBattleBuffKey[];
 
+const weatherKey = [
+  stat.buffWeatherChange,
+] as const satisfies InBattleBuffKey[];
+
 export default class InBattleBuffVariants extends InBattleBuff {
   private static getKeys<T extends InBattleBuffKey>(
     rawKeys: readonly T[]
@@ -125,5 +129,9 @@ export default class InBattleBuffVariants extends InBattleBuff {
 
   public static get tableDataStatus() {
     return this.getTableData(statusKey);
+  }
+
+  public static get tableDataWeather() {
+    return this.getTableData(weatherKey);
   }
 }

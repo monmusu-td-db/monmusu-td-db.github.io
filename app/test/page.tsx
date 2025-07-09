@@ -9,6 +9,7 @@ import {
   TablesInBattleBuffMoveSpeed,
   TablesInBattleBuffRedeploy,
   TablesInBattleBuffStatus,
+  TablesInBattleBuffWeather,
 } from "@/components/UI/Tables";
 import PageRoot from "@/components/UI/PageRoot";
 import { Container } from "react-bootstrap";
@@ -28,6 +29,7 @@ export default function App() {
         <InBattleBuffRedeploy />
         <InBattleBuffField />
         <InBattleBuffStatus />
+        <InBattleBuffWeather />
       </Container>
     </PageRoot>
   );
@@ -122,6 +124,15 @@ function InBattleBuffStatus() {
     <>
       <h2>状態異常耐性バフ</h2>
       <TablesInBattleBuffStatus id="in-battle-status" className="mb-5" />
+    </>
+  );
+}
+
+function InBattleBuffWeather() {
+  return (
+    <>
+      <h2>天候変化</h2>
+      <TablesInBattleBuffWeather id="in-battle-weather" className="mb-5" />
     </>
   );
 }

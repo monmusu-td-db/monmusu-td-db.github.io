@@ -91,5 +91,6 @@
     "buffBlindImmune": "暗闇耐性",
     "buffStanImmune": "スタン耐性",
     "buffPetrifyImmune": "石化耐性",
-    "buffFreezeImmune": "凍結耐性"
+    "buffFreezeImmune": "凍結耐性",
+    "buffWeatherChange": "天候変化"
 }

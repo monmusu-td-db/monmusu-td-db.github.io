@@ -117,6 +117,7 @@ export interface JsonBuffValue {
   readonly status?: string;
   readonly value?: number;
   readonly element?: string;
+  readonly weather?: string;
 }
 
 interface JsonBuffBase extends JsonBuffValue {

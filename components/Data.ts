@@ -1727,6 +1727,44 @@ export class Status {
   }
 }
 
+const weatherName = {
+  rain: "雨",
+  blizzard: "吹雪",
+} as const;
+type WeatherKey = keyof typeof weatherName;
+const weatherColor = {
+  rain: tableColor.blue,
+  blizzard: tableColor.blue900,
+} as const satisfies Record<WeatherKey, TableColor>;
+export type Weather = (typeof weatherName)[WeatherKey];
+export const Weather = {
+  values: Object.values(weatherName),
+  entries: getEntries(weatherName),
+
+  parse(rawValue: unknown): Weather | undefined {
+    return this.values.find((v) => v === rawValue);
+  },
+
+  indexOf(weather: Weather | undefined): number | undefined {
+    if (!weather) {
+      return;
+    }
+    return Weather.values.indexOf(weather);
+  },
+
+  keyOf(weather: Weather | undefined): WeatherKey | undefined {
+    return this.entries.find((kvp) => kvp[1] === weather)?.[0];
+  },
+
+  colorOf(weather: Weather | undefined): TableColor | undefined {
+    const key = this.keyOf(weather);
+    if (!key) {
+      return;
+    }
+    return weatherColor[key];
+  },
+};
+
 // Factors
 
 export interface ColorFactor<T = number> {

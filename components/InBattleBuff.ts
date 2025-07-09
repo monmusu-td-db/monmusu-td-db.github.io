@@ -50,6 +50,7 @@ const keys = [
   stat.buffStanImmune,
   stat.buffPetrifyImmune,
   stat.buffFreezeImmune,
+  stat.buffWeatherChange,
   stat.inBattleBuffSupplements,
 ] as const;
 type Key = (typeof keys)[number];
@@ -98,6 +99,7 @@ class BuffType {
     fieldBuffFactor: "field-buff-factor",
     fieldChange: "field-change",
     fieldBuffAdd: "field-buff-add",
+    weatherChange: "weather-change",
   } as const;
 
   private static entries = Data.getEntries(this.list);
@@ -210,6 +212,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffStanImmune: Stat.Root;
   readonly buffPetrifyImmune: Stat.Root;
   readonly buffFreezeImmune: Stat.Root;
+  readonly buffWeatherChange: Stat.Root<Data.Weather | undefined>;
 
   constructor(src: Source) {
     const { id, unit, buff } = src;
@@ -550,6 +553,19 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffStanImmune = getImmune(stat.buffStanImmune);
     this.buffPetrifyImmune = getImmune(stat.buffPetrifyImmune);
     this.buffFreezeImmune = getImmune(stat.buffFreezeImmune);
+
+    this.buffWeatherChange = new Stat.Root({
+      statType: stat.buffWeatherChange,
+      calculater: (s) => {
+        const effect = this.getEffect(
+          s,
+          this.effectList[typeKey.weatherChange]
+        );
+        return Data.Weather.parse(effect?.weather);
+      },
+      comparer: (s) => Data.Weather.indexOf(this.buffWeatherChange.getValue(s)),
+      color: (s) => Data.Weather.colorOf(this.buffWeatherChange.getValue(s)),
+    });
   }
 
   private getEffectCalculaterFn(effectKey: keyof EffectList) {
