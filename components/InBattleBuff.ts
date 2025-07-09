@@ -265,7 +265,11 @@ export default class InBattleBuff implements TableRow<Key> {
 
     this.buffTarget = new Stat.Root({
       statType: stat.buffTarget,
-      calculater: () => buff.target,
+      calculater: (s) => {
+        return unit.isPotentialApplied(s)
+          ? buff.potentialBonus?.target ?? buff.target
+          : buff.target;
+      },
       comparer: (s) => this.getTargetComparer(s),
     });
 
@@ -292,7 +296,10 @@ export default class InBattleBuff implements TableRow<Key> {
             return value;
           }
         }
-        const inBattleBuff = parse(buff.duration);
+        const rawValue = unit.isPotentialApplied(s)
+          ? buff.potentialBonus?.duration ?? buff.duration
+          : buff.duration;
+        const inBattleBuff = parse(rawValue);
         const factors: Data.DurationFactors = {
           ...this.situation.duration.getFactors(s),
           inBattleBuff,
@@ -623,7 +630,9 @@ export default class InBattleBuff implements TableRow<Key> {
   }
 
   private getRangeValue(setting: Setting): number | undefined {
-    const rawValue = this.rawBuff.range;
+    const rawValue = this.unit.isPotentialApplied(setting)
+      ? this.rawBuff.potentialBonus?.range ?? this.rawBuff.range
+      : this.rawBuff.range;
     const targetValue = this.buffTarget.getValue(setting);
 
     if (rawValue === null && targetValue === undefined) {
