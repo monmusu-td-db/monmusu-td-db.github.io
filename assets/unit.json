@@ -139,7 +139,7 @@
         "value": 60
       },
       {
-        "type": "status-invalid",
+        "type": "freeze-invalid",
         "require": [
           "武器"
         ],
@@ -148,7 +148,7 @@
         "status": "凍結"
       },
       {
-        "type": "status-invalid",
+        "type": "freeze-invalid",
         "require": [
           "武器"
         ],
@@ -3014,11 +3014,11 @@
         "target": "射程内",
         "effects": [
           {
-            "type": "status-invalid",
+            "type": "poison-invalid",
             "status": "毒"
           },
           {
-            "type": "status-invalid",
+            "type": "petrify-invalid",
             "status": "石化"
           }
         ]
@@ -8576,7 +8576,7 @@
         "target": "全体",
         "effects": [
           {
-            "type": "status-resist",
+            "type": "poison-resist",
             "status": "毒",
             "value": 30,
             "potentialBonus": {
@@ -8584,7 +8584,7 @@
             }
           },
           {
-            "type": "status-resist",
+            "type": "petrify-resist",
             "status": "石化",
             "value": 30,
             "potentialBonus": {
@@ -8600,7 +8600,7 @@
         "target": "全体",
         "effects": [
           {
-            "type": "status-resist",
+            "type": "poison-resist",
             "status": "毒",
             "value": 60,
             "potentialBonus": {
@@ -8608,7 +8608,7 @@
             }
           },
           {
-            "type": "status-resist",
+            "type": "petrify-resist",
             "status": "石化",
             "value": 60,
             "potentialBonus": {
@@ -26381,7 +26381,7 @@
         "duration": "常時",
         "effects": [
           {
-            "type": "status-resist",
+            "type": "blind-resist",
             "status": "暗闇",
             "value": 30,
             "potentialBonus": {
@@ -26389,7 +26389,7 @@
             }
           },
           {
-            "type": "status-resist",
+            "type": "stan-resist",
             "status": "スタン",
             "value": 30,
             "potentialBonus": {
@@ -26397,7 +26397,7 @@
             }
           },
           {
-            "type": "status-resist",
+            "type": "petrify-resist",
             "status": "石化",
             "value": 30,
             "potentialBonus": {
@@ -26405,7 +26405,7 @@
             }
           },
           {
-            "type": "status-resist",
+            "type": "freeze-resist",
             "status": "凍結",
             "value": 30,
             "potentialBonus": {

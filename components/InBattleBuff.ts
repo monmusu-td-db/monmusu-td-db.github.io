@@ -85,9 +85,7 @@ class BuffType {
     moveSpeedMul: "move-speed-mul",
     redeployTimeCut: "redeploy-time-cut",
     withdrawCostReturn: "withdraw-cost-return",
-    statusInvalid: "status-invalid",
-    statusResist: "status-resist",
-    poisonInvalid: "poison-invalid", // TODO
+    poisonInvalid: "poison-invalid",
     blindInvalid: "blind-invalid",
     stanInvalid: "stan-invalid",
     petrifyInvalid: "petrify-invalid",
@@ -230,25 +228,14 @@ export default class InBattleBuff implements TableRow<Key> {
 
     {
       const list: EffectList = {};
-      function getKey(type: string, status: unknown): BuffTypeKey | undefined {
-        const key = BuffType.getKey(type);
-        switch (key) {
-          case typeKey.statusInvalid:
-            return BuffType.getKeyFromStatus(true, status);
-          case typeKey.statusResist:
-            return BuffType.getKeyFromStatus(false, status);
-          default:
-            return key;
-        }
-      }
       if ("type" in buff) {
-        const key = getKey(buff.type, buff.status);
+        const key = BuffType.getKey(buff.type);
         if (key) {
           list[key] = buff;
         }
       } else {
         buff.effects.forEach((effect) => {
-          const key = getKey(effect.type, effect.status);
+          const key = BuffType.getKey(effect.type);
           if (key) {
             list[key] = effect;
           }
