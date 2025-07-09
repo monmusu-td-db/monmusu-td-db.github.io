@@ -18,7 +18,7 @@ function Header({ pageType }: { pageType?: PageType }) {
   const setOpen = Panel.Contexts.useSetOpen();
 
   return (
-    <header className="mb-2 sticky-top header">
+    <header className="sticky-top header">
       <NavArea />
       <Panel open={open} onClose={() => setOpen(false)} pageType={pageType} />
     </header>

@@ -1,7 +1,7 @@
 import * as Data from "./Data";
 import * as Stat from "./Stat";
 import Unit from "./Unit";
-import type { TableSource, TableRow } from "./UI/StatTable";
+import type { TableSource, TableRow } from "./UI/StatTableUtil";
 import type { Setting, States } from "./States";
 import FormationBuffUI from "./UI/FormationBuffUI";
 
@@ -117,7 +117,21 @@ export default class FormationBuff implements TableRow<Keys> {
       statType: stat.buffTarget,
       calculater: (s) => this.getBuff(s).targets,
       text: (s) => this.getTargetText(s),
-      item: (s) => FormationBuffUI.getTargetItem(this.buffTarget.getValue(s)),
+      // item: (s) => FormationBuffUI.getTargetItem(this.buffTarget.getValue(s)),
+      color: (s) => {
+        const list = this.buffTarget.getValue(s);
+        let element: Data.Element | undefined;
+        let i = 0;
+        list.forEach((v) => {
+          if (Data.Element.isElement(v)) {
+            element = v;
+            i++;
+          }
+        });
+        if (element && i === 1) {
+          return Data.Element.colorOf(element);
+        }
+      },
       comparer: (s) => this.getTargetComparer(s),
     });
 
@@ -132,13 +146,10 @@ export default class FormationBuff implements TableRow<Keys> {
           );
         }),
       item: (s) =>
-        this.getBuff(s).require.map((buff) => {
-          const key = Data.FormationBuffRequire.keyOf(buff);
-          return FormationBuffUI.getSupplementItem(
-            key,
-            unit.element.getValue(s)
-          );
-        }),
+        FormationBuffUI.getSupplementItems(
+          this.getBuff(s).require,
+          unit.element.getValue(s)
+        ),
     });
   }
 
@@ -195,11 +206,11 @@ export default class FormationBuff implements TableRow<Keys> {
           isReversed
         );
       },
-    };
+    } as const;
   }
 }
 
-const buffs: FormationBuff[] = (() => {
+const buffs: readonly FormationBuff[] = (() => {
   const ret: FormationBuff[] = [];
   const units = Unit.list;
   let index = 0;

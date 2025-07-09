@@ -19,6 +19,13 @@ import Panel from "./Panel";
 import * as Data from "../Data";
 import TableStyle from "./TableStyle";
 import Situation from "../Situation";
+import type {
+  StatTableProps,
+  TableData,
+  TableHeader,
+  TableRow,
+  TableSource,
+} from "./StatTableUtil";
 
 //
 // Types
@@ -30,44 +37,23 @@ export type CellData = {
   stat: Stat;
 };
 
-interface TableHeaders<T extends string> {
-  headers: readonly TableHeader<T>[];
-}
-
-export interface TableData<T extends string> extends TableHeaders<T> {
-  rows: readonly TableRow<T>[];
-}
-
-export interface TableSource<T extends string> extends TableHeaders<T> {
-  filter: (states: States) => readonly TableRow<T>[];
-  sort: (
-    setting: Setting,
-    rows: readonly TableRow<T>[],
-    column: T,
-    isReversed: boolean
-  ) => readonly TableRow<T>[];
-}
-
-export type TableHeader<T extends string> = {
-  id: T;
-  name: string;
-};
-
-export type TableRow<T extends string> = {
-  readonly [key in T]: StatRoot<unknown, unknown>;
-} & {
-  readonly id: number;
-};
-
 type Sort<T extends string> = {
   column: T | undefined;
   isReversed: boolean;
 };
 
+interface StatTableSourceProps<T extends string> extends StatTableProps {
+  src: TableSource<T>;
+}
+
 //
 // Components
 
-function StatTable<T extends string>({ src }: { src: TableSource<T> }) {
+function StatTable<T extends string>({
+  src,
+  className,
+  id,
+}: StatTableSourceProps<T>) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
   const query = Contexts.useQuery();
@@ -82,8 +68,8 @@ function StatTable<T extends string>({ src }: { src: TableSource<T> }) {
   }, [filter, query, setting, uISetting]);
 
   return (
-    <div className="d-flex justify-content-center">
-      <TableControl src={src} states={states} />
+    <div className={cn("d-flex justify-content-center", className)}>
+      <TableControl src={src} states={states} id={id} />
     </div>
   );
 }
@@ -92,9 +78,11 @@ const TableControl = memo(TableControl_) as typeof TableControl_;
 function TableControl_<T extends string>({
   src,
   states,
+  id,
 }: {
   src: TableSource<T>;
   states: States;
+  id: string;
 }) {
   const [sort, toggleSort] = useSort(src);
   const panelOpen = Panel.Contexts.useOpen();
@@ -144,10 +132,11 @@ function TableControl_<T extends string>({
 
   return (
     <TooltipControl cond={tooltipCond} setting={dStates.setting}>
-      <TableStyle headers={dData.headers} />
+      <TableStyle headers={dData.headers} id={id} />
       <Table
         striped
         size="sm"
+        id={id}
         className={cn("stat-table", { pending: isPending })}
       >
         <EmptyAlert tableData={dData} />
@@ -302,18 +291,14 @@ const Row = memo(function Row({
   setting: Setting;
   handlers: TooltipEventHandlers;
 }) {
-  return (
-    <>
-      {headers.map((col) => (
-        <Cell
-          key={col.id}
-          stat={row[col.id]}
-          setting={setting}
-          handlers={handlers}
-        />
-      ))}
-    </>
-  );
+  return headers.map((col) => (
+    <Cell
+      key={col.id}
+      stat={row[col.id]}
+      setting={setting}
+      handlers={handlers}
+    />
+  ));
 });
 
 const Cell = memo(function Cell({

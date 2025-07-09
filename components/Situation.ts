@@ -20,7 +20,12 @@ import {
   type FeatureOutput,
   type FeatureOutputCore,
 } from "./Feature";
-import type { TableHeader, TableRow, TableSource } from "./UI/StatTable";
+import {
+  TableSourceUtil,
+  type TableHeader,
+  type TableRow,
+  type TableSource,
+} from "./UI/StatTableUtil";
 
 const tableColor = Data.tableColorAlias;
 
@@ -130,7 +135,7 @@ export default class Situation implements TableRow<Keys> {
   readonly magicalEvasion: Stat.Root<number, Data.EvasionFactors>;
   readonly supplements: Stat.Supplement;
   readonly initialTime: Stat.Root;
-  readonly duration: Stat.Root;
+  readonly duration: Stat.Root<number | undefined, Data.DurationFactorsResult>;
   readonly cooldown: Stat.Root<number | undefined, Data.CooldownFactors>;
   readonly moveSpeed: Stat.Root<
     number | undefined,
@@ -951,36 +956,27 @@ export default class Situation implements TableRow<Keys> {
 
     this.duration = new Stat.Root({
       statType: stat.duration,
-      calculater: (s) => {
-        const f = this.getFeature(s).duration;
-        if (f === null) return;
-        if (f === Data.Duration.always) return Infinity;
-        const sk = this.getSkill(s)?.duration;
-        if (sk === Data.Duration.single)
-          return (this.interval.getFactors(s)?.base?.result ?? 0) / Data.fps;
-        if (sk === undefined) return;
-        return sk;
-      },
+      calculater: (s) => this.duration.getFactors(s).result,
       isReversed: true,
-      text: (s) => {
-        const f = this.getFeature(s);
-        if (f.duration === Data.Duration.always) return Data.Duration.always;
-        let d;
-        if (f.isExtraDamage) d = f.duration;
-        else d = this.duration.getValue(s) ?? f.duration;
-        if (d === undefined || d === null)
-          return this.getTokenParent(s)?.duration.getText(s);
-        return Data.Duration.textOf(d);
-      },
-      color: (s) => {
-        const f = this.getFeature(s);
-        const d = this.duration.getValue(s);
-        if (
-          (f.isAction && d === undefined) ||
-          f.duration === Data.Duration.always ||
-          f.isExtraDamage
-        )
-          return tableColor.warning;
+      text: (s) => Situation.getDurationText(this.duration.getFactors(s)),
+      color: (s) => Situation.getDurationColor(this.duration.getFactors(s)),
+      factors: (s) => {
+        const skill = this.getSkill(s)?.duration;
+        const fea = this.getFeature(s);
+        const feature = fea.duration;
+        const isExtraDamage = fea.isExtraDamage ?? false;
+        const isAction = fea.isAction ?? false;
+        const interval = this.interval.getFactors(s)?.actualResult ?? 0;
+        const parentText = this.getTokenParent(s)?.duration.getText(s);
+        const factors: Data.DurationFactors = {
+          skill,
+          feature,
+          isExtraDamage,
+          isAction,
+          interval,
+          parentText,
+        };
+        return Situation.calculateDurationResult(factors);
       },
     });
 
@@ -2076,6 +2072,70 @@ export default class Situation implements TableRow<Keys> {
     return this.getCooldownReductions(setting, result);
   }
 
+  public static calculateDurationResult(
+    factors: Data.DurationFactors
+  ): Data.DurationFactorsResult {
+    const result = ((): number | undefined => {
+      if (factors.inBattleBuff !== undefined) {
+        if (factors.inBattleBuff === Data.Duration.always) {
+          return Infinity;
+        } else {
+          return factors.inBattleBuff;
+        }
+      }
+      if (factors.feature === null) {
+        return;
+      }
+      if (factors.feature === Data.Duration.always) {
+        return Infinity;
+      }
+      if (factors.skill === Data.Duration.single) {
+        return factors.interval / Data.fps;
+      }
+      if (factors.skill === undefined) {
+        return;
+      }
+      return factors.skill;
+    })();
+
+    return {
+      ...factors,
+      result,
+    };
+  }
+
+  public static getDurationText(
+    factors: Data.DurationFactorsResult
+  ): string | undefined {
+    if (
+      factors.inBattleBuff === Data.Duration.always ||
+      factors.feature === Data.Duration.always
+    ) {
+      return Data.Duration.always;
+    }
+
+    const result = factors.isExtraDamage ? undefined : factors.result;
+    const duration = result ?? factors.feature;
+    if (duration === undefined || duration === null) {
+      return factors.parentText;
+    }
+
+    return Data.Duration.textOf(duration);
+  }
+
+  public static getDurationColor(
+    factors: Data.DurationFactorsResult
+  ): Data.TableColor | undefined {
+    if (
+      (factors.isAction && factors.result === undefined) ||
+      factors.inBattleBuff !== undefined ||
+      factors.feature === Data.Duration.always ||
+      factors.isExtraDamage
+    ) {
+      return tableColor.warning;
+    }
+  }
+
   private getCooldownReductions(
     setting: Setting,
     value: number,
@@ -2696,13 +2756,7 @@ export default class Situation implements TableRow<Keys> {
     return {
       headers: Situation.headers,
       filter: (states) => Situation.filter(states, situations),
-      sort: (setting, rows, column, isReversed) => {
-        return Data.mapSort(
-          rows,
-          (target) => Situation.comparer(setting, column, target),
-          isReversed
-        );
-      },
+      sort: TableSourceUtil.getSortFn(),
     };
   }
 }

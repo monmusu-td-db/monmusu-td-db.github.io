@@ -8,23 +8,23 @@ const supplementText = {
 } as const satisfies Record<Data.FormationBuffRequireKey, string>;
 
 export default class FormationBuffUI {
-  static getTargetItem(
-    targets: ReadonlySet<Data.FormationBuffTarget>
-  ): ReactNode {
-    const arr: ReactNode[] = [];
-    let i = 0;
-    for (const tgt of targets) {
-      const element = Data.Element.parse(tgt);
-      arr.push(
-        <Fragment key={tgt}>
-          {i > 0 && " "}
-          {element ? <Util.ElementText element={element} /> : tgt}
-        </Fragment>
-      );
-      i++;
-    }
-    return arr;
-  }
+  // static getTargetItem(
+  //   targets: ReadonlySet<Data.FormationBuffTarget>
+  // ): ReactNode {
+  //   const arr: ReactNode[] = [];
+  //   let i = 0;
+  //   for (const tgt of targets) {
+  //     const element = Data.Element.parse(tgt);
+  //     arr.push(
+  //       <Fragment key={tgt}>
+  //         {i > 0 && " "}
+  //         {element ? <Util.ElementText element={element} /> : tgt}
+  //       </Fragment>
+  //     );
+  //     i++;
+  //   }
+  //   return arr;
+  // }
 
   static getSupplementText(
     key: Data.FormationBuffRequireKey,
@@ -43,25 +43,38 @@ export default class FormationBuffUI {
     }
   }
 
-  static getSupplementItem(
-    key: Data.FormationBuffRequireKey,
+  static getSupplementItems(
+    requests: readonly Data.FormationBuffRequire[],
     element: Data.Element | undefined
   ): ReactNode {
-    const keys = Data.FormationBuffRequire.keys;
-    switch (key) {
-      case keys.weapon:
-        return this.getSupplementText(key, element);
-      case keys.sameElement8:
-        if (element === undefined) {
-          return this.getSupplementText(key, element);
-        } else {
-          return (
-            <>
-              <Util.ElementText element={element} />
-              属性8体
-            </>
-          );
-        }
-    }
+    return requests.map((buff) => {
+      const key = Data.FormationBuffRequire.keyOf(buff);
+      return <SupplementItem key={key} requireKey={key} element={element} />;
+    });
+  }
+}
+
+function SupplementItem({
+  requireKey,
+  element,
+}: {
+  requireKey: Data.FormationBuffRequireKey;
+  element: Data.Element | undefined;
+}): ReactNode {
+  const keys = Data.FormationBuffRequire.keys;
+  switch (requireKey) {
+    case keys.weapon:
+      return FormationBuffUI.getSupplementText(requireKey, element);
+    case keys.sameElement8:
+      if (element === undefined) {
+        return FormationBuffUI.getSupplementText(requireKey, element);
+      } else {
+        return (
+          <>
+            <Util.ElementText element={element} />
+            属性8体
+          </>
+        );
+      }
   }
 }

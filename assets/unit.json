@@ -139,20 +139,22 @@
         "value": 60
       },
       {
-        "type": "freeze-nullify",
+        "type": "freeze-invalid",
         "require": [
           "武器"
         ],
         "skill": 1,
-        "target": "射程内"
+        "target": "射程内",
+        "status": "凍結"
       },
       {
-        "type": "freeze-nullify",
+        "type": "freeze-invalid",
         "require": [
           "武器"
         ],
         "skill": 2,
-        "target": "射程内"
+        "target": "射程内",
+        "status": "凍結"
       }
     ]
   },
@@ -714,17 +716,19 @@
         "value": 115
       },
       {
-        "type": "field-change-earth",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "地",
         "supplements": [
           "発動時"
         ]
       },
       {
-        "type": "field-change-earth",
+        "type": "field-change",
         "skill": 2,
         "target": "自分",
+        "element": "地",
         "supplements": [
           "発動時"
         ]
@@ -3131,14 +3135,18 @@
     ],
     "buffs": [
       {
-        "type": "poison-nullify",
         "skill": 2,
-        "target": "射程内"
-      },
-      {
-        "type": "petrify-nullify",
-        "skill": 2,
-        "target": "射程内"
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "poison-invalid",
+            "status": "毒"
+          },
+          {
+            "type": "petrify-invalid",
+            "status": "石化"
+          }
+        ]
       }
     ]
   },
@@ -8673,60 +8681,66 @@
         "value": 110
       },
       {
-        "type": "defense-mul",
         "require": [
           "ドラゴン特性"
         ],
         "skill": 2,
         "target": "射程内",
-        "value": 200
+        "effects": [
+          {
+            "type": "defense-mul",
+            "value": 200
+          },
+          {
+            "type": "resist-mul",
+            "value": 200
+          }
+        ]
       },
       {
-        "type": "resist-mul",
-        "require": [
-          "ドラゴン特性"
-        ],
-        "skill": 2,
-        "target": "射程内",
-        "value": 200
-      },
-      {
-        "type": "poison-resist",
         "target": "全体",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
+        "effects": [
+          {
+            "type": "poison-resist",
+            "status": "毒",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "petrify-resist",
+            "status": "石化",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          }
+        ]
       },
       {
-        "type": "poison-resist",
-        "require": [
-          "ドラゴン特性"
-        ],
-        "target": "全体",
-        "value": 60,
-        "potentialBonus": {
-          "value": 70
-        }
-      },
-      {
-        "type": "petrify-resist",
-        "target": "全体",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "petrify-resist",
         "require": [
           "ドラゴン特性"
         ],
         "target": "全体",
-        "value": 60,
-        "potentialBonus": {
-          "value": 70
-        }
+        "effects": [
+          {
+            "type": "poison-resist",
+            "status": "毒",
+            "value": 60,
+            "potentialBonus": {
+              "value": 70
+            }
+          },
+          {
+            "type": "petrify-resist",
+            "status": "石化",
+            "value": 60,
+            "potentialBonus": {
+              "value": 70
+            }
+          }
+        ]
       }
     ]
   },
@@ -10208,6 +10222,9 @@
     "buffs": [
       {
         "type": "move-speed-add",
+        "require": [
+          "飛行移動以外"
+        ],
         "target": "全体",
         "value": 20,
         "potentialBonus": {
@@ -10216,23 +10233,28 @@
       },
       {
         "type": "move-speed-add",
-        "target": "飛行",
+        "require": [
+          "飛行移動"
+        ],
+        "target": "全体",
         "value": 40,
         "potentialBonus": {
           "value": 45
         }
       },
       {
-        "type": "redeploy-time-cut",
         "skill": 2,
         "target": "全体",
-        "value": 80
-      },
-      {
-        "type": "withdraw-cost-return",
-        "skill": 2,
-        "target": "全体",
-        "value": 90
+        "effects": [
+          {
+            "type": "redeploy-time-cut",
+            "value": 80
+          },
+          {
+            "type": "withdraw-cost-return",
+            "value": 90
+          }
+        ]
       }
     ]
   },
@@ -10869,9 +10891,12 @@
     "buffs": [
       {
         "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
         "duration": 5,
+        "weather": "吹雪",
         "supplements": [
-          "吹雪"
+          "発動時"
         ],
         "potentialBonus": {
           "duration": 7
@@ -13024,7 +13049,7 @@
       "cooldown": 40,
       "supplements": [
         "鈍足/スキル中→射程内",
-        "攻撃速度減少/スキル中→射程内"
+        "攻撃速度減少→射程内"
       ]
     },
     "potentials": [
@@ -15012,9 +15037,11 @@
     "buffs": [
       {
         "type": "weather-change",
+        "target": "全体",
         "duration": 4,
+        "weather": "雨",
         "supplements": [
-          "雨"
+          "配置時"
         ]
       }
     ]
@@ -15148,22 +15175,21 @@
         "value": 80
       },
       {
-        "type": "attack-speed-buff",
         "skill": 1,
         "require": [
           "風属性"
         ],
         "target": "射程内",
-        "value": 120
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "require": [
-          "風属性"
-        ],
-        "target": "射程内",
-        "value": 75
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 120
+          },
+          {
+            "type": "delay-mul",
+            "value": 75
+          }
+        ]
       }
     ]
   },
@@ -16823,28 +16849,51 @@
     ],
     "buffs": [
       {
-        "type": "attack-speed-buff",
         "target": "射程内",
         "duration": 5,
-        "value": 115,
         "supplements": [
           "攻撃命中時"
         ],
-        "potentialBonus": {
-          "value": 120
-        }
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 115,
+            "potentialBonus": {
+              "value": 120
+            }
+          },
+          {
+            "type": "delay-mul",
+            "value": 85,
+            "potentialBonus": {
+              "value": 80
+            }
+          }
+        ]
       },
       {
-        "type": "delay-mul",
+        "skill": 1,
         "target": "射程内",
         "duration": 5,
-        "value": 85,
         "supplements": [
           "攻撃命中時"
         ],
-        "potentialBonus": {
-          "value": 80
-        }
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 130,
+            "potentialBonus": {
+              "value": 140
+            }
+          },
+          {
+            "type": "delay-mul",
+            "value": 70,
+            "potentialBonus": {
+              "value": 60
+            }
+          }
+        ]
       },
       {
         "type": "move-speed-mul",
@@ -16856,32 +16905,6 @@
         ],
         "potentialBonus": {
           "value": 120
-        }
-      },
-      {
-        "type": "attack-speed-buff",
-        "skill": 1,
-        "target": "射程内",
-        "duration": 5,
-        "value": 130,
-        "supplements": [
-          "攻撃命中時"
-        ],
-        "potentialBonus": {
-          "value": 140
-        }
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "target": "射程内",
-        "duration": 5,
-        "value": 70,
-        "supplements": [
-          "攻撃命中時"
-        ],
-        "potentialBonus": {
-          "value": 60
         }
       },
       {
@@ -18810,7 +18833,6 @@
     ],
     "exSkill1": {
       "skillName": "お姉ちゃん御籤！",
-      "rangeMul": 160,
       "duration": "単発",
       "cooldown": 30
     },
@@ -18822,6 +18844,16 @@
       "最大HP+600"
     ],
     "features": [
+      {
+        "skill": 1,
+        "interval": 40
+      },
+      {
+        "featureName": "skill1-range-mul",
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "rangeMul": 160
+      },
       {
         "featureName": "skill1-bad",
         "isConditionalSkillBuff": true,
@@ -18862,7 +18894,10 @@
         "depend": [
           "class-buff"
         ],
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "skill1-range-mul"
+        ]
       },
       {
         "exclude": [
@@ -18870,6 +18905,7 @@
         ],
         "skill": 1,
         "features": [
+          "skill1-range-mul",
           "skill1-bad"
         ]
       },
@@ -18879,6 +18915,7 @@
         ],
         "skill": 1,
         "features": [
+          "skill1-range-mul",
           "skill1-normal"
         ]
       },
@@ -18888,6 +18925,7 @@
         ],
         "skill": 1,
         "features": [
+          "skill1-range-mul",
           "skill1-good"
         ]
       }
@@ -18895,17 +18933,9 @@
     "buffs": [
       {
         "type": "attack-mul",
-        "target": "射程内",
-        "duration": 20,
-        "value": 150,
-        "supplements": [
-          "EX1おみくじ大吉"
-        ]
-      },
-      {
-        "type": "attack-mul",
         "skill": 1,
         "target": "射程内",
+        "duration": 20,
         "value": 150,
         "supplements": [
           "おみくじ大吉"
@@ -19313,13 +19343,19 @@
       {
         "type": "attack-mul",
         "skill": 0,
-        "target": "射程内火マス",
+        "require": [
+          "火マス"
+        ],
+        "target": "射程内",
         "value": 106
       },
       {
         "type": "attack-mul",
         "skill": 1,
-        "target": "射程内火マス",
+        "require": [
+          "火マス"
+        ],
+        "target": "射程内",
         "value": 112
       }
     ]
@@ -19412,9 +19448,10 @@
     ],
     "buffs": [
       {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -19506,28 +19543,38 @@
     ],
     "buffs": [
       {
-        "type": "attack-mul",
-        "target": "付与対象",
-        "range": null,
-        "value": 110
-      },
-      {
-        "type": "hp-mul",
         "require": [
           "近接クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 110
+        "effects": [
+          {
+            "type": "hp-mul",
+            "value": 110
+          },
+          {
+            "type": "attack-mul",
+            "value": 110
+          }
+        ]
       },
       {
-        "type": "delay-mul",
         "require": [
           "遠隔/スカウト系クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 90
+        "effects": [
+          {
+            "type": "attack-mul",
+            "value": 110
+          },
+          {
+            "type": "delay-mul",
+            "value": 90
+          }
+        ]
       }
     ]
   },
@@ -20618,7 +20665,7 @@
     "placement": "付",
     "supplements": [
       "配置後即時消滅",
-      "回復8%/秒(20秒)/配置→付与対象"
+      "回復8%/秒(20秒)→付与対象"
     ],
     "isUnhealable": true,
     "situations": [
@@ -20699,34 +20746,38 @@
     ],
     "buffs": [
       {
-        "type": "physical-damage-cut",
         "skill": 1,
+        "require": [
+          "光属性以外"
+        ],
         "target": "射程内",
-        "value": 40
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 40
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 40
+          }
+        ]
       },
       {
-        "type": "magical-damage-cut",
-        "skill": 1,
-        "target": "射程内",
-        "value": 40
-      },
-      {
-        "type": "physical-damage-cut",
         "skill": 1,
         "require": [
           "光属性"
         ],
         "target": "射程内",
-        "value": 50
-      },
-      {
-        "type": "magical-damage-cut",
-        "skill": 1,
-        "require": [
-          "光属性"
-        ],
-        "target": "射程内",
-        "value": 50
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 50
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 50
+          }
+        ]
       }
     ]
   },
@@ -22622,12 +22673,13 @@
     ],
     "buffs": [
       {
-        "type": "field-change-fire",
+        "type": "field-change",
         "skill": 1,
         "require": [
           "火属性"
         ],
-        "target": "射程内火属性",
+        "target": "射程内",
+        "element": "火",
         "supplements": [
           "発動時"
         ]
@@ -22771,7 +22823,10 @@
     "buffs": [
       {
         "type": "defense-mul",
-        "target": "射程内地マス",
+        "require": [
+          "地マス"
+        ],
+        "target": "射程内",
         "duration": "常時",
         "value": 120,
         "potentialBonus": {
@@ -22781,20 +22836,28 @@
       {
         "type": "attack-mul",
         "skill": 1,
-        "target": "射程内他者",
+        "require": [
+          "他者"
+        ],
+        "target": "射程内",
         "value": 130
       },
       {
-        "type": "attack-speed-buff",
         "skill": 1,
-        "target": "射程内他者",
-        "value": 150
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "target": "射程内他者",
-        "value": 50
+        "require": [
+          "他者"
+        ],
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 150
+          },
+          {
+            "type": "delay-mul",
+            "value": 50
+          }
+        ]
       }
     ]
   },
@@ -25369,9 +25432,10 @@
     ],
     "buffs": [
       {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -25503,34 +25567,30 @@
     ],
     "buffs": [
       {
-        "type": "physical-damage-cut",
         "require": [
           "近接クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 20,
         "supplements": [
           "※ex1で付与される場合、対象制限なし"
         ],
-        "potentialBonus": {
-          "value": 24
-        }
-      },
-      {
-        "type": "magical-damage-cut",
-        "require": [
-          "近接クラス"
-        ],
-        "target": "付与対象",
-        "range": null,
-        "value": 20,
-        "supplements": [
-          "※ex1で付与される場合、対象制限なし"
-        ],
-        "potentialBonus": {
-          "value": 24
-        }
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          }
+        ]
       },
       {
         "type": "damage-factor",
@@ -25539,12 +25599,12 @@
         ],
         "target": "付与対象",
         "range": null,
-        "value": 20,
+        "value": 120,
         "supplements": [
           "※ex1で付与される場合、対象制限なし"
         ],
         "potentialBonus": {
-          "value": 24
+          "value": 124
         }
       }
     ]
@@ -26411,7 +26471,10 @@
       {
         "type": "damage-factor",
         "skill": 1,
-        "target": "射程内風属性",
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
         "value": 130
       }
     ]
@@ -26501,45 +26564,51 @@
     ],
     "buffs": [
       {
-        "type": "blind-resist",
         "target": "射程内",
         "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
+        "effects": [
+          {
+            "type": "blind-resist",
+            "status": "暗闇",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "stan-resist",
+            "status": "スタン",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "petrify-resist",
+            "status": "石化",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "freeze-resist",
+            "status": "凍結",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          }
+        ]
       },
       {
-        "type": "stan-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "petrify-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "freeze-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
-        "target": "射程内光属性",
+        "require": [
+          "光属性"
+        ],
+        "target": "射程内",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -26547,7 +26616,10 @@
       {
         "type": "hp-mul",
         "skill": 1,
-        "target": "射程内光マス",
+        "require": [
+          "光マス"
+        ],
+        "target": "射程内",
         "value": 140
       }
     ]
@@ -26778,6 +26850,18 @@
         "features": [
           "common-proper",
           "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "雨",
+        "supplements": [
+          "発動時"
         ]
       }
     ]
@@ -27597,23 +27681,27 @@
         "value": 300
       },
       {
-        "type": "field-buff-factor",
-        "skill": 1,
-        "target": "射程内",
-        "value": 300
-      },
-      {
-        "type": "field-change-water",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "水",
         "supplements": [
           "発動時"
         ]
       },
       {
-        "type": "field-buff-add-water",
         "skill": 1,
-        "target": "射程内"
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "field-buff-factor",
+            "value": 300
+          },
+          {
+            "type": "field-buff-add",
+            "element": "水"
+          }
+        ]
       }
     ]
   },
@@ -28068,16 +28156,18 @@
         "value": 999
       },
       {
-        "type": "physical-evasion",
         "skill": 1,
         "target": "射程内",
-        "value": 35
-      },
-      {
-        "type": "magical-evasion",
-        "skill": 1,
-        "target": "射程内",
-        "value": 35
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 35
+          },
+          {
+            "type": "magical-evasion",
+            "value": 35
+          }
+        ]
       }
     ]
   },
@@ -28899,16 +28989,18 @@
     ],
     "buffs": [
       {
-        "type": "critical-chance-add",
         "skill": 1,
         "target": "射程内",
-        "value": 20
-      },
-      {
-        "type": "critical-chance-limit-add",
-        "skill": 1,
-        "target": "射程内",
-        "value": 20
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 20
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 20
+          }
+        ]
       }
     ]
   }

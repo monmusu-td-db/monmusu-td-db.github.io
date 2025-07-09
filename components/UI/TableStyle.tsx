@@ -1,13 +1,15 @@
 import * as Data from "@/components/Data";
 import { memo } from "react";
-import type { TableHeader } from "./StatTable";
+import type { TableHeader } from "./StatTableUtil";
 
 const stat = Data.stat;
 
 const TableStyle = memo(function TableStyle({
   headers,
+  id,
 }: {
   headers: readonly TableHeader<string>[];
+  id: string;
 }) {
   const end: number[] = [];
   const center: number[] = [];
@@ -34,6 +36,32 @@ const TableStyle = memo(function TableStyle({
       case stat.buffAttack:
       case stat.buffDefense:
       case stat.buffResist:
+      case stat.buffHpMul:
+      case stat.buffAttackMul:
+      case stat.buffDefenseMul:
+      case stat.buffResistMul:
+      case stat.buffPhysicalDamageCut:
+      case stat.buffMagicalDamageCut:
+      case stat.buffCriChanceAdd:
+      case stat.buffCriDamageAdd:
+      case stat.buffDamageFactor:
+      case stat.buffDamageDebuff:
+      case stat.buffPhysicalDamageDebuff:
+      case stat.buffMagicalDamageDebuff:
+      case stat.buffAttackSpeed:
+      case stat.buffDelayMul:
+      case stat.buffPhysicalEvasion:
+      case stat.buffMagicalEvasion:
+      case stat.buffMoveSpeedAdd:
+      case stat.buffMoveSpeedMul:
+      case stat.buffRedeployTimeCut:
+      case stat.buffWithdrawCostReturn:
+      case stat.buffFieldFactor:
+      case stat.buffPoisonImmune:
+      case stat.buffBlindImmune:
+      case stat.buffStanImmune:
+      case stat.buffPetrifyImmune:
+      case stat.buffFreezeImmune:
         end.push(index);
         break;
       case stat.rarity:
@@ -49,6 +77,11 @@ const TableStyle = memo(function TableStyle({
       case stat.moveType:
       case stat.damageType:
       case stat.placement:
+      case stat.buffTarget:
+      case stat.buffRange:
+      case stat.buffFieldChange:
+      case stat.buffFieldAdd:
+      case stat.buffWeatherChange:
         center.push(index);
         break;
     }
@@ -75,6 +108,35 @@ const TableStyle = memo(function TableStyle({
       case stat.buffCriChance:
       case stat.buffCriChanceLimit:
       case stat.buffSupplements:
+      case stat.inBattleBuffSupplements:
+      case stat.buffHpMul:
+      case stat.buffAttackMul:
+      case stat.buffDefenseMul:
+      case stat.buffResistMul:
+      case stat.buffPhysicalDamageCut:
+      case stat.buffMagicalDamageCut:
+      case stat.buffCriChanceAdd:
+      case stat.buffCriDamageAdd:
+      case stat.buffDamageFactor:
+      case stat.buffDamageDebuff:
+      case stat.buffPhysicalDamageDebuff:
+      case stat.buffMagicalDamageDebuff:
+      case stat.buffAttackSpeed:
+      case stat.buffDelayMul:
+      case stat.buffPhysicalEvasion:
+      case stat.buffMagicalEvasion:
+      case stat.buffMoveSpeedAdd:
+      case stat.buffMoveSpeedMul:
+      case stat.buffRedeployTimeCut:
+      case stat.buffWithdrawCostReturn:
+      case stat.buffFieldChange:
+      case stat.buffFieldAdd:
+      case stat.buffFieldFactor:
+      case stat.buffPoisonImmune:
+      case stat.buffBlindImmune:
+      case stat.buffStanImmune:
+      case stat.buffPetrifyImmune:
+      case stat.buffFreezeImmune:
         break;
       default:
         empty.push(index);
@@ -87,7 +149,7 @@ const TableStyle = memo(function TableStyle({
     end: string = ""
   ): string => {
     const fn = (index: number) =>
-      `.stat-table>tbody>tr>td:nth-child(${index + 1})`;
+      `#${id}.stat-table>tbody>tr>td:nth-child(${index + 1})`;
     let ret: string;
     if (typeof index === "number") {
       ret = index === -1 ? "" : fn(index) + end;
@@ -113,7 +175,7 @@ const TableStyle = memo(function TableStyle({
   return (
     <style
       precedence="medium"
-      href="stat-table"
+      href={"stat-table-" + id}
       dangerouslySetInnerHTML={{
         __html:
           getStyle(getSelector(end), "text-align:end;") +
@@ -149,6 +211,7 @@ function isSortable(column: unknown): boolean {
     case stat.conditions:
     case stat.supplements:
     case stat.buffSupplements:
+    case stat.inBattleBuffSupplements:
       return false;
   }
   return true;

@@ -332,9 +332,7 @@ interface FeatureOutputDiff {
   deleteSupplements: ReadonlySet<string>;
 }
 type CommonFeature = typeof commonFeature;
-const commonFeatureKeys = Object.keys(
-  commonFeature
-) as readonly (keyof CommonFeature)[];
+const commonFeatureKeys = Data.getKeys(commonFeature);
 const keys = Data.Enum(commonFeatureKeys);
 
 type JsonFeatureBase = Readonly<Partial<CommonFeature & JsonFeatureDiff>>;
