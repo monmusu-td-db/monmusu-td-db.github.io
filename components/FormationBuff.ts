@@ -117,7 +117,21 @@ export default class FormationBuff implements TableRow<Keys> {
       statType: stat.buffTarget,
       calculater: (s) => this.getBuff(s).targets,
       text: (s) => this.getTargetText(s),
-      item: (s) => FormationBuffUI.getTargetItem(this.buffTarget.getValue(s)),
+      // item: (s) => FormationBuffUI.getTargetItem(this.buffTarget.getValue(s)),
+      color: (s) => {
+        const list = this.buffTarget.getValue(s);
+        let element: Data.Element | undefined;
+        let i = 0;
+        list.forEach((v) => {
+          if (Data.Element.isElement(v)) {
+            element = v;
+            i++;
+          }
+        });
+        if (element && i === 1) {
+          return Data.Element.colorOf(element);
+        }
+      },
       comparer: (s) => this.getTargetComparer(s),
     });
 
