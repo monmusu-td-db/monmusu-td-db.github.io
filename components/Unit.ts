@@ -236,8 +236,6 @@ export default class Unit implements TableRow<Keys> {
   readonly situations: UnitSituations;
   readonly buffs: JsonBuffs | undefined;
 
-  readonly rangeBase: number | undefined; // TODO Obsolete
-
   private tokenParent: Unit | undefined;
   private cacheSubskill = new Data.Cache<
     [Subskill | undefined, Subskill | undefined]
@@ -527,14 +525,14 @@ export default class Unit implements TableRow<Keys> {
       calculater: () => splash,
     });
 
-    this.rangeBase = src.range ?? classData?.range;
+    const rangeBase = src.range ?? classData?.range;
     this.range = new Stat.Base({
       statType: stat.range,
       calculater: (s) => this.range.getFactors(s)?.deploymentResult,
       isReversed: true,
       factors: (s) => {
-        if (this.rangeBase === undefined) return;
-        return this.getDeploymentFactors(s, stat.range, this.rangeBase);
+        if (rangeBase === undefined) return;
+        return this.getDeploymentFactors(s, stat.range, rangeBase);
       },
     });
 
