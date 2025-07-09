@@ -1900,6 +1900,108 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報/ex1待機時間はwiki情報/ex2攻撃速度",
+    "id": 16,
+    "unitName": "【ケルベロス娘】テルル",
+    "unitShortName": "テルル",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "火",
+    "hp": 2544,
+    "attack": 1005,
+    "defense": 233,
+    "resist": 300,
+    "exSkill1": {
+      "skillName": "わう！わう！わん！",
+      "attackMul": 160,
+      "fixedDelay": 1,
+      "target": 3,
+      "rangeMul": 130,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "exSkill2": {
+      "skillName": "獣頭の咆哮",
+      "attackMul": 220,
+      "attackMotionMul": 99,
+      "target": 1,
+      "laser": true,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40,
+      "damageType": "貫通",
+      "supplements": [
+        "回避無視100%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "射程+15"
+    ],
+    "weapon": {
+      "weaponName": "ケルベロスファング",
+      "attack": 70,
+      "range": 5
+    },
+    "features": [
+      {
+        "skill": 0,
+        "target": [
+          1,
+          3
+        ]
+      },
+      {
+        "attackDebuff": {
+          "key": "attack-base",
+          "value": 18
+        },
+        "supplements": [
+          "ATK-{attack-base*18}/配置→全体"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "ATK-{attack-base*18}/発動→全体"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 1
+          },
+          {
+            "ratio": 1,
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "class-no-supplements"
+        ]
+      }
+    ]
+  },
+  {
     "id": 17,
     "unitName": "【ノーム娘】ペトラ",
     "unitShortName": "ペトラ",

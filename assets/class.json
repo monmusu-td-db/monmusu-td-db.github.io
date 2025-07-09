@@ -489,6 +489,14 @@
     "supplements": [
       "回避無視30%"
     ],
+    "features": [
+      {
+        "featureName": "class-no-supplements",
+        "deleteSupplements": [
+          "回避無視30%"
+        ]
+      }
+    ],
     "situations": [
       {}
     ]
