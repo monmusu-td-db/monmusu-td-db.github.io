@@ -159,7 +159,8 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報/ex1/ex2射程はwiki情報/攻撃モーション速度はwiki情報からの推測",
+    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報",
+    "TODO_FATAL": "ex1/ex2射程はwiki情報/攻撃モーション速度はwiki情報からの推測",
     "id": 2,
     "unitName": "【キマイラ娘】ラゴス",
     "unitShortName": "ラゴス",
@@ -355,7 +356,8 @@
     ]
   },
   {
-    "TODO_DESC": "wiki情報/攻撃速度/待機時間",
+    "TODO_DESC": "wiki情報",
+    "TODO_FATAL": "攻撃速度/待機時間",
     "TODO_STAT_INFERRED": true,
     "id": 30001,
     "parentId": 3,
@@ -1900,7 +1902,8 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報/ex1待機時間はwiki情報/ex2攻撃速度",
+    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報",
+    "TODO_FATAL": "ex1待機時間はwiki情報/ex2攻撃速度",
     "id": 16,
     "unitName": "【ケルベロス娘】テルル",
     "unitShortName": "テルル",
@@ -4614,7 +4617,8 @@
     ]
   },
   {
-    "TODO_DESC": "statはwiki情報/ex2毒付与間隔はwiki情報",
+    "TODO_DESC": "statはwiki情報",
+    "TODO_FATAL": "ex2毒付与間隔はwiki情報",
     "id": 41,
     "unitName": "【アラクネ娘】フランシ",
     "unitShortName": "フランシ",
@@ -5118,7 +5122,7 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "HP減少時攻撃速度",
+    "TODO_FATAL": "HP減少時攻撃速度",
     "id": 47,
     "unitName": "【デュラハン娘】プラチナ",
     "unitShortName": "プラチナ",
@@ -6585,7 +6589,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1/ex2射程/ex2追加ダメージHit数",
+    "TODO_FATAL": "ex1/ex2射程/ex2追加ダメージHit数",
     "id": 61,
     "unitName": "【レッドドラゴン娘】エリュート",
     "unitShortName": "エリュート",
@@ -9239,7 +9243,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1攻撃速度はwiki情報からの推測値",
+    "TODO_FATAL": "ex1攻撃速度はwiki情報からの推測値",
     "id": 88,
     "unitName": "【ヒュドラ娘】ユラ",
     "unitShortName": "ユラ",
@@ -9649,7 +9653,7 @@
     ]
   },
   {
-    "TODO_DESC": "スキル1射程はWiki情報",
+    "TODO_FATAL": "スキル1射程はWiki情報",
     "id": 92,
     "unitName": "【アクアドラゴン娘】ロヴィリス",
     "unitShortName": "ロヴィリス",
@@ -10552,7 +10556,8 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "ex1攻撃速度/ex2はwiki情報",
+    "TODO_DESC": "ex2はwiki情報",
+    "TODO_FATAL": "ex1攻撃速度",
     "id": 97,
     "unitName": "【ミスリルゴーレム娘】ミスレナ",
     "unitShortName": "ミスレナ",
@@ -10627,7 +10632,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1発動フレーム/継続ダメージHit数はWiki情報",
+    "TODO_FATAL": "ex1発動フレーム/継続ダメージHit数はWiki情報",
     "id": 98,
     "unitName": "【カリュブディス娘】リュプチェ",
     "unitShortName": "リュプチェ",
@@ -10792,7 +10797,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1/2射程/ex2攻撃速度",
+    "TODO_FATAL": "ex1/2射程/ex2攻撃速度",
     "id": 100,
     "unitName": "【ブラックドラゴン娘】マウロ",
     "unitShortName": "マウロ",
@@ -10889,7 +10894,7 @@
     ]
   },
   {
-    "TODO_DESC": "射程はWiki情報/ダメージ間隔要調査",
+    "TODO_FATAL": "射程はWiki情報/ダメージ間隔要調査",
     "id": 1000001,
     "parentId": 100,
     "unitName": "ブラックホール",
@@ -11058,7 +11063,7 @@
     ]
   },
   {
-    "TODO_DESC": "射程",
+    "TODO_FATAL": "射程",
     "id": 1020001,
     "parentId": 102,
     "unitName": "妖花",
@@ -11123,7 +11128,7 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "ex1対地限定かどうか調べる",
+    "TODO_FATAL": "ex1対地限定かどうか調べる",
     "id": 103,
     "unitName": "【灯火のエキドナ娘】ミテラス",
     "unitShortName": "ミテラス/Xmas",
@@ -11415,7 +11420,8 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報/射程/ex1攻撃速度",
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "射程/ex1攻撃速度",
     "id": 106,
     "unitName": "【デカイオー娘】リッティ",
     "unitShortName": "リッティ",
@@ -12494,7 +12500,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値",
+    "TODO_FATAL": "スタン蓄積値",
     "id": 118,
     "unitName": "【魔王】アリスフィーズ",
     "unitShortName": "アリスフィーズ",
@@ -12837,7 +12843,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1 delay",
+    "TODO_FATAL": "ex1 delay",
     "id": 122,
     "unitName": "【四天王】アルマエルマ",
     "unitShortName": "アルマエルマ",
@@ -13464,7 +13470,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1射程はwiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 130,
     "unitName": "【転校生ジャイアント娘】メロン",
     "unitShortName": "メロン/学園",
@@ -14243,9 +14249,10 @@
     }
   },
   {
+    "TODO_FATAL": "スキル射程",
     "id": 139,
     "unitName": "【ドラゴンゾンビ娘】ディフォーラ",
-    "unitShortName": "ディフォーラTODO→スキル射程",
+    "unitShortName": "ディフォーラ",
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "闇",
@@ -14867,7 +14874,7 @@
     "attackMul": 120
   },
   {
-    "TODO_DESC": "ex1射程はwiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 147,
     "unitName": "【大蛸娘】ウキスサ",
     "unitShortName": "ウキスサ",
@@ -16903,7 +16910,8 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "StatはWiki情報/移動コストUP/ex1待機時間は要検証",
+    "TODO_DESC": "StatはWiki情報/移動コストUP",
+    "TODO_FATAL": "ex1待機時間は要検証",
     "id": 173,
     "unitName": "【グレムリン娘】ノーティー",
     "unitShortName": "ノーティー",
@@ -17256,7 +17264,7 @@
     ]
   },
   {
-    "TODO_DESC": "攻撃速度バフ/待機時間短縮は要検証/スタン蓄積値はwiki情報",
+    "TODO_FATAL": "攻撃速度バフ/待機時間短縮は要検証/スタン蓄積値はwiki情報",
     "id": 178,
     "unitName": "【号令のシルバードラゴン娘】アルギュロ",
     "unitShortName": "アルギュロ/学",
@@ -17728,7 +17736,7 @@
     "isEventUnit": true
   },
   {
-    "TODO_DESC": "ex1攻撃待機時間",
+    "TODO_FATAL": "ex1攻撃待機時間",
     "id": 184,
     "unitName": "【ナベリウス娘】テルル",
     "unitShortName": "テルル/進化",
@@ -18348,10 +18356,10 @@
     "magicalEvasion": 30
   },
   {
-    "DISABLED": true,
+    "TODO_FATAL": "射程",
     "id": 190,
     "unitName": "【ストーンゴーレム娘】ネイス",
-    "unitShortName": "ネイスTODO→射程",
+    "unitShortName": "ネイス",
     "rarity": "L",
     "class": "モンク",
     "element": "地",
@@ -18534,7 +18542,7 @@
     "isEventUnit": true
   },
   {
-    "TODO_DESC": "射程",
+    "TODO_FATAL": "射程",
     "id": 192,
     "unitName": "【氷雪のカリュブディス娘】リュプチェ",
     "unitShortName": "リュプチェ/Xm",
@@ -18783,7 +18791,7 @@
     "rangeAdd": 30
   },
   {
-    "TODO_DESC": "ex1攻撃速度",
+    "TODO_FATAL": "ex1攻撃速度",
     "id": 196,
     "unitName": "【大鬼娘】ハガネ",
     "unitShortName": "ハガネ",
@@ -19888,7 +19896,7 @@
     ]
   },
   {
-    "TODO_DESC": "射程/スタン蓄積値",
+    "TODO_FATAL": "射程/スタン蓄積値",
     "id": 209,
     "unitName": "【アークエンジェル娘】オシュネー",
     "unitShortName": "オシュネー",
@@ -20042,7 +20050,7 @@
     ]
   },
   {
-    "TODO_DESC": "バフ枠は推測",
+    "TODO_FATAL": "バフ枠は推測",
     "id": 2110001,
     "parentId": 211,
     "unitName": "御買得品",
@@ -20905,7 +20913,7 @@
     ]
   },
   {
-    "TODO_DESC": "継続ダメージ",
+    "TODO_FATAL": "継続ダメージ",
     "id": 221,
     "unitName": "【ビヨンデッタ娘】ペッシェ",
     "unitShortName": "ペッシェ",
@@ -20973,7 +20981,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値/攻撃速度強化/ex1射程",
+    "TODO_FATAL": "スタン蓄積値/攻撃速度強化/ex1射程",
     "id": 223,
     "unitName": "【雷神娘】チザネ",
     "unitShortName": "チザネ",
@@ -21309,7 +21317,7 @@
     ]
   },
   {
-    "TODO_DESC": "種族特性の属性指定回復量増加は乗算か調べる",
+    "TODO_FATAL": "種族特性の属性指定回復量増加は乗算か調べる",
     "id": 227,
     "unitName": "【学者】プロメスティン",
     "unitShortName": "プロメスティン",
@@ -21693,7 +21701,7 @@
     ]
   },
   {
-    "TODO_DESC": "毒ダメージ増加",
+    "TODO_FATAL": "毒ダメージ増加",
     "id": 233,
     "unitName": "【劇薬のリッチ娘】リコ",
     "unitShortName": "リコ/学園",
@@ -21767,7 +21775,7 @@
     ]
   },
   {
-    "TODO_DESC": "攻撃速度/射程",
+    "TODO_FATAL": "攻撃速度/射程",
     "TODO_STAT_INFERRED": true,
     "id": 2330001,
     "parentId": 233,
@@ -22223,7 +22231,7 @@
   },
   {
     "TODO_STAT_INFERRED": true,
-    "TODO_BUFF": "delay-20%→sk1-射程内味方",
+    "TODO_FATAL": "delay-20%→sk1-射程内味方",
     "id": 239,
     "unitName": "【パズズ娘】シィール",
     "unitShortName": "シィール",
@@ -22593,7 +22601,7 @@
     ]
   },
   {
-    "TODO_DESC": "未調査 TODO→stat&攻撃速度",
+    "TODO_FATAL": "未調査 TODO→stat&攻撃速度",
     "id": 2460001,
     "parentId": 246,
     "unitName": "リトルグレイ戦士",
@@ -22721,10 +22729,10 @@
     ]
   },
   {
-    "DISABLED": true,
+    "TODO_FATAL": "攻撃速度",
     "id": 248,
     "unitName": "【ベルフェゴール娘】ペルペ",
-    "unitShortName": "ペルペTODO→攻撃速度",
+    "unitShortName": "ペルペ",
     "rarity": "L",
     "class": "コンジャラー",
     "element": "水",
@@ -22956,7 +22964,7 @@
     "isEventUnit": true
   },
   {
-    "TODO_DESC": "継続ダメージHit数はWiki情報",
+    "TODO_FATAL": "継続ダメージHit数はWiki情報",
     "id": 252,
     "unitName": "【蛇骨婆娘】トモミ",
     "unitShortName": "トモミ",
@@ -23269,10 +23277,11 @@
     }
   },
   {
+    "TODO_FATAL": "攻撃速度/射程",
     "id": 2560001,
     "parentId": 256,
     "unitName": "偵察ドローン",
-    "unitShortName": "偵察ドローンT TODO→攻撃速度/射程",
+    "unitShortName": "偵察ドローンT",
     "rarity": "C",
     "cost": 10,
     "element": "闇",
@@ -23674,7 +23683,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値",
+    "TODO_FATAL": "スタン蓄積値",
     "id": 2620001,
     "parentId": 262,
     "unitName": "痺れキノコ",
@@ -24146,7 +24155,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1射程はwiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 270,
     "unitName": "【リトルグリーンマン娘】プリプリダ",
     "unitShortName": "プリプリダ",
@@ -24247,7 +24256,7 @@
     ]
   },
   {
-    "TODO_DESC": "攻撃速度",
+    "TODO_FATAL": "攻撃速度",
     "id": 2700001,
     "parentId": 270,
     "unitName": "リトルグリーンマン",
@@ -24278,7 +24287,7 @@
     ]
   },
   {
-    "TODO_DESC": "delayCutはWiki情報",
+    "TODO_FATAL": "delayCutはWiki情報",
     "id": 271,
     "unitName": "【リトルグリーンマン娘】ピンダ",
     "unitShortName": "ピンダ",
@@ -24337,7 +24346,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1スタン/スタン時間/防御デバフ",
+    "TODO_FATAL": "ex1スタン/スタン時間/防御デバフ",
     "id": 272,
     "unitName": "【ファフニール娘】ニッドラ",
     "unitShortName": "ニッドラ",
@@ -24726,7 +24735,7 @@
     "hpMul": 85
   },
   {
-    "TODO_DESC": "スタン蓄積値",
+    "TODO_FATAL": "スタン蓄積値",
     "id": 283,
     "unitName": "【ワキヤン・タンカ娘】ワエマワ",
     "unitShortName": "ワエマワ/進化",
@@ -25179,7 +25188,7 @@
     ]
   },
   {
-    "TODO_DESC": "配置時攻撃射程/鈍足が命中時か否か/配置時攻撃の状態異常付与",
+    "TODO_FATAL": "配置時攻撃射程/鈍足が命中時か否か/配置時攻撃の状態異常付与",
     "id": 287,
     "unitName": "【フラットウッズ・モンスター娘】クリプト",
     "unitShortName": "クリプト",
@@ -25970,7 +25979,8 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報/ex1射程",
+    "TODO_DESC": "StatはWiki情報",
+    "TODO_FATAL": "ex1射程",
     "id": 2960001,
     "parentId": 296,
     "unitName": "グロウソウル",
@@ -26013,7 +26023,7 @@
     ]
   },
   {
-    "TODO_DESC": "回復の値はwiki情報",
+    "TODO_FATAL": "回復の値はwiki情報",
     "id": 297,
     "unitName": "【聖煌のリッチ娘】リコ",
     "unitShortName": "リコ/Xmas",
@@ -26243,7 +26253,7 @@
     "costAdd": -1
   },
   {
-    "TODO_DESC": "通常/ex1スタン蓄積値はwiki情報",
+    "TODO_FATAL": "通常/ex1スタン蓄積値はwiki情報",
     "id": 303,
     "unitName": "【麒麟娘】ルイシャ",
     "unitShortName": "ルイシャ",
@@ -26345,7 +26355,7 @@
     ]
   },
   {
-    "TODO_DESC": "持続ダメージはWiki情報",
+    "TODO_FATAL": "持続ダメージはWiki情報",
     "id": 304,
     "unitName": "【ベルゼブブ娘】アゼプ",
     "unitShortName": "アゼプ",
@@ -26412,7 +26422,8 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報/射程",
+    "TODO_DESC": "StatはWiki情報",
+    "TODO_FATAL": "射程",
     "id": 3040001,
     "parentId": 304,
     "unitName": "執事",
@@ -26463,10 +26474,10 @@
     ]
   },
   {
-    "DISABLED": true,
+    "TODO_FATAL": "TODO",
     "id": 305,
     "unitName": "【アスモデウス娘】エシュマナ",
-    "unitShortName": "エシュマナTODO",
+    "unitShortName": "エシュマナ",
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "火",
@@ -27190,7 +27201,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値はwiki情報",
+    "TODO_FATAL": "スタン蓄積値はwiki情報",
     "id": 315,
     "unitName": "【さとり娘】マシラ",
     "unitShortName": "マシラ",
@@ -27712,7 +27723,7 @@
     ]
   },
   {
-    "TODO_DESC": "射程は目測/基礎statはLv45 TODO→base",
+    "TODO_FATAL": "射程は目測/基礎statはLv45 TODO→base",
     "id": 3200001,
     "parentId": 320,
     "unitName": "グレイクローン",
@@ -27840,7 +27851,8 @@
     ]
   },
   {
-    "TODO_DESC": "スタン付与量/ex1射程/スタン時間延長",
+    "TODO_DESC": "スタン時間延長",
+    "TODO_FATAL": "スタン付与量/ex1射程",
     "id": 323,
     "unitName": "【呪剣のファフニール娘】ニッドラ",
     "unitShortName": "ニッドラ/学園",
