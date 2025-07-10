@@ -16296,7 +16296,7 @@
     ],
     "features": [
       {
-        "featureName": "10-sec",
+        "featureName": "15-sec",
         "isConditionalBuff": true,
         "annotations": [
           "防御デバフ累積効果"
@@ -16304,12 +16304,37 @@
         "conditions": [
           {
             "key": "s",
-            "value": 10
+            "value": 15
           }
         ],
+        "defenseDebuff": {
+          "time": 450,
+          "valueAdd": 12
+        },
         "resistDebuff": {
-          "time": 300,
-          "valueAdd": 100
+          "time": 450,
+          "valueAdd": 12
+        }
+      },
+      {
+        "featureName": "30-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 30
+          }
+        ],
+        "defenseDebuff": {
+          "time": 900,
+          "valueAdd": 12
+        },
+        "resistDebuff": {
+          "time": 900,
+          "valueAdd": 12
         }
       }
     ],
@@ -16327,13 +16352,24 @@
       },
       {
         "features": [
-          "10-sec"
+          "15-sec"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "10-sec"
+          "15-sec"
+        ]
+      },
+      {
+        "features": [
+          "30-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "30-sec"
         ]
       },
       {
