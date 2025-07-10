@@ -11723,6 +11723,161 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "攻撃速度上昇",
+    "id": 110,
+    "unitName": "【迎春のデュラハン娘】プラチナ",
+    "unitShortName": "プラチナ/正月",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 2849,
+    "attack": 602,
+    "defense": 326,
+    "resist": 203,
+    "supplements": [
+      "毒無効",
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "破魔の呪弓",
+      "attackMul": 220,
+      "targetAdd": 1,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "引き付け",
+        "MIN-HP1",
+        "DEF-10→命中",
+        "RES-10→命中",
+        "HP回復100%/終了時"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "ATK-10→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK-13→命中"
+          ]
+        }
+      },
+      {
+        "featureName": "hp-50%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ],
+        "currentHp": 50,
+        "attackSpeedBuff": 200,
+        "delayMul": 20
+      },
+      {
+        "featureName": "10-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "defenseDebuff": {
+          "time": 300,
+          "valueAdd": 10
+        },
+        "resistDebuff": {
+          "time": 300,
+          "valueAdd": 10
+        }
+      },
+      {
+        "featureName": "20-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 20
+          }
+        ],
+        "defenseDebuff": {
+          "time": 600,
+          "valueAdd": 10
+        },
+        "resistDebuff": {
+          "time": 600,
+          "valueAdd": 10
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "20-sec"
+        ]
+      },
+      {
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec",
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec",
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "20-sec",
+          "hp-50%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 111,
     "unitName": "【ジン娘】ヤーセファ",
     "unitShortName": "ヤーセファ",
