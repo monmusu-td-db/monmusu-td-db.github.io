@@ -578,5 +578,14 @@
     "annotations": [
       "種族特性"
     ]
+  },
+  {
+    "featureName": "common-support",
+    "annotations": [
+      "加算バフ"
+    ],
+    "conditions": [
+      "援"
+    ]
   }
 ]

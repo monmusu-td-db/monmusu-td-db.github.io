@@ -12750,6 +12750,93 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1スタン/スタン蓄積タイミング要検証",
+    "id": 121,
+    "unitName": "【四天王】たまも",
+    "unitShortName": "たまも",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "地",
+    "hp": 2850,
+    "attack": 0,
+    "defense": 327,
+    "resist": 467,
+    "exSkill1": {
+      "skillName": "見た目で侮るでないぞ",
+      "rangeMul": 180,
+      "duration": 40,
+      "cooldown": 45,
+      "supplements": [
+        "スタン付与XX%(小)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "featureName": "common-support",
+        "isAbility": true,
+        "staticDefense": {
+          "key": "defense",
+          "value": 30
+        },
+        "target": "射程内",
+        "supplements": [
+          "自身以外が対象"
+        ],
+        "potentialBonus": {
+          "staticDefense": {
+            "key": "defense",
+            "value": 40
+          }
+        }
+      },
+      {
+        "featureName": "skill1-dot",
+        "skill": 1,
+        "staticDamage": {
+          "key": "static",
+          "value": 2000
+        },
+        "interval": 60,
+        "damageType": "物理"
+      }
+    ],
+    "defenseMul": 130,
+    "rangeAdd": 20,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "skill1-dot"
+        ],
+        "exclude": [
+          "class-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "depend": [
+          "class-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-support"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "ex1 delay",
     "id": 122,
     "unitName": "【四天王】アルマエルマ",
