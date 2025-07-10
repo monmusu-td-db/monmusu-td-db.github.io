@@ -11494,6 +11494,74 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 107,
+    "unitName": "【大悪魔召喚士】ラピス",
+    "unitShortName": "ラピス",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "闇",
+    "hp": 2542,
+    "attack": 639,
+    "defense": 253,
+    "resist": 596,
+    "exSkill1": {
+      "skillName": "デモニックフィールド",
+      "attackMul": 160,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 10
+        },
+        "supplements": [
+          "ATK-10%→全体"
+        ],
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 13
+          },
+          "supplements": [
+            "ATK-13%→全体"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "damageFactor": 130
+      }
+    ],
+    "targetAdd": 3,
+    "damageType": "貫通",
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 108,
     "unitName": "【レッドキャップ娘】レップ",
