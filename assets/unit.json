@@ -11415,6 +11415,85 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/射程/ex1攻撃速度",
+    "id": 106,
+    "unitName": "【デカイオー娘】リッティ",
+    "unitShortName": "リッティ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "風",
+    "hp": 6786,
+    "attack": 1067,
+    "defense": 465,
+    "resist": 127,
+    "range": 999,
+    "supplements": [
+      "即死(低)→命中ブロック敵"
+    ],
+    "exSkill1": {
+      "skillName": "究極撃滅破壊形態起動！",
+      "attackMul": 320,
+      "defenseMul": 320,
+      "attackMotionMul": 126,
+      "blockAdd": 2,
+      "splash": true,
+      "rangeMul": 150,
+      "duration": 45,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃力+75"
+    ],
+    "features": [
+      {
+        "featureName": "common-ranged",
+        "isConditionalBuff": true,
+        "damageFactor": 60,
+        "splash": true
+      },
+      {
+        "featureName": "common-ranged",
+        "skill": 1,
+        "attackMotionMul": 153,
+        "rounds": 3
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 135,
+    "attackMul": 120,
+    "potentialBonus": {
+      "hpMul": 145
+    },
+    "situations": [
+      {
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 108,
     "unitName": "【レッドキャップ娘】レップ",
