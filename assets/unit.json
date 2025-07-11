@@ -1902,7 +1902,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報",
+    "TODO_DESC": "ex2はWiki情報",
     "TODO_FATAL": "ex1待機時間はwiki情報/ex2攻撃速度",
     "id": 16,
     "unitName": "【ケルベロス娘】テルル",
@@ -19987,6 +19987,92 @@
         "skill": 1,
         "target": "自分",
         "element": "光",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 210,
+    "unitName": "【アークデーモン娘】アルコス",
+    "unitShortName": "アルコス",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 2502,
+    "attack": 1127,
+    "defense": 227,
+    "resist": 555,
+    "exSkill1": {
+      "skillName": "糧になってもらおうか！",
+      "attackMul": 220,
+      "targetAdd": 1,
+      "rangeMul": 150,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRI率/CRI率上限+30%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "闇"
+        ],
+        "hp": 90,
+        "attack": 116,
+        "potentialBonus": {
+          "attack": 120
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "isConditionalBuff": true,
+        "require": [
+          "闇マス"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "require": [
+          "闇マス"
+        ],
+        "damageFactor": 140
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dark-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "闇",
         "supplements": [
           "発動時"
         ]
