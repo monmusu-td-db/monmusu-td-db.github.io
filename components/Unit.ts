@@ -11,7 +11,11 @@ import Class from "./Class";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import Beast, { type BeastFactorKeys } from "./Beast";
 import { Feature, type FeatureOutput, type JsonFeature } from "./Feature";
-import type { TableSource, TableRow } from "./UI/StatTable";
+import {
+  type TableSource,
+  type TableRow,
+  TableSourceUtil,
+} from "./UI/StatTableUtil";
 
 export interface JsonUnit {
   DISABLED?: boolean;
@@ -57,6 +61,7 @@ export interface JsonUnit {
   criChanceAdd?: number;
   criDamageAdd?: number;
   penetrationAdd?: number;
+  attackSpeedAdd?: number;
   delayMul?: number;
   fixedDelay?: number;
   blockAdd?: number;
@@ -78,6 +83,7 @@ type JsonPotentialBonus = Readonly<
     defenseMul: number;
     resistMul: number;
     criDamageAdd: number;
+    attackSpeedAdd: number;
     rounds: Data.JsonRound;
     rangeAdd: number;
     physicalEvasion: number;
@@ -107,20 +113,40 @@ interface JsonUnitSituation extends UnitSituation {
 }
 type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
 
-export type JsonBuff = Readonly<{
-  type: string;
-  require?: readonly string[];
-  skill?: number;
-  target?: string;
-  range?: number | null;
-  duration?: string | number;
-  value?: number;
-  supplements?: readonly string[];
-  potentialBonus?: Omit<
-    JsonBuff,
+export interface JsonBuffValue {
+  readonly status?: string;
+  readonly value?: number;
+  readonly element?: string;
+  readonly weather?: string;
+}
+
+interface JsonBuffBase extends JsonBuffValue {
+  readonly require?: readonly string[];
+  readonly skill?: number;
+  readonly target?: string;
+  readonly range?: number | null;
+  readonly duration?: string | number;
+  readonly supplements?: readonly string[];
+}
+interface JsonBuffSingle extends JsonBuffBase {
+  readonly type: string;
+  readonly potentialBonus?: Omit<
+    JsonBuffSingle,
     "type" | "require" | "skill" | "potentialBonus"
   >;
-}>;
+}
+interface JsonBuffMultiple extends JsonBuffBase {
+  readonly potentialBonus?: Omit<
+    JsonBuffMultiple,
+    "require" | "skill" | "potentialBonus" | "effects"
+  >;
+  readonly effects: readonly JsonBuffEffect[];
+}
+interface JsonBuffEffect extends JsonBuffValue {
+  readonly type: string;
+  readonly potentialBonus?: Omit<JsonBuffEffect, "type" | "potentialBonus">;
+}
+export type JsonBuff = JsonBuffSingle | JsonBuffMultiple;
 type JsonBuffs = readonly JsonBuff[];
 
 const keys = [
@@ -208,8 +234,7 @@ export default class Unit implements TableRow<Keys> {
   readonly rangeAdd: number | undefined;
   readonly potentialBonus: JsonPotentialBonus | undefined;
   readonly situations: UnitSituations;
-
-  readonly rangeBase: number | undefined;
+  readonly buffs: JsonBuffs | undefined;
 
   private tokenParent: Unit | undefined;
   private cacheSubskill = new Data.Cache<
@@ -391,8 +416,16 @@ export default class Unit implements TableRow<Keys> {
       factors: (s) => {
         if (attackSpeed === undefined) return;
 
+        const ability =
+          (this.isPotentialApplied(s)
+            ? src.potentialBonus?.attackSpeedAdd
+            : undefined) ??
+          src.attackSpeedAdd ??
+          0;
+
         return Data.getAttackSpeedFactors({
           base: attackSpeed,
+          ability,
           weapon: this.getWeaponBaseFactor(s, stat.attackSpeed),
           potential: this.getPotentialFactor(s, stat.attackSpeed),
         });
@@ -492,14 +525,14 @@ export default class Unit implements TableRow<Keys> {
       calculater: () => splash,
     });
 
-    this.rangeBase = src.range ?? classData?.range;
+    const rangeBase = src.range ?? classData?.range;
     this.range = new Stat.Base({
       statType: stat.range,
       calculater: (s) => this.range.getFactors(s)?.deploymentResult,
       isReversed: true,
       factors: (s) => {
-        if (this.rangeBase === undefined) return;
-        return this.getDeploymentFactors(s, stat.range, this.rangeBase);
+        if (rangeBase === undefined) return;
+        return this.getDeploymentFactors(s, stat.range, rangeBase);
       },
     });
 
@@ -642,6 +675,7 @@ export default class Unit implements TableRow<Keys> {
     this.rangeAdd = src.rangeAdd;
     this.potentialBonus = src.potentialBonus;
     this.situations = this.getSituations(classData, src.situations);
+    this.buffs = src.buffs;
   }
 
   private getSituations(
@@ -1373,13 +1407,7 @@ export default class Unit implements TableRow<Keys> {
     return {
       headers: Data.StatType.getHeaders(keys),
       filter: (states) => Unit.filter(states, units),
-      sort: (setting, rows, column, isReversed) => {
-        return Data.mapSort(
-          rows,
-          (target) => target[column].getSortOrder(setting),
-          isReversed
-        );
-      },
+      sort: TableSourceUtil.getSortFn(),
     };
   }
 }

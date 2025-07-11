@@ -314,7 +314,7 @@
     "damageType": "物理",
     "placement": "近",
     "supplements": [
-      "スタン付与20%"
+      "スタン付与20%→命中"
     ],
     "features": [
       {
@@ -488,6 +488,14 @@
     "placement": "遠",
     "supplements": [
       "回避無視30%"
+    ],
+    "features": [
+      {
+        "featureName": "class-no-supplements",
+        "deleteSupplements": [
+          "回避無視30%"
+        ]
+      }
     ],
     "situations": [
       {}
@@ -823,6 +831,14 @@
     "placement": "両",
     "features": [
       {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "移動可"
+        ]
+      },
+      {
         "isNotAbility": true,
         "require": [
           "光マス"
@@ -985,12 +1001,41 @@
         "supplements": [
           "バインド(300f/10秒)→射程内"
         ]
+      },
+      {
+        "featureName": "class-debuff",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "defenseDebuff": {
+          "key": "attack-base",
+          "time": 300,
+          "valueAdd": 12
+        }
       }
     ],
     "situations": [
       {},
       {
         "features": [
+          "class-action"
+        ]
+      },
+      {
+        "features": [
+          "class-debuff"
+        ]
+      },
+      {
+        "features": [
+          "class-debuff",
           "class-action"
         ]
       }

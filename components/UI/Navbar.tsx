@@ -81,6 +81,7 @@ function Logo() {
       alt={IMAGE_ALT_TEXT}
       className="logo"
       priority
+      quality={100}
     />
   );
 }
@@ -94,6 +95,7 @@ function LogoPlaceholder() {
       alt={IMAGE_ALT_TEXT}
       className="logo"
       priority
+      quality={100}
     />
   );
 }

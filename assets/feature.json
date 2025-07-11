@@ -370,6 +370,13 @@
     }
   },
   {
+    "featureName": "common-token-limit-nodesc",
+    "attackDebuff": {
+      "key": "enemy-attack",
+      "value": 50
+    }
+  },
+  {
     "featureName": "common-potential-regenerate-3%",
     "isAbility": true,
     "annotations": [
@@ -445,6 +452,18 @@
     "damageType": "再生"
   },
   {
+    "featureName": "common-skill-regenerate",
+    "isAbility": true,
+    "conditions": [
+      "再"
+    ],
+    "interval": 30,
+    "target": "自分",
+    "splash": false,
+    "rounds": 1,
+    "damageType": "再生"
+  },
+  {
     "featureName": "common-regenerate-2%",
     "isAbility": true,
     "annotations": [
@@ -489,6 +508,16 @@
     ]
   },
   {
+    "featureName": "common-dot",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "interval": 30,
+    "target": "射程内",
+    "damageType": "貫通"
+  },
+  {
     "featureName": "common-burn-dot",
     "isAbility": true,
     "isExtraDamage": true,
@@ -522,6 +551,41 @@
         "key": "HP",
         "value": 100
       }
+    ]
+  },
+  {
+    "featureName": "common-enemy1",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 1
+      }
+    ],
+    "fixedTarget": 1
+  },
+  {
+    "featureName": "common-enemy2",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 2
+      }
+    ],
+    "fixedTarget": 2
+  },
+  {
+    "featureName": "common-ability",
+    "annotations": [
+      "種族特性"
+    ]
+  },
+  {
+    "featureName": "common-support",
+    "annotations": [
+      "加算バフ"
+    ],
+    "conditions": [
+      "援"
     ]
   }
 ]

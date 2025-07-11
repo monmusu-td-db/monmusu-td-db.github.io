@@ -1,7 +1,0 @@
-.table > :not(caption) > * > th {
-  text-align: start !important;
-}
-
-.table {
-  font-size: 0.845em;
-}

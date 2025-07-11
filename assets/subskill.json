@@ -2034,6 +2034,14 @@
     "criChanceAdd": 50
   },
   {
+    "name": "攻撃強化+再出撃時間短縮",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、再出撃までの時間を45%短縮",
+    "attack": 17,
+    "redeployTimeCut": 45
+  },
+  {
     "name": "ダッシュバースト",
     "rarity": "L",
     "group": "攻撃",
@@ -2072,6 +2080,30 @@
     "damageFactor": 20
   },
   {
+    "name": "春の息吹",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HPが半分以下の時、毎秒HPが5%回復する",
+    "isIneffective": true,
+    "regenerateMul": 5
+  },
+  {
+    "name": "愛のエマルション☆",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "最大HP+810、\n攻撃力+51、再出撃までの時間を41%短縮",
+    "hpAdd": 810,
+    "attackAdd": 51,
+    "redeployTimeCut": 41
+  },
+  {
+    "name": "被検体H59",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "【改造ハーピー娘】フェルミをトークンとして使役可能",
+    "isIneffective": true
+  },
+  {
     "name": "底力(攻撃) IV",
     "rarity": "L",
     "group": "攻撃",
@@ -2081,10 +2113,30 @@
     "attackMul": 70
   },
   {
+    "name": "リジェネレーション IV",
+    "rarity": "L",
+    "group": "支援",
+    "class": "リジェネレーション",
+    "desc": "HPが1秒ごとに70回復する",
+    "isGeneral": true,
+    "isIneffective": true,
+    "regenerate": 70
+  },
+  {
+    "name": "タクティカルマスター",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "配置中、全味方の物防・魔防+3%",
+    "isGeneral": true,
+    "defenseMul": 3,
+    "resistMul": 3
+  },
+  {
     "name": "伸るか反るか",
     "rarity": "L",
     "group": "攻撃",
     "desc": "HPが100%以上の時与ダメージ1.1倍\nHP50%以下の時与ダメージ1.3倍",
+    "isGeneral": true,
     "damageFactor": 30
   },
   {
@@ -2092,6 +2144,7 @@
     "rarity": "L",
     "group": "攻撃",
     "desc": "攻撃した相手をスタンさせる(蓄積値：小)\nスタン状態の敵へ与ダメージ1.2倍",
+    "isGeneral": true,
     "damageFactor": 20
   },
   {
@@ -2099,7 +2152,17 @@
     "rarity": "L",
     "group": "攻撃",
     "desc": "ブロックしている敵1体につき攻撃力10%アップ\nデュラハン（原種）をトークンとして使役可能",
+    "isGeneral": true,
     "isDullahanSoul": true
+  },
+  {
+    "name": "3rd Anniversaryの加護",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "出撃コストと移動コスト-3\nスキル使用後、再発動までの時間を3秒短くする",
+    "cost": -3,
+    "moveCostCut": 3,
+    "cooldown": -3
   },
   {
     "name": "ドラゴンスピリット",

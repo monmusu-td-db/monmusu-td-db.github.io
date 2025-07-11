@@ -14,24 +14,6 @@
   top: 58px;
 }
 
-@media (max-width: 1199.98px) {
-  .stat-table {
-    display: block;
-    overflow: auto;
-    height: calc(100vh - 58px);
-    padding-right: 12px;
-    padding-bottom: 12px;
-  }
-
-  .stat-table > thead {
-    top: 0;
-  }
-
-  .stat-table > :not(caption) > * > * {
-    padding: 0.05rem;
-  }
-}
-
 .stat-table > :not(caption) > * > * {
   border-width: 0 1px 1px 0;
   padding: 0.125rem;
@@ -96,6 +78,24 @@
 
 .stat-table > caption {
   font-size: 1rem;
+}
+
+@media (max-width: 1199.98px) {
+  .stat-table {
+    display: block;
+    overflow: auto;
+    max-height: calc(100vh - 58px);
+    padding-right: 12px;
+    padding-bottom: 12px;
+  }
+
+  .stat-table > thead {
+    top: 0;
+  }
+
+  .stat-table > :not(caption) > * > * {
+    padding: 0.05rem;
+  }
 }
 
 th.hp,
@@ -192,14 +192,57 @@ th.unitName {
 }
 
 th.supplements {
-  width: 10.16rem;
-  min-width: 7.62rem;
+  width: 10.5rem;
+  min-width: 7.7rem;
 }
 
 th.buffTarget {
-  width: 5rem;
+  width: 4.1rem;
 }
 
 th.buffSupplements {
-  width: 7.5rem;
+  width: 12.5rem;
+}
+
+th.inBattleBuffSupplements {
+  width: 12.5rem;
+}
+
+th.buffRange,
+th.buffFieldChange,
+th.buffFieldAdd {
+  width: 2.4rem;
+}
+
+th.buffHpMul,
+th.buffAttackMul,
+th.buffDefenseMul,
+th.buffResistMul,
+th.buffPhysicalDamageCut,
+th.buffMagicalDamageCut,
+th.buffDamageFactor,
+th.buffDamageDebuff,
+th.buffPhysicalDamageDebuff,
+th.buffMagicalDamageDebuff,
+th.buffAttackSpeed,
+th.buffDelayMul,
+th.buffPhysicalEvasion,
+th.buffMagicalEvasion,
+th.buffMoveSpeedAdd,
+th.buffMoveSpeedMul,
+th.buffRedeployTimeCut,
+th.buffWithdrawCostReturn,
+th.buffFieldFactor,
+th.buffPoisonImmune,
+th.buffBlindImmune,
+th.buffStanImmune,
+th.buffPetrifyImmune,
+th.buffFreezeImmune,
+th.buffWeatherChange {
+  width: 2.7rem;
+}
+
+th.buffCriChanceAdd,
+th.buffCriDamageAdd {
+  width: 3rem;
 }

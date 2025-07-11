@@ -13,9 +13,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "回復100%/配置",
-      "再出撃時間-40%→全体",
-      "凍結無効"
+      "回復100%/配置→全体"
     ],
     "exSkill1": {
       "skillName": "聖炎の猛火",
@@ -27,12 +25,9 @@
     "exSkill2": {
       "skillName": "フェニックスフェザー",
       "rangeMul": 160,
-      "target": 2,
+      "targetAdd": 1,
       "duration": 30,
-      "cooldown": 40,
-      "supplements": [
-        "再出撃時間-60%→射程内"
-      ]
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -48,17 +43,29 @@
     },
     "features": [
       {
-        "featureName": "dot",
-        "annotations": [
-          "種族特性"
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "凍結無効"
+        ]
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
         ],
+        "isNotAbility": true,
+        "isConditionalBuff": true,
+        "supplements": [
+          "凍結無効→射程内"
+        ]
+      },
+      {
+        "featureName": "common-dot",
         "staticDamage": {
           "key": "attack",
           "value": 4
         },
-        "interval": 30,
-        "target": "射程内",
-        "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
@@ -67,7 +74,8 @@
         }
       },
       {
-        "featureName": "skill1-dot",
+        "featureName": "common-dot",
+        "skill": 1,
         "staticDamage": {
           "key": "attack",
           "value": 20
@@ -86,14 +94,34 @@
           "火マス"
         ],
         "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       },
       {
-        "featureName": "weapon-freeze",
-        "require": [
-          "武器"
-        ],
-        "supplements": [
-          "凍結無効→射程内"
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-dot"
         ]
       }
     ],
@@ -111,20 +139,263 @@
         "value": 60
       },
       {
-        "type": "freeze-nullify",
+        "type": "freeze-invalid",
         "require": [
           "武器"
         ],
         "skill": 1,
-        "target": "射程内"
+        "target": "射程内",
+        "status": "凍結"
       },
       {
-        "type": "freeze-nullify",
+        "type": "freeze-invalid",
         "require": [
           "武器"
         ],
         "skill": 2,
-        "target": "射程内"
+        "target": "射程内",
+        "status": "凍結"
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報",
+    "TODO_FATAL": "ex1/ex2射程はwiki情報/攻撃モーション速度はwiki情報からの推測",
+    "id": 2,
+    "unitName": "【キマイラ娘】ラゴス",
+    "unitShortName": "ラゴス",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "火",
+    "hp": 6575,
+    "attack": 1018,
+    "defense": 465,
+    "resist": 140,
+    "rounds": [
+      {
+        "ratio": 10,
+        "value": 1
+      },
+      {
+        "ratio": 6,
+        "value": 2
+      },
+      {
+        "ratio": 9,
+        "value": 3
+      }
+    ],
+    "supplements": [
+      "猛毒付与/3連目→命中"
+    ],
+    "exSkill1": {
+      "skillName": "ゴートヘッドフレイム",
+      "attackMul": 300,
+      "target": "射程内",
+      "range": 150,
+      "duration": 30,
+      "cooldown": 50,
+      "damageType": "魔法"
+    },
+    "exSkill2": {
+      "skillName": "合魔の猛炎",
+      "attackMul": 500,
+      "target": 4,
+      "range": 150,
+      "duration": 20,
+      "cooldown": 60,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃力+75"
+    ],
+    "weapon": {
+      "weaponName": "クリムゾンクラッシャー",
+      "hp": 100,
+      "attack": 70
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "ウォリアー"
+        ],
+        "hp": 110,
+        "potentialBonus": {
+          "hp": 113
+        }
+      }
+    ],
+    "features": [
+      {
+        "attackMotionMul": 154
+      },
+      {
+        "featureName": "weapon-attack-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "武器効果"
+        ],
+        "conditions": [
+          {
+            "key": "*",
+            "value": 160
+          }
+        ],
+        "attackMul": 160
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "weapon-attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "weapon-attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "weapon-attack-mul"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 3,
+    "unitName": "【クラーケン娘】オキュー",
+    "unitShortName": "オキュー",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "水",
+    "hp": 4819,
+    "attack": 671,
+    "defense": 481,
+    "resist": 61,
+    "exSkill1": {
+      "skillName": "熱狂たこパーティー！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "コスト+12/発動",
+        "tkn配置→自分",
+        "回復{attack-base*480}→全体水属性"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "赤字覚悟の触手祭りや！",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 50,
+      "damageType": null,
+      "supplements": [
+        "コスト+22/発動",
+        "tkn配置→射程内味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "weapon": {
+      "weaponName": "センキャクバンライ",
+      "hp": 200,
+      "attack": 40,
+      "defense": 20
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "wiki情報",
+    "TODO_FATAL": "攻撃速度/待機時間",
+    "TODO_STAT_INFERRED": true,
+    "id": 30001,
+    "parentId": 3,
+    "unitName": "触手",
+    "unitShortName": "触手T",
+    "rarity": "C",
+    "cost": 10,
+    "hp": 4983,
+    "attack": 727,
+    "defense": 99,
+    "resist": 99,
+    "attackSpeed": 999,
+    "delay": 99,
+    "block": null,
+    "target": 1,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "features": [
+      {
+        "potentialBonus": {
+          "attackMul": 110
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "hpMul": 130
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -424,6 +695,17 @@
       },
       {
         "skill": 2
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ],
     "buffs": [
@@ -436,17 +718,19 @@
         "value": 115
       },
       {
-        "type": "field-change-earth",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "地",
         "supplements": [
           "発動時"
         ]
       },
       {
-        "type": "field-change-earth",
+        "type": "field-change",
         "skill": 2,
         "target": "自分",
+        "element": "地",
         "supplements": [
           "発動時"
         ]
@@ -482,7 +766,10 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -599,6 +886,7 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 80001,
     "parentId": 8,
     "unitName": "ハイオーク",
@@ -640,9 +928,22 @@
         "damageType": "物理"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
+    "TODO_STAT_INFERRED": true,
     "id": 80002,
     "parentId": 8,
     "unitName": "ハイオーク(投石)",
@@ -686,7 +987,19 @@
         "damageType": "物理"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
     "id": 9,
@@ -758,16 +1071,49 @@
           }
         ],
         "attackMul": 150
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       },
       {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
+        "skill": 2
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -809,7 +1155,18 @@
         "attackMul": 150
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 90002,
@@ -849,7 +1206,18 @@
         "attackMul": 180
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill2-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 10,
@@ -870,7 +1238,7 @@
       "duration": 20,
       "cooldown": 45,
       "supplements": [
-        "スタン付与50%"
+        "スタン付与50%→命中"
       ]
     },
     "exSkill2": {
@@ -894,17 +1262,15 @@
     },
     "features": [
       {
-        "featureName": "proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
           "damageFactor": 160
         }
       },
       {
-        "featureName": "proper",
+        "featureName": "common-proper",
         "require": [
           "武器"
         ],
@@ -915,7 +1281,40 @@
         "noBaseSupplements": true
       }
     ],
-    "physicalEvasion": 30
+    "physicalEvasion": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "id": 11,
@@ -1161,6 +1560,32 @@
           "武器"
         ],
         "attackMul": 140
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "revived"
+        ]
       }
     ]
   },
@@ -1477,6 +1902,109 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報",
+    "TODO_FATAL": "ex1待機時間はwiki情報/ex2攻撃速度",
+    "id": 16,
+    "unitName": "【ケルベロス娘】テルル",
+    "unitShortName": "テルル",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "火",
+    "hp": 2544,
+    "attack": 1005,
+    "defense": 233,
+    "resist": 300,
+    "exSkill1": {
+      "skillName": "わう！わう！わん！",
+      "attackMul": 160,
+      "fixedDelay": 1,
+      "target": 3,
+      "rangeMul": 130,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "exSkill2": {
+      "skillName": "獣頭の咆哮",
+      "attackMul": 220,
+      "attackMotionMul": 99,
+      "target": 1,
+      "laser": true,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40,
+      "damageType": "貫通",
+      "supplements": [
+        "回避無視100%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "射程+15"
+    ],
+    "weapon": {
+      "weaponName": "ケルベロスファング",
+      "attack": 70,
+      "range": 5
+    },
+    "features": [
+      {
+        "skill": 0,
+        "target": [
+          1,
+          3
+        ]
+      },
+      {
+        "attackDebuff": {
+          "key": "attack-base",
+          "value": 18
+        },
+        "supplements": [
+          "ATK-{attack-base*18}/配置→全体"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "ATK-{attack-base*18}/発動→全体"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 1
+          },
+          {
+            "ratio": 1,
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "class-no-supplements"
+        ]
+      }
+    ]
+  },
+  {
     "id": 17,
     "unitName": "【ノーム娘】ペトラ",
     "unitShortName": "ペトラ",
@@ -1690,6 +2218,13 @@
           "10-sec",
           "common-proper"
         ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -1731,19 +2266,26 @@
     "isUnhealable": true,
     "costAdd": -1,
     "situations": [
-      {},
       {
         "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "features": [
+          "common-token-limit-nodesc",
           "skill1-buff"
         ]
       },
       {
         "features": [
+          "common-token-limit-nodesc",
           "common-proper"
         ]
       },
       {
         "features": [
+          "common-token-limit-nodesc",
           "common-proper",
           "skill1-buff"
         ]
@@ -2698,14 +3240,18 @@
     ],
     "buffs": [
       {
-        "type": "poison-nullify",
         "skill": 2,
-        "target": "射程内"
-      },
-      {
-        "type": "petrify-nullify",
-        "skill": 2,
-        "target": "射程内"
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "poison-invalid",
+            "status": "毒"
+          },
+          {
+            "type": "petrify-invalid",
+            "status": "石化"
+          }
+        ]
       }
     ]
   },
@@ -4071,7 +4617,8 @@
     ]
   },
   {
-    "TODO_DESC": "statはwiki情報/ex2毒付与間隔はwiki情報",
+    "TODO_DESC": "statはwiki情報",
+    "TODO_FATAL": "ex2毒付与間隔はwiki情報",
     "id": 41,
     "unitName": "【アラクネ娘】フランシ",
     "unitShortName": "フランシ",
@@ -4575,7 +5122,7 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "HP減少時攻撃速度",
+    "TODO_FATAL": "HP減少時攻撃速度",
     "id": 47,
     "unitName": "【デュラハン娘】プラチナ",
     "unitShortName": "プラチナ",
@@ -6042,7 +6589,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1/ex2射程/ex2追加ダメージHit数",
+    "TODO_FATAL": "ex1/ex2射程/ex2追加ダメージHit数",
     "id": 61,
     "unitName": "【レッドドラゴン娘】エリュート",
     "unitShortName": "エリュート",
@@ -6854,16 +7401,6 @@
           "武器"
         ],
         "criChanceAdd": 30
-      },
-      {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
       }
     ],
     "potentialBonus": {
@@ -6895,7 +7432,7 @@
       {
         "proper": true,
         "features": [
-          "token-limit"
+          "common-token-limit"
         ]
       }
     ]
@@ -6917,12 +7454,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "require": [
           "武器"
         ],
@@ -6932,7 +7463,11 @@
     "isUnhealable": true,
     "costAdd": 1,
     "situations": [
-      {}
+      {
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
     ]
   },
   {
@@ -8252,60 +8787,66 @@
         "value": 110
       },
       {
-        "type": "defense-mul",
         "require": [
           "ドラゴン特性"
         ],
         "skill": 2,
         "target": "射程内",
-        "value": 200
+        "effects": [
+          {
+            "type": "defense-mul",
+            "value": 200
+          },
+          {
+            "type": "resist-mul",
+            "value": 200
+          }
+        ]
       },
       {
-        "type": "resist-mul",
-        "require": [
-          "ドラゴン特性"
-        ],
-        "skill": 2,
-        "target": "射程内",
-        "value": 200
-      },
-      {
-        "type": "poison-resist",
         "target": "全体",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
+        "effects": [
+          {
+            "type": "poison-resist",
+            "status": "毒",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "petrify-resist",
+            "status": "石化",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          }
+        ]
       },
       {
-        "type": "poison-resist",
-        "require": [
-          "ドラゴン特性"
-        ],
-        "target": "全体",
-        "value": 60,
-        "potentialBonus": {
-          "value": 70
-        }
-      },
-      {
-        "type": "petrify-resist",
-        "target": "全体",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "petrify-resist",
         "require": [
           "ドラゴン特性"
         ],
         "target": "全体",
-        "value": 60,
-        "potentialBonus": {
-          "value": 70
-        }
+        "effects": [
+          {
+            "type": "poison-resist",
+            "status": "毒",
+            "value": 60,
+            "potentialBonus": {
+              "value": 70
+            }
+          },
+          {
+            "type": "petrify-resist",
+            "status": "石化",
+            "value": 60,
+            "potentialBonus": {
+              "value": 70
+            }
+          }
+        ]
       }
     ]
   },
@@ -8521,6 +9062,130 @@
     "blockAdd": 1
   },
   {
+    "TODO_DESC": "ex2はwiki情報",
+    "id": 86,
+    "unitName": "【アンドロスフィンクス娘】ラフーカ",
+    "unitShortName": "ラフーカ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "火",
+    "hp": 2733,
+    "attack": 1036,
+    "defense": 224,
+    "resist": 528,
+    "target": [
+      1,
+      3
+    ],
+    "exSkill1": {
+      "skillName": "獅子の怒り",
+      "attackMul": 170,
+      "target": 3,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "exSkill2": {
+      "skillName": "生命の火",
+      "attackMul": 380,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 113
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "skill2-heal",
+        "skill": 2,
+        "annotations": [
+          "攻撃時"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 30
+        },
+        "target": "射程内",
+        "splash": false,
+        "damageType": "回復"
+      },
+      {
+        "featureName": "common-enemy1",
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-enemy2",
+        "damageFactor": 125
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "skill2-heal"
+        ]
+      }
+    ]
+  },
+  {
     "id": 87,
     "unitName": "【デーモン娘】メド",
     "unitShortName": "メド",
@@ -8578,7 +9243,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1攻撃速度はwiki情報からの推測値",
+    "TODO_FATAL": "ex1攻撃速度はwiki情報からの推測値",
     "id": 88,
     "unitName": "【ヒュドラ娘】ユラ",
     "unitShortName": "ユラ",
@@ -8988,7 +9653,7 @@
     ]
   },
   {
-    "TODO_DESC": "スキル1射程はWiki情報",
+    "TODO_FATAL": "スキル1射程はWiki情報",
     "id": 92,
     "unitName": "【アクアドラゴン娘】ロヴィリス",
     "unitShortName": "ロヴィリス",
@@ -9663,6 +10328,9 @@
     "buffs": [
       {
         "type": "move-speed-add",
+        "require": [
+          "飛行移動以外"
+        ],
         "target": "全体",
         "value": 20,
         "potentialBonus": {
@@ -9671,23 +10339,28 @@
       },
       {
         "type": "move-speed-add",
-        "target": "飛行",
+        "require": [
+          "飛行移動"
+        ],
+        "target": "全体",
         "value": 40,
         "potentialBonus": {
           "value": 45
         }
       },
       {
-        "type": "redeploy-time-cut",
         "skill": 2,
         "target": "全体",
-        "value": 80
-      },
-      {
-        "type": "withdraw-cost-return",
-        "skill": 2,
-        "target": "全体",
-        "value": 90
+        "effects": [
+          {
+            "type": "redeploy-time-cut",
+            "value": 80
+          },
+          {
+            "type": "withdraw-cost-return",
+            "value": 90
+          }
+        ]
       }
     ]
   },
@@ -9883,7 +10556,8 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "ex1攻撃速度/ex2はwiki情報",
+    "TODO_DESC": "ex2はwiki情報",
+    "TODO_FATAL": "ex1攻撃速度",
     "id": 97,
     "unitName": "【ミスリルゴーレム娘】ミスレナ",
     "unitShortName": "ミスレナ",
@@ -9958,7 +10632,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1発動フレーム/継続ダメージHit数はWiki情報",
+    "TODO_FATAL": "ex1発動フレーム/継続ダメージHit数はWiki情報",
     "id": 98,
     "unitName": "【カリュブディス娘】リュプチェ",
     "unitShortName": "リュプチェ",
@@ -10123,7 +10797,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1/2射程/ex2攻撃速度",
+    "TODO_FATAL": "ex1/2射程/ex2攻撃速度",
     "id": 100,
     "unitName": "【ブラックドラゴン娘】マウロ",
     "unitShortName": "マウロ",
@@ -10220,7 +10894,7 @@
     ]
   },
   {
-    "TODO_DESC": "射程はWiki情報/ダメージ間隔要調査",
+    "TODO_FATAL": "射程はWiki情報/ダメージ間隔要調査",
     "id": 1000001,
     "parentId": 100,
     "unitName": "ブラックホール",
@@ -10324,9 +10998,12 @@
     "buffs": [
       {
         "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
         "duration": 5,
+        "weather": "吹雪",
         "supplements": [
-          "吹雪"
+          "発動時"
         ],
         "potentialBonus": {
           "duration": 7
@@ -10386,7 +11063,7 @@
     ]
   },
   {
-    "TODO_DESC": "射程",
+    "TODO_FATAL": "射程",
     "id": 1020001,
     "parentId": 102,
     "unitName": "妖花",
@@ -10451,7 +11128,7 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "ex1対地限定かどうか調べる",
+    "TODO_FATAL": "ex1対地限定かどうか調べる",
     "id": 103,
     "unitName": "【灯火のエキドナ娘】ミテラス",
     "unitShortName": "ミテラス/Xmas",
@@ -10700,6 +11377,23 @@
           "attackMul": 118
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "token-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "token-buff"
+        ]
+      }
     ]
   },
   {
@@ -10718,7 +11412,160 @@
     "target": 0,
     "moveSpeed": 0,
     "placement": "付",
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "射程/ex1攻撃速度",
+    "id": 106,
+    "unitName": "【デカイオー娘】リッティ",
+    "unitShortName": "リッティ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "風",
+    "hp": 6786,
+    "attack": 1067,
+    "defense": 465,
+    "resist": 127,
+    "range": 999,
+    "supplements": [
+      "即死(低)→命中ブロック敵"
+    ],
+    "exSkill1": {
+      "skillName": "究極撃滅破壊形態起動！",
+      "attackMul": 320,
+      "defenseMul": 320,
+      "attackMotionMul": 126,
+      "blockAdd": 2,
+      "splash": true,
+      "rangeMul": 150,
+      "duration": 45,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃力+75"
+    ],
+    "features": [
+      {
+        "featureName": "common-ranged",
+        "isConditionalBuff": true,
+        "damageFactor": 60,
+        "splash": true
+      },
+      {
+        "featureName": "common-ranged",
+        "skill": 1,
+        "attackMotionMul": 153,
+        "rounds": 3
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 135,
+    "attackMul": 120,
+    "potentialBonus": {
+      "hpMul": 145
+    },
+    "situations": [
+      {
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 107,
+    "unitName": "【大悪魔召喚士】ラピス",
+    "unitShortName": "ラピス",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "闇",
+    "hp": 2542,
+    "attack": 639,
+    "defense": 253,
+    "resist": 596,
+    "exSkill1": {
+      "skillName": "デモニックフィールド",
+      "attackMul": 160,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 10
+        },
+        "supplements": [
+          "ATK-10%→全体"
+        ],
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 13
+          },
+          "supplements": [
+            "ATK-13%→全体"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "damageFactor": 130
+      }
+    ],
+    "targetAdd": 3,
+    "damageType": "貫通",
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -10878,6 +11725,161 @@
         "potentialBonus": {
           "damageFactor": 35
         }
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "攻撃速度上昇",
+    "id": 110,
+    "unitName": "【迎春のデュラハン娘】プラチナ",
+    "unitShortName": "プラチナ/正月",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 2849,
+    "attack": 602,
+    "defense": 326,
+    "resist": 203,
+    "supplements": [
+      "毒無効",
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "破魔の呪弓",
+      "attackMul": 220,
+      "targetAdd": 1,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "引き付け",
+        "MIN-HP1",
+        "DEF-10→命中",
+        "RES-10→命中",
+        "HP回復100%/終了時"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "ATK-10→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK-13→命中"
+          ]
+        }
+      },
+      {
+        "featureName": "hp-50%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ],
+        "currentHp": 50,
+        "attackSpeedBuff": 200,
+        "delayMul": 20
+      },
+      {
+        "featureName": "10-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "defenseDebuff": {
+          "time": 300,
+          "valueAdd": 10
+        },
+        "resistDebuff": {
+          "time": 300,
+          "valueAdd": 10
+        }
+      },
+      {
+        "featureName": "20-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 20
+          }
+        ],
+        "defenseDebuff": {
+          "time": 600,
+          "valueAdd": 10
+        },
+        "resistDebuff": {
+          "time": 600,
+          "valueAdd": 10
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "20-sec"
+        ]
+      },
+      {
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-0-sec",
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec",
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "20-sec",
+          "hp-50%"
+        ]
       }
     ]
   },
@@ -11234,6 +12236,110 @@
     "defenseMul": 140
   },
   {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 115,
+    "unitName": "【コボルト娘】ペント",
+    "unitShortName": "ペント",
+    "rarity": "R",
+    "class": "ウォーロック",
+    "element": "地",
+    "species": "コボルト",
+    "hp": 2085,
+    "attack": 803,
+    "defense": 175,
+    "resist": 496,
+    "supplements": [
+      "スタン付与10%→命中"
+    ],
+    "exSkill1": {
+      "skillName": "弱者の知恵だよ",
+      "fixedDelay": 1,
+      "target": 3,
+      "rangeMul": 340,
+      "duration": "単発",
+      "cooldown": 35,
+      "damageType": "物理"
+    },
+    "exSkill2": {
+      "skillName": "石心の力",
+      "attackMul": 120,
+      "target": 5,
+      "splash": false,
+      "rangeMul": 130,
+      "duration": 25,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "魔法防御力+60",
+      "射程+10"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "コボルト"
+        ],
+        "attack": 120
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-proper",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "damageFactor": 300
+      }
+    ],
+    "costAdd": -4,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 2
+      }
+    ]
+  },
+  {
     "id": 116,
     "unitName": "【イエティ娘】エーティ",
     "unitShortName": "エーティ",
@@ -11394,7 +12500,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値",
+    "TODO_FATAL": "スタン蓄積値",
     "id": 118,
     "unitName": "【魔王】アリスフィーズ",
     "unitShortName": "アリスフィーズ",
@@ -11650,7 +12756,94 @@
     ]
   },
   {
-    "TODO_DESC": "ex1 delay",
+    "TODO_STAT_INFERRED": true,
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1スタン/スタン蓄積タイミング要検証",
+    "id": 121,
+    "unitName": "【四天王】たまも",
+    "unitShortName": "たまも",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "地",
+    "hp": 2850,
+    "attack": 0,
+    "defense": 327,
+    "resist": 467,
+    "exSkill1": {
+      "skillName": "見た目で侮るでないぞ",
+      "rangeMul": 180,
+      "duration": 40,
+      "cooldown": 45,
+      "supplements": [
+        "スタン付与XX%(小)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "featureName": "common-support",
+        "isAbility": true,
+        "staticDefense": {
+          "key": "defense",
+          "value": 30
+        },
+        "target": "射程内",
+        "supplements": [
+          "自身以外が対象"
+        ],
+        "potentialBonus": {
+          "staticDefense": {
+            "key": "defense",
+            "value": 40
+          }
+        }
+      },
+      {
+        "featureName": "skill1-dot",
+        "skill": 1,
+        "staticDamage": {
+          "key": "static",
+          "value": 2000
+        },
+        "interval": 60,
+        "damageType": "物理"
+      }
+    ],
+    "defenseMul": 130,
+    "rangeAdd": 20,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "skill1-dot"
+        ],
+        "exclude": [
+          "class-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "depend": [
+          "class-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-support"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_FATAL": "ex1 delay",
     "id": 122,
     "unitName": "【四天王】アルマエルマ",
     "unitShortName": "アルマエルマ",
@@ -12277,7 +13470,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1射程はwiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 130,
     "unitName": "【転校生ジャイアント娘】メロン",
     "unitShortName": "メロン/学園",
@@ -12353,7 +13546,7 @@
       "cooldown": 40,
       "supplements": [
         "鈍足/スキル中→射程内",
-        "攻撃速度減少/スキル中→射程内"
+        "攻撃速度減少→射程内"
       ]
     },
     "potentials": [
@@ -13056,9 +14249,10 @@
     }
   },
   {
+    "TODO_FATAL": "スキル射程",
     "id": 139,
     "unitName": "【ドラゴンゾンビ娘】ディフォーラ",
-    "unitShortName": "ディフォーラTODO→スキル射程",
+    "unitShortName": "ディフォーラ",
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "闇",
@@ -13680,7 +14874,7 @@
     "attackMul": 120
   },
   {
-    "TODO_DESC": "ex1射程はwiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 147,
     "unitName": "【大蛸娘】ウキスサ",
     "unitShortName": "ウキスサ",
@@ -13778,6 +14972,175 @@
   },
   {
     "TODO_DESC": "StatはWiki情報",
+    "id": 148,
+    "unitName": "【河童娘】シリコ",
+    "unitShortName": "シリコ",
+    "rarity": "E",
+    "class": "モンク",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 7071,
+    "attack": 813,
+    "defense": 322,
+    "resist": 141,
+    "supplements": [
+      "即死耐性+/ブロック中"
+    ],
+    "exSkill1": {
+      "skillName": "はっけよーい、のこった！",
+      "attackMul": 360,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "即死(低+)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スタン耐性+50"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "即死(低)→命中"
+        ]
+      },
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "hp",
+          "value": 5
+        },
+        "supplements": [
+          "回復5%/秒"
+        ]
+      }
+    ],
+    "hpMul": 120,
+    "potentialBonus": {
+      "hpMul": 130
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "require": [
+          "panel-field-element"
+        ],
+        "features": [
+          "common-regenerate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "unitName": "【一反木綿娘】シロタエ",
+    "unitShortName": "シロタエ",
+    "rarity": "C",
+    "class": "ランサー",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 1608,
+    "attack": 606,
+    "defense": 88,
+    "resist": 57,
+    "exSkill1": {
+      "skillName": "ツラヌキの舞",
+      "attackMul": 120,
+      "attackSpeedBuff": 150,
+      "fixedDelay": 10,
+      "duration": 15,
+      "cooldown": 30,
+      "damageType": "貫通",
+      "supplements": [
+        "コスト+10/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+50",
+      "攻撃力+50",
+      "攻撃速度+10"
+    ],
+    "costAdd": -3,
+    "physicalEvasion": 75,
+    "magicalEvasion": 75,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 150,
+    "unitName": "【烏天狗娘】ヤナギ",
+    "unitShortName": "ヤナギ",
+    "rarity": "C",
+    "class": "ブレイダー",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 5185,
+    "attack": 870,
+    "defense": 427,
+    "resist": 94,
+    "exSkill1": {
+      "skillName": "陰風一文字",
+      "attackMul": 500,
+      "fixedDelay": 1,
+      "range": 280,
+      "duration": "単発",
+      "cooldown": 15,
+      "supplements": [
+        "ノックバック(大)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "攻撃速度+10"
+    ],
+    "physicalEvasion": 25,
+    "magicalEvasion": 25,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "require": [
+          "風属性"
+        ],
+        "target": "全体",
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 25
+          },
+          {
+            "type": "magical-evasion",
+            "value": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
     "id": 151,
     "unitName": "【塗壁娘】チカ",
     "unitShortName": "チカ",
@@ -13825,6 +15188,69 @@
       {},
       {
         "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 152,
+    "unitName": "【鬼娘】ホヅキ",
+    "unitShortName": "ホヅキ",
+    "rarity": "R",
+    "class": "デストロイヤー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 8074,
+    "attack": 945,
+    "defense": 559,
+    "resist": 100,
+    "exSkill1": {
+      "skillName": "不動の構え",
+      "attackMul": 480,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "即死無効",
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "物理ダメージ20%軽減"
+    ],
+    "features": [
+      {
+        "featureName": "hp-50%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ],
+        "currentHp": 50,
+        "damageFactor": 130
+      }
+    ],
+    "hpMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-50%"
+        ]
       }
     ]
   },
@@ -13893,6 +15319,46 @@
         "features": [
           "common-melee"
         ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "移動コスト+9",
+    "TODO_STAT_INFERRED": true,
+    "id": 154,
+    "unitName": "【不知火娘】ヌイ",
+    "unitShortName": "ヌイ",
+    "rarity": "C",
+    "class": "アーチャー",
+    "element": "火",
+    "species": "妖怪",
+    "hp": 2359,
+    "attack": 566,
+    "defense": 282,
+    "resist": 196,
+    "moveType": "ワープ",
+    "exSkill1": {
+      "skillName": "蜃気楼が如く",
+      "attackMul": 140,
+      "rangeMul": 140,
+      "duration": 10,
+      "cooldown": 25,
+      "damageType": "魔法",
+      "supplements": [
+        "隠密"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "攻撃力+50",
+      "射程+10"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },
@@ -14029,6 +15495,56 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 157,
+    "unitName": "【脛こすり娘】ハギ",
+    "unitShortName": "ハギ",
+    "rarity": "C",
+    "class": "ハーミット",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 2292,
+    "attack": 404,
+    "defense": 310,
+    "resist": 422,
+    "supplements": [
+      "雨(4秒)/配置"
+    ],
+    "exSkill1": {
+      "skillName": "行かないでにゃ",
+      "attackMul": 140,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "鈍足-20%→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "魔法防御力+60",
+      "再出撃時間50%短縮"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "target": "全体",
+        "duration": 4,
+        "weather": "雨",
+        "supplements": [
+          "配置時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 158,
     "unitName": "【土蜘蛛娘】ヤソメ",
     "unitShortName": "ヤソメ",
@@ -14085,6 +15601,156 @@
         "potentialBonus": {
           "damageFactor": 250
         }
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "unitName": "【木の葉天狗娘】キョウ",
+    "unitShortName": "キョウ",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 4248,
+    "attack": 626,
+    "defense": 342,
+    "resist": 111,
+    "exSkill1": {
+      "skillName": "天狗の神風",
+      "attackMul": 220,
+      "attackSpeedBuff": 120,
+      "delayMul": 75,
+      "targetAdd": 1,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "require": [
+          "風マス"
+        ],
+        "moveSpeedAdd": 40
+      }
+    ],
+    "attackSpeedAdd": 20,
+    "moveSpeedAdd": 40,
+    "potentialBonus": {
+      "attackSpeedAdd": 30
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "move-speed-add",
+        "require": [
+          "風属性"
+        ],
+        "target": "全体",
+        "value": 40
+      },
+      {
+        "type": "move-speed-add",
+        "require": [
+          "風属性",
+          "風マス配置中"
+        ],
+        "target": "全体",
+        "value": 80
+      },
+      {
+        "skill": 1,
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 120
+          },
+          {
+            "type": "delay-mul",
+            "value": 75
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "unitName": "【鎌鼬娘】イチ",
+    "unitShortName": "イチ",
+    "rarity": "E",
+    "class": "ニンジャ",
+    "element": "風",
+    "hp": 2975,
+    "attack": 479,
+    "defense": 404,
+    "resist": 279,
+    "species": "妖怪",
+    "moveType": "突進",
+    "exSkill1": {
+      "skillName": "忍法イタチ風",
+      "attackMul": 220,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "回復{attack-base*20}×3/通過時→味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "移動消費コスト-2"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "moveSpeedAdd": 200
+      },
+      {
+        "featureName": "common-charge-attack",
+        "damageType": "貫通"
+      }
+    ],
+    "moveSpeedMul": 200,
+    "potentialBonus": {
+      "moveSpeedMul": 250
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
       }
     ]
   },
@@ -14418,6 +16084,52 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 164,
+    "unitName": "【ろくろ首娘】ムツ",
+    "unitShortName": "ムツ",
+    "rarity": "C",
+    "class": "バード",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 3195,
+    "attack": 277,
+    "defense": 318,
+    "resist": 273,
+    "supplements": [
+      "停止(2秒)/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "驚かせちゃったかしら",
+      "rangeMul": 160,
+      "duration": "単発",
+      "cooldown": 45,
+      "supplements": [
+        "停止(2秒)/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "射程+10",
+      "射程+10"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "interval": 40
+      }
+    ],
+    "rangeAdd": 20,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 165,
     "unitName": "【槌の子娘】ヤノ",
     "unitShortName": "ヤノ",
@@ -14678,7 +16390,7 @@
     ],
     "features": [
       {
-        "featureName": "10-sec",
+        "featureName": "15-sec",
         "isConditionalBuff": true,
         "annotations": [
           "防御デバフ累積効果"
@@ -14686,12 +16398,37 @@
         "conditions": [
           {
             "key": "s",
-            "value": 10
+            "value": 15
           }
         ],
+        "defenseDebuff": {
+          "time": 450,
+          "valueAdd": 12
+        },
         "resistDebuff": {
-          "time": 300,
-          "valueAdd": 100
+          "time": 450,
+          "valueAdd": 12
+        }
+      },
+      {
+        "featureName": "30-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 30
+          }
+        ],
+        "defenseDebuff": {
+          "time": 900,
+          "valueAdd": 12
+        },
+        "resistDebuff": {
+          "time": 900,
+          "valueAdd": 12
         }
       }
     ],
@@ -14709,13 +16446,24 @@
       },
       {
         "features": [
-          "10-sec"
+          "15-sec"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "10-sec"
+          "15-sec"
+        ]
+      },
+      {
+        "features": [
+          "30-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "30-sec"
         ]
       },
       {
@@ -14827,6 +16575,63 @@
         "splash": false,
         "range": null,
         "damageType": "貫通"
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報/再配置時間短縮",
+    "id": 170,
+    "unitName": "【スケルトン娘】ペロロス",
+    "unitShortName": "ペロロス",
+    "rarity": "C",
+    "class": "シールドナイト",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 4242,
+    "attack": 393,
+    "defense": 841,
+    "resist": 208,
+    "exSkill1": {
+      "skillName": "反骨精神",
+      "defenseMul": 320,
+      "duration": 40,
+      "cooldown": 40,
+      "supplements": [
+        "スタン耐性+50"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+60",
+      "物理防御力+60",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "featureName": "skill1-hp-25%",
+        "currentHp": 25,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 25
+          }
+        ],
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 70,
+        "magicalDamageCut": 70
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-hp-25%"
+        ]
       }
     ]
   },
@@ -15105,7 +16910,8 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "StatはWiki情報/移動コストUP/ex1待機時間は要検証",
+    "TODO_DESC": "StatはWiki情報/移動コストUP",
+    "TODO_FATAL": "ex1待機時間は要検証",
     "id": 173,
     "unitName": "【グレムリン娘】ノーティー",
     "unitShortName": "ノーティー",
@@ -15458,7 +17264,7 @@
     ]
   },
   {
-    "TODO_DESC": "攻撃速度バフ/待機時間短縮は要検証/スタン蓄積値はwiki情報",
+    "TODO_FATAL": "攻撃速度バフ/待機時間短縮は要検証/スタン蓄積値はwiki情報",
     "id": 178,
     "unitName": "【号令のシルバードラゴン娘】アルギュロ",
     "unitShortName": "アルギュロ/学",
@@ -15578,28 +17384,51 @@
     ],
     "buffs": [
       {
-        "type": "attack-speed-buff",
         "target": "射程内",
         "duration": 5,
-        "value": 115,
         "supplements": [
           "攻撃命中時"
         ],
-        "potentialBonus": {
-          "value": 120
-        }
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 115,
+            "potentialBonus": {
+              "value": 120
+            }
+          },
+          {
+            "type": "delay-mul",
+            "value": 85,
+            "potentialBonus": {
+              "value": 80
+            }
+          }
+        ]
       },
       {
-        "type": "delay-mul",
+        "skill": 1,
         "target": "射程内",
         "duration": 5,
-        "value": 85,
         "supplements": [
           "攻撃命中時"
         ],
-        "potentialBonus": {
-          "value": 80
-        }
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 130,
+            "potentialBonus": {
+              "value": 140
+            }
+          },
+          {
+            "type": "delay-mul",
+            "value": 70,
+            "potentialBonus": {
+              "value": 60
+            }
+          }
+        ]
       },
       {
         "type": "move-speed-mul",
@@ -15611,32 +17440,6 @@
         ],
         "potentialBonus": {
           "value": 120
-        }
-      },
-      {
-        "type": "attack-speed-buff",
-        "skill": 1,
-        "target": "射程内",
-        "duration": 5,
-        "value": 130,
-        "supplements": [
-          "攻撃命中時"
-        ],
-        "potentialBonus": {
-          "value": 140
-        }
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "target": "射程内",
-        "duration": 5,
-        "value": 70,
-        "supplements": [
-          "攻撃命中時"
-        ],
-        "potentialBonus": {
-          "value": 60
         }
       },
       {
@@ -15924,6 +17727,7 @@
     "features": [
       {
         "featureName": "normal",
+        "attackMotionMul": 177,
         "supplements": [
           "猛毒付与"
         ]
@@ -15932,7 +17736,7 @@
     "isEventUnit": true
   },
   {
-    "TODO_DESC": "ex1攻撃待機時間",
+    "TODO_FATAL": "ex1攻撃待機時間",
     "id": 184,
     "unitName": "【ナベリウス娘】テルル",
     "unitShortName": "テルル/進化",
@@ -16552,10 +18356,10 @@
     "magicalEvasion": 30
   },
   {
-    "DISABLED": true,
+    "TODO_FATAL": "射程",
     "id": 190,
     "unitName": "【ストーンゴーレム娘】ネイス",
-    "unitShortName": "ネイスTODO→射程",
+    "unitShortName": "ネイス",
     "rarity": "L",
     "class": "モンク",
     "element": "地",
@@ -16738,7 +18542,7 @@
     "isEventUnit": true
   },
   {
-    "TODO_DESC": "射程",
+    "TODO_FATAL": "射程",
     "id": 192,
     "unitName": "【氷雪のカリュブディス娘】リュプチェ",
     "unitShortName": "リュプチェ/Xm",
@@ -16987,7 +18791,7 @@
     "rangeAdd": 30
   },
   {
-    "TODO_DESC": "ex1攻撃速度",
+    "TODO_FATAL": "ex1攻撃速度",
     "id": 196,
     "unitName": "【大鬼娘】ハガネ",
     "unitShortName": "ハガネ",
@@ -17108,6 +18912,45 @@
           "attack-mul",
           "hp-49%"
         ]
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 197,
+    "unitName": "【一つ目小僧娘】メイム",
+    "unitShortName": "メイム",
+    "rarity": "R",
+    "class": "コンジャラー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2498,
+    "attack": 553,
+    "defense": 227,
+    "resist": 556,
+    "exSkill1": {
+      "skillName": "キューティ・アイ",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 50,
+      "damageType": null,
+      "supplements": [
+        "スタン付与50%→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+400",
+      "最大HP+400",
+      "射程+10"
+    ],
+    "hpMul": 70,
+    "rangeAdd": 70,
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },
@@ -17314,16 +19157,17 @@
       "魔法防御力+60",
       "射程+10"
     ],
-    "features": [
+    "situations": [
+      {},
       {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
@@ -17375,7 +19219,22 @@
         }
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "support"
+        ]
+      }
+    ]
   },
   {
     "id": 201,
@@ -17509,7 +19368,6 @@
     ],
     "exSkill1": {
       "skillName": "お姉ちゃん御籤！",
-      "rangeMul": 160,
       "duration": "単発",
       "cooldown": 30
     },
@@ -17521,6 +19379,16 @@
       "最大HP+600"
     ],
     "features": [
+      {
+        "skill": 1,
+        "interval": 40
+      },
+      {
+        "featureName": "skill1-range-mul",
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "rangeMul": 160
+      },
       {
         "featureName": "skill1-bad",
         "isConditionalSkillBuff": true,
@@ -17561,7 +19429,10 @@
         "depend": [
           "class-buff"
         ],
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "skill1-range-mul"
+        ]
       },
       {
         "exclude": [
@@ -17569,6 +19440,7 @@
         ],
         "skill": 1,
         "features": [
+          "skill1-range-mul",
           "skill1-bad"
         ]
       },
@@ -17578,6 +19450,7 @@
         ],
         "skill": 1,
         "features": [
+          "skill1-range-mul",
           "skill1-normal"
         ]
       },
@@ -17587,6 +19460,7 @@
         ],
         "skill": 1,
         "features": [
+          "skill1-range-mul",
           "skill1-good"
         ]
       }
@@ -17594,17 +19468,9 @@
     "buffs": [
       {
         "type": "attack-mul",
-        "target": "射程内",
-        "duration": 20,
-        "value": 150,
-        "supplements": [
-          "EX1おみくじ大吉"
-        ]
-      },
-      {
-        "type": "attack-mul",
         "skill": 1,
         "target": "射程内",
+        "duration": 20,
         "value": 150,
         "supplements": [
           "おみくじ大吉"
@@ -18012,19 +19878,25 @@
       {
         "type": "attack-mul",
         "skill": 0,
-        "target": "射程内火マス",
+        "require": [
+          "火マス"
+        ],
+        "target": "射程内",
         "value": 106
       },
       {
         "type": "attack-mul",
         "skill": 1,
-        "target": "射程内火マス",
+        "require": [
+          "火マス"
+        ],
+        "target": "射程内",
         "value": 112
       }
     ]
   },
   {
-    "TODO_DESC": "射程/スタン蓄積値",
+    "TODO_FATAL": "射程/スタン蓄積値",
     "id": 209,
     "unitName": "【アークエンジェル娘】オシュネー",
     "unitShortName": "オシュネー",
@@ -18111,9 +19983,10 @@
     ],
     "buffs": [
       {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -18177,7 +20050,7 @@
     ]
   },
   {
-    "TODO_DESC": "バフ枠は推測",
+    "TODO_FATAL": "バフ枠は推測",
     "id": 2110001,
     "parentId": 211,
     "unitName": "御買得品",
@@ -18205,28 +20078,38 @@
     ],
     "buffs": [
       {
-        "type": "attack-mul",
-        "target": "付与対象",
-        "range": null,
-        "value": 110
-      },
-      {
-        "type": "hp-mul",
         "require": [
           "近接クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 110
+        "effects": [
+          {
+            "type": "hp-mul",
+            "value": 110
+          },
+          {
+            "type": "attack-mul",
+            "value": 110
+          }
+        ]
       },
       {
-        "type": "delay-mul",
         "require": [
           "遠隔/スカウト系クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 90
+        "effects": [
+          {
+            "type": "attack-mul",
+            "value": 110
+          },
+          {
+            "type": "delay-mul",
+            "value": 90
+          }
+        ]
       }
     ]
   },
@@ -19030,7 +20913,7 @@
     ]
   },
   {
-    "TODO_DESC": "継続ダメージ",
+    "TODO_FATAL": "継続ダメージ",
     "id": 221,
     "unitName": "【ビヨンデッタ娘】ペッシェ",
     "unitShortName": "ペッシェ",
@@ -19098,7 +20981,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値/攻撃速度強化/ex1射程",
+    "TODO_FATAL": "スタン蓄積値/攻撃速度強化/ex1射程",
     "id": 223,
     "unitName": "【雷神娘】チザネ",
     "unitShortName": "チザネ",
@@ -19317,7 +21200,7 @@
     "placement": "付",
     "supplements": [
       "配置後即時消滅",
-      "回復8%/秒(20秒)/配置→付与対象"
+      "回復8%/秒(20秒)→付与対象"
     ],
     "isUnhealable": true,
     "situations": [
@@ -19398,39 +21281,43 @@
     ],
     "buffs": [
       {
-        "type": "physical-damage-cut",
         "skill": 1,
+        "require": [
+          "光属性以外"
+        ],
         "target": "射程内",
-        "value": 40
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 40
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 40
+          }
+        ]
       },
       {
-        "type": "magical-damage-cut",
-        "skill": 1,
-        "target": "射程内",
-        "value": 40
-      },
-      {
-        "type": "physical-damage-cut",
         "skill": 1,
         "require": [
           "光属性"
         ],
         "target": "射程内",
-        "value": 50
-      },
-      {
-        "type": "magical-damage-cut",
-        "skill": 1,
-        "require": [
-          "光属性"
-        ],
-        "target": "射程内",
-        "value": 50
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 50
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 50
+          }
+        ]
       }
     ]
   },
   {
-    "TODO_DESC": "種族特性の属性指定回復量増加は乗算か調べる",
+    "TODO_FATAL": "種族特性の属性指定回復量増加は乗算か調べる",
     "id": 227,
     "unitName": "【学者】プロメスティン",
     "unitShortName": "プロメスティン",
@@ -19814,7 +21701,7 @@
     ]
   },
   {
-    "TODO_DESC": "毒ダメージ増加",
+    "TODO_FATAL": "毒ダメージ増加",
     "id": 233,
     "unitName": "【劇薬のリッチ娘】リコ",
     "unitShortName": "リコ/学園",
@@ -19877,11 +21764,18 @@
         "features": [
           "skill1-dot"
         ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-token-limit"
+        ]
       }
     ]
   },
   {
-    "TODO_DESC": "攻撃速度/射程",
+    "TODO_FATAL": "攻撃速度/射程",
     "TODO_STAT_INFERRED": true,
     "id": 2330001,
     "parentId": 233,
@@ -19907,7 +21801,10 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ],
     "buffs": [
@@ -20334,7 +22231,7 @@
   },
   {
     "TODO_STAT_INFERRED": true,
-    "TODO_BUFF": "delay-20%→sk1-射程内味方",
+    "TODO_FATAL": "delay-20%→sk1-射程内味方",
     "id": 239,
     "unitName": "【パズズ娘】シィール",
     "unitShortName": "シィール",
@@ -20704,11 +22601,11 @@
     ]
   },
   {
-    "TODO_DESC": "未調査",
+    "TODO_FATAL": "未調査 TODO→stat&攻撃速度",
     "id": 2460001,
     "parentId": 246,
     "unitName": "リトルグレイ戦士",
-    "unitShortName": "リトルグレイT TODO→stat&攻撃速度",
+    "unitShortName": "リトルグレイT",
     "rarity": "C",
     "species": "エイリアン",
     "cost": 0,
@@ -20723,18 +22620,13 @@
     "moveSpeed": 0,
     "damageType": "物理",
     "placement": "付",
-    "features": [
-      {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      }
-    ],
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       }
     ]
   },
@@ -20837,10 +22729,10 @@
     ]
   },
   {
-    "DISABLED": true,
+    "TODO_FATAL": "攻撃速度",
     "id": 248,
     "unitName": "【ベルフェゴール娘】ペルペ",
-    "unitShortName": "ペルペTODO→攻撃速度",
+    "unitShortName": "ペルペ",
     "rarity": "L",
     "class": "コンジャラー",
     "element": "水",
@@ -21072,7 +22964,7 @@
     "isEventUnit": true
   },
   {
-    "TODO_DESC": "継続ダメージHit数はWiki情報",
+    "TODO_FATAL": "継続ダメージHit数はWiki情報",
     "id": 252,
     "unitName": "【蛇骨婆娘】トモミ",
     "unitShortName": "トモミ",
@@ -21316,12 +23208,13 @@
     ],
     "buffs": [
       {
-        "type": "field-change-fire",
+        "type": "field-change",
         "skill": 1,
         "require": [
           "火属性"
         ],
-        "target": "射程内火属性",
+        "target": "射程内",
+        "element": "火",
         "supplements": [
           "発動時"
         ]
@@ -21384,10 +23277,11 @@
     }
   },
   {
+    "TODO_FATAL": "攻撃速度/射程",
     "id": 2560001,
     "parentId": 256,
     "unitName": "偵察ドローン",
-    "unitShortName": "偵察ドローンT TODO→攻撃速度/射程",
+    "unitShortName": "偵察ドローンT",
     "rarity": "C",
     "cost": 10,
     "element": "闇",
@@ -21465,7 +23359,10 @@
     "buffs": [
       {
         "type": "defense-mul",
-        "target": "射程内地マス",
+        "require": [
+          "地マス"
+        ],
+        "target": "射程内",
         "duration": "常時",
         "value": 120,
         "potentialBonus": {
@@ -21475,20 +23372,28 @@
       {
         "type": "attack-mul",
         "skill": 1,
-        "target": "射程内他者",
+        "require": [
+          "他者"
+        ],
+        "target": "射程内",
         "value": 130
       },
       {
-        "type": "attack-speed-buff",
         "skill": 1,
-        "target": "射程内他者",
-        "value": 150
-      },
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "target": "射程内他者",
-        "value": 50
+        "require": [
+          "他者"
+        ],
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 150
+          },
+          {
+            "type": "delay-mul",
+            "value": 50
+          }
+        ]
       }
     ]
   },
@@ -21778,7 +23683,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値",
+    "TODO_FATAL": "スタン蓄積値",
     "id": 2620001,
     "parentId": 262,
     "unitName": "痺れキノコ",
@@ -22250,7 +24155,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1射程はwiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 270,
     "unitName": "【リトルグリーンマン娘】プリプリダ",
     "unitShortName": "プリプリダ",
@@ -22351,7 +24256,7 @@
     ]
   },
   {
-    "TODO_DESC": "攻撃速度",
+    "TODO_FATAL": "攻撃速度",
     "id": 2700001,
     "parentId": 270,
     "unitName": "リトルグリーンマン",
@@ -22382,7 +24287,7 @@
     ]
   },
   {
-    "TODO_DESC": "delayCutはWiki情報",
+    "TODO_FATAL": "delayCutはWiki情報",
     "id": 271,
     "unitName": "【リトルグリーンマン娘】ピンダ",
     "unitShortName": "ピンダ",
@@ -22441,7 +24346,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex1スタン/スタン時間/防御デバフ",
+    "TODO_FATAL": "ex1スタン/スタン時間/防御デバフ",
     "id": 272,
     "unitName": "【ファフニール娘】ニッドラ",
     "unitShortName": "ニッドラ",
@@ -22701,7 +24606,7 @@
     ]
   },
   {
-    "id": 279,
+    "id": 280,
     "unitName": "【大天狗娘】オタギ",
     "unitShortName": "オタギ",
     "rarity": "L",
@@ -22830,7 +24735,7 @@
     "hpMul": 85
   },
   {
-    "TODO_DESC": "スタン蓄積値",
+    "TODO_FATAL": "スタン蓄積値",
     "id": 283,
     "unitName": "【ワキヤン・タンカ娘】ワエマワ",
     "unitShortName": "ワエマワ/進化",
@@ -23283,7 +25188,7 @@
     ]
   },
   {
-    "TODO_DESC": "配置時攻撃射程/鈍足が命中時か否か/配置時攻撃の状態異常付与",
+    "TODO_FATAL": "配置時攻撃射程/鈍足が命中時か否か/配置時攻撃の状態異常付与",
     "id": 287,
     "unitName": "【フラットウッズ・モンスター娘】クリプト",
     "unitShortName": "クリプト",
@@ -24063,9 +25968,10 @@
     ],
     "buffs": [
       {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -24073,7 +25979,8 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報/ex1射程",
+    "TODO_DESC": "StatはWiki情報",
+    "TODO_FATAL": "ex1射程",
     "id": 2960001,
     "parentId": 296,
     "unitName": "グロウソウル",
@@ -24116,7 +26023,7 @@
     ]
   },
   {
-    "TODO_DESC": "回復の値はwiki情報",
+    "TODO_FATAL": "回復の値はwiki情報",
     "id": 297,
     "unitName": "【聖煌のリッチ娘】リコ",
     "unitShortName": "リコ/Xmas",
@@ -24197,34 +26104,30 @@
     ],
     "buffs": [
       {
-        "type": "physical-damage-cut",
         "require": [
           "近接クラス"
         ],
         "target": "付与対象",
         "range": null,
-        "value": 20,
         "supplements": [
           "※ex1で付与される場合、対象制限なし"
         ],
-        "potentialBonus": {
-          "value": 24
-        }
-      },
-      {
-        "type": "magical-damage-cut",
-        "require": [
-          "近接クラス"
-        ],
-        "target": "付与対象",
-        "range": null,
-        "value": 20,
-        "supplements": [
-          "※ex1で付与される場合、対象制限なし"
-        ],
-        "potentialBonus": {
-          "value": 24
-        }
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          }
+        ]
       },
       {
         "type": "damage-factor",
@@ -24233,12 +26136,12 @@
         ],
         "target": "付与対象",
         "range": null,
-        "value": 20,
+        "value": 120,
         "supplements": [
           "※ex1で付与される場合、対象制限なし"
         ],
         "potentialBonus": {
-          "value": 24
+          "value": 124
         }
       }
     ]
@@ -24350,7 +26253,7 @@
     "costAdd": -1
   },
   {
-    "TODO_DESC": "通常/ex1スタン蓄積値はwiki情報",
+    "TODO_FATAL": "通常/ex1スタン蓄積値はwiki情報",
     "id": 303,
     "unitName": "【麒麟娘】ルイシャ",
     "unitShortName": "ルイシャ",
@@ -24452,7 +26355,7 @@
     ]
   },
   {
-    "TODO_DESC": "持続ダメージはWiki情報",
+    "TODO_FATAL": "持続ダメージはWiki情報",
     "id": 304,
     "unitName": "【ベルゼブブ娘】アゼプ",
     "unitShortName": "アゼプ",
@@ -24519,7 +26422,8 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報/射程",
+    "TODO_DESC": "StatはWiki情報",
+    "TODO_FATAL": "射程",
     "id": 3040001,
     "parentId": 304,
     "unitName": "執事",
@@ -24570,10 +26474,10 @@
     ]
   },
   {
-    "DISABLED": true,
+    "TODO_FATAL": "TODO",
     "id": 305,
     "unitName": "【アスモデウス娘】エシュマナ",
-    "unitShortName": "エシュマナTODO",
+    "unitShortName": "エシュマナ",
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "火",
@@ -25105,7 +27009,10 @@
       {
         "type": "damage-factor",
         "skill": 1,
-        "target": "射程内風属性",
+        "require": [
+          "風属性"
+        ],
+        "target": "射程内",
         "value": 130
       }
     ]
@@ -25195,45 +27102,51 @@
     ],
     "buffs": [
       {
-        "type": "blind-resist",
         "target": "射程内",
         "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
+        "effects": [
+          {
+            "type": "blind-resist",
+            "status": "暗闇",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "stan-resist",
+            "status": "スタン",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "petrify-resist",
+            "status": "石化",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "freeze-resist",
+            "status": "凍結",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          }
+        ]
       },
       {
-        "type": "stan-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "petrify-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "freeze-resist",
-        "target": "射程内",
-        "duration": "常時",
-        "value": 30,
-        "potentialBonus": {
-          "value": 35
-        }
-      },
-      {
-        "type": "field-change-light",
+        "type": "field-change",
         "skill": 1,
-        "target": "射程内光属性",
+        "require": [
+          "光属性"
+        ],
+        "target": "射程内",
+        "element": "光",
         "supplements": [
           "発動時"
         ]
@@ -25241,7 +27154,10 @@
       {
         "type": "hp-mul",
         "skill": 1,
-        "target": "射程内光マス",
+        "require": [
+          "光マス"
+        ],
+        "target": "射程内",
         "value": 140
       }
     ]
@@ -25285,7 +27201,7 @@
     ]
   },
   {
-    "TODO_DESC": "スタン蓄積値はwiki情報",
+    "TODO_FATAL": "スタン蓄積値はwiki情報",
     "id": 315,
     "unitName": "【さとり娘】マシラ",
     "unitShortName": "マシラ",
@@ -25472,6 +27388,18 @@
         "features": [
           "common-proper",
           "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "雨",
+        "supplements": [
+          "発動時"
         ]
       }
     ]
@@ -25795,11 +27723,11 @@
     ]
   },
   {
-    "TODO_DESC": "射程は目測/基礎statはLv45",
+    "TODO_FATAL": "射程は目測/基礎statはLv45 TODO→base",
     "id": 3200001,
     "parentId": 320,
     "unitName": "グレイクローン",
-    "unitShortName": "グレイクローンT TODO→base",
+    "unitShortName": "グレイクローンT",
     "rarity": "C",
     "species": "エイリアン",
     "cost": 10,
@@ -25817,12 +27745,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "featureName": "skill1-buff",
         "parentSkill": 1,
         "isBuffSkill": true,
@@ -25832,11 +27754,15 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       },
       {
         "proper": true,
         "features": [
+          "common-token-limit-nodesc",
           "skill1-buff"
         ]
       }
@@ -25925,7 +27851,8 @@
     ]
   },
   {
-    "TODO_DESC": "スタン付与量/ex1射程/スタン時間延長",
+    "TODO_DESC": "スタン時間延長",
+    "TODO_FATAL": "スタン付与量/ex1射程",
     "id": 323,
     "unitName": "【呪剣のファフニール娘】ニッドラ",
     "unitShortName": "ニッドラ/学園",
@@ -26293,23 +28220,27 @@
         "value": 300
       },
       {
-        "type": "field-buff-factor",
-        "skill": 1,
-        "target": "射程内",
-        "value": 300
-      },
-      {
-        "type": "field-change-water",
+        "type": "field-change",
         "skill": 1,
         "target": "自分",
+        "element": "水",
         "supplements": [
           "発動時"
         ]
       },
       {
-        "type": "field-buff-add-water",
         "skill": 1,
-        "target": "射程内"
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "field-buff-factor",
+            "value": 300
+          },
+          {
+            "type": "field-buff-add",
+            "element": "水"
+          }
+        ]
       }
     ]
   },
@@ -26764,16 +28695,18 @@
         "value": 999
       },
       {
-        "type": "physical-evasion",
         "skill": 1,
         "target": "射程内",
-        "value": 35
-      },
-      {
-        "type": "magical-evasion",
-        "skill": 1,
-        "target": "射程内",
-        "value": 35
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 35
+          },
+          {
+            "type": "magical-evasion",
+            "value": 35
+          }
+        ]
       }
     ]
   },
@@ -27317,6 +29250,295 @@
         "skill": 1,
         "features": [
           "regenerate-area"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "移動コスト上昇",
+    "id": 344,
+    "unitName": "【浜夏のジャバウォック娘】リデル",
+    "unitShortName": "リデル/水着",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "風",
+    "hp": 9057,
+    "attack": 1109,
+    "defense": 580,
+    "resist": 102,
+    "moveType": "突進",
+    "exSkill1": {
+      "skillName": "ソニックスイム",
+      "attackMul": 340,
+      "duration": 35,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "attackAdd": {
+          "key": "hp-base",
+          "value": 20
+        },
+        "moveSpeedAdd": 150
+      },
+      {
+        "featureName": "common-charge-attack",
+        "isConditionalBuff": true,
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-ability",
+        "isConditionalBuff": true,
+        "hpMul": 160,
+        "potentialBonus": {
+          "hpMul": 170
+        }
+      }
+    ],
+    "moveSpeedMul": 250,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ability"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "bottom": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "bottom": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-ability",
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 345,
+    "unitName": "【碧海のファロルーチェ娘】ファロリエット",
+    "unitShortName": "ファロリエット/水着",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "光",
+    "hp": 4413,
+    "attack": 760,
+    "defense": 430,
+    "resist": 235,
+    "block": 0,
+    "moveType": "飛行",
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "ブリリアントウィップ",
+      "attackMul": 260,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 107,
+        "resist": 107,
+        "potentialBonus": {
+          "attack": 109,
+          "resist": 109
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "damage-cut-normal",
+        "magicalDamageCut": 20
+      },
+      {
+        "featureName": "damage-cut-max",
+        "magicalDamageCut": 40
+      },
+      {
+        "featureName": "common-skill-regenerate",
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        },
+        "target": "全体"
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "damage-cut-normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-cut-normal"
+        ]
+      },
+      {
+        "features": [
+          "damage-cut-max"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-cut-max"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-skill-regenerate"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "stat、potentials、ex1はwiki情報",
+    "id": 346,
+    "unitName": "【爽蒼のワードラゴン娘】ハイルィ",
+    "unitShortName": "ハイルィ/水着",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "水",
+    "species": "ドラゴン",
+    "hp": 4193,
+    "attack": 649,
+    "defense": 296,
+    "resist": 403,
+    "supplements": [
+      "鈍足→射程内",
+      "攻撃速度減少→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "流激涼舞",
+      "attackMul": 240,
+      "targetAdd": 2,
+      "rangeMul": 200,
+      "duration": "永続",
+      "cooldown": 130
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-6秒"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "回復1%(10秒)/秒→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "回復1%(12秒)/秒→命中"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 20
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 20
+          }
         ]
       }
     ]

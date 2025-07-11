@@ -47,6 +47,11 @@ export function AttackSpeedTooltip({
           <T.Expression>
             <T.Brackets enabled={b}>
               {d ? "基礎値" : f.attackSpeedBase + sign.FRAME}
+              <T.Minus enabled={f.attackSpeedAbility > 0}>
+                <T.Positive>
+                  {d ? "種族特性" : f.attackSpeedAbility + sign.FRAME}
+                </T.Positive>
+              </T.Minus>
               <T.Minus enabled={p}>
                 <T.Positive>
                   {d ? "潜在覚醒" : f.attackSpeedPotential + sign.FRAME}
