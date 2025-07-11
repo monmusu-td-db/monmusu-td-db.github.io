@@ -136,23 +136,3 @@ $popover-border-color: $border-color-translucent-dark;
     @include table-variant($color, $value);
   }
 }
-
-.text-dark-teal {
-  color: $teal !important;
-}
-
-.text-dark-indigo {
-  color: $indigo-200 !important;
-}
-
-.text-dark-cyan {
-  color: $cyan !important;
-}
-
-.text-dark-red {
-  color: $red-400 !important;
-}
-
-.text-dark-earth {
-  color: $orange-200 !important;
-}

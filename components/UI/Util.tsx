@@ -4,39 +4,18 @@ import "./Util.css";
 import * as Data from "../Data";
 import cn from "classnames";
 
-const text = {
-  positive: "text-dark-teal",
-  negative: "text-dark-red",
-  neutral: "text-info",
-  header: "text-warning",
-  legend: "text-warning",
-  epic: "text-dark-indigo",
-  rare: "text-dark-cyan",
-  common: undefined,
+const SELECTOR = {
+  TEXT: "text",
 } as const;
 
 // Items
 
 export function getRarityText(value: Data.Rarity | undefined): ReactNode {
-  const name = Data.Rarity.nameOf(value);
   if (value === undefined) return;
 
-  let className;
-  switch (name) {
-    case Data.Rarity.name.L:
-      className = text.legend;
-      break;
-    case Data.Rarity.name.E:
-      className = text.epic;
-      break;
-    case Data.Rarity.name.R:
-      className = text.rare;
-      break;
-    case Data.Rarity.name.C:
-      className = text.common;
-      break;
-  }
-  return <span className={className}>{name}</span>;
+  const selector = Data.Rarity.selectorOf(value);
+  const name = Data.Rarity.nameOf(value);
+  return <span className={cn(SELECTOR.TEXT, selector)}>{name}</span>;
 }
 
 export function ElementText({
@@ -47,6 +26,8 @@ export function ElementText({
   if (element === undefined) return;
   const key = Data.Element.keyOf(element);
   return (
-    <span className={cn("text", Data.Element.selectorOf(key))}>{element}</span>
+    <span className={cn(SELECTOR.TEXT, Data.Element.selectorOf(key))}>
+      {element}
+    </span>
   );
 }

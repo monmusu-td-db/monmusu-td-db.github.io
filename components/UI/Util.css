@@ -7,7 +7,7 @@
 }
 
 .text.wind {
-  color: var(--bs-green);
+  color: color-mix(in srgb, #fff 20%, var(--bs-green));
 }
 
 .text.earth {
@@ -19,5 +19,17 @@
 }
 
 .text.dark {
-  color: var(--bs-indigo);
+  color: color-mix(in srgb, #fff 20%, var(--bs-indigo));
+}
+
+.text.legend {
+  color: var(--bs-yellow);
+}
+
+.text.epic {
+  color: color-mix(in srgb, #fff 20%, var(--bs-indigo));
+}
+
+.text.rare {
+  color: var(--bs-cyan);
 }
