@@ -1,7 +1,6 @@
-import { Fragment, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import "./Util.css";
-import styles from "./Util.module.css";
 import * as Data from "../Data";
 import cn from "classnames";
 
@@ -17,27 +16,6 @@ const text = {
 } as const;
 
 // Items
-
-export function JoinTexts({
-  texts = [],
-  separator = " ",
-  nowrap = false,
-}: {
-  texts?: readonly ReactNode[] | undefined;
-  separator?: ReactNode;
-  nowrap?: boolean;
-}): ReactNode[] {
-  return texts.map((v, i) => (
-    <Fragment key={i}>
-      {i !== 0 && separator}
-      {nowrap ? <TextNoWrap>{v}</TextNoWrap> : v}
-    </Fragment>
-  ));
-}
-
-function TextNoWrap({ children }: { children: ReactNode }) {
-  return <span className={styles["text-nowrap"]}>{children}</span>;
-}
 
 export function getRarityText(value: Data.Rarity | undefined): ReactNode {
   const name = Data.Rarity.nameOf(value);
