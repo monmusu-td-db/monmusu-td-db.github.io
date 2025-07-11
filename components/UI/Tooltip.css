@@ -9,3 +9,19 @@
 .stat-tooltip-table > tbody > tr > td::before {
   content: "：";
 }
+
+.text.result {
+  color: var(--bs-yellow);
+}
+
+.text.positive {
+  color: var(--bs-teal);
+}
+
+.text.negative {
+  color: color-mix(in srgb, #fff 20%, var(--bs-red));
+}
+
+.text.info {
+  color: var(--bs-cyan);
+}

@@ -6,13 +6,19 @@ import { createContext, useContext, type ReactNode } from "react";
 import { Popover } from "react-bootstrap";
 import { StatTooltip } from "../Stat/StatTooltip";
 import { type Setting } from "../States";
+import cn from "classnames";
 
-const textColor = {
-  RESULT: "text-warning",
-  POSITIVE: "text-dark-teal",
-  NEGATIVE: "text-dark-red",
-  INFO: "text-info",
+const SELECTOR = {
+  TEXT: "text",
+  RESULT: "result",
+  POSITIVE: "positive",
+  NEGATIVE: "negative",
+  INFO: "info",
 } as const;
+type Selector = (typeof SELECTOR)[keyof typeof SELECTOR];
+function getTextSelector(selector: Selector): string {
+  return cn(SELECTOR.TEXT, selector);
+}
 
 const sign = {
   EQUAL: " = ",
@@ -64,7 +70,7 @@ function Text({ className, children, b }: TextProps) {
 
 function Positive({ children, b }: TextBaseProps) {
   return (
-    <Text className={textColor.POSITIVE} b={b}>
+    <Text className={getTextSelector(SELECTOR.POSITIVE)} b={b}>
       {children}
     </Text>
   );
@@ -72,7 +78,7 @@ function Positive({ children, b }: TextBaseProps) {
 
 function Negative({ children, b }: TextBaseProps) {
   return (
-    <Text className={textColor.NEGATIVE} b={b}>
+    <Text className={getTextSelector(SELECTOR.NEGATIVE)} b={b}>
       {children}
     </Text>
   );
@@ -89,7 +95,7 @@ function Value({ children, b, isPositive }: ValueProps) {
 
 function Info({ children, b }: TextBaseProps) {
   return (
-    <Text className={textColor.INFO} b={b}>
+    <Text className={getTextSelector(SELECTOR.INFO)} b={b}>
       {children}
     </Text>
   );
@@ -125,7 +131,7 @@ function Result({ children }: { children: ReactNode }) {
   const isDesc = useContext(IsDescContext);
   return (
     <>
-      <Text className={textColor.RESULT} b={!isDesc}>
+      <Text className={getTextSelector(SELECTOR.RESULT)} b={!isDesc}>
         {children}
       </Text>
       {sign.EQUAL}

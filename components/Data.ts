@@ -1041,16 +1041,6 @@ const elementColorList = {
   light: tableColor.yellow,
   dark: tableColor.indigo,
 } as const satisfies Record<keyof typeof element, TableColor>;
-const elementTextColor = {
-  fire: "text-dark-red",
-  water: "text-info",
-  wind: "text-dark-teal",
-  earth: "text-dark-earth",
-  light: "text-warning",
-  dark: "text-dark-indigo",
-} as const satisfies Record<ElementKey, string>;
-type ElementTextColor =
-  (typeof elementTextColor)[keyof typeof elementTextColor];
 const elementList = getKeys(element);
 type ElementKey = keyof typeof element;
 const elementKey = Enum(elementList);
@@ -1094,10 +1084,6 @@ export const Element = {
   colorOf(value: Element | undefined): TableColor | undefined {
     if (value === undefined) return;
     return elementColorList[Element.keyOf(value)];
-  },
-
-  textColorOf(value: Element): ElementTextColor {
-    return elementTextColor[Element.keyOf(value)];
   },
 
   selectorOf(value: ElementKey) {
