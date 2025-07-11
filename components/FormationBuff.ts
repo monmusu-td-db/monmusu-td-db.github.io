@@ -61,43 +61,62 @@ export default class FormationBuff implements TableRow<Keys> {
       calculater: (s) => this.getBuff(s).cost,
     });
 
+    function getNumberText(value: number): string {
+      const plus = value > 0 ? "+" : "";
+      return `${plus}${value}%`;
+    }
+
     function getPercentText(value: number | undefined): string | undefined {
-      if (value === undefined) return;
-      return `+${value - 100}%`;
+      if (!value) return;
+      return getNumberText(value - 100);
     }
 
     function getPercentAddText(value: number | undefined): string | undefined {
       if (value === undefined) return;
-      return `+${value}%`;
+      return getNumberText(value);
     }
 
-    this.buffHp = new Stat.Root({
-      statType: stat.buffHp,
-      calculater: (s) => this.getBuff(s).hp,
-      item: (s) => getPercentText(this.buffHp.getValue(s)),
-      isReversed: true,
-    });
+    const getBuffBaseStat = (
+      statType:
+        | typeof stat.buffHp
+        | typeof stat.buffAttack
+        | typeof stat.buffDefense
+        | typeof stat.buffResist
+    ) => {
+      let key;
+      switch (statType) {
+        case stat.buffHp:
+          key = stat.hp;
+          break;
+        case stat.buffAttack:
+          key = stat.attack;
+          break;
+        case stat.buffDefense:
+          key = stat.defense;
+          break;
+        case stat.buffResist:
+          key = stat.resist;
+          break;
+      }
+      const ret: Stat.Root = new Stat.Root({
+        statType,
+        calculater: (s) => this.getBuff(s)[key],
+        item: (s) => getPercentText(ret.getValue(s)),
+        color: (s) => {
+          const value = ret.getValue(s);
+          if (value !== undefined && value < 100) {
+            return Data.tableColorAlias.negative;
+          }
+        },
+        isReversed: true,
+      });
+      return ret;
+    };
 
-    this.buffAttack = new Stat.Root({
-      statType: stat.buffAttack,
-      calculater: (s) => this.getBuff(s).attack,
-      item: (s) => getPercentText(this.buffAttack.getValue(s)),
-      isReversed: true,
-    });
-
-    this.buffDefense = new Stat.Root({
-      statType: stat.buffDefense,
-      calculater: (s) => this.getBuff(s).defense,
-      item: (s) => getPercentText(this.buffDefense.getValue(s)),
-      isReversed: true,
-    });
-
-    this.buffResist = new Stat.Root({
-      statType: stat.buffResist,
-      calculater: (s) => this.getBuff(s).resist,
-      item: (s) => getPercentText(this.buffResist.getValue(s)),
-      isReversed: true,
-    });
+    this.buffHp = getBuffBaseStat(stat.buffHp);
+    this.buffAttack = getBuffBaseStat(stat.buffAttack);
+    this.buffDefense = getBuffBaseStat(stat.buffDefense);
+    this.buffResist = getBuffBaseStat(stat.buffResist);
 
     this.buffCriChance = new Stat.Root({
       statType: stat.buffCriChance,
