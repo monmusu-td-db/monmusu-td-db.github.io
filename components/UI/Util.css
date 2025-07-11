@@ -6,15 +6,27 @@
   color: var(--bs-blue);
 }
 
+[data-bs-theme="dark"] .text.water {
+  color: color-mix(in srgb, #fff 20%, var(--bs-blue));
+}
+
 .text.wind {
   color: color-mix(in srgb, #fff 20%, var(--bs-green));
 }
 
 .text.earth {
+  color: color-mix(in srgb, #000 50%, var(--bs-orange));
+}
+
+[data-bs-theme="dark"] .text.earth {
   color: color-mix(in srgb, #000 25%, var(--bs-orange));
 }
 
 .text.light {
+  color: color-mix(in srgb, #000 25%, var(--bs-yellow));
+}
+
+[data-bs-theme="dark"] .text.light {
   color: color-mix(in srgb, #000 10%, var(--bs-yellow));
 }
 
