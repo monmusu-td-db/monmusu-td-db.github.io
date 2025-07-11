@@ -4,31 +4,34 @@ import {
   Contexts,
   useFilterState,
   useQueryState,
+  useSaveOptionState,
   useSettingState,
   useUISettingState,
 } from "@/components/States";
 import { type ReactNode } from "react";
 
-export function ClientRoot({ children }: { children: ReactNode }) {
+export function StatesRoot({ children }: { children: ReactNode }) {
   return (
-    <SettingRoot>
-      <FilterRoot>
-        <QueryRoot>
-          <UISettingRoot>{children}</UISettingRoot>
-        </QueryRoot>
-      </FilterRoot>
-    </SettingRoot>
+    <SaveOptionRoot>
+      <SettingRoot>
+        <FilterRoot>
+          <QueryRoot>
+            <UISettingRoot>{children}</UISettingRoot>
+          </QueryRoot>
+        </FilterRoot>
+      </SettingRoot>
+    </SaveOptionRoot>
   );
 }
 
-function FilterRoot({ children }: { children: ReactNode }) {
-  const [filter, dispatch] = useFilterState();
+function SaveOptionRoot({ children }: { children: ReactNode }) {
+  const [saveOption, setSaveOption] = useSaveOptionState();
   return (
-    <Contexts.Filter.Provider value={filter}>
-      <Contexts.DispatchFilter.Provider value={dispatch}>
+    <Contexts.SaveOption.Provider value={saveOption}>
+      <Contexts.SetSaveOption.Provider value={setSaveOption}>
         {children}
-      </Contexts.DispatchFilter.Provider>
-    </Contexts.Filter.Provider>
+      </Contexts.SetSaveOption.Provider>
+    </Contexts.SaveOption.Provider>
   );
 }
 
@@ -40,6 +43,17 @@ function SettingRoot({ children }: { children: ReactNode }) {
         {children}
       </Contexts.DispatchSetting.Provider>
     </Contexts.Setting.Provider>
+  );
+}
+
+function FilterRoot({ children }: { children: ReactNode }) {
+  const [filter, dispatch] = useFilterState();
+  return (
+    <Contexts.Filter.Provider value={filter}>
+      <Contexts.DispatchFilter.Provider value={dispatch}>
+        {children}
+      </Contexts.DispatchFilter.Provider>
+    </Contexts.Filter.Provider>
   );
 }
 

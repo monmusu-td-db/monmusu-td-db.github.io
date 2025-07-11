@@ -689,7 +689,7 @@ function TabOther({ isSituation }: { isSituation: boolean }) {
   );
 }
 
-const _TabOther = memo(function _TabOther({
+const _TabOther = memo(function TabOther({
   setting,
   onChange,
   isSituation,
@@ -698,6 +698,9 @@ const _TabOther = memo(function _TabOther({
   onChange: (nextValue: Partial<Setting>) => void;
   isSituation: boolean;
 }) {
+  const storageOption = Contexts.useSaveOption();
+  const setStorageOption = Contexts.useSetSaveOption();
+
   function getTypeValue(value: string) {
     switch (value) {
       default:
@@ -799,12 +802,11 @@ const _TabOther = memo(function _TabOther({
           <PanelUI.FormRadio
             name="s-storage"
             items={["する", "しない"]}
-            value={setting.storageOption === Setting.STORAGE_LOCAL ? 0 : 1}
+            value={storageOption === Setting.STORAGE_LOCAL ? 0 : 1}
             onChange={(v) =>
-              onChange({
-                storageOption:
-                  v === 0 ? Setting.STORAGE_LOCAL : Setting.STORAGE_SESSION,
-              })
+              setStorageOption(
+                v === 0 ? Setting.STORAGE_LOCAL : Setting.STORAGE_SESSION
+              )
             }
           />
         </Col>

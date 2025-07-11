@@ -1,5 +1,5 @@
 import "@/app/bootstrap.scss";
-import { ClientRoot } from "./Root";
+import { StatesRoot } from "../components/UI/StatesRoot";
 import Theme from "@/components/UI/Theme";
 
 export const metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <body>
         <Theme.Initialize />
-        <ClientRoot>{children}</ClientRoot>
+        <StatesRoot>{children}</StatesRoot>
       </body>
     </html>
   );

@@ -21,7 +21,8 @@ type Status1 = typeof ALL | typeof PARTIAL | typeof NONE;
 type Status2 = typeof NONE | typeof SAME;
 const STORAGE_LOCAL = "local";
 const STORAGE_SESSION = "session";
-type StorageStatus = typeof STORAGE_LOCAL | typeof STORAGE_SESSION;
+type SaveStatus = typeof STORAGE_LOCAL | typeof STORAGE_SESSION;
+const DEFAULT_SAVE_OPTION = STORAGE_LOCAL;
 const TYPE_ENABLED = "enabled";
 const TYPE_DISABLED = "disabled";
 type TypeBonusStatus = typeof TYPE_ENABLED | typeof TYPE_DISABLED;
@@ -80,7 +81,7 @@ class Valid {
     return Valid.isNumber(value) && value >= 0 && value < 100000;
   }
 
-  static isStorageStatus(value: unknown): value is StorageStatus {
+  static isSaveStatus(value: unknown): value is SaveStatus {
     return value === STORAGE_LOCAL || value === STORAGE_SESSION;
   }
 
@@ -638,7 +639,6 @@ type SettingOther = {
   readonly dps4: number;
   readonly dps5: number;
   readonly fieldElement: Status2;
-  readonly storageOption: StorageStatus;
 };
 const defaultSettingOther = {
   potential: PARTIAL,
@@ -649,7 +649,6 @@ const defaultSettingOther = {
   dps4: 2000,
   dps5: 3000,
   fieldElement: NONE,
-  storageOption: STORAGE_SESSION,
 } as const satisfies SettingOther;
 const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   potential: Valid.isStatus1,
@@ -660,7 +659,6 @@ const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   dps4: Valid.isDps,
   dps5: Valid.isDps,
   fieldElement: Valid.isStatus2,
-  storageOption: Valid.isStorageStatus,
 } as const;
 
 export type Setting = SettingUnit & SettingFormation & SettingOther;
@@ -763,7 +761,7 @@ function filterReducer(state: Filter, action: FilterAction): Filter {
 export function useFilterState(): [Filter, Dispatch<FilterAction>] {
   const [filter, dispatch] = useReducer(filterReducer, defaultFilter);
   const [init, setInit] = useState(false);
-  const setting = Contexts.useSetting();
+  const storageOption = Contexts.useSaveOption();
 
   useEffect(() => {
     dispatch({
@@ -775,9 +773,9 @@ export function useFilterState(): [Filter, Dispatch<FilterAction>] {
 
   useEffect(() => {
     if (init) {
-      Storage.setFilter(filter, setting.storageOption === STORAGE_LOCAL);
+      Storage.setFilter(filter, storageOption === STORAGE_LOCAL);
     }
-  }, [filter, init, setting.storageOption]);
+  }, [filter, init, storageOption]);
 
   return [filter, dispatch];
 }
@@ -821,6 +819,7 @@ function settingReducer(state: Setting, action: SettingAction): Setting {
 export function useSettingState(): [Setting, Dispatch<SettingAction>] {
   const [setting, dispatch] = useReducer(settingReducer, defaultSetting);
   const [init, setInit] = useState(false);
+  const storageOption = Contexts.useSaveOption();
 
   useEffect(() => {
     dispatch({ type: SettingAction.change, nextValue: Storage.getSetting() });
@@ -829,9 +828,9 @@ export function useSettingState(): [Setting, Dispatch<SettingAction>] {
 
   useEffect(() => {
     if (init) {
-      Storage.setSetting(setting);
+      Storage.setSetting(setting, storageOption === STORAGE_LOCAL);
     }
-  }, [setting, init]);
+  }, [setting, init, storageOption]);
 
   return [setting, dispatch];
 }
@@ -889,7 +888,7 @@ function uISettingReducer(
 export function useUISettingState(): [UISetting, Dispatch<UISettingAction>] {
   const [uISetting, dispatch] = useReducer(uISettingReducer, defaultUISetting);
   const [init, setInit] = useState(false);
-  const setting = Contexts.useSetting();
+  const storageOption = Contexts.useSaveOption();
 
   useEffect(() => {
     dispatch({
@@ -901,11 +900,29 @@ export function useUISettingState(): [UISetting, Dispatch<UISettingAction>] {
 
   useEffect(() => {
     if (init) {
-      Storage.setUISetting(uISetting, setting.storageOption === STORAGE_LOCAL);
+      Storage.setUISetting(uISetting, storageOption === STORAGE_LOCAL);
     }
-  }, [uISetting, init, setting.storageOption]);
+  }, [uISetting, init, storageOption]);
 
   return [uISetting, dispatch];
+}
+
+export function useSaveOptionState(): [SaveStatus, Dispatch<SaveStatus>] {
+  const [saveOption, setSaveOption] = useState<SaveStatus>(DEFAULT_SAVE_OPTION);
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    setSaveOption(Storage.getSaveOption());
+    setInit(true);
+  }, [init]);
+
+  useEffect(() => {
+    if (init) {
+      Storage.setSaveOption(saveOption);
+    }
+  }, [saveOption, init]);
+
+  return [saveOption, setSaveOption];
 }
 
 // Contexts
@@ -933,6 +950,11 @@ export const Contexts = {
   DispatchUISetting: createContext<Dispatch<UISettingAction>>(() => {}),
   useUISetting: () => useContext(Contexts.UISetting),
   useDispatchUISetting: () => useContext(Contexts.DispatchUISetting),
+
+  SaveOption: createContext<SaveStatus>(DEFAULT_SAVE_OPTION),
+  SetSaveOption: createContext<Dispatch<SaveStatus>>(() => {}),
+  useSaveOption: () => useContext(Contexts.SaveOption),
+  useSetSaveOption: () => useContext(Contexts.SetSaveOption),
 };
 
 // Storage
@@ -941,6 +963,7 @@ const storageKeys = {
   SETTING: "database-setting",
   QUERY: "database-query",
   UI_SETTING: "database-UI-setting",
+  SAVE_OPTION: "save-option",
 } as const;
 type StorageKey = (typeof storageKeys)[keyof typeof storageKeys];
 
@@ -1032,12 +1055,8 @@ class Storage {
 
     return ret as Setting;
   }
-  static setSetting(obj: Setting): void {
-    this.setObject(
-      storageKeys.SETTING,
-      obj,
-      obj.storageOption === STORAGE_LOCAL
-    );
+  static setSetting(obj: Setting, isLocal: boolean): void {
+    this.setObject(storageKeys.SETTING, obj, isLocal);
   }
 
   static getFilter(): Map<FilterKeys, boolean> {
@@ -1089,5 +1108,17 @@ class Storage {
     const v = obj as Record<keyof UISetting, unknown>;
     if (typeof v.subskillGroup !== "number") return false;
     return true;
+  }
+
+  public static getSaveOption(): SaveStatus {
+    const item = this.getItem(storageKeys.SAVE_OPTION, true);
+    if (Valid.isSaveStatus(item)) {
+      return item;
+    }
+    return DEFAULT_SAVE_OPTION;
+  }
+
+  public static setSaveOption(status: SaveStatus): void {
+    this.setItem(storageKeys.SAVE_OPTION, status, true);
   }
 }
