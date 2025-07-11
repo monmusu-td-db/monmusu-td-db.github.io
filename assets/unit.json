@@ -22377,6 +22377,141 @@
     "delayMul": 80
   },
   {
+    "id": 240,
+    "unitName": "【ジャヒー娘】ルシターニ",
+    "unitShortName": "ルシターニ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 2500,
+    "attack": 550,
+    "defense": 364,
+    "resist": 438,
+    "exSkill1": {
+      "skillName": "リリースフォース",
+      "fixedDelay": 1,
+      "rangeMul": 190,
+      "duration": "単発",
+      "cooldown": 30,
+      "supplements": [
+        "暗闇付与(大)→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-6秒"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "damageFactor": 300
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 150
+          }
+        ],
+        "attackMul": 150,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 160
+            }
+          ],
+          "attackMul": 160
+        }
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 200
+          }
+        ],
+        "attackMul": 200,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 220
+            }
+          ],
+          "attackMul": 220
+        }
+      },
+      {
+        "featureName": "attack-mul3",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 250
+          }
+        ],
+        "attackMul": 250,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 280
+            }
+          ],
+          "attackMul": 280
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul3"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 241,
     "unitName": "【憧嫁のペガサス娘】スズ",
