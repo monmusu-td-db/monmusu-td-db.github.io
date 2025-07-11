@@ -20002,7 +20002,7 @@
     "element": "闇",
     "species": "悪魔",
     "hp": 2502,
-    "attack": 1127,
+    "attack": 1052,
     "defense": 227,
     "resist": 555,
     "exSkill1": {
@@ -20053,7 +20053,16 @@
     "situations": [
       {},
       {
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
       },
       {
         "features": [
@@ -20063,6 +20072,14 @@
       {
         "skill": 1,
         "features": [
+          "common-1hit",
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
           "common-dark-field"
         ]
       }
