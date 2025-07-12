@@ -5382,15 +5382,8 @@
         }
       },
       {
-        "featureName": "hp-50%",
+        "featureName": "common-hp-50%",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "HP",
-            "value": 50
-          }
-        ],
-        "currentHp": 50,
         "attackMul": 200,
         "potentialBonus": {
           "attackMul": 225
@@ -5412,7 +5405,7 @@
       {},
       {
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
@@ -5430,14 +5423,14 @@
       {
         "skill": 1,
         "features": [
-          "hp-50%",
+          "common-hp-50%",
           "common-0-sec"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "hp-50%",
+          "common-hp-50%",
           "15-sec"
         ]
       },
@@ -5447,7 +5440,7 @@
       {
         "skill": 2,
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
@@ -5459,7 +5452,7 @@
       {
         "skill": 2,
         "features": [
-          "hp-50%",
+          "common-hp-50%",
           "skill2-attack-add"
         ]
       }
@@ -11013,15 +11006,8 @@
     ],
     "features": [
       {
-        "featureName": "hp-50%",
+        "featureName": "common-hp-50%",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "HP",
-            "value": 50
-          }
-        ],
-        "currentHp": 50,
         "damageFactor": 120
       },
       {
@@ -11053,19 +11039,19 @@
       },
       {
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       }
     ]
@@ -11957,15 +11943,8 @@
         }
       },
       {
-        "featureName": "hp-50%",
+        "featureName": "common-hp-50%",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "HP",
-            "value": 50
-          }
-        ],
-        "currentHp": 50,
         "attackSpeedBuff": 200,
         "delayMul": 20
       },
@@ -12034,28 +12013,28 @@
       },
       {
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-0-sec",
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
         "skill": 1,
         "features": [
           "10-sec",
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
         "skill": 1,
         "features": [
           "20-sec",
-          "hp-50%"
+          "common-hp-50%"
         ]
       }
     ]
@@ -15453,15 +15432,8 @@
     ],
     "features": [
       {
-        "featureName": "hp-50%",
+        "featureName": "common-hp-50%",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "HP",
-            "value": 50
-          }
-        ],
-        "currentHp": 50,
         "damageFactor": 130
       }
     ],
@@ -15473,13 +15445,13 @@
       },
       {
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       }
     ]
@@ -28767,15 +28739,8 @@
         ]
       },
       {
-        "featureName": "hp-50%",
+        "featureName": "common-hp-50%",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "HP",
-            "value": 50
-          }
-        ],
-        "currentHp": 50,
         "attackMul": 150,
         "attackSpeedBuff": 200,
         "delayMul": 20,
@@ -28808,13 +28773,13 @@
       },
       {
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "hp-50%"
+          "common-hp-50%"
         ]
       },
       {

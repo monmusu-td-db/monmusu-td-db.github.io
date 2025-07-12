@@ -555,6 +555,7 @@
   },
   {
     "featureName": "common-hp-50%",
+    "isConditionalBuff": true,
     "currentHp": 50,
     "conditions": [
       {
