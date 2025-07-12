@@ -75,7 +75,7 @@ function Brand() {
 function Logo() {
   return (
     <Image
-      src={"/icon_40x40.png"}
+      src={"/logo.png"}
       width={40}
       height={40}
       alt={IMAGE_ALT_TEXT}
@@ -89,7 +89,7 @@ function Logo() {
 function LogoPlaceholder() {
   return (
     <Image
-      src={"/Logo.svg"}
+      src={"/logo_placeholder.svg"}
       width={40}
       height={40}
       alt={IMAGE_ALT_TEXT}
