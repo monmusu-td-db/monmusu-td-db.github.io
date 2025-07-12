@@ -1618,8 +1618,8 @@
       "duration": 20,
       "cooldown": 30,
       "supplements": [
-        "猛毒付与(中)",
-        "石化付与(中)"
+        "猛毒付与(中)→命中",
+        "石化付与(中)→命中"
       ]
     },
     "potentials": [
@@ -1637,6 +1637,49 @@
     },
     "features": [
       {
+        "skill": 1,
+        "staticDamage": {
+          "key": "hp",
+          "value": 100
+        }
+      },
+      {
+        "skill": 2,
+        "defenseDebuff": {
+          "valueMul": 10
+        },
+        "resistDebuff": {
+          "valueMul": 10
+        }
+      },
+      {
+        "featureName": "block1",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "BL",
+            "value": 1
+          }
+        ],
+        "defenseMul": 130
+      },
+      {
+        "featureName": "common-block4",
+        "isConditionalBuff": true,
+        "defenseMul": 220
+      },
+      {
+        "featureName": "common-phase1",
+        "hpMul": 120
+      },
+      {
+        "featureName": "common-phase5",
+        "hpMul": 200
+      },
+      {
         "featureName": "block0",
         "require": [
           "武器"
@@ -1647,20 +1690,6 @@
             "value": 0
           }
         ]
-      },
-      {
-        "featureName": "block1",
-        "isConditionalBuff": true,
-        "require": [
-          "武器"
-        ],
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 1
-          }
-        ],
-        "defenseMul": 130
       },
       {
         "featureName": "block4",
@@ -1677,13 +1706,6 @@
         "defenseMul": 220
       },
       {
-        "skill": 1,
-        "staticDamage": {
-          "key": "hp",
-          "value": 100
-        }
-      },
-      {
         "featureName": "skill1-phase1",
         "phase": 1,
         "hpMul": 120
@@ -1692,15 +1714,206 @@
         "featureName": "skill1-phase5",
         "phase": 5,
         "hpMul": 200
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "block1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1",
+          "block1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase5",
+          "block1"
+        ]
       },
       {
         "skill": 2,
-        "defenseDebuff": {
-          "valueMul": 10
-        },
-        "resistDebuff": {
-          "valueMul": 10
-        }
+        "features": [
+          "block1"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-phase1",
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-phase5",
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-phase1",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-phase5",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "block1",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "block1",
+          "common-phase1",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "block1",
+          "common-phase5",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block4",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block4",
+          "common-phase1",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block4",
+          "common-phase5",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block0",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block0",
+          "common-phase1",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block0",
+          "common-phase5",
+          "class-action"
+        ]
       }
     ]
   },
