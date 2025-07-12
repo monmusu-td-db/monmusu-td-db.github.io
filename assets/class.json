@@ -353,7 +353,10 @@
         "target": "自分",
         "rounds": 1,
         "duration": 15,
-        "damageType": "再生",
+        "damageType": "再生"
+      },
+      {
+        "featureName": "class-action",
         "supplements": [
           "回復5%/秒"
         ]

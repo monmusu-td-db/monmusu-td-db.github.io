@@ -1678,42 +1678,6 @@
       {
         "featureName": "common-phase5",
         "hpMul": 200
-      },
-      {
-        "featureName": "block0",
-        "require": [
-          "武器"
-        ],
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "featureName": "block4",
-        "isConditionalBuff": true,
-        "require": [
-          "武器"
-        ],
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 4
-          }
-        ],
-        "defenseMul": 220
-      },
-      {
-        "featureName": "skill1-phase1",
-        "phase": 1,
-        "hpMul": 120
-      },
-      {
-        "featureName": "skill1-phase5",
-        "phase": 5,
-        "hpMul": 200
       }
     ],
     "situations": [
