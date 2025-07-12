@@ -22,7 +22,6 @@ TODOリスト
   フィルターが適用されているかどうかわかりやすくする
   武器表示をCC1やCC4に切り替えられるようにする
   属性アイコン追加
-  パネル加算バフにHP追加
   移動コスト追加
   射程表示に全体効果を追加
   パネルの非表示項目は適用を無効化する
@@ -1804,6 +1803,7 @@ export interface InBattleFactors extends InBattleFactorsBase {
 export interface ActualHpFactors extends InBattleFactors {
   readonly isUnhealable: boolean;
   readonly currentFactor: number;
+  readonly panelAdd: number;
   readonly actualResult: number;
 }
 

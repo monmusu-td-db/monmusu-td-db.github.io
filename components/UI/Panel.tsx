@@ -451,7 +451,7 @@ const _TabUnit = memo(function TabUnit({
           <PanelUI.FormGroup label="加算バフ">
             <Col>
               <Row>
-                {[stat.attack, stat.defense, stat.resist].map((v) => (
+                {[stat.hp, stat.attack, stat.defense, stat.resist].map((v) => (
                   <PanelUI.FormNumber
                     key={v}
                     name={`${v}-add-buff`}

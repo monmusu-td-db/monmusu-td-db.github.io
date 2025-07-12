@@ -1445,6 +1445,12 @@ export default class Situation implements TableRow<Keys> {
       subSkillSpecial = 100 + 10 * block;
     }
 
+    const additionFactor =
+      statType === stat.hp
+        ? 0
+        : this.getFeatureAddFactor(setting, statType) +
+          this.getPanelAddFactor(setting, statType);
+
     const ret: Data.InBattleFactorsBase = {
       ...f,
       multiFactor: Percent.sum(
@@ -1455,9 +1461,7 @@ export default class Situation implements TableRow<Keys> {
         this.getSubskillFactorFromStatType(setting, statType) + 100,
         this.getPanelMulFactor(setting, statType)
       ),
-      additionFactor:
-        this.getFeatureAddFactor(setting, statType) +
-        this.getPanelAddFactor(setting, statType),
+      additionFactor,
     };
     const { isMaxDamage, isMinDamage, inBattleResult } =
       this.calculateInBattleResult(ret);
@@ -1491,12 +1495,18 @@ export default class Situation implements TableRow<Keys> {
 
     const isUnhealable = this.getIsUnhealable(setting);
     const currentFactor = this.getFeature(setting).currentHp ?? 100;
+    const panelAdd = this.getPanelAddFactor(setting, stat.hp);
+    const actualResult = Math.max(
+      0,
+      Percent.multiply(base.inBattleResult, currentFactor) + panelAdd
+    );
 
     return {
       ...base,
       isUnhealable,
       currentFactor,
-      actualResult: Percent.multiply(base.inBattleResult, currentFactor),
+      panelAdd,
+      actualResult,
     };
   }
 
@@ -1738,7 +1748,7 @@ export default class Situation implements TableRow<Keys> {
       if (unit === undefined || unitFactor === undefined) return;
       if (Data.BaseStatType.isKey(obj.key)) {
         if (obj.key === statType) return inBattleFactors.inBattleResult;
-        return this[obj.key].getValue(setting);
+        return this[obj.key].getFactors(setting)?.inBattleResult;
       }
 
       const k = Data.StaticDamage.baseStatTypeOf(obj.key);
