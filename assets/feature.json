@@ -554,6 +554,16 @@
     ]
   },
   {
+    "featureName": "common-hp-50%",
+    "currentHp": 50,
+    "conditions": [
+      {
+        "key": "HP",
+        "value": 50
+      }
+    ]
+  },
+  {
     "featureName": "common-enemy1",
     "conditions": [
       {

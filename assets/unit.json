@@ -13225,6 +13225,59 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 125,
+    "unitName": "【妖狐娘】きつね",
+    "unitShortName": "きつね",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "地",
+    "hp": 4026,
+    "attack": 485,
+    "defense": 434,
+    "resist": 121,
+    "exSkill1": {
+      "skillName": "分身の術っ！",
+      "attackMul": 160,
+      "rounds": 3,
+      "rangeMul": 140,
+      "duration": 25,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "移動消費コスト-2"
+    ],
+    "features": [
+      {
+        "featureName": "common-hp-50%",
+        "isConditionalBuff": true,
+        "damageFactor": 150
+      }
+    ],
+    "criChanceAdd": 25,
+    "criDamageAdd": 50,
+    "potentialBonus": {
+      "criChanceAdd": 30
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-50%"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 126,
     "unitName": "【ドヴェルグ娘】ベルティオ",
