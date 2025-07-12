@@ -66,10 +66,33 @@ function StatTable<T extends string>({
       uISetting,
     };
   }, [filter, query, setting, uISetting]);
+  const [sort, toggleSort] = useSort(src);
+
+  const values = useMemo(
+    () => ({
+      src,
+      states,
+      sort,
+      toggleSort,
+    }),
+    [src, states, sort, toggleSort]
+  );
+  const {
+    src: dSrc,
+    states: dStates,
+    sort: dSort,
+    toggleSort: dToggleSort,
+  } = useDeferredValue(values);
 
   return (
     <div className={cn("d-flex justify-content-center", className)}>
-      <TableControl src={src} states={states} id={id} />
+      <TableControl
+        src={dSrc}
+        states={dStates}
+        id={id}
+        sort={dSort}
+        toggleSort={dToggleSort}
+      />
     </div>
   );
 }
@@ -79,12 +102,15 @@ function TableControl_<T extends string>({
   src,
   states,
   id,
+  sort,
+  toggleSort,
 }: {
   src: TableSource<T>;
   states: States;
   id: string;
+  sort: Sort<T>;
+  toggleSort: HandleSort<T>;
 }) {
-  const [sort, toggleSort] = useSort(src);
   const panelOpen = Panel.Contexts.useOpen();
 
   const data: TableData<T> = useMemo(() => {
