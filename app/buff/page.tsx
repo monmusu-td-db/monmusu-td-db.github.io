@@ -16,7 +16,7 @@ import { Container } from "react-bootstrap";
 
 export default function App() {
   return (
-    <PageRoot>
+    <PageRoot pageType="buff">
       <Container fluid="xxl">
         <h1>バフ一覧</h1>
         <FormationBuff />

@@ -74,7 +74,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
     }
   }
 
-  const isSituation = pageType === pageTypes.SITUATION;
+  const isSituation = PageTypeUtil.isSituation(pageType);
 
   return (
     <>
@@ -114,7 +114,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
                   <TabFilter isSituation={isSituation} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.UNIT}>
-                  <TabUnit key={resetKey} isSituation={isSituation} />
+                  <TabUnit key={resetKey} pageType={pageType} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.FORMATION}>
                   <TabFormation key={resetKey} />
@@ -347,7 +347,7 @@ const _TabFilter = memo(function TabFilter({
   );
 });
 
-function TabUnit({ isSituation }: { isSituation: boolean }) {
+function TabUnit({ pageType }: { pageType: PageType }) {
   const setting = Contexts.useSetting();
   const dispatchSetting = Contexts.useDispatchSetting();
   const uISetting = Contexts.useUISetting();
@@ -376,7 +376,7 @@ function TabUnit({ isSituation }: { isSituation: boolean }) {
       onChangeSetting={handleChangeSetting}
       uISetting={uISetting}
       onChangeUISetting={handleChangeUISetting}
-      isSituation={isSituation}
+      pageType={pageType}
     />
   );
 }
@@ -386,14 +386,17 @@ const _TabUnit = memo(function TabUnit({
   onChangeSetting,
   uISetting,
   onChangeUISetting,
-  isSituation,
+  pageType,
 }: {
   setting: Setting;
   onChangeSetting: (nextValue: Partial<Setting>) => void;
   uISetting: UISetting;
   onChangeUISetting: (updater: SetStateAction<UISetting>) => void;
-  isSituation: boolean;
+  pageType: PageType;
 }) {
+  const isSituation = PageTypeUtil.isSituation(pageType);
+  const isBuff = PageTypeUtil.isBuff(pageType);
+
   return (
     <Form>
       <PanelUI.CardButtonGroup label="サブスキル">
@@ -496,35 +499,41 @@ const _TabUnit = memo(function TabUnit({
               </Row>
             </Col>
           </PanelUI.FormGroup>
-          <PanelUI.FormGroup label="その他">
-            <Col>
-              <Row>
-                <PanelUI.FormNumber
-                  name={"attack-speed-buff"}
-                  label={"攻撃速度バフ"}
-                  value={setting.attackSpeedBuff}
-                  onChange={(n) => onChangeSetting({ attackSpeedBuff: n })}
-                  isValid={Setting.isValidMul}
-                />
-                <PanelUI.FormNumber
-                  name={"delay-cut"}
-                  label={"待機時間短縮"}
-                  value={setting.delayCut}
-                  onChange={(n) => onChangeSetting({ delayCut: n })}
-                  isValid={Setting.isValidCut}
-                />
-                <PanelUI.FormNumber
-                  name={"cooldown-cut"}
-                  label={"スキルCT短縮"}
-                  value={setting.cooldownCut}
-                  onChange={(n) => onChangeSetting({ cooldownCut: n })}
-                  isValid={Setting.isValidCooldownCut}
-                  sign="秒"
-                />
-              </Row>
-            </Col>
-          </PanelUI.FormGroup>
         </>
+      )}
+      {(isSituation || isBuff) && (
+        <PanelUI.FormGroup label="その他">
+          <Col>
+            <Row>
+              {isSituation && (
+                <>
+                  <PanelUI.FormNumber
+                    name={"attack-speed-buff"}
+                    label={"攻撃速度バフ"}
+                    value={setting.attackSpeedBuff}
+                    onChange={(n) => onChangeSetting({ attackSpeedBuff: n })}
+                    isValid={Setting.isValidMul}
+                  />
+                  <PanelUI.FormNumber
+                    name={"delay-cut"}
+                    label={"待機時間短縮"}
+                    value={setting.delayCut}
+                    onChange={(n) => onChangeSetting({ delayCut: n })}
+                    isValid={Setting.isValidCut}
+                  />
+                </>
+              )}
+              <PanelUI.FormNumber
+                name={"cooldown-cut"}
+                label={"スキルCT短縮"}
+                value={setting.cooldownCut}
+                onChange={(n) => onChangeSetting({ cooldownCut: n })}
+                isValid={Setting.isValidCooldownCut}
+                sign="秒"
+              />
+            </Row>
+          </Col>
+        </PanelUI.FormGroup>
       )}
     </Form>
   );
@@ -840,8 +849,18 @@ function Backdrop({ open, onClose }: PanelProps) {
 
 const pageTypes = {
   SITUATION: "situation",
+  BUFF: "buff",
 } as const;
-export type PageType = typeof pageTypes.SITUATION | undefined;
+export type PageType = (typeof pageTypes)[keyof typeof pageTypes] | undefined;
+class PageTypeUtil {
+  public static isSituation(pageType: PageType) {
+    return pageType === pageTypes.SITUATION;
+  }
+
+  public static isBuff(pageType: PageType) {
+    return pageType === pageTypes.BUFF;
+  }
+}
 
 const PanelContexts = {
   Open: createContext(false),
