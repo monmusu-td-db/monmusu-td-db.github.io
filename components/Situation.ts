@@ -621,7 +621,15 @@ export default class Situation implements TableRow<Keys> {
 
     this.range = new Stat.Range({
       statType: stat.range,
-      calculater: (s) => this.range.getFactors(s)?.result,
+      calculater: (s) => {
+        const target = this.target.getValue(s);
+        switch (target) {
+          case Data.Target.all:
+          case Data.Target.other:
+            return Infinity;
+        }
+        return this.range.getFactors(s)?.result;
+      },
       isReversed: true,
       color: (s) => this.range.getFactors(s)?.color,
       factors: (s) => {

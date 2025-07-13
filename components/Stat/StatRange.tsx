@@ -9,18 +9,44 @@ type Factors = Required<Data.RangeFactor> | undefined;
 const sign = T.sign;
 
 export class StatRange extends BaseStat<number | undefined, Factors> {
+  override isNotDescList: boolean = true;
+
+  protected override getDefaultText(setting: Setting): string | undefined {
+    const value = this.getValue(setting);
+    if (value === Infinity) {
+      return "全体";
+    } else {
+      return super.getDefaultText(setting);
+    }
+  }
+
   protected override getDefaultStyles(setting: Setting): StatStyles {
+    const value = this.getValue(setting);
     const text = this.getText(setting);
     const style = super.getDefaultStyles(setting);
-    return this.getSmallFontStyles(text, style, 3);
+    if (value === Infinity) {
+      return StatRange.mergeStyles(style, Data.TableClass.small);
+    } else {
+      return this.getSmallFontStyles(text, style, 3);
+    }
   }
 
   public override getTooltipBody(setting: Setting): ReactNode {
     const f: Data.RangeFactor | undefined = this.getFactors(setting);
+    const value = this.getValue(setting);
+
+    if (value === Infinity) {
+      return (
+        <T.List>
+          <T.ListItem label="対象">全体効果</T.ListItem>
+        </T.List>
+      );
+    }
+
     if (f === undefined) return;
 
     return (
-      <>
+      <dl>
         {f.deploymentResult !== undefined && super.getTooltipBody(setting)}
         <T.Equation>
           {(d) => (
@@ -50,7 +76,7 @@ export class StatRange extends BaseStat<number | undefined, Factors> {
             </>
           )}
         </T.Equation>
-      </>
+      </dl>
     );
   }
 }
