@@ -17773,7 +17773,7 @@
         "featureName": "common-phase3",
         "isConditionalSkillBuff": true,
         "phaseName": "豪快シャドウスローイング",
-        "attackMul": 300,
+        "attackMul": 350,
         "range": 999
       }
     ],
@@ -17882,7 +17882,7 @@
         "featureName": "common-phase3",
         "isConditionalSkillBuff": true,
         "phaseName": "豪快シャドウスローイング",
-        "attackMul": 300,
+        "attackMul": 350,
         "range": 999
       }
     ],
