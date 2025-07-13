@@ -369,6 +369,12 @@
         ],
         "hpMul": 150,
         "duration": 15
+      },
+      {
+        "featureName": "class-no-supplements",
+        "deleteSupplements": [
+          "スタン付与20%→命中"
+        ]
       }
     ],
     "situations": [

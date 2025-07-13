@@ -17722,6 +17722,232 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1射程/スタン蓄積値",
+    "id": 180,
+    "unitName": "【槌投のゴースト娘】アメリ",
+    "unitShortName": "アメリ/学園",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 9057,
+    "attack": 1035,
+    "defense": 601,
+    "resist": 107,
+    "exSkill1": {
+      "skillName": "シャドウスローイング",
+      "attackMul": 300,
+      "splash": true,
+      "range": 990,
+      "duration": 15,
+      "cooldown": 30,
+      "supplements": [
+        "スタン付与XX%(中)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 130,
+        "potentialBonus": {
+          "damageFactor": 150
+        }
+      },
+      {
+        "featureName": "common-phase2",
+        "isConditionalSkillBuff": true,
+        "phaseName": "強シャドウスローイング",
+        "attackMul": 200,
+        "range": 995
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalSkillBuff": true,
+        "phaseName": "豪快シャドウスローイング",
+        "attackMul": 300,
+        "range": 999
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-proper",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-proper",
+          "common-phase3"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1/出撃コストはWiki情報",
+    "TODO_FATAL": "ex1射程/スタン蓄積値",
+    "id": 1800001,
+    "parentId": 180,
+    "unitName": "アメリ",
+    "unitShortName": "アメリT/学園",
+    "rarity": "C",
+    "class": "デストロイヤー",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 9057,
+    "attack": 1035,
+    "defense": 601,
+    "resist": 107,
+    "exSkill1": {
+      "skillName": "シャドウスローイング",
+      "attackMul": 300,
+      "splash": true,
+      "range": 990,
+      "duration": 15,
+      "cooldown": 30,
+      "supplements": [
+        "スタン付与XX%(中)→命中"
+      ]
+    },
+    "features": [
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 130,
+        "potentialBonus": {
+          "damageFactor": 150
+        }
+      },
+      {
+        "featureName": "common-phase2",
+        "isConditionalSkillBuff": true,
+        "phaseName": "強シャドウスローイング",
+        "attackMul": 200,
+        "range": 995
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalSkillBuff": true,
+        "phaseName": "豪快シャドウスローイング",
+        "attackMul": 300,
+        "range": 999
+      }
+    ],
+    "isUnhealable": true,
+    "costAdd": -1,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-proper",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-no-supplements",
+          "common-proper",
+          "common-phase3"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
+  },
+  {
     "id": 181,
     "unitName": "【シャドウエルフ娘】ティターレア",
     "unitShortName": "ティターレア",
