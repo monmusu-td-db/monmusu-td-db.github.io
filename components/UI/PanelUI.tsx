@@ -19,6 +19,7 @@ import {
 import * as Data from "../Data";
 import cn from "classnames";
 import "./PanelUI.css";
+import Icon from "./Icon";
 
 const BUTTON_VARIANT = "outline-primary";
 
@@ -180,6 +181,22 @@ function ElementCheckbox({
   onClick: () => void;
 }) {
   const badge = Data.Element.selectorOf(element);
+  function getIcon() {
+    switch (element) {
+      case Data.Element.fire:
+        return <Icon.Fire />;
+      case Data.Element.water:
+        return <Icon.DropletFill />;
+      case Data.Element.earth:
+        return <Icon.GlobeAsiaAustralia />;
+      case Data.Element.wind:
+        return <Icon.Hurricane />;
+      case Data.Element.light:
+        return <Icon.LightningChargeFill />;
+      case Data.Element.dark:
+        return <Icon.DiskFill />;
+    }
+  }
 
   return (
     <FormGrid xs={4} sm={3} md={2}>
@@ -187,9 +204,7 @@ function ElementCheckbox({
         name={element}
         label={
           <>
-            <span className={cn("badge element-badge me-2", badge)}>
-              &#8203;
-            </span>
+            <span className={cn("element-badge me-1", badge)}>{getIcon()}</span>
             {Data.Element.name[element]}
           </>
         }
