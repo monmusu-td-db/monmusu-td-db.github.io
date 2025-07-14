@@ -30203,6 +30203,181 @@
     ]
   },
   {
+    "id": 347,
+    "unitName": "【レプティリアン娘】ファングリス",
+    "unitShortName": "ファングリス",
+    "rarity": "L",
+    "class": "サムライ",
+    "element": "水",
+    "species": "エイリアン",
+    "hp": 7309,
+    "attack": 1208,
+    "defense": 602,
+    "resist": 131,
+    "moveType": "隠密",
+    "supplements": [
+      "コスト+1/撃破",
+      "ATK+30%(10秒)/撃破"
+    ],
+    "exSkill1": {
+      "skillName": "ハンティングソウル",
+      "attackMul": 300,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-12/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "featureName": "common-proper-poison",
+        "damageFactor": 130
+      },
+      {
+        "skill": 1,
+        "featureName": "common-proper-poison",
+        "isConditionalSkillBuff": true,
+        "damageFactor": 160
+      },
+      {
+        "featureName": "common-melee",
+        "supplements": [
+          "毒付与(低)→命中"
+        ]
+      },
+      {
+        "featureName": "common-ranged",
+        "isConditionalBuff": true,
+        "damageFactor": 30,
+        "target": 2,
+        "range": 240,
+        "supplements": [
+          "猛毒付与(高)→命中"
+        ],
+        "potentialBonus": {
+          "target": 3
+        }
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "supplements": [
+          "猛毒付与(高)→命中"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "features": [
+          "common-melee",
+          "common-proper-poison"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "common-proper-poison"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "features": [
+          "common-ranged",
+          "common-proper-poison"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "common-proper-poison"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "skill": 1
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-proper-poison"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-proper-poison"
+        ]
+      }
+    ]
+  },
+  {
     "id": 348,
     "unitName": "【マーシアン娘】マルゼア",
     "unitShortName": "マルゼア",

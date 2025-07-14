@@ -361,6 +361,13 @@
   },
   {
     "TODO_DESC": "特効表示改修に使う",
+    "featureName": "common-proper-poison",
+    "conditions": [
+      "特"
+    ]
+  },
+  {
+    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-proper-burn",
     "conditions": [
       "特"
