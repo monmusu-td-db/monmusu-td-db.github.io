@@ -199,8 +199,8 @@ export default class FormationBuff implements TableRow<Keys> {
             points += 400 - i;
           }
         });
-      } else if (Data.BaseClassName.isBaseClassName(tgt)) {
-        Data.BaseClassName.nameList.forEach((v, i) => {
+      } else if (Data.UnitBaseClass.isName(tgt)) {
+        Data.UnitBaseClass.list.forEach((v, i) => {
           if (tgt === v) {
             points += 800 - i;
           }

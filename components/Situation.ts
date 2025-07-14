@@ -2410,7 +2410,7 @@ export default class Situation implements TableRow<Keys> {
     const fea = this.getFeature(setting);
     const types: (string | undefined)[] = [
       className,
-      Data.ClassName.baseNameOf(className),
+      Data.UnitClass.baseTagOf(className),
       ...species,
     ];
     const fnHp = (n: number) => {
@@ -2564,7 +2564,7 @@ export default class Situation implements TableRow<Keys> {
         return false;
 
       const className = target.unit?.className.getValue(setting);
-      const classNameKey = Data.ClassName.keyOf(className);
+      const classNameKey = Data.UnitClass.keyOf(className);
       if (
         equipmentFilters.length !== 0 &&
         (classNameKey === undefined || !equipmentFilters.includes(classNameKey))
@@ -2604,7 +2604,7 @@ export default class Situation implements TableRow<Keys> {
           ])
           .map((v) => v?.getText(setting));
         s.push(
-          Data.ClassName.equipmentNameOf(item.unit?.className.getValue(setting))
+          Data.UnitClass.equipmentNameOf(item.unit?.className.getValue(setting))
         );
         try {
           const regex = new RegExp(states.query);
@@ -2630,7 +2630,7 @@ export default class Situation implements TableRow<Keys> {
 
   private static filterCondition(
     item: Situation,
-    className: Data.ClassName | undefined,
+    className: Data.UnitClassTag | undefined,
     conditionFilters: readonly FilterConditionKey[]
   ): boolean {
     const features = item.features;

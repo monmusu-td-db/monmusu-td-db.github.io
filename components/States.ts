@@ -114,10 +114,10 @@ type FilterElement = (typeof filterElementKeys)[number];
 const filterSpeciesKeys = Data.Species.list;
 type FilterSpecies = (typeof filterSpeciesKeys)[number];
 
-const filterEquipmentKeys = Data.getKeys(Data.className);
+const filterEquipmentKeys = Data.UnitClass.keys;
 export type FilterEquipment = (typeof filterEquipmentKeys)[number];
 export const FilterEquipment = {
-  names: Data.classEquipmentName,
+  names: Data.UnitClass.equipment,
   keys: filterEquipmentKeys,
 
   getKeys(filter: Filter): ReadonlySet<FilterEquipment> {
@@ -168,7 +168,7 @@ type FilterConditionKeyExcludeNormal = Exclude<FilterConditionKey, "normal">;
 type FilterConditionGroup = (typeof FilterCondition.groups)[number];
 
 export class FilterCondition {
-  private static readonly equipment = Data.ClassName.keys;
+  private static readonly equipment = Data.UnitClass.key;
 
   static readonly groups = [
     "proper",
@@ -415,9 +415,9 @@ export class FilterCondition {
   }
 
   static getAppliedGroup(
-    className: Data.ClassName | undefined
+    className: Data.UnitClassTag | undefined
   ): Record<FilterConditionGroup, boolean> {
-    const classNameKey = Data.ClassName.keyOf(className);
+    const classNameKey = Data.UnitClass.keyOf(className);
     const k = this.groupKeys;
 
     const proper = this.properList.some((v) => v === classNameKey);

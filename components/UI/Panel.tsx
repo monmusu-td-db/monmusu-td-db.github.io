@@ -210,13 +210,13 @@ const _TabFilter = memo(function TabFilter({
       </PanelUI.FormGroup>
       <PanelUI.FormGroup label="基礎クラス">
         <PanelUI.FormCheckboxGroup>
-          {Data.ClassName.getBaseKeys().map((k) => {
-            const ekeys = Data.ClassName.equipmentKeysOf(k);
+          {Data.UnitBaseClass.keys.map((k) => {
+            const ekeys = Data.UnitBaseClass.getEquipmentKeys(k);
             return (
               <PanelUI.FormGrid key={k} xs={4} md={3} lg={2}>
                 <PanelUI.FormCheckbox
                   name={k}
-                  label={Data.ClassName.baseNames[k]}
+                  label={Data.UnitBaseClass.tag[k]}
                   checked={ekeys.every((ek) => filter.get(ek))}
                   onClick={(v) => {
                     const s: FilterObject = {};

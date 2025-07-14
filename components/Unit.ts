@@ -190,7 +190,7 @@ export default class Unit implements TableRow<Keys> {
   readonly unitName: Stat.Root<string>;
   readonly unitShortName: Stat.UnitName;
   readonly rarity: Stat.Root<Data.Rarity | undefined>;
-  readonly className: Stat.Root<Data.ClassName | undefined>;
+  readonly className: Stat.Root<Data.UnitClassTag | undefined>;
   readonly element: Stat.Root<Data.Element | undefined>;
   readonly species: Stat.Root<readonly Data.Species[]>;
   readonly cost: Stat.Root;
@@ -279,9 +279,9 @@ export default class Unit implements TableRow<Keys> {
       });
     }
 
-    const className = Data.ClassName.parse(src.class);
+    const className = Data.UnitClass.parse(src.class);
     {
-      const comparer = Data.ClassName.indexOf(className);
+      const comparer = Data.UnitClass.indexOf(className);
       this.className = new Stat.Root({
         statType: stat.className,
         calculater: () => className,
@@ -317,7 +317,7 @@ export default class Unit implements TableRow<Keys> {
         : undefined;
       const value = base + (pCostAdd ?? src.costAdd ?? 0);
 
-      if (className === Data.className.shaman || this.isToken) return value;
+      if (className === Data.UnitClass.tag.shaman || this.isToken) return value;
       switch (rarity) {
         case Data.Rarity.L:
           return value + 1;
@@ -1027,7 +1027,7 @@ export default class Unit implements TableRow<Keys> {
         const isTarget = [
           Data.FormationBuff.all,
           this.element.getValue(setting),
-          Data.ClassName.baseNameOf(this.className.getValue(setting)),
+          Data.UnitClass.baseTagOf(this.className.getValue(setting)),
           ...this.species.getValue(setting),
         ].some((s) => {
           if (s === undefined) return false;
@@ -1066,7 +1066,7 @@ export default class Unit implements TableRow<Keys> {
     const sb = Beast.getItem(setting.subBeast);
     const className = this.className.getValue(setting);
     const types = [
-      Data.ClassName.baseNameOf(className),
+      Data.UnitClass.baseTagOf(className),
       this.element.getValue(setting),
       ...this.species.getValue(setting),
       setting.sameElement === 8 ? "同一属性8体" : undefined,
@@ -1187,7 +1187,7 @@ export default class Unit implements TableRow<Keys> {
     const className = this.className.getValue(setting);
     const types = [
       className,
-      Data.ClassName.baseNameOf(className),
+      Data.UnitClass.baseTagOf(className),
       this.element.getValue(setting),
       ...this.species.getValue(setting),
     ];
@@ -1277,7 +1277,7 @@ export default class Unit implements TableRow<Keys> {
     const target = parent !== undefined ? parent : this;
     const className = target.className.getValue(states.setting);
     const filterKeys = FilterEquipment.getKeys(states.filter);
-    const classNameKey = Data.ClassName.keyOf(className);
+    const classNameKey = Data.UnitClass.keyOf(className);
     if (
       filterKeys.size > 0 &&
       classNameKey !== undefined &&

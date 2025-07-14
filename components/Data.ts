@@ -705,7 +705,7 @@ export const Duration = {
 export type FormationBuffTarget =
   | typeof FormationBuff.all
   | Element
-  | BaseClassName
+  | UnitBaseClassTag
   | Species;
 export interface FormationBuff {
   readonly targets: ReadonlySet<FormationBuffTarget>;
@@ -765,7 +765,7 @@ export const JsonFormationBuff = {
               const ele = Element.parse(t);
               if (ele !== undefined) return ele;
 
-              const cls = BaseClassName.parse(t);
+              const cls = UnitBaseClass.parse(t);
               if (cls !== undefined) return cls;
 
               const spe = Species.find(t);
@@ -875,152 +875,154 @@ export const Rarity = {
   },
 } as const;
 
-export const className = {
-  blader: "ブレイダー",
-  lancer: "ランサー",
-  barbarian: "バーバリアン",
-  monk: "モンク",
-  shieldKnight: "シールドナイト",
-  destroyer: "デストロイヤー",
-  samurai: "サムライ",
-  archer: "アーチャー",
-  gunner: "ガンナー",
-  warlock: "ウォーロック",
-  conjurer: "コンジャラー",
-  puppeteer: "パペッティア",
-  priest: "プリースト",
-  hermit: "ハーミット",
-  airScout: "エアスカウト",
-  assassin: "チーフアサシン",
-  ninja: "ニンジャ",
-  whipper: "ウィッパー",
-  shaman: "シャーマン",
-  bard: "バード",
-} as const;
-export type ClassNameKey = keyof typeof className;
-export const classEquipmentName = {
-  blader: "曲刀",
-  lancer: "槍",
-  barbarian: "斧",
-  monk: "拳",
-  shieldKnight: "剣盾",
-  destroyer: "こん棒",
-  samurai: "大太刀",
-  archer: "弓",
-  gunner: "銃",
-  warlock: "杖",
-  conjurer: "本",
-  puppeteer: "人形",
-  priest: "錫杖",
-  hermit: "オーブ",
-  assassin: "短剣",
-  airScout: "扇",
-  ninja: "手裏剣",
-  whipper: "鞭",
-  shaman: "霊枝",
-  bard: "楽器",
-} as const satisfies Record<ClassNameKey, string>;
-const baseClassName = {
-  warrior: "ウォリアー",
-  guardian: "ガーディアン",
-  sniper: "スナイパー",
-  sorcerer: "ソーサラー",
-  healer: "ヒーラー",
-  scout: "スカウト",
-  supporter: "サポーター",
-} as const;
-type ClassEquipmentName =
-  (typeof classEquipmentName)[keyof typeof classEquipmentName];
-type BaseClassNameKey = keyof typeof baseClassName;
-const baseClassNameValues = Object.values(baseClassName);
-export type BaseClassName = (typeof baseClassName)[BaseClassNameKey];
-export const BaseClassName = {
-  nameList: baseClassNameValues,
-  parse(value: string | undefined): BaseClassName | undefined {
-    return baseClassNameValues.find((v) => v === value);
-  },
+type UnitClassKey = keyof typeof UnitClass.tag;
+export type UnitClassTag = (typeof UnitClass.tag)[UnitClassKey];
+type UnitEquipmentName = (typeof UnitClass.equipment)[UnitClassKey];
+export class UnitClass {
+  static readonly tag = {
+    blader: "ブレイダー",
+    lancer: "ランサー",
+    barbarian: "バーバリアン",
+    monk: "モンク",
+    shieldKnight: "シールドナイト",
+    destroyer: "デストロイヤー",
+    samurai: "サムライ",
+    archer: "アーチャー",
+    gunner: "ガンナー",
+    warlock: "ウォーロック",
+    conjurer: "コンジャラー",
+    puppeteer: "パペッティア",
+    priest: "プリースト",
+    hermit: "ハーミット",
+    airScout: "エアスカウト",
+    assassin: "チーフアサシン",
+    ninja: "ニンジャ",
+    whipper: "ウィッパー",
+    shaman: "シャーマン",
+    bard: "バード",
+  } as const;
 
-  isBaseClassName(value: unknown): value is BaseClassName {
-    return baseClassNameValues.findIndex((v) => v === value) !== -1;
-  },
-} as const;
-const classNameKeyList = getKeys(className);
-const classNameKeys = Enum(classNameKeyList);
-export type ClassName = (typeof className)[ClassNameKey];
-export const ClassName = {
-  keys: classNameKeys,
-  names: className,
-  baseNames: baseClassName,
+  static readonly equipment = {
+    blader: "曲刀",
+    lancer: "槍",
+    barbarian: "斧",
+    monk: "拳",
+    shieldKnight: "剣盾",
+    destroyer: "こん棒",
+    samurai: "大太刀",
+    archer: "弓",
+    gunner: "銃",
+    warlock: "杖",
+    conjurer: "本",
+    puppeteer: "人形",
+    priest: "錫杖",
+    hermit: "オーブ",
+    assassin: "短剣",
+    airScout: "扇",
+    ninja: "手裏剣",
+    whipper: "鞭",
+    shaman: "霊枝",
+    bard: "楽器",
+  } as const satisfies Record<UnitClassKey, string>;
 
-  parse(value: string | undefined): ClassName | undefined {
-    return Object.values(className).find((v) => v === value);
-  },
+  static readonly list = Object.values(this.tag);
+  static readonly keys = getKeys(this.tag);
+  static readonly entries = getEntries(this.tag);
 
-  isKey(key: string): key is ClassNameKey {
-    return getKeys(className).findIndex((k) => k === key) !== -1;
-  },
+  static readonly key = Enum(this.keys);
 
-  indexOf(value: ClassName | undefined): number | undefined {
+  static parse(value: string | undefined): UnitClassTag | undefined {
+    return this.list.find((v) => v === value);
+  }
+
+  static isKey(key: unknown): key is UnitClassKey {
+    return this.keys.findIndex((k) => k === key) !== -1;
+  }
+
+  static indexOf(value: UnitClassTag | undefined): number | undefined {
     if (value === undefined) return;
-    return Object.values(className).indexOf(value);
-  },
+    return this.list.indexOf(value);
+  }
 
-  keyOf(value: ClassName | undefined): ClassNameKey | undefined {
+  static keyOf(value: UnitClassTag | undefined): UnitClassKey | undefined {
     if (value === undefined) return;
-    return getEntries(className).find((kvp) => kvp[1] === value)?.[0];
-  },
+    return this.entries.find((kvp) => kvp[1] === value)?.[0];
+  }
 
-  equipmentNameOf(
-    value: ClassName | undefined
-  ): ClassEquipmentName | undefined {
-    const k = this.keyOf(value);
-    if (k === undefined) return;
-    return classEquipmentName[k];
-  },
+  static equipmentNameOf(
+    value: UnitClassTag | undefined
+  ): UnitEquipmentName | undefined {
+    const key = this.keyOf(value);
+    if (key === undefined) return;
+    return this.equipment[key];
+  }
 
-  baseNameOf(value: ClassName | undefined): BaseClassName | undefined {
-    const n = this.names;
+  static baseTagOf(
+    value: UnitClassTag | undefined
+  ): UnitBaseClassTag | undefined {
+    const n = this.tag;
     switch (value) {
       case n.blader:
       case n.lancer:
       case n.barbarian:
       case n.monk:
-        return baseClassName.warrior;
+        return UnitBaseClass.tag.warrior;
       case n.shieldKnight:
       case n.destroyer:
       case n.samurai:
-        return baseClassName.guardian;
+        return UnitBaseClass.tag.guardian;
       case n.archer:
       case n.gunner:
-        return baseClassName.sniper;
+        return UnitBaseClass.tag.sniper;
       case n.warlock:
       case n.conjurer:
       case n.puppeteer:
-        return baseClassName.sorcerer;
+        return UnitBaseClass.tag.sorcerer;
       case n.priest:
       case n.hermit:
-        return baseClassName.healer;
+        return UnitBaseClass.tag.healer;
       case n.assassin:
       case n.airScout:
       case n.ninja:
       case n.whipper:
-        return baseClassName.scout;
+        return UnitBaseClass.tag.scout;
       case n.shaman:
       case n.bard:
-        return baseClassName.supporter;
+        return UnitBaseClass.tag.supporter;
     }
-  },
+  }
+}
 
-  equipmentKeysOf(value: BaseClassNameKey): readonly ClassNameKey[] {
-    return classNameKeyList.filter((k) => {
-      return baseClassName[value] === this.baseNameOf(className[k]);
+type UnitBaseClassKey = keyof typeof UnitBaseClass.tag;
+type UnitBaseClassTag = (typeof UnitBaseClass.tag)[UnitBaseClassKey];
+export class UnitBaseClass {
+  static readonly tag = {
+    warrior: "ウォリアー",
+    guardian: "ガーディアン",
+    sniper: "スナイパー",
+    sorcerer: "ソーサラー",
+    healer: "ヒーラー",
+    scout: "スカウト",
+    supporter: "サポーター",
+  } as const;
+
+  static readonly list = Object.values(this.tag);
+  static readonly keys = getKeys(this.tag);
+
+  static parse(value: string | undefined): UnitBaseClassTag | undefined {
+    return this.list.find((v) => v === value);
+  }
+
+  static isName(value: unknown): value is UnitBaseClassTag {
+    return this.list.findIndex((v) => v === value) !== -1;
+  }
+
+  static getEquipmentKeys(value: UnitBaseClassKey): readonly UnitClassKey[] {
+    return UnitClass.keys.filter((k) => {
+      return this.tag[value] === UnitClass.baseTagOf(UnitClass.tag[k]);
     });
-  },
-
-  getBaseKeys(): readonly BaseClassNameKey[] {
-    return getKeys(baseClassName);
-  },
-} as const;
+  }
+}
 
 // Element
 const element = {
