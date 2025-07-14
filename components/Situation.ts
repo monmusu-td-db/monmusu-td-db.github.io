@@ -4,12 +4,12 @@ import * as Stat from "./Stat";
 import {
   Filter,
   FilterCondition,
-  FilterEquipment,
+  FilterUnitClass,
   Setting,
   type FilterConditionKey,
   type States,
 } from "./States";
-import Unit from "./Unit";
+import Unit, { type IGetText } from "./Unit";
 import Subskill, { type SubskillFactorKey } from "./Subskill";
 import {
   Accumulation,
@@ -2539,12 +2539,12 @@ export default class Situation implements TableRow<Keys> {
     states: States,
     list: readonly Situation[]
   ): readonly Situation[] {
-    const equipmentFilters: FilterEquipment[] = [];
+    const unitClassFilters: FilterUnitClass[] = [];
     const conditionFilters: FilterConditionKey[] = [];
     const setting = states.setting;
     const filter = states.filter;
     filter.forEach((v, k) => {
-      if (FilterEquipment.isKey(k) && v) equipmentFilters.push(k);
+      if (FilterUnitClass.isKey(k) && v) unitClassFilters.push(k);
       if (FilterCondition.isKey(k) && v) conditionFilters.push(k);
     });
 
@@ -2566,8 +2566,8 @@ export default class Situation implements TableRow<Keys> {
       const className = target.unit?.className.getValue(setting);
       const classNameKey = Data.UnitClass.keyOf(className);
       if (
-        equipmentFilters.length !== 0 &&
-        (classNameKey === undefined || !equipmentFilters.includes(classNameKey))
+        unitClassFilters.length !== 0 &&
+        (classNameKey === undefined || !unitClassFilters.includes(classNameKey))
       )
         return false;
 
@@ -2580,7 +2580,7 @@ export default class Situation implements TableRow<Keys> {
       if (!states.query) {
         return Filter.baseKeys.some((k) => states.filter.get(k));
       } else {
-        const sb: (Stat.Root<unknown, unknown> | undefined)[] =
+        const sb: (IGetText | undefined)[] =
           parent === undefined
             ? [item.unit?.rarity]
             : [
@@ -2589,6 +2589,8 @@ export default class Situation implements TableRow<Keys> {
                 parent.unit?.rarity,
                 parent.unit?.element,
                 parent.unit?.className,
+                parent.unit?.equipmentName,
+                parent.unit?.cc4Name,
               ];
 
         const s = sb
@@ -2598,14 +2600,13 @@ export default class Situation implements TableRow<Keys> {
             item.unit?.element,
             item.damageType,
             item.unit?.className,
+            item.unit?.equipmentName,
+            item.unit?.cc4Name,
             item.skillName,
             item.supplements,
             item.conditions,
           ])
           .map((v) => v?.getText(setting));
-        s.push(
-          Data.UnitClass.equipmentNameOf(item.unit?.className.getValue(setting))
-        );
         try {
           const regex = new RegExp(states.query);
           return s.some((str) => {

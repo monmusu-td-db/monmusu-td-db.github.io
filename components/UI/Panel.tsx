@@ -26,7 +26,7 @@ import SearchInput from "./SearchInput";
 import PanelUI from "@/components/UI/PanelUI";
 import {
   FilterCondition,
-  FilterEquipment,
+  FilterUnitClass,
   Setting,
   Contexts,
   type Filter,
@@ -155,12 +155,14 @@ function TabFilter({ isSituation }: { isSituation: boolean }) {
     },
     [dispatchFilter]
   );
+  const setting = Contexts.useSetting();
 
   return (
     <_TabFilter
       filter={filter}
       onChange={handleChange}
       isSituation={isSituation}
+      setting={setting}
     />
   );
 }
@@ -169,10 +171,12 @@ const _TabFilter = memo(function TabFilter({
   filter,
   onChange,
   isSituation,
+  setting,
 }: {
   filter: Filter;
   onChange: (nextValue: FilterObject) => void;
   isSituation: boolean;
+  setting: Setting;
 }) {
   const conditions = FilterCondition.getVisibleItems(filter);
 
@@ -229,14 +233,28 @@ const _TabFilter = memo(function TabFilter({
           })}
         </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
-      <PanelUI.FormGroup label="武器">
+      <PanelUI.FormGroup
+        label={Data.StatType.headerNameOf(stat.className, setting)}
+      >
         <PanelUI.FormCheckboxGroup>
-          {FilterEquipment.keys.map((k) => {
+          {FilterUnitClass.keys.map((k) => {
+            let label;
+            switch (setting.classNameType) {
+              case Setting.TYPE_CC1:
+                label = Data.UnitClass.tag[k];
+                break;
+              case Setting.TYPE_CC4:
+                label = Data.UnitClass.cc4Name[k];
+                break;
+              case Setting.TYPE_EQUIPMENT:
+                label = Data.UnitClass.equipment[k];
+                break;
+            }
             return (
               <PanelUI.FormGrid key={k} xs={4} md={3} lg={2}>
                 <PanelUI.FormCheckbox
                   name={k}
-                  label={FilterEquipment.names[k]}
+                  label={label}
                   checked={filter.get(k) ?? false}
                   onClick={(v) => onChange({ [k]: v })}
                 />
@@ -806,6 +824,39 @@ const _TabOther = memo(function TabOther({
           </PanelUI.FormGroup>
         </>
       )}
+      <PanelUI.FormGroup label="クラス名表示">
+        <Col sm={8} md={5} className="d-grid">
+          <PanelUI.FormRadio
+            name="s-class-name-type"
+            items={["CC1", "CC4", "装備名"]}
+            value={(() => {
+              switch (setting.classNameType) {
+                case Setting.TYPE_CC1:
+                  return 0;
+                case Setting.TYPE_CC4:
+                  return 1;
+                case Setting.TYPE_EQUIPMENT:
+                  return 2;
+              }
+            })()}
+            onChange={(v) => {
+              let ret;
+              switch (v) {
+                case 0:
+                  ret = Setting.TYPE_CC1;
+                  break;
+                case 1:
+                  ret = Setting.TYPE_CC4;
+                  break;
+                default:
+                  ret = Setting.TYPE_EQUIPMENT;
+                  break;
+              }
+              onChange({ classNameType: ret });
+            }}
+          />
+        </Col>
+      </PanelUI.FormGroup>
       <PanelUI.FormGroup label="設定の保存">
         <Col sm={6} md={3} className="d-grid">
           <PanelUI.FormRadio

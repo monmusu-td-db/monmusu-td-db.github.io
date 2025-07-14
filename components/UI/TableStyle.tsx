@@ -65,6 +65,7 @@ const TableStyle = memo(function TableStyle({
         end.push(index);
         break;
       case stat.rarity:
+      case stat.className:
       case stat.element:
       case stat.species:
       case stat.attackSpeed:

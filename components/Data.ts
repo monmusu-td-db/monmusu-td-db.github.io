@@ -1,5 +1,5 @@
 import jsonWord from "@/assets/word.json";
-import { type Setting } from "./States";
+import { Setting } from "./States";
 
 /* 
 TODOリスト
@@ -253,6 +253,13 @@ export const StatType = {
   nameOf: (value: StatType): string => jsonWord[value],
   getHeaderName: (statType: string, setting: Setting, name: string): string => {
     switch (statType) {
+      case stat.className:
+        switch (setting.classNameType) {
+          case Setting.TYPE_EQUIPMENT:
+            return "武器";
+          default:
+            return name;
+        }
       case stat.dps1:
       case stat.dps2:
       case stat.dps3:
@@ -262,6 +269,11 @@ export const StatType = {
       default:
         return name;
     }
+  },
+
+  headerNameOf(statType: StatType, setting: Setting): string {
+    const name = this.nameOf(statType);
+    return this.getHeaderName(statType, setting, name);
   },
 
   getHeaders<T extends StatType>(statTypes: readonly T[]) {
@@ -877,7 +889,8 @@ export const Rarity = {
 
 type UnitClassKey = keyof typeof UnitClass.tag;
 export type UnitClassTag = (typeof UnitClass.tag)[UnitClassKey];
-type UnitEquipmentName = (typeof UnitClass.equipment)[UnitClassKey];
+export type UnitEquipmentName = (typeof UnitClass.equipment)[UnitClassKey];
+type UnitCC4Name = (typeof UnitClass.cc4Name)[UnitClassKey];
 export class UnitClass {
   static readonly tag = {
     blader: "ブレイダー",
@@ -925,6 +938,29 @@ export class UnitClass {
     bard: "楽器",
   } as const satisfies Record<UnitClassKey, string>;
 
+  static readonly cc4Name = {
+    blader: "グラディエーター",
+    lancer: "ヴァルキリー",
+    barbarian: "ベルセルク",
+    monk: "ゴッドハンド",
+    shieldKnight: "バスティオン",
+    destroyer: "デモリッシュ",
+    samurai: "ショウグン",
+    archer: "サジタリウス",
+    gunner: "デュエリスト",
+    warlock: "アーケインメイジ",
+    conjurer: "ディザスター",
+    puppeteer: "ルサンチマン",
+    priest: "ビショップ",
+    hermit: "ハイエロファント",
+    assassin: "ファントム",
+    airScout: "エアリアル",
+    ninja: "シノビ",
+    whipper: "エンプレス",
+    shaman: "シャーマンロード",
+    bard: "ミンストレル",
+  } as const satisfies Record<UnitClassKey, string>;
+
   static readonly list = Object.values(this.tag);
   static readonly keys = getKeys(this.tag);
   static readonly entries = getEntries(this.tag);
@@ -955,6 +991,12 @@ export class UnitClass {
     const key = this.keyOf(value);
     if (key === undefined) return;
     return this.equipment[key];
+  }
+
+  static cc4NameOf(value: UnitClassTag | undefined): UnitCC4Name | undefined {
+    const key = this.keyOf(value);
+    if (key === undefined) return;
+    return this.cc4Name[key];
   }
 
   static baseTagOf(

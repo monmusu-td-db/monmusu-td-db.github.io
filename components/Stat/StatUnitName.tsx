@@ -34,12 +34,26 @@ export class StatUnitName extends StatTooltip<string> {
 
     const unit = this.unit;
     const situation = this.situation ?? unit;
-    const nameOf = (statType: Data.StatType) => Data.StatType.nameOf(statType);
+    const nameOf = (statType: Data.StatType) =>
+      Data.StatType.headerNameOf(statType, setting);
     const textOf = (stat: StatRoot<unknown>) => stat.getText(setting);
     const valueOf = <T,>(stat: StatRoot<T>) => stat.getValue(setting);
 
     const parent = unit.getTokenParent();
-    const className = unit.className.getValue(setting);
+
+    let className: string | undefined = unit.className.getValue(setting);
+    switch (setting.classNameType) {
+      case Setting.TYPE_CC4:
+        className = Data.UnitClass.cc4NameOf(
+          className as Data.UnitClassTag | undefined
+        );
+        break;
+      case Setting.TYPE_EQUIPMENT:
+        className = Data.UnitClass.equipmentNameOf(
+          className as Data.UnitClassTag | undefined
+        );
+    }
+
     const element = unit.element.getValue(setting);
     const species = unit.species.getValue(setting).join(" / ");
     const moveType = textOf(unit.moveType);

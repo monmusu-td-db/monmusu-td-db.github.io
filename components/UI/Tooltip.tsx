@@ -53,11 +53,7 @@ function Body({
   return (
     <>
       <Popover.Header as="h3">
-        {Data.StatType.getHeaderName(
-          stat.statType,
-          setting,
-          Data.StatType.nameOf(stat.statType)
-        )}
+        {Data.StatType.headerNameOf(stat.statType, setting)}
       </Popover.Header>
       <Popover.Body>{stat.isNotDescList ? body : <dl>{body}</dl>}</Popover.Body>
     </>

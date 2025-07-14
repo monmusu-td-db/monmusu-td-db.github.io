@@ -2,7 +2,7 @@ import jsonUnits from "@/assets/unit.json";
 import * as Data from "./Data";
 import * as Stat from "./Stat";
 import {
-  FilterEquipment,
+  FilterUnitClass,
   Setting,
   type FilterKeys,
   type States,
@@ -180,6 +180,10 @@ const stat = Data.stat;
 const ssKeys = Subskill.keys;
 const Percent = Data.Percent;
 
+export interface IGetText {
+  readonly getText: (setting: Setting) => string | undefined;
+}
+
 export default class Unit implements TableRow<Keys> {
   readonly id: number;
   readonly src: Readonly<JsonUnit>;
@@ -191,6 +195,8 @@ export default class Unit implements TableRow<Keys> {
   readonly unitShortName: Stat.UnitName;
   readonly rarity: Stat.Root<Data.Rarity | undefined>;
   readonly className: Stat.Root<Data.UnitClassTag | undefined>;
+  readonly equipmentName: IGetText;
+  readonly cc4Name: IGetText;
   readonly element: Stat.Root<Data.Element | undefined>;
   readonly species: Stat.Root<readonly Data.Species[]>;
   readonly cost: Stat.Root;
@@ -286,10 +292,37 @@ export default class Unit implements TableRow<Keys> {
         statType: stat.className,
         calculater: () => className,
         comparer: () => comparer,
+        item: (s) => {
+          const value = this.className.getValue(s);
+          switch (s.classNameType) {
+            case Setting.TYPE_CC1:
+              return value;
+            case Setting.TYPE_CC4:
+              return Data.UnitClass.cc4NameOf(value);
+            case Setting.TYPE_EQUIPMENT:
+              return Data.UnitClass.equipmentNameOf(value);
+          }
+        },
       });
     }
     const classData =
       className === undefined ? undefined : Class.getItem(className);
+
+    {
+      const getText = (s: Setting) => {
+        const value = this.className.getValue(s);
+        return Data.UnitClass.equipmentNameOf(value);
+      };
+      this.equipmentName = { getText };
+    }
+
+    {
+      const getText = (s: Setting) => {
+        const value = this.className.getValue(s);
+        return Data.UnitClass.cc4NameOf(value);
+      };
+      this.cc4Name = { getText };
+    }
 
     const element = Data.Element.parse(src.element);
     {
@@ -1276,7 +1309,7 @@ export default class Unit implements TableRow<Keys> {
     const parent = this.getTokenParent();
     const target = parent !== undefined ? parent : this;
     const className = target.className.getValue(states.setting);
-    const filterKeys = FilterEquipment.getKeys(states.filter);
+    const filterKeys = FilterUnitClass.getKeys(states.filter);
     const classNameKey = Data.UnitClass.keyOf(className);
     if (
       filterKeys.size > 0 &&
@@ -1308,6 +1341,8 @@ export default class Unit implements TableRow<Keys> {
               parent.rarity,
               parent.element,
               parent.className,
+              parent.equipmentName,
+              parent.cc4Name,
             ];
 
       const s = [
@@ -1317,6 +1352,8 @@ export default class Unit implements TableRow<Keys> {
         this.element,
         this.damageType,
         this.className,
+        this.equipmentName,
+        this.cc4Name,
         this.exSkill1,
         this.exSkill2,
       ].map((v) => v.getText(states.setting)?.toString());

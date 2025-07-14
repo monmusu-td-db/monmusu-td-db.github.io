@@ -26,6 +26,13 @@ const DEFAULT_SAVE_OPTION = STORAGE_LOCAL;
 const TYPE_ENABLED = "enabled";
 const TYPE_DISABLED = "disabled";
 type TypeBonusStatus = typeof TYPE_ENABLED | typeof TYPE_DISABLED;
+const TYPE_CC1 = "cc1";
+const TYPE_CC4 = "cc4";
+const TYPE_EQUIPMENT = "equipment";
+type ClassNameTypeStatus =
+  | typeof TYPE_CC1
+  | typeof TYPE_CC4
+  | typeof TYPE_EQUIPMENT;
 
 // Utilities
 
@@ -92,6 +99,16 @@ class Valid {
   static isTypeBonus(value: unknown): value is TypeBonusStatus {
     return value === TYPE_ENABLED || value === TYPE_DISABLED;
   }
+
+  static isClassNameTypeStatus(value: unknown): value is ClassNameTypeStatus {
+    switch (value) {
+      case TYPE_CC1:
+      case TYPE_CC4:
+      case TYPE_EQUIPMENT:
+        return true;
+    }
+    return false;
+  }
 }
 
 // Types
@@ -114,22 +131,21 @@ type FilterElement = (typeof filterElementKeys)[number];
 const filterSpeciesKeys = Data.Species.list;
 type FilterSpecies = (typeof filterSpeciesKeys)[number];
 
-const filterEquipmentKeys = Data.UnitClass.keys;
-export type FilterEquipment = (typeof filterEquipmentKeys)[number];
-export const FilterEquipment = {
-  names: Data.UnitClass.equipment,
-  keys: filterEquipmentKeys,
+const filterUnitClassKeys = Data.UnitClass.keys;
+export type FilterUnitClass = (typeof filterUnitClassKeys)[number];
+export const FilterUnitClass = {
+  keys: filterUnitClassKeys,
 
-  getKeys(filter: Filter): ReadonlySet<FilterEquipment> {
-    const ret = new Set<FilterEquipment>();
+  getKeys(filter: Filter): ReadonlySet<FilterUnitClass> {
+    const ret = new Set<FilterUnitClass>();
     for (const [k, v] of filter.entries()) {
       if (v && this.isKey(k)) ret.add(k);
     }
     return ret;
   },
 
-  isKey(key: unknown): key is FilterEquipment {
-    return filterEquipmentKeys.findIndex((k) => k === key) !== -1;
+  isKey(key: unknown): key is FilterUnitClass {
+    return filterUnitClassKeys.findIndex((k) => k === key) !== -1;
   },
 } as const;
 
@@ -168,7 +184,7 @@ type FilterConditionKeyExcludeNormal = Exclude<FilterConditionKey, "normal">;
 type FilterConditionGroup = (typeof FilterCondition.groups)[number];
 
 export class FilterCondition {
-  private static readonly equipment = Data.UnitClass.key;
+  private static readonly classKey = Data.UnitClass.key;
 
   static readonly groups = [
     "proper",
@@ -288,18 +304,18 @@ export class FilterCondition {
   >;
 
   private static readonly properList = [
-    this.equipment.monk,
-    this.equipment.archer,
-    this.equipment.priest,
-  ] as const satisfies FilterEquipment[];
+    this.classKey.monk,
+    this.classKey.archer,
+    this.classKey.priest,
+  ] as const satisfies FilterUnitClass[];
 
   private static readonly actionList = [
-    this.equipment.barbarian,
-    this.equipment.shieldKnight,
-    this.equipment.archer,
-    this.equipment.conjurer,
-    this.equipment.whipper,
-  ] as const satisfies FilterEquipment[];
+    this.classKey.barbarian,
+    this.classKey.shieldKnight,
+    this.classKey.archer,
+    this.classKey.conjurer,
+    this.classKey.whipper,
+  ] as const satisfies FilterUnitClass[];
 
   static requiredFeature = {
     proper: "class-proper",
@@ -331,8 +347,8 @@ export class FilterCondition {
   >;
 
   static getVisibleItems(filter: Filter): FilterConditionKey[] {
-    const eq = this.equipment;
-    const fn = (arg: FilterEquipment): boolean => filter.get(arg) ?? false;
+    const eq = this.classKey;
+    const fn = (arg: FilterUnitClass): boolean => filter.get(arg) ?? false;
 
     const proper = this.properList.some(fn);
     const action = this.actionList.some(fn);
@@ -503,7 +519,7 @@ export type FilterKeys =
   | FilterRarity
   | FilterElement
   | FilterSpecies
-  | FilterEquipment
+  | FilterUnitClass
   | FilterConditionKey
   | FilterDamageType
   | FilterMoveType
@@ -513,7 +529,7 @@ const filterKeys: FilterKeys[] = [
   ...filterElementKeys,
   ...filterSpeciesKeys,
   ...filterConditionKeys,
-  ...filterEquipmentKeys,
+  ...filterUnitClassKeys,
   ...filterDamageTypeKeys,
   ...filterMoveTypeKeys,
   ...filterPlacementKeys,
@@ -526,7 +542,7 @@ export const Filter = {
     ...filterRarityKeys,
     ...filterElementKeys,
     ...filterSpeciesKeys,
-    ...filterEquipmentKeys,
+    ...filterUnitClassKeys,
     ...filterDamageTypeKeys,
     ...filterMoveTypeKeys,
     ...filterPlacementKeys,
@@ -639,6 +655,7 @@ type SettingOther = {
   readonly dps4: number;
   readonly dps5: number;
   readonly fieldElement: Status2;
+  readonly classNameType: ClassNameTypeStatus;
 };
 const defaultSettingOther = {
   potential: PARTIAL,
@@ -649,6 +666,7 @@ const defaultSettingOther = {
   dps4: 2000,
   dps5: 3000,
   fieldElement: NONE,
+  classNameType: TYPE_CC1,
 } as const satisfies SettingOther;
 const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   potential: Valid.isStatus1,
@@ -659,6 +677,7 @@ const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   dps4: Valid.isDps,
   dps5: Valid.isDps,
   fieldElement: Valid.isStatus2,
+  classNameType: Valid.isClassNameTypeStatus,
 } as const;
 
 export type Setting = SettingUnit & SettingFormation & SettingOther;
@@ -678,6 +697,9 @@ export const Setting = {
   STORAGE_SESSION,
   TYPE_ENABLED,
   TYPE_DISABLED,
+  TYPE_CC1,
+  TYPE_CC4,
+  TYPE_EQUIPMENT,
   list: Data.getKeys(defaultSetting),
   isValidMul: Valid.isMul,
   isValidAdd: Valid.isAdd,
