@@ -30201,5 +30201,134 @@
         ]
       }
     ]
+  },
+  {
+    "id": 348,
+    "unitName": "【マーシアン娘】マルゼア",
+    "unitShortName": "マルゼア",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "火",
+    "species": "エイリアン",
+    "hp": 4523,
+    "attack": 684,
+    "defense": 460,
+    "resist": 239,
+    "supplements": [
+      "火傷無効",
+      "凍結無効"
+    ],
+    "exSkill1": {
+      "skillName": "業火の鞭",
+      "attackMul": 260,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-8/発動",
+        "火傷付与(超)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      {
+        "fieldBuffFactor": 200
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "fieldElements": [
+          "火"
+        ]
+      },
+      {
+        "skill": 0,
+        "isNotAbility": true,
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ]
+      },
+      {
+        "featureName": "common-proper-burn",
+        "isConditionalBuff": true,
+        "damageFactor": 110,
+        "potentialBonus": {
+          "damageFactor": 115
+        }
+      },
+      {
+        "featureName": "common-skill-dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 30
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper-burn"
+        ]
+      },
+      {
+        "isGeneralProper": true,
+        "exclude": [
+          "class-debuff"
+        ],
+        "skill": 1,
+        "features": [
+          "common-skill-dot"
+        ]
+      },
+      {
+        "isGeneralProper": true,
+        "exclude": [
+          "class-debuff"
+        ],
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "isGeneralProper": true,
+        "exclude": [
+          "class-debuff"
+        ],
+        "skill": 1,
+        "features": [
+          "common-burn-dot"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "火傷特効"
+        ],
+        "target": "全体",
+        "value": 110,
+        "potentialBonus": {
+          "value": 115
+        }
+      }
+    ]
   }
 ]
