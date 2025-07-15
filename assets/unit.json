@@ -19309,6 +19309,86 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/attack-mulの時間はwiki情報",
+    "TODO_FATAL": "ex1射程",
+    "id": 194,
+    "unitName": "【聖菓のワーベア娘】テティ",
+    "unitShortName": "テティ",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "地",
+    "hp": 7128,
+    "attack": 913,
+    "defense": 337,
+    "resist": 141,
+    "exSkill1": {
+      "skillName": "ケーキ乱舞！",
+      "hpMul": 150,
+      "attackMul": 150,
+      "target": 3,
+      "range": 999,
+      "duration": "永続",
+      "cooldown": 120,
+      "supplements": [
+        "鈍足-30%(15秒)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "スキル初回待ち時間-12"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "鈍足-15%(15秒)→命中"
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "conditions": [
+          {
+            "key": "s",
+            "value": 100
+          }
+        ],
+        "attackMul": 150
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 195,
     "unitName": "【風神娘】シナツ",
