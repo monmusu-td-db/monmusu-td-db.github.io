@@ -18494,6 +18494,125 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "dotのintervalはwiki情報",
+    "id": 186,
+    "unitName": "【ファイアードレイク娘】イグニ",
+    "unitShortName": "イグニ/進化",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "火",
+    "species": "ドラゴン",
+    "hp": 4465,
+    "attack": 723,
+    "defense": 339,
+    "resist": 109,
+    "damageType": "魔法",
+    "exSkill1": {
+      "skillName": "猛火焔舞",
+      "attackMul": 220,
+      "targetAdd": 1,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "fieldBuffFactor": 300
+      },
+      {
+        "skill": 1,
+        "fieldElements": [
+          "火"
+        ]
+      },
+      {
+        "featureName": "common-dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 15
+        }
+      },
+      {
+        "featureName": "common-dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 15
+        },
+        "interval": 15
+      },
+      {
+        "featureName": "common-dot",
+        "require": [
+          "火マス"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 30
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-buff-factor",
+        "require": [
+          "火属性かつ火マス"
+        ],
+        "target": "射程内",
+        "duration": "常時",
+        "value": 300
+      },
+      {
+        "type": "field-buff-add",
+        "target": "射程内",
+        "duration": "常時",
+        "element": "火"
+      },
+      {
+        "type": "field-buff-factor",
+        "skill": 1,
+        "require": [
+          "火属性かつ火マス"
+        ],
+        "target": "射程内",
+        "value": 300
+      },
+      {
+        "type": "field-buff-add",
+        "skill": 1,
+        "target": "射程内",
+        "element": "火"
+      }
+    ]
+  },
+  {
     "TODO_DESC": "StatはWiki情報",
     "id": 187,
     "unitName": "【ワーウルフ娘】ウォルーザ",
