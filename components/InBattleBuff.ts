@@ -277,6 +277,13 @@ export default class InBattleBuff implements TableRow<Key> {
       statType: stat.buffRange,
       calculater: (s) => this.getRangeValue(s),
       factors: (s) => this.situation.range.getFactors(s),
+      color: (s) => {
+        const value = this.buffRange.getValue(s);
+        const situationValue = this.situation.range.getValue(s);
+        if (value === situationValue) {
+          return this.situation.range.getColor(s);
+        }
+      },
       isReversed: true,
     });
 
