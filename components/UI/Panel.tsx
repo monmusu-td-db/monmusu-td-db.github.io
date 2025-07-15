@@ -828,7 +828,7 @@ const _TabOther = memo(function TabOther({
         <Col sm={8} md={5} className="d-grid">
           <PanelUI.FormRadio
             name="s-class-name-type"
-            items={["CC1", "CC4", "装備名"]}
+            items={["CC1", "CC4", "武器種"]}
             value={(() => {
               switch (setting.classNameType) {
                 case Setting.TYPE_CC1:

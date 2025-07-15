@@ -29,6 +29,7 @@ type TypeBonusStatus = typeof TYPE_ENABLED | typeof TYPE_DISABLED;
 const TYPE_CC1 = "cc1";
 const TYPE_CC4 = "cc4";
 const TYPE_EQUIPMENT = "equipment";
+const DEFAULT_CLASS_NAME_TYPE = TYPE_EQUIPMENT;
 type ClassNameTypeStatus =
   | typeof TYPE_CC1
   | typeof TYPE_CC4
@@ -666,7 +667,7 @@ const defaultSettingOther = {
   dps4: 2000,
   dps5: 3000,
   fieldElement: NONE,
-  classNameType: TYPE_CC1,
+  classNameType: DEFAULT_CLASS_NAME_TYPE,
 } as const satisfies SettingOther;
 const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   potential: Valid.isStatus1,
