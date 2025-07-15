@@ -19980,6 +19980,80 @@
     }
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/攻撃力は推測",
+    "TODO_FATAL": "スタン蓄積値はwiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 202,
+    "unitName": "【牛鬼娘】ウシオ",
+    "unitShortName": "ウシオ",
+    "rarity": "L",
+    "class": "サムライ",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 8335,
+    "attack": 1163,
+    "defense": 556,
+    "resist": 129,
+    "supplements": [
+      "スタン付与10%→命中"
+    ],
+    "exSkill1": {
+      "skillName": "剛剣・山津波",
+      "hpMul": 160,
+      "attackMul": 380,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "rounds": 2,
+        "supplements": [
+          "スタン付与20%→命中"
+        ],
+        "deleteSupplements": [
+          "スタン付与10%→命中"
+        ]
+      },
+      {
+        "featureName": "common-proper-stan",
+        "isConditionalBuff": true,
+        "damageFactor": 240,
+        "potentialBonus": {
+          "damageFactor": 260
+        }
+      }
+    ],
+    "costAdd": 3,
+    "hpMul": 130,
+    "attackMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper-stan"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper-stan"
+        ]
+      }
+    ]
+  },
+  {
     "id": 203,
     "unitName": "【オピオタウロス娘】オラムス",
     "unitShortName": "オラムス",
