@@ -18549,7 +18549,13 @@
           "key": "attack",
           "value": 15
         },
-        "interval": 15
+        "interval": 15,
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 20
+          }
+        }
       },
       {
         "featureName": "common-dot",
@@ -18559,6 +18565,12 @@
         "staticDamage": {
           "key": "attack",
           "value": 30
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 40
+          }
         }
       }
     ],
@@ -19328,10 +19340,7 @@
       "target": 3,
       "range": 999,
       "duration": "永続",
-      "cooldown": 120,
-      "supplements": [
-        "鈍足-30%(15秒)→命中"
-      ]
+      "cooldown": 120
     },
     "potentials": [
       "出撃コスト-1",
@@ -19343,9 +19352,28 @@
     "features": [
       {
         "skill": 0,
+        "isNotAbility": true,
         "supplements": [
           "鈍足-15%(15秒)→命中"
-        ]
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-20%(15秒)→命中"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isNotAbility": true,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "鈍足-30%(15秒)→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-40%(15秒)→命中"
+          ]
+        }
       },
       {
         "featureName": "attack-mul",
@@ -19382,6 +19410,13 @@
       },
       {
         "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
         "features": [
           "common-regenerate-3%"
         ]
