@@ -2744,9 +2744,15 @@ export default class Situation implements TableRow<Keys> {
           case cond.destroyerRanged:
             return fn(cond.destroyerRanged) || features.includes("class-melee");
           case cond.whipperDebuff:
-            return fn(cond.whipperDebuff) && !fn(cond.action);
+            return (
+              (fn(cond.whipperDebuff) || item.isGeneralProper) &&
+              !fn(cond.action)
+            );
           case cond.whipperDebuffAction:
-            return fn(cond.whipperDebuff) && fn(cond.action);
+            return (
+              (fn(cond.whipperDebuff) || item.isGeneralProper) &&
+              (fn(cond.action) || item.isGeneralProperAction)
+            );
           default:
             return fn(filter);
         }

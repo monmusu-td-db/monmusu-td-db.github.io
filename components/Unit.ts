@@ -1471,6 +1471,17 @@ const units = (() => {
         "　最新ユニットID:" +
         lastId
     );
+
+    const pendingIds = (() => {
+      const ret = [];
+      for (let id = 1; id <= lastId; id++) {
+        if (!ids.has(id)) {
+          ret.push(id);
+        }
+      }
+      return ret;
+    })();
+    console.log("未実装ユニットID:[" + pendingIds.join(", ") + "]");
   }
 
   return ret;

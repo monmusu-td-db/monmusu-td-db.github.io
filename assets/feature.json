@@ -360,6 +360,28 @@
     ]
   },
   {
+    "TODO_DESC": "特効表示改修に使う",
+    "featureName": "common-proper-poison",
+    "conditions": [
+      "特"
+    ]
+  },
+  {
+    "TODO_DESC": "特効表示改修に使う",
+    "featureName": "common-proper-burn",
+    "conditions": [
+      "特"
+    ]
+  },
+  {
+    "featureName": "common-proper-burn",
+    "hasPotentials": [
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "isConditionalBuff": true,
+    "damageFactor": 120
+  },
+  {
     "featureName": "common-token-limit",
     "annotations": [
       "付与トークン込み耐久値"
@@ -515,6 +537,18 @@
     ],
     "interval": 30,
     "target": "射程内",
+    "splash": false,
+    "damageType": "貫通"
+  },
+  {
+    "featureName": "common-skill-dot",
+    "isAbility": true,
+    "annotations": [
+      "継続ダメージ"
+    ],
+    "interval": 30,
+    "target": "射程内",
+    "splash": false,
     "damageType": "貫通"
   },
   {
@@ -531,6 +565,7 @@
     "interval": 90,
     "target": "命中",
     "rounds": 1,
+    "splash": false,
     "duration": 30,
     "damageType": "貫通"
   },
