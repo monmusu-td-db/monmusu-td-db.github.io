@@ -18590,12 +18590,6 @@
         "value": 300
       },
       {
-        "type": "field-buff-add",
-        "target": "射程内",
-        "duration": "常時",
-        "element": "火"
-      },
-      {
         "type": "field-buff-factor",
         "skill": 1,
         "require": [
@@ -18603,6 +18597,12 @@
         ],
         "target": "射程内",
         "value": 300
+      },
+      {
+        "type": "field-buff-add",
+        "target": "射程内",
+        "duration": "常時",
+        "element": "火"
       },
       {
         "type": "field-buff-add",
@@ -29000,8 +29000,20 @@
     "buffs": [
       {
         "type": "field-buff-factor",
+        "require": [
+          "水属性かつ水マス"
+        ],
         "target": "射程内",
         "duration": "常時",
+        "value": 300
+      },
+      {
+        "type": "field-buff-factor",
+        "skill": 1,
+        "require": [
+          "水属性かつ水マス"
+        ],
+        "target": "射程内",
         "value": 300
       },
       {
@@ -29014,18 +29026,10 @@
         ]
       },
       {
+        "type": "field-buff-add",
         "skill": 1,
         "target": "射程内",
-        "effects": [
-          {
-            "type": "field-buff-factor",
-            "value": 300
-          },
-          {
-            "type": "field-buff-add",
-            "element": "水"
-          }
-        ]
+        "element": "水"
       }
     ]
   },
