@@ -128,8 +128,8 @@
     "buffs": [
       {
         "type": "redeploy-time-cut",
+        "skill": -1,
         "target": "全体",
-        "duration": "常時",
         "value": 40
       },
       {
@@ -711,6 +711,7 @@
     "buffs": [
       {
         "type": "attack-mul",
+        "skill": -1,
         "require": [
           "コボルト特性"
         ],
@@ -6091,8 +6092,9 @@
     "buffs": [
       {
         "type": "critical-chance-add",
+        "skill": -1,
         "require": [
-          "風マス"
+          "自身が風マスに配置中"
         ],
         "target": "射程内",
         "value": 20
@@ -8953,6 +8955,7 @@
           "武器",
           "ドラゴン特性"
         ],
+        "skill": -1,
         "target": "全体",
         "value": 110
       },
@@ -8974,6 +8977,7 @@
         ]
       },
       {
+        "skill": -1,
         "target": "全体",
         "effects": [
           {
@@ -8998,6 +9002,7 @@
         "require": [
           "ドラゴン特性"
         ],
+        "skill": -1,
         "target": "全体",
         "effects": [
           {
@@ -10501,6 +10506,7 @@
         "require": [
           "飛行移動以外"
         ],
+        "skill": -1,
         "target": "全体",
         "value": 20,
         "potentialBonus": {
@@ -10512,6 +10518,7 @@
         "require": [
           "飛行移動"
         ],
+        "skill": -1,
         "target": "全体",
         "value": 40,
         "potentialBonus": {
@@ -14595,8 +14602,8 @@
     "buffs": [
       {
         "type": "physical-damage-debuff",
+        "skill": -1,
         "target": "ブロック敵",
-        "duration": "常時",
         "value": 120,
         "potentialBonus": {
           "value": 128
@@ -15334,6 +15341,7 @@
         "require": [
           "風属性"
         ],
+        "skill": -1,
         "target": "全体",
         "effects": [
           {
@@ -15737,6 +15745,7 @@
     "buffs": [
       {
         "type": "weather-change",
+        "skill": -1,
         "target": "全体",
         "duration": 4,
         "weather": "雨",
@@ -15862,16 +15871,23 @@
         "require": [
           "風属性"
         ],
+        "skill": -1,
         "target": "全体",
+        "supplements": [
+          "自身が風マス以外に配置中"
+        ],
         "value": 40
       },
       {
         "type": "move-speed-add",
         "require": [
-          "風属性",
-          "風マス配置中"
+          "風属性"
         ],
+        "skill": -1,
         "target": "全体",
+        "supplements": [
+          "自身が風マスに配置中"
+        ],
         "value": 80
       },
       {
@@ -18614,7 +18630,7 @@
       {
         "type": "field-buff-factor",
         "require": [
-          "火属性かつ火マス"
+          "火属性かつ火マス配置ユニット"
         ],
         "target": "射程内",
         "duration": "常時",
@@ -18624,7 +18640,7 @@
         "type": "field-buff-factor",
         "skill": 1,
         "require": [
-          "火属性かつ火マス"
+          "火属性かつ火マス配置ユニット"
         ],
         "target": "射程内",
         "value": 300
@@ -20819,6 +20835,7 @@
           "火マス"
         ],
         "target": "射程内",
+        "duration": "常時",
         "value": 106
       },
       {
@@ -21121,6 +21138,7 @@
         "require": [
           "近接クラス"
         ],
+        "skill": -1,
         "target": "付与対象",
         "range": null,
         "effects": [
@@ -21138,6 +21156,7 @@
         "require": [
           "遠隔/スカウト系クラス"
         ],
+        "skill": -1,
         "target": "付与対象",
         "range": null,
         "effects": [
@@ -22955,6 +22974,7 @@
     "buffs": [
       {
         "type": "attack-mul",
+        "skill": -1,
         "target": "付与対象",
         "range": null,
         "duration": 40,
@@ -23598,6 +23618,15 @@
     "buffs": [
       {
         "type": "attack-speed-buff",
+        "target": "射程内",
+        "value": 120,
+        "potentialBonus": {
+          "value": 125
+        }
+      },
+      {
+        "type": "attack-speed-buff",
+        "skill": 1,
         "target": "射程内",
         "value": 120,
         "potentialBonus": {
@@ -24650,10 +24679,22 @@
         }
       },
       {
+        "type": "defense-mul",
+        "skill": 1,
+        "require": [
+          "地マス"
+        ],
+        "target": "射程内",
+        "value": 120,
+        "potentialBonus": {
+          "value": 125
+        }
+      },
+      {
         "type": "attack-mul",
         "skill": 1,
         "require": [
-          "他者"
+          "自身以外"
         ],
         "target": "射程内",
         "value": 130
@@ -24661,7 +24702,7 @@
       {
         "skill": 1,
         "require": [
-          "他者"
+          "自身以外"
         ],
         "target": "射程内",
         "effects": [
@@ -27376,6 +27417,12 @@
     "supplements": [
       "limit30秒"
     ],
+    "features": [
+      {
+        "featureName": "parent-skill1",
+        "parentSkill": 1
+      }
+    ],
     "isUnhealable": true,
     "situations": [
       {
@@ -27387,10 +27434,43 @@
         "require": [
           "近接クラス"
         ],
+        "skill": -1,
         "target": "付与対象",
         "range": null,
+        "duration": 30,
         "supplements": [
-          "※ex1で付与される場合、対象制限なし"
+          "手動配置"
+        ],
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 20,
+            "potentialBonus": {
+              "value": 24
+            }
+          }
+        ]
+      },
+      {
+        "require": [
+          "対象制限なし"
+        ],
+        "skill": -1,
+        "features": [
+          "parent-skill1"
+        ],
+        "target": "付与対象",
+        "range": null,
+        "duration": 30,
+        "supplements": [
+          "ex1による自動配置"
         ],
         "effects": [
           {
@@ -27414,11 +27494,33 @@
         "require": [
           "遠隔/スカウト系クラス"
         ],
+        "skill": -1,
         "target": "付与対象",
         "range": null,
         "value": 120,
+        "duration": 30,
         "supplements": [
-          "※ex1で付与される場合、対象制限なし"
+          "手動配置"
+        ],
+        "potentialBonus": {
+          "value": 124
+        }
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "対象制限なし"
+        ],
+        "skill": -1,
+        "features": [
+          "parent-skill1"
+        ],
+        "target": "付与対象",
+        "range": null,
+        "value": 120,
+        "duration": 30,
+        "supplements": [
+          "ex1による自動配置"
         ],
         "potentialBonus": {
           "value": 124
@@ -28383,7 +28485,44 @@
     "buffs": [
       {
         "target": "射程内",
-        "duration": "常時",
+        "effects": [
+          {
+            "type": "blind-resist",
+            "status": "暗闇",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "stan-resist",
+            "status": "スタン",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "petrify-resist",
+            "status": "石化",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          },
+          {
+            "type": "freeze-resist",
+            "status": "凍結",
+            "value": 30,
+            "potentialBonus": {
+              "value": 35
+            }
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
         "effects": [
           {
             "type": "blind-resist",
@@ -29203,8 +29342,8 @@
     "buffs": [
       {
         "type": "magical-damage-debuff",
+        "skill": -1,
         "target": "ブロック敵",
-        "duration": "常時",
         "value": 120,
         "potentialBonus": {
           "value": 125
@@ -29496,7 +29635,7 @@
       {
         "type": "field-buff-factor",
         "require": [
-          "水属性かつ水マス"
+          "水属性かつ水マス配置ユニット"
         ],
         "target": "射程内",
         "duration": "常時",
@@ -29506,7 +29645,7 @@
         "type": "field-buff-factor",
         "skill": 1,
         "require": [
-          "水属性かつ水マス"
+          "水属性かつ水マス配置ユニット"
         ],
         "target": "射程内",
         "value": 300
@@ -29966,10 +30105,15 @@
     ],
     "buffs": [
       {
-        "type": "attack-speed-buff",
+        "type": "attack-speed-add-buff",
         "target": "射程内",
-        "duration": "常時",
-        "value": 999
+        "value": 40
+      },
+      {
+        "type": "attack-speed-add-buff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 40
       },
       {
         "skill": 1,
@@ -31116,6 +31260,7 @@
         "require": [
           "火傷特効"
         ],
+        "skill": -1,
         "target": "全体",
         "value": 110,
         "potentialBonus": {

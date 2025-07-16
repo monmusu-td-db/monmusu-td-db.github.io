@@ -29,7 +29,7 @@ import {
 
 const tableColor = Data.tableColorAlias;
 
-interface JsonSituation {
+export interface JsonSituation {
   unitId: number;
   skill?: number;
   isGeneral?: boolean;

@@ -45,6 +45,7 @@ const defensiveKeys = [
 const attackSpeedKeys = [
   stat.buffAttackSpeed,
   stat.buffDelayMul,
+  stat.buffAttackSpeedAdd,
 ] as const satisfies InBattleBuffKey[];
 
 const moveSpeedKeys = [

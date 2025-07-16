@@ -1,5 +1,5 @@
 import * as Data from "./Data";
-import Situation from "./Situation";
+import Situation, { type JsonSituation } from "./Situation";
 import * as Stat from "./Stat";
 import type { Setting, States } from "./States";
 import { InBattleBuffUI } from "./UI/InBattleBuffUI";
@@ -36,6 +36,7 @@ const keys = [
   stat.buffMagicalDamageDebuff,
   stat.buffAttackSpeed,
   stat.buffDelayMul,
+  stat.buffAttackSpeedAdd,
   stat.buffPhysicalEvasion,
   stat.buffMagicalEvasion,
   stat.buffMoveSpeedAdd,
@@ -80,6 +81,7 @@ class BuffType {
     criDamageLimitAdd: "critical-damage-limit-add",
     attackSpeedBuff: "attack-speed-buff",
     delayMul: "delay-mul",
+    attackSpeedAdd: "attack-speed-add-buff",
     physicalEvasion: "physical-evasion",
     magicalEvasion: "magical-evasion",
     moveSpeedAdd: "move-speed-add",
@@ -177,7 +179,7 @@ export default class InBattleBuff implements TableRow<Key> {
 
   readonly unitId: Stat.Root<number | undefined>;
   readonly unitShortName: Stat.UnitName;
-  readonly skillName: Stat.Root<string | undefined>;
+  readonly skillName: Stat.SkillName;
   readonly buffTarget: Stat.Root<string | undefined>;
   readonly buffRange: Stat.BuffRange;
   readonly initialTime: Stat.Root;
@@ -198,6 +200,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffMagicalDamageDebuff: Stat.Root;
   readonly buffAttackSpeed: Stat.Root;
   readonly buffDelayMul: Stat.Root;
+  readonly buffAttackSpeedAdd: Stat.Root;
   readonly buffPhysicalEvasion: Stat.Root;
   readonly buffMagicalEvasion: Stat.Root;
   readonly buffMoveSpeedAdd: Stat.Root;
@@ -220,11 +223,12 @@ export default class InBattleBuff implements TableRow<Key> {
     this.unit = unit;
     this.rawBuff = buff;
     {
-      let src;
-      if (!buff.skill) {
-        src = { unitId: unit.id };
-      } else {
-        src = { unitId: unit.id, skill: buff.skill };
+      let src: JsonSituation = { unitId: unit.id };
+      if (buff.skill) {
+        src = { ...src, skill: buff.skill };
+      }
+      if (buff.features) {
+        src = { ...src, features: buff.features };
       }
       this.situation = new Situation(src, id);
     }
@@ -250,18 +254,7 @@ export default class InBattleBuff implements TableRow<Key> {
     this.unitId = unit.unitId;
     this.unitShortName = unit.unitShortName;
 
-    this.skillName = new Stat.Root({
-      statType: stat.skillName,
-      calculater: (s) => {
-        switch (buff.skill) {
-          case 1:
-            return unit.exSkill1.getValue(s)?.skillName;
-          case 2:
-            return unit.exSkill2.getValue(s)?.skillName;
-        }
-        return;
-      },
-    });
+    this.skillName = this.situation.skillName;
 
     this.buffTarget = new Stat.Root({
       statType: stat.buffTarget,
@@ -307,9 +300,11 @@ export default class InBattleBuff implements TableRow<Key> {
           ? buff.potentialBonus?.duration ?? buff.duration
           : buff.duration;
         const inBattleBuff = parse(rawValue);
+        const inBattleBuffAlways =
+          !buff.skill || buff.skill === -1 ? Data.Duration.always : undefined;
         const factors: Data.DurationFactors = {
           ...this.situation.duration.getFactors(s),
-          inBattleBuff,
+          inBattleBuff: inBattleBuff ?? inBattleBuffAlways,
         };
         return Situation.calculateDurationResult(factors);
       },
@@ -452,7 +447,13 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffDelayMul = new Stat.Root({
       statType: stat.buffDelayMul,
       calculater: this.getEffectCalculaterFn(typeKey.delayMul),
-      text: (s) => this.getMulPercentText(this.buffDelayMul.getValue(s)),
+      text: (s) => this.getDelayPercentText(this.buffDelayMul.getValue(s)),
+    });
+
+    this.buffAttackSpeedAdd = new Stat.Root({
+      statType: stat.buffAttackSpeedAdd,
+      calculater: this.getEffectCalculaterFn(typeKey.attackSpeedAdd),
+      isReversed: true,
     });
 
     const getEvasion = (isPhysical: boolean) => {
@@ -618,6 +619,13 @@ export default class InBattleBuff implements TableRow<Key> {
       return;
     }
     return this.getPercentText(value - 100);
+  }
+
+  private getDelayPercentText(value: number | undefined): string | undefined {
+    if (value === undefined) {
+      return;
+    }
+    return this.getPercentText(-value + 100);
   }
 
   private getTargetComparer(setting: Setting): number | undefined {
