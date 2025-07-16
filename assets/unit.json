@@ -14101,7 +14101,7 @@
   {
     "id": 135,
     "unitName": "【サンダーペガサス娘】スズ",
-    "unitShortName": "スズ/雷",
+    "unitShortName": "スズ/進化",
     "rarity": "L",
     "class": "アーチャー",
     "element": "光",
@@ -14166,7 +14166,7 @@
   {
     "id": 136,
     "unitName": "【ポイズンスライム娘】リン",
-    "unitShortName": "リン/毒",
+    "unitShortName": "リン/進化",
     "rarity": "L",
     "class": "ハーミット",
     "element": "水",
@@ -17469,7 +17469,7 @@
     "TODO_FATAL": "攻撃速度バフ/待機時間短縮は要検証/スタン蓄積値はwiki情報",
     "id": 178,
     "unitName": "【号令のシルバードラゴン娘】アルギュロ",
-    "unitShortName": "アルギュロ/学",
+    "unitShortName": "アルギュロ/学園",
     "rarity": "L",
     "class": "ガンナー",
     "element": "光",
@@ -18241,7 +18241,7 @@
   {
     "id": 185,
     "unitName": "【ガーデンノーム娘】ペトラ",
-    "unitShortName": "ペトラ/庭",
+    "unitShortName": "ペトラ/進化",
     "rarity": "L",
     "class": "バード",
     "element": "地",
@@ -19123,7 +19123,7 @@
     "TODO_FATAL": "射程",
     "id": 192,
     "unitName": "【氷雪のカリュブディス娘】リュプチェ",
-    "unitShortName": "リュプチェ/Xm",
+    "unitShortName": "リュプチェ/Xmas",
     "rarity": "L",
     "class": "シールドナイト",
     "element": "水",
@@ -23504,7 +23504,7 @@
   {
     "id": 242,
     "unitName": "【灼嫁のイフリート娘】イフィジャール",
-    "unitShortName": "イフィジャール/J",
+    "unitShortName": "イフィジャール/嫁",
     "rarity": "L",
     "class": "バーバリアン",
     "element": "火",
@@ -27072,7 +27072,7 @@
   {
     "id": 296,
     "unitName": "【聖霊鈴ワイト娘】バロウ",
-    "unitShortName": "バロウ/Xm",
+    "unitShortName": "バロウ/Xmas",
     "rarity": "L",
     "class": "パペッティア",
     "element": "光",
