@@ -1104,6 +1104,7 @@
     "placement": "遠",
     "features": [
       {
+        "isNotAbility": true,
         "attackDebuff": {
           "key": "attack-base",
           "value": 50

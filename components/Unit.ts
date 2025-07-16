@@ -123,6 +123,7 @@ export interface JsonBuffValue {
 interface JsonBuffBase extends JsonBuffValue {
   readonly require?: readonly string[];
   readonly skill?: number;
+  readonly features?: readonly string[];
   readonly target?: string;
   readonly range?: number | null;
   readonly duration?: string | number;

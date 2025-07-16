@@ -21654,6 +21654,111 @@
     "isUnhealable": true
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/CTカットバフ",
+    "id": 218,
+    "unitName": "【双鳴のアイドル】ルププ＆タンタル",
+    "unitShortName": "ルププ＆タンタル",
+    "rarity": "L",
+    "class": "バード",
+    "element": "闇",
+    "hp": 3487,
+    "attack": 256,
+    "defense": 365,
+    "resist": 360,
+    "exSkill1": {
+      "skillName": "キュートデュオ",
+      "duration": 30,
+      "cooldown": 30,
+      "skillFeatures": [
+        {
+          "featureName": "over-charge",
+          "isOverCharge": true,
+          "rangeMul": 220
+        }
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "魔法防御力+90",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "isNotAbility": true,
+        "supplements": [
+          "CT-4秒/常時→近接ユニット"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "CT-6秒/常時→近接ユニット"
+          ]
+        }
+      },
+      {
+        "skill": 0,
+        "isNotAbility": true,
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 15
+        },
+        "supplements": [
+          "ATK-15%→射程内",
+          "鈍足-15%→射程内"
+        ]
+      },
+      {
+        "skill": 1,
+        "isNotAbility": true,
+        "isConditionalSkillBuff": true,
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 30
+        },
+        "supplements": [
+          "ATK-30%→射程内",
+          "鈍足-30%→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "over-charge"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "require": [
+          "スキル発動中ユニット"
+        ],
+        "target": "射程内",
+        "value": 130
+      },
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "features": [
+          "over-charge"
+        ],
+        "require": [
+          "スキル発動中ユニット"
+        ],
+        "target": "射程内",
+        "value": 130
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 219,
     "unitName": "【アプサラス娘】チュニーラ",
