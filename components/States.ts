@@ -781,6 +781,63 @@ function filterReducer(state: Filter, action: FilterAction): Filter {
   }
 }
 
+export function useAllStates() {
+  const [filter, dispatchFilter] = useReducer(filterReducer, defaultFilter);
+  const [setting, dispatchSetting] = useReducer(settingReducer, defaultSetting);
+  const [query, setQuery] = useState("");
+  const [uISetting, dispatchUISetting] = useReducer(
+    uISettingReducer,
+    defaultUISetting
+  );
+  const [saveOption, setSaveOption] = useState<SaveStatus>(DEFAULT_SAVE_OPTION);
+
+  const [init, setInit] = useState(false);
+  const storageOption = Contexts.useSaveOption();
+
+  useEffect(() => {
+    dispatchFilter({
+      type: FilterAction.initialize,
+      initialValue: Storage.getFilter(),
+    });
+    dispatchSetting({
+      type: SettingAction.change,
+      nextValue: Storage.getSetting(),
+    });
+    setQuery(Storage.getQuery());
+    dispatchUISetting({
+      type: UISettingAction.change,
+      nextValue: Storage.getUISetting(),
+    });
+    setSaveOption(Storage.getSaveOption());
+
+    setInit(true);
+  }, []);
+
+  useEffect(() => {
+    if (init) {
+      const isLocal = storageOption === STORAGE_LOCAL;
+      Storage.setFilter(filter, isLocal);
+      Storage.setSetting(setting, isLocal);
+      Storage.setQuery(query);
+      Storage.setUISetting(uISetting, isLocal);
+      Storage.setSaveOption(saveOption);
+    }
+  }, [filter, setting, query, uISetting, saveOption, init, storageOption]);
+
+  return {
+    filter,
+    dispatchFilter,
+    setting,
+    dispatchSetting,
+    query,
+    setQuery,
+    uISetting,
+    dispatchUISetting,
+    saveOption,
+    setSaveOption,
+  };
+}
+
 export function useFilterState(): [Filter, Dispatch<FilterAction>] {
   const [filter, dispatch] = useReducer(filterReducer, defaultFilter);
   const [init, setInit] = useState(false);

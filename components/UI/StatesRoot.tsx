@@ -1,80 +1,33 @@
 "use client";
 
-import {
-  Contexts,
-  useFilterState,
-  useQueryState,
-  useSaveOptionState,
-  useSettingState,
-  useUISettingState,
-} from "@/components/States";
+import { Contexts, useAllStates } from "@/components/States";
 import { type ReactNode } from "react";
 
 export function StatesRoot({ children }: { children: ReactNode }) {
+  const obj = useAllStates();
   return (
-    <SaveOptionRoot>
-      <SettingRoot>
-        <FilterRoot>
-          <QueryRoot>
-            <UISettingRoot>{children}</UISettingRoot>
-          </QueryRoot>
-        </FilterRoot>
-      </SettingRoot>
-    </SaveOptionRoot>
-  );
-}
-
-function SaveOptionRoot({ children }: { children: ReactNode }) {
-  const [saveOption, setSaveOption] = useSaveOptionState();
-  return (
-    <Contexts.SaveOption.Provider value={saveOption}>
-      <Contexts.SetSaveOption.Provider value={setSaveOption}>
-        {children}
+    <Contexts.SaveOption.Provider value={obj.saveOption}>
+      <Contexts.SetSaveOption.Provider value={obj.setSaveOption}>
+        <Contexts.Setting.Provider value={obj.setting}>
+          <Contexts.DispatchSetting.Provider value={obj.dispatchSetting}>
+            <Contexts.Filter.Provider value={obj.filter}>
+              <Contexts.DispatchFilter.Provider value={obj.dispatchFilter}>
+                <Contexts.Query.Provider value={obj.query}>
+                  <Contexts.SetQuery.Provider value={obj.setQuery}>
+                    <Contexts.UISetting.Provider value={obj.uISetting}>
+                      <Contexts.DispatchUISetting.Provider
+                        value={obj.dispatchUISetting}
+                      >
+                        {children}
+                      </Contexts.DispatchUISetting.Provider>
+                    </Contexts.UISetting.Provider>
+                  </Contexts.SetQuery.Provider>
+                </Contexts.Query.Provider>
+              </Contexts.DispatchFilter.Provider>
+            </Contexts.Filter.Provider>
+          </Contexts.DispatchSetting.Provider>
+        </Contexts.Setting.Provider>
       </Contexts.SetSaveOption.Provider>
     </Contexts.SaveOption.Provider>
-  );
-}
-
-function SettingRoot({ children }: { children: ReactNode }) {
-  const [setting, dispatch] = useSettingState();
-  return (
-    <Contexts.Setting.Provider value={setting}>
-      <Contexts.DispatchSetting.Provider value={dispatch}>
-        {children}
-      </Contexts.DispatchSetting.Provider>
-    </Contexts.Setting.Provider>
-  );
-}
-
-function FilterRoot({ children }: { children: ReactNode }) {
-  const [filter, dispatch] = useFilterState();
-  return (
-    <Contexts.Filter.Provider value={filter}>
-      <Contexts.DispatchFilter.Provider value={dispatch}>
-        {children}
-      </Contexts.DispatchFilter.Provider>
-    </Contexts.Filter.Provider>
-  );
-}
-
-function QueryRoot({ children }: { children: ReactNode }) {
-  const [query, setQuery] = useQueryState();
-  return (
-    <Contexts.Query.Provider value={query}>
-      <Contexts.SetQuery.Provider value={setQuery}>
-        {children}
-      </Contexts.SetQuery.Provider>
-    </Contexts.Query.Provider>
-  );
-}
-
-function UISettingRoot({ children }: { children: ReactNode }) {
-  const [uISetting, dispatch] = useUISettingState();
-  return (
-    <Contexts.UISetting.Provider value={uISetting}>
-      <Contexts.DispatchUISetting.Provider value={dispatch}>
-        {children}
-      </Contexts.DispatchUISetting.Provider>
-    </Contexts.UISetting.Provider>
   );
 }
