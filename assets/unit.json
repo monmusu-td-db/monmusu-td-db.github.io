@@ -8861,6 +8861,7 @@
     },
     "features": [
       {
+        "isNotAbility": true,
         "supplements": [
           "毒耐性+30→全体",
           "毒耐性+60→全体ドラゴン",
@@ -8880,6 +8881,7 @@
         "require": [
           "スキル"
         ],
+        "isNotAbility": true,
         "isConditionalBuff": true,
         "supplements": [
           "毒回復/発動→全体",
@@ -8888,6 +8890,7 @@
       },
       {
         "skill": 1,
+        "isNotAbility": true,
         "supplements": [
           "熱波(10秒)/発動"
         ]
@@ -11207,6 +11210,7 @@
     ],
     "features": [
       {
+        "isNotAbility": true,
         "supplements": [
           "毒耐性-40%→射程内敵"
         ],
@@ -11218,6 +11222,7 @@
       },
       {
         "skill": 1,
+        "isNotAbility": true,
         "isConditionalBuff": true,
         "supplements": [
           "tkn+2/発動",
@@ -11370,7 +11375,7 @@
         "wideTarget": false,
         "damageType": "再生",
         "supplements": [
-          "回復→射程内他者"
+          "回復→射程内(自分以外)"
         ]
       }
     ],
@@ -11437,6 +11442,7 @@
     "features": [
       {
         "skill": 1,
+        "isNotAbility": true,
         "isBuffSkill": true,
         "magicalDamageCut": 15,
         "supplements": [
@@ -11480,6 +11486,7 @@
       },
       {
         "skill": 1,
+        "isNotAbility": true,
         "isBuffSkill": true,
         "magicalDamageCut": 15,
         "supplements": [
@@ -14030,6 +14037,7 @@
     "features": [
       {
         "skill": 1,
+        "isNotAbility": true,
         "isBuffSkill": true,
         "supplements": [
           "スタン耐性+30→射程内"
@@ -14037,6 +14045,7 @@
       },
       {
         "featureName": "skill1-debuff",
+        "isAbility": true,
         "annotations": [
           "射程内防御デバフ"
         ],
@@ -24978,6 +24987,9 @@
       },
       {
         "featureName": "dot",
+        "annotations": [
+          "種族特性"
+        ],
         "staticDamage": {
           "key": "attack",
           "value": 5
@@ -26461,6 +26473,7 @@
     "features": [
       {
         "skill": 1,
+        "isNotAbility": true,
         "isBuffSkill": true,
         "supplements": [
           "CT-2秒/発動→射程内"
@@ -30410,6 +30423,7 @@
     ],
     "features": [
       {
+        "isNotAbility": true,
         "attackDebuff": {
           "key": "attack-base",
           "value": 15

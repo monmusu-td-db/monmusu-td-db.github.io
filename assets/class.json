@@ -1136,7 +1136,10 @@
           "key": "static",
           "value": 120
         },
-        "target": "他者"
+        "target": "全体",
+        "supplements": [
+          "自分以外が対象"
+        ]
       },
       {
         "featureName": "class-buff-proper",
@@ -1162,7 +1165,10 @@
           "key": "static",
           "value": 170
         },
-        "target": "他者"
+        "target": "全体",
+        "supplements": [
+          "自分以外が対象"
+        ]
       },
       {
         "featureName": "class-debuff",
