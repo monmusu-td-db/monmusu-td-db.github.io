@@ -18903,6 +18903,7 @@
     ]
   },
   {
+    "TODO_DESC": "移動コスト+5",
     "id": 189,
     "unitName": "【レイス娘】ダルシー",
     "unitShortName": "ダルシー",
@@ -18935,7 +18936,33 @@
     ],
     "features": [
       {
-        "featureName": "attack-mul",
+        "supplements": [
+          "ATK-2%→命中"
+        ]
+      },
+      {
+        "supplements": [
+          "- ATK+[減少値×2]"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "- ATK+[減少値×2.5]"
+          ]
+        }
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 500
+          }
+        ],
+        "attackMul": 500
+      },
+      {
+        "featureName": "attack-mul2",
         "isConditionalBuff": true,
         "conditions": [
           {
@@ -18947,7 +18974,58 @@
       }
     ],
     "physicalEvasion": 30,
-    "magicalEvasion": 30
+    "magicalEvasion": 30,
+    "situations": [
+      {
+        "exclude": [
+          "class-attack-add"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-add"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack-add"
+        ],
+        "isGeneralProper": true,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-add"
+        ],
+        "isGeneralProper": true,
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-add"
+        ],
+        "isGeneralProper": true,
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-add"
+        ],
+        "isGeneralProper": true,
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      }
+    ]
   },
   {
     "TODO_FATAL": "射程",

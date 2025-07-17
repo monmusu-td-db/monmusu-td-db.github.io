@@ -5987,58 +5987,6 @@
     ]
   },
   {
-    "unitId": 189
-  },
-  {
-    "unitId": 189,
-    "skill": 1
-  },
-  {
-    "unitId": 189,
-    "isGeneralProper": true,
-    "features": [
-      "attack-mul"
-    ]
-  },
-  {
-    "unitId": 189,
-    "isGeneralProper": true,
-    "skill": 1,
-    "features": [
-      "attack-mul"
-    ]
-  },
-  {
-    "unitId": 189,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 189,
-    "skill": 1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 189,
-    "isGeneralProper": true,
-    "features": [
-      "attack-mul",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 189,
-    "isGeneralProper": true,
-    "skill": 1,
-    "features": [
-      "attack-mul",
-      "class-action"
-    ]
-  },
-  {
     "unitId": 190
   },
   {
