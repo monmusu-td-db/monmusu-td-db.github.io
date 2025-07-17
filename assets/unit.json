@@ -23392,6 +23392,146 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/加算バフ/種族特性バフ射程はwiki情報",
+    "TODO_FATAL": "ex1攻撃速度",
+    "TODO_STAT_INFERRED": true,
+    "id": 234,
+    "unitName": "【壊奏の猫又娘】ブンコ",
+    "unitShortName": "ブンコ/学園",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 5833,
+    "attack": 1067,
+    "defense": 489,
+    "resist": 142,
+    "exSkill1": {
+      "skillName": "これが私のロックだよ～♪",
+      "attackMul": 380,
+      "attackMotionMul": 999,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "featureName": "support-species",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "種族特性",
+          "妖怪対象加算バフ"
+        ],
+        "conditions": [
+          "援"
+        ],
+        "staticDamage": {
+          "key": "static",
+          "value": 150
+        },
+        "staticDefense": {
+          "key": "static",
+          "value": 150
+        },
+        "staticResist": {
+          "key": "static",
+          "value": 150
+        },
+        "interval": null,
+        "target": "全体",
+        "damageType": null,
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "static",
+            "value": 180
+          },
+          "staticDefense": {
+            "key": "static",
+            "value": 180
+          },
+          "staticResist": {
+            "key": "static",
+            "value": 180
+          }
+        }
+      },
+      {
+        "featureName": "support-attack",
+        "isAbility": true,
+        "isSupport": true,
+        "annotations": [
+          "種族特性",
+          "攻撃時加算バフ"
+        ],
+        "conditions": [
+          "援"
+        ],
+        "staticDamage": {
+          "key": "time-attack-base",
+          "value": 9,
+          "time": 270
+        },
+        "target": "射程内",
+        "range": 180,
+        "flagRangeIsVisible": true,
+        "damageType": null
+      },
+      {
+        "featureName": "support-attack",
+        "supplements": [
+          "ATK+{attack-base*9}(9秒)/攻撃→射程内"
+        ]
+      },
+      {
+        "featureName": "common-ranged",
+        "skill": 1,
+        "fixedDelay": 1
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "support-species"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "support-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "support-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "support-attack"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 235,
     "unitName": "【ベヒモス娘】デイン",
