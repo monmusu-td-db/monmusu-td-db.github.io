@@ -19,8 +19,10 @@ TODOリスト
   属性マスのisConditionalSkillBuff効果を反映
   火傷ダメージの改善/総ダメージ表示追加/火傷ダメージに関する注意を書く
   能力値一時変化を補足に書く
-  バフページ持続時間を確認する
   モンクの配置攻撃に付与効果がのるか調べる
+  バフページに加算バフ追加
+  indicatorBuffの名前を直す
+  他者という表現をなくす
 
 TODO優先度低
   移動攻撃
@@ -462,6 +464,7 @@ const staticDamage = {
   RESIST_BASE: "resist-base",
   STATIC: "static",
   TIME: "time",
+  TIME_ATTACK_BASE: "time-attack-base",
 } as const;
 
 const staticDamageKeyList = [
@@ -475,16 +478,20 @@ const staticDamageKeyList = [
   staticDamage.RESIST_BASE,
   staticDamage.STATIC,
   staticDamage.TIME,
+  staticDamage.TIME_ATTACK_BASE,
 ] as const;
 type StaticDamageKey = (typeof staticDamageKeyList)[number];
 
 export type StaticDamage =
   | {
-      key: Exclude<StaticDamageKey, typeof staticDamage.TIME>;
+      key: Exclude<
+        StaticDamageKey,
+        typeof staticDamage.TIME | typeof staticDamage.TIME_ATTACK_BASE
+      >;
       value: number;
     }
   | {
-      key: typeof staticDamage.TIME;
+      key: typeof staticDamage.TIME | typeof staticDamage.TIME_ATTACK_BASE;
       value: number;
       time: number;
     };
@@ -499,7 +506,11 @@ export const JsonStaticDamage = {
   parse(src: JsonStaticDamage | undefined): StaticDamage | undefined {
     if (src === undefined) return;
     if (staticDamageKeyList.findIndex((k) => k === src.key) !== -1) {
-      if (src.key !== staticDamage.TIME || src.time !== undefined) {
+      if (
+        (src.key !== staticDamage.TIME &&
+          src.key !== staticDamage.TIME_ATTACK_BASE) ||
+        src.time !== undefined
+      ) {
         return src as StaticDamage;
       }
     }
@@ -540,6 +551,7 @@ export const StaticDamage = {
       case staticDamage.STATIC:
         return "固定値";
       case staticDamage.TIME:
+      case staticDamage.TIME_ATTACK_BASE:
         return "累積数";
     }
   },

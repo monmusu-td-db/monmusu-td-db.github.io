@@ -113,7 +113,8 @@ export class SituationBaseStat<
             <>
               <T.Result>{d ? "固有値" : Math.abs(f.actualResult)}</T.Result>
               <T.Expression>
-                {staticDamage.key === Data.StaticDamage.TIME ? (
+                {staticDamage.key === Data.StaticDamage.TIME ||
+                staticDamage.key === Data.StaticDamage.TIME_ATTACK_BASE ? (
                   <>
                     {d ? "基礎値" : Math.abs(staticDamage.value)}
                     <T.Multiply>

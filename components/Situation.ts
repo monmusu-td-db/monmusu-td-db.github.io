@@ -1737,15 +1737,28 @@ export default class Situation implements TableRow<Keys> {
           reference: obj.value,
           result: obj.value,
         };
-      case Data.StaticDamage.TIME: {
+      case Data.StaticDamage.TIME:
+      case Data.StaticDamage.TIME_ATTACK_BASE: {
         const reference = Accumulation.calculate(
           this.getAccumulationProps(setting, obj.time)
         );
+        let value;
+        if (obj.key === Data.StaticDamage.TIME) {
+          value = obj.value;
+        } else {
+          value = Percent.multiply(
+            this.unit?.attack.getValue(setting),
+            obj.value
+          );
+          if (value === undefined) {
+            return;
+          }
+        }
         return {
           key: obj.key,
-          value: obj.value,
+          value,
           reference,
-          result: obj.value * reference,
+          result: value * reference,
         };
       }
     }
