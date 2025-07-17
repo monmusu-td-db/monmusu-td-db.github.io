@@ -23005,7 +23005,7 @@
       {
         "isNotAbility": true,
         "supplements": [
-          "-減少値×2ATK上昇(20秒)"
+          "- ATK+[減少値×2](20秒)"
         ]
       },
       {
