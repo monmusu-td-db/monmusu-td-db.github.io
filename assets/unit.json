@@ -22814,6 +22814,59 @@
     "isEventUnit": true
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1全体攻撃の属性を調べる",
+    "id": 229,
+    "unitName": "【暗黒魔導師】アリストロメリア",
+    "unitShortName": "アリストロメリア",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "hp": 2640,
+    "attack": 1068,
+    "defense": 202,
+    "resist": 577,
+    "rounds": 2,
+    "supplements": [
+      "回避無視100%"
+    ],
+    "exSkill1": {
+      "skillName": "魔王の暴虐",
+      "attackMul": 220,
+      "rounds": 4,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "射程+15"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "{attack*100}dmg×2/発動→敵全体"
+        ]
+      }
+    ],
+    "hpMul": 90,
+    "attackMul": 110,
+    "potentialBonus": {
+      "attackMul": 114
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 231,
     "unitName": "【修泳の川熊娘】イオ",
     "unitShortName": "イオ/学園",
