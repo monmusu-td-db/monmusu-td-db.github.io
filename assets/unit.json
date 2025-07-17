@@ -22867,6 +22867,148 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 230,
+    "unitName": "【ヴァンパイアガール】ヴァニラ",
+    "unitShortName": "ヴァニラ",
+    "rarity": "E",
+    "class": "チーフアサシン",
+    "element": "風",
+    "hp": 4159,
+    "attack": 613,
+    "defense": 420,
+    "resist": 112,
+    "exSkill1": {
+      "skillName": "行くぞ！コウモリの嵐！",
+      "targetAdd": 3,
+      "rounds": 3,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "features": [
+      {
+        "isNotAbility": true,
+        "supplements": [
+          "ATK-2%(20秒)→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK-3%(20秒)→命中"
+          ]
+        }
+      },
+      {
+        "isNotAbility": true,
+        "supplements": [
+          "-減少値×2ATK上昇(20秒)"
+        ]
+      },
+      {
+        "featureName": "attack-add1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 2500
+          }
+        ],
+        "attackAdd": 2500
+      },
+      {
+        "featureName": "attack-add2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 5000
+          }
+        ],
+        "attackAdd": 5000
+      },
+      {
+        "featureName": "common-absorb",
+        "staticDamage": {
+          "key": "hp",
+          "value": 2
+        },
+        "supplements": [
+          "回復2%/命中"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "annotations": [
+          "潜在覚醒特性込み"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "supplements": [
+          "回復3%/命中"
+        ],
+        "deleteSupplements": [
+          "回復2%/命中"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-add1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-add1"
+        ]
+      },
+      {
+        "features": [
+          "attack-add2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-add2"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "id": 231,
     "unitName": "【修泳の川熊娘】イオ",
     "unitShortName": "イオ/学園",
