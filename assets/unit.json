@@ -20066,6 +20066,25 @@
         "features": [
           "common-proper-stan"
         ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
       }
     ]
   },
