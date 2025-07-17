@@ -22145,6 +22145,123 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 222,
+    "unitName": "【飛縁魔娘】ヒミノ",
+    "unitShortName": "ヒミノ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "火",
+    "species": "妖怪",
+    "hp": 2710,
+    "attack": 1068,
+    "defense": 216,
+    "resist": 532,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "ヤキいれてやりましょう",
+      "attackMul": 280,
+      "targetAdd": 2,
+      "rangeMul": 170,
+      "duration": 25,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "妖怪"
+        ],
+        "attack": 108
+      },
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 108
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-extra-damage",
+        "damageFactor": 100,
+        "rounds": [
+          {
+            "ratio": 1,
+            "value": 2
+          },
+          {
+            "ratio": 2,
+            "value": 0
+          }
+        ],
+        "splash": true,
+        "potentialBonus": {
+          "damageFactor": 120
+        }
+      },
+      {
+        "featureName": "common-extra-damage",
+        "isConditionalSkillBuff": true,
+        "rounds": 2
+      }
+    ],
+    "attackMul": 130,
+    "situations": [
+      {},
+      {
+        "features": [
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-extra-damage"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_FATAL": "スタン蓄積値/攻撃速度強化/ex1射程",
     "id": 223,
     "unitName": "【雷神娘】チザネ",
