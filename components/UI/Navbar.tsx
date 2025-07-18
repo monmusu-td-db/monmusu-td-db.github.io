@@ -11,7 +11,8 @@ import cn from "classnames";
 import SearchInput from "./SearchInput";
 
 const SEARCH_ICON_SIZE = 18;
-const IMAGE_ALT_TEXT = "モンスター娘DB ロゴ";
+const PAGE_NAME = "モンスター娘TD DB";
+const IMAGE_ALT_TEXT = "モンスター娘TD DB ロゴ";
 
 function Header({ pageType }: { pageType?: PageType }) {
   const open = Panel.Contexts.useOpen();
@@ -67,7 +68,7 @@ function Brand() {
   return (
     <Navbar.Brand href="/" className="d-flex ms-3 align-items-center brand">
       <Logo />
-      <span className="ms-2">モンスター娘DB</span>
+      <span className="ms-2">{PAGE_NAME}</span>
     </Navbar.Brand>
   );
 }
