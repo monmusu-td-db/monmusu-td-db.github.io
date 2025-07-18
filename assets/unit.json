@@ -23732,6 +23732,115 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 237,
+    "unitName": "【ゴルゴーン娘】ローレン",
+    "unitShortName": "ローレン/進化",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "地",
+    "hp": 2641,
+    "attack": 1036,
+    "defense": 257,
+    "resist": 469,
+    "moveType": "飛行",
+    "supplements": [
+      "超毒付与/配置→全体",
+      "石化付与/配置→全体"
+    ],
+    "exSkill1": {
+      "skillName": "ゴルゴーンサクセサー",
+      "rounds": 3,
+      "rangeMul": 250,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "超毒付与/発動→射程内",
+        "石化付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "超毒付与(稀)→命中",
+          "石化付与(稀)→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "超毒付与(稀+)→命中",
+          "石化付与(稀+)→命中"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 145,
+        "potentialBonus": {
+          "damageFactor": 155
+        }
+      },
+      {
+        "featureName": "common-proper",
+        "skill": 1,
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "proper-double",
+        "isConditionalBuff": true,
+        "annotations": [
+          "二重特効"
+        ],
+        "damageFactor": 145,
+        "potentialBonus": {
+          "damageFactor": 155
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "features": [
+          "common-proper",
+          "proper-double"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "proper-double"
+        ]
+      }
+    ]
+  },
+  {
     "id": 238,
     "unitName": "【リリス娘】クロミ",
     "unitShortName": "クロミ/進化",
