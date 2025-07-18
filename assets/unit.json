@@ -30582,7 +30582,7 @@
     "features": [
       {
         "criChanceLimitAdd": 30,
-        "attackSpeedIndicatorBuff": 40,
+        "attackSpeedAgilityBuff": 40,
         "supplements": [
           "CRIダメージ+10%(5秒)/撃破"
         ],
@@ -30602,7 +30602,7 @@
           "撃破バフ(1体)"
         ],
         "criDamageAdd": 10,
-        "attackSpeedIndicatorBuff": 50
+        "attackSpeedAgilityBuff": 50
       },
       {
         "featureName": "attack-speed-buff2",
@@ -30611,7 +30611,7 @@
           "撃破バフ(2体)"
         ],
         "criDamageAdd": 20,
-        "attackSpeedIndicatorBuff": 60
+        "attackSpeedAgilityBuff": 60
       },
       {
         "featureName": "attack-speed-buff3",
@@ -30620,7 +30620,7 @@
           "撃破バフ(3体)"
         ],
         "criDamageAdd": 30,
-        "attackSpeedIndicatorBuff": 70
+        "attackSpeedAgilityBuff": 70
       }
     ],
     "criChanceAdd": 30,
@@ -30668,12 +30668,12 @@
     ],
     "buffs": [
       {
-        "type": "attack-speed-add-buff",
+        "type": "attack-speed-agility-buff",
         "target": "射程内",
         "value": 40
       },
       {
-        "type": "attack-speed-add-buff",
+        "type": "attack-speed-agility-buff",
         "skill": 1,
         "target": "射程内",
         "value": 40

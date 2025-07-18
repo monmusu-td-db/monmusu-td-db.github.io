@@ -50,7 +50,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMagicalDamageDebuff:
       case stat.buffAttackSpeed:
       case stat.buffDelayMul:
-      case stat.buffAttackSpeedAdd:
+      case stat.buffAttackSpeedAgility:
       case stat.buffPhysicalEvasion:
       case stat.buffMagicalEvasion:
       case stat.buffMoveSpeedAdd:
@@ -125,7 +125,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffMagicalDamageDebuff:
       case stat.buffAttackSpeed:
       case stat.buffDelayMul:
-      case stat.buffAttackSpeedAdd:
+      case stat.buffAttackSpeedAgility:
       case stat.buffPhysicalEvasion:
       case stat.buffMagicalEvasion:
       case stat.buffMoveSpeedAdd:

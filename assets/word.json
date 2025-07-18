@@ -78,7 +78,7 @@
     "buffMagicalDamageDebuff": "敵魔法被ダメージ増加",
     "buffAttackSpeed": "攻撃速度バフ",
     "buffDelayMul": "攻撃待機時間短縮",
-    "buffAttackSpeedAdd": "攻撃速度加算バフ",
+    "buffAttackSpeedAgility": "攻撃速度加算バフ",
     "buffPhysicalEvasion": "物理回避付与",
     "buffMagicalEvasion": "魔法回避付与",
     "buffMoveSpeedAdd": "移動速度加算",

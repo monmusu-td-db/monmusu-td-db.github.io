@@ -21,7 +21,6 @@ TODOリスト
   能力値一時変化を補足に書く
   モンクの配置攻撃に付与効果がのるか調べる
   バフページに加算バフ追加
-  indicatorBuffの名前を直す
 
 TODO優先度低
   移動攻撃
@@ -1674,13 +1673,13 @@ export function getAttackSpeed<T extends number | undefined>(
 }
 
 export function getAttackSpeedFactors(
-  indicator: AttackSpeedIndicator
+  agilityBuff: AttackSpeedAgility
 ): AttackSpeedFactors {
-  const ability = indicator.base + indicator.ability;
-  const weapon = ability + indicator.weapon;
-  const result = weapon + indicator.potential;
+  const ability = agilityBuff.base + agilityBuff.ability;
+  const weapon = ability + agilityBuff.weapon;
+  const result = weapon + agilityBuff.potential;
 
-  const attackSpeedBase = getAttackSpeed(indicator.base);
+  const attackSpeedBase = getAttackSpeed(agilityBuff.base);
   const subtotalAbility = getAttackSpeed(ability);
   const subtotalWeapon = getAttackSpeed(weapon);
   const attackSpeedResult = getAttackSpeed(result);
@@ -1689,7 +1688,7 @@ export function getAttackSpeedFactors(
   const attackSpeedWeapon = subtotalAbility - subtotalWeapon;
   const attackSpeedPotential = subtotalWeapon - attackSpeedResult;
   return {
-    attackSoeedIndicator: indicator,
+    attackSpeedAgility: agilityBuff,
     attackSpeedBase,
     attackSpeedAbility,
     attackSpeedWeapon,
@@ -1700,16 +1699,16 @@ export function getAttackSpeedFactors(
 
 export function getAttackSpeedFactorsSituation(
   factors: AttackSpeedFactors,
-  indicatorBuff: number
+  agilityBuff: number
 ): AttackSpeedFactorsSituation {
-  const { base, ability, weapon, potential } = factors.attackSoeedIndicator;
+  const { base, ability, weapon, potential } = factors.attackSpeedAgility;
   const result = getAttackSpeed(
-    base + ability + weapon + potential + indicatorBuff
+    base + ability + weapon + potential + agilityBuff
   );
-  const attackSpeedIndicatorBuff = factors.attackSpeedResult - result;
+  const attackSpeedAgilityBuff = factors.attackSpeedResult - result;
   return {
     ...factors,
-    attackSpeedIndicatorBuff,
+    attackSpeedAgilityBuff,
     attackSpeedResult: result,
   };
 }
@@ -1893,7 +1892,7 @@ export interface PenetrationFactors {
   readonly multiply: number;
 }
 
-export interface AttackSpeedIndicator {
+export interface AttackSpeedAgility {
   readonly base: number;
   readonly ability: number;
   readonly weapon: number;
@@ -1901,7 +1900,7 @@ export interface AttackSpeedIndicator {
 }
 
 export interface AttackSpeedFactors {
-  readonly attackSoeedIndicator: AttackSpeedIndicator;
+  readonly attackSpeedAgility: AttackSpeedAgility;
   readonly attackSpeedBase: number;
   readonly attackSpeedAbility: number;
   readonly attackSpeedWeapon: number;
@@ -1910,7 +1909,7 @@ export interface AttackSpeedFactors {
 }
 
 export interface AttackSpeedFactorsSituation extends AttackSpeedFactors {
-  readonly attackSpeedIndicatorBuff: number;
+  readonly attackSpeedAgilityBuff: number;
 }
 
 export interface AttackSpeedInBattleFactors

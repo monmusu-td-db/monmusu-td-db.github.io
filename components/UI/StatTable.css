@@ -209,7 +209,7 @@ th.inBattleBuffSupplements {
 }
 
 th.buffRange,
-th.buffAttackSpeedAdd,
+th.buffAttackSpeedAgility,
 th.buffFieldChange,
 th.buffFieldAdd {
   width: 2.4rem;

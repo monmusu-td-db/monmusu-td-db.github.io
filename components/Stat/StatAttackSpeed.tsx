@@ -36,7 +36,7 @@ export function AttackSpeedTooltip({
   const b = p && (!!f.attackMotionMul || attackSpeedBuff !== 100);
   const ammCol = (f.attackMotionMul ?? 100) < 100;
   const asbCol = attackSpeedBuff > 100;
-  const indicatorBuff = f.attackSpeedIndicatorBuff ?? 0;
+  const agilityBuff = f.attackSpeedAgilityBuff ?? 0;
   return (
     <T.Equation>
       {(d) => (
@@ -62,9 +62,9 @@ export function AttackSpeedTooltip({
                   {d ? "専用武器" : f.attackSpeedWeapon + sign.FRAME}
                 </T.Positive>
               </T.Minus>
-              <T.Minus enabled={indicatorBuff > 0}>
+              <T.Minus enabled={agilityBuff > 0}>
                 <T.Positive>
-                  {d ? "基礎攻撃速度バフ" : indicatorBuff + sign.FRAME}
+                  {d ? "基礎攻撃速度バフ" : agilityBuff + sign.FRAME}
                 </T.Positive>
               </T.Minus>
             </T.Brackets>

@@ -36,7 +36,7 @@ const keys = [
   stat.buffMagicalDamageDebuff,
   stat.buffAttackSpeed,
   stat.buffDelayMul,
-  stat.buffAttackSpeedAdd,
+  stat.buffAttackSpeedAgility,
   stat.buffPhysicalEvasion,
   stat.buffMagicalEvasion,
   stat.buffMoveSpeedAdd,
@@ -81,7 +81,7 @@ class BuffType {
     criDamageLimitAdd: "critical-damage-limit-add",
     attackSpeedBuff: "attack-speed-buff",
     delayMul: "delay-mul",
-    attackSpeedAdd: "attack-speed-add-buff",
+    attackSpeedAgility: "attack-speed-agility-buff",
     physicalEvasion: "physical-evasion",
     magicalEvasion: "magical-evasion",
     moveSpeedAdd: "move-speed-add",
@@ -200,7 +200,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffMagicalDamageDebuff: Stat.Root;
   readonly buffAttackSpeed: Stat.Root;
   readonly buffDelayMul: Stat.Root;
-  readonly buffAttackSpeedAdd: Stat.Root;
+  readonly buffAttackSpeedAgility: Stat.Root;
   readonly buffPhysicalEvasion: Stat.Root;
   readonly buffMagicalEvasion: Stat.Root;
   readonly buffMoveSpeedAdd: Stat.Root;
@@ -450,9 +450,9 @@ export default class InBattleBuff implements TableRow<Key> {
       text: (s) => this.getDelayPercentText(this.buffDelayMul.getValue(s)),
     });
 
-    this.buffAttackSpeedAdd = new Stat.Root({
-      statType: stat.buffAttackSpeedAdd,
-      calculater: this.getEffectCalculaterFn(typeKey.attackSpeedAdd),
+    this.buffAttackSpeedAgility = new Stat.Root({
+      statType: stat.buffAttackSpeedAgility,
+      calculater: this.getEffectCalculaterFn(typeKey.attackSpeedAgility),
       isReversed: true,
     });
 
