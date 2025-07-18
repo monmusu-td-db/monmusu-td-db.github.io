@@ -159,7 +159,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報",
+    "TODO_DESC": "ex2はWiki情報",
     "TODO_FATAL": "ex1/ex2射程はwiki情報/攻撃モーション速度はwiki情報からの推測",
     "id": 2,
     "unitName": "【キマイラ娘】ラゴス",
@@ -232,6 +232,14 @@
     "features": [
       {
         "attackMotionMul": 154
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "ATK+30%(5秒)/攻撃"
+        ]
       },
       {
         "featureName": "weapon-attack-mul",
