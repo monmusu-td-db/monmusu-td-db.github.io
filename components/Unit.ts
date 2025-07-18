@@ -337,11 +337,15 @@ export default class Unit implements TableRow<Keys> {
       });
     }
 
-    const species = Data.Species.parse(src.species);
-    this.species = new Stat.Root({
-      statType: stat.species,
-      calculater: () => species,
-    });
+    {
+      const species = Data.Species.parse(src.species);
+      const comparer = Data.Species.indexOf(species);
+      this.species = new Stat.Root({
+        statType: stat.species,
+        calculater: () => species,
+        comparer: () => comparer,
+      });
+    }
 
     const getCost = (setting: Setting) => {
       const base = src.cost ?? classData?.cost;

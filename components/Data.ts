@@ -1211,6 +1211,11 @@ export const Species = {
       ) !== -1
     );
   },
+
+  indexOf(value: readonly Species[]): number | undefined {
+    const indexes = value.map((v) => speciesValues.indexOf(v));
+    return Math.min(...indexes);
+  },
 } as const;
 
 export type JsonTarget = number | string | number[];
