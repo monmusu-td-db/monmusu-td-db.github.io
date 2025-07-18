@@ -11415,7 +11415,7 @@
   {
     "id": 104,
     "unitName": "【鈴音のマーナガルム娘】マズル",
-    "unitShortName": "マズル/鈴音",
+    "unitShortName": "マズル/Xmas",
     "rarity": "L",
     "class": "バード",
     "element": "光",
@@ -11471,7 +11471,7 @@
     "id": 1040001,
     "parentId": 104,
     "unitName": "マズル",
-    "unitShortName": "マズル/鈴音T",
+    "unitShortName": "マズル//Xmas T",
     "rarity": "C",
     "class": "バード",
     "element": "光",
