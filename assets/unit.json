@@ -24440,6 +24440,99 @@
     "magicalEvasion": 30
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1攻撃速度",
+    "id": 244,
+    "unitName": "【風嫁のジン娘】ヤーセファ",
+    "unitShortName": "ヤーセファ/嫁",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "風",
+    "hp": 2826,
+    "attack": 1020,
+    "defense": 206,
+    "resist": 559,
+    "exSkill1": {
+      "skillName": "セレモニーアゲインスト",
+      "attackMul": 220,
+      "criChanceAdd": 20,
+      "criChanceLimitAdd": 20,
+      "attackSpeedBuff": 999,
+      "targetAdd": 2,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック(小)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "CRI率/CRI率上限+30%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "風"
+        ],
+        "attack": 112,
+        "potentialBonus": {
+          "attack": 116
+        }
+      }
+    ],
+    "features": [
+      {
+        "criChanceAdd": 15,
+        "criChanceLimitAdd": 15
+      },
+      {}
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "require": [
+          "風属性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 20
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": 245,
     "unitName": "【ドヴェルグ娘】ラルヴァ",
     "unitShortName": "ラルヴァ",
