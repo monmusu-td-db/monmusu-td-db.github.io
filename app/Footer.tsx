@@ -21,7 +21,7 @@ export default function Footer() {
             </Stack>
           </Col>
           <Col md={4}>
-            <Stack direction="horizontal" gap={3}>
+            <Stack direction="horizontal" gap={3} className="mb-3">
               <ExternalLink
                 href="https://x.com/kd1042"
                 icon={<Icon.TwitterX width={21} height={21} />}
