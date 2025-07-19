@@ -1,0 +1,21 @@
+.bd-footer {
+  position: relative;
+  background-color: var(--bs-gray);
+  width: 100%;
+}
+
+.bd-footer .bi {
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+.bd-footer a {
+  color: var(--bs-body-color);
+  text-decoration: none;
+}
+
+.bd-footer a:hover,
+.bd-footer a:focus {
+  color: var(--bs-link-hover-color);
+  text-decoration: underline;
+}

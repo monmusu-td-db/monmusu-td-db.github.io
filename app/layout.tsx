@@ -2,6 +2,7 @@ import "@/app/bootstrap.scss";
 import { StatesRoot } from "../components/UI/StatesRoot";
 import Theme from "@/components/UI/Theme";
 import type { Metadata } from "next";
+import Footer from "./Footer";
 
 export const metadata: Metadata = {
   title: "モンスター娘TD DB",
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body>
         <Theme.Initialize />
         <StatesRoot>{children}</StatesRoot>
+        <Footer />
       </body>
     </html>
   );
