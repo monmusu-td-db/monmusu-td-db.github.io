@@ -1,4 +1,6 @@
-// 参考 https://github.com/reactjs/react.dev/blob/main/src/pages/_document.tsx
+// 参考 https://github.com/reactjs/react.dev/blob/d52b3ec734077fd56f012fc2b30a67928d14cc73/src/pages/_document.tsx#L101
+
+import Script from "next/script";
 
 const STORAGE_KEY = "theme";
 const SETTER_NAME = "__setTheme";
@@ -22,7 +24,8 @@ function toggle(theme: Theme) {
 
 function Initialize() {
   return (
-    <script
+    <Script
+      id="theme-control"
       dangerouslySetInnerHTML={{
         __html: `
         (() => {
