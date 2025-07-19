@@ -159,7 +159,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1/ex2はWiki情報",
+    "TODO_DESC": "ex2はWiki情報",
     "TODO_FATAL": "ex1/ex2射程はwiki情報/攻撃モーション速度はwiki情報からの推測",
     "id": 2,
     "unitName": "【キマイラ娘】ラゴス",
@@ -232,6 +232,14 @@
     "features": [
       {
         "attackMotionMul": 154
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "ATK+30%(5秒)/攻撃"
+        ]
       },
       {
         "featureName": "weapon-attack-mul",
@@ -11407,7 +11415,7 @@
   {
     "id": 104,
     "unitName": "【鈴音のマーナガルム娘】マズル",
-    "unitShortName": "マズル/鈴音",
+    "unitShortName": "マズル/Xmas",
     "rarity": "L",
     "class": "バード",
     "element": "光",
@@ -11463,7 +11471,7 @@
     "id": 1040001,
     "parentId": 104,
     "unitName": "マズル",
-    "unitShortName": "マズル/鈴音T",
+    "unitShortName": "マズル//Xmas T",
     "rarity": "C",
     "class": "バード",
     "element": "光",
@@ -23724,6 +23732,115 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 237,
+    "unitName": "【ゴルゴーン娘】ローレン",
+    "unitShortName": "ローレン/進化",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "地",
+    "hp": 2641,
+    "attack": 1036,
+    "defense": 257,
+    "resist": 469,
+    "moveType": "飛行",
+    "supplements": [
+      "超毒付与/配置→全体",
+      "石化付与/配置→全体"
+    ],
+    "exSkill1": {
+      "skillName": "ゴルゴーンサクセサー",
+      "rounds": 3,
+      "rangeMul": 250,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "超毒付与/発動→射程内",
+        "石化付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "超毒付与(稀)→命中",
+          "石化付与(稀)→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "超毒付与(稀+)→命中",
+          "石化付与(稀+)→命中"
+        ]
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 145,
+        "potentialBonus": {
+          "damageFactor": 155
+        }
+      },
+      {
+        "featureName": "common-proper",
+        "skill": 1,
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "proper-double",
+        "isConditionalBuff": true,
+        "annotations": [
+          "二重特効"
+        ],
+        "damageFactor": 145,
+        "potentialBonus": {
+          "damageFactor": 155
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "features": [
+          "common-proper",
+          "proper-double"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper",
+          "proper-double"
+        ]
+      }
+    ]
+  },
+  {
     "id": 238,
     "unitName": "【リリス娘】クロミ",
     "unitShortName": "クロミ/進化",
@@ -24321,6 +24438,99 @@
     ],
     "physicalEvasion": 30,
     "magicalEvasion": 30
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1攻撃速度",
+    "id": 244,
+    "unitName": "【風嫁のジン娘】ヤーセファ",
+    "unitShortName": "ヤーセファ/嫁",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "風",
+    "hp": 2826,
+    "attack": 1020,
+    "defense": 206,
+    "resist": 559,
+    "exSkill1": {
+      "skillName": "セレモニーアゲインスト",
+      "attackMul": 220,
+      "criChanceAdd": 20,
+      "criChanceLimitAdd": 20,
+      "attackSpeedBuff": 999,
+      "targetAdd": 2,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック(小)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "CRI率/CRI率上限+30%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "風"
+        ],
+        "attack": 112,
+        "potentialBonus": {
+          "attack": 116
+        }
+      }
+    ],
+    "features": [
+      {
+        "criChanceAdd": 15,
+        "criChanceLimitAdd": 15
+      },
+      {}
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "require": [
+          "風属性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 20
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 20
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 245,

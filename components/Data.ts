@@ -29,6 +29,7 @@ TODO優先度低
   火傷ダメージの改善/総ダメージ表示追加/火傷ダメージに関する注意を書く
   能力値一時変化を補足に書く
   属性マスのisConditionalSkillBuff効果を反映
+  カラースキームの変更機能を追加
 
 メモ
   モンクの射程は固定だが表示上だけ変動する
@@ -1210,6 +1211,11 @@ export const Species = {
         (v) => v === value && v !== species.speciesNone
       ) !== -1
     );
+  },
+
+  indexOf(value: readonly Species[]): number | undefined {
+    const indexes = value.map((v) => speciesValues.indexOf(v));
+    return Math.min(...indexes);
   },
 } as const;
 

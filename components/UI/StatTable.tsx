@@ -33,7 +33,7 @@ import type {
 type Stat = StatRoot<unknown, unknown> | undefined;
 
 export type CellData = {
-  ref: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement | null>;
   stat: Stat;
 };
 
