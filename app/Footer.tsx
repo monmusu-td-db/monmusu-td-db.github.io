@@ -7,12 +7,12 @@ import LinkFocusFix from "./LinkFocusFix";
 
 export default function Footer() {
   return (
-    <footer className="bd-footer bg-body-tertiary mt-4 py-4">
+    <footer className="bd-footer bg-body-tertiary mt-4 pt-4 pb-3">
       <LinkFocusFix />
       <Container className="text-body-secondary">
         <Row>
-          <Col xs={8}>
-            <Stack direction="horizontal" gap={3}>
+          <Col md={8}>
+            <Stack direction="horizontal" gap={3} className="mb-3">
               <Link href="/unit">ユニット</Link>
               <Vr />
               <Link href="/buff">バフ</Link>
@@ -20,7 +20,7 @@ export default function Footer() {
               <Link href="/contact">お問い合わせ</Link>
             </Stack>
           </Col>
-          <Col xs={4}>
+          <Col md={4}>
             <Stack direction="horizontal" gap={3}>
               <ExternalLink
                 href="https://x.com/kd1042"
