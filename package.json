@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "release": "semantic-release"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
@@ -17,12 +18,15 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/node": "^20",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "eslint": "^8",
     "eslint-config-next": "15.4.2",
     "sass": "1.77.6",
+    "semantic-release": "^24.2.7",
     "typescript": "^5"
   },
   "overrides": {
