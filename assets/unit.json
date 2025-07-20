@@ -25041,6 +25041,66 @@
     "isEventUnit": true
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1攻撃速度",
+    "id": 251,
+    "unitName": "【鬼熊娘】ミクマ",
+    "unitShortName": "ミクマ",
+    "rarity": "E",
+    "class": "サムライ",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 7565,
+    "attack": 1181,
+    "defense": 511,
+    "resist": 128,
+    "supplements": [
+      "スタン耐性+50"
+    ],
+    "exSkill1": {
+      "skillName": "ベアスイング",
+      "attackMul": 420,
+      "attackMotionMul": 999,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "require": [
+          "地マス"
+        ],
+        "physicalDamageCut": 40
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "fieldElements": [
+          "地"
+        ]
+      }
+    ],
+    "attackMul": 115,
+    "potentialBonus": {
+      "attackMul": 118
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "TODO_FATAL": "継続ダメージHit数はWiki情報",
     "id": 252,
     "unitName": "【蛇骨婆娘】トモミ",
