@@ -25204,6 +25204,171 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 253,
+    "unitName": "【幽霊娘】アメリ",
+    "unitShortName": "アメリ/妖怪",
+    "rarity": "L",
+    "class": "ニンジャ",
+    "element": "水",
+    "species": [
+      "妖怪",
+      "アンデッド"
+    ],
+    "hp": 2999,
+    "attack": 520,
+    "defense": 418,
+    "resist": 279,
+    "exSkill1": {
+      "skillName": "忍法・乱れ皿",
+      "targetAdd": 2,
+      "rounds": 3,
+      "duration": 25,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "criChanceAdd": 7,
+        "potentialBonus": {
+          "criChanceAdd": 9
+        }
+      },
+      {
+        "require": [
+          "水マス"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 230
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "critical-chance-add",
+        "skill": -1,
+        "require": [
+          "妖怪特性"
+        ],
+        "target": "全体",
+        "value": 7,
+        "potentialBonus": {
+          "value": 9
+        }
+      },
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "水",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1/コストはWiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 2530001,
+    "parentId": 253,
+    "unitName": "アメリ",
+    "unitShortName": "アメリT/妖怪",
+    "rarity": "C",
+    "class": "ニンジャ",
+    "element": "水",
+    "species": [
+      "妖怪",
+      "アンデッド"
+    ],
+    "hp": 2999,
+    "attack": 520,
+    "defense": 418,
+    "resist": 279,
+    "exSkill1": {
+      "skillName": "忍法・乱れ皿",
+      "attackMul": 230,
+      "targetAdd": 2,
+      "rounds": 3,
+      "duration": 25,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "criChanceAdd": 14,
+        "potentialBonus": {
+          "criChanceAdd": 18
+        }
+      },
+      {
+        "require": [
+          "水マス"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "costAdd": 1,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "critical-chance-add",
+        "skill": -1,
+        "require": [
+          "妖怪特性"
+        ],
+        "target": "全体",
+        "value": 7,
+        "potentialBonus": {
+          "value": 9
+        }
+      },
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "水",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 255,
     "unitName": "【清姫娘】ナナエ",
     "unitShortName": "ナナエ",

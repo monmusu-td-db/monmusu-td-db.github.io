@@ -852,6 +852,7 @@
         "require": [
           "光マス"
         ],
+        "isConditionalBuff": true,
         "supplements": [
           "隠密"
         ]
@@ -861,6 +862,7 @@
         "require": [
           "闇マス"
         ],
+        "isConditionalBuff": true,
         "supplements": [
           "隠密"
         ]
