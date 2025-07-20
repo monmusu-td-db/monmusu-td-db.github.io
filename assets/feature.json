@@ -396,6 +396,13 @@
     "damageFactor": 120
   },
   {
+    "TODO_DESC": "特効表示改修に使う",
+    "featureName": "common-back-attack",
+    "conditions": [
+      "特"
+    ]
+  },
+  {
     "featureName": "common-token-limit",
     "annotations": [
       "付与トークン込み耐久値"

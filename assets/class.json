@@ -843,6 +843,7 @@
         "require": [
           "スキル"
         ],
+        "isNotAbility": true,
         "supplements": [
           "移動可"
         ]

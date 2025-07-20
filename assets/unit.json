@@ -25369,6 +25369,76 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "攻撃力低下はwiki情報",
+    "id": 254,
+    "unitName": "【枕返し娘】マコモ",
+    "unitShortName": "マコモ",
+    "rarity": "E",
+    "class": "ニンジャ",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 2900,
+    "attack": 479,
+    "defense": 412,
+    "resist": 282,
+    "exSkill1": {
+      "skillName": "逃がしませんよ～！",
+      "targetAdd": 1,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "鈍足-10%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "物理攻撃回避40%"
+    ],
+    "features": [
+      {
+        "attackMul": 70
+      },
+      {
+        "featureName": "common-back-attack",
+        "isConditionalBuff": true,
+        "damageFactor": 300,
+        "potentialBonus": {
+          "damageFactor": 360
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "features": [
+          "common-back-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "skill": 1,
+        "features": [
+          "common-back-attack"
+        ]
+      }
+    ]
+  },
+  {
     "id": 255,
     "unitName": "【清姫娘】ナナエ",
     "unitShortName": "ナナエ",
