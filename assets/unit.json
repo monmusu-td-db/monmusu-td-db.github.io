@@ -26025,6 +26025,84 @@
     ]
   },
   {
+    "TODO_DESC": "PotentialはWiki情報",
+    "id": 260,
+    "unitName": "【浜球のフロストサラマンダー娘】フリス",
+    "unitShortName": "フリス/水着",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "水",
+    "species": "ドラゴン",
+    "hp": 2849,
+    "attack": 1012,
+    "defense": 218,
+    "resist": 532,
+    "supplements": [
+      "RES-300/常時→全体凍結敵"
+    ],
+    "exSkill1": {
+      "skillName": "氷結スパイク",
+      "attackMul": 240,
+      "rangeMul": 240,
+      "duration": 25,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "attack": 106,
+        "defense": 106,
+        "potentialBonus": {
+          "attack": 108,
+          "defense": 108
+        }
+      }
+    ],
+    "features": [
+      {
+        "fieldBuffFactor": 200
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "凍結付与(低)→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "凍結付与(低+)→命中"
+        ]
+      },
+      {
+        "featureName": "common-proper-freeze",
+        "damageFactor": 200
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper-freeze"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "ex1停止時間は5秒表記だが実際には3秒",
     "TODO_STAT_INFERRED": true,
     "id": 262,
