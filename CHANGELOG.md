@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Kaidon102/Monmusu-DB/compare/v1.0.2...v1.1.0) (2025-07-21)
+
+
+### Features
+
+* チェンジログ表示修正 ([ea8db17](https://github.com/Kaidon102/Monmusu-DB/commit/ea8db17dfbb6ffa7cb77ff9be894d6b4c2877169))
+
 ## [1.0.2](https://github.com/Kaidon102/Monmusu-DB/compare/v1.0.1...v1.0.2) (2025-07-21)
 
 
