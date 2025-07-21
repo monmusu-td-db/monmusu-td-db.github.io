@@ -26589,6 +26589,88 @@
     }
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 267,
+    "unitName": "【ファロルーチェ娘】ファロリエット",
+    "unitShortName": "ファロリエット",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "光",
+    "hp": 3965,
+    "attack": 676,
+    "defense": 284,
+    "resist": 429,
+    "moveType": "飛行",
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "ブリリアントヒール",
+      "attackMul": 220,
+      "targetAdd": 4,
+      "rangeMul": 160,
+      "duration": 40,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "hp": 112,
+        "resist": 112,
+        "potentialBonus": {
+          "hp": 116,
+          "resist": 116
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "magicalDamageCut": 20
+      },
+      {
+        "skill": 1,
+        "magicalDamageCut": 40
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "skill": 0,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 10
+      },
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 20
+      }
+    ]
+  },
+  {
     "id": 268,
     "unitName": "【ワードラゴン娘】ハイルィ",
     "unitShortName": "ハイルィ",
