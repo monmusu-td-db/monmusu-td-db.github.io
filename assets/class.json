@@ -214,7 +214,7 @@
         ]
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "isConditionalBuff": true,
         "conditions": [
           "特"
@@ -231,13 +231,13 @@
       },
       {
         "features": [
-          "class-proper"
+          "class-definite"
         ]
       },
       {
         "features": [
           "class-attack",
-          "class-proper"
+          "class-definite"
         ]
       }
     ]
@@ -448,7 +448,8 @@
     "placement": "遠",
     "features": [
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
+        "isConditionalBuff": true,
         "conditions": [
           "特"
         ],
@@ -469,7 +470,7 @@
       {},
       {
         "features": [
-          "class-proper"
+          "class-definite"
         ]
       },
       {
@@ -479,7 +480,7 @@
       },
       {
         "features": [
-          "class-proper",
+          "class-definite",
           "class-action"
         ]
       }
@@ -674,7 +675,7 @@
         ]
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "isConditionalBuff": true,
         "conditions": [
           "特"
@@ -691,7 +692,7 @@
       {
         "features": [
           "class-heal",
-          "class-proper"
+          "class-definite"
         ]
       }
     ]
@@ -1145,7 +1146,7 @@
         ]
       },
       {
-        "featureName": "class-buff-proper",
+        "featureName": "class-buff-definite",
         "isAbility": true,
         "isSupport": true,
         "annotations": [
@@ -1200,7 +1201,7 @@
       {
         "proper": true,
         "features": [
-          "class-buff-proper"
+          "class-buff-definite"
         ]
       },
       {

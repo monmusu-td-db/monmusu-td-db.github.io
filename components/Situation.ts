@@ -233,7 +233,7 @@ export default class Situation implements TableRow<Keys> {
         if (
           cond.find((v) => {
             switch (v.key) {
-              case c.proper:
+              case c.definite:
               case c.enemy:
                 return true;
               case c.hit:

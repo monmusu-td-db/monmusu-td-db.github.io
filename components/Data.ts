@@ -320,7 +320,7 @@ const conditionKeys = {
   ranged: "遠",
   heal: "癒",
   absorb: "吸",
-  proper: "特",
+  definite: "特",
   enemy: "敵",
   regenerate: "再",
   regenerateAll: "再all",
