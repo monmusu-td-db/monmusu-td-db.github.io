@@ -13,47 +13,26 @@
   {
     "unitId": 17,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 17,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 17,
     "skill": 2,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 17,
     "features": [
-      "proper-stan"
-    ]
-  },
-  {
-    "unitId": 17,
-    "skill": 1,
-    "features": [
-      "proper-stan"
-    ]
-  },
-  {
-    "unitId": 17,
-    "skill": 2,
-    "features": [
-      "proper-stan"
-    ]
-  },
-  {
-    "unitId": 17,
-    "features": [
-      "class-proper",
       "proper-stan"
     ]
   },
@@ -61,7 +40,6 @@
     "unitId": 17,
     "skill": 1,
     "features": [
-      "class-proper",
       "proper-stan"
     ]
   },
@@ -69,7 +47,29 @@
     "unitId": 17,
     "skill": 2,
     "features": [
-      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-definite",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-definite",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-definite",
       "proper-stan"
     ]
   },
@@ -97,7 +97,7 @@
     "unitId": 17,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -105,7 +105,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -113,37 +113,13 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 17,
     "features": [
       "class-action",
-      "proper-stan"
-    ]
-  },
-  {
-    "unitId": 17,
-    "skill": 1,
-    "features": [
-      "class-action",
-      "proper-stan"
-    ]
-  },
-  {
-    "unitId": 17,
-    "skill": 2,
-    "features": [
-      "class-action",
-      "proper-stan"
-    ]
-  },
-  {
-    "unitId": 17,
-    "features": [
-      "class-action",
-      "class-proper",
       "proper-stan"
     ]
   },
@@ -152,7 +128,6 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper",
       "proper-stan"
     ]
   },
@@ -161,7 +136,32 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "features": [
+      "class-action",
+      "class-definite",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 1,
+    "features": [
+      "class-action",
+      "class-definite",
+      "proper-stan"
+    ]
+  },
+  {
+    "unitId": 17,
+    "skill": 2,
+    "features": [
+      "class-action",
+      "class-definite",
       "proper-stan"
     ]
   },
@@ -179,21 +179,21 @@
   {
     "unitId": 20,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 20,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 20,
     "skill": 2,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -220,7 +220,7 @@
     "unitId": 20,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -228,7 +228,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -236,7 +236,7 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -551,7 +551,7 @@
     "unitId": 35,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -559,14 +559,14 @@
     "skill": 1,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 35,
     "features": [
       "class-heal",
-      "class-proper",
+      "class-definite",
       "skill-buff"
     ]
   },
@@ -575,7 +575,7 @@
     "skill": 1,
     "features": [
       "class-heal",
-      "class-proper",
+      "class-definite",
       "skill-buff"
     ]
   },
@@ -596,7 +596,7 @@
     "unitId": 39,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -939,7 +939,7 @@
     "unitId": 52,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -947,7 +947,7 @@
     "skill": 1,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -968,21 +968,21 @@
     "unitId": 58,
     "features": [
       "normal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 58,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 58,
     "skill": 2,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -1017,7 +1017,7 @@
     "unitId": 58,
     "features": [
       "normal",
-      "class-proper",
+      "class-definite",
       "proper-poison"
     ]
   },
@@ -1025,7 +1025,7 @@
     "unitId": 58,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-poison"
     ]
   },
@@ -1033,7 +1033,7 @@
     "unitId": 58,
     "skill": 2,
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-poison"
     ]
   },
@@ -1041,7 +1041,7 @@
     "unitId": 58,
     "skill": 2,
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-petrify"
     ]
   },
@@ -1049,7 +1049,7 @@
     "unitId": 58,
     "skill": 2,
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-poison",
       "proper-petrify"
     ]
@@ -1080,7 +1080,7 @@
     "features": [
       "class-action",
       "normal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -1088,7 +1088,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -1096,7 +1096,7 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -1136,7 +1136,7 @@
     "features": [
       "class-action",
       "normal",
-      "class-proper",
+      "class-definite",
       "proper-poison"
     ]
   },
@@ -1145,7 +1145,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-poison"
     ]
   },
@@ -1154,7 +1154,7 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-poison"
     ]
   },
@@ -1163,7 +1163,7 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-petrify"
     ]
   },
@@ -1172,7 +1172,7 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-poison",
       "proper-petrify"
     ]
@@ -1383,21 +1383,21 @@
   {
     "unitId": 68,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 68,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 68,
     "skill": 2,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -1428,7 +1428,7 @@
     "unitId": 68,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -1436,7 +1436,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -1444,7 +1444,7 @@
     "skill": 2,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -2238,14 +2238,14 @@
   {
     "unitId": 79,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 79,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -2253,7 +2253,7 @@
     "skill": 2,
     "features": [
       "ranged",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -2288,7 +2288,7 @@
   {
     "unitId": 79,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action"
     ]
   },
@@ -2296,7 +2296,7 @@
     "unitId": 79,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action"
     ]
   },
@@ -2305,7 +2305,7 @@
     "skill": 2,
     "features": [
       "ranged",
-      "class-proper",
+      "class-definite",
       "class-action"
     ]
   },
@@ -3761,7 +3761,7 @@
     "unitId": 114,
     "features": [
       "normal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -3770,7 +3770,7 @@
     "features": [
       "skill",
       "skill1-normal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -3778,7 +3778,7 @@
     "features": [
       "normal",
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -3787,7 +3787,7 @@
     "features": [
       "skill",
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -3826,28 +3826,28 @@
   {
     "unitId": 116,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 116,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 116,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 116,
     "features": [
       "deploy-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -3855,7 +3855,7 @@
     "skill": 1,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -3863,7 +3863,7 @@
     "skill": 1,
     "features": [
       "deploy-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4153,7 +4153,7 @@
     "unitId": 128,
     "features": [
       "hp-over-100%",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4162,14 +4162,14 @@
     "features": [
       "skill1-normal",
       "hp-over-100%",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 128,
     "features": [
       "hp-99%",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4178,7 +4178,7 @@
     "features": [
       "skill1-normal",
       "hp-99%",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4186,7 +4186,7 @@
     "features": [
       "hp-over-100%",
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4195,7 +4195,7 @@
     "features": [
       "hp-over-100%",
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4337,20 +4337,20 @@
   {
     "unitId": 135,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 135,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 135,
     "features": [
-      "class-proper",
+      "class-definite",
       "enemy1"
     ]
   },
@@ -4358,7 +4358,7 @@
     "unitId": 135,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "enemy1"
     ]
   },
@@ -4393,7 +4393,7 @@
   {
     "unitId": 135,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action"
     ]
   },
@@ -4401,14 +4401,14 @@
     "unitId": 135,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action"
     ]
   },
   {
     "unitId": 135,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action",
       "enemy1"
     ]
@@ -4417,7 +4417,7 @@
     "unitId": 135,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action",
       "enemy1"
     ]
@@ -4534,14 +4534,14 @@
   {
     "unitId": 138,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 138,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4561,7 +4561,7 @@
     "unitId": 138,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4569,7 +4569,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4622,14 +4622,14 @@
   {
     "unitId": 143,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 143,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4649,7 +4649,7 @@
     "unitId": 143,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4657,7 +4657,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4732,7 +4732,7 @@
   {
     "unitId": 146,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4740,28 +4740,28 @@
     "skill": 1,
     "features": [
       "proper",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 146,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 146,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 146,
     "features": [
       "deploy-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4770,7 +4770,7 @@
     "features": [
       "class-attack",
       "proper",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4779,7 +4779,7 @@
     "features": [
       "deploy-attack",
       "proper",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4787,7 +4787,7 @@
     "skill": 1,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -4795,7 +4795,7 @@
     "skill": 1,
     "features": [
       "deploy-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5117,7 +5117,7 @@
     "unitId": 167,
     "features": [
       "hp-over-80%",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5126,7 +5126,7 @@
     "features": [
       "hp-over-80%",
       "skill1-phase1",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5135,7 +5135,7 @@
     "features": [
       "hp-over-80%",
       "skill1-phase2",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5144,48 +5144,13 @@
     "features": [
       "hp-over-80%",
       "skill1-phase3",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 167,
     "features": [
       "hp-over-80%",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "skill": 1,
-    "features": [
-      "hp-over-80%",
-      "skill1-phase1",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "skill": 1,
-    "features": [
-      "hp-over-80%",
-      "skill1-phase2",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "skill": 1,
-    "features": [
-      "hp-over-80%",
-      "skill1-phase3",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "features": [
-      "hp-over-80%",
-      "class-proper",
       "class-action"
     ]
   },
@@ -5195,7 +5160,6 @@
     "features": [
       "hp-over-80%",
       "skill1-phase1",
-      "class-proper",
       "class-action"
     ]
   },
@@ -5205,7 +5169,6 @@
     "features": [
       "hp-over-80%",
       "skill1-phase2",
-      "class-proper",
       "class-action"
     ]
   },
@@ -5215,7 +5178,44 @@
     "features": [
       "hp-over-80%",
       "skill1-phase3",
-      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-over-80%",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase1",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase2",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-over-80%",
+      "skill1-phase3",
+      "class-definite",
       "class-action"
     ]
   },
@@ -5253,7 +5253,7 @@
     "unitId": 167,
     "features": [
       "hp-79%",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5262,7 +5262,7 @@
     "features": [
       "hp-79%",
       "skill1-phase1",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5271,7 +5271,7 @@
     "features": [
       "hp-79%",
       "skill1-phase2",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5280,48 +5280,13 @@
     "features": [
       "hp-79%",
       "skill1-phase3",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 167,
     "features": [
       "hp-79%",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "skill": 1,
-    "features": [
-      "hp-79%",
-      "skill1-phase1",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "skill": 1,
-    "features": [
-      "hp-79%",
-      "skill1-phase2",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "skill": 1,
-    "features": [
-      "hp-79%",
-      "skill1-phase3",
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 167,
-    "features": [
-      "hp-79%",
-      "class-proper",
       "class-action"
     ]
   },
@@ -5331,7 +5296,6 @@
     "features": [
       "hp-79%",
       "skill1-phase1",
-      "class-proper",
       "class-action"
     ]
   },
@@ -5341,7 +5305,6 @@
     "features": [
       "hp-79%",
       "skill1-phase2",
-      "class-proper",
       "class-action"
     ]
   },
@@ -5351,7 +5314,44 @@
     "features": [
       "hp-79%",
       "skill1-phase3",
-      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "features": [
+      "hp-79%",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase1",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase2",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 167,
+    "skill": 1,
+    "features": [
+      "hp-79%",
+      "skill1-phase3",
+      "class-definite",
       "class-action"
     ]
   },
@@ -5490,7 +5490,7 @@
     "unitId": 171,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -5498,7 +5498,7 @@
     "skill": 1,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6009,21 +6009,21 @@
   {
     "unitId": 190,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 190,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 190,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6031,7 +6031,7 @@
     "skill": 1,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6464,7 +6464,7 @@
     "unitId": 214,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6472,7 +6472,7 @@
     "skill": 1,
     "features": [
       "class-heal",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6940,7 +6940,7 @@
     "unitId": 220,
     "features": [
       "melee",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6949,7 +6949,7 @@
     "features": [
       "melee",
       "0-sec",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6958,7 +6958,7 @@
     "features": [
       "melee",
       "10-sec",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6967,7 +6967,7 @@
     "features": [
       "melee",
       "20-sec",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6976,14 +6976,14 @@
     "features": [
       "melee",
       "30-sec",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 220,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -6991,7 +6991,7 @@
     "skill": 1,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -7067,7 +7067,7 @@
   {
     "unitId": 224,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -7075,7 +7075,7 @@
     "skill": 1,
     "features": [
       "skill1-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -7083,14 +7083,14 @@
     "skill": 1,
     "features": [
       "extra-damage",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 224,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -7098,7 +7098,7 @@
     "skill": 1,
     "features": [
       "class-attack",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -7311,49 +7311,21 @@
   {
     "unitId": 243,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 243,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 243,
     "features": [
       "attack-mul",
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 243,
-    "skill": 1,
-    "features": [
-      "attack-mul",
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 243,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 243,
-    "skill": 1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 243,
-    "features": [
-      "attack-mul",
-      "class-action"
+      "class-definite"
     ]
   },
   {
@@ -7361,13 +7333,12 @@
     "skill": 1,
     "features": [
       "attack-mul",
-      "class-action"
+      "class-definite"
     ]
   },
   {
     "unitId": 243,
     "features": [
-      "class-proper",
       "class-action"
     ]
   },
@@ -7375,7 +7346,6 @@
     "unitId": 243,
     "skill": 1,
     "features": [
-      "class-proper",
       "class-action"
     ]
   },
@@ -7383,7 +7353,6 @@
     "unitId": 243,
     "features": [
       "attack-mul",
-      "class-proper",
       "class-action"
     ]
   },
@@ -7392,7 +7361,38 @@
     "skill": 1,
     "features": [
       "attack-mul",
-      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "features": [
+      "attack-mul",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 243,
+    "skill": 1,
+    "features": [
+      "attack-mul",
+      "class-definite",
       "class-action"
     ]
   },
@@ -8316,20 +8316,20 @@
   {
     "unitId": 292,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 292,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 292,
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },
@@ -8337,7 +8337,7 @@
     "unitId": 292,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },
@@ -8373,7 +8373,7 @@
     "unitId": 292,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -8381,14 +8381,14 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 292,
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },
@@ -8397,7 +8397,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },
@@ -8579,14 +8579,14 @@
   {
     "unitId": 302,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 302,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -8605,7 +8605,7 @@
   {
     "unitId": 302,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action"
     ]
   },
@@ -8613,7 +8613,7 @@
     "unitId": 302,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "class-action"
     ]
   },
@@ -8678,14 +8678,14 @@
   {
     "unitId": 307,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 307,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -8695,41 +8695,7 @@
     ],
     "features": [
       "common-fire-field",
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 307,
-    "skill": 1,
-    "require": [
-      "no-panel-field-element"
-    ],
-    "features": [
-      "common-fire-field",
-      "class-proper"
-    ]
-  },
-  {
-    "unitId": 307,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 307,
-    "skill": 1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 307,
-    "require": [
-      "no-panel-field-element"
-    ],
-    "features": [
-      "common-fire-field",
-      "class-action"
+      "class-definite"
     ]
   },
   {
@@ -8740,13 +8706,12 @@
     ],
     "features": [
       "common-fire-field",
-      "class-action"
+      "class-definite"
     ]
   },
   {
     "unitId": 307,
     "features": [
-      "class-proper",
       "class-action"
     ]
   },
@@ -8754,7 +8719,6 @@
     "unitId": 307,
     "skill": 1,
     "features": [
-      "class-proper",
       "class-action"
     ]
   },
@@ -8765,7 +8729,6 @@
     ],
     "features": [
       "common-fire-field",
-      "class-proper",
       "class-action"
     ]
   },
@@ -8777,7 +8740,44 @@
     ],
     "features": [
       "common-fire-field",
-      "class-proper",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "features": [
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "features": [
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-definite",
+      "class-action"
+    ]
+  },
+  {
+    "unitId": 307,
+    "skill": 1,
+    "require": [
+      "no-panel-field-element"
+    ],
+    "features": [
+      "common-fire-field",
+      "class-definite",
       "class-action"
     ]
   },
@@ -8917,14 +8917,14 @@
   {
     "unitId": 310,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
     "unitId": 310,
     "skill": 1,
     "features": [
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -8933,7 +8933,7 @@
       "火傷の敵へ与ダメ1.2倍"
     ],
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },
@@ -8941,7 +8941,7 @@
     "unitId": 310,
     "skill": 1,
     "features": [
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },
@@ -8980,7 +8980,7 @@
     "unitId": 310,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -8988,7 +8988,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper"
+      "class-definite"
     ]
   },
   {
@@ -8998,7 +8998,7 @@
     ],
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },
@@ -9007,7 +9007,7 @@
     "skill": 1,
     "features": [
       "class-action",
-      "class-proper",
+      "class-definite",
       "proper-burn"
     ]
   },

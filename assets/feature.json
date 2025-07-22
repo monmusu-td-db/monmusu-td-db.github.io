@@ -354,48 +354,48 @@
     ]
   },
   {
-    "featureName": "common-proper",
+    "featureName": "common-definite",
     "conditions": [
       "特"
     ]
   },
   {
     "TODO_DESC": "特効表示改修に使う",
-    "featureName": "common-proper-poison",
+    "featureName": "common-definite-poison",
     "conditions": [
       "特"
     ]
   },
   {
     "TODO_DESC": "特効表示改修に使う",
-    "featureName": "common-proper-stan",
+    "featureName": "common-definite-stan",
     "conditions": [
       "特"
     ]
   },
   {
     "TODO_DESC": "特効表示改修に使う",
-    "featureName": "common-proper-petrify",
+    "featureName": "common-definite-petrify",
     "conditions": [
       "特"
     ]
   },
   {
     "TODO_DESC": "特効表示改修に使う",
-    "featureName": "common-proper-freeze",
+    "featureName": "common-definite-freeze",
     "conditions": [
       "特"
     ]
   },
   {
     "TODO_DESC": "特効表示改修に使う",
-    "featureName": "common-proper-burn",
+    "featureName": "common-definite-burn",
     "conditions": [
       "特"
     ]
   },
   {
-    "featureName": "common-proper-burn",
+    "featureName": "common-definite-burn",
     "hasPotentials": [
       "火傷の敵へ与ダメ1.2倍"
     ],

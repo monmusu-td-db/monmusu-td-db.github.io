@@ -565,7 +565,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 250
       }
@@ -580,19 +580,19 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       }
     ]
@@ -1271,7 +1271,7 @@
     },
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -1279,7 +1279,7 @@
         }
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "require": [
           "武器"
         ],
@@ -1301,19 +1301,19 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -2252,7 +2252,7 @@
         "fieldBuffFactor": 200
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "annotations": [
           "飛行特効"
         ]
@@ -2319,7 +2319,7 @@
     },
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "annotations": [
           "背面攻撃"
@@ -2330,7 +2330,7 @@
         }
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "require": [
           "武器"
@@ -2368,41 +2368,41 @@
       {
         "features": [
           "common-0-sec",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-0-sec",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 2,
         "features": [
           "common-0-sec",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "features": [
           "10-sec",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "10-sec",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 2,
         "features": [
           "10-sec",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -2435,7 +2435,7 @@
     ],
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "annotations": [
           "背面攻撃"
@@ -2466,13 +2466,13 @@
       {
         "features": [
           "common-token-limit-nodesc",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "features": [
           "common-token-limit-nodesc",
-          "common-proper",
+          "common-definite",
           "skill1-buff"
         ]
       }
@@ -3205,7 +3205,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "require": [
           "武器"
         ],
@@ -3213,12 +3213,12 @@
         "damageFactor": 150
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "skill": 1,
         "damageFactor": 150
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "skill": 2,
         "damageFactor": 150
       }
@@ -3251,33 +3251,33 @@
           "weapon"
         ],
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-1hit"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-2hits"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-3hits"
         ]
       }
@@ -3523,7 +3523,7 @@
         ]
       },
       {
-        "featureName": "proper-absorb",
+        "featureName": "definite-absorb",
         "isAbility": true,
         "annotations": [
           "種族特性"
@@ -3734,7 +3734,7 @@
         ]
       },
       {
-        "featureName": "proper-absorb",
+        "featureName": "definite-absorb",
         "isAbility": true,
         "annotations": [
           "種族特性"
@@ -3784,7 +3784,7 @@
         "proper": true,
         "features": [
           "proper",
-          "proper-absorb"
+          "definite-absorb"
         ]
       }
     ]
@@ -4347,7 +4347,7 @@
         }
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "damageFactor": 160
       }
     ],
@@ -6600,7 +6600,7 @@
         ]
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "annotations": [
           "飛行特効"
         ]
@@ -7489,7 +7489,7 @@
     ],
     "features": [
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "annotations": [
           "飛行特効"
         ]
@@ -9495,7 +9495,7 @@
         "rounds": 5
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -9557,21 +9557,21 @@
       {
         "features": [
           "common-melee",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-melee",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 2,
         "features": [
           "common-melee",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -9594,21 +9594,21 @@
       {
         "features": [
           "common-ranged",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-ranged",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 2,
         "features": [
           "common-ranged",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -12464,7 +12464,7 @@
     ],
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "skill": 1,
         "isConditionalBuff": true,
         "damageFactor": 300
@@ -12477,7 +12477,7 @@
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -12490,7 +12490,7 @@
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -12503,7 +12503,7 @@
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -13466,7 +13466,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "skill": 1,
         "damageFactor": 200
       },
@@ -14988,7 +14988,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "supplements": [
@@ -14996,7 +14996,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalSkillBuff": true,
         "damageFactor": 200
       }
@@ -15013,13 +15013,13 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -15096,7 +15096,7 @@
         ]
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "annotations": [
           "スタン特効"
         ]
@@ -16225,7 +16225,7 @@
         }
       },
       {
-        "featureName": "class-buff-proper",
+        "featureName": "class-buff-definite",
         "annotations": [
           "同属性特効"
         ]
@@ -16302,7 +16302,7 @@
         "bottom": true,
         "isGeneral": false,
         "features": [
-          "class-buff-proper",
+          "class-buff-definite",
           "buff-proper-species"
         ]
       },
@@ -17788,7 +17788,7 @@
     ],
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 130,
         "potentialBonus": {
@@ -17834,21 +17834,21 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "class-no-supplements",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "class-no-supplements",
-          "common-proper",
+          "common-definite",
           "common-phase2"
         ]
       },
@@ -17856,7 +17856,7 @@
         "skill": 1,
         "features": [
           "class-no-supplements",
-          "common-proper",
+          "common-definite",
           "common-phase3"
         ]
       },
@@ -17897,7 +17897,7 @@
     },
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 130,
         "potentialBonus": {
@@ -17945,21 +17945,21 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "class-no-supplements",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "class-no-supplements",
-          "common-proper",
+          "common-definite",
           "common-phase2"
         ]
       },
@@ -17967,7 +17967,7 @@
         "skill": 1,
         "features": [
           "class-no-supplements",
-          "common-proper",
+          "common-definite",
           "common-phase3"
         ]
       },
@@ -19271,7 +19271,7 @@
     ],
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -19279,7 +19279,7 @@
         }
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "skill": 1,
         "isConditionalSkillBuff": true,
         "damageFactor": 130
@@ -19311,7 +19311,7 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -19320,13 +19320,13 @@
         ],
         "features": [
           "common-block3",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       }
     ],
@@ -20135,7 +20135,7 @@
         ]
       },
       {
-        "featureName": "common-proper-stan",
+        "featureName": "common-definite-stan",
         "isConditionalBuff": true,
         "damageFactor": 240,
         "potentialBonus": {
@@ -20153,13 +20153,13 @@
       },
       {
         "features": [
-          "common-proper-stan"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper-stan"
+          "common-definite-stan"
         ]
       },
       {
@@ -20734,7 +20734,7 @@
     ],
     "features": [
       {
-        "featureName": "common-proper-poison",
+        "featureName": "common-definite-poison",
         "isConditionalBuff": true,
         "annotations": [
           "毒特効"
@@ -20746,7 +20746,7 @@
         }
       },
       {
-        "featureName": "common-proper-petrify",
+        "featureName": "common-definite-petrify",
         "isConditionalBuff": true,
         "annotations": [
           "石化特効"
@@ -20757,7 +20757,7 @@
         }
       },
       {
-        "featureName": "proper-double",
+        "featureName": "definite-double",
         "isConditionalBuff": true,
         "annotations": [
           "二重特効"
@@ -20790,88 +20790,88 @@
       },
       {
         "features": [
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
         "features": [
-          "common-proper-petrify"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-proper-petrify"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-proper-petrify"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-proper-petrify"
+          "common-definite-petrify"
         ]
       },
       {
         "features": [
-          "common-proper-poison",
-          "common-proper-petrify",
-          "proper-double"
+          "common-definite-poison",
+          "common-definite-petrify",
+          "definite-double"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-proper-poison",
-          "common-proper-petrify",
-          "proper-double"
+          "common-definite-poison",
+          "common-definite-petrify",
+          "definite-double"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-proper-poison",
-          "common-proper-petrify",
-          "proper-double"
+          "common-definite-poison",
+          "common-definite-petrify",
+          "definite-double"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-proper-poison",
-          "common-proper-petrify",
-          "proper-double"
+          "common-definite-poison",
+          "common-definite-petrify",
+          "definite-double"
         ]
       }
     ]
@@ -22409,7 +22409,7 @@
     ],
     "features": [
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "isConditionalBuff": true,
         "damageFactor": 200
       },
@@ -22782,7 +22782,7 @@
         "damageFactor": 110
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "isConditionalBuff": true,
         "annotations": [
           "火属性特効"
@@ -22790,7 +22790,7 @@
         "damageFactor": 130
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "annotations": [
           "光属性特効"
@@ -22824,7 +22824,7 @@
       {
         "proper": true,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-hp-100%"
         ]
       },
@@ -22832,14 +22832,14 @@
         "proper": true,
         "skill": 1,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-hp-100%"
         ]
       },
       {
         "proper": true,
         "features": [
-          "common-proper",
+          "common-definite",
           "hp-99%"
         ]
       },
@@ -22847,7 +22847,7 @@
         "proper": true,
         "skill": 1,
         "features": [
-          "common-proper",
+          "common-definite",
           "hp-99%"
         ]
       },
@@ -23154,7 +23154,7 @@
         "damageFactor": 70
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -23202,13 +23202,13 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -23785,7 +23785,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 145,
         "potentialBonus": {
@@ -23793,12 +23793,12 @@
         }
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "skill": 1,
         "damageType": "貫通"
       },
       {
-        "featureName": "proper-double",
+        "featureName": "definite-double",
         "isConditionalBuff": true,
         "annotations": [
           "二重特効"
@@ -23816,26 +23816,26 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "features": [
-          "common-proper",
-          "proper-double"
+          "common-definite",
+          "definite-double"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper",
-          "proper-double"
+          "common-definite",
+          "definite-double"
         ]
       }
     ]
@@ -23957,7 +23957,7 @@
         ]
       },
       {
-        "featureName": "proper-absorb",
+        "featureName": "definite-absorb",
         "isConditionalBuff": true,
         "annotations": [
           "種族特性"
@@ -24001,7 +24001,7 @@
       },
       {
         "features": [
-          "common-proper",
+          "common-definite",
           "proper-debuff"
         ]
       },
@@ -24020,7 +24020,7 @@
       {
         "features": [
           "attack-mul1",
-          "common-proper",
+          "common-definite",
           "proper-debuff"
         ]
       },
@@ -24040,7 +24040,7 @@
       {
         "features": [
           "attack-mul2",
-          "common-proper",
+          "common-definite",
           "proper-debuff"
         ]
       },
@@ -24063,8 +24063,8 @@
         "skill": -1,
         "features": [
           "common-absorb",
-          "common-proper",
-          "proper-absorb"
+          "common-definite",
+          "definite-absorb"
         ]
       }
     ]
@@ -24744,7 +24744,7 @@
         "criChanceLimitAdd": 20
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "annotations": [
           "背面攻撃"
@@ -24770,13 +24770,13 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -24793,14 +24793,14 @@
       {
         "features": [
           "critical-damage-add",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "critical-damage-add",
-          "common-proper"
+          "common-definite"
         ]
       }
     ]
@@ -25009,7 +25009,7 @@
         }
       },
       {
-        "featureName": "proper-double",
+        "featureName": "definite-double",
         "annotations": [
           "二重特効"
         ],
@@ -25466,7 +25466,7 @@
     ],
     "features": [
       {
-        "featureName": "class-buff-proper",
+        "featureName": "class-buff-definite",
         "annotations": [
           "同属性特効"
         ]
@@ -26085,7 +26085,7 @@
         ]
       },
       {
-        "featureName": "common-proper-freeze",
+        "featureName": "common-definite-freeze",
         "damageFactor": 200
       }
     ],
@@ -26097,7 +26097,7 @@
       {
         "skill": 1,
         "features": [
-          "common-proper-freeze"
+          "common-definite-freeze"
         ]
       }
     ]
@@ -26136,7 +26136,7 @@
         }
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 120
       }
@@ -26154,13 +26154,13 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       }
     ],
@@ -27419,7 +27419,7 @@
         "criChanceLimitAdd": 50
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalSkillBuff": true,
         "skill": 1,
         "damageFactor": 200
@@ -27457,28 +27457,28 @@
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-4hits",
-          "common-proper"
+          "common-definite"
         ]
       }
     ]
@@ -27521,7 +27521,7 @@
     ],
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 200,
         "potentialBonus": {
@@ -27536,13 +27536,13 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       }
     ]
@@ -27887,7 +27887,7 @@
         "damageFactor": 120
       },
       {
-        "featureName": "proper-double",
+        "featureName": "definite-double",
         "isConditionalBuff": true,
         "annotations": [
           "二重特効"
@@ -27898,13 +27898,13 @@
         "damageFactor": 144
       },
       {
-        "featureName": "proper-double",
+        "featureName": "definite-double",
         "skill": 1,
         "isConditionalBuff": true,
         "damageFactor": 144
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "annotations": [
           "スタン特効"
         ]
@@ -27944,7 +27944,7 @@
           "class-attack"
         ],
         "features": [
-          "proper-double"
+          "definite-double"
         ]
       },
       {
@@ -27953,7 +27953,7 @@
         ],
         "skill": 1,
         "features": [
-          "proper-double"
+          "definite-double"
         ]
       },
       {
@@ -28034,7 +28034,7 @@
         ],
         "features": [
           "class-attack",
-          "proper-double"
+          "definite-double"
         ]
       },
       {
@@ -28043,7 +28043,7 @@
         ],
         "features": [
           "deploy-attack",
-          "proper-double"
+          "definite-double"
         ]
       },
       {
@@ -28053,7 +28053,7 @@
         "skill": 1,
         "features": [
           "class-attack",
-          "proper-double"
+          "definite-double"
         ]
       },
       {
@@ -28063,7 +28063,7 @@
         "skill": 1,
         "features": [
           "deploy-attack",
-          "proper-double"
+          "definite-double"
         ]
       }
     ]
@@ -28378,7 +28378,7 @@
     ],
     "features": [
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "annotations": [
           "飛行特効"
         ]
@@ -29595,7 +29595,7 @@
         "damageDebuff": 140
       },
       {
-        "featureName": "class-proper",
+        "featureName": "class-definite",
         "annotations": [
           "飛行特効"
         ]
@@ -30055,7 +30055,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "annotations": [
           "天候：雨"
@@ -30089,27 +30089,27 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-1hit"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-2hits"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper",
+          "common-definite",
           "common-3hits"
         ]
       }
@@ -30902,7 +30902,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 130,
         "potentialBonus": {
@@ -30921,7 +30921,7 @@
           "class-earth-field"
         ],
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -30931,7 +30931,7 @@
         ],
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       }
     ],
@@ -31233,7 +31233,7 @@
         ]
       },
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 180,
         "potentialBonus": {
@@ -31259,13 +31259,13 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
@@ -31282,14 +31282,14 @@
       {
         "features": [
           "attack-mul",
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
           "attack-mul",
-          "common-proper"
+          "common-definite"
         ]
       }
     ]
@@ -31541,7 +31541,7 @@
     ],
     "features": [
       {
-        "featureName": "common-proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -31558,13 +31558,13 @@
       },
       {
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper"
+          "common-definite"
         ]
       }
     ]
@@ -32305,12 +32305,12 @@
     "features": [
       {
         "skill": 0,
-        "featureName": "common-proper-poison",
+        "featureName": "common-definite-poison",
         "damageFactor": 130
       },
       {
         "skill": 1,
-        "featureName": "common-proper-poison",
+        "featureName": "common-definite-poison",
         "isConditionalSkillBuff": true,
         "damageFactor": 160
       },
@@ -32382,7 +32382,7 @@
         ],
         "features": [
           "common-melee",
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -32392,7 +32392,7 @@
         "skill": 1,
         "features": [
           "common-melee",
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -32401,7 +32401,7 @@
         ],
         "features": [
           "common-ranged",
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -32411,7 +32411,7 @@
         "skill": 1,
         "features": [
           "common-ranged",
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -32430,7 +32430,7 @@
           "class-action"
         ],
         "features": [
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -32439,7 +32439,7 @@
         ],
         "skill": 1,
         "features": [
-          "common-proper-poison"
+          "common-definite-poison"
         ]
       }
     ]
@@ -32498,7 +32498,7 @@
         ]
       },
       {
-        "featureName": "common-proper-burn",
+        "featureName": "common-definite-burn",
         "isConditionalBuff": true,
         "damageFactor": 110,
         "potentialBonus": {
@@ -32520,13 +32520,13 @@
       },
       {
         "features": [
-          "common-proper-burn"
+          "common-definite-burn"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-proper-burn"
+          "common-definite-burn"
         ]
       },
       {
