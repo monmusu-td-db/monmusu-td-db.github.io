@@ -51,16 +51,9 @@ export class StatTarget extends StatTooltip<
 
       return targets.flatMap((target) => {
         function fn(round: number) {
-          let base, noOmit;
-
-          if (laser) {
-            base = "直線上";
-            noOmit = true;
-          } else {
-            if (target < 1) return "0";
-            base = target === Infinity ? Data.Target.inRange : target;
-            noOmit = target > 1;
-          }
+          if (target < 1) return "0";
+          const base = target === Infinity ? Data.Target.inRange : target;
+          const noOmit = target > 1;
 
           const targetText = noOmit || (target === 1 && wideTarget);
           const brac = targetText && wideTarget && (splash || round > 1);
@@ -71,9 +64,10 @@ export class StatTarget extends StatTooltip<
             targetText && wideTarget && PLUS,
             wideTarget && "​周囲",
             brac && ")",
-            (noOmit || wideTarget) && splash && MULTIPLY,
-            splash && "範囲",
-            !(noOmit || splash || wideTarget) && 1,
+            (noOmit || wideTarget) && (splash || laser) && MULTIPLY,
+            splash && !laser && "範囲",
+            laser && "直線上",
+            !(noOmit || splash || laser || wideTarget) && 1,
             round > 1 && MULTIPLY + round,
           ]
             .filter((str) => str !== false)
