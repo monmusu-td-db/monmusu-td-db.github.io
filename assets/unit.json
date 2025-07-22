@@ -29433,7 +29433,7 @@
         "featureName": "proper-burn",
         "skill": 1,
         "isBuffSkill": true,
-        "damageFactor": 140
+        "damageDebuff": 140
       },
       {
         "featureName": "class-proper",
