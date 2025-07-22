@@ -24,6 +24,7 @@
     "range": "射程",
     "moveSpeed": "移動速度",
     "moveType": "移動タイプ",
+    "moveCost": "移動コスト",
     "criticalChance": "CRI率",
     "criticalDamage": "CRIダメージ",
     "criticalChanceLimit": "CRI率上限",
