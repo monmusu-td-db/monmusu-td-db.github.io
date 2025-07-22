@@ -26103,6 +26103,83 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 261,
+    "unitName": "【清夏のフロストジャイアント娘】ナルケパフネ",
+    "unitShortName": "ナルケパフネ/水着",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "水",
+    "hp": 3193,
+    "attack": 456,
+    "defense": 339,
+    "resist": 450,
+    "exSkill1": {
+      "skillName": "清涼水分補給",
+      "attackMul": 300,
+      "rangeMul": 160,
+      "duration": 40,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "hp",
+          "value": 3
+        }
+      },
+      {
+        "featureName": "common-proper",
+        "isConditionalBuff": true,
+        "damageFactor": 120
+      }
+    ],
+    "costAdd": 4,
+    "hpMul": 130,
+    "blockAdd": 1,
+    "potentialBonus": {
+      "hpMul": 140
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-proper"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-proper"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "水属性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "element": "水",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_DESC": "ex1停止時間は5秒表記だが実際には3秒",
     "TODO_STAT_INFERRED": true,
     "id": 262,
@@ -26510,6 +26587,88 @@
       "hpMul": 125,
       "attackMul": 115
     }
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 267,
+    "unitName": "【ファロルーチェ娘】ファロリエット",
+    "unitShortName": "ファロリエット",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "光",
+    "hp": 3965,
+    "attack": 676,
+    "defense": 284,
+    "resist": 429,
+    "moveType": "飛行",
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "ブリリアントヒール",
+      "attackMul": 220,
+      "targetAdd": 4,
+      "rangeMul": 160,
+      "duration": 40,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "hp": 112,
+        "resist": 112,
+        "potentialBonus": {
+          "hp": 116,
+          "resist": 116
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "magicalDamageCut": 20
+      },
+      {
+        "skill": 1,
+        "magicalDamageCut": 40
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "skill": 0,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 10
+      },
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 20
+      }
+    ]
   },
   {
     "id": 268,
