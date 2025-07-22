@@ -41,6 +41,7 @@ export interface JsonUnit {
   range?: number;
   moveSpeed?: number;
   moveType?: string | null;
+  moveCost?: number;
   damageType?: Data.JsonDamageType;
   placement?: Data.JsonPlacement;
   supplements?: readonly string[];
@@ -169,8 +170,9 @@ const keys = [
   "target",
   "range",
   "damageType",
-  "moveSpeed",
   "moveType",
+  "moveSpeed",
+  "moveCost",
   "placement",
   "exSkill1",
   "exSkill2",
@@ -221,6 +223,7 @@ export default class Unit implements TableRow<Keys> {
   readonly damageType: Stat.Root<Data.DamageType | undefined>;
   readonly moveSpeed: Stat.Root<number | undefined, Data.MoveSpeedFactors>;
   readonly moveType: Stat.Root<Data.MoveType | undefined>;
+  readonly moveCost: Stat.Root;
   readonly placement: Stat.Root<Data.Placement>;
   readonly exSkill1: Stat.Root<Readonly<Data.Skill> | undefined>;
   readonly exSkill2: Stat.Root<Readonly<Data.Skill> | undefined>;
@@ -644,6 +647,16 @@ export default class Unit implements TableRow<Keys> {
       },
       comparer: (s) => -Data.MoveType.indexOf(this.moveType.getValue(s)),
       color: (s) => Data.MoveType.colorOf(this.moveType.getValue(s)),
+    });
+
+    this.moveCost = new Stat.Root({
+      statType: stat.moveCost,
+      calculater: (s) => {
+        if (!this.moveType.getValue(s) || !this.moveSpeed.getValue(s)) {
+          return;
+        }
+        return src.moveCost ?? 3;
+      },
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);

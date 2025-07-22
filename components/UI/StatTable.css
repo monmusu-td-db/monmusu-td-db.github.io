@@ -134,7 +134,8 @@ th.cost {
 }
 
 th.attackSpeed,
-th.delay {
+th.delay,
+th.moveCost {
   width: 1.55rem;
 }
 

@@ -77,6 +77,7 @@ const TableStyle = memo(function TableStyle({
       case stat.range:
       case stat.moveSpeed:
       case stat.moveType:
+      case stat.moveCost:
       case stat.damageType:
       case stat.placement:
       case stat.buffTarget:
