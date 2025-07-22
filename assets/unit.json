@@ -27100,6 +27100,104 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
+    "id": 274,
+    "unitName": "【ヴォーパルビースト娘】ラピナス",
+    "unitShortName": "ラピナス",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "風",
+    "hp": 5280,
+    "attack": 970,
+    "defense": 516,
+    "resist": 106,
+    "exSkill1": {
+      "skillName": "リーサルサマーソルト",
+      "attackMul": 300,
+      "fixedDelay": 1,
+      "target": 3,
+      "range": 240,
+      "duration": "単発",
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "CRI率/CRI率上限+20%"
+    ],
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20,
+        "criDamageAdd": 50
+      },
+      {
+        "featureName": "beat-10",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 10
+          }
+        ],
+        "attackMul": 200,
+        "potentialBonus": {
+          "attackMul": 250
+        }
+      },
+      {
+        "featureName": "skill1-normal",
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "即死(確定)→命中"
+        ]
+      },
+      {
+        "featureName": "common-definite",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "damageFactor": 300
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "skill1-normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10",
+          "skill1-normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10",
+          "common-definite"
+        ]
+      }
+    ]
+  },
+  {
     "id": 275,
     "unitName": "【ハンプティダンプティ娘】エッシェル",
     "unitShortName": "エッシェル",
