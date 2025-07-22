@@ -11914,7 +11914,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "TODO_FATAL": "攻撃速度上昇",
     "id": 110,
     "unitName": "【迎春のデュラハン娘】プラチナ",
@@ -11924,7 +11923,7 @@
     "element": "闇",
     "species": "アンデッド",
     "hp": 2849,
-    "attack": 602,
+    "attack": 607,
     "defense": 326,
     "resist": 203,
     "supplements": [
