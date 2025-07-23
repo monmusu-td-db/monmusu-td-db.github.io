@@ -27499,6 +27499,158 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 278,
+    "unitName": "【Gデカイオー娘】ブライニー",
+    "unitShortName": "ブライニー",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "火",
+    "hp": 6734,
+    "attack": 635,
+    "defense": 953,
+    "resist": 191,
+    "exSkill1": {
+      "skillName": "滅・超爆裂破形態起動！",
+      "attackMul": 420,
+      "defenseMul": 240,
+      "blockAdd": 2,
+      "splash": true,
+      "duration": 40,
+      "cooldown": 50,
+      "damageType": "貫通"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "featureName": "common-block1-emphasis",
+        "isConditionalBuff": true,
+        "defenseMul": 120,
+        "cooldownReductions": [
+          1.5
+        ]
+      },
+      {
+        "featureName": "common-block2",
+        "isConditionalBuff": true,
+        "defenseMul": 140,
+        "cooldownReductions": [
+          1.25
+        ]
+      },
+      {
+        "featureName": "common-block3",
+        "isConditionalBuff": true,
+        "defenseMul": 160,
+        "cooldownReductions": [
+          1.166667
+        ]
+      },
+      {
+        "featureName": "common-block4",
+        "isConditionalBuff": true,
+        "defenseMul": 180,
+        "cooldownReductions": [
+          1.125
+        ]
+      },
+      {
+        "featureName": "common-block5",
+        "isConditionalBuff": true,
+        "defenseMul": 200,
+        "cooldownReductions": [
+          1.1
+        ]
+      }
+    ],
+    "costAdd": 5,
+    "attackMul": 130,
+    "defenseMul": 120,
+    "potentialBonus": {
+      "attackMul": 140
+    },
+    "situations": [
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block5"
+        ]
+      }
+    ]
+  },
+  {
     "id": 280,
     "unitName": "【大天狗娘】オタギ",
     "unitShortName": "オタギ",
