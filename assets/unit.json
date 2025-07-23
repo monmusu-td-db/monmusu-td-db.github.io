@@ -27880,6 +27880,138 @@
     "hpMul": 85
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
+    "id": 282,
+    "unitName": "【レヴィアタン娘】キネア",
+    "unitShortName": "キネア",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "水",
+    "species": "悪魔",
+    "hp": 4667,
+    "attack": 688,
+    "defense": 472,
+    "resist": 63,
+    "supplements": [
+      "DEF-3%(20秒)→命中",
+      "- DEF+[減少値×2](20秒)"
+    ],
+    "exSkill1": {
+      "skillName": "深海からの誘い",
+      "attackMul": 240,
+      "targetAdd": 3,
+      "splash": true,
+      "range": 300,
+      "duration": 30,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+19/発動",
+        "鈍足→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル初回待ち時間-6秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 106,
+        "potentialBonus": {
+          "attack": 109
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "defense-add1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 500
+          }
+        ],
+        "defenseAdd": 500
+      },
+      {
+        "featureName": "defense-add2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 1000
+          }
+        ],
+        "defenseAdd": 1000
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-5hits"
+        ]
+      },
+      {
+        "features": [
+          "defense-add1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "defense-add1"
+        ]
+      },
+      {
+        "features": [
+          "defense-add2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "defense-add2"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_FATAL": "スタン蓄積値",
     "id": 283,
     "unitName": "【ワキヤン・タンカ娘】ワエマワ",
