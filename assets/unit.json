@@ -11914,7 +11914,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "TODO_FATAL": "攻撃速度上昇",
     "id": 110,
     "unitName": "【迎春のデュラハン娘】プラチナ",
@@ -11924,7 +11923,7 @@
     "element": "闇",
     "species": "アンデッド",
     "hp": 2849,
-    "attack": 602,
+    "attack": 607,
     "defense": 326,
     "resist": 203,
     "supplements": [
@@ -27100,6 +27099,104 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
+    "id": 274,
+    "unitName": "【ヴォーパルビースト娘】ラピナス",
+    "unitShortName": "ラピナス",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "風",
+    "hp": 5280,
+    "attack": 970,
+    "defense": 516,
+    "resist": 106,
+    "exSkill1": {
+      "skillName": "リーサルサマーソルト",
+      "attackMul": 300,
+      "fixedDelay": 1,
+      "target": 3,
+      "range": 240,
+      "duration": "単発",
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "CRI率/CRI率上限+20%"
+    ],
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20,
+        "criDamageAdd": 50
+      },
+      {
+        "featureName": "beat-10",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 10
+          }
+        ],
+        "attackMul": 200,
+        "potentialBonus": {
+          "attackMul": 250
+        }
+      },
+      {
+        "featureName": "skill1-normal",
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "即死(確定)→命中"
+        ]
+      },
+      {
+        "featureName": "common-definite",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "damageFactor": 300
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "skill1-normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10",
+          "skill1-normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10",
+          "common-definite"
+        ]
+      }
+    ]
+  },
+  {
     "id": 275,
     "unitName": "【ハンプティダンプティ娘】エッシェル",
     "unitShortName": "エッシェル",
@@ -27227,6 +27324,176 @@
       {},
       {
         "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/再配置時間短縮12s",
+    "TODO_FATAL": "ex1射程はwiki情報",
+    "id": 277,
+    "unitName": "【黎明を齎す者】ルキファ",
+    "unitShortName": "ルキファ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "闇",
+    "hp": 2727,
+    "attack": 1059,
+    "defense": 489,
+    "resist": 146,
+    "supplements": [
+      "回復100%/配置→全体",
+      "{attack*500}dmg/死亡時→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "明星降臨",
+      "attackMul": 290,
+      "target": 3,
+      "laser": true,
+      "range": 250,
+      "duration": 20,
+      "cooldown": 35,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "features": [
+      {
+        "featureName": "common-dot",
+        "skill": 0,
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 24
+          }
+        }
+      },
+      {
+        "featureName": "skill1-supplement",
+        "supplements": [
+          "999999dmg/スキル後→自分"
+        ]
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "attackMul": 130
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "attackMul": 160
+      },
+      {
+        "featureName": "attack-mul3",
+        "isConditionalBuff": true,
+        "attackMul": 190
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1",
+          "skill1-supplement"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul1",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1",
+          "common-phase2",
+          "skill1-supplement"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2",
+          "common-phase3",
+          "skill1-supplement"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul3",
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul3",
+          "common-phase4"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "features": [
+          "common-phase1"
+        ],
+        "target": "全体",
+        "duration": "常時",
+        "value": 130,
+        "supplements": [
+          "スキル終了後"
+        ]
+      },
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "features": [
+          "common-phase2"
+        ],
+        "target": "全体",
+        "duration": "常時",
+        "value": 160,
+        "supplements": [
+          "スキル終了後"
+        ]
+      },
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "features": [
+          "common-phase3"
+        ],
+        "target": "全体",
+        "duration": "常時",
+        "value": 190,
+        "supplements": [
+          "スキル終了後"
+        ]
       }
     ]
   },
