@@ -27651,6 +27651,106 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 279,
+    "unitName": "【戯楽祭ドラゴンゾンビ娘】ディフォーラ",
+    "unitShortName": "ディフォーラ/HW",
+    "rarity": "L",
+    "class": "バード",
+    "element": "闇",
+    "species": [
+      "ドラゴン",
+      "アンデッド"
+    ],
+    "hp": 3661,
+    "attack": 294,
+    "defense": 362,
+    "resist": 309,
+    "supplements": [
+      "毒無効",
+      "毒付与/1秒→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "腐敗の旋律",
+      "attackMul": 260,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "damageDebuff": 120
+      },
+      {
+        "featureName": "common-dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 50
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 60
+          }
+        }
+      },
+      {
+        "featureName": "common-definite-poison",
+        "rounds": 2
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot",
+          "common-definite-poison"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 120
+      }
+    ]
+  },
+  {
     "id": 280,
     "unitName": "【大天狗娘】オタギ",
     "unitShortName": "オタギ",
