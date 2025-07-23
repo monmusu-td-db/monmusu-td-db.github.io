@@ -106,7 +106,7 @@ export default class Situation implements TableRow<Keys> {
   readonly situationId: Stat.Root;
   readonly unitShortName: Stat.Root<string | undefined>;
   readonly skillName: Stat.SkillName;
-  readonly conditions: Stat.Root<readonly Data.Condition[]>;
+  readonly conditions: Stat.Root<readonly Data.ConditionObj[]>;
   readonly cost: Stat.Root;
   readonly hp: Stat.Hp;
   readonly attack: Stat.Attack;
@@ -210,14 +210,14 @@ export default class Situation implements TableRow<Keys> {
     this.conditions = new Stat.Root({
       statType: stat.conditions,
       calculater: (s) => {
-        const base = Data.JsonCondition.parse(src.conditions);
+        const base = Data.Condition.parseList(src.conditions);
         const skill = this.getSkill(s)?.conditions;
         const heal =
           this.getFeature(s).healFlag &&
           this.damageType.getValue(s) === Data.DamageType.heal
-            ? [Data.Condition.get(Data.Condition.heal)]
+            ? [Data.Condition.getObj(Data.Condition.key.heal)]
             : undefined;
-        const ret = Data.Condition.of(
+        const ret = Data.Condition.concat(
           base,
           skill,
           heal,
@@ -225,10 +225,10 @@ export default class Situation implements TableRow<Keys> {
         );
         return Data.Condition.toSorted(ret);
       },
-      text: (s) => Data.Condition.listTextOf(this.conditions.getValue(s)),
+      text: (s) => Data.Condition.getText(this.conditions.getValue(s)),
       item: (s) => this.conditions.getText(s),
       color: (s) => {
-        const c = Data.condition;
+        const c = Data.Condition.key;
         const cond = this.conditions.getValue(s);
         if (
           cond.find((v) => {
@@ -2437,7 +2437,7 @@ export default class Situation implements TableRow<Keys> {
     if (
       this.conditions
         .getValue(setting)
-        .findIndex((kvp) => kvp.key === Data.Condition.ranged) === -1
+        .findIndex((kvp) => kvp.key === Data.Condition.key.ranged) === -1
     )
       types.push("ブロック");
     if (this.unit.isToken) types.push("トークン");

@@ -299,7 +299,7 @@ interface JsonFeatureDiff {
 }
 interface FeatureDiff {
   fieldElements: Set<Data.Element>;
-  conditions: Data.Condition[];
+  conditions: Data.ConditionObj[];
   annotations: string[];
   deleteAnnotations: string[];
   hpAdds: AdditionFactor[];
@@ -321,7 +321,7 @@ interface FeatureDiff {
 }
 interface FeatureOutputDiff {
   fieldElements: ReadonlySet<Data.Element>;
-  conditions: readonly Data.Condition[];
+  conditions: readonly Data.ConditionObj[];
   annotations: readonly string[];
   deleteAnnotations: readonly string[];
   hpAdds: readonly AdditionFactor[];
@@ -401,7 +401,7 @@ export class Feature {
       if (v !== undefined) ret.fieldElements = v;
     }
     {
-      const v = Data.JsonCondition.parse(src.conditions);
+      const v = Data.Condition.parseList(src.conditions);
       if (v !== undefined) ret.conditions = v;
     }
     if (src.annotations !== undefined) ret.annotations = src.annotations;
