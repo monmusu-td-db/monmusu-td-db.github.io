@@ -311,111 +311,132 @@ export const MainStatType = {
 
 // Json
 
-const conditionKeys = {
-  hp: "HP",
-  block: "BL",
-  team: "t",
-  beat: "倒",
-  melee: "近",
-  ranged: "遠",
-  heal: "癒",
-  absorb: "吸",
-  definite: "特",
-  enemy: "敵",
-  regenerate: "再",
-  regenerateAll: "再all",
-  regenetateArea: "再area",
-  support: "援",
-  charge: "突",
-  extra: "追",
-  multiply: "*",
-  plus: "+",
-  second: "s",
-  hit: "hit",
-} as const;
-const conditionKeysEntries = getEntries(conditionKeys);
-const conditionTexts = {
-  ...conditionKeys,
-  multiply: "×",
-} as const;
-type ConditionKey = keyof typeof conditionTexts;
-export const condition = Enum(getKeys(conditionTexts));
-export type Condition = KeyValuePair<ConditionKey, number | undefined>;
-export type JsonCondition = string | KeyValuePair<string, number>;
-export const JsonCondition = {
-  parse(list: readonly JsonCondition[] | undefined): Condition[] | undefined {
-    if (list === undefined) return;
-    const fn = (obj: JsonCondition): Condition | undefined => {
-      for (const kvp of conditionKeysEntries) {
-        const key = kvp[0];
-        const value = kvp[1];
-        if (value === obj) {
-          return {
-            key,
-            value: undefined,
-          };
-        }
-        if (typeof obj === "object" && value === obj.key) {
-          return {
-            key,
-            value: obj.value,
-          };
-        }
-      }
-    };
-    return list.map((v) => fn(v)).filter((v) => v !== undefined);
-  },
+interface JsonConditionObj {
+  readonly key: string;
+  readonly type?: string;
+  readonly value: number;
+}
+export type JsonCondition = string | JsonConditionObj;
+export type ConditionObj = {
+  readonly key: ConditionKey;
+  readonly type: string | undefined;
+  readonly value: number | undefined;
 };
-export const Condition = {
-  ...condition,
-  texts: conditionTexts,
+type ConditionKey = keyof typeof Condition.tag;
+export class Condition {
+  static readonly tag = {
+    hp: "HP",
+    block: "BL",
+    team: "t",
+    beat: "倒",
+    melee: "近",
+    ranged: "遠",
+    heal: "癒",
+    absorb: "吸",
+    definite: "特",
+    enemy: "敵",
+    regenerate: "再",
+    regenerateAll: "再all",
+    regenetateArea: "再area",
+    support: "援",
+    charge: "突",
+    extra: "追",
+    multiply: "*",
+    plus: "+",
+    second: "s",
+    hit: "hit",
+  } as const;
+  private static readonly keys = getKeys(this.tag);
+  private static readonly entries = getEntries(this.tag);
+  static readonly key = Enum(this.keys);
+  static readonly text = {
+    ...this.tag,
+    multiply: "×",
+  } as const satisfies Record<ConditionKey, string>;
 
-  get(key: ConditionKey, value?: number | undefined): Condition {
+  static parseList(
+    list: readonly JsonCondition[] | undefined
+  ): readonly ConditionObj[] | undefined {
+    if (list === undefined) {
+      return;
+    }
+    return list
+      .map((item) => this.parse(item))
+      .filter((item) => item !== undefined);
+  }
+
+  private static parse(src: JsonCondition): ConditionObj | undefined {
+    for (const [key, value] of this.entries) {
+      if (value === src) {
+        return {
+          key,
+          type: undefined,
+          value: undefined,
+        };
+      }
+      if (typeof src === "object" && value === src.key) {
+        return {
+          key,
+          type: src.type,
+          value: src.value,
+        };
+      }
+    }
+  }
+
+  static getObj(key: ConditionKey): ConditionObj {
     return {
       key,
-      value,
+      type: undefined,
+      value: undefined,
     };
-  },
+  }
 
-  of(...lists: (readonly Condition[] | undefined)[]): Condition[] {
-    const ret: Condition[] = [];
-    const revLists = lists.toReversed();
-    revLists.forEach((list) => {
-      const revList = list?.toReversed();
-      revList?.forEach((kvp) => {
-        if (!ret.find((r) => r.key === kvp.key)) {
-          ret.push(kvp);
-        }
-      });
+  static concat(
+    ...lists: readonly (readonly ConditionObj[] | undefined)[]
+  ): readonly ConditionObj[] {
+    const ret: ConditionObj[] = [];
+    const keys = new Set<ConditionKey>();
+    // 反転することで、重複した場合最後の要素を優先させる
+    const revList = lists
+      .flat()
+      .filter((item) => item !== undefined)
+      .reverse();
+    revList.forEach((obj) => {
+      if (!keys.has(obj.key)) {
+        ret.push(obj);
+        keys.add(obj.key);
+      }
     });
     return ret.reverse();
-  },
+  }
 
-  toSorted(list: readonly Condition[]): Condition[] {
-    const fn = (c: Condition) => {
-      return getKeys(conditionTexts).findIndex((v) => v === c.key);
-    };
-    return list.toSorted((a, b) => fn(a) - fn(b));
-  },
+  static toSorted(list: readonly ConditionObj[]): readonly ConditionObj[] {
+    return list.toSorted((a, b) => this.getIndex(a) - this.getIndex(b));
+  }
 
-  getText(kvp: Condition) {
-    const key = Condition.texts[kvp.key];
-    const value = kvp.value !== undefined ? kvp.value.toString() : "";
-    switch (kvp.key) {
-      case condition.hit:
-        const s = (kvp.value ?? 0) > 1 ? key + "s" : key;
+  private static getIndex(obj: ConditionObj): number {
+    return this.keys.findIndex((k) => k === obj.key);
+  }
+
+  static getText(list: readonly ConditionObj[]): string {
+    return list.map((obj) => this.getTextFromObj(obj)).join("");
+  }
+
+  private static getTextFromObj(obj: ConditionObj): string {
+    const keyText = this.text[obj.key];
+    const value = (obj.value ?? "").toString();
+    switch (obj.key) {
+      case this.key.hit:
+        const s = (obj.value ?? 0) > 1 ? keyText + "s" : keyText;
         return value + s + " ";
-      case condition.second:
-        return value + key + " ";
+      case this.key.second:
+        return value + keyText + " ";
       default:
-        return key + value + (kvp.value !== undefined ? " " : "");
+        return keyText + value + (obj.value !== undefined ? " " : "");
     }
-  },
-
-  listTextOf(list: readonly Condition[]): string {
-    return list.map((kvp) => Condition.getText(kvp)).join("");
-  },
-} as const;
+  }
+}
 
 const staticDamage = {
   HP_BASE: "hp-base",
@@ -557,7 +578,7 @@ export const JsonRound = {
 interface SkillBase {
   skillName: string;
   isOverCharge?: boolean;
-  conditions?: readonly Condition[];
+  conditions?: readonly ConditionObj[];
   hpMul?: number;
   attackMul?: number;
   defenseMul?: number;
@@ -621,7 +642,7 @@ function parseSkill(
   skill: Partial<SkillBase>,
   jsonSkill: Partial<JsonSkill>
 ): void {
-  const c = JsonCondition.parse(jsonSkill.conditions);
+  const c = Condition.parseList(jsonSkill.conditions);
   if (c !== undefined) skill.conditions = c;
 
   const t = JsonTarget.parse(jsonSkill.target);
