@@ -29094,11 +29094,11 @@
       {
         "isNotAbility": true,
         "supplements": [
-          "{attack*100}dmg/復活時→射程内"
+          "{attack*100}dmg/復活時→周囲"
         ],
         "potentialBonus": {
           "supplements": [
-            "{attack*130}dmg/復活時→射程内"
+            "{attack*130}dmg/復活時→周囲"
           ]
         }
       }
