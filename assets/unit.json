@@ -24677,7 +24677,8 @@
     ]
   },
   {
-    "TODO_FATAL": "未調査 TODO→stat&攻撃速度",
+    "TODO_DESC": "statはwiki情報[Lv25:2352/668/152/24]",
+    "TODO_STAT_INFERRED": true,
     "id": 2460001,
     "parentId": 246,
     "unitName": "リトルグレイ戦士",
@@ -24685,12 +24686,12 @@
     "rarity": "C",
     "species": "エイリアン",
     "cost": 0,
-    "hp": 9999,
-    "attack": 999,
-    "defense": 999,
-    "resist": 999,
+    "hp": 4185,
+    "attack": 1027,
+    "defense": 318,
+    "resist": 49,
     "attackSpeed": 100,
-    "delay": 25,
+    "delay": 40,
     "block": null,
     "target": 1,
     "moveSpeed": 0,
@@ -27498,6 +27499,258 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 278,
+    "unitName": "【Gデカイオー娘】ブライニー",
+    "unitShortName": "ブライニー",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "火",
+    "hp": 6734,
+    "attack": 635,
+    "defense": 953,
+    "resist": 191,
+    "exSkill1": {
+      "skillName": "滅・超爆裂破形態起動！",
+      "attackMul": 420,
+      "defenseMul": 240,
+      "blockAdd": 2,
+      "splash": true,
+      "duration": 40,
+      "cooldown": 50,
+      "damageType": "貫通"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "featureName": "common-block1-emphasis",
+        "isConditionalBuff": true,
+        "defenseMul": 120,
+        "cooldownReductions": [
+          1.5
+        ]
+      },
+      {
+        "featureName": "common-block2",
+        "isConditionalBuff": true,
+        "defenseMul": 140,
+        "cooldownReductions": [
+          1.25
+        ]
+      },
+      {
+        "featureName": "common-block3",
+        "isConditionalBuff": true,
+        "defenseMul": 160,
+        "cooldownReductions": [
+          1.166667
+        ]
+      },
+      {
+        "featureName": "common-block4",
+        "isConditionalBuff": true,
+        "defenseMul": 180,
+        "cooldownReductions": [
+          1.125
+        ]
+      },
+      {
+        "featureName": "common-block5",
+        "isConditionalBuff": true,
+        "defenseMul": 200,
+        "cooldownReductions": [
+          1.1
+        ]
+      }
+    ],
+    "costAdd": 5,
+    "attackMul": 130,
+    "defenseMul": 120,
+    "potentialBonus": {
+      "attackMul": 140
+    },
+    "situations": [
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block5"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 279,
+    "unitName": "【戯楽祭ドラゴンゾンビ娘】ディフォーラ",
+    "unitShortName": "ディフォーラ/HW",
+    "rarity": "L",
+    "class": "バード",
+    "element": "闇",
+    "species": [
+      "ドラゴン",
+      "アンデッド"
+    ],
+    "hp": 3661,
+    "attack": 294,
+    "defense": 362,
+    "resist": 309,
+    "supplements": [
+      "毒無効",
+      "毒付与/1秒→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "腐敗の旋律",
+      "attackMul": 260,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "damageDebuff": 120
+      },
+      {
+        "featureName": "common-dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 50
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 60
+          }
+        }
+      },
+      {
+        "featureName": "common-definite-poison",
+        "rounds": 2
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot",
+          "common-definite-poison"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 120
+      }
+    ]
+  },
+  {
     "id": 280,
     "unitName": "【大天狗娘】オタギ",
     "unitShortName": "オタギ",
@@ -27625,6 +27878,138 @@
     ],
     "isEventUnit": true,
     "hpMul": 85
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1射程はwiki情報",
+    "id": 282,
+    "unitName": "【レヴィアタン娘】キネア",
+    "unitShortName": "キネア",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "水",
+    "species": "悪魔",
+    "hp": 4667,
+    "attack": 688,
+    "defense": 472,
+    "resist": 63,
+    "supplements": [
+      "DEF-3%(20秒)→命中",
+      "- DEF+[減少値×2](20秒)"
+    ],
+    "exSkill1": {
+      "skillName": "深海からの誘い",
+      "attackMul": 240,
+      "targetAdd": 3,
+      "splash": true,
+      "range": 300,
+      "duration": 30,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+19/発動",
+        "鈍足→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル初回待ち時間-6秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 106,
+        "potentialBonus": {
+          "attack": 109
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "defense-add1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 500
+          }
+        ],
+        "defenseAdd": 500
+      },
+      {
+        "featureName": "defense-add2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 1000
+          }
+        ],
+        "defenseAdd": 1000
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-5hits"
+        ]
+      },
+      {
+        "features": [
+          "defense-add1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "defense-add1"
+        ]
+      },
+      {
+        "features": [
+          "defense-add2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "defense-add2"
+        ]
+      }
+    ]
   },
   {
     "TODO_FATAL": "スタン蓄積値",
