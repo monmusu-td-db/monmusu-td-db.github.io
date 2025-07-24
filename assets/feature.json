@@ -360,10 +360,12 @@
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-poison",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "poison"
+      }
     ]
   },
   {

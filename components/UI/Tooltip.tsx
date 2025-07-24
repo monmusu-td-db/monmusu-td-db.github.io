@@ -31,6 +31,7 @@ const sign = {
   BEND: ")",
   FRAME: "f",
   SECOND: "秒",
+  SEPARATOR: "：",
 } as const;
 
 interface TextBaseProps {
@@ -230,6 +231,25 @@ function ListItem({
   );
 }
 
+function DescList({ children }: { children: ReactNode }) {
+  return <dl className="stat-tooltip-dl">{children}</dl>;
+}
+
+function DescListItem({
+  children,
+  label,
+}: {
+  children: ReactNode;
+  label: ReactNode;
+}) {
+  return (
+    <div>
+      <dt>{label}</dt>
+      <dd>{children}</dd>
+    </div>
+  );
+}
+
 export const Tooltip = Object.assign(Body, {
   sign,
   Positive,
@@ -246,4 +266,6 @@ export const Tooltip = Object.assign(Body, {
   Divide,
   List,
   ListItem,
+  DescList,
+  DescListItem,
 });
