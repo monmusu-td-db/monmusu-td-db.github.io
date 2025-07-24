@@ -25,3 +25,17 @@
 .text.info {
   color: var(--bs-cyan);
 }
+
+dl.stat-tooltip-dl dt {
+  display: inline-block;
+  color: var(--bs-yellow);
+}
+
+dl.stat-tooltip-dl dd {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+dl.stat-tooltip-dl dd:not(dd:empty)::before {
+  content: "：";
+}

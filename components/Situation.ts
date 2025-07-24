@@ -106,7 +106,7 @@ export default class Situation implements TableRow<Keys> {
   readonly situationId: Stat.Root;
   readonly unitShortName: Stat.Root<string | undefined>;
   readonly skillName: Stat.SkillName;
-  readonly conditions: Stat.Root<readonly Data.ConditionObj[]>;
+  readonly conditions: Stat.Condition;
   readonly cost: Stat.Root;
   readonly hp: Stat.Hp;
   readonly attack: Stat.Attack;
@@ -207,7 +207,7 @@ export default class Situation implements TableRow<Keys> {
       },
     });
 
-    this.conditions = new Stat.Root({
+    this.conditions = new Stat.Condition({
       statType: stat.conditions,
       calculater: (s) => {
         const base = Data.Condition.parseList(src.conditions);
@@ -225,8 +225,6 @@ export default class Situation implements TableRow<Keys> {
         );
         return Data.Condition.toSorted(ret);
       },
-      text: (s) => Data.Condition.getText(this.conditions.getValue(s)),
-      item: (s) => this.conditions.getText(s),
       color: (s) => {
         const c = Data.Condition.key;
         const cond = this.conditions.getValue(s);

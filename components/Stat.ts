@@ -1,6 +1,7 @@
 import { StatRoot } from "./Stat/StatRoot";
 import { StatUnitName } from "./Stat/StatUnitName";
 import { StatSkillName } from "./Stat/StatSkillName";
+import { StatCondition } from "./Stat/StatCondition";
 import { BaseStat } from "./Stat/BaseStat";
 import { SituationBaseStat } from "./Stat/SituationBaseStat";
 import { StatHp } from "./Stat/StatHp";
@@ -19,6 +20,7 @@ import { StatBuffRange } from "./Stat/StatBuffRange";
 export { StatRoot as Root };
 export { StatUnitName as UnitName };
 export { StatSkillName as SkillName };
+export { StatCondition as Condition };
 export { BaseStat as Base };
 export { SituationBaseStat as SituationBase };
 export { StatHp as Hp };

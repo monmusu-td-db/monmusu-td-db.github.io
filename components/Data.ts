@@ -311,18 +311,24 @@ export const MainStatType = {
 
 // Json
 
-interface JsonConditionObj {
+interface JsonConditionObjType {
+  readonly key: string;
+  readonly type: string;
+  readonly value?: number;
+}
+interface JsonConditionObjKvp {
   readonly key: string;
   readonly type?: string;
   readonly value: number;
 }
-export type JsonCondition = string | JsonConditionObj;
+export type JsonCondition = string | JsonConditionObjType | JsonConditionObjKvp;
 export type ConditionObj = {
   readonly key: ConditionKey;
   readonly type: string | undefined;
   readonly value: number | undefined;
 };
 type ConditionKey = keyof typeof Condition.tag;
+type ConditionDefiniteDescKey = keyof typeof Condition.definiteDesc;
 export class Condition {
   static readonly tag = {
     hp: "HP",
@@ -346,13 +352,44 @@ export class Condition {
     second: "s",
     hit: "hit",
   } as const;
-  private static readonly keys = getKeys(this.tag);
-  private static readonly entries = getEntries(this.tag);
-  static readonly key = Enum(this.keys);
+
   static readonly text = {
     ...this.tag,
     multiply: "×",
   } as const satisfies Record<ConditionKey, string>;
+
+  static readonly desc = {
+    hp: "現在HP",
+    block: "ブロック数",
+    team: "味方配置数",
+    beat: "撃破数",
+    melee: "近接攻撃時",
+    ranged: "遠距離攻撃時",
+    heal: "回復行動",
+    absorb: "命中時回復",
+    definite: "特効",
+    enemy: "攻撃対象数",
+    regenerate: "継続回復",
+    regenerateAll: "全体継続回復",
+    regenetateArea: "射程内継続回復",
+    support: "バフ効果",
+    charge: "移動攻撃",
+    extra: "追加ダメージ",
+    multiply: "乗算補整",
+    plus: "加算補整",
+    second: "経過時間",
+    hit: "命中回数",
+  } as const satisfies Record<ConditionKey, string>;
+
+  static readonly definiteDesc = {
+    none: "不明",
+    air: "対空",
+  } as const;
+
+  private static readonly keys = getKeys(this.tag);
+  private static readonly entries = getEntries(this.tag);
+  static readonly key = Enum(this.keys);
+  private static definiteKeys = getKeys(this.definiteDesc);
 
   static parseList(
     list: readonly JsonCondition[] | undefined
@@ -419,22 +456,19 @@ export class Condition {
     return this.keys.findIndex((k) => k === obj.key);
   }
 
-  static getText(list: readonly ConditionObj[]): string {
-    return list.map((obj) => this.getTextFromObj(obj)).join("");
+  private static isDefiniteDescKey(
+    key: unknown
+  ): key is ConditionDefiniteDescKey {
+    return this.definiteKeys.findIndex((k) => k === key) !== -1;
   }
 
-  private static getTextFromObj(obj: ConditionObj): string {
-    const keyText = this.text[obj.key];
-    const value = (obj.value ?? "").toString();
-    switch (obj.key) {
-      case this.key.hit:
-        const s = (obj.value ?? 0) > 1 ? keyText + "s" : keyText;
-        return value + s + " ";
-      case this.key.second:
-        return value + keyText + " ";
-      default:
-        return keyText + value + (obj.value !== undefined ? " " : "");
+  static getDefiniteDesc(
+    key: unknown
+  ): (typeof this.definiteDesc)[ConditionDefiniteDescKey] {
+    if (this.isDefiniteDescKey(key)) {
+      return this.definiteDesc[key];
     }
+    return this.definiteDesc.none;
   }
 }
 

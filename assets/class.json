@@ -451,7 +451,10 @@
         "featureName": "class-definite",
         "isConditionalBuff": true,
         "conditions": [
-          "特"
+          {
+            "key": "特",
+            "type": "air"
+          }
         ],
         "damageFactor": 200
       },
