@@ -94,6 +94,16 @@
     ]
   },
   {
+    "featureName": "common-block1-emphasis",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "BL",
+        "value": 1
+      }
+    ]
+  },
+  {
     "featureName": "common-block2",
     "isConditionalBuff": true,
     "conditions": [
