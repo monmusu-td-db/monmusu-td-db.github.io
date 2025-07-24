@@ -29056,6 +29056,61 @@
     "moveSpeedMul": 300
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "復活特性",
+    "TODO_STAT_INFERRED": true,
+    "id": 291,
+    "unitName": "【キョンシー娘】テンミィ",
+    "unitShortName": "テンミィ",
+    "rarity": "E",
+    "class": "モンク",
+    "element": "地",
+    "species": [
+      "妖怪",
+      "アンデッド"
+    ],
+    "hp": 7015,
+    "attack": 900,
+    "defense": 307,
+    "resist": 135,
+    "exSkill1": {
+      "skillName": "鋭い毒爪",
+      "attackMul": 180,
+      "delayMul": 50,
+      "duration": 30,
+      "cooldown": 45,
+      "supplements": [
+        "猛毒付与(稀)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スタン耐性+50"
+    ],
+    "features": [
+      {
+        "isNotAbility": true,
+        "supplements": [
+          "{attack*100}dmg/復活時→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "{attack*130}dmg/復活時→射程内"
+          ]
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 292,
     "unitName": "【朱雀娘】リャオホァ",
     "unitShortName": "リャオホァ",
