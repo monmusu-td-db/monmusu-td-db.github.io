@@ -218,7 +218,10 @@
         "featureName": "class-definite",
         "isConditionalBuff": true,
         "conditions": [
-          "特"
+          {
+            "key": "特",
+            "type": "stan"
+          }
         ],
         "damageFactor": 110
       }
@@ -682,7 +685,10 @@
         "featureName": "class-definite",
         "isConditionalBuff": true,
         "conditions": [
-          "特"
+          {
+            "key": "特",
+            "type": "same-element"
+          }
         ],
         "damageFactor": 130
       }
@@ -1158,7 +1164,10 @@
           "加算バフ"
         ],
         "conditions": [
-          "特",
+          {
+            "key": "特",
+            "type": "same-element"
+          },
           "援"
         ],
         "staticDamage": {
