@@ -384,6 +384,8 @@ export class Condition {
   static readonly definiteDesc = {
     none: "不明",
     air: "対空",
+    stan: "スタン",
+    "same-element": "同属性",
   } as const;
 
   private static readonly keys = getKeys(this.tag);
