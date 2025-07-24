@@ -198,6 +198,7 @@
       },
       {
         "featureName": "class-attack",
+        "isAbility": true,
         "flagNoDps": true,
         "annotations": [
           "配置時攻撃"
