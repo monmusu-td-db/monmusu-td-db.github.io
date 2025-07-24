@@ -28200,6 +28200,79 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 285,
+    "unitName": "【シェイプシフター娘】アスタ",
+    "unitShortName": "アスタ/進化",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "光",
+    "hp": 4512,
+    "attack": 538,
+    "defense": 445,
+    "resist": 115,
+    "exSkill1": {
+      "skillName": "ジャックインザボックス",
+      "attackMul": 240,
+      "targetAdd": 2,
+      "rounds": 3,
+      "duration": 20,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "{attack*300}dmg/発動→射程内",
+        "スタン付与100%/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "isConditionalBuff": true,
+        "physicalDamageCut": 50,
+        "magicalDamageCut": 50,
+        "range": null,
+        "supplements": [
+          "引き付け"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 120
+      }
+    ],
+    "costAdd": 10,
+    "hpMul": 200,
+    "blockAdd": 2,
+    "potentialBonus": {
+      "hpMul": 230
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 286,
     "unitName": "【チュパカブラ娘】チュピナ",
     "unitShortName": "チュピナ",
