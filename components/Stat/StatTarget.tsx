@@ -18,8 +18,12 @@ export class StatTarget extends StatTooltip<
 
   protected override getDefaultComparer(setting: Setting): number | undefined {
     const value = this.getValue(setting);
-    if (value === Infinity) return -1000;
-    if (typeof value === "number") return -value;
+    if (value === Infinity) {
+      return -1000;
+    }
+    if (typeof value === "number") {
+      return -value;
+    }
     switch (value) {
       case Data.Target.self:
         return -1;
@@ -34,7 +38,9 @@ export class StatTarget extends StatTooltip<
 
   protected override getDefaultItem(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     const { target, splash, rounds, wideTarget, laser } = f;
 
     const contents: string[] = (() => {
@@ -44,14 +50,18 @@ export class StatTarget extends StatTooltip<
         case Data.Target.other:
           return [target];
         case Data.Target.hit:
-          if (splash) return [`${target}→範囲`];
+          if (splash) {
+            return [`${target}→範囲`];
+          }
           return [target];
       }
       const targets = Array.isArray(target) ? target : [target];
 
       return targets.flatMap((target) => {
         function fn(round: number) {
-          if (target < 1) return "0";
+          if (target < 1) {
+            return "0";
+          }
           const base = target === Infinity ? Data.Target.inRange : target;
           const noOmit = target > 1;
 
@@ -74,7 +84,9 @@ export class StatTarget extends StatTooltip<
             .join("");
         }
 
-        if (typeof rounds === "number") return fn(rounds);
+        if (typeof rounds === "number") {
+          return fn(rounds);
+        }
         return rounds.map((r) => fn(r.value));
       });
     })();
@@ -114,9 +126,11 @@ export class StatTarget extends StatTooltip<
     }
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     const multiply = "×";
     const round = typeof f.rounds === "number" ? f.rounds : undefined;

@@ -13,7 +13,9 @@ export class StatSkillName extends StatRoot<
     const { phaseName, isOverCharge } = f;
 
     if (skillName === null) {
-      if (annotations === undefined) return;
+      if (annotations === undefined) {
+        return;
+      }
       skillName = annotations[0];
       annotations = annotations.slice(1);
     } else if (

@@ -2,25 +2,25 @@ import jsonBeast from "@/assets/beast.json";
 import { Enum, Rarity } from "./Data";
 
 interface JsonBeastData extends Partial<JsonBeastFactors> {
-  name: string
-  desc: string
-  features?: JsonBeastFeature[]
+  name: string;
+  desc: string;
+  features?: JsonBeastFeature[];
 }
 
 interface JsonBeastFactors {
-  cost: number
-  hp: number
-  attack: number
-  defense: number
-  resist: number
-  delayCut: number
-  rangeAdd: number
-  initialTimeCut: number
-  moveSpeedAdd: number
+  cost: number;
+  hp: number;
+  attack: number;
+  defense: number;
+  resist: number;
+  delayCut: number;
+  rangeAdd: number;
+  initialTimeCut: number;
+  moveSpeedAdd: number;
 }
 
 interface JsonBeastFeature extends Partial<JsonBeastFactors> {
-  targets: string[]
+  targets: string[];
 }
 
 const beastFactorkeys = [
@@ -34,7 +34,7 @@ const beastFactorkeys = [
   "initialTimeMul",
   "moveSpeedAdd",
 ] as const;
-export type BeastFactorKeys = typeof beastFactorkeys[number]
+export type BeastFactorKeys = (typeof beastFactorkeys)[number];
 const beastFactor = Enum(beastFactorkeys);
 
 class BeastFactors implements Record<BeastFactorKeys, number | undefined> {
@@ -56,7 +56,8 @@ class BeastFactors implements Record<BeastFactorKeys, number | undefined> {
     this.resist = src.resist;
     this.delayMul = src.delayCut !== undefined ? 100 - src.delayCut : undefined;
     this.rangeAdd = src.rangeAdd;
-    this.initialTimeMul = src.initialTimeCut !== undefined ? 100 - src.initialTimeCut : undefined;
+    this.initialTimeMul =
+      src.initialTimeCut !== undefined ? 100 - src.initialTimeCut : undefined;
     this.moveSpeedAdd = src.moveSpeedAdd;
   }
 }
@@ -86,16 +87,20 @@ class Beast {
     this.desc = src.desc;
 
     this.factors = new BeastFactors(src);
-    this.features = src.features?.map(v => new BeastFeature(v));
+    this.features = src.features?.map((v) => new BeastFeature(v));
   }
 
-  getFactor(key: keyof BeastFactors, types: (string | undefined)[]): number | undefined {
+  getFactor(
+    key: keyof BeastFactors,
+    types: (string | undefined)[]
+  ): number | undefined {
     if (this.features !== undefined) {
       for (const f of this.features) {
-        const hasRequirement = f.targets.some(r => types.includes(r));
+        const hasRequirement = f.targets.some((r) => types.includes(r));
         const fac = f[key];
-        if (hasRequirement && fac !== undefined)
+        if (hasRequirement && fac !== undefined) {
           return fac;
+        }
       }
     }
     return this.factors[key];

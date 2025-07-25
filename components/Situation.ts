@@ -187,7 +187,9 @@ export default class Situation implements TableRow<Keys> {
     this.skillName = new Stat.SkillName({
       statType: stat.skillName,
       calculater: (s) => {
-        if (this.skill === -1) return null;
+        if (this.skill === -1) {
+          return null;
+        }
         return this.getSkill(s)?.skillName;
       },
       factors: (s) => {
@@ -235,23 +237,34 @@ export default class Situation implements TableRow<Keys> {
               case c.enemy:
                 return true;
               case c.hit:
-                if ((v.value ?? 0) > 1) return true;
+                if ((v.value ?? 0) > 1) {
+                  return true;
+                }
             }
           })
-        )
+        ) {
           return tableColor.positive;
+        }
 
         const f = this.getFeature(s);
         const skillCond = f.skillCond?.conditions;
         if (skillCond !== undefined && skillCond.length > 0) {
-          if (f.isConditionalSkillBuff) return tableColor.positive;
-          if (f.isConditionalSkillDebuff) return tableColor.negative;
+          if (f.isConditionalSkillBuff) {
+            return tableColor.positive;
+          }
+          if (f.isConditionalSkillDebuff) {
+            return tableColor.negative;
+          }
         }
 
         const condBuff = f.cond?.conditions;
         if (condBuff !== undefined && condBuff.length > 0) {
-          if (f.isConditionalBuff) return tableColor.positiveWeak;
-          if (f.isConditionalDebuff) return tableColor.negativeWeak;
+          if (f.isConditionalBuff) {
+            return tableColor.positiveWeak;
+          }
+          if (f.isConditionalDebuff) {
+            return tableColor.negativeWeak;
+          }
         }
       },
     });
@@ -376,26 +389,37 @@ export default class Situation implements TableRow<Keys> {
             return factor.result;
           }
           const c = factor?.cooldown;
-          if (ret === undefined || c === undefined) return;
+          if (ret === undefined || c === undefined) {
+            return;
+          }
           return factor?.result;
         }
         return ret;
       },
       color: (s) => {
         const f = this.interval.getFactors(s);
-        if (f?.actualResult === undefined) return;
+        if (f?.actualResult === undefined) {
+          return;
+        }
 
-        if (f?.cooldown !== undefined || f?.staticValue)
+        if (f?.cooldown !== undefined || f?.staticValue) {
           return tableColor.warning;
+        }
 
         const b = f?.base?.buffColor;
-        if (b) return b;
+        if (b) {
+          return b;
+        }
 
         const sk = f?.base?.skillColor;
-        if (sk) return sk;
+        if (sk) {
+          return sk;
+        }
 
         const c = f?.base?.conditionalColor;
-        if (c) return c;
+        if (c) {
+          return c;
+        }
       },
       factors: (s) => this.getIntervalFactors(s),
     });
@@ -406,7 +430,9 @@ export default class Situation implements TableRow<Keys> {
       isReversed: true,
       color: (s) => {
         const f = this.block.getFactors(s);
-        if (f === undefined) return;
+        if (f === undefined) {
+          return;
+        }
 
         const skillColor = Data.TableColor.valueCompare(f.skill, f.base);
         if (skillColor !== undefined) {
@@ -419,7 +445,9 @@ export default class Situation implements TableRow<Keys> {
 
         const base = this.unit?.block.getValue(s);
         const skillbase = sk?.block ?? base;
-        if (skillbase === undefined) return;
+        if (skillbase === undefined) {
+          return;
+        }
 
         const fea = this.getFeature(s);
         const skill = skillbase + (sk?.blockAdd ?? 0);
@@ -452,7 +480,9 @@ export default class Situation implements TableRow<Keys> {
           : fea.target ??
             sk?.target ??
             (u?.isBlock ? Data.Target.block : u?.target);
-        if (targetBase === undefined) return;
+        if (targetBase === undefined) {
+          return;
+        }
         const isBlock = targetBase === Data.Target.block;
 
         const block = this.block.getValue(s);
@@ -461,7 +491,9 @@ export default class Situation implements TableRow<Keys> {
           : isFixed
           ? targetBase
           : Data.Target.sum(targetBase, sk?.targetAdd ?? 0, fea.targetAdd ?? 0);
-        if (target === undefined) return;
+        if (target === undefined) {
+          return;
+        }
 
         const splash = this.splash.getValue(s) ?? false;
         const rounds = this.rounds.getValue(s);
@@ -469,18 +501,26 @@ export default class Situation implements TableRow<Keys> {
         const laser = fea.laser ?? sk?.laser ?? false;
 
         const color: Data.TableColor | undefined = (() => {
-          if (typeof target !== "number" && !Array.isArray(target)) return;
-          if (isFixed) return tableColor.warning;
+          if (typeof target !== "number" && !Array.isArray(target)) {
+            return;
+          }
+          if (isFixed) {
+            return tableColor.warning;
+          }
 
           const average = (arg: Data.Target) => {
             if (Array.isArray(arg)) {
-              if (arg.length === 0) return 0;
+              if (arg.length === 0) {
+                return 0;
+              }
               return arg.reduce((a, c) => a + c) / arg.length;
             }
             return arg;
           };
           const base = average(u?.target ?? 1);
-          if (typeof base !== "number") return;
+          if (typeof base !== "number") {
+            return;
+          }
 
           const calcBlock = (arg: Data.TargetBase | undefined) =>
             arg === Data.Target.block ? block : arg;
@@ -488,22 +528,33 @@ export default class Situation implements TableRow<Keys> {
             target: Data.Target | undefined,
             ...values: number[]
           ) => {
-            if (target === undefined) return;
+            if (target === undefined) {
+              return;
+            }
             return Data.Target.sum(target, ...values);
           };
           const getPoint = (v: Data.Target | undefined) => {
             if (
               typeof v !== "number" ||
               (v !== Infinity && target === Infinity)
-            )
+            ) {
               return 0;
-            if (v > base) return 1;
-            if (v < base) return -1;
+            }
+            if (v > base) {
+              return 1;
+            }
+            if (v < base) {
+              return -1;
+            }
             return 0;
           };
           const calcPoints = (...values: number[]) => {
-            if (values.some((v) => v > 0)) return 1;
-            if (values.some((v) => v < 0)) return -1;
+            if (values.some((v) => v > 0)) {
+              return 1;
+            }
+            if (values.some((v) => v < 0)) {
+              return -1;
+            }
             return 0;
           };
           const splashFactor = this.splash.getFactors(s);
@@ -521,8 +572,12 @@ export default class Situation implements TableRow<Keys> {
             sk?.laser ? 1 : 0,
             fea.flagTargetSkillBuff ? 1 : 0
           );
-          if (skillPoint > 0) return tableColor.positive;
-          if (skillPoint < 0) return tableColor.negative;
+          if (skillPoint > 0) {
+            return tableColor.positive;
+          }
+          if (skillPoint < 0) {
+            return tableColor.negative;
+          }
 
           const condNum = sum(
             calcBlock(fea.cond?.target) ?? base,
@@ -535,8 +590,12 @@ export default class Situation implements TableRow<Keys> {
             roundsFactor.conditionPoint,
             fea.cond?.laser ? 1 : 0
           );
-          if (conditionPoint > 0) return tableColor.positiveWeak;
-          if (conditionPoint < 0) return tableColor.negativeWeak;
+          if (conditionPoint > 0) {
+            return tableColor.positiveWeak;
+          }
+          if (conditionPoint < 0) {
+            return tableColor.negativeWeak;
+          }
         })();
 
         return {
@@ -567,9 +626,15 @@ export default class Situation implements TableRow<Keys> {
         // const buffNum = Data.Round.average(fea.skillBuffs?.rounds);
 
         const fn = (v: number | undefined) => {
-          if (v === undefined) return 0;
-          if (v > baseNum) return 1;
-          if (v < baseNum) return -1;
+          if (v === undefined) {
+            return 0;
+          }
+          if (v > baseNum) {
+            return 1;
+          }
+          if (v < baseNum) {
+            return -1;
+          }
           return 0;
         };
         const conditionPoint = fn(condNum);
@@ -640,12 +705,17 @@ export default class Situation implements TableRow<Keys> {
           typeof target === "string" &&
           target !== Data.Target.hit &&
           !fea.flagRangeIsVisible
-        )
+        ) {
           return;
-        if (fea.range === null) return;
+        }
+        if (fea.range === null) {
+          return;
+        }
 
         const fixedRange = fea.range ?? sk?.range;
-        if (fixedRange === undefined && unitFactor === undefined) return;
+        if (fixedRange === undefined && unitFactor === undefined) {
+          return;
+        }
 
         const base = unitFactor?.deploymentResult ?? 0;
         const field = this.getFieldElementFactor(s, stat.range);
@@ -665,7 +735,9 @@ export default class Situation implements TableRow<Keys> {
         const result = fixedRange ?? subtotal;
 
         const color = (() => {
-          if (fixedRange !== undefined) return tableColor.warning;
+          if (fixedRange !== undefined) {
+            return tableColor.warning;
+          }
 
           const skillBuffRange =
             fea.skillBuffs?.range ??
@@ -674,8 +746,12 @@ export default class Situation implements TableRow<Keys> {
               fea.skillBuffs?.rangeMul,
               fea.skillBuffs?.rangeAdd
             );
-          if (skillBuffRange > base) return tableColor.positiveStrong;
-          if (skillBuffRange < base) return tableColor.negativeStrong;
+          if (skillBuffRange > base) {
+            return tableColor.positiveStrong;
+          }
+          if (skillBuffRange < base) {
+            return tableColor.negativeStrong;
+          }
 
           const skillMul = Percent.multiply(
             sk?.rangeMul,
@@ -685,14 +761,22 @@ export default class Situation implements TableRow<Keys> {
             fea.skillCond?.range ??
             sk?.range ??
             calcSubtotal(base, skillMul, fea.skillCond?.rangeAdd);
-          if (skillRange > base) return tableColor.positive;
-          if (skillRange < base) return tableColor.negative;
+          if (skillRange > base) {
+            return tableColor.positive;
+          }
+          if (skillRange < base) {
+            return tableColor.negative;
+          }
 
           const condRange =
             fea.cond?.range ??
             calcSubtotal(base, fea.cond?.rangeMul, fea.cond?.rangeAdd);
-          if (condRange > base) return tableColor.positiveWeak;
-          if (condRange < base) return tableColor.negativeWeak;
+          if (condRange > base) {
+            return tableColor.positiveWeak;
+          }
+          if (condRange < base) {
+            return tableColor.negativeWeak;
+          }
         })();
 
         return {
@@ -837,13 +921,19 @@ export default class Situation implements TableRow<Keys> {
           );
           const damageAmount = (() => {
             const isSingleSkill = this.interval.getFactors(s)?.cooldown;
-            if (isSingleSkill === undefined) return;
+            if (isSingleSkill === undefined) {
+              return;
+            }
 
             const dpsFactor = this.dps0.getFactors(s);
-            if (dpsFactor === undefined) return;
+            if (dpsFactor === undefined) {
+              return;
+            }
 
             const rounds = this.rounds.getFactors(s).result;
-            if (rounds === 1) return;
+            if (rounds === 1) {
+              return;
+            }
 
             const criChance = this.criticalChance.getFactors(s).result;
             const amount =
@@ -885,10 +975,12 @@ export default class Situation implements TableRow<Keys> {
       color: (s) => {
         const fea = this.getFeature(s);
         const skillBuff = fea.skillBuffs?.supplements;
-        if (skillBuff !== undefined && skillBuff.size > 0)
+        if (skillBuff !== undefined && skillBuff.size > 0) {
           return tableColor.positiveStrong;
-        if (this.getSkill(s)?.supplements && !this.getFeature(s).isAbility)
+        }
+        if (this.getSkill(s)?.supplements && !this.getFeature(s).isAbility) {
           return tableColor.positive;
+        }
 
         const phyDamageCut = this.physicalDamageCut.getFactors(s);
         const magDamageCut = this.magicalDamageCut.getFactors(s);
@@ -904,8 +996,9 @@ export default class Situation implements TableRow<Keys> {
           phySkillCond ||
           magSkillCond ||
           (!fea.isAbility && (phyEvasion.skillColor || magEvasion.skillColor))
-        )
+        ) {
           return tableColor.positive;
+        }
 
         if (
           (skillCond && fea.isConditionalSkillDebuff) ||
@@ -917,22 +1010,33 @@ export default class Situation implements TableRow<Keys> {
 
         const cond = fea.cond?.supplements;
         if (cond !== undefined && cond.size > 0) {
-          if (fea.isConditionalDebuff) return tableColor.negativeWeak;
-          if (fea.isConditionalBuff) return tableColor.positiveWeak;
+          if (fea.isConditionalDebuff) {
+            return tableColor.negativeWeak;
+          }
+          if (fea.isConditionalBuff) {
+            return tableColor.positiveWeak;
+          }
         }
 
         const phyCond = phyDamageCut.condColor;
         const magCond = magDamageCut.condColor;
-        if (phyCond || magCond || phyEvasion.condColor || magEvasion.condColor)
+        if (
+          phyCond ||
+          magCond ||
+          phyEvasion.condColor ||
+          magEvasion.condColor
+        ) {
           return tableColor.positiveWeak;
+        }
 
         if (
           phyCond === false ||
           magCond === false ||
           phyEvasion.condColor === false ||
           magEvasion.condColor === false
-        )
+        ) {
           return tableColor.negativeWeak;
+        }
       },
     });
 
@@ -941,22 +1045,34 @@ export default class Situation implements TableRow<Keys> {
       calculater: (s) => this.getInitialTime(s),
       text: (s) => {
         const ret = this.initialTime.getValue(s);
-        if (ret === undefined)
+        if (ret === undefined) {
           return this.getTokenParent(s)?.initialTime.getText(s);
+        }
         return ret?.toFixed(1);
       },
       color: (s) => {
         const f = this.getFeature(s);
-        if (f.isExtraDamage) return tableColor.warning;
-        if (this.initialTime.getValue(s) === undefined)
+        if (f.isExtraDamage) {
+          return tableColor.warning;
+        }
+        if (this.initialTime.getValue(s) === undefined) {
           return this.getTokenParent(s)?.initialTime.getColor(s);
-        if (this.getSkill(s)?.isOverCharge) return tableColor.negative;
+        }
+        if (this.getSkill(s)?.isOverCharge) {
+          return tableColor.negative;
+        }
         const c = f.initialTimeCut ?? 0;
         const p = this.unit?.getPotentialFactor(s, stat.initialTime) ?? 0;
         const cp = c - p;
-        if (cp > 0) return tableColor.positiveWeak;
-        if (cp < 0) return tableColor.negativeWeak;
-        if (f.cooldownReductions !== undefined) return tableColor.positiveWeak;
+        if (cp > 0) {
+          return tableColor.positiveWeak;
+        }
+        if (cp < 0) {
+          return tableColor.negativeWeak;
+        }
+        if (f.cooldownReductions !== undefined) {
+          return tableColor.positiveWeak;
+        }
       },
     });
 
@@ -992,18 +1108,28 @@ export default class Situation implements TableRow<Keys> {
       text: (s) => this.cooldown.getValue(s)?.toFixed(1),
       color: (s) => {
         const f = this.cooldown.getFactors(s);
-        if (f.isExtraDamage) return tableColor.warning;
-        if (f.base === undefined)
+        if (f.isExtraDamage) {
+          return tableColor.warning;
+        }
+        if (f.base === undefined) {
           return this.getTokenParent(s)?.cooldown.getColor(s);
-        if (f.isOverCharge) return tableColor.negative;
+        }
+        if (f.isOverCharge) {
+          return tableColor.negative;
+        }
 
         const ctCut = f.feature + f.potential;
 
-        if (ctCut < 0) return tableColor.positiveWeak;
-        if (ctCut > 0) return tableColor.negativeWeak;
-
-        if (this.getFeature(s).cooldownReductions !== undefined)
+        if (ctCut < 0) {
           return tableColor.positiveWeak;
+        }
+        if (ctCut > 0) {
+          return tableColor.negativeWeak;
+        }
+
+        if (this.getFeature(s).cooldownReductions !== undefined) {
+          return tableColor.positiveWeak;
+        }
       },
       factors: (s) => {
         const f = this.getFeature(s);
@@ -1060,7 +1186,9 @@ export default class Situation implements TableRow<Keys> {
       isReversed: true,
       factors: (s) => {
         const factor = this.unit?.moveSpeed.getFactors(s);
-        if (factor === undefined) return;
+        if (factor === undefined) {
+          return;
+        }
 
         const fea = this.getFeature(s);
         const add = fea.moveSpeedAdd ?? 0;
@@ -1092,7 +1220,9 @@ export default class Situation implements TableRow<Keys> {
       calculater: (s) => {
         const f = this.getFeature(s).damageType;
         const skill = this.getSkill(s)?.damageType;
-        if (f === null || skill === null) return;
+        if (f === null || skill === null) {
+          return;
+        }
         return f ?? skill ?? this.unit?.damageType.getValue(s);
       },
       comparer: (s) => Data.DamageType.indexOf(this.damageType.getValue(s)),
@@ -1125,7 +1255,9 @@ export default class Situation implements TableRow<Keys> {
       const require = new Set<Require>();
       if (src.require !== undefined) {
         src.require.forEach((v) => {
-          if (Require.isKey(v)) require.add(v);
+          if (Require.isKey(v)) {
+            require.add(v);
+          }
         });
       }
       this.require = require;
@@ -1142,14 +1274,18 @@ export default class Situation implements TableRow<Keys> {
 
   private _getTokenParent(setting: Setting): Situation | undefined {
     const unitId = this.unit?.getTokenParent()?.id;
-    if (unitId === undefined) return;
+    if (unitId === undefined) {
+      return;
+    }
     const skill = this.getFeature(setting).parentSkill;
 
     const src: JsonSituation = {
       unitId,
       features: this.features,
     };
-    if (skill !== undefined) src.skill = skill;
+    if (skill !== undefined) {
+      src.skill = skill;
+    }
 
     return new Situation(src, -1);
   }
@@ -1169,13 +1305,17 @@ export default class Situation implements TableRow<Keys> {
         break;
     }
     const v = skill?.getValue(setting);
-    if (v === undefined) return;
+    if (v === undefined) {
+      return;
+    }
     const fs = v.skillFeatures?.filter((f) => {
       return (
         f.featureName === undefined || this.features.includes(f.featureName)
       );
     });
-    if (fs === undefined) return v;
+    if (fs === undefined) {
+      return v;
+    }
 
     let ret = { ...v };
     fs.forEach((f) => {
@@ -1192,20 +1332,27 @@ export default class Situation implements TableRow<Keys> {
   }
 
   private _getFeature(setting: Setting): Readonly<FeatureOutputDetail> {
-    if (this.unit?.features === undefined) return {};
+    if (this.unit?.features === undefined) {
+      return {};
+    }
 
     const isPotentialApplied = this.unit.isPotentialApplied(setting);
     const fieldElements = this.getFieldElementSetting(setting);
     let isAbility: boolean;
     const tempFeatures = this.unit.features.filter((f) => {
-      if (f.featureName !== undefined && !this.features.includes(f.featureName))
+      if (
+        f.featureName !== undefined &&
+        !this.features.includes(f.featureName)
+      ) {
         return;
+      }
       if (
         f.skill !== undefined &&
         !(f.skill === 0 && this.skill === undefined) &&
         f.skill !== this.skill
-      )
+      ) {
         return;
+      }
 
       const noWeapon = setting.weapon === Setting.NONE;
       const noSkill = this.getSkill(setting) === undefined;
@@ -1217,17 +1364,22 @@ export default class Situation implements TableRow<Keys> {
         (f.exclude?.has(Feature.require.weapon) && !noWeapon) ||
         (f.exclude?.has(Feature.require.skill) && !noSkill) ||
         (f.exclude?.has(Feature.require.panelNone) && !hasPanelNone)
-      )
+      ) {
         return;
+      }
 
       if (f.hasPotentials !== undefined) {
         for (const p of f.hasPotentials) {
-          if (!isPotentialApplied || !this.unit?.potentials.includes(p)) return;
+          if (!isPotentialApplied || !this.unit?.potentials.includes(p)) {
+            return;
+          }
         }
       }
 
       f.fieldElements?.forEach((v) => fieldElements.add(v));
-      if (f.isAbility) isAbility = true;
+      if (f.isAbility) {
+        isAbility = true;
+      }
 
       return true;
     });
@@ -1272,11 +1424,12 @@ export default class Situation implements TableRow<Keys> {
     statName: Data.StatType,
     stat: Stat.Root<T> | undefined
   ): Stat.Root<T | undefined> {
-    if (stat === undefined)
+    if (stat === undefined) {
       return new Stat.Root({
         statType: statName,
         calculater: () => undefined,
       });
+    }
     return stat;
   }
 
@@ -1297,7 +1450,9 @@ export default class Situation implements TableRow<Keys> {
       statType: stat.attack,
       calculater: (s) => {
         const f = ret.getFactors(s);
-        if ((f?.criticalChance ?? 0) >= 100) return f?.criticalAttack;
+        if ((f?.criticalChance ?? 0) >= 100) {
+          return f?.criticalAttack;
+        }
         return ret.getFactors(s)?.actualResult;
       },
       isReversed: true,
@@ -1318,8 +1473,9 @@ export default class Situation implements TableRow<Keys> {
       calculater: (s) => ret.getFactors(s)?.inBattleResult,
       isReversed: true,
       color: (s) => {
-        if (ret.getFactors(s)?.staticDamage !== undefined)
+        if (ret.getFactors(s)?.staticDamage !== undefined) {
           return tableColor.warning;
+        }
         return this.getBaseStatColor(s, statType);
       },
       factors: (s) => this.getActualDefResFactors(s, statType),
@@ -1434,7 +1590,9 @@ export default class Situation implements TableRow<Keys> {
     statType: Data.BaseStatType
   ): Data.InBattleFactors | undefined {
     const f = this.unit?.[statType].getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     let subSkillSpecial;
     if (
@@ -1497,7 +1655,9 @@ export default class Situation implements TableRow<Keys> {
     setting: Setting
   ): Data.ActualHpFactors | undefined {
     const base = this.getInBattleFactors(setting, stat.hp);
-    if (base === undefined) return;
+    if (base === undefined) {
+      return;
+    }
 
     const isUnhealable = this.getIsUnhealable(setting);
     const currentFactor = this.getFeature(setting).currentHp ?? 100;
@@ -1525,7 +1685,9 @@ export default class Situation implements TableRow<Keys> {
     setting: Setting
   ): Data.ActualAttackFactors | undefined {
     const f = this.getInBattleFactors(setting, stat.attack);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     const ret: Data.ActualAttackFactorsBase = {
       ...f,
       damageFactor: this.getDamageFactor(setting),
@@ -1541,9 +1703,11 @@ export default class Situation implements TableRow<Keys> {
     factors: Data.ActualAttackFactorsBase
   ): Data.ActualAttackFactors {
     const fn = (attack: number) => {
-      if (factors.staticDamage !== undefined)
+      if (factors.staticDamage !== undefined) {
         return factors.staticDamage.result;
-      else return Percent.multiply(attack, factors.damageFactor);
+      } else {
+        return Percent.multiply(attack, factors.damageFactor);
+      }
     };
     return {
       ...factors,
@@ -1560,7 +1724,9 @@ export default class Situation implements TableRow<Keys> {
     statType: Data.BaseStatType
   ): Data.ActualDefResFactors | undefined {
     const f = this.getInBattleFactors(setting, statType);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     const staticDamage = this.getStaticDamage(setting, statType, f);
     return {
       ...f,
@@ -1574,7 +1740,9 @@ export default class Situation implements TableRow<Keys> {
     statType: Data.BaseStatType
   ): number | undefined {
     const v = this.getSkill(setting);
-    if (v === undefined) return;
+    if (v === undefined) {
+      return;
+    }
     return v[Data.BaseStatType.mulKey[statType]];
   }
 
@@ -1583,13 +1751,17 @@ export default class Situation implements TableRow<Keys> {
     statType: Data.BaseStatType
   ): number | undefined {
     const f = this.getFeature(setting).skillBuffs;
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     return f[Data.BaseStatType.mulKey[statType]];
   }
 
   private getBuffDamageFactor(setting: Setting): number | undefined {
     const skillBuffs = this.getFeature(setting).skillBuffs;
-    if (skillBuffs === undefined) return;
+    if (skillBuffs === undefined) {
+      return;
+    }
     return skillBuffs.damageFactor;
   }
 
@@ -1605,9 +1777,13 @@ export default class Situation implements TableRow<Keys> {
     statType: Data.BaseStatType,
     feature: Readonly<FeatureOutput> | undefined
   ): number {
-    if (feature === undefined) return 0;
+    if (feature === undefined) {
+      return 0;
+    }
     const factors = Feature.getAdditionFactors(feature, statType);
-    if (factors === undefined) return 0;
+    if (factors === undefined) {
+      return 0;
+    }
     return factors
       .map((f): number => {
         switch (f.key) {
@@ -1725,7 +1901,9 @@ export default class Situation implements TableRow<Keys> {
         obj = f.staticResist;
         break;
     }
-    if (obj === undefined) return;
+    if (obj === undefined) {
+      return;
+    }
 
     switch (obj.key) {
       case Data.StaticDamage.STATIC:
@@ -1764,16 +1942,24 @@ export default class Situation implements TableRow<Keys> {
     const reference = (() => {
       const unit = this.unit;
       const unitFactor = unit?.[statType].getFactors;
-      if (unit === undefined || unitFactor === undefined) return;
+      if (unit === undefined || unitFactor === undefined) {
+        return;
+      }
       if (Data.BaseStatType.isKey(obj.key)) {
-        if (obj.key === statType) return inBattleFactors.inBattleResult;
+        if (obj.key === statType) {
+          return inBattleFactors.inBattleResult;
+        }
         return this[obj.key].getFactors(setting)?.inBattleResult;
       }
 
       const k = Data.StaticDamage.baseStatTypeOf(obj.key);
-      if (k) return unit[k].getValue(setting);
+      if (k) {
+        return unit[k].getValue(setting);
+      }
     })();
-    if (reference === undefined) return;
+    if (reference === undefined) {
+      return;
+    }
     const result = Percent.multiply(reference, obj.value);
 
     return {
@@ -1797,11 +1983,15 @@ export default class Situation implements TableRow<Keys> {
     setting: Setting
   ): Data.IntervalFactors | undefined {
     const ret = this.getActualIntervalFactors(setting);
-    if (ret.actualResult === undefined) return { ...ret };
+    if (ret.actualResult === undefined) {
+      return { ...ret };
+    }
 
     if (this.getSkill(setting)?.duration === Data.Duration.single) {
       const cooldown = this.cooldown.getValue(setting);
-      if (cooldown === undefined) return;
+      if (cooldown === undefined) {
+        return;
+      }
 
       const cooldownFrame = Math.max(1, cooldown * Data.fps);
       const minInterval = this.getFeature(setting).minInterval;
@@ -1865,7 +2055,9 @@ export default class Situation implements TableRow<Keys> {
     const sk = this.getSkill(setting);
 
     const unitASF = this.unit?.attackSpeed.getFactors(setting);
-    if (unitASF === undefined) return;
+    if (unitASF === undefined) {
+      return;
+    }
     const {
       attackSpeedAgility,
       attackSpeedBase,
@@ -1905,7 +2097,9 @@ export default class Situation implements TableRow<Keys> {
     const df = this.unit?.delay.getFactors(setting);
     const delay = df?.delay;
     const fixedDelay = f.fixedDelay ?? sk?.fixedDelay ?? df?.fixedDelay;
-    if (delay === undefined && fixedDelay === undefined) return;
+    if (delay === undefined && fixedDelay === undefined) {
+      return;
+    }
     const settingDelayMul = 100 - setting.delayCut;
     const delayMul = Percent.multiply(
       df?.delayMul,
@@ -2014,7 +2208,9 @@ export default class Situation implements TableRow<Keys> {
     const s = statType === stat.physicalLimit ? stat.defense : stat.resist;
     const hp = this.hp.getValue(setting);
     const baseDefres = this[s].getValue(setting);
-    if (hp === undefined || baseDefres === undefined) return;
+    if (hp === undefined || baseDefres === undefined) {
+      return;
+    }
 
     const damageCut = (
       statType === stat.physicalLimit
@@ -2058,11 +2254,15 @@ export default class Situation implements TableRow<Keys> {
     const f = this.getFeature(setting);
 
     const ret = f.attackDebuffs?.map((v) => {
-      if (typeof v === "number") return v ?? 0;
+      if (typeof v === "number") {
+        return v ?? 0;
+      }
       switch (v.key) {
         case Data.StaticDamage.ATTACK_BASE: {
           const a = this.attack.getFactors(setting)?.deploymentResult;
-          if (a === undefined) return 0;
+          if (a === undefined) {
+            return 0;
+          }
           return Percent.multiply(a, v.value);
         }
         case AttackDebuff.enemyAttack:
@@ -2079,11 +2279,13 @@ export default class Situation implements TableRow<Keys> {
       f.duration === Data.Duration.always ||
       f.isExtraDamage ||
       (f.phase !== undefined && f.phase > 1)
-    )
+    ) {
       return;
+    }
     const cooldown = this.cooldown.getFactors(setting);
-    if (cooldown.base === undefined || cooldown.baseResult === undefined)
+    if (cooldown.base === undefined || cooldown.baseResult === undefined) {
       return;
+    }
 
     const v = Data.Rarity.getInitialTimeFactor(
       this.unit?.rarity.getValue(setting)
@@ -2101,7 +2303,7 @@ export default class Situation implements TableRow<Keys> {
     return this.getCooldownReductions(setting, result);
   }
 
-  public static calculateDurationResult(
+  static calculateDurationResult(
     factors: Data.DurationFactors
   ): Data.DurationFactorsResult {
     const result = ((): number | undefined => {
@@ -2133,7 +2335,7 @@ export default class Situation implements TableRow<Keys> {
     };
   }
 
-  public static getDurationText(
+  static getDurationText(
     factors: Data.DurationFactorsResult
   ): string | undefined {
     if (
@@ -2152,7 +2354,7 @@ export default class Situation implements TableRow<Keys> {
     return Data.Duration.textOf(duration);
   }
 
-  public static getDurationColor(
+  static getDurationColor(
     factors: Data.DurationFactorsResult
   ): Data.TableColor | undefined {
     if (
@@ -2177,8 +2379,12 @@ export default class Situation implements TableRow<Keys> {
     fea.cooldownReductions?.forEach((v) => {
       value -= Math.trunc(rValue / v);
     });
-    if (this.isRecharge(setting)) value -= Math.trunc(value / 2);
-    if (this.isHighBeat(setting)) value -= Math.trunc(value / 4);
+    if (this.isRecharge(setting)) {
+      value -= Math.trunc(value / 2);
+    }
+    if (this.isHighBeat(setting)) {
+      value -= Math.trunc(value / 4);
+    }
     return value;
   }
 
@@ -2187,24 +2393,35 @@ export default class Situation implements TableRow<Keys> {
     index: 0 | 1 | 2 | 3 | 4 | 5
   ): Data.DpsFactors | undefined {
     const fea = this.getFeature(setting);
-    if (fea.flagNoDps) return;
+    if (fea.flagNoDps) {
+      return;
+    }
 
     const f = this.attack.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     const attack = f.actualResult;
     const staticDamage = f.staticDamage !== undefined ? 0 : undefined;
 
     const damageType = this.damageType.getValue(setting);
-    if (damageType === undefined) return;
-    if (Data.DamageType.isHeal(damageType) && index > 0) return;
+    if (damageType === undefined) {
+      return;
+    }
+    if (Data.DamageType.isHeal(damageType) && index > 0) {
+      return;
+    }
 
     const interval = this.interval.getValue(setting);
     const intervalFactor = this.interval.getFactors(setting);
-    if (interval === undefined || intervalFactor?.actualResult === undefined)
+    if (interval === undefined || intervalFactor?.actualResult === undefined) {
       return;
+    }
 
     const round = Data.Round.average(this.rounds.getValue(setting));
-    if (round === undefined) return;
+    if (round === undefined) {
+      return;
+    }
 
     const baseDefres = (() => {
       switch (index) {
@@ -2361,7 +2578,9 @@ export default class Situation implements TableRow<Keys> {
     elements ??= new Set<Data.Element>();
     if (setting.fieldElement === Setting.SAME) {
       const e = this.unit?.element.getValue(setting);
-      if (e !== undefined) elements.add(e);
+      if (e !== undefined) {
+        elements.add(e);
+      }
     }
     return elements;
   }
@@ -2378,8 +2597,9 @@ export default class Situation implements TableRow<Keys> {
       !f.has(u) ||
       placement === Data.Placement.servant ||
       placement === Data.Placement.target
-    )
+    ) {
       return 0;
+    }
 
     const fea = this.getFeature(setting).fieldBuffFactor;
     const ss = this.getSubskillFactor(setting, ssKeys.fieldBuffFactor);
@@ -2425,25 +2645,42 @@ export default class Situation implements TableRow<Keys> {
       ...species,
     ];
     const fnHp = (n: number) => {
-      if ((fea.currentHp ?? 100) >= n) types.push(`HP${n}%以上`);
+      if ((fea.currentHp ?? 100) >= n) {
+        types.push(`HP${n}%以上`);
+      }
     };
-    if (fea.isMoving) types.push("移動中");
+    if (fea.isMoving) {
+      types.push("移動中");
+    }
     fnHp(50);
     fnHp(80);
-    if ((this.skill ?? 0) <= 0) types.push("非スキル");
-    if ((this.skill ?? 0) > 0) types.push("スキル");
+    if ((this.skill ?? 0) <= 0) {
+      types.push("非スキル");
+    }
+    if ((this.skill ?? 0) > 0) {
+      types.push("スキル");
+    }
     if (
       this.conditions
         .getValue(setting)
         .findIndex((kvp) => kvp.key === Data.Condition.key.ranged) === -1
-    )
+    ) {
       types.push("ブロック");
-    if (this.unit.isToken) types.push("トークン");
-    if (fea.isAction) types.push("ACT");
+    }
+    if (this.unit.isToken) {
+      types.push("トークン");
+    }
+    if (fea.isAction) {
+      types.push("ACT");
+    }
     const fn = (ss: Subskill | undefined): number | undefined => {
-      if (ss === undefined) return;
+      if (ss === undefined) {
+        return;
+      }
       const ret = ss.getFactor(key, types);
-      if (typeof ret === "boolean") return ret ? 1 : 0;
+      if (typeof ret === "boolean") {
+        return ret ? 1 : 0;
+      }
       return ret;
     };
     const v1 = fn(ss1);
@@ -2516,7 +2753,9 @@ export default class Situation implements TableRow<Keys> {
   }
 
   private isVisible(setting: Setting): boolean {
-    if (this.unit === undefined) return false;
+    if (this.unit === undefined) {
+      return false;
+    }
 
     const isPotentialApplied = this.unit.isPotentialApplied(setting);
 
@@ -2527,12 +2766,14 @@ export default class Situation implements TableRow<Keys> {
         this.require.has(require.NO_PANEL_FIELD_ELEMENT)) ||
       (setting.fieldElement === Setting.NONE &&
         this.require.has(require.PANEL_FIELD_ELEMENT))
-    )
+    ) {
       return false;
+    }
 
     for (const p of this.hasPotentials) {
-      if (!isPotentialApplied || !this.unit.potentials.includes(p))
+      if (!isPotentialApplied || !this.unit.potentials.includes(p)) {
         return false;
+      }
     }
 
     return true;
@@ -2555,12 +2796,18 @@ export default class Situation implements TableRow<Keys> {
     const setting = states.setting;
     const filter = states.filter;
     filter.forEach((v, k) => {
-      if (FilterUnitClass.isKey(k) && v) unitClassFilters.push(k);
-      if (FilterCondition.isKey(k) && v) conditionFilters.push(k);
+      if (FilterUnitClass.isKey(k) && v) {
+        unitClassFilters.push(k);
+      }
+      if (FilterCondition.isKey(k) && v) {
+        conditionFilters.push(k);
+      }
     });
 
     return list.filter((item) => {
-      if (!item.isVisible(setting)) return false;
+      if (!item.isVisible(setting)) {
+        return false;
+      }
 
       const parent = item.getTokenParent(setting);
       const target = parent === undefined ? item : parent;
@@ -2571,22 +2818,25 @@ export default class Situation implements TableRow<Keys> {
         target.unit?.filterSpecies(states) ||
         item.unit?.filterMoveType(states) ||
         item.unit?.filterPlacement(states)
-      )
+      ) {
         return false;
+      }
 
       const className = target.unit?.className.getValue(setting);
       const classNameKey = Data.UnitClass.keyOf(className);
       if (
         unitClassFilters.length !== 0 &&
         (classNameKey === undefined || !unitClassFilters.includes(classNameKey))
-      )
+      ) {
         return false;
+      }
 
       if (
         !Situation.filterCondition(item, className, conditionFilters) ||
         item.filterDamageType(states)
-      )
+      ) {
         return false;
+      }
 
       if (!states.query) {
         return Filter.baseKeys.some((k) => states.filter.get(k));

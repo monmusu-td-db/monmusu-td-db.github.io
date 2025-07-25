@@ -904,11 +904,11 @@ const pageTypes = {
 } as const;
 export type PageType = (typeof pageTypes)[keyof typeof pageTypes] | undefined;
 class PageTypeUtil {
-  public static isSituation(pageType: PageType) {
+  static isSituation(pageType: PageType) {
     return pageType === pageTypes.SITUATION;
   }
 
-  public static isBuff(pageType: PageType) {
+  static isBuff(pageType: PageType) {
     return pageType === pageTypes.BUFF;
   }
 }

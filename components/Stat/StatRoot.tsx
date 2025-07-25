@@ -57,8 +57,11 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
     this.item = props.item ?? ((s) => this.getDefaultItem(s));
     this.color = props.color ?? (() => undefined);
     this.styles = props.styles ?? (() => undefined);
-    if ("factors" in props) this.factors = props.factors;
-    else this.factors = () => undefined as TFactors;
+    if ("factors" in props) {
+      this.factors = props.factors;
+    } else {
+      this.factors = () => undefined as TFactors;
+    }
   }
 
   getValue(setting: Setting): TStat {
@@ -110,7 +113,9 @@ export class StatRoot<TStat = number | undefined, TFactors = undefined> {
       case "string":
         return ret;
       case "object":
-        if (ret !== null) return ret.toString();
+        if (ret !== null) {
+          return ret.toString();
+        }
     }
   }
 

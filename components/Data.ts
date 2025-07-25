@@ -62,7 +62,9 @@ export class Percent {
     const v1 = values[0] ?? 100;
     const v2 = values[1] ?? 100;
     const ret = Math.trunc((v1 * v2) / 100);
-    if (values.length > 2) return this.multiply(ret, ...values.slice(2));
+    if (values.length > 2) {
+      return this.multiply(ret, ...values.slice(2));
+    }
     return ret;
   }
 
@@ -104,9 +106,15 @@ export function mapSort<T>(
 }
 
 function compare(a: unknown, b: unknown): number {
-  if (a === b) return 0;
-  if (a === undefined || a === null) return 1;
-  if (b === undefined || b === null) return -1;
+  if (a === b) {
+    return 0;
+  }
+  if (a === undefined || a === null) {
+    return 1;
+  }
+  if (b === undefined || b === null) {
+    return -1;
+  }
   if (typeof a === "string" && typeof b === "string") {
     return a.localeCompare(b);
   }
@@ -521,7 +529,9 @@ export type JsonStaticDamage = {
 
 export const JsonStaticDamage = {
   parse(src: JsonStaticDamage | undefined): StaticDamage | undefined {
-    if (src === undefined) return;
+    if (src === undefined) {
+      return;
+    }
     if (staticDamageKeyList.findIndex((k) => k === src.key) !== -1) {
       if (
         (src.key !== staticDamage.TIME &&
@@ -582,14 +592,20 @@ export const Round = {
   average<T extends Rounds | undefined>(
     rounds: T
   ): number | Extract<T, undefined> {
-    if (rounds === undefined) return undefined as Extract<T, undefined>;
-    if (typeof rounds === "number") return rounds;
+    if (rounds === undefined) {
+      return undefined as Extract<T, undefined>;
+    }
+    if (typeof rounds === "number") {
+      return rounds;
+    }
 
     return this.getAverageAndRatios(rounds)[0];
   },
 
   getAverageAndRatios(rounds: Rounds): [number, number] {
-    if (typeof rounds === "number") return [rounds, 1];
+    if (typeof rounds === "number") {
+      return [rounds, 1];
+    }
 
     let ratios = 0;
     let sum = 0;
@@ -606,7 +622,9 @@ export const JsonRound = {
   parse<T extends JsonRound | undefined>(
     value: T
   ): Rounds | Extract<T, undefined> {
-    if (typeof value === "number") return value;
+    if (typeof value === "number") {
+      return value;
+    }
     return value as Rounds | Extract<T, undefined>;
   },
 } as const;
@@ -679,22 +697,33 @@ function parseSkill(
   jsonSkill: Partial<JsonSkill>
 ): void {
   const c = Condition.parseList(jsonSkill.conditions);
-  if (c !== undefined) skill.conditions = c;
+  if (c !== undefined) {
+    skill.conditions = c;
+  }
 
   const t = JsonTarget.parse(jsonSkill.target);
-  if (t !== undefined) skill.target = t;
+  if (t !== undefined) {
+    skill.target = t;
+  }
 
-  if (jsonSkill.rounds !== undefined)
+  if (jsonSkill.rounds !== undefined) {
     skill.rounds = JsonRound.parse(jsonSkill.rounds);
+  }
 
   const d = JsonDamageType.parse(jsonSkill.damageType);
-  if (d !== undefined) skill.damageType = d;
+  if (d !== undefined) {
+    skill.damageType = d;
+  }
   {
     const v = jsonSkill.supplements;
-    if (v !== undefined) skill.supplements = new Set(v);
+    if (v !== undefined) {
+      skill.supplements = new Set(v);
+    }
   }
   const f = JsonSkillFeature.parse(jsonSkill.skillFeatures);
-  if (f !== undefined) skill.skillFeatures = f;
+  if (f !== undefined) {
+    skill.skillFeatures = f;
+  }
 }
 interface SkillFeatureDiff {
   readonly featureName: string;
@@ -705,7 +734,9 @@ const JsonSkillFeature = {
   parse(
     value: readonly JsonSkillFeature[] | undefined
   ): readonly SkillFeature[] | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return value.map((v) => {
       const raw: Partial<Omit<JsonSkill, keyof JsonSkillDiff>> = v;
       const duration =
@@ -732,8 +763,12 @@ const JsonSkillFeature = {
 export type JsonDuration = number | string;
 export const JsonDuration = {
   parse(value: number | string): number {
-    if (typeof value === "number") return value;
-    if (value === Duration.infinity) return Infinity;
+    if (typeof value === "number") {
+      return value;
+    }
+    if (value === Duration.infinity) {
+      return Infinity;
+    }
     return 0;
   },
 } as const;
@@ -805,16 +840,24 @@ export const JsonFormationBuff = {
         targets: new Set(
           v.targets
             .map((t) => {
-              if (t === FormationBuff.all) return t;
+              if (t === FormationBuff.all) {
+                return t;
+              }
 
               const ele = Element.parse(t);
-              if (ele !== undefined) return ele;
+              if (ele !== undefined) {
+                return ele;
+              }
 
               const cls = UnitBaseClass.parse(t);
-              if (cls !== undefined) return cls;
+              if (cls !== undefined) {
+                return cls;
+              }
 
               const spe = Species.find(t);
-              if (spe !== undefined) return spe;
+              if (spe !== undefined) {
+                return spe;
+              }
             })
             .filter((f) => f !== undefined)
         ),
@@ -837,7 +880,9 @@ export const FormationBuffRequire = {
   keys: formationBuffRequireKeys,
   parse(value: string): FormationBuffRequire | undefined {
     for (const v of Object.values(formationBuffRequire)) {
-      if (v === value) return v;
+      if (v === value) {
+        return v;
+      }
     }
   },
 
@@ -898,7 +943,9 @@ export const Rarity = {
   },
 
   nameOf(value: Rarity | undefined): RarityName | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return rarityName[value];
   },
 
@@ -1009,12 +1056,16 @@ export class UnitClass {
   }
 
   static indexOf(value: UnitClassTag | undefined): number | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return this.list.indexOf(value);
   }
 
   static keyOf(value: UnitClassTag | undefined): UnitClassKey | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return this.entries.find((kvp) => kvp[1] === value)?.[0];
   }
 
@@ -1022,13 +1073,17 @@ export class UnitClass {
     value: UnitClassTag | undefined
   ): UnitEquipmentName | undefined {
     const key = this.keyOf(value);
-    if (key === undefined) return;
+    if (key === undefined) {
+      return;
+    }
     return this.equipment[key];
   }
 
   static cc4NameOf(value: UnitClassTag | undefined): UnitCC4Name | undefined {
     const key = this.keyOf(value);
-    if (key === undefined) return;
+    if (key === undefined) {
+      return;
+    }
     return this.cc4Name[key];
   }
 
@@ -1138,11 +1193,15 @@ export const Element = {
   parseElements(
     arr: readonly string[] | undefined
   ): ReadonlySet<Element> | undefined {
-    if (arr === undefined) return;
+    if (arr === undefined) {
+      return;
+    }
     const ret = new Set<Element>();
     arr.forEach((str) => {
       const v = this.parse(str);
-      if (v !== undefined) ret.add(v);
+      if (v !== undefined) {
+        ret.add(v);
+      }
     });
     return ret;
   },
@@ -1152,12 +1211,16 @@ export const Element = {
   },
 
   indexOf(value: Element | undefined): number | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return elementValues.indexOf(value);
   },
 
   colorOf(value: Element | undefined): TableColor | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return elementColorList[Element.keyOf(value)];
   },
 
@@ -1240,8 +1303,9 @@ export const Species = {
 export type JsonTarget = number | string | number[];
 export const JsonTarget = {
   parse(value: JsonTarget | undefined): TargetBase | undefined {
-    if (Array.isArray(value) && value.every((v) => typeof v === "number"))
+    if (Array.isArray(value) && value.every((v) => typeof v === "number")) {
       return value;
+    }
     switch (typeof value) {
       case "number":
         return value;
@@ -1279,8 +1343,9 @@ export const Target = {
   ...target,
 
   sum(target: Target, ...values: number[]): Target {
-    if (typeof target === "number")
+    if (typeof target === "number") {
       return (target += values.reduce((a, c) => a + c, 0));
+    }
     return target;
   },
 
@@ -1301,9 +1366,12 @@ export const Target = {
       case Infinity:
         return target.inRange;
       default:
-        if (typeof value === "number") return getStr(value);
-        if (Array.isArray(value))
+        if (typeof value === "number") {
+          return getStr(value);
+        }
+        if (Array.isArray(value)) {
           return value.map((n) => getStr(n)).join(" or ");
+        }
         return value;
     }
   },
@@ -1349,7 +1417,9 @@ export const MoveType = {
   },
 
   colorOf(value: MoveType | undefined): TableColor | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return moveTypeColor[this.keyOf(value)];
   },
 
@@ -1390,19 +1460,25 @@ export const DamageType = {
   list: damageTypeList,
   keys: damageTypeKeys,
   indexOf(value: DamageType | undefined): number | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return Object.values(damageType).indexOf(value);
   },
 
   keyOf(value: DamageType | undefined): DamageTypeKey {
-    if (value === undefined) return this.keys.none;
+    if (value === undefined) {
+      return this.keys.none;
+    }
     return getEntries(damageType).find(
       (v) => v[1] === value
     )?.[0] as DamageTypeKey;
   },
 
   colorOf(value: DamageType | undefined): TableColor | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return damageTypeColor[this.keyOf(value)];
   },
 
@@ -1420,7 +1496,9 @@ export const DamageType = {
 export type JsonDamageType = string | null;
 export const JsonDamageType = {
   parse(value: JsonDamageType | undefined): DamageType | null | undefined {
-    if (value === null) return null;
+    if (value === null) {
+      return null;
+    }
     return Object.values(damageType).find((v) => v === value);
   },
 } as const;
@@ -1428,7 +1506,9 @@ export const JsonDamageType = {
 export type JsonPlacement = string;
 export const JsonPlacement = {
   parse(value: JsonPlacement | undefined): Placement | undefined {
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
     return placementEntries.find((kvp) => kvp[1] === value)?.[0];
   },
 } as const;
@@ -1473,7 +1553,9 @@ export const Placement = {
   })(),
 
   indexOf(value: Placement): number {
-    if (value === undefined) return -1;
+    if (value === undefined) {
+      return -1;
+    }
     return this.index[value];
   },
 
@@ -1591,8 +1673,9 @@ export const Potential = {
         potentialList.findIndex(
           (src) => src.stat === statType && src.name === p
         ) !== -1
-      )
+      ) {
         ret.add(p);
+      }
     });
     return ret;
   },
@@ -1690,7 +1773,9 @@ export function getAttackSpeed<T extends number | undefined>(
   value: T
 ): number | Exclude<T, number> {
   // Wikiの表からの推測値
-  if (value === undefined) return value as Exclude<T, number>;
+  if (value === undefined) {
+    return value as Exclude<T, number>;
+  }
   const V1 = 0.0595;
   const V2 = 4.7155;
   return Math.round(4000 / (value - (value * V1 - V2)));
@@ -1760,11 +1845,11 @@ const statusName = {
 type StatusKey = keyof typeof statusName;
 type StatusValue = (typeof statusName)[StatusKey];
 export class Status {
-  public static names = statusName;
+  static names = statusName;
   private static list = getKeys(statusName);
   private static key = Enum(this.list);
 
-  public static parse(value: unknown): StatusValue | undefined {
+  static parse(value: unknown): StatusValue | undefined {
     for (const key of this.list) {
       const name = statusName[key];
       if (value === name) {
@@ -1773,9 +1858,7 @@ export class Status {
     }
   }
 
-  public static getValueFromStatType(
-    statType: StatType
-  ): StatusValue | undefined {
+  static getValueFromStatType(statType: StatType): StatusValue | undefined {
     switch (statType) {
       case stat.buffPoisonImmune:
         return statusName[this.key.poison];
@@ -2120,7 +2203,9 @@ export const Beast = {
 
   getPossAmountFactor(setting: Setting, statType: MainStatType): number {
     const value = setting.possBuffAmount;
-    if (statType !== stat.hp || value < 0 || value > 10) return 0;
+    if (statType !== stat.hp || value < 0 || value > 10) {
+      return 0;
+    }
     return value * 100;
   },
 
@@ -2128,8 +2213,12 @@ export const Beast = {
     const value = setting.possBuffLevel;
     return (
       (() => {
-        if (setting.possBuffAmount === -1) return 0;
-        if (value < 0 || value > MAX_POSS_BUFF_LEVEL) return 0;
+        if (setting.possBuffAmount === -1) {
+          return 0;
+        }
+        if (value < 0 || value > MAX_POSS_BUFF_LEVEL) {
+          return 0;
+        }
         switch (statType) {
           case stat.attack:
             return Math.trunc((value + 2) / 3);

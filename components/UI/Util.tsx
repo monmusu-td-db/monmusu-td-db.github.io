@@ -11,7 +11,9 @@ const SELECTOR = {
 // Items
 
 export function getRarityText(value: Data.Rarity | undefined): ReactNode {
-  if (value === undefined) return;
+  if (value === undefined) {
+    return;
+  }
 
   const selector = Data.Rarity.selectorOf(value);
   const name = Data.Rarity.nameOf(value);
@@ -23,7 +25,9 @@ export function ElementText({
 }: {
   element: Data.Element | undefined;
 }) {
-  if (element === undefined) return;
+  if (element === undefined) {
+    return;
+  }
   const key = Data.Element.keyOf(element);
   return (
     <span className={cn(SELECTOR.TEXT, Data.Element.selectorOf(key))}>

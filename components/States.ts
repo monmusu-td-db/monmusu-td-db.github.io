@@ -140,7 +140,9 @@ export const FilterUnitClass = {
   getKeys(filter: Filter): ReadonlySet<FilterUnitClass> {
     const ret = new Set<FilterUnitClass>();
     for (const [k, v] of filter.entries()) {
-      if (v && this.isKey(k)) ret.add(k);
+      if (v && this.isKey(k)) {
+        ret.add(k);
+      }
     }
     return ret;
   },
@@ -1101,7 +1103,9 @@ class Storage {
     if (storage !== undefined) {
       try {
         const item = storage.getItem(key);
-        if (item !== null) return item;
+        if (item !== null) {
+          return item;
+        }
       } catch {}
     }
   }
@@ -1132,10 +1136,14 @@ class Storage {
     let item = this.getItem(key);
     if (item === undefined) {
       item = this.getItem(key, true);
-      if (item === undefined) return;
+      if (item === undefined) {
+        return;
+      }
     }
     const ret: unknown = JSON.parse(item);
-    if (typeof ret !== "object" || ret === null) return;
+    if (typeof ret !== "object" || ret === null) {
+      return;
+    }
     return ret;
   }
 
@@ -1167,8 +1175,9 @@ class Storage {
       ret[key] = valid ? v : defaultSetting[key];
     });
 
-    if (ret.mainBeast === ret.subBeast && ret.subBeast !== -1)
+    if (ret.mainBeast === ret.subBeast && ret.subBeast !== -1) {
       ret.subBeast = defaultSetting.subBeast;
+    }
 
     return ret as Setting;
   }
@@ -1184,18 +1193,24 @@ class Storage {
       return ret;
     }
     for (const key of filterKeys) {
-      if (obj[key] === undefined) continue;
+      if (obj[key] === undefined) {
+        continue;
+      }
       ret.set(key, obj[key]);
     }
     return ret;
   }
   static setFilter(item: Filter, isLocal: boolean): void {
     const obj: FilterObject = {};
-    for (const [key, value] of item.entries()) obj[key] = value;
+    for (const [key, value] of item.entries()) {
+      obj[key] = value;
+    }
     Storage.setObject(storageKeys.FILTER, obj, isLocal);
   }
   private static isFilter(obj: unknown): obj is FilterObject {
-    if (typeof obj !== "object" || obj === null) return false;
+    if (typeof obj !== "object" || obj === null) {
+      return false;
+    }
     const v = obj as Record<FilterKeys, unknown>;
     return filterKeys.every(
       (k) => v[k] === undefined || typeof v[k] === "boolean"
@@ -1221,13 +1236,17 @@ class Storage {
     this.setObject(storageKeys.UI_SETTING, obj, isLocal);
   }
   private static isUISetting(obj: unknown): obj is UISetting {
-    if (typeof obj !== "object" || obj === null) return false;
+    if (typeof obj !== "object" || obj === null) {
+      return false;
+    }
     const v = obj as Record<keyof UISetting, unknown>;
-    if (typeof v.subskillGroup !== "number") return false;
+    if (typeof v.subskillGroup !== "number") {
+      return false;
+    }
     return true;
   }
 
-  public static getSaveOption(): SaveStatus {
+  static getSaveOption(): SaveStatus {
     const item = this.getItem(storageKeys.SAVE_OPTION, true);
     if (Valid.isSaveStatus(item)) {
       return item;
@@ -1235,7 +1254,7 @@ class Storage {
     return DEFAULT_SAVE_OPTION;
   }
 
-  public static setSaveOption(status: SaveStatus): void {
+  static setSaveOption(status: SaveStatus): void {
     this.setItem(storageKeys.SAVE_OPTION, status, true);
   }
 }

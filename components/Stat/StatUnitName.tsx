@@ -29,8 +29,10 @@ export class StatUnitName extends StatTooltip<string> {
     this.situation = props.situation;
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
-    if (this.unit === undefined) return;
+  override getTooltipBody(setting: Setting): ReactNode {
+    if (this.unit === undefined) {
+      return;
+    }
 
     const unit = this.unit;
     const situation = this.situation ?? unit;

@@ -21,5 +21,5 @@ export abstract class StatTooltip<TStat, TFactors = undefined> extends StatRoot<
   readonly bEnd = ")";
   readonly frame = "f";
 
-  public abstract getTooltipBody(setting: Setting): ReactNode;
+  abstract getTooltipBody(setting: Setting): ReactNode;
 }

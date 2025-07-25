@@ -31,7 +31,7 @@ export class StatRange extends BaseStat<number | undefined, Factors> {
     }
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f: Data.RangeFactor | undefined = this.getFactors(setting);
     const value = this.getValue(setting);
 
@@ -43,7 +43,9 @@ export class StatRange extends BaseStat<number | undefined, Factors> {
       );
     }
 
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     return (
       <dl>

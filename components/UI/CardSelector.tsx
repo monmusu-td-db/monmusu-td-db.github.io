@@ -213,7 +213,9 @@ const RarityContainer = memo(function RarityContainer(
   props: RarityContainerProps
 ) {
   const list = props.list.filter((item) => item.rarity === props.rarity);
-  if (list.length === 0) return;
+  if (list.length === 0) {
+    return;
+  }
 
   return (
     <Row className="border p-1 rounded g-2 pb-2 mb-3">

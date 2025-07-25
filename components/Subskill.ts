@@ -248,10 +248,14 @@ class Subskill {
           f.require?.every((r) => types.includes(r)) ?? true;
         const isExcluded = f.exclude?.some((r) => types.includes(r));
         const fac = f[key];
-        if (hasRequirement && !isExcluded && fac !== undefined) return fac;
+        if (hasRequirement && !isExcluded && fac !== undefined) {
+          return fac;
+        }
       }
     }
-    if (types.includes("トークン")) return;
+    if (types.includes("トークン")) {
+      return;
+    }
     return this.factors[key];
   }
 
@@ -270,8 +274,9 @@ class Subskill {
     if (
       obj1?.id === obj2?.id ||
       (obj1?.className !== undefined && obj1?.className === obj2?.className)
-    )
+    ) {
       return false;
+    }
     return true;
   }
 
