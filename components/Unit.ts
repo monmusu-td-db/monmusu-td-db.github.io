@@ -72,6 +72,7 @@ export interface JsonUnit {
   magicalEvasion?: number;
   moveSpeedAdd?: number;
   moveSpeedMul?: number;
+  deployCount?: number;
   potentialBonus?: JsonPotentialBonus;
   situations?: JsonUnitSituations;
   buffs?: JsonBuffs;
@@ -224,6 +225,7 @@ export default class Unit implements TableRow<Keys> {
   readonly moveSpeed: Stat.Root<number | undefined, Data.MoveSpeedFactors>;
   readonly moveType: Stat.Root<Data.MoveType | undefined>;
   readonly moveCost: Stat.Root;
+  readonly deployCount: Stat.Root;
   readonly placement: Stat.Root<Data.Placement>;
   readonly exSkill1: Stat.Root<Readonly<Data.Skill> | undefined>;
   readonly exSkill2: Stat.Root<Readonly<Data.Skill> | undefined>;
@@ -657,6 +659,11 @@ export default class Unit implements TableRow<Keys> {
         }
         return src.moveCost ?? 3;
       },
+    });
+
+    this.deployCount = new Stat.Root({
+      statType: stat.deployCount,
+      calculater: () => src.deployCount,
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);

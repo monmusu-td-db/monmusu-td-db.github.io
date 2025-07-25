@@ -54,6 +54,7 @@
     "dps5": "DPS 3000",
     "conditions": "状態",
     "fieldBuffFactor": "属性マスボーナス",
+    "deployCount": "配置可能数",
     "buffCost": "コスト",
     "buffHp": "HP",
     "buffAttack": "攻撃力",
