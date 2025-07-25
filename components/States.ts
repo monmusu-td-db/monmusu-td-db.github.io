@@ -338,7 +338,7 @@ export class FilterCondition {
   ] as const satisfies FilterUnitClass[];
 
   static requiredFeature = {
-    proper: "class-proper",
+    proper: "class-definite",
     action: ["class-action", "class-action-base"],
     bladerCharge1: "class-charge1",
     bladerCharge2: "class-charge2",
@@ -360,7 +360,7 @@ export class FilterCondition {
     whipperDebuff: "class-debuff",
     shamanBuff: "class-buff",
     bardBuff: "class-buff",
-    bardBuffProper: "class-buff-proper",
+    bardBuffProper: "class-buff-definite",
     bardDebuff: "class-debuff",
   } as const satisfies Partial<
     Record<FilterConditionKeyExcludeNormal, string | string[]>
