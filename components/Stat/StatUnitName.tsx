@@ -60,6 +60,7 @@ export class StatUnitName extends StatTooltip<string> {
     const moveSpeed = situation.moveSpeed.getValue(setting);
     const moveCost = unit.moveCost.getValue(setting);
     const placement = valueOf(unit.placement);
+    const deployCount = valueOf(unit.deployCount);
 
     return (
       <T.List>
@@ -95,6 +96,13 @@ export class StatUnitName extends StatTooltip<string> {
         {placement && (
           <T.ListItem label={nameOf(stat.placement)}>
             {Data.Placement.desc[placement]}
+          </T.ListItem>
+        )}
+        {deployCount !== undefined && (
+          <T.ListItem label={nameOf(stat.deployCount)}>
+            {deployCount === 0
+              ? "含まれない"
+              : `${deployCount}体まで含まれない`}
           </T.ListItem>
         )}
       </T.List>

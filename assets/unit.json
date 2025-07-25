@@ -10707,7 +10707,8 @@
           "attackMul": 150
         }
       }
-    ]
+    ],
+    "deployCount": 0
   },
   {
     "id": 960001,
@@ -10741,7 +10742,8 @@
         "fixedDelay": 10
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "deployCount": 0
   },
   {
     "TODO_DESC": "ex2はwiki情報",
