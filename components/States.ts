@@ -238,7 +238,7 @@ export class FilterCondition {
   ] as const;
   static readonly keys = Data.Enum(this.list);
 
-  static readonly names = {
+  private static readonly names = {
     normal: "通常",
     proper: "クラス特効",
     action: "クラスACT",
@@ -269,6 +269,21 @@ export class FilterCondition {
     bardBuffProper: "楽器 特効加算バフ",
     bardDebuff: "楽器 攻撃デバフ",
   } as const satisfies Record<FilterConditionKey, string>;
+
+  private static specificName: Partial<
+    Record<FilterUnitClass, Partial<Record<FilterConditionKey, string>>>
+  > = {
+    monk: {
+      proper: "スタン特効",
+    },
+    archer: {
+      proper: "対空特効",
+      properAction: "対空特効&ACT",
+    },
+    priest: {
+      proper: "同一属性特効",
+    },
+  } as const;
 
   static group = {
     proper: this.groupKeys.proper,
@@ -318,6 +333,10 @@ export class FilterCondition {
     this.classKey.whipper,
   ] as const satisfies FilterUnitClass[];
 
+  private static readonly properActionList = [
+    this.classKey.archer,
+  ] as const satisfies FilterUnitClass[];
+
   static requiredFeature = {
     proper: "class-proper",
     action: ["class-action", "class-action-base"],
@@ -353,6 +372,7 @@ export class FilterCondition {
 
     const proper = this.properList.some(fn);
     const action = this.actionList.some(fn);
+    const properAction = this.properActionList.some(fn);
     const blader = fn(eq.blader);
     const barbarian = fn(eq.barbarian);
     const shieldKnight = fn(eq.shieldKnight);
@@ -390,7 +410,7 @@ export class FilterCondition {
         case cond.action:
           return action;
         case cond.properAction:
-          return proper && action;
+          return properAction;
         case cond.bladerCharge1:
         case cond.bladerCharge2:
         case cond.bladerCharge3:
@@ -503,6 +523,23 @@ export class FilterCondition {
 
   static isKey(key: unknown): key is FilterConditionKey {
     return this.list.findIndex((k) => k === key) !== -1;
+  }
+
+  static getName(key: FilterConditionKey, filter: Filter): string {
+    const classList = FilterUnitClass.getKeys(filter);
+    let count = 0;
+    let spName: string;
+    classList.forEach((cls) => {
+      const str = this.specificName[cls]?.[key];
+      if (str) {
+        spName = str;
+        count++;
+      }
+    });
+    if (count === 1) {
+      return spName!;
+    }
+    return this.names[key];
   }
 }
 

@@ -271,7 +271,7 @@ const _TabFilter = memo(function TabFilter({
                 <PanelUI.FormCheckbox
                   key={k}
                   name={k}
-                  label={FilterCondition.names[k]}
+                  label={FilterCondition.getName(k, filter)}
                   checked={filter.get(k) ?? false}
                   onClick={(v) => onChange({ [k]: v })}
                   grid
