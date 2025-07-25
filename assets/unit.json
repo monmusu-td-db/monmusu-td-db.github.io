@@ -29192,6 +29192,87 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/火傷付与率増加",
+    "TODO_FATAL": "ACT ATKデバフはwiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 293,
+    "unitName": "【橋姫娘】ランカ",
+    "unitShortName": "ランカ",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 2736,
+    "attack": 605,
+    "defense": 286,
+    "resist": 487,
+    "supplements": [
+      "火傷付与(稀)→命中",
+      "火傷付与率増加→敵全体"
+    ],
+    "exSkill1": {
+      "skillName": "丑の釘打ち",
+      "attackMul": 240,
+      "rangeMul": 190,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "{attack*200}dmg/発動→呪詛状態敵"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "攻撃速度減少→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "攻撃速度減少+→射程内"
+          ]
+        }
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 50
+        },
+        "duration": 20,
+        "supplements": [
+          "鈍足(大)→射程内",
+          "ATK-50%→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-burn-dot"
+        ]
+      }
+    ]
+  },
+  {
     "id": 294,
     "unitName": "【火鼠娘】イェンファ",
     "unitShortName": "イェンファ",
