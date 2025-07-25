@@ -86,8 +86,11 @@ interface ValueProps extends TextBaseProps {
 }
 
 function Value({ children, b, isPositive }: ValueProps) {
-  if (isPositive) return <Positive b={b}>{children}</Positive>;
-  else return <Negative b={b}>{children}</Negative>;
+  if (isPositive) {
+    return <Positive b={b}>{children}</Positive>;
+  } else {
+    return <Negative b={b}>{children}</Negative>;
+  }
 }
 
 function Info({ children, b }: TextBaseProps) {
@@ -107,7 +110,9 @@ function Equation({
   children: (isDesc: boolean) => ReactNode;
   disabled?: boolean;
 }) {
-  if (disabled) return;
+  if (disabled) {
+    return;
+  }
   return (
     <>
       <dt>

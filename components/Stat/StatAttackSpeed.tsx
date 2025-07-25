@@ -18,9 +18,11 @@ export class StatAttackSpeed extends StatTooltip<number | undefined, Factors> {
     return this.getSmallFontStyles(text, style, 2);
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     return <AttackSpeedTooltip factors={f} />;
   }
 }

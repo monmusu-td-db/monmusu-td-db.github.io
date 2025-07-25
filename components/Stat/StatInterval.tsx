@@ -21,9 +21,11 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
     return this.getSmallFontStyles(text, style, 3);
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f?.result === undefined) return;
+    if (f?.result === undefined) {
+      return;
+    }
     const b = f.base;
 
     return (

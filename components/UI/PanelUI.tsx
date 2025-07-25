@@ -72,12 +72,13 @@ function FormCheckbox({
       {label}
     </ToggleButton>
   );
-  if (grid)
+  if (grid) {
     return (
       <FormGrid xs={6} sm={4} md={3} lg={2}>
         {ret}
       </FormGrid>
     );
+  }
   return ret;
 }
 

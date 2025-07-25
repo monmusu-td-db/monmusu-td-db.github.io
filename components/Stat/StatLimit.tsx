@@ -68,9 +68,11 @@ export class StatLimit extends StatTooltip<number | undefined, Factors> {
     return isUnhealable ? Data.TableClass.unhealable : undefined;
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     const damageType =
       this.statType === Data.stat.physicalLimit ? "物理" : "魔法";

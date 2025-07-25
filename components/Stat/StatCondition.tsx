@@ -34,7 +34,7 @@ export class StatCondition extends StatTooltip<readonly Data.ConditionObj[]> {
     return this.getText(setting);
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const list = this.getValue(setting);
 
     return (

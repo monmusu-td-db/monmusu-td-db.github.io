@@ -38,32 +38,38 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
   //   return <ul className="ps-3">{list}</ul>;
   // }
 
-  public static merge(
+  static merge(
     ...values: (ReadonlySet<string> | undefined)[]
   ): ReadonlySet<string> {
     const ret = new Set<string>();
     for (const v of values) {
       if (v !== undefined) {
-        for (const str of v) ret.add(str);
+        for (const str of v) {
+          ret.add(str);
+        }
       }
     }
     return ret;
   }
 
-  public static filter(
+  static filter(
     target: ReadonlySet<string>,
     filter: ReadonlySet<string> | undefined
   ): ReadonlySet<string> {
-    if (filter === undefined) return target;
+    if (filter === undefined) {
+      return target;
+    }
 
     const ret = new Set<string>();
     target.forEach((str) => {
-      if (!filter.has(str)) ret.add(str);
+      if (!filter.has(str)) {
+        ret.add(str);
+      }
     });
     return ret;
   }
 
-  public static parse(
+  static parse(
     value: ReadonlySet<string>,
     atkFactor: Data.ActualAttackFactors | undefined,
     hpFactor: Data.ActualHpFactors | undefined
@@ -96,14 +102,16 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
     return ret;
   }
 
-  public static getDamageCut(
+  static getDamageCut(
     phyFactor: Data.DamageCutFactors,
     magFactor: Data.DamageCutFactors
   ): ReadonlySet<string> | undefined {
     const phy = phyFactor.supplement;
     const mag = magFactor.supplement;
     const gen = phyFactor.generalSupplement;
-    if (phy === 0 && mag === 0 && gen === 0) return;
+    if (phy === 0 && mag === 0 && gen === 0) {
+      return;
+    }
 
     const ret = new Set<string>();
     const fn = (type: string, damage: number) => {
@@ -111,7 +119,9 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
       ret.add(type + "被Dmg" + sign + Math.abs(damage) + "%");
     };
 
-    if (gen !== 0) fn("", gen);
+    if (gen !== 0) {
+      fn("", gen);
+    }
 
     if (gen < 100) {
       if (phy !== 0 && phy === mag) {
@@ -119,17 +129,23 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
         return ret;
       }
 
-      if (phy !== 0) fn("物理", phy);
-      if (mag !== 0) fn("魔法", mag);
+      if (phy !== 0) {
+        fn("物理", phy);
+      }
+      if (mag !== 0) {
+        fn("魔法", mag);
+      }
     }
     return ret;
   }
 
-  public static getEvasion(
+  static getEvasion(
     phyValue: number,
     magValue: number
   ): ReadonlySet<string> | undefined {
-    if (phyValue <= 0 && magValue <= 0) return;
+    if (phyValue <= 0 && magValue <= 0) {
+      return;
+    }
 
     const ret = new Set<string>();
     if (phyValue === magValue) {
@@ -137,8 +153,12 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
       return ret;
     }
 
-    if (phyValue > 0) ret.add("物理回避" + phyValue + "%");
-    if (magValue > 0) ret.add("魔法回避" + magValue + "%");
+    if (phyValue > 0) {
+      ret.add("物理回避" + phyValue + "%");
+    }
+    if (magValue > 0) {
+      ret.add("魔法回避" + magValue + "%");
+    }
     return ret;
   }
 

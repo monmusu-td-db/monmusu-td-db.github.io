@@ -100,39 +100,39 @@ export default class InBattleBuffVariants extends InBattleBuff {
     } as const;
   }
 
-  public static get tableDataBase() {
+  static get tableDataBase() {
     return this.getTableData(baseKeys);
   }
 
-  public static get tableDataDamage() {
+  static get tableDataDamage() {
     return this.getTableData(damageKeys);
   }
 
-  public static get tableDataDefensive() {
+  static get tableDataDefensive() {
     return this.getTableData(defensiveKeys);
   }
 
-  public static get tableDataAttackSpeed() {
+  static get tableDataAttackSpeed() {
     return this.getTableData(attackSpeedKeys);
   }
 
-  public static get tableDataMoveSpeed() {
+  static get tableDataMoveSpeed() {
     return this.getTableData(moveSpeedKeys);
   }
 
-  public static get tableDataRedeploy() {
+  static get tableDataRedeploy() {
     return this.getTableData(redeployKeys);
   }
 
-  public static get tableDataField() {
+  static get tableDataField() {
     return this.getTableData(fieldKeys);
   }
 
-  public static get tableDataStatus() {
+  static get tableDataStatus() {
     return this.getTableData(statusKey);
   }
 
-  public static get tableDataWeather() {
+  static get tableDataWeather() {
     return this.getTableData(weatherKey);
   }
 }

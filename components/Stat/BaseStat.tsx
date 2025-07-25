@@ -21,13 +21,15 @@ export class BaseStat<
     super(props);
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     return this.getFormationTooltip(setting);
   }
 
-  public getFormationTooltip(setting: Setting): ReactNode {
+  getFormationTooltip(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     const ssMulEnabled = f.subskillMul !== 100;
     const weaponBaseBuffAdd =

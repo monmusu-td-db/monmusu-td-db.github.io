@@ -136,11 +136,17 @@ function SubskillSelector(props: {
     switch (sortType) {
       case sortCond.NAME:
         const fn = (a: Subskill, b: Subskill) => a.name.localeCompare(b.name);
-        if (sortOrder) return filteredList.toSorted((a, b) => fn(b, a));
-        else return filteredList.toSorted(fn);
+        if (sortOrder) {
+          return filteredList.toSorted((a, b) => fn(b, a));
+        } else {
+          return filteredList.toSorted(fn);
+        }
       default:
-        if (sortOrder) return filteredList.toReversed();
-        else return filteredList;
+        if (sortOrder) {
+          return filteredList.toReversed();
+        } else {
+          return filteredList;
+        }
     }
   }, [filteredList, sortOrder, sortType]);
   const dSortedList = useDeferredValue(sortedList);

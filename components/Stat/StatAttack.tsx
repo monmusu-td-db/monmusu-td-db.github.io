@@ -12,7 +12,9 @@ export type Factors = Data.ActualAttackFactors | undefined;
 export class StatAttack extends SituationBaseStat<Factors> {
   protected override getNumberText(setting: Setting): string | undefined {
     const value = this.getValue(setting);
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
 
     const factors = this.getFactors(setting);
     const plus = factors?.isSupport;
@@ -33,9 +35,11 @@ export class StatAttack extends SituationBaseStat<Factors> {
     return cond ? Data.TableClass.critical : undefined;
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     const damageFactor = f.damageFactor ?? 100;
     const getDamageFactor = (d: boolean) => (
       <T.Multiply enabled={damageFactor !== 100}>

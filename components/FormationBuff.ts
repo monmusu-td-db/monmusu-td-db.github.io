@@ -67,12 +67,16 @@ export default class FormationBuff implements TableRow<Keys> {
     }
 
     function getPercentText(value: number | undefined): string | undefined {
-      if (!value) return;
+      if (!value) {
+        return;
+      }
       return getNumberText(value - 100);
     }
 
     function getPercentAddText(value: number | undefined): string | undefined {
-      if (value === undefined) return;
+      if (value === undefined) {
+        return;
+      }
       return getNumberText(value);
     }
 
@@ -214,7 +218,7 @@ export default class FormationBuff implements TableRow<Keys> {
     return list.filter((buff) => buff.unit.filterFn(states));
   }
 
-  public static get tableData(): TableSource<Keys> {
+  static get tableData(): TableSource<Keys> {
     return {
       headers: Data.StatType.getHeaders(keys),
       filter: (states) => this.filter(states, buffs),

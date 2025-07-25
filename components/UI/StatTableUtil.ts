@@ -38,7 +38,7 @@ export interface StatTableProps {
 }
 
 export class TableSourceUtil {
-  public static getSortFn<T extends string>(): TableSortFn<T> {
+  static getSortFn<T extends string>(): TableSortFn<T> {
     return (setting, rows, column, isReversed) => {
       return Data.mapSort(
         rows,

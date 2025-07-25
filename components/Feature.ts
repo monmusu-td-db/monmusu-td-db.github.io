@@ -26,11 +26,14 @@ const Require = {
     requirements: ReadonlySet<Require> | undefined,
     fieldElements: ReadonlySet<Data.Element>
   ): boolean {
-    if (requirements === undefined) return true;
+    if (requirements === undefined) {
+      return true;
+    }
     const element = Data.Element.name;
     for (const k of Data.Element.list) {
-      if (requirements.has(require[k]) && !fieldElements.has(element[k]))
+      if (requirements.has(require[k]) && !fieldElements.has(element[k])) {
         return false;
+      }
     }
     return true;
   },
@@ -39,11 +42,14 @@ const Require = {
     excludeList: ReadonlySet<Require> | undefined,
     fieldElements: ReadonlySet<Data.Element>
   ): boolean {
-    if (excludeList === undefined) return false;
+    if (excludeList === undefined) {
+      return false;
+    }
     const element = Data.Element.name;
     for (const k of Data.Element.list) {
-      if (excludeList.has(require[k]) && fieldElements.has(element[k]))
+      if (excludeList.has(require[k]) && fieldElements.has(element[k])) {
         return true;
+      }
     }
     return false;
   },
@@ -95,7 +101,9 @@ export const AdditionFactor = additionFactorKeys;
 
 const JsonAdditionFactor = {
   parse(obj: JsonAdditionFactor | undefined): AdditionFactor | undefined {
-    if (obj === undefined) return;
+    if (obj === undefined) {
+      return;
+    }
     if (typeof obj === "number") {
       return {
         key: undefined,
@@ -166,7 +174,9 @@ export const Debuff = {
     defres: number,
     rounds: number
   ): number | undefined {
-    if (obj === undefined || typeof obj === "number") return obj;
+    if (obj === undefined || typeof obj === "number") {
+      return obj;
+    }
     if ("valueMul" in obj) {
       return (defres * obj.valueMul) / 100;
     } else {
@@ -201,7 +211,9 @@ export class Accumulation {
     interval: number;
     time: number;
   }): number {
-    if (attackSpeed === undefined) attackSpeed = interval;
+    if (attackSpeed === undefined) {
+      attackSpeed = interval;
+    }
     const a = time % interval >= attackSpeed ? 1 : 0;
     return Math.trunc(time / interval) + a;
   }
@@ -375,15 +387,27 @@ export class Feature {
   static parse(src: JsonFeature): Readonly<FeatureOutput> {
     const ret: FeatureOutput = this.parseBase(src);
 
-    if (src.featureName !== undefined) ret.featureName = src.featureName;
-    if (src.require !== undefined) ret.require = this.parseRequire(src.require);
-    if (src.exclude !== undefined) ret.exclude = this.parseRequire(src.exclude);
-    if (src.skill !== undefined) ret.skill = src.skill;
-    if (src.isBuffSkill !== undefined) ret.isBuffSkill = src.isBuffSkill;
-    if (src.hasPotentials !== undefined)
+    if (src.featureName !== undefined) {
+      ret.featureName = src.featureName;
+    }
+    if (src.require !== undefined) {
+      ret.require = this.parseRequire(src.require);
+    }
+    if (src.exclude !== undefined) {
+      ret.exclude = this.parseRequire(src.exclude);
+    }
+    if (src.skill !== undefined) {
+      ret.skill = src.skill;
+    }
+    if (src.isBuffSkill !== undefined) {
+      ret.isBuffSkill = src.isBuffSkill;
+    }
+    if (src.hasPotentials !== undefined) {
       ret.hasPotentials = Data.JsonPotentials.toSet(src.hasPotentials);
-    if (src.potentialBonus !== undefined)
+    }
+    if (src.potentialBonus !== undefined) {
       ret.potentialBonus = this.parseBase(src.potentialBonus);
+    }
 
     return ret;
   }
@@ -392,86 +416,124 @@ export class Feature {
     const obj: FeatureObject = {};
 
     commonFeatureKeys.forEach((key) => {
-      if (src[key] !== undefined) this.setValue(obj, key, src[key]);
+      if (src[key] !== undefined) {
+        this.setValue(obj, key, src[key]);
+      }
     });
 
     const ret: FeatureOutputCore = obj;
     {
       const v = Data.Element.parseElements(src.fieldElements);
-      if (v !== undefined) ret.fieldElements = v;
+      if (v !== undefined) {
+        ret.fieldElements = v;
+      }
     }
     {
       const v = Data.Condition.parseList(src.conditions);
-      if (v !== undefined) ret.conditions = v;
+      if (v !== undefined) {
+        ret.conditions = v;
+      }
     }
-    if (src.annotations !== undefined) ret.annotations = src.annotations;
-    if (src.deleteAnnotations !== undefined)
+    if (src.annotations !== undefined) {
+      ret.annotations = src.annotations;
+    }
+    if (src.deleteAnnotations !== undefined) {
       ret.deleteAnnotations = src.deleteAnnotations;
+    }
     {
       const v = JsonAdditionFactor.parse(src.hpAdd);
-      if (v !== undefined) ret.hpAdds = [v];
+      if (v !== undefined) {
+        ret.hpAdds = [v];
+      }
     }
     {
       const v = JsonAdditionFactor.parse(src.attackAdd);
-      if (v !== undefined) ret.attackAdds = [v];
+      if (v !== undefined) {
+        ret.attackAdds = [v];
+      }
     }
     {
       const v = JsonAdditionFactor.parse(src.defenseAdd);
-      if (v !== undefined) ret.defenseAdds = [v];
+      if (v !== undefined) {
+        ret.defenseAdds = [v];
+      }
     }
     {
       const v = JsonAdditionFactor.parse(src.resistAdd);
-      if (v !== undefined) ret.resistAdds = [v];
+      if (v !== undefined) {
+        ret.resistAdds = [v];
+      }
     }
     {
       const v = Data.JsonStaticDamage.parse(src.staticDamage);
-      if (v !== undefined) ret.staticDamage = v;
+      if (v !== undefined) {
+        ret.staticDamage = v;
+      }
     }
     {
       const v = Data.JsonStaticDamage.parse(src.staticDefense);
-      if (v !== undefined) ret.staticDefense = v;
+      if (v !== undefined) {
+        ret.staticDefense = v;
+      }
     }
     {
       const v = Data.JsonStaticDamage.parse(src.staticResist);
-      if (v !== undefined) ret.staticResist = v;
+      if (v !== undefined) {
+        ret.staticResist = v;
+      }
     }
     {
       const v = src.attackDebuff;
       if (
         typeof v === "number" ||
         (v !== undefined && JsonAttackDebuff.isKvp(v))
-      )
+      ) {
         ret.attackDebuffs = [v];
+      }
     }
     {
       const v = Data.JsonTarget.parse(src.target);
-      if (v !== undefined) ret.target = v;
+      if (v !== undefined) {
+        ret.target = v;
+      }
     }
     {
       const v = Data.JsonTarget.parse(src.fixedTarget);
-      if (v !== undefined) ret.fixedTarget = v;
+      if (v !== undefined) {
+        ret.fixedTarget = v;
+      }
     }
     {
       const v = Data.JsonRound.parse(src.rounds);
-      if (v !== undefined) ret.rounds = v;
+      if (v !== undefined) {
+        ret.rounds = v;
+      }
     }
     {
       const v = Data.JsonRound.parse(src.hits);
-      if (v !== undefined) ret.hits = v;
+      if (v !== undefined) {
+        ret.hits = v;
+      }
     }
-    if (src.duration === null) ret.duration = null;
-    else if (src.duration === Data.Duration.always)
+    if (src.duration === null) {
+      ret.duration = null;
+    } else if (src.duration === Data.Duration.always) {
       ret.duration = Data.Duration.always;
-    else if (src.duration !== undefined)
+    } else if (src.duration !== undefined) {
       ret.duration = Data.JsonDuration.parse(src.duration);
+    }
     {
       const v = Data.JsonDamageType.parse(src.damageType);
-      if (v !== undefined) ret.damageType = v;
+      if (v !== undefined) {
+        ret.damageType = v;
+      }
     }
-    if (src.supplements !== undefined)
+    if (src.supplements !== undefined) {
       ret.supplements = new Set(src.supplements);
-    if (src.deleteSupplements !== undefined)
+    }
+    if (src.deleteSupplements !== undefined) {
       ret.deleteSupplements = new Set(src.deleteSupplements);
+    }
 
     return ret;
   }
@@ -500,12 +562,16 @@ export class Feature {
   ): Readonly<FeatureOutputCore> {
     const ret: FeatureObject = {};
     src.forEach((feature) => {
-      if (isPotentialApplied)
+      if (isPotentialApplied) {
         feature = { ...feature, ...feature.potentialBonus };
+      }
       commonFeatureKeys.forEach((key) => {
-        if (feature[key] === undefined) return;
-        if (ret[key] === undefined)
+        if (feature[key] === undefined) {
+          return;
+        }
+        if (ret[key] === undefined) {
           return this.setValue(ret, key, feature[key]);
+        }
 
         switch (key) {
           case keys.hpMul:
@@ -539,89 +605,117 @@ export class Feature {
         }
       });
 
-      if (feature.fieldElements !== undefined)
+      if (feature.fieldElements !== undefined) {
         ret.fieldElements = this.unionItems(
           ret.fieldElements,
           feature.fieldElements
         );
-      if (feature.conditions !== undefined)
+      }
+      if (feature.conditions !== undefined) {
         ret.conditions = this.concatItems(ret.conditions, feature.conditions);
-      if (feature.annotations !== undefined)
+      }
+      if (feature.annotations !== undefined) {
         ret.annotations = this.concatItems(
           ret.annotations,
           feature.annotations
         );
-      if (feature.deleteAnnotations !== undefined)
+      }
+      if (feature.deleteAnnotations !== undefined) {
         ret.deleteAnnotations = this.concatItems(
           ret.deleteAnnotations,
           feature.deleteAnnotations
         );
+      }
       {
         const v = feature.hpAdds;
-        if (v !== undefined) ret.hpAdds = this.concatItems(ret.hpAdds, v);
+        if (v !== undefined) {
+          ret.hpAdds = this.concatItems(ret.hpAdds, v);
+        }
       }
       {
         const v = feature.attackAdds;
-        if (v !== undefined)
+        if (v !== undefined) {
           ret.attackAdds = this.concatItems(ret.attackAdds, v);
+        }
       }
       {
         const v = feature.defenseAdds;
-        if (v !== undefined)
+        if (v !== undefined) {
           ret.defenseAdds = this.concatItems(ret.defenseAdds, v);
+        }
       }
       {
         const v = feature.resistAdds;
-        if (v !== undefined)
+        if (v !== undefined) {
           ret.resistAdds = this.concatItems(ret.resistAdds, v);
+        }
       }
-      if (feature.staticDamage !== undefined)
+      if (feature.staticDamage !== undefined) {
         ret.staticDamage = feature.staticDamage;
-      if (feature.staticDefense !== undefined)
+      }
+      if (feature.staticDefense !== undefined) {
         ret.staticDefense = feature.staticDefense;
-      if (feature.staticResist !== undefined)
+      }
+      if (feature.staticResist !== undefined) {
         ret.staticResist = feature.staticResist;
-      if (feature.attackDebuffs !== undefined)
+      }
+      if (feature.attackDebuffs !== undefined) {
         ret.attackDebuffs = this.concatItems(
           ret.attackDebuffs,
           feature.attackDebuffs
         );
+      }
       {
         const v = feature.target;
-        if (v !== undefined) ret.target = v;
+        if (v !== undefined) {
+          ret.target = v;
+        }
       }
       {
         const v = feature.fixedTarget;
-        if (v !== undefined) ret.fixedTarget = v;
+        if (v !== undefined) {
+          ret.fixedTarget = v;
+        }
       }
       {
         const v = feature.rounds;
-        if (v !== undefined) ret.rounds = v;
+        if (v !== undefined) {
+          ret.rounds = v;
+        }
       }
       {
         const v = feature.hits;
-        if (v !== undefined) ret.hits = v;
+        if (v !== undefined) {
+          ret.hits = v;
+        }
       }
       {
         const v = feature.duration;
-        if (v !== undefined) ret.duration = v;
+        if (v !== undefined) {
+          ret.duration = v;
+        }
       }
       {
         const v = feature.damageType;
-        if (v !== undefined) ret.damageType = v;
+        if (v !== undefined) {
+          ret.damageType = v;
+        }
       }
-      if (feature.supplements !== undefined)
+      if (feature.supplements !== undefined) {
         ret.supplements = this.unionItems(ret.supplements, feature.supplements);
-      if (feature.deleteSupplements !== undefined)
+      }
+      if (feature.deleteSupplements !== undefined) {
         ret.deleteSupplements = this.unionItems(
           ret.deleteSupplements,
           feature.deleteSupplements
         );
+      }
     });
-    if (ret.annotations !== undefined && ret.deleteAnnotations !== undefined)
+    if (ret.annotations !== undefined && ret.deleteAnnotations !== undefined) {
       ret.annotations = ret.annotations.filter(
         (str) => !ret.deleteAnnotations?.includes(str)
       );
+    }
     return ret;
   }
 

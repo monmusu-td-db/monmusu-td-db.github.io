@@ -19,18 +19,22 @@ export class StatDelay extends StatTooltip<number | undefined, Factors> {
     return this.getSmallFontStyles(text, style, 2);
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     return <DelayTooltip factors={this.getFactors(setting)} />;
   }
 }
 
 export function DelayTooltip({ factors }: { factors: Factors }): ReactNode {
   const f = factors;
-  if (f === undefined) return;
+  if (f === undefined) {
+    return;
+  }
   let fdCol;
-  if (f.fixedDelay !== undefined && f.delaySubtotal !== undefined)
+  if (f.fixedDelay !== undefined && f.delaySubtotal !== undefined) {
     fdCol = f.fixedDelay < f.delaySubtotal;
-  else fdCol = true;
+  } else {
+    fdCol = true;
+  }
   const dmCol = (f.delayMul ?? 100) < 100;
   const delayMul = f.delayMul ?? 100;
   const subskillBuff = f.subskillBuff ?? 100;

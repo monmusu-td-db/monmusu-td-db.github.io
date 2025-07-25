@@ -64,7 +64,7 @@ interface Source {
 }
 
 class BuffType {
-  public static list = {
+  static list = {
     hpMul: "hp-mul",
     attackMul: "attack-mul",
     defenseMul: "defense-mul",
@@ -105,13 +105,13 @@ class BuffType {
   } as const;
 
   private static entries = Data.getEntries(this.list);
-  public static key = Data.Enum(Data.getKeys(this.list));
+  static key = Data.Enum(Data.getKeys(this.list));
 
-  public static getKey(value: string): BuffTypeKey | undefined {
+  static getKey(value: string): BuffTypeKey | undefined {
     return this.entries.find((kvp) => kvp[1] === value)?.[0];
   }
 
-  public static getKeyFromStatus(
+  static getKeyFromStatus(
     isInvalid: boolean,
     status: unknown
   ): BuffTypeKey | undefined {
@@ -145,7 +145,7 @@ class BuffType {
     }
   }
 
-  public static getKeyFromStatType(
+  static getKeyFromStatType(
     isInvalid: boolean,
     statType: Data.StatType
   ): BuffTypeKey | undefined {
@@ -678,7 +678,7 @@ export default class InBattleBuff implements TableRow<Key> {
     return buffs;
   }
 
-  public static get tableData(): TableSource<Key> {
+  static get tableData(): TableSource<Key> {
     return {
       headers: Data.StatType.getHeaders(keys),
       filter: (states) => this.filter(states, buffs),

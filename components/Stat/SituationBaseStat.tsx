@@ -15,7 +15,9 @@ export class SituationBaseStat<
 > extends BaseStat<number | undefined, TFactors> {
   protected getNumberText(setting: Setting): string | undefined {
     const value = this.getValue(setting);
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
 
     const text = SituationBaseStat.getNumber({ value });
     return text;
@@ -32,13 +34,15 @@ export class SituationBaseStat<
     return SituationBaseStat.mergeStyles(defaultStyle, fontStyle);
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     return this.getTooltipBodyBase(setting);
   }
 
   private getTooltipBodyBase(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     return (
       <>
@@ -89,7 +93,9 @@ export class SituationBaseStat<
     factors: Data.ActualAttackFactors | Data.ActualDefResFactors
   ) {
     const f = factors;
-    if (f?.staticDamage === undefined) return;
+    if (f?.staticDamage === undefined) {
+      return;
+    }
     const staticDamage = f.staticDamage;
     let v;
     switch (this.statType) {

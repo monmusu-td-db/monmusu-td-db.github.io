@@ -4,11 +4,11 @@ import type { JsonBuff } from "../Unit";
 import { FeatureRequire } from "../Feature";
 
 export class InBattleBuffUI {
-  public static getSupplement(buff: JsonBuff): ReactNode {
+  static getSupplement(buff: JsonBuff): ReactNode {
     return <Supplement buff={buff} />;
   }
 
-  public static getCritical(
+  static getCritical(
     base: string | undefined,
     limit: string | undefined
   ): ReactNode {

@@ -40,55 +40,111 @@ export class StatDps<
 
   private getColorStyle(setting: Setting): StatStyles {
     const factors = this.getFactors(setting);
-    if (factors === undefined) return;
+    if (factors === undefined) {
+      return;
+    }
     const { result: value, damageType } = factors;
 
     const getColor = () => {
-      if (value === undefined) return;
+      if (value === undefined) {
+        return;
+      }
       switch (damageType) {
         case Data.damageType.physical:
-          if (value < 1000) return;
-          if (value < 2000) return Data.tableColor.blue100;
-          if (value < 3000) return Data.tableColor.blue;
-          if (value < 5000) return Data.tableColor.blue300;
-          if (value < 7000) return Data.tableColor.blue500;
-          if (value < 10000) return Data.tableColor.blue700;
-          else return Data.tableColor.blue900;
+          if (value < 1000) {
+            return;
+          }
+          if (value < 2000) {
+            return Data.tableColor.blue100;
+          }
+          if (value < 3000) {
+            return Data.tableColor.blue;
+          }
+          if (value < 5000) {
+            return Data.tableColor.blue300;
+          }
+          if (value < 7000) {
+            return Data.tableColor.blue500;
+          }
+          if (value < 10000) {
+            return Data.tableColor.blue700;
+          } else {
+            return Data.tableColor.blue900;
+          }
 
         case Data.damageType.magic:
-          if (value < 1000) return;
-          if (value < 2000) return Data.tableColor.green100;
-          if (value < 3000) return Data.tableColor.green;
-          if (value < 5000) return Data.tableColor.green300;
-          if (value < 7000) return Data.tableColor.green500;
-          if (value < 10000) return Data.tableColor.green700;
-          else return Data.tableColor.green900;
+          if (value < 1000) {
+            return;
+          }
+          if (value < 2000) {
+            return Data.tableColor.green100;
+          }
+          if (value < 3000) {
+            return Data.tableColor.green;
+          }
+          if (value < 5000) {
+            return Data.tableColor.green300;
+          }
+          if (value < 7000) {
+            return Data.tableColor.green500;
+          }
+          if (value < 10000) {
+            return Data.tableColor.green700;
+          } else {
+            return Data.tableColor.green900;
+          }
 
         case Data.damageType.true:
-          if (value < 1000) return;
-          if (value < 2000) return Data.tableColor.red100;
-          if (value < 3000) return Data.tableColor.red;
-          if (value < 5000) return Data.tableColor.red300;
-          if (value < 7000) return Data.tableColor.red500;
-          if (value < 10000) return Data.tableColor.red700;
-          else return Data.tableColor.red900;
+          if (value < 1000) {
+            return;
+          }
+          if (value < 2000) {
+            return Data.tableColor.red100;
+          }
+          if (value < 3000) {
+            return Data.tableColor.red;
+          }
+          if (value < 5000) {
+            return Data.tableColor.red300;
+          }
+          if (value < 7000) {
+            return Data.tableColor.red500;
+          }
+          if (value < 10000) {
+            return Data.tableColor.red700;
+          } else {
+            return Data.tableColor.red900;
+          }
       }
 
       if (Data.DamageType.isHeal(damageType)) {
-        if (value < 300) return;
-        if (value < 400) return Data.tableColor.yellow100;
-        if (value < 600) return Data.tableColor.yellow300;
-        if (value < 800) return Data.tableColor.yellow500;
-        if (value < 1000) return Data.tableColor.yellow600;
-        else return Data.tableColor.yellow800;
+        if (value < 300) {
+          return;
+        }
+        if (value < 400) {
+          return Data.tableColor.yellow100;
+        }
+        if (value < 600) {
+          return Data.tableColor.yellow300;
+        }
+        if (value < 800) {
+          return Data.tableColor.yellow500;
+        }
+        if (value < 1000) {
+          return Data.tableColor.yellow600;
+        } else {
+          return Data.tableColor.yellow800;
+        }
       }
     };
     return Data.TableColor.getSelector(getColor());
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
     const frequency = Math.round(f.frequency * 100);
     const isTrueDamage = !(f.penetration < 100 && !!f.defres);
     const isHeal = Data.DamageType.isHeal(f.damageType);

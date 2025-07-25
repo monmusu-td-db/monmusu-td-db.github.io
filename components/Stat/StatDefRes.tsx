@@ -9,7 +9,9 @@ export type Factors = Data.ActualDefResFactors | undefined;
 export class StatDefRes extends SituationBaseStat<Factors> {
   protected override getNumberText(setting: Setting): string | undefined {
     const value = this.getValue(setting);
-    if (value === undefined) return;
+    if (value === undefined) {
+      return;
+    }
 
     const factors = this.getFactors(setting);
     const staticDamage = factors?.staticDamage;
@@ -20,9 +22,11 @@ export class StatDefRes extends SituationBaseStat<Factors> {
     }
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     return (
       <>

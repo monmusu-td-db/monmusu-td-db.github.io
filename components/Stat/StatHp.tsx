@@ -20,9 +20,11 @@ export class StatHp extends SituationBaseStat<Factors> {
     return isUnhealable ? Data.TableClass.unhealable : undefined;
   }
 
-  public override getTooltipBody(setting: Setting): ReactNode {
+  override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) return;
+    if (f === undefined) {
+      return;
+    }
 
     const getPanelAdd = (d: boolean) => (
       <T.Info>{d ? "設定値" : Math.abs(f.panelAdd)}</T.Info>
