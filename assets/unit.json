@@ -29753,6 +29753,84 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 299,
+    "unitName": "【散詣のダークエルフ娘】ティーレ",
+    "unitShortName": "ティーレ/正月",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "闇",
+    "hp": 4336,
+    "attack": 573,
+    "defense": 402,
+    "resist": 124,
+    "exSkill1": {
+      "skillName": "画龍点睛",
+      "attackMul": 200,
+      "laser": true,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 45,
+      "damageType": "貫通"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "暗闇付与(稀)→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "暗闇付与(稀+)→命中"
+          ]
+        }
+      },
+      {
+        "require": [
+          "闇マス"
+        ],
+        "isConditionalBuff": true,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dark-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "闇",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 302,
     "unitName": "【デーモンロード娘】ダムストー",
     "unitShortName": "ダムストー",
