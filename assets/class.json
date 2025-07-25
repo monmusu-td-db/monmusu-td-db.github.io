@@ -772,7 +772,7 @@
     "damageType": "物理",
     "placement": "両",
     "supplements": [
-      "激毒付与(稀)"
+      "激毒付与(稀)→命中"
     ],
     "features": [
       {
