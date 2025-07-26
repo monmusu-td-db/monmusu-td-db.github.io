@@ -1,7 +1,7 @@
-import "./InBattleBuffUI.css";
 import type { ReactNode } from "react";
 import type { JsonBuff } from "../Unit";
 import { FeatureRequire } from "../Feature";
+import { TableClass } from "../Data";
 
 export class InBattleBuffUI {
   static getSupplement(buff: JsonBuff): ReactNode {
@@ -41,7 +41,7 @@ function Supplement({ buff }: { buff: JsonBuff }): ReactNode {
 
   return (
     <>
-      <span className="buff-require">{requirements.join(" ")} </span>
+      <span className={TableClass.buffRequire}>{requirements.join(" ")} </span>
       {buff.supplements?.join(" ")}
     </>
   );

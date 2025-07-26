@@ -215,6 +215,7 @@ export const TableClass = {
   unhealable: "unhealable",
   critical: "critical",
   species: "species",
+  buffRequire: "buff-require",
 } as const;
 
 // Stat
