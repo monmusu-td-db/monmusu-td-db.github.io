@@ -70,10 +70,7 @@ function SupplementItem({
         return FormationBuffUI.getSupplementText(requireKey, element);
       } else {
         return (
-          <>
-            <Util.ElementText element={element} />
-            属性8体
-          </>
+          <span className={Data.TableClass.buffRequire}>{element}属性8体</span>
         );
       }
   }

@@ -98,6 +98,10 @@
   }
 }
 
+.stat-table .buff-require {
+  color: var(--bs-red);
+}
+
 th.hp,
 th.attack,
 th.defense,
