@@ -1432,7 +1432,7 @@ export const MoveType = {
 } as const;
 
 export const damageType = {
-  physical: "物理",
+  physic: "物理",
   magic: "魔法",
   true: "貫通",
   heal: "回復",
@@ -1444,7 +1444,7 @@ export const damageTypeColor: Record<
   keyof typeof damageType,
   TableColor | undefined
 > = {
-  physical: tableColor.blue,
+  physic: tableColor.blue,
   magic: tableColor.green,
   true: tableColor.red,
   heal: tableColor.yellow,
