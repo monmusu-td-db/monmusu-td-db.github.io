@@ -2146,6 +2146,8 @@ export interface DpsFactorsBase {
   readonly criticalChance: number;
   readonly criticalDamage: number;
   readonly penetration: number;
+  readonly damageCut: number;
+  readonly typeDamageCut: number;
   readonly damageDebuff: number;
   readonly round: number;
   readonly hits: number;

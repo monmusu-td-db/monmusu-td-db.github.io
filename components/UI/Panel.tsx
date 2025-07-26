@@ -735,6 +735,33 @@ const TabEnemyContent = memo(function TabEnemyContent({
           </Row>
         </Col>
       </PanelUI.FormGroup>
+      <PanelUI.FormGroup label="ダメージ軽減">
+        <Col>
+          <Row>
+            <PanelUI.FormNumber
+              name={"enemy-damage-cut"}
+              label={"攻撃軽減"}
+              value={setting.enemyDamageCut}
+              onChange={(n) => onChange({ enemyDamageCut: n })}
+              isValid={Setting.isValidDamageCut}
+            />
+            <PanelUI.FormNumber
+              name={"enemy-physical-damage-cut"}
+              label={"物理攻撃軽減"}
+              value={setting.enemyPhysicalDamageCut}
+              onChange={(n) => onChange({ enemyPhysicalDamageCut: n })}
+              isValid={Setting.isValidDamageCut}
+            />
+            <PanelUI.FormNumber
+              name={"enemy-magical-damage-cut"}
+              label={"魔法攻撃軽減"}
+              value={setting.enemyMagicalDamageCut}
+              onChange={(n) => onChange({ enemyMagicalDamageCut: n })}
+              isValid={Setting.isValidDamageCut}
+            />
+          </Row>
+        </Col>
+      </PanelUI.FormGroup>
     </Form>
   );
 });

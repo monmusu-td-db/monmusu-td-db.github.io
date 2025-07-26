@@ -149,11 +149,9 @@ export class StatDps<
     const isHeal = Data.DamageType.isHeal(f.damageType);
     const damageOrHeal = isHeal ? "回復量" : "ダメージ";
 
-    const test_damageCut: number = 100;
-    const test_typeDamageCut: number = 100;
     const typeDamageCutResult = Data.Percent.multiply(
-      test_damageCut,
-      test_typeDamageCut
+      f.damageCut,
+      f.typeDamageCut
     );
 
     const test_damageDebuff: number = f.damageDebuff;
@@ -166,7 +164,7 @@ export class StatDps<
     const isDefresValid = f.defres > 0;
     const isTypeDamageValid = f.penetration < 100;
     const isTrueDamageValid =
-      f.penetration > 0 && (isDefresValid || test_typeDamageCut > 0);
+      f.penetration > 0 && (isDefresValid || f.typeDamageCut > 0);
     const isAmountEnabled =
       (isTypeDamageValid && isTrueDamageValid) || f.round > 1 || f.hits > 1;
 
@@ -267,7 +265,7 @@ export class StatDps<
                   <Tt.Result>{d ? trueDamage : detail.trueDamage}</Tt.Result>
                   <Tt.Expression>
                     {getAttackCriDamage(d)}
-                    {getDamageCut(d, test_damageCut)}
+                    {getDamageCut(d, f.damageCut)}
                     {getDamageDebuff(d, test_damageDebuff)}
                   </Tt.Expression>
                 </>

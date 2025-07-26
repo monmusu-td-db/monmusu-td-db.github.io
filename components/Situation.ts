@@ -2459,6 +2459,15 @@ export default class Situation implements TableRow<Keys> {
     const isMinDefres = d === minDefres;
     const defres = Math.trunc(d);
 
+    const damageCut = 100 - setting.enemyDamageCut;
+    const typeDamageCut =
+      100 -
+      (damageType === Data.DamageType.physic
+        ? setting.enemyPhysicalDamageCut
+        : damageType === Data.DamageType.magic
+        ? setting.enemyMagicalDamageCut
+        : 0);
+
     const physicalDamageDebuff =
       damageType === Data.DamageType.physic
         ? fea.physicalDamageDebuff
@@ -2486,6 +2495,8 @@ export default class Situation implements TableRow<Keys> {
         staticDamage ?? this.criticalChance.getValue(setting) ?? 0,
       criticalDamage: this.criticalDamage.getValue(setting) ?? 0,
       penetration: this.getPenetration(setting),
+      damageCut,
+      typeDamageCut,
       damageDebuff,
       round,
       hits,
@@ -2517,9 +2528,14 @@ export default class Situation implements TableRow<Keys> {
       const isMinDamage = minDamage >= d;
       const damage = Percent.multiply(
         isMinDamage ? minDamage : d,
+        Percent.multiply(factors.typeDamageCut, factors.damageCut),
+        factors.damageDebuff // TODO
+      );
+      const trueDamage = Percent.multiply(
+        attack,
+        factors.damageCut,
         factors.damageDebuff
       );
-      const trueDamage = Percent.multiply(attack, factors.damageDebuff);
 
       const meanDamage =
         (damage * nonPenetration + trueDamage * factors.penetration) / 100;
