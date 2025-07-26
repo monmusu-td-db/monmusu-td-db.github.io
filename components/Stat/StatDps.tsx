@@ -50,7 +50,7 @@ export class StatDps<
         return;
       }
       switch (damageType) {
-        case Data.damageType.physical:
+        case Data.damageType.physic:
           if (value < 1000) {
             return;
           }

@@ -2442,7 +2442,7 @@ export default class Situation implements TableRow<Keys> {
     const defresDebuff = Debuff.calculate(
       (() => {
         switch (damageType) {
-          case Data.DamageType.physical:
+          case Data.DamageType.physic:
             return fea.defenseDebuff;
           case Data.DamageType.magic:
             return fea.resistDebuff;
@@ -2460,7 +2460,7 @@ export default class Situation implements TableRow<Keys> {
     const defres = Math.trunc(d);
 
     const physicalDamageDebuff =
-      damageType === Data.DamageType.physical
+      damageType === Data.DamageType.physic
         ? fea.physicalDamageDebuff
         : undefined;
     const magicalDamageDebuff =
@@ -2498,7 +2498,7 @@ export default class Situation implements TableRow<Keys> {
   private getPenetration(setting: Setting): number {
     let ret = this.penetration.getValue(setting) ?? 0;
     switch (this.damageType.getValue(setting)) {
-      case Data.damageType.physical:
+      case Data.damageType.physic:
       case Data.damageType.magic:
         break;
       default:
