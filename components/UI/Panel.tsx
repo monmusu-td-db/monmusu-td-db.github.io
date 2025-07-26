@@ -45,6 +45,7 @@ const tabs = {
   FILTER: "filter",
   UNIT: "unit",
   FORMATION: "formation",
+  ENEMY: "enemy",
   OTHER: "other",
 } as const;
 
@@ -67,6 +68,9 @@ function Panel({ open, onClose, pageType }: PanelProps) {
         break;
       case tabs.FORMATION:
         dispatchSetting({ type: Contexts.SettingAction.resetFormation });
+        break;
+      case tabs.ENEMY:
+        dispatchSetting({ type: Contexts.SettingAction.resetEnemy });
         break;
       case tabs.OTHER:
         dispatchSetting({ type: Contexts.SettingAction.resetOther });
@@ -104,6 +108,11 @@ function Panel({ open, onClose, pageType }: PanelProps) {
                   <Nav.Item>
                     <Nav.Link eventKey={tabs.FORMATION}>編成</Nav.Link>
                   </Nav.Item>
+                  {isSituation && (
+                    <Nav.Item>
+                      <Nav.Link eventKey={tabs.ENEMY}>敵</Nav.Link>
+                    </Nav.Item>
+                  )}
                   <Nav.Item>
                     <Nav.Link eventKey={tabs.OTHER}>その他</Nav.Link>
                   </Nav.Item>
@@ -118,6 +127,9 @@ function Panel({ open, onClose, pageType }: PanelProps) {
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.FORMATION}>
                   <TabFormation key={resetKey} />
+                </Tab.Pane>
+                <Tab.Pane eventKey={tabs.ENEMY}>
+                  <TabEnemy key={resetKey} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.OTHER}>
                   <TabOther key={resetKey} isSituation={isSituation} />
@@ -366,17 +378,9 @@ const _TabFilter = memo(function TabFilter({
 });
 
 function TabUnit({ pageType }: { pageType: PageType }) {
-  const setting = Contexts.useSetting();
-  const dispatchSetting = Contexts.useDispatchSetting();
+  const [setting, handleChangeSetting] = useSettingChange();
   const uISetting = Contexts.useUISetting();
   const dispatchUISetting = Contexts.useDispatchUISetting();
-
-  const handleChangeSetting = useCallback(
-    (nextValue: Partial<Setting>) => {
-      dispatchSetting({ type: Contexts.SettingAction.change, nextValue });
-    },
-    [dispatchSetting]
-  );
 
   const handleChangeUISetting = useCallback(
     (updater: SetStateAction<UISetting>) => {
@@ -558,15 +562,7 @@ const _TabUnit = memo(function TabUnit({
 });
 
 function TabFormation() {
-  const setting = Contexts.useSetting();
-  const dispatch = Contexts.useDispatchSetting();
-
-  const handleChange = useCallback(
-    (nextValue: Partial<Setting>) => {
-      dispatch({ type: Contexts.SettingAction.change, nextValue });
-    },
-    [dispatch]
-  );
+  const [setting, handleChange] = useSettingChange();
 
   return <_TabFormation setting={setting} onChange={handleChange} />;
 }
@@ -696,16 +692,55 @@ const _TabFormation = memo(function _TabFormation({
   );
 });
 
-function TabOther({ isSituation }: { isSituation: boolean }) {
-  const setting = Contexts.useSetting();
-  const dispatch = Contexts.useDispatchSetting();
+function TabEnemy() {
+  const [setting, handleChange] = useSettingChange();
 
-  const handleChange = useCallback(
-    (nextValue: Partial<Setting>) => {
-      dispatch({ type: Contexts.SettingAction.change, nextValue });
-    },
-    [dispatch]
+  return <TabEnemyContent setting={setting} onChange={handleChange} />;
+}
+
+const TabEnemyContent = memo(function TabEnemyContent({
+  setting,
+  onChange,
+}: {
+  setting: Setting;
+  onChange: (nextValue: Partial<Setting>) => void;
+}) {
+  return (
+    <Form>
+      <PanelUI.FormGroup label="敵防御力">
+        <Col>
+          <Row>
+            {([1, 2, 3, 4, 5] as const).map((i) => {
+              const name = `dps-${i}`;
+              const key = Setting.getDpsKey(i);
+              return (
+                <PanelUI.FormNumber
+                  key={i}
+                  name={name}
+                  label={name}
+                  labelHidden
+                  value={setting[key]}
+                  defaultValue={Setting.defaultValue[key]}
+                  onChange={(n) =>
+                    onChange({
+                      [key]: n,
+                    })
+                  }
+                  isValid={Setting.isValidDps}
+                  sign={i}
+                  leftButton
+                />
+              );
+            })}
+          </Row>
+        </Col>
+      </PanelUI.FormGroup>
+    </Form>
   );
+});
+
+function TabOther({ isSituation }: { isSituation: boolean }) {
+  const [setting, handleChange] = useSettingChange();
 
   return (
     <_TabOther
@@ -794,34 +829,6 @@ const _TabOther = memo(function TabOther({
               />
             </Col>
           </PanelUI.FormGroup>
-          <PanelUI.FormGroup label="敵防御力">
-            <Col>
-              <Row>
-                {([1, 2, 3, 4, 5] as const).map((i) => {
-                  const name = `dps-${i}`;
-                  const key = Setting.getDpsKey(i);
-                  return (
-                    <PanelUI.FormNumber
-                      key={i}
-                      name={name}
-                      label={name}
-                      labelHidden
-                      value={setting[key]}
-                      defaultValue={Setting.defaultValue[key]}
-                      onChange={(n) =>
-                        onChange({
-                          [key]: n,
-                        })
-                      }
-                      isValid={Setting.isValidDps}
-                      sign={i}
-                      leftButton
-                    />
-                  );
-                })}
-              </Row>
-            </Col>
-          </PanelUI.FormGroup>
         </>
       )}
       <PanelUI.FormGroup label="クラス名表示">
@@ -896,6 +903,20 @@ function Backdrop({ open, onClose }: PanelProps) {
   }, [open, onClose]);
 
   return item;
+}
+
+function useSettingChange() {
+  const setting = Contexts.useSetting();
+  const dispatch = Contexts.useDispatchSetting();
+
+  const handleChange = useCallback(
+    (nextValue: Partial<Setting>) => {
+      dispatch({ type: Contexts.SettingAction.change, nextValue });
+    },
+    [dispatch]
+  );
+
+  return [setting, handleChange] as const;
 }
 
 const pageTypes = {
