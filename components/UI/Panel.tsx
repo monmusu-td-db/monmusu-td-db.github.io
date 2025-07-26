@@ -735,7 +735,7 @@ const TabEnemyContent = memo(function TabEnemyContent({
           </Row>
         </Col>
       </PanelUI.FormGroup>
-      <PanelUI.FormGroup label="ダメージ軽減">
+      <PanelUI.FormGroup label="ダメージ耐性">
         <Col>
           <Row>
             <PanelUI.FormNumber
