@@ -29831,6 +29831,92 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/毒/暗闇/スタン耐性デバフ/毒ダメージ量増加/スタン効果時間増加",
+    "TODO_FATAL": "ex1スタン蓄積値はwiki情報",
+    "id": 300,
+    "unitName": "【暗陰巫バイコーン娘】ヴァリナ",
+    "unitShortName": "ヴァリナ/正月",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "闇",
+    "hp": 2647,
+    "attack": 0,
+    "defense": 327,
+    "resist": 506,
+    "supplements": [
+      "毒耐性減少→全体",
+      "暗闇耐性減少→全体",
+      "スタン耐性減少→全体",
+      "毒ダメージ量増加→全体",
+      "スタン効果時間増加→全体"
+    ],
+    "exSkill1": {
+      "skillName": "巫女の健康祈願",
+      "rangeMul": 140,
+      "duration": 30,
+      "cooldown": 50,
+      "supplements": [
+        "猛毒付与(高)/発動→射程内",
+        "暗闇付与(高)/発動→射程内",
+        "スタン付与100%/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "闇"
+        ],
+        "cost": -1,
+        "attack": 107,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "毒特効"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "暗闇特効"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "スタン特効"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 110
+      }
+    ]
+  },
+  {
     "id": 302,
     "unitName": "【デーモンロード娘】ダムストー",
     "unitShortName": "ダムストー",
