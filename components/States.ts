@@ -662,6 +662,9 @@ type SettingEnemy = {
   readonly dps3: number;
   readonly dps4: number;
   readonly dps5: number;
+  readonly enemyDamageCut: number;
+  readonly enemyPhysicalDamageCut: number;
+  readonly enemyMagicalDamageCut: number;
 };
 const defaultSettingEnemy = {
   dps1: 300,
@@ -669,6 +672,9 @@ const defaultSettingEnemy = {
   dps3: 1000,
   dps4: 2000,
   dps5: 3000,
+  enemyDamageCut: 0,
+  enemyPhysicalDamageCut: 0,
+  enemyMagicalDamageCut: 0,
 } as const satisfies SettingEnemy;
 const settingEnemyValidation = {
   dps1: Valid.isDps,
@@ -676,6 +682,9 @@ const settingEnemyValidation = {
   dps3: Valid.isDps,
   dps4: Valid.isDps,
   dps5: Valid.isDps,
+  enemyDamageCut: Valid.isDamageCut,
+  enemyPhysicalDamageCut: Valid.isDamageCut,
+  enemyMagicalDamageCut: Valid.isDamageCut,
 } as const satisfies Record<keyof SettingEnemy, ValidationFunc>;
 
 type SettingOther = {
