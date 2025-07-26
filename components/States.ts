@@ -614,7 +614,7 @@ const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
   physicalDamageCut: Valid.isDamageCut,
   magicalDamageCut: Valid.isDamageCut,
   cooldownCut: Valid.isCooldownCut,
-} as const;
+} as const satisfies Record<keyof SettingUnit, ValidationFunc>;
 
 type SettingFormation = {
   readonly mainBeast: number;
@@ -654,47 +654,58 @@ const settingFormationValidation: Record<
   formationResist: Valid.isMul,
   typeBonus: Valid.isTypeBonus,
   sameElement: Valid.isSameElement,
-} as const;
+} as const satisfies Record<keyof SettingFormation, ValidationFunc>;
 
-type SettingOther = {
-  readonly potential: Status1;
-  readonly weapon: Status1;
+type SettingEnemy = {
   readonly dps1: number;
   readonly dps2: number;
   readonly dps3: number;
   readonly dps4: number;
   readonly dps5: number;
+};
+const defaultSettingEnemy = {
+  dps1: 300,
+  dps2: 600,
+  dps3: 1000,
+  dps4: 2000,
+  dps5: 3000,
+} as const satisfies SettingEnemy;
+const settingEnemyValidation = {
+  dps1: Valid.isDps,
+  dps2: Valid.isDps,
+  dps3: Valid.isDps,
+  dps4: Valid.isDps,
+  dps5: Valid.isDps,
+} as const satisfies Record<keyof SettingEnemy, ValidationFunc>;
+
+type SettingOther = {
+  readonly potential: Status1;
+  readonly weapon: Status1;
   readonly fieldElement: Status2;
   readonly classNameType: ClassNameTypeStatus;
 };
 const defaultSettingOther = {
   potential: PARTIAL,
   weapon: ALL,
-  dps1: 300,
-  dps2: 600,
-  dps3: 1000,
-  dps4: 2000,
-  dps5: 3000,
   fieldElement: NONE,
   classNameType: DEFAULT_CLASS_NAME_TYPE,
 } as const satisfies SettingOther;
 const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   potential: Valid.isStatus1,
   weapon: Valid.isStatus1,
-  dps1: Valid.isDps,
-  dps2: Valid.isDps,
-  dps3: Valid.isDps,
-  dps4: Valid.isDps,
-  dps5: Valid.isDps,
   fieldElement: Valid.isStatus2,
   classNameType: Valid.isClassNameTypeStatus,
-} as const;
+} as const satisfies Record<keyof SettingOther, ValidationFunc>;
 
-export type Setting = SettingUnit & SettingFormation & SettingOther;
+export type Setting = SettingUnit &
+  SettingFormation &
+  SettingEnemy &
+  SettingOther;
 
 const defaultSetting = {
   ...defaultSettingUnit,
   ...defaultSettingFormation,
+  ...defaultSettingEnemy,
   ...defaultSettingOther,
 } as const satisfies Setting;
 
@@ -737,6 +748,7 @@ export const Setting = {
 const settingValidation: Record<keyof Setting, ValidationFunc> = {
   ...settingUnitValidation,
   ...settingFormationValidation,
+  ...settingEnemyValidation,
   ...settingOtherValidation,
 } as const;
 
@@ -873,6 +885,7 @@ const SettingAction = {
   change: "change",
   resetUnit: "reset-unit",
   resetFormation: "reset-formation",
+  resetEnemy: "reset-enemy",
   resetOther: "reset-other",
 } as const;
 type SettingAction =
@@ -884,6 +897,7 @@ type SettingAction =
       type:
         | typeof SettingAction.resetUnit
         | typeof SettingAction.resetFormation
+        | typeof SettingAction.resetEnemy
         | typeof SettingAction.resetOther;
     };
 
@@ -898,6 +912,9 @@ function settingReducer(state: Setting, action: SettingAction): Setting {
     }
     case SettingAction.resetFormation: {
       return fn(defaultSettingFormation);
+    }
+    case SettingAction.resetEnemy: {
+      return fn(defaultSettingEnemy);
     }
     case SettingAction.resetOther: {
       return fn(defaultSettingOther);
