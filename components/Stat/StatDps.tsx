@@ -4,11 +4,11 @@ import * as Data from "../Data";
 import { Setting } from "../States";
 import { StatTooltip } from "./StatTooltip";
 import type { StatHandler, StatProps, StatStyles } from "./StatRoot";
-import { Tooltip as T } from "../UI/Tooltip";
+import { Tooltip as Tt } from "../UI/Tooltip";
 
 type Factors = Data.DpsFactors | undefined;
 
-const sign = T.sign;
+const sign = Tt.sign;
 const AMOUNT = "合計";
 
 export class StatDps<
@@ -142,161 +142,196 @@ export class StatDps<
 
   override getTooltipBody(setting: Setting): ReactNode {
     const f = this.getFactors(setting);
-    if (f === undefined) {
+    if (!f) {
       return;
     }
-    const frequency = Math.round(f.frequency * 100);
-    const isTrueDamage = !(f.penetration < 100 && !!f.defres);
+
     const isHeal = Data.DamageType.isHeal(f.damageType);
     const damageOrHeal = isHeal ? "回復量" : "ダメージ";
-    const isAmountShowed =
-      (f.penetration > 0 && !isTrueDamage) || f.round > 1 || f.hits > 1;
+
+    const test_damageCut: number = 100;
+    const test_typeDamageCut: number = 100;
+    const typeDamageCutResult = Data.Percent.multiply(
+      test_damageCut,
+      test_typeDamageCut
+    );
+
+    const test_damageDebuff: number = f.damageDebuff;
+    const test_typeDamageDebuff: number = 100;
+    const typeDamageDebuffResult = Data.Percent.multiply(
+      test_damageDebuff,
+      test_typeDamageDebuff
+    );
+
+    const isDefresValid = f.defres > 0;
+    const isTypeDamageValid = f.penetration < 100;
+    const isTrueDamageValid =
+      f.penetration > 0 && (isDefresValid || test_typeDamageCut > 0);
+    const isAmountEnabled =
+      (isTypeDamageValid && isTrueDamageValid) || f.round > 1 || f.hits > 1;
+
     const isNormalShowed = f.criticalChance < 100;
     const isCriticalShowed = f.criticalChance > 0;
     const isBothShowed = isNormalShowed && isCriticalShowed;
+    const frequency = Math.round(f.frequency * 100);
 
-    const damageFn = (isCritical: boolean = false) => {
+    const getDamage = (isCritical: boolean) => {
       const damage = isCritical ? "CRI" + damageOrHeal : damageOrHeal;
+      const trueDamage = "貫通" + damage;
       const detail = isCritical ? f.critical : f.normal;
 
-      const getAttackCriDamage = (d: boolean) => (
-        <>
-          {d ? "攻撃力" : f.attack}
-          <T.Multiply enabled={isCritical}>
-            <T.Positive>
-              {d ? "CRIダメージ倍率" : f.criticalDamage + sign.PERCENT}
-            </T.Positive>
-          </T.Multiply>
-        </>
+      const getAttackCriDamage = (d: boolean) => {
+        return (
+          <>
+            {d ? "攻撃力" : f.attack}
+            <Tt.Multiply enabled={isCritical}>
+              <Tt.Positive>
+                {d ? "CRIダメージ倍率" : f.criticalDamage + sign.PERCENT}
+              </Tt.Positive>
+            </Tt.Multiply>
+          </>
+        );
+      };
+
+      const getDamageCut = (d: boolean, value: number) => (
+        <Tt.Multiply enabled={value !== 100}>
+          <Tt.Info>{d ? "ダメージ軽減率" : value + sign.PERCENT}</Tt.Info>
+        </Tt.Multiply>
       );
 
-      const getDamageDebuff = (d: boolean) => (
-        <T.Multiply enabled={f.damageDebuff !== 100}>
-          <T.Value isPositive={f.damageDebuff >= 100}>
-            {d ? "被ダメージ増加" : f.damageDebuff + sign.PERCENT}
-          </T.Value>
-        </T.Multiply>
+      const getDamageDebuff = (d: boolean, value: number) => (
+        <Tt.Multiply enabled={value !== 100}>
+          <Tt.Value isPositive={value >= 100}>
+            {d ? "被ダメージ増加率" : value + sign.PERCENT}
+          </Tt.Value>
+        </Tt.Multiply>
       );
 
       return (
         <>
-          {!isTrueDamage && (
-            <T.Equation>
+          {isTypeDamageValid && (
+            <Tt.Equation>
               {(d) => (
                 <>
-                  <T.Result>{d ? damage : detail.damage}</T.Result>
-                  <T.Expression>
-                    <T.Brackets
-                      enabled={f.damageDebuff !== 100 && !detail.isMinDamage}
+                  <Tt.Result>{d ? damage : detail.damage}</Tt.Result>
+                  <Tt.Expression>
+                    <Tt.Brackets
+                      enabled={
+                        (typeDamageCutResult !== 100 ||
+                          typeDamageDebuffResult !== 100) &&
+                        !detail.isMinDamage &&
+                        isDefresValid
+                      }
                     >
-                      {detail.isMinDamage && d && "下限" + damageOrHeal}
-                      <T.Brackets enabled={detail.isMinDamage && d}>
-                        {getAttackCriDamage(d)}
-                        {detail.isMinDamage ? (
-                          <T.Multiply>{10 + sign.PERCENT}</T.Multiply>
-                        ) : (
-                          <T.Minus>
+                      {detail.isMinDamage ? (
+                        <>
+                          {d && "下限" + damageOrHeal}
+                          <Tt.Brackets enabled={d}>
+                            {getAttackCriDamage(d)}
+                            <Tt.Multiply>{10 + sign.PERCENT}</Tt.Multiply>
+                          </Tt.Brackets>
+                        </>
+                      ) : (
+                        <>
+                          {getAttackCriDamage(d)}
+                          <Tt.Minus enabled={isDefresValid}>
                             {f.isMinDefres ? (
-                              <T.Positive>
+                              <Tt.Positive>
                                 {d ? "下限防御力" : f.minDefres}
-                              </T.Positive>
+                              </Tt.Positive>
                             ) : (
-                              <T.Brackets enabled={!!f.defresDebuff}>
+                              <Tt.Brackets enabled={!!f.defresDebuff}>
                                 {d ? "防御力" : f.baseDefres}
-                                <T.Minus enabled={!!f.defresDebuff}>
-                                  <T.Positive>
+                                <Tt.Minus enabled={!!f.defresDebuff}>
+                                  <Tt.Positive>
                                     {d ? "防御デバフ" : f.defresDebuff}
-                                  </T.Positive>
-                                </T.Minus>
-                              </T.Brackets>
+                                  </Tt.Positive>
+                                </Tt.Minus>
+                              </Tt.Brackets>
                             )}
-                          </T.Minus>
-                        )}
-                      </T.Brackets>
-                    </T.Brackets>
-                    {getDamageDebuff(d)}
-                  </T.Expression>
+                          </Tt.Minus>
+                        </>
+                      )}
+                    </Tt.Brackets>
+                    {getDamageCut(d, typeDamageCutResult)}
+                    {getDamageDebuff(d, typeDamageDebuffResult)}
+                  </Tt.Expression>
                 </>
               )}
-            </T.Equation>
+            </Tt.Equation>
           )}
-
-          {(f.penetration > 0 || !f.defres) && (
-            <T.Equation>
+          {isTrueDamageValid && (
+            <Tt.Equation>
               {(d) => (
                 <>
-                  <T.Result>
-                    {d
-                      ? !isTrueDamage
-                        ? "貫通" + damage
-                        : damage
-                      : detail.trueDamage}
-                  </T.Result>
-                  <T.Expression>
+                  <Tt.Result>{d ? trueDamage : detail.trueDamage}</Tt.Result>
+                  <Tt.Expression>
                     {getAttackCriDamage(d)}
-                    {getDamageDebuff(d)}
-                  </T.Expression>
+                    {getDamageCut(d, test_damageCut)}
+                    {getDamageDebuff(d, test_damageDebuff)}
+                  </Tt.Expression>
                 </>
               )}
-            </T.Equation>
+            </Tt.Equation>
           )}
-
-          {isAmountShowed && (
-            <T.Equation>
+          {isAmountEnabled && (
+            <Tt.Equation>
               {(d) => (
                 <>
-                  <T.Result>
+                  <Tt.Result>
                     {d ? AMOUNT + damage : detail.damageAmount}
-                  </T.Result>
-                  <T.Expression>
-                    {isTrueDamage || f.penetration <= 0 ? (
+                  </Tt.Result>
+                  <Tt.Expression>
+                    {!isTypeDamageValid || !isTrueDamageValid ? (
                       <>
-                        {d
-                          ? damage
-                          : isTrueDamage
-                          ? detail.trueDamage
-                          : detail.damage}
+                        {isTypeDamageValid
+                          ? d
+                            ? damage
+                            : detail.damage
+                          : d
+                          ? trueDamage
+                          : detail.trueDamage}
                       </>
                     ) : (
-                      <T.Brackets
+                      <Tt.Brackets
                         enabled={
                           f.damageDebuff !== 100 || f.round > 1 || f.hits > 1
                         }
                       >
                         {d ? damage : detail.damage}
-                        <T.Multiply>
+                        <Tt.Multiply>
                           {d
                             ? "非貫通率"
                             : Math.round(f.nonPenetration) + sign.PERCENT}
-                        </T.Multiply>
-                        <T.Plus>
-                          <T.Positive>
-                            {d ? "貫通" + damage : detail.trueDamage}
-                          </T.Positive>
-                          <T.Multiply>
-                            <T.Positive>
+                        </Tt.Multiply>
+                        <Tt.Plus>
+                          <Tt.Positive>
+                            {d ? trueDamage : detail.trueDamage}
+                          </Tt.Positive>
+                          <Tt.Multiply>
+                            <Tt.Positive>
                               {d
                                 ? "貫通率"
                                 : Math.round(f.penetration) + sign.PERCENT}
-                            </T.Positive>
-                          </T.Multiply>
-                        </T.Plus>
-                      </T.Brackets>
+                            </Tt.Positive>
+                          </Tt.Multiply>
+                        </Tt.Plus>
+                      </Tt.Brackets>
                     )}
-                    <T.Multiply enabled={f.round > 1}>
-                      <T.Positive>
+                    <Tt.Multiply enabled={f.round > 1}>
+                      <Tt.Positive>
                         {d ? "平均連射数" : f.round.toFixed(1)}
-                      </T.Positive>
-                    </T.Multiply>
-                    <T.Multiply enabled={f.hits > 1}>
-                      <T.Positive>
+                      </Tt.Positive>
+                    </Tt.Multiply>
+                    <Tt.Multiply enabled={f.hits > 1}>
+                      <Tt.Positive>
                         {d ? "命中数" : f.hits.toFixed(0) + "hits"}
-                      </T.Positive>
-                    </T.Multiply>
-                  </T.Expression>
+                      </Tt.Positive>
+                    </Tt.Multiply>
+                  </Tt.Expression>
                 </>
               )}
-            </T.Equation>
+            </Tt.Equation>
           )}
         </>
       );
@@ -304,56 +339,55 @@ export class StatDps<
 
     return (
       <>
-        {isNormalShowed && damageFn()}
-        {isCriticalShowed && damageFn(true)}
-
-        <T.Equation>
+        {isNormalShowed && getDamage(false)}
+        {isCriticalShowed && getDamage(true)}
+        <Tt.Equation>
           {(d) => (
             <>
-              <T.Result>{d ? (isHeal ? "HPS" : "DPS") : f.result}</T.Result>
-              <T.Expression>
-                <T.Brackets enabled={isBothShowed}>
+              <Tt.Result>{d ? (isHeal ? "HPS" : "DPS") : f.result}</Tt.Result>
+              <Tt.Expression>
+                <Tt.Brackets enabled={isBothShowed}>
                   {isNormalShowed && (
                     <>
                       {d
-                        ? isAmountShowed
+                        ? isAmountEnabled
                           ? AMOUNT + damageOrHeal
                           : damageOrHeal
                         : f.normal.damageAmount}
-                      <T.Multiply enabled={isBothShowed}>
+                      <Tt.Multiply enabled={isBothShowed}>
                         {d
                           ? "非CRI率"
                           : Math.round(f.nonCriticalChance) + sign.PERCENT}
-                      </T.Multiply>
+                      </Tt.Multiply>
                     </>
                   )}
                   {isBothShowed && sign.PLUS}
                   {isCriticalShowed && (
                     <>
-                      <T.Positive>
+                      <Tt.Positive>
                         {d
-                          ? (isAmountShowed ? AMOUNT : "") +
+                          ? (isAmountEnabled ? AMOUNT : "") +
                             "CRI" +
                             damageOrHeal
                           : f.critical.damageAmount}
-                      </T.Positive>
-                      <T.Multiply enabled={isBothShowed}>
-                        <T.Positive>
+                      </Tt.Positive>
+                      <Tt.Multiply enabled={isBothShowed}>
+                        <Tt.Positive>
                           {d
                             ? "CRI率"
                             : Math.round(f.criticalChance) + sign.PERCENT}
-                        </T.Positive>
-                      </T.Multiply>
+                        </Tt.Positive>
+                      </Tt.Multiply>
                     </>
                   )}
-                </T.Brackets>
-                <T.Multiply>
+                </Tt.Brackets>
+                <Tt.Multiply>
                   {d ? "攻撃間隔" : frequency + sign.PERCENT}
-                </T.Multiply>
-              </T.Expression>
+                </Tt.Multiply>
+              </Tt.Expression>
             </>
           )}
-        </T.Equation>
+        </Tt.Equation>
       </>
     );
   }
