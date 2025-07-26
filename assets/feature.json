@@ -271,12 +271,32 @@
     ]
   },
   {
+    "featureName": "common-team-buff4",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 4
+      }
+    ]
+  },
+  {
     "featureName": "common-team-buff5",
     "isConditionalBuff": true,
     "conditions": [
       {
         "key": "t",
         "value": 5
+      }
+    ]
+  },
+  {
+    "featureName": "common-team-buff7",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 7
       }
     ]
   },
