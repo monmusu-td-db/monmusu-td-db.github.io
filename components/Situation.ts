@@ -33,9 +33,9 @@ export interface JsonSituation {
   unitId: number;
   skill?: number;
   isGeneral?: boolean;
-  isGeneralProper?: boolean;
+  isGeneralDefinite?: boolean;
   isGeneralAction?: boolean;
-  isGeneralProperAction?: boolean;
+  isGeneralDefiniteAction?: boolean;
   require?: readonly string[];
   hasPotentials?: Readonly<Data.JsonPotentials>;
   features?: readonly string[];
@@ -150,9 +150,9 @@ export default class Situation implements TableRow<Keys> {
   readonly dps5: Stat.Dps;
 
   readonly isGeneral: boolean;
-  readonly isGeneralProper: boolean;
+  readonly isGeneralDefinite: boolean;
   readonly isGeneralAction: boolean;
-  readonly isGeneralProperAction: boolean;
+  readonly isGeneralDefiniteAction: boolean;
   private readonly features: readonly string[];
   private cacheSkill = new Data.Cache<Data.SkillOutput | undefined>();
   private cacheFeature = new Data.Cache<Readonly<FeatureOutputCore>>();
@@ -1246,9 +1246,9 @@ export default class Situation implements TableRow<Keys> {
     this.dps5 = dps(5);
 
     this.isGeneral = src.isGeneral ?? false;
-    this.isGeneralProper = src.isGeneralProper ?? false;
+    this.isGeneralDefinite = src.isGeneralDefinite ?? false;
     this.isGeneralAction = src.isGeneralAction ?? false;
-    this.isGeneralProperAction = src.isGeneralProperAction ?? false;
+    this.isGeneralDefiniteAction = src.isGeneralDefiniteAction ?? false;
     this.features = src.features ?? [];
 
     {
@@ -2913,14 +2913,14 @@ export default class Situation implements TableRow<Keys> {
           default: {
             let general;
             switch (k) {
-              case cond.proper:
-                general = item.isGeneralProper;
+              case cond.definite:
+                general = item.isGeneralDefinite;
                 break;
               case cond.action:
                 general = item.isGeneralAction;
                 break;
-              case cond.properAction:
-                general = item.isGeneralProperAction;
+              case cond.definiteAction:
+                general = item.isGeneralDefiniteAction;
                 break;
             }
             return (
@@ -2936,7 +2936,7 @@ export default class Situation implements TableRow<Keys> {
     const condKeys = FilterCondition.list.filter((k) => {
       switch (k) {
         case cond.normal:
-        case cond.properAction:
+        case cond.definiteAction:
         case cond.barbarianAddAct:
         case cond.shieldKnightRangedAction:
         case cond.whipperDebuffAction:
@@ -2947,7 +2947,7 @@ export default class Situation implements TableRow<Keys> {
     }) as Exclude<
       FilterConditionKey,
       | typeof cond.normal
-      | typeof cond.properAction
+      | typeof cond.definiteAction
       | typeof cond.barbarianAddAct
       | typeof cond.shieldKnightRangedAction
       | typeof cond.whipperDebuffAction
@@ -2976,27 +2976,27 @@ export default class Situation implements TableRow<Keys> {
         switch (filter) {
           case cond.normal:
             return condKeys.every((k) => !fn(k));
-          case cond.proper:
+          case cond.definite:
             return fn(filter) && !fn(cond.action);
           case cond.action:
             return (
               fn(filter) &&
-              !fn(cond.proper) &&
+              !fn(cond.definite) &&
               !fn(cond.barbarianAttackAdd) &&
               !fn(cond.shieldKnightRanged) &&
               !fn(cond.whipperDebuff)
             );
-          case cond.properAction:
-            return fn(cond.proper) && fn(cond.action);
+          case cond.definiteAction:
+            return fn(cond.definite) && fn(cond.action);
           case cond.barbarianAttackAdd:
             return (
-              (fn(cond.barbarianAttackAdd) || item.isGeneralProper) &&
+              (fn(cond.barbarianAttackAdd) || item.isGeneralDefinite) &&
               !fn(cond.action)
             );
           case cond.barbarianAddAct:
             return (
-              (fn(cond.barbarianAttackAdd) || item.isGeneralProper) &&
-              (fn(cond.action) || item.isGeneralProperAction)
+              (fn(cond.barbarianAttackAdd) || item.isGeneralDefinite) &&
+              (fn(cond.action) || item.isGeneralDefiniteAction)
             );
           case cond.shieldKnightRanged:
             return fn(cond.shieldKnightRanged) && !fn(cond.action);
@@ -3006,13 +3006,13 @@ export default class Situation implements TableRow<Keys> {
             return fn(cond.destroyerRanged) || features.includes("class-melee");
           case cond.whipperDebuff:
             return (
-              (fn(cond.whipperDebuff) || item.isGeneralProper) &&
+              (fn(cond.whipperDebuff) || item.isGeneralDefinite) &&
               !fn(cond.action)
             );
           case cond.whipperDebuffAction:
             return (
-              (fn(cond.whipperDebuff) || item.isGeneralProper) &&
-              (fn(cond.action) || item.isGeneralProperAction)
+              (fn(cond.whipperDebuff) || item.isGeneralDefinite) &&
+              (fn(cond.action) || item.isGeneralDefiniteAction)
             );
           default:
             return fn(filter);

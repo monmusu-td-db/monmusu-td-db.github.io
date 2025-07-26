@@ -2312,7 +2312,7 @@
   {
     "unitId": 79,
     "skill": 2,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "ranged",
       "absorb"
@@ -2321,7 +2321,7 @@
   {
     "unitId": 79,
     "skill": 2,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "ranged",
       "absorb",
@@ -7275,7 +7275,7 @@
   {
     "unitId": 242,
     "skill": 1,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "skill1-dot",
       "class-attack-add"
@@ -8403,7 +8403,7 @@
   },
   {
     "unitId": 292,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "common-burn-dot"
     ]
@@ -8411,14 +8411,14 @@
   {
     "unitId": 292,
     "skill": 1,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "common-burn-dot"
     ]
   },
   {
     "unitId": 292,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "class-action",
       "common-burn-dot"
@@ -8427,7 +8427,7 @@
   {
     "unitId": 292,
     "skill": 1,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "class-action",
       "common-burn-dot"
@@ -8436,7 +8436,7 @@
   {
     "unitId": 292,
     "skill": 1,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "skill1-heal"
     ]
@@ -8444,7 +8444,7 @@
   {
     "unitId": 292,
     "skill": 1,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "class-action",
       "skill1-heal"
@@ -8619,7 +8619,7 @@
   },
   {
     "unitId": 302,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "common-burn-dot"
     ]
@@ -8627,14 +8627,14 @@
   {
     "unitId": 302,
     "skill": 1,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "common-burn-dot"
     ]
   },
   {
     "unitId": 302,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "common-burn-dot",
       "class-action"
@@ -8643,7 +8643,7 @@
   {
     "unitId": 302,
     "skill": 1,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "common-burn-dot",
       "class-action"
@@ -9013,7 +9013,7 @@
   },
   {
     "unitId": 310,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "common-burn-dot"
     ]
@@ -9021,14 +9021,14 @@
   {
     "unitId": 310,
     "skill": 1,
-    "isGeneralProper": true,
+    "isGeneralDefinite": true,
     "features": [
       "common-burn-dot"
     ]
   },
   {
     "unitId": 310,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "class-action",
       "common-burn-dot"
@@ -9037,7 +9037,7 @@
   {
     "unitId": 310,
     "skill": 1,
-    "isGeneralProperAction": true,
+    "isGeneralDefiniteAction": true,
     "features": [
       "class-action",
       "common-burn-dot"
