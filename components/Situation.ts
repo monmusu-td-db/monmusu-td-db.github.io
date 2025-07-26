@@ -2468,19 +2468,14 @@ export default class Situation implements TableRow<Keys> {
         ? setting.enemyMagicalDamageCut
         : 0);
 
-    const physicalDamageDebuff =
-      damageType === Data.DamageType.physic
+    const damageDebuff = 100 - (fea.damageDebuff ?? 0);
+    const typeDamageDebuff =
+      100 -
+      ((damageType === Data.DamageType.physic
         ? fea.physicalDamageDebuff
-        : undefined;
-    const magicalDamageDebuff =
-      damageType === Data.DamageType.magic
+        : damageType === Data.DamageType.magic
         ? fea.magicalDamageDebuff
-        : undefined;
-    const damageDebuff = Percent.sum(
-      fea.damageDebuff,
-      physicalDamageDebuff,
-      magicalDamageDebuff
-    );
+        : 0) ?? 0);
 
     const hits = Data.Round.average(this.hits.getValue(setting));
 
@@ -2498,6 +2493,7 @@ export default class Situation implements TableRow<Keys> {
       damageCut,
       typeDamageCut,
       damageDebuff,
+      typeDamageDebuff,
       round,
       hits,
       interval,
@@ -2529,7 +2525,7 @@ export default class Situation implements TableRow<Keys> {
       const damage = Percent.multiply(
         isMinDamage ? minDamage : d,
         Percent.multiply(factors.typeDamageCut, factors.damageCut),
-        factors.damageDebuff // TODO
+        Percent.multiply(factors.typeDamageDebuff, factors.damageDebuff)
       );
       const trueDamage = Percent.multiply(
         attack,
