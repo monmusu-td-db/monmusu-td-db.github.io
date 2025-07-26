@@ -1,6 +1,5 @@
-import { Fragment, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import * as Data from "../Data";
-import * as Util from "./Util";
 
 const supplementText = {
   weapon: "専用武器効果",
