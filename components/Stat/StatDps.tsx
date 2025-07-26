@@ -154,11 +154,9 @@ export class StatDps<
       f.typeDamageCut
     );
 
-    const test_damageDebuff: number = f.damageDebuff;
-    const test_typeDamageDebuff: number = 100;
     const typeDamageDebuffResult = Data.Percent.multiply(
-      test_damageDebuff,
-      test_typeDamageDebuff
+      f.damageDebuff,
+      f.typeDamageDebuff
     );
 
     const isDefresValid = f.defres > 0;
@@ -266,7 +264,7 @@ export class StatDps<
                   <Tt.Expression>
                     {getAttackCriDamage(d)}
                     {getDamageCut(d, f.damageCut)}
-                    {getDamageDebuff(d, test_damageDebuff)}
+                    {getDamageDebuff(d, f.damageDebuff)}
                   </Tt.Expression>
                 </>
               )}
