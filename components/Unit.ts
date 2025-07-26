@@ -98,9 +98,9 @@ type JsonPotentialBonus = Readonly<
 interface UnitSituation {
   skill: number;
   isGeneral: boolean;
-  isGeneralProper: boolean;
+  isGeneralDefinite: boolean;
   isGeneralAction: boolean;
-  isGeneralProperAction: boolean;
+  isGeneralDefiniteAction: boolean;
   hasPotentials: Readonly<Data.JsonPotentials>;
   features: readonly string[];
 }

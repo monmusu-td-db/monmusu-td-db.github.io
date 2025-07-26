@@ -884,7 +884,7 @@
         ]
       },
       {
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "exclude": [
           "class-attack-add"
         ],
@@ -19009,7 +19009,7 @@
         "exclude": [
           "class-attack-add"
         ],
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "features": [
           "attack-mul1"
         ]
@@ -19018,7 +19018,7 @@
         "exclude": [
           "class-attack-add"
         ],
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "skill": 1,
         "features": [
           "attack-mul1"
@@ -19028,7 +19028,7 @@
         "exclude": [
           "class-attack-add"
         ],
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "features": [
           "attack-mul2"
         ]
@@ -19037,7 +19037,7 @@
         "exclude": [
           "class-attack-add"
         ],
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "skill": 1,
         "features": [
           "attack-mul2"
@@ -33471,7 +33471,7 @@
         ]
       },
       {
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "exclude": [
           "class-debuff"
         ],
@@ -33481,7 +33481,7 @@
         ]
       },
       {
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "exclude": [
           "class-debuff"
         ],
@@ -33490,7 +33490,7 @@
         ]
       },
       {
-        "isGeneralProper": true,
+        "isGeneralDefinite": true,
         "exclude": [
           "class-debuff"
         ],

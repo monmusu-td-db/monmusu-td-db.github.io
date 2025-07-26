@@ -152,36 +152,6 @@ export const FilterUnitClass = {
   },
 } as const;
 
-const filterConditionKeys = [
-  "normal",
-  "proper",
-  "action",
-  "properAction",
-  "bladerCharge1",
-  "bladerCharge2",
-  "bladerCharge3",
-  "barbarianAttackAdd",
-  "barbarianAddAct",
-  "shieldKnightRanged",
-  "shieldKnightRangedAction",
-  "destroyerRanged",
-  "warlockAttackMul1",
-  "warlockAttackMul2",
-  "conjurerEnemy1",
-  "conjurerEnemy2",
-  "assassinAttackMul1",
-  "assassinAttackMul2",
-  "ninjaFire",
-  "ninjaWater",
-  "ninjaWind",
-  "ninjaEarth",
-  "ninjaStealth",
-  "shamanBuff",
-  "bardBuff",
-  "bardBuffProper",
-  "bardDebuff",
-] as const;
-
 export type FilterConditionKey = (typeof FilterCondition.list)[number];
 type FilterConditionKeyExcludeNormal = Exclude<FilterConditionKey, "normal">;
 type FilterConditionGroup = (typeof FilterCondition.groups)[number];
@@ -190,9 +160,9 @@ export class FilterCondition {
   private static readonly classKey = Data.UnitClass.key;
 
   static readonly groups = [
-    "proper",
+    "definite",
     "action",
-    "properAction",
+    "definiteAction",
     "blader",
     "barbarian",
     "shieldKnight",
@@ -209,9 +179,9 @@ export class FilterCondition {
 
   static readonly list = [
     "normal",
-    "proper",
+    "definite",
     "action",
-    "properAction",
+    "definiteAction",
     "bladerCharge1",
     "bladerCharge2",
     "bladerCharge3",
@@ -235,16 +205,16 @@ export class FilterCondition {
     "whipperDebuffAction",
     "shamanBuff",
     "bardBuff",
-    "bardBuffProper",
+    "bardBuffDefinite",
     "bardDebuff",
   ] as const;
   static readonly keys = Data.Enum(this.list);
 
   private static readonly names = {
     normal: "通常",
-    proper: "クラス特効",
+    definite: "クラス特効",
     action: "クラスACT",
-    properAction: "特効&ACT",
+    definiteAction: "特効&ACT",
     bladerCharge1: "曲刀 チャージ1",
     bladerCharge2: "曲刀 チャージ2",
     bladerCharge3: "曲刀 チャージ最大",
@@ -268,7 +238,7 @@ export class FilterCondition {
     whipperDebuffAction: "鞭 デバフ&ACT",
     shamanBuff: "霊枝 加算バフ",
     bardBuff: "楽器 加算バフ",
-    bardBuffProper: "楽器 特効加算バフ",
+    bardBuffDefinite: "楽器 特効加算バフ",
     bardDebuff: "楽器 攻撃デバフ",
   } as const satisfies Record<FilterConditionKey, string>;
 
@@ -276,21 +246,21 @@ export class FilterCondition {
     Record<FilterUnitClass, Partial<Record<FilterConditionKey, string>>>
   > = {
     monk: {
-      proper: "スタン特効",
+      definite: "スタン特効",
     },
     archer: {
-      proper: "対空特効",
-      properAction: "対空特効&ACT",
+      definite: "対空特効",
+      definiteAction: "対空特効&ACT",
     },
     priest: {
-      proper: "同一属性特効",
+      definite: "同一属性特効",
     },
   } as const;
 
   static group = {
-    proper: this.groupKeys.proper,
+    definite: this.groupKeys.definite,
     action: this.groupKeys.action,
-    properAction: this.groupKeys.properAction,
+    definiteAction: this.groupKeys.definiteAction,
     bladerCharge1: this.groupKeys.blader,
     bladerCharge2: this.groupKeys.blader,
     bladerCharge3: this.groupKeys.blader,
@@ -314,14 +284,14 @@ export class FilterCondition {
     whipperDebuffAction: this.groupKeys.whipper,
     shamanBuff: this.groupKeys.shaman,
     bardBuff: this.groupKeys.bard,
-    bardBuffProper: this.groupKeys.bard,
+    bardBuffDefinite: this.groupKeys.bard,
     bardDebuff: this.groupKeys.bard,
   } as const satisfies Record<
     FilterConditionKeyExcludeNormal,
     FilterConditionGroup
   >;
 
-  private static readonly properList = [
+  private static readonly definiteList = [
     this.classKey.monk,
     this.classKey.archer,
     this.classKey.priest,
@@ -335,12 +305,12 @@ export class FilterCondition {
     this.classKey.whipper,
   ] as const satisfies FilterUnitClass[];
 
-  private static readonly properActionList = [
+  private static readonly definiteActionList = [
     this.classKey.archer,
   ] as const satisfies FilterUnitClass[];
 
   static requiredFeature = {
-    proper: "class-definite",
+    definite: "class-definite",
     action: ["class-action", "class-action-base"],
     bladerCharge1: "class-charge1",
     bladerCharge2: "class-charge2",
@@ -362,7 +332,7 @@ export class FilterCondition {
     whipperDebuff: "class-debuff",
     shamanBuff: "class-buff",
     bardBuff: "class-buff",
-    bardBuffProper: "class-buff-definite",
+    bardBuffDefinite: "class-buff-definite",
     bardDebuff: "class-debuff",
   } as const satisfies Partial<
     Record<FilterConditionKeyExcludeNormal, string | string[]>
@@ -372,9 +342,9 @@ export class FilterCondition {
     const eq = this.classKey;
     const fn = (arg: FilterUnitClass): boolean => filter.get(arg) ?? false;
 
-    const proper = this.properList.some(fn);
+    const definite = this.definiteList.some(fn);
     const action = this.actionList.some(fn);
-    const properAction = this.properActionList.some(fn);
+    const definiteAction = this.definiteActionList.some(fn);
     const blader = fn(eq.blader);
     const barbarian = fn(eq.barbarian);
     const shieldKnight = fn(eq.shieldKnight);
@@ -393,7 +363,7 @@ export class FilterCondition {
       switch (k) {
         case cond.normal:
           return (
-            proper ||
+            definite ||
             action ||
             blader ||
             barbarian ||
@@ -407,12 +377,12 @@ export class FilterCondition {
             shaman ||
             bard
           );
-        case cond.proper:
-          return proper;
+        case cond.definite:
+          return definite;
         case cond.action:
           return action;
-        case cond.properAction:
-          return properAction;
+        case cond.definiteAction:
+          return definiteAction;
         case cond.bladerCharge1:
         case cond.bladerCharge2:
         case cond.bladerCharge3:
@@ -446,7 +416,7 @@ export class FilterCondition {
         case cond.shamanBuff:
           return shaman;
         case cond.bardBuff:
-        case cond.bardBuffProper:
+        case cond.bardBuffDefinite:
         case cond.bardDebuff:
           return bard;
       }
@@ -459,17 +429,17 @@ export class FilterCondition {
     const classNameKey = Data.UnitClass.keyOf(className);
     const k = this.groupKeys;
 
-    const proper = this.properList.some((v) => v === classNameKey);
+    const definite = this.definiteList.some((v) => v === classNameKey);
     const action = this.actionList.some((v) => v === classNameKey);
 
     const fn = (arg: FilterConditionGroup): boolean => {
       switch (arg) {
-        case k.proper:
-          return proper;
+        case k.definite:
+          return definite;
         case k.action:
           return action;
-        case k.properAction:
-          return proper && action;
+        case k.definiteAction:
+          return definite && action;
         default:
           return classNameKey === arg;
       }
@@ -492,26 +462,26 @@ export class FilterCondition {
     appliedGroup: Record<FilterConditionGroup, boolean>,
     {
       isGeneral,
-      isGeneralProper,
+      isGeneralDefinite,
       isGeneralAction,
-      isGeneralProperAction,
+      isGeneralDefiniteAction,
     }: {
       isGeneral: boolean;
-      isGeneralProper: boolean;
+      isGeneralDefinite: boolean;
       isGeneralAction: boolean;
-      isGeneralProperAction: boolean;
+      isGeneralDefiniteAction: boolean;
     }
   ) {
     const k = this.groupKeys;
 
     const fn1 = (arg: FilterConditionGroup): boolean => {
       switch (arg) {
-        case k.proper:
-          return isGeneralProper;
+        case k.definite:
+          return isGeneralDefinite;
         case k.action:
           return isGeneralAction;
-        case k.properAction:
-          return isGeneralProperAction;
+        case k.definiteAction:
+          return isGeneralDefiniteAction;
         default:
           return false;
       }
@@ -568,7 +538,7 @@ const filterKeys: FilterKeys[] = [
   ...filterRarityKeys,
   ...filterElementKeys,
   ...filterSpeciesKeys,
-  ...filterConditionKeys,
+  ...FilterCondition.list,
   ...filterUnitClassKeys,
   ...filterDamageTypeKeys,
   ...filterMoveTypeKeys,
