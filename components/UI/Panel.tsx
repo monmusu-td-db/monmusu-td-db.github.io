@@ -740,7 +740,7 @@ const TabEnemyContent = memo(function TabEnemyContent({
           <Row>
             <PanelUI.FormNumber
               name={"enemy-damage-cut"}
-              label={"攻撃軽減"}
+              label={"ダメージ軽減"}
               value={setting.enemyDamageCut}
               onChange={(n) => onChange({ enemyDamageCut: n })}
               isValid={Setting.isValidDamageCutPos}
@@ -758,6 +758,33 @@ const TabEnemyContent = memo(function TabEnemyContent({
               value={setting.enemyMagicalDamageCut}
               onChange={(n) => onChange({ enemyMagicalDamageCut: n })}
               isValid={Setting.isValidDamageCutPos}
+            />
+          </Row>
+        </Col>
+      </PanelUI.FormGroup>
+      <PanelUI.FormGroup label="ダメージ耐性デバフ">
+        <Col>
+          <Row>
+            <PanelUI.FormNumber
+              name={"enemy-damage-debuff"}
+              label={"ダメージ耐性減少"}
+              value={setting.damageDebuff}
+              onChange={(n) => onChange({ damageDebuff: n })}
+              isValid={Setting.isValidMul}
+            />
+            <PanelUI.FormNumber
+              name={"enemy-physical-damage-debuff"}
+              label={"物理耐性減少"}
+              value={setting.physicalDamageDebuff}
+              onChange={(n) => onChange({ physicalDamageDebuff: n })}
+              isValid={Setting.isValidMul}
+            />
+            <PanelUI.FormNumber
+              name={"enemy-magical-damage-debuff"}
+              label={"魔法耐性減少"}
+              value={setting.magicalDamageDebuff}
+              onChange={(n) => onChange({ magicalDamageDebuff: n })}
+              isValid={Setting.isValidMul}
             />
           </Row>
         </Col>
