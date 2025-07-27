@@ -1301,6 +1301,16 @@ export const Species = {
   },
 } as const;
 
+export class TokenType {
+  static readonly list = ["isNotToken", "isToken"] as const;
+  static readonly key = Enum(this.list);
+  static readonly desc = {
+    isNotToken: "非トークン",
+    isToken: "トークン",
+  } as const satisfies Record<TokenTypeKey, string>;
+}
+export type TokenTypeKey = (typeof TokenType.list)[number];
+
 export type JsonTarget = number | string | number[];
 export const JsonTarget = {
   parse(value: JsonTarget | undefined): TargetBase | undefined {

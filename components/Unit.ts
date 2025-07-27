@@ -1431,7 +1431,8 @@ export default class Unit implements TableRow<Keys> {
       target.filterSpecies(states) ||
       this.filterDamageType(states) ||
       target.filterMoveType(states) ||
-      this.filterPlacement(states)
+      this.filterPlacement(states) ||
+      this.filterToken(states)
     ) {
       return false;
     }
@@ -1538,6 +1539,14 @@ export default class Unit implements TableRow<Keys> {
       states,
       Data.Placement.list,
       this.placement.getValue(states.setting)
+    );
+  }
+
+  filterToken(states: States): boolean {
+    return Unit.filterItem(
+      states,
+      Data.TokenType.list,
+      this.isToken ? Data.TokenType.key.isToken : Data.TokenType.key.isNotToken
     );
   }
 

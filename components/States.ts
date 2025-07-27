@@ -528,6 +528,9 @@ type FilterMoveType = (typeof filterMoveTypeKeys)[number];
 const filterPlacementKeys = Data.Placement.list;
 type FilterPlacement = (typeof filterPlacementKeys)[number];
 
+const filterTokenKeys = Data.TokenType.list;
+type FilterToken = Data.TokenTypeKey;
+
 const defaultFilter = new Map<FilterKeys, boolean>();
 export type FilterKeys =
   | FilterRarity
@@ -537,7 +540,8 @@ export type FilterKeys =
   | FilterConditionKey
   | FilterDamageType
   | FilterMoveType
-  | FilterPlacement;
+  | FilterPlacement
+  | FilterToken;
 const filterKeys: FilterKeys[] = [
   ...filterRarityKeys,
   ...filterElementKeys,
@@ -547,20 +551,13 @@ const filterKeys: FilterKeys[] = [
   ...filterDamageTypeKeys,
   ...filterMoveTypeKeys,
   ...filterPlacementKeys,
+  ...filterTokenKeys,
 ];
 
 export type FilterObject = Partial<Record<FilterKeys, boolean>>;
 export type Filter = ReadonlyMap<FilterKeys, boolean>;
 export const Filter = {
-  baseKeys: [
-    ...filterRarityKeys,
-    ...filterElementKeys,
-    ...filterSpeciesKeys,
-    ...filterUnitClassKeys,
-    ...filterDamageTypeKeys,
-    ...filterMoveTypeKeys,
-    ...filterPlacementKeys,
-  ],
+  baseKeys: filterKeys.filter((k) => !FilterCondition.isKey(k)),
 } as const;
 
 // Setting
