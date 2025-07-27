@@ -21134,11 +21134,17 @@
         ]
       },
       {
+        "require": [
+          "no-panel-field-element"
+        ],
         "features": [
           "common-dark-field"
         ]
       },
       {
+        "require": [
+          "no-panel-field-element"
+        ],
         "skill": 1,
         "features": [
           "common-1hit",
@@ -21146,6 +21152,9 @@
         ]
       },
       {
+        "require": [
+          "no-panel-field-element"
+        ],
         "skill": 1,
         "features": [
           "common-2hits",
@@ -29807,11 +29816,17 @@
         "skill": 1
       },
       {
+        "require": [
+          "no-panel-field-element"
+        ],
         "features": [
           "common-dark-field"
         ]
       },
       {
+        "require": [
+          "no-panel-field-element"
+        ],
         "skill": 1,
         "features": [
           "common-dark-field"
