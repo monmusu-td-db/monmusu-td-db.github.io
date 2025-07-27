@@ -59,6 +59,10 @@ class Valid {
     return typeof value === "number" && value > -1000 && value <= 100;
   }
 
+  static isDamageCutPos(value: unknown): boolean {
+    return typeof value === "number" && value >= 0 && value <= 100;
+  }
+
   static isAttackSpeed(value: unknown): boolean {
     return typeof value === "number" && value >= -50 && value <= 100; // TODO下限値を調べる
   }
@@ -682,9 +686,9 @@ const settingEnemyValidation = {
   dps3: Valid.isDps,
   dps4: Valid.isDps,
   dps5: Valid.isDps,
-  enemyDamageCut: Valid.isDamageCut,
-  enemyPhysicalDamageCut: Valid.isDamageCut,
-  enemyMagicalDamageCut: Valid.isDamageCut,
+  enemyDamageCut: Valid.isDamageCutPos,
+  enemyPhysicalDamageCut: Valid.isDamageCutPos,
+  enemyMagicalDamageCut: Valid.isDamageCutPos,
 } as const satisfies Record<keyof SettingEnemy, ValidationFunc>;
 
 type SettingOther = {
@@ -735,6 +739,7 @@ export const Setting = {
   isValidAdd: Valid.isAdd,
   isValidCut: Valid.isCut,
   isValidDamageCut: Valid.isDamageCut,
+  isValidDamageCutPos: Valid.isDamageCutPos,
   isValidAttackSpeed: Valid.isAttackSpeed,
   isValidCooldownCut: Valid.isCooldownCut,
   isValidDps: Valid.isDps,
