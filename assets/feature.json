@@ -640,6 +640,7 @@
   },
   {
     "featureName": "common-extra-damage",
+    "isAbility": true,
     "conditions": [
       "追"
     ],

@@ -31767,6 +31767,90 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1追加ダメージのHit数を調べる",
+    "id": 321,
+    "unitName": "【ムーンラビット娘】フィーユェ",
+    "unitShortName": "フィーユェ",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "光",
+    "species": "エイリアン",
+    "hp": 2432,
+    "attack": 1036,
+    "defense": 233,
+    "resist": 564,
+    "supplements": [
+      "鈍足→射程内",
+      "攻撃速度減少→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "白き星の引力",
+      "attackMul": 240,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-14/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "fieldBuffFactor": 200,
+        "potentialBonus": {
+          "fieldBuffFactor": 300
+        }
+      },
+      {
+        "isConditionalBuff": true,
+        "require": [
+          "光マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "isConditionalSkillBuff": true,
+        "require": [
+          "スキル"
+        ],
+        "fieldElements": [
+          "光"
+        ]
+      },
+      {
+        "featureName": "common-extra-damage",
+        "damageFactor": 20,
+        "splash": true,
+        "rounds": 9,
+        "damageType": "魔法",
+        "supplements": [
+          "鈍足(大)→命中",
+          "攻撃速度減少(大)→命中"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-damage"
+        ]
+      }
+    ]
+  },
+  {
     "id": 322,
     "unitName": "【奏響のマンドレイク娘】ドネ",
     "unitShortName": "ドネ/学園",
