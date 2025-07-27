@@ -30873,6 +30873,112 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1射程",
+    "id": 312,
+    "unitName": "【蘭華のジャイアント娘】メロン",
+    "unitShortName": "メロン/蘭華",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "風",
+    "hp": 4477,
+    "attack": 502,
+    "defense": 438,
+    "resist": 127,
+    "exSkill1": {
+      "skillName": "リップルウィンド",
+      "attackMul": 200,
+      "target": 5,
+      "rounds": 2,
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
+        "ノックバック(小)→命中",
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "物理ダメージ20%軽減"
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "hp-base",
+          "value": 10
+        }
+      },
+      {
+        "skill": 0,
+        "rounds": 2,
+        "target": "ブロック",
+        "range": null
+      },
+      {
+        "skill": 1,
+        "damageFactor": 130
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 130,
+    "attackMul": 110,
+    "blockAdd": 2,
+    "potentialBonus": {
+      "costAdd": 4,
+      "hpMul": 135,
+      "attackMul": 115
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-wind-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-wind-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "風属性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "element": "風",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "風属性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
+  },
+  {
     "id": 313,
     "unitName": "【プリンシパリティ娘】フィリス",
     "unitShortName": "フィリス",

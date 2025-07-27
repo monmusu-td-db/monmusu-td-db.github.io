@@ -58,6 +58,15 @@
     ]
   },
   {
+    "featureName": "common-wind-field",
+    "fieldElements": [
+      "風"
+    ],
+    "annotations": [
+      "風マス配置時"
+    ]
+  },
+  {
     "featureName": "common-light-field",
     "fieldElements": [
       "光"
