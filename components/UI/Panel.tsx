@@ -743,21 +743,21 @@ const TabEnemyContent = memo(function TabEnemyContent({
               label={"攻撃軽減"}
               value={setting.enemyDamageCut}
               onChange={(n) => onChange({ enemyDamageCut: n })}
-              isValid={Setting.isValidDamageCut}
+              isValid={Setting.isValidDamageCutPos}
             />
             <PanelUI.FormNumber
               name={"enemy-physical-damage-cut"}
               label={"物理攻撃軽減"}
               value={setting.enemyPhysicalDamageCut}
               onChange={(n) => onChange({ enemyPhysicalDamageCut: n })}
-              isValid={Setting.isValidDamageCut}
+              isValid={Setting.isValidDamageCutPos}
             />
             <PanelUI.FormNumber
               name={"enemy-magical-damage-cut"}
               label={"魔法攻撃軽減"}
               value={setting.enemyMagicalDamageCut}
               onChange={(n) => onChange({ enemyMagicalDamageCut: n })}
-              isValid={Setting.isValidDamageCut}
+              isValid={Setting.isValidDamageCutPos}
             />
           </Row>
         </Col>
