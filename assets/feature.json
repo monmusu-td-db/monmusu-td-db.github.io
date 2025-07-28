@@ -527,6 +527,22 @@
     "damageType": "再生"
   },
   {
+    "featureName": "common-regenerate-all",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "conditions": [
+      "再all"
+    ],
+    "interval": 30,
+    "target": "全体",
+    "splash": false,
+    "rounds": 1,
+    "duration": "常時",
+    "damageType": "再生"
+  },
+  {
     "featureName": "common-regenerate-weapon",
     "isAbility": true,
     "annotations": [
@@ -696,6 +712,16 @@
       }
     ],
     "fixedTarget": 2
+  },
+  {
+    "featureName": "common-enemy3",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 3
+      }
+    ],
+    "fixedTarget": 3
   },
   {
     "featureName": "common-ability",

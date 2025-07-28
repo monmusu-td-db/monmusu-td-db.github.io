@@ -32524,6 +32524,108 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "種族特性回復間隔を調べる/ex1モーション時間/ex1射程",
+    "id": 329,
+    "unitName": "【カーバンクルドラゴン娘】ルルゥ",
+    "unitShortName": "ルルゥ/進化",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "光",
+    "species": "ドラゴン",
+    "hp": 5185,
+    "attack": 970,
+    "defense": 459,
+    "resist": 121,
+    "supplements": [
+      "バリア{attack-base*100}付与/5体撃破→他者"
+    ],
+    "exSkill1": {
+      "skillName": "ジュエリーフラッシュ",
+      "attackMul": 280,
+      "fixedDelay": 1,
+      "target": 5,
+      "range": 999,
+      "duration": "単発",
+      "cooldown": 30,
+      "supplements": [
+        "バリア{attack-base*100}付与/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "ドラゴン"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      },
+      {
+        "targets": [
+          "光"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-regenerate-all",
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 5
+        }
+      },
+      {
+        "featureName": "common-enemy1",
+        "rounds": 5
+      },
+      {
+        "featureName": "common-enemy3",
+        "annotations": [
+          "敵2体もしくは3体"
+        ],
+        "rounds": 2
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy3"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate-all"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 330,
     "unitName": "【シーエルフ娘】アズレア",
