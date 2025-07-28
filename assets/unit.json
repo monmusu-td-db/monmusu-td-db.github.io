@@ -33932,5 +33932,83 @@
         }
       }
     ]
+  },
+  {
+    "id": 349,
+    "unitName": "【メリュジーヌ娘】ミレリア",
+    "unitShortName": "ミレリア",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "水",
+    "species": "ドラゴン",
+    "hp": 4376,
+    "attack": 672,
+    "defense": 467,
+    "resist": 246,
+    "supplements": [
+      "回復100%/CRI時",
+      "鈍足-90%/CRI時→命中"
+    ],
+    "exSkill1": {
+      "skillName": "サーペントテイル",
+      "attackMul": 200,
+      "criDamageAdd": 50,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "最大HP+600",
+      "CRI率/CRI率上限+20%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "hp": 107,
+        "attack": 107,
+        "potentialBonus": {
+          "hp": 109,
+          "attack": 109
+        }
+      }
+    ],
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 1,
+        "target": "全体",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 20
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 20
+          }
+        ]
+      }
+    ]
   }
 ]
