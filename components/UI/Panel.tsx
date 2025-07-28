@@ -170,7 +170,7 @@ function TabFilter({ isSituation }: { isSituation: boolean }) {
   const setting = Contexts.useSetting();
 
   return (
-    <_TabFilter
+    <TabFilterContent
       filter={filter}
       onChange={handleChange}
       isSituation={isSituation}
@@ -179,7 +179,7 @@ function TabFilter({ isSituation }: { isSituation: boolean }) {
   );
 }
 
-const _TabFilter = memo(function TabFilter({
+const TabFilterContent = memo(function TabFilterContent({
   filter,
   onChange,
   isSituation,
@@ -410,7 +410,7 @@ function TabUnit({ pageType }: { pageType: PageType }) {
   );
 
   return (
-    <_TabUnit
+    <TabUnitContent
       setting={setting}
       onChangeSetting={handleChangeSetting}
       uISetting={uISetting}
@@ -420,7 +420,7 @@ function TabUnit({ pageType }: { pageType: PageType }) {
   );
 }
 
-const _TabUnit = memo(function TabUnit({
+const TabUnitContent = memo(function TabUnitContent({
   setting,
   onChangeSetting,
   uISetting,
@@ -581,10 +581,10 @@ const _TabUnit = memo(function TabUnit({
 function TabFormation() {
   const [setting, handleChange] = useSettingChange();
 
-  return <_TabFormation setting={setting} onChange={handleChange} />;
+  return <TabFormationContent setting={setting} onChange={handleChange} />;
 }
 
-const _TabFormation = memo(function _TabFormation({
+const TabFormationContent = memo(function TabFormationContent({
   setting,
   onChange,
 }: {
@@ -814,7 +814,7 @@ function TabOther({ isSituation }: { isSituation: boolean }) {
   const [setting, handleChange] = useSettingChange();
 
   return (
-    <_TabOther
+    <TabOtherContent
       setting={setting}
       onChange={handleChange}
       isSituation={isSituation}
@@ -822,7 +822,7 @@ function TabOther({ isSituation }: { isSituation: boolean }) {
   );
 }
 
-const _TabOther = memo(function TabOther({
+const TabOtherContent = memo(function TabOtherContent({
   setting,
   onChange,
   isSituation,
