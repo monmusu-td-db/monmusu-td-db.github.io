@@ -18960,11 +18960,11 @@
       },
       {
         "supplements": [
-          "- ATK+[減少値×2]"
+          "-ATK+[減少値×2]"
         ],
         "potentialBonus": {
           "supplements": [
-            "- ATK+[減少値×2.5]"
+            "-ATK+[減少値×2.5]"
           ]
         }
       },
@@ -23031,7 +23031,7 @@
       {
         "isNotAbility": true,
         "supplements": [
-          "- ATK+[減少値×2](20秒)"
+          "-ATK+[減少値×2](20秒)"
         ]
       },
       {
@@ -27905,7 +27905,7 @@
     "resist": 63,
     "supplements": [
       "DEF-3%(20秒)→命中",
-      "- DEF+[減少値×2](20秒)"
+      "-DEF+[減少値×2](20秒)"
     ],
     "exSkill1": {
       "skillName": "深海からの誘い",
@@ -32161,6 +32161,90 @@
       {
         "proper": true,
         "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/加算バフ",
+    "id": 325,
+    "unitName": "【購買のマモン娘】マージェル",
+    "unitShortName": "マージェル/学園",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "光",
+    "species": "悪魔",
+    "hp": 3900,
+    "attack": 644,
+    "defense": 291,
+    "resist": 446,
+    "exSkill1": {
+      "skillName": "強欲の購買部",
+      "attackMul": 260,
+      "rangeMul": 160,
+      "duration": 15,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "ATK-6%(40秒)→射程内",
+          "-ATK+[減少値×0.5](40秒)→全体"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "wiki情報",
+    "id": 3250001,
+    "parentId": 325,
+    "unitName": "購買部食品",
+    "unitShortName": "購買部食品T",
+    "rarity": "C",
+    "element": "光",
+    "cost": 30,
+    "hp": 100,
+    "attack": 0,
+    "defense": 0,
+    "resist": 0,
+    "block": 0,
+    "target": 0,
+    "moveSpeed": 0,
+    "placement": "付",
+    "supplements": [
+      "配置後即時消滅",
+      "バフ→付与対象"
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": -1,
+        "target": "付与対象",
+        "range": null,
+        "value": 120,
+        "potentialBonus": {
+          "value": 125
+        }
       }
     ]
   },
