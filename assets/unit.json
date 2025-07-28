@@ -20365,7 +20365,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 205,
     "unitName": "【賀照のゴールドドラゴン娘】ソレイア",
     "unitShortName": "ソレイア/正月",
@@ -20374,7 +20373,7 @@
     "element": "光",
     "species": "ドラゴン",
     "hp": 8004,
-    "attack": 919,
+    "attack": 920,
     "defense": 675,
     "resist": 121,
     "exSkill1": {
@@ -29762,7 +29761,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "id": 299,
     "unitName": "【散詣のダークエルフ娘】ティーレ",
     "unitShortName": "ティーレ/正月",
@@ -29846,7 +29844,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報/毒/暗闇/スタン耐性デバフ/毒ダメージ量増加/スタン効果時間増加",
+    "TODO_DESC": "毒/暗闇/スタン耐性デバフ/毒ダメージ量増加/スタン効果時間増加",
     "TODO_FATAL": "ex1スタン蓄積値はwiki情報",
     "id": 300,
     "unitName": "【暗陰巫バイコーン娘】ヴァリナ",
