@@ -670,6 +670,15 @@
     "conditions": [
       "追"
     ],
+    "target": "命中",
+    "splash": false
+  },
+  {
+    "featureName": "common-extra-field-damage",
+    "isAbility": true,
+    "conditions": [
+      "追"
+    ],
     "criChanceAdd": -1000,
     "target": "命中"
   },

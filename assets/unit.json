@@ -10553,6 +10553,7 @@
     ]
   },
   {
+    "TODO_DESC": "全体対象毒ダメージ増加効果",
     "id": 95,
     "unitName": "【バジリスク娘】ディリオ",
     "unitShortName": "ディリオ",
@@ -10577,6 +10578,17 @@
       "damageType": "魔法",
       "supplements": []
     },
+    "exSkill2": {
+      "skillName": "毒蛇の謀略",
+      "attackMul": 150,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "毒付与/発動→射程内",
+        "攻撃速度減少→全体毒状態"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -10592,52 +10604,137 @@
     },
     "features": [
       {
-        "featureName": "normal",
+        "skill": 0,
+        "isNotAbility": true,
         "supplements": [
-          "毒Dmg+20%"
+          "毒Dmg+20%→全体"
         ],
         "potentialBonus": {
           "supplements": [
-            "毒Dmg+27%"
+            "毒Dmg+27%→全体"
           ]
         }
       },
       {
         "skill": 1,
+        "isNotAbility": true,
+        "isConditionalSkillBuff": true,
         "supplements": [
-          "毒Dmg+80%"
+          "毒Dmg+80%→全体"
         ],
         "potentialBonus": {
           "supplements": [
-            "毒Dmg+108%"
+            "毒Dmg+108%→全体"
           ]
         }
       },
       {
-        "featureName": "proper-poison",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-poison",
+        "skill": 0,
+        "isConditionalBuff": true,
         "damageFactor": 110
       },
       {
-        "featureName": "proper-poison",
+        "featureName": "common-definite-poison",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "damageFactor": 110
+      },
+      {
+        "featureName": "common-definite-poison",
+        "skill": 2,
+        "isConditionalBuff": true,
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-definite-poison",
         "require": [
           "武器"
         ],
+        "isConditionalBuff": true,
         "damageFactor": 140
       },
       {
-        "featureName": "proper-extra",
-        "conditions": [
-          "追"
-        ],
+        "featureName": "common-extra-damage",
         "staticDamage": {
           "key": "attack",
           "value": 100
         },
-        "target": "命中",
         "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-poison",
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison",
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-poison",
+          "common-extra-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "毒特効"
+        ],
+        "target": "全体",
+        "value": 110
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "毒特効"
+        ],
+        "skill": 1,
+        "target": "全体",
+        "value": 110
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "毒特効"
+        ],
+        "skill": 2,
+        "target": "全体",
+        "value": 130
       }
     ]
   },
@@ -22312,7 +22409,7 @@
     ],
     "features": [
       {
-        "featureName": "common-extra-damage",
+        "featureName": "common-extra-field-damage",
         "damageFactor": 100,
         "rounds": [
           {
@@ -22330,7 +22427,7 @@
         }
       },
       {
-        "featureName": "common-extra-damage",
+        "featureName": "common-extra-field-damage",
         "isConditionalSkillBuff": true,
         "rounds": 2
       }
@@ -22340,7 +22437,7 @@
       {},
       {
         "features": [
-          "common-extra-damage"
+          "common-extra-field-damage"
         ]
       },
       {
@@ -22353,7 +22450,7 @@
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-extra-damage"
+          "common-extra-field-damage"
         ]
       },
       {
@@ -22366,7 +22463,7 @@
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-extra-damage"
+          "common-extra-field-damage"
         ]
       },
       {
@@ -22379,7 +22476,7 @@
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-extra-damage"
+          "common-extra-field-damage"
         ]
       }
     ]
@@ -31824,7 +31921,7 @@
         ]
       },
       {
-        "featureName": "common-extra-damage",
+        "featureName": "common-extra-field-damage",
         "damageFactor": 20,
         "splash": true,
         "rounds": 9,
@@ -31843,7 +31940,7 @@
       {
         "skill": 1,
         "features": [
-          "common-extra-damage"
+          "common-extra-field-damage"
         ]
       }
     ]
