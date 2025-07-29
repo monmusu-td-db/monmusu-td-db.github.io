@@ -408,31 +408,39 @@
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-stan",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "stan"
+      }
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-petrify",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "petrify"
+      }
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-freeze",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "freeze"
+      }
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-burn",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "burn"
+      }
     ]
   },
   {
@@ -444,10 +452,12 @@
     "damageFactor": 120
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
-    "featureName": "common-back-attack",
+    "featureName": "common-definite-back-attack",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "back-attack"
+      }
     ]
   },
   {
