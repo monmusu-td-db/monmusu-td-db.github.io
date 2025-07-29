@@ -1865,15 +1865,6 @@ export class Status {
   private static list = getKeys(statusName);
   private static key = Enum(this.list);
 
-  static parse(value: unknown): StatusValue | undefined {
-    for (const key of this.list) {
-      const name = statusName[key];
-      if (value === name) {
-        return name;
-      }
-    }
-  }
-
   static getValueFromStatType(statType: StatType): StatusValue | undefined {
     switch (statType) {
       case stat.buffPoisonImmune:

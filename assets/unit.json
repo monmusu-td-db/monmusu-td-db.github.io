@@ -144,8 +144,7 @@
           "武器"
         ],
         "skill": 1,
-        "target": "射程内",
-        "status": "凍結"
+        "target": "射程内"
       },
       {
         "type": "freeze-invalid",
@@ -153,8 +152,7 @@
           "武器"
         ],
         "skill": 2,
-        "target": "射程内",
-        "status": "凍結"
+        "target": "射程内"
       }
     ]
   },
@@ -3430,12 +3428,10 @@
         "target": "射程内",
         "effects": [
           {
-            "type": "poison-invalid",
-            "status": "毒"
+            "type": "poison-invalid"
           },
           {
-            "type": "petrify-invalid",
-            "status": "石化"
+            "type": "petrify-invalid"
           }
         ]
       }
@@ -8993,7 +8989,6 @@
         "effects": [
           {
             "type": "poison-resist",
-            "status": "毒",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -9001,7 +8996,6 @@
           },
           {
             "type": "petrify-resist",
-            "status": "石化",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -9018,7 +9012,6 @@
         "effects": [
           {
             "type": "poison-resist",
-            "status": "毒",
             "value": 60,
             "potentialBonus": {
               "value": 70
@@ -9026,7 +9019,6 @@
           },
           {
             "type": "petrify-resist",
-            "status": "石化",
             "value": 60,
             "potentialBonus": {
               "value": 70
@@ -31162,7 +31154,6 @@
         "effects": [
           {
             "type": "blind-resist",
-            "status": "暗闇",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -31170,7 +31161,6 @@
           },
           {
             "type": "stan-resist",
-            "status": "スタン",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -31178,7 +31168,6 @@
           },
           {
             "type": "petrify-resist",
-            "status": "石化",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -31186,7 +31175,6 @@
           },
           {
             "type": "freeze-resist",
-            "status": "凍結",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -31200,7 +31188,6 @@
         "effects": [
           {
             "type": "blind-resist",
-            "status": "暗闇",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -31208,7 +31195,6 @@
           },
           {
             "type": "stan-resist",
-            "status": "スタン",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -31216,7 +31202,6 @@
           },
           {
             "type": "petrify-resist",
-            "status": "石化",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -31224,7 +31209,6 @@
           },
           {
             "type": "freeze-resist",
-            "status": "凍結",
             "value": 30,
             "potentialBonus": {
               "value": 35
@@ -33133,17 +33117,16 @@
         "target": "射程内",
         "effects": [
           {
-            "type": "poison-invalid",
-            "status": "毒"
+            "type": "poison-invalid"
           },
           {
-            "type": "stan-invalid",
-            "status": "スタン"
+            "type": "stan-invalid"
           },
           {
             "type": "petrify-invalid",
+            "status": false,
             "potentialBonus": {
-              "status": "石化"
+              "status": true
             }
           }
         ],
