@@ -536,8 +536,8 @@ export default class InBattleBuff implements TableRow<Key> {
           const invalidKey = BuffType.getKeyFromStatType(true, statType);
           if (invalidKey) {
             const effect = this.getEffect(s, this.effectList[invalidKey]);
-            const result = Data.Status.parse(effect?.status);
-            if (result === Data.Status.getValueFromStatType(statType)) {
+            const status = effect !== undefined && effect.status !== false;
+            if (status) {
               return Infinity;
             }
           }
@@ -545,8 +545,8 @@ export default class InBattleBuff implements TableRow<Key> {
           const resistKey = BuffType.getKeyFromStatType(false, statType);
           if (resistKey) {
             const effect = this.getEffect(s, this.effectList[resistKey]);
-            const result = Data.Status.parse(effect?.status);
-            if (result === Data.Status.getValueFromStatType(statType)) {
+            const status = effect !== undefined && effect.status !== false;
+            if (status) {
               return effect?.value;
             }
           }
