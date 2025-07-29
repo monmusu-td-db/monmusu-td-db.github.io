@@ -33077,6 +33077,89 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1割合ダメージ間隔はwiki情報",
+    "id": 334,
+    "unitName": "【ネクロマンサー】クロム",
+    "unitShortName": "クロム",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "闇",
+    "hp": 4225,
+    "attack": 590,
+    "defense": 304,
+    "resist": 428,
+    "supplements": [
+      "毒即時回復→射程内",
+      "スタン即時回復→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "アンデットライズ",
+      "attackMul": 220,
+      "targetAdd": 2,
+      "rangeMul": 220,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "回復阻害→射程内",
+        "HP-3%/5秒→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "魔法ダメージ20%軽減"
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "features": [
+      {
+        "potentialBonus": {
+          "supplements": [
+            "石化即時回復→射程内"
+          ]
+        }
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "poison-invalid",
+            "status": "毒"
+          },
+          {
+            "type": "stan-invalid",
+            "status": "スタン"
+          },
+          {
+            "type": "petrify-invalid",
+            "potentialBonus": {
+              "status": "石化"
+            }
+          }
+        ],
+        "supplements": [
+          "即時回復効果"
+        ]
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": -1,
+        "target": "射程内",
+        "value": 30
+      }
+    ]
+  },
+  {
     "id": 335,
     "unitName": "【アースドラゴン娘】ドルセラ",
     "unitShortName": "ドルセラ",
