@@ -25414,7 +25414,7 @@
         "attackMul": 70
       },
       {
-        "featureName": "common-back-attack",
+        "featureName": "common-definite-back-attack",
         "isConditionalBuff": true,
         "damageFactor": 300,
         "potentialBonus": {
@@ -25433,7 +25433,7 @@
           "class-earth-field"
         ],
         "features": [
-          "common-back-attack"
+          "common-definite-back-attack"
         ]
       },
       {
@@ -25443,7 +25443,7 @@
         ],
         "skill": 1,
         "features": [
-          "common-back-attack"
+          "common-definite-back-attack"
         ]
       }
     ]

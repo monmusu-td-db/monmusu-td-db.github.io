@@ -394,6 +394,11 @@ export class Condition {
     none: "不明",
     air: "対空",
     stan: "スタン",
+    poison: "毒",
+    petrify: "石化",
+    freeze: "凍結",
+    burn: "火傷",
+    "back-attack": "背面攻撃",
     "same-element": "同属性",
   } as const;
 
