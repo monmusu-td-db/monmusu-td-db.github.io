@@ -4331,6 +4331,17 @@
         "石化回復/発動→射程内"
       ]
     },
+    "exSkill2": {
+      "skillName": "悲恋の歌",
+      "attackMul": 160,
+      "rangeMul": 170,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "DEF-30%→射程内",
+        "RES-30%→射程内"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -4362,6 +4373,15 @@
         }
       },
       {
+        "skill": 2,
+        "defenseDebuff": {
+          "valueMul": 30
+        },
+        "resistDebuff": {
+          "valueMul": 30
+        }
+      },
+      {
         "featureName": "class-definite",
         "damageFactor": 160
       }
@@ -4370,6 +4390,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
