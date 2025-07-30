@@ -49,6 +49,12 @@
     ]
   },
   {
+    "hasPotentials": [
+      "回復量20%上昇"
+    ],
+    "damageFactor": 120
+  },
+  {
     "featureName": "common-fire-field",
     "fieldElements": [
       "火"
