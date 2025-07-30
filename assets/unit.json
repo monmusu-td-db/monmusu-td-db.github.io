@@ -616,6 +616,15 @@
         "コスト+11/発動"
       ]
     },
+    "exSkill2": {
+      "skillName": "活槍！潮流乱舞！",
+      "attackMul": 200,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "コスト+14/発動"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -635,6 +644,13 @@
         "magicalEvasion": 40
       },
       {
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "fieldElements": [
+          "水"
+        ]
+      },
+      {
         "require": [
           "水マス"
         ],
@@ -645,6 +661,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
