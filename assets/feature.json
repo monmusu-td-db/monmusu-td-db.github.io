@@ -58,6 +58,15 @@
     ]
   },
   {
+    "featureName": "common-water-field",
+    "fieldElements": [
+      "水"
+    ],
+    "annotations": [
+      "水マス配置時"
+    ]
+  },
+  {
     "featureName": "common-wind-field",
     "fieldElements": [
       "風"
