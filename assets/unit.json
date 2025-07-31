@@ -33830,6 +33830,90 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_FATAL": "ex1対地限定かどうか調べる",
+    "id": 342,
+    "unitName": "【紅孩児娘】フォーシャン",
+    "unitShortName": "フォーシャン",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "火",
+    "species": "妖怪",
+    "hp": 4819,
+    "attack": 704,
+    "defense": 464,
+    "resist": 60,
+    "supplements": [
+      "火傷付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "轟く豪炎",
+      "attackMul": 600,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "コスト+11/発動",
+        "火傷付与(稀+)→命中",
+        "HP-3%/命中→自分"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 5
+        },
+        "supplements": [
+          "回復5%/命中(火傷敵)"
+        ]
+      }
+    ],
+    "hpMul": 90,
+    "attackMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "hasPotentials": [
+          "火傷の敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "hasPotentials": [
+          "火傷の敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-absorb",
+          "common-definite-burn"
+        ]
+      }
+    ]
+  },
+  {
     "id": 343,
     "unitName": "【遊岸のコボルト娘】ペント",
     "unitShortName": "ペント/水着",
