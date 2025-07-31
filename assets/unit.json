@@ -29405,7 +29405,7 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "{attack*200}dmg/発動→呪詛状態敵"
+        "{attack*200}dmg/発動→呪詛敵"
       ]
     },
     "potentials": [
@@ -33774,6 +33774,73 @@
         "features": [
           "regenerate-area"
         ]
+      }
+    ]
+  },
+  {
+    "id": 343,
+    "unitName": "【遊岸のコボルト娘】ペント",
+    "unitShortName": "ペント/水着",
+    "rarity": "E",
+    "class": "パペッティア",
+    "element": "地",
+    "species": "コボルト",
+    "hp": 2536,
+    "attack": 465,
+    "defense": 240,
+    "resist": 416,
+    "supplements": [
+      "鈍足→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ぷかぷかドルフィン",
+      "attackMul": 200,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "コボルト"
+        ],
+        "attack": 120,
+        "potentialBonus": {
+          "attack": 125
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "duration": 20,
+        "supplements": [
+          "攻撃速度減少→呪詛敵"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "skill": 1,
+        "isConditionalBuff": true,
+        "supplements": [
+          "攻撃待機時間増加→呪詛敵"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "costAdd": -4,
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },
