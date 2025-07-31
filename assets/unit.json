@@ -33778,6 +33778,58 @@
     ]
   },
   {
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "id": 341,
+    "unitName": "【姑獲鳥娘】グーラン",
+    "unitShortName": "グーラン",
+    "rarity": "E",
+    "class": "シャーマン",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 2935,
+    "attack": 0,
+    "defense": 276,
+    "resist": 459,
+    "supplements": [
+      "鈍足→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "恨辛毒",
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "超毒付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スキル初回待ち時間-6秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "闇"
+        ],
+        "hp": 105,
+        "attack": 105,
+        "potentialBonus": {
+          "hp": 106,
+          "attack": 106
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 343,
     "unitName": "【遊岸のコボルト娘】ペント",
     "unitShortName": "ペント/水着",
