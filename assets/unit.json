@@ -11886,7 +11886,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 108,
     "unitName": "【レッドキャップ娘】レップ",
     "unitShortName": "レップ",
@@ -11894,14 +11893,23 @@
     "class": "バーバリアン",
     "element": "火",
     "hp": 6204,
-    "attack": 968,
-    "defense": 453,
+    "attack": 969,
+    "defense": 454,
     "resist": 135,
     "exSkill1": {
       "skillName": "血塗れパーティタイム！",
       "attackMul": 320,
       "duration": 25,
       "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "ブラッディカーニバル",
+      "attackMul": 160,
+      "target": 3,
+      "range": 300,
+      "duration": 30,
+      "cooldown": 40,
+      "damageType": "魔法"
     },
     "potentials": [
       "出撃コスト-1",
@@ -11967,6 +11975,18 @@
         "supplements": [
           "回復30%/命中"
         ]
+      },
+      {
+        "featureName": "common-absorb",
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "staticDamage": {
+          "key": "hp",
+          "value": 9
+        },
+        "supplements": [
+          "回復9%/命中"
+        ]
       }
     ],
     "isEventUnit": true,
@@ -11974,6 +11994,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       },
       {
         "proper": true,
@@ -11984,6 +12007,13 @@
       {
         "proper": true,
         "skill": 1,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
         "features": [
           "common-absorb"
         ]
