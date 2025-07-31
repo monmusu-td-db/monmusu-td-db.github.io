@@ -12352,7 +12352,6 @@
     "isUnhealable": true
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 112,
     "unitName": "【バフォメット娘】ソーヴェグラー",
     "unitShortName": "ソーヴェグラー",
@@ -12362,7 +12361,7 @@
     "species": "悪魔",
     "hp": 2586,
     "attack": 568,
-    "defense": 245,
+    "defense": 247,
     "resist": 572,
     "block": 0,
     "moveType": "飛行",
@@ -12372,6 +12371,16 @@
       "rangeMul": 140,
       "duration": 20,
       "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "ダークリチュアル",
+      "attackMul": 700,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "rangeMul": 150,
+      "duration": "単発",
+      "cooldown": 40,
+      "damageType": "魔法"
     },
     "potentials": [
       "出撃コスト-1",
@@ -12399,6 +12408,13 @@
         "supplements": [
           "HP-5%/命中→射程内他味方"
         ]
+      },
+      {
+        "skill": 2,
+        "isConditionalSkillDebuff": true,
+        "supplements": [
+          "HP-50%/発動後→射程内他味方"
+        ]
       }
     ],
     "isEventUnit": true,
@@ -12406,6 +12422,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
