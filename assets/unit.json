@@ -11391,7 +11391,6 @@
     "attack": 758,
     "defense": 0,
     "resist": 0,
-    "interval": null,
     "block": 1,
     "target": 0,
     "range": 999,
@@ -33082,7 +33081,7 @@
     ],
     "criChanceAdd": 30,
     "potentialBonus": {
-      "criChanceLimitAdd": 35
+      "criChanceAdd": 35
     },
     "situations": [
       {},
