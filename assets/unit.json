@@ -13960,6 +13960,13 @@
         "攻撃速度減少→射程内"
       ]
     },
+    "exSkill2": {
+      "skillName": "破滅の呪い",
+      "attackMul": 200,
+      "target": 3,
+      "duration": 15,
+      "cooldown": 40
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -13977,6 +13984,13 @@
         ]
       },
       {
+        "isConditionalSkillDebuff": true,
+        "skill": 2,
+        "supplements": [
+          "HP-10%/秒→自分"
+        ]
+      },
+      {
         "featureName": "explosion",
         "annotations": [
           "死亡時"
@@ -13990,6 +14004,15 @@
         "potentialBonus": {
           "damageFactor": 650
         }
+      },
+      {
+        "featureName": "explosion",
+        "skill": 2,
+        "isConditionalSkillBuff": true,
+        "target": "全体",
+        "supplements": [
+          "停止(5秒)/死亡時→全体"
+        ]
       }
     ],
     "situations": [
@@ -13998,12 +14021,21 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "features": [
           "explosion"
         ]
       },
       {
         "skill": 1,
+        "features": [
+          "explosion"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "explosion"
         ]
