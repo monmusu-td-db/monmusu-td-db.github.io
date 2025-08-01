@@ -64,6 +64,15 @@
     ]
   },
   {
+    "featureName": "common-water-field",
+    "fieldElements": [
+      "水"
+    ],
+    "annotations": [
+      "水マス配置時"
+    ]
+  },
+  {
     "featureName": "common-wind-field",
     "fieldElements": [
       "風"
@@ -414,31 +423,39 @@
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-stan",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "stan"
+      }
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-petrify",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "petrify"
+      }
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-freeze",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "freeze"
+      }
     ]
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
     "featureName": "common-definite-burn",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "burn"
+      }
     ]
   },
   {
@@ -450,10 +467,12 @@
     "damageFactor": 120
   },
   {
-    "TODO_DESC": "特効表示改修に使う",
-    "featureName": "common-back-attack",
+    "featureName": "common-definite-back-attack",
     "conditions": [
-      "特"
+      {
+        "key": "特",
+        "type": "back-attack"
+      }
     ]
   },
   {
@@ -662,6 +681,15 @@
   },
   {
     "featureName": "common-extra-damage",
+    "isAbility": true,
+    "conditions": [
+      "追"
+    ],
+    "target": "命中",
+    "splash": false
+  },
+  {
+    "featureName": "common-extra-field-damage",
     "isAbility": true,
     "conditions": [
       "追"
