@@ -394,6 +394,11 @@ export class Condition {
     none: "不明",
     air: "対空",
     stan: "スタン",
+    poison: "毒",
+    petrify: "石化",
+    freeze: "凍結",
+    burn: "火傷",
+    "back-attack": "背面攻撃",
     "same-element": "同属性",
   } as const;
 
@@ -1860,15 +1865,6 @@ export class Status {
   static names = statusName;
   private static list = getKeys(statusName);
   private static key = Enum(this.list);
-
-  static parse(value: unknown): StatusValue | undefined {
-    for (const key of this.list) {
-      const name = statusName[key];
-      if (value === name) {
-        return name;
-      }
-    }
-  }
 
   static getValueFromStatType(statType: StatType): StatusValue | undefined {
     switch (statType) {

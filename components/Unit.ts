@@ -116,7 +116,7 @@ interface JsonUnitSituation extends UnitSituation {
 type JsonUnitSituations = readonly Readonly<Partial<JsonUnitSituation>>[];
 
 export interface JsonBuffValue {
-  readonly status?: string;
+  readonly status?: boolean;
   readonly value?: number;
   readonly element?: string;
   readonly weather?: string;
