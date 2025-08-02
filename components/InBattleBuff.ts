@@ -317,7 +317,8 @@ export default class InBattleBuff implements TableRow<Key> {
     this.inBattleBuffSupplements = new Stat.Root({
       statType: stat.inBattleBuffSupplements,
       calculater: () => undefined,
-      item: () => InBattleBuffUI.getSupplement(buff),
+      item: (s) =>
+        InBattleBuffUI.getSupplement(buff, unit.isPotentialApplied(s)),
     });
 
     const getBuffMul = (
