@@ -563,7 +563,7 @@
         ]
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-petrify",
         "isConditionalBuff": true,
         "damageFactor": 250
       }
@@ -578,19 +578,19 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-definite"
+          "common-definite-petrify"
         ]
       }
     ]
