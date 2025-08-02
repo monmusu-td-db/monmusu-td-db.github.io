@@ -3253,7 +3253,7 @@
       "duration": 15,
       "cooldown": 35,
       "supplements": [
-        "石化付与(稀)"
+        "石化付与(稀)→命中"
       ]
     },
     "potentials": [
@@ -3272,11 +3272,11 @@
     "features": [
       {
         "supplements": [
-          "毒付与(稀)"
+          "毒付与(稀)→命中"
         ],
         "potentialBonus": {
           "supplements": [
-            "猛毒付与(稀)"
+            "猛毒付与(稀)→命中"
           ]
         }
       },
@@ -3285,7 +3285,7 @@
           "武器"
         ],
         "supplements": [
-          "石化付与(低)"
+          "石化付与(低)→命中"
         ]
       },
       {
@@ -3294,15 +3294,15 @@
           "武器"
         ],
         "supplements": [
-          "石化付与(稀+低)"
+          "石化付与(稀+低)→命中"
         ],
         "deleteSupplements": [
-          "石化付与(稀)",
-          "石化付与(低)"
+          "石化付与(稀)→命中",
+          "石化付与(低)→命中"
         ]
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-petrify",
         "require": [
           "武器"
         ],
@@ -3310,12 +3310,12 @@
         "damageFactor": 150
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-petrify",
         "skill": 1,
         "damageFactor": 150
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-petrify",
         "skill": 2,
         "damageFactor": 150
       }
@@ -3348,33 +3348,33 @@
           "weapon"
         ],
         "features": [
-          "common-definite"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-definite",
+          "common-definite-petrify",
           "common-1hit"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-definite",
+          "common-definite-petrify",
           "common-2hits"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-definite",
+          "common-definite-petrify",
           "common-3hits"
         ]
       }
