@@ -485,6 +485,15 @@
     ]
   },
   {
+    "featureName": "common-definite-male",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "male"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-double",
     "annotations": [
       "二重特効"

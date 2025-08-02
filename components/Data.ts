@@ -407,6 +407,7 @@ export class Condition {
     "back-attack": "背面攻撃",
     "same-element": "同属性",
     female: "女性",
+    male: "男性",
   } as const;
 
   private static readonly keys = getKeys(this.tag);
