@@ -4638,6 +4638,35 @@
       {
         "skill": 2
       }
+    ],
+    "buffs": [
+      {
+        "skill": 0,
+        "target": "射程内",
+        "supplements": [
+          "配置時即時回復効果"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "petrify-invalid"
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "petrify-invalid"
+          }
+        ]
+      }
     ]
   },
   {
