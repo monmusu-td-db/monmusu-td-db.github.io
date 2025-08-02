@@ -426,7 +426,7 @@
       "cooldown": 25,
       "damageType": "魔法",
       "supplements": [
-        "コスト+11"
+        "コスト+11/発動"
       ]
     },
     "exSkill2": {
@@ -436,8 +436,8 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "コスト+14",
-        "火傷付与(中)"
+        "コスト+14/発動",
+        "火傷付与(中)→命中"
       ]
     },
     "potentials": [
