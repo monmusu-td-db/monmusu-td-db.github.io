@@ -476,6 +476,12 @@
     ]
   },
   {
+    "featureName": "common-definite-double",
+    "annotations": [
+      "二重特効"
+    ]
+  },
+  {
     "featureName": "common-token-limit",
     "annotations": [
       "付与トークン込み耐久値"
