@@ -1270,7 +1270,7 @@
     },
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-stan",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -1278,7 +1278,7 @@
         }
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-stan",
         "require": [
           "武器"
         ],
@@ -1300,19 +1300,19 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
