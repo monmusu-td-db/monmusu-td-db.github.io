@@ -336,7 +336,7 @@ interface JsonFeatureDiff {
 }
 interface FeatureDiff {
   fieldElements: Set<Data.Element>;
-  conditions: Data.ConditionObj[];
+  conditions: Data.ConditionBaseObj[];
   annotations: string[];
   deleteAnnotations: string[];
   hpAdds: AdditionFactor[];
@@ -358,7 +358,7 @@ interface FeatureDiff {
 }
 interface FeatureOutputDiff {
   fieldElements: ReadonlySet<Data.Element>;
-  conditions: readonly Data.ConditionObj[];
+  conditions: readonly Data.ConditionBaseObj[];
   annotations: readonly string[];
   deleteAnnotations: readonly string[];
   hpAdds: readonly AdditionFactor[];

@@ -331,9 +331,14 @@ interface JsonConditionObjKvp {
   readonly value: number;
 }
 export type JsonCondition = string | JsonConditionObjType | JsonConditionObjKvp;
-export type ConditionObj = {
+export type ConditionBaseObj = {
   readonly key: ConditionKey;
   readonly type: string | undefined;
+  readonly value: number | undefined;
+};
+export type ConditionObj = {
+  readonly key: ConditionKey;
+  readonly type: string | readonly string[] | undefined;
   readonly value: number | undefined;
 };
 type ConditionKey = keyof typeof Condition.tag;
@@ -410,7 +415,7 @@ export class Condition {
 
   static parseList(
     list: readonly JsonCondition[] | undefined
-  ): readonly ConditionObj[] | undefined {
+  ): readonly ConditionBaseObj[] | undefined {
     if (list === undefined) {
       return;
     }
@@ -419,7 +424,7 @@ export class Condition {
       .filter((item) => item !== undefined);
   }
 
-  private static parse(src: JsonCondition): ConditionObj | undefined {
+  private static parse(src: JsonCondition): ConditionBaseObj | undefined {
     for (const [key, value] of this.entries) {
       if (value === src) {
         return {
@@ -438,7 +443,7 @@ export class Condition {
     }
   }
 
-  static getObj(key: ConditionKey): ConditionObj {
+  static getObj(key: ConditionKey): ConditionBaseObj {
     return {
       key,
       type: undefined,
@@ -447,22 +452,45 @@ export class Condition {
   }
 
   static concat(
-    ...lists: readonly (readonly ConditionObj[] | undefined)[]
+    ...lists: readonly (readonly ConditionBaseObj[] | undefined)[]
   ): readonly ConditionObj[] {
-    const ret: ConditionObj[] = [];
-    const keys = new Set<ConditionKey>();
-    // 反転することで、重複した場合最後の要素を優先させる
-    const revList = lists
-      .flat()
-      .filter((item) => item !== undefined)
-      .reverse();
-    revList.forEach((obj) => {
-      if (!keys.has(obj.key)) {
-        ret.push(obj);
-        keys.add(obj.key);
+    type ConditionMapValue = {
+      type: Set<string>;
+      value: number | undefined;
+    };
+
+    const map = new Map<ConditionKey, ConditionMapValue>();
+    const filteredList = lists.flat().filter((item) => item !== undefined);
+    filteredList.forEach((obj) => {
+      const item = map.get(obj.key);
+      if (!item) {
+        const type = new Set<string>();
+        if (obj.type) {
+          type.add(obj.type);
+        }
+        map.set(obj.key, { type, value: obj.value });
+      } else {
+        if (obj.type) {
+          item.type.add(obj.type);
+        }
+        item.value = obj.value;
       }
     });
-    return ret.reverse();
+
+    const ret: ConditionObj[] = [];
+    map.forEach((obj, key) => {
+      const type: string[] = [];
+      for (const str of obj.type) {
+        type.push(str);
+      }
+      ret.push({
+        key,
+        type,
+        value: obj.value,
+      });
+    });
+
+    return ret;
   }
 
   static toSorted(list: readonly ConditionObj[]): readonly ConditionObj[] {
@@ -479,10 +507,16 @@ export class Condition {
     return this.definiteKeys.findIndex((k) => k === key) !== -1;
   }
 
-  static getDefiniteDesc(
-    key: unknown
-  ): (typeof this.definiteDesc)[ConditionDefiniteDescKey] {
-    if (this.isDefiniteDescKey(key)) {
+  static getDefiniteDesc(key: string | readonly string[] | undefined): string {
+    if (Array.isArray(key)) {
+      const descs = [];
+      for (const k of key) {
+        if (this.isDefiniteDescKey(k)) {
+          descs.push(this.definiteDesc[k]);
+        }
+      }
+      return descs.join("/");
+    } else if (this.isDefiniteDescKey(key)) {
       return this.definiteDesc[key];
     }
     return this.definiteDesc.none;
@@ -639,7 +673,7 @@ export const JsonRound = {
 interface SkillBase {
   skillName: string;
   isOverCharge?: boolean;
-  conditions?: readonly ConditionObj[];
+  conditions?: readonly ConditionBaseObj[];
   hpMul?: number;
   attackMul?: number;
   defenseMul?: number;
