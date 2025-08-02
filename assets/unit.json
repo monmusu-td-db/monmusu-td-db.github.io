@@ -18239,8 +18239,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1射程/スタン蓄積値",
+    "TODO_DESC": "Potential/ex1はWiki情報/スタン蓄積値はクラス標準(CC4)と同じ",
     "id": 180,
     "unitName": "【槌投のゴースト娘】アメリ",
     "unitShortName": "アメリ/学園",
@@ -18256,12 +18255,9 @@
       "skillName": "シャドウスローイング",
       "attackMul": 300,
       "splash": true,
-      "range": 990,
+      "range": 250,
       "duration": 15,
-      "cooldown": 30,
-      "supplements": [
-        "スタン付与XX%(中)→命中"
-      ]
+      "cooldown": 30
     },
     "potentials": [
       "出撃コスト-1",
@@ -18272,7 +18268,7 @@
     ],
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-stan",
         "isConditionalBuff": true,
         "damageFactor": 130,
         "potentialBonus": {
@@ -18284,63 +18280,55 @@
         "isConditionalSkillBuff": true,
         "phaseName": "強シャドウスローイング",
         "attackMul": 200,
-        "range": 995
+        "range": 350
       },
       {
         "featureName": "common-phase3",
         "isConditionalSkillBuff": true,
         "phaseName": "豪快シャドウスローイング",
         "attackMul": 350,
-        "range": 999
+        "range": 550
       }
     ],
     "situations": [
       {},
       {
-        "skill": 1,
-        "features": [
-          "class-no-supplements"
-        ]
+        "skill": 1
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
           "common-phase2"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
           "common-phase3"
         ]
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
-          "common-definite",
+          "common-definite-stan",
           "common-phase2"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
-          "common-definite",
+          "common-definite-stan",
           "common-phase3"
         ]
       },
@@ -18354,8 +18342,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1/出撃コストはWiki情報",
-    "TODO_FATAL": "ex1射程/スタン蓄積値",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 1800001,
     "parentId": 180,
     "unitName": "アメリ",
@@ -18372,16 +18359,13 @@
       "skillName": "シャドウスローイング",
       "attackMul": 300,
       "splash": true,
-      "range": 990,
+      "range": 250,
       "duration": 15,
-      "cooldown": 30,
-      "supplements": [
-        "スタン付与XX%(中)→命中"
-      ]
+      "cooldown": 30
     },
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-stan",
         "isConditionalBuff": true,
         "damageFactor": 130,
         "potentialBonus": {
@@ -18393,65 +18377,57 @@
         "isConditionalSkillBuff": true,
         "phaseName": "強シャドウスローイング",
         "attackMul": 200,
-        "range": 995
+        "range": 350
       },
       {
         "featureName": "common-phase3",
         "isConditionalSkillBuff": true,
         "phaseName": "豪快シャドウスローイング",
         "attackMul": 350,
-        "range": 999
+        "range": 550
       }
     ],
     "isUnhealable": true,
-    "costAdd": -1,
+    "costAdd": -11,
     "situations": [
       {},
       {
-        "skill": 1,
-        "features": [
-          "class-no-supplements"
-        ]
+        "skill": 1
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
           "common-phase2"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
           "common-phase3"
         ]
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
-          "common-definite",
+          "common-definite-stan",
           "common-phase2"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "class-no-supplements",
-          "common-definite",
+          "common-definite-stan",
           "common-phase3"
         ]
       },
