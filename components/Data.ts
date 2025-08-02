@@ -406,6 +406,7 @@ export class Condition {
     burn: "火傷",
     "back-attack": "背面攻撃",
     "same-element": "同属性",
+    female: "女性",
   } as const;
 
   private static readonly keys = getKeys(this.tag);
