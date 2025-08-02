@@ -408,6 +408,12 @@ export class Condition {
     "same-element": "同属性",
     female: "女性",
     male: "男性",
+    fire: "火属性",
+    water: "水属性",
+    earth: "地属性",
+    wind: "風属性",
+    light: "光属性",
+    dark: "闇属性",
   } as const;
 
   private static readonly keys = getKeys(this.tag);

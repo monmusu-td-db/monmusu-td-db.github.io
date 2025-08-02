@@ -494,6 +494,60 @@
     ]
   },
   {
+    "featureName": "common-definite-fire",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "fire"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-water",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "water"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-earth",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "earth"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-wind",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "wind"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-light",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "light"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-dark",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "dark"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-double",
     "annotations": [
       "二重特効"
