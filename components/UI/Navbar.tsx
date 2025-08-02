@@ -66,7 +66,10 @@ function NavArea() {
 
 function Brand() {
   return (
-    <Navbar.Brand href="/" className="d-flex ms-3 align-items-center brand">
+    <Navbar.Brand
+      href="/"
+      className="d-flex mx-2 mx-sm-3 align-items-center brand"
+    >
       <Logo />
       <span className="ms-2">{PAGE_NAME}</span>
     </Navbar.Brand>
