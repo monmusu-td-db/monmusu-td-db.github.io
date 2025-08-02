@@ -476,6 +476,15 @@
     ]
   },
   {
+    "featureName": "common-definite-female",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "female"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-double",
     "annotations": [
       "二重特効"
