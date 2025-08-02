@@ -653,6 +653,9 @@ interface RawFeatureFactor {
   /** 移動速度倍率 */
   moveSpeedMul?: number;
 
+  /** 移動コスト加算効果 */
+  moveCostAdd?: number;
+
   /** 属性マス効果倍率 */
   fieldBuffFactor?: number;
 

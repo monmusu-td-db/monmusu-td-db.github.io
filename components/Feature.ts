@@ -308,6 +308,7 @@ const commonFeature = {
   initialTimeCut: 0,
   moveSpeedAdd: 0,
   moveSpeedMul: 0,
+  moveCostAdd: 0,
   fieldBuffFactor: 0,
   cooldownCut: 0,
   cooldownReductions: [] as readonly number[],
