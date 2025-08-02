@@ -1673,7 +1673,7 @@ const potentialList = [
   { name: "攻撃速度+15", stat: stat.attackSpeed, value: 15 },
   { name: "射程+10", stat: stat.range, value: 10 },
   { name: "射程+15", stat: stat.range, value: 15 },
-  { name: "移動消費コスト-2", stat: null, value: -2 },
+  { name: "移動消費コスト-2", stat: stat.moveCost, value: -2 },
   { name: "移動速度1.5倍", stat: stat.moveSpeed, value: 50 },
   { name: "再出撃時間50%短縮", stat: null, value: 50 },
   { name: "トークン所持数+1", stat: null, value: 1 },

@@ -680,7 +680,9 @@ export default class Unit implements TableRow<Keys> {
         if (!this.moveType.getValue(s) || !this.moveSpeed.getValue(s)) {
           return;
         }
-        return src.moveCost ?? 3;
+        const base = src.moveCost ?? 3;
+        const potential = this.getPotentialFactor(s, stat.moveCost);
+        return Math.max(base + potential, 0);
       },
     });
 
