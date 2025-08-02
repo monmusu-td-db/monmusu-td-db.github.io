@@ -337,6 +337,7 @@ export type ConditionObj = {
   readonly value: number | undefined;
 };
 type ConditionKey = keyof typeof Condition.tag;
+export type ConditionTag = (typeof Condition.tag)[ConditionKey];
 type ConditionDefiniteDescKey = keyof typeof Condition.definiteDesc;
 export class Condition {
   static readonly tag = {
@@ -749,8 +750,8 @@ const JsonSkillFeature = {
         v.duration === Duration.single
           ? Duration.single
           : v.duration === undefined
-          ? undefined
-          : JsonDuration.parse(v.duration);
+            ? undefined
+            : JsonDuration.parse(v.duration);
       let ret: Partial<SkillBase>;
       if (duration !== undefined) {
         ret = { ...raw, duration };
@@ -766,6 +767,11 @@ const JsonSkillFeature = {
   },
 };
 
+export type RawDuration =
+  | number
+  | typeof Duration.infinity
+  | typeof Duration.single;
+export type RawDurationFeature = RawDuration | typeof Duration.always;
 export type JsonDuration = number | string;
 export const JsonDuration = {
   parse(value: number | string): number {
@@ -1254,6 +1260,7 @@ type SpeciesKey = keyof typeof species;
 const SpeciesKey = Enum(getKeys(species));
 const speciesValues = Object.values(species);
 const speciesEntries = getEntries(species);
+export type RawSpecies = Exclude<Species, typeof species.speciesNone>;
 export type Species = (typeof species)[SpeciesKey];
 export const Species = {
   name: species,
@@ -1316,6 +1323,13 @@ export class TokenType {
 }
 export type TokenTypeKey = (typeof TokenType.list)[number];
 
+type RawTargetTag =
+  | typeof target.self
+  | typeof target.inRange
+  | typeof target.block
+  | typeof target.all
+  | typeof target.hit;
+export type RawTarget = number | RawTargetTag | readonly number[];
 export type JsonTarget = number | string | number[];
 export const JsonTarget = {
   parse(value: JsonTarget | undefined): TargetBase | undefined {
@@ -1446,6 +1460,7 @@ export const MoveType = {
   },
 } as const;
 
+export type RawDamageType = Exclude<DamageType, typeof damageType.none> | null;
 export const damageType = {
   physic: "物理",
   magic: "魔法",
@@ -1519,6 +1534,7 @@ export const JsonDamageType = {
   },
 } as const;
 
+export type RawPlacement = (typeof placement)[PlacementKey];
 export type JsonPlacement = string;
 export const JsonPlacement = {
   parse(value: JsonPlacement | undefined): Placement | undefined {
