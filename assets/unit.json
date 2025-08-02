@@ -2388,7 +2388,7 @@
     },
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-back-attack",
         "isConditionalBuff": true,
         "annotations": [
           "背面攻撃"
@@ -2399,7 +2399,7 @@
         }
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-back-attack",
         "isConditionalBuff": true,
         "require": [
           "武器"
@@ -2437,41 +2437,41 @@
       {
         "features": [
           "common-0-sec",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-0-sec",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "skill": 2,
         "features": [
           "common-0-sec",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "features": [
           "10-sec",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "skill": 1,
         "features": [
           "10-sec",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "skill": 2,
         "features": [
           "10-sec",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
@@ -2504,7 +2504,7 @@
     ],
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-back-attack",
         "isConditionalBuff": true,
         "annotations": [
           "背面攻撃"
@@ -2535,13 +2535,13 @@
       {
         "features": [
           "common-token-limit-nodesc",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "features": [
           "common-token-limit-nodesc",
-          "common-definite",
+          "common-definite-back-attack",
           "skill1-buff"
         ]
       }
