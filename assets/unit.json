@@ -2650,12 +2650,22 @@
       },
       {
         "skill": 1,
+        "isConditionalSkillDebuff": true,
         "supplements": [
-          "→スタン"
+          "スタン付与(5秒)→自分"
         ]
       }
     ],
-    "rangeAdd": 20
+    "rangeAdd": 20,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
   },
   {
     "TODO_DESC": "StatはWiki情報/配置数に含まれない",
