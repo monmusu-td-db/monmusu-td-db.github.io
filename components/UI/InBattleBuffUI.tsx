@@ -4,8 +4,8 @@ import { FeatureRequire } from "../Feature";
 import { TableClass } from "../Data";
 
 export class InBattleBuffUI {
-  static getSupplement(buff: JsonBuff): ReactNode {
-    return <Supplement buff={buff} />;
+  static getSupplement(buff: JsonBuff, isPotentialApplied: boolean): ReactNode {
+    return <Supplement buff={buff} isPotentialApplied={isPotentialApplied} />;
   }
 
   static getCritical(
@@ -16,7 +16,13 @@ export class InBattleBuffUI {
   }
 }
 
-function Supplement({ buff }: { buff: JsonBuff }): ReactNode {
+function Supplement({
+  buff,
+  isPotentialApplied,
+}: {
+  buff: JsonBuff;
+  isPotentialApplied: boolean;
+}): ReactNode {
   const requirements: string[] = [];
   buff.require?.forEach((str) => {
     let text;
@@ -39,10 +45,15 @@ function Supplement({ buff }: { buff: JsonBuff }): ReactNode {
     requirements.push(text);
   });
 
+  const potential = isPotentialApplied
+    ? buff.potentialBonus?.supplements
+    : undefined;
+  const supplements = potential ?? buff.supplements;
+
   return (
     <>
       <span className={TableClass.buffRequire}>{requirements.join(" ")} </span>
-      {buff.supplements?.join(" ")}
+      {supplements?.join(" ")}
     </>
   );
 }
