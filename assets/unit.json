@@ -2668,7 +2668,7 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報/配置数に含まれない",
+    "TODO_DESC": "StatはWiki情報",
     "id": 21,
     "unitName": "【フェアリー娘】ネリー",
     "unitShortName": "ネリー",
@@ -2737,6 +2737,7 @@
         "magicalEvasion": 40
       }
     ],
+    "deployCount": 0,
     "situations": [
       {},
       {
