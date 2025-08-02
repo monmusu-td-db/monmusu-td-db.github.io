@@ -865,16 +865,6 @@
           }
         ],
         "attackMul": 120
-      },
-      {
-        "featureName": "token-limit",
-        "annotations": [
-          "付与トークン込み耐久値"
-        ],
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
       }
     ],
     "situations": [
@@ -906,7 +896,7 @@
           "class-attack-add"
         ],
         "features": [
-          "token-limit"
+          "common-token-limit"
         ]
       }
     ]
@@ -932,12 +922,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "featureName": "skill1-buff",
         "isBuffSkill": true,
         "parentSkill": 1,
@@ -957,12 +941,16 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       },
       {
         "proper": true,
         "skill": -1,
         "features": [
+          "common-token-limit-nodesc",
           "deploy-attack"
         ]
       }
@@ -990,12 +978,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "featureName": "skill1-buff",
         "isBuffSkill": true,
         "parentSkill": 1,
@@ -1016,12 +998,16 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       },
       {
         "proper": true,
         "skill": -1,
         "features": [
+          "common-token-limit-nodesc",
           "deploy-attack"
         ]
       }
