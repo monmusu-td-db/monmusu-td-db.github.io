@@ -1149,12 +1149,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "require": [
           "武器"
         ],
@@ -1170,11 +1164,15 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       },
       {
         "proper": true,
         "features": [
+          "common-token-limit-nodesc",
           "skill1-buff"
         ]
       }
@@ -1200,12 +1198,6 @@
     "placement": "付",
     "features": [
       {
-        "attackDebuff": {
-          "key": "enemy-attack",
-          "value": 50
-        }
-      },
-      {
         "require": [
           "武器"
         ],
@@ -1221,11 +1213,15 @@
     "isUnhealable": true,
     "situations": [
       {
-        "proper": true
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
       },
       {
         "proper": true,
         "features": [
+          "common-token-limit-nodesc",
           "skill2-buff"
         ]
       }
