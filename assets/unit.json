@@ -2919,6 +2919,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true,
