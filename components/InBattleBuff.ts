@@ -153,6 +153,7 @@ class BuffType {
     return this.getKeyFromStatus(isInvalid, status);
   }
 }
+export type BuffTypeTag = (typeof BuffType.list)[BuffTypeKey];
 type BuffTypeKey = keyof typeof BuffType.list;
 const typeKey = BuffType.key;
 
@@ -163,6 +164,7 @@ const target = {
   self: "自分",
   master: "付与対象",
 } as const;
+export type BuffTargetTag = (typeof target)[keyof typeof target];
 
 type EffectList = Partial<Record<BuffTypeKey, JsonEffect>>;
 type Effect = JsonBuffValue;
@@ -260,7 +262,7 @@ export default class InBattleBuff implements TableRow<Key> {
       statType: stat.buffTarget,
       calculater: (s) => {
         return unit.isPotentialApplied(s)
-          ? buff.potentialBonus?.target ?? buff.target
+          ? (buff.potentialBonus?.target ?? buff.target)
           : buff.target;
       },
       comparer: (s) => this.getTargetComparer(s),
@@ -297,7 +299,7 @@ export default class InBattleBuff implements TableRow<Key> {
           }
         }
         const rawValue = unit.isPotentialApplied(s)
-          ? buff.potentialBonus?.duration ?? buff.duration
+          ? (buff.potentialBonus?.duration ?? buff.duration)
           : buff.duration;
         const inBattleBuff = parse(rawValue);
         const inBattleBuffAlways =
@@ -646,7 +648,7 @@ export default class InBattleBuff implements TableRow<Key> {
 
   private getRangeValue(setting: Setting): number | undefined {
     const rawValue = this.unit.isPotentialApplied(setting)
-      ? this.rawBuff.potentialBonus?.range ?? this.rawBuff.range
+      ? (this.rawBuff.potentialBonus?.range ?? this.rawBuff.range)
       : this.rawBuff.range;
     const targetValue = this.buffTarget.getValue(setting);
 

@@ -74,6 +74,22 @@ const additionFactorKeys = {
 type AdditionFactorKey =
   (typeof additionFactorKeys)[keyof typeof additionFactorKeys];
 
+export type RawAdditionFactor =
+  | {
+      /** 種別 */
+      key: Exclude<AdditionFactorKey, typeof AdditionFactor.ACCUMULATION>;
+
+      /** 効果量 */
+      value: number;
+    }
+  | {
+      /** 効果量 */
+      value: number;
+
+      /** 経過時間 */
+      time: number;
+    };
+
 type JsonAdditionFactor =
   | {
       key: string;
@@ -147,22 +163,31 @@ const JsonAttackDebuff = {
   },
 } as const;
 export type AttackDebuff = {
+  /** 種別 */
   readonly key:
     | typeof Data.StaticDamage.ATTACK_BASE
     | typeof AttackDebuff.enemyAttack;
+
+  /** 効果量 */
   readonly value: number;
 };
 export const AttackDebuff = {
   enemyAttack: "enemy-attack",
 } as const;
 
-type DefresDebuff = DebuffAdd | DebuffMul;
+export type DefresDebuff = DebuffAdd | DebuffMul;
 interface DebuffAdd {
+  /** 種別 */
   readonly key?: string;
+
+  /** 経過時間 */
   readonly time?: number;
+
+  /** 効果量 */
   readonly valueAdd: number;
 }
 interface DebuffMul {
+  /** 効果倍率 */
   readonly valueMul: number;
 }
 export const Debuff = {
