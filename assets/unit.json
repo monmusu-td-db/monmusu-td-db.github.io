@@ -1450,7 +1450,7 @@
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "HP0/発動"
+        "HP0/発動→自分"
       ]
     },
     "potentials": [
