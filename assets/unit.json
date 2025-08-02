@@ -2803,6 +2803,22 @@
           "配置時攻撃力デバフ"
         ]
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "attack-debuff"
+        ]
+      }
     ]
   },
   {

@@ -1,23 +1,5 @@
 [
   {
-    "unitId": 22
-  },
-  {
-    "unitId": 22,
-    "skill": 1
-  },
-  {
-    "unitId": 22,
-    "skill": 2
-  },
-  {
-    "unitId": 22,
-    "skill": -1,
-    "features": [
-      "attack-debuff"
-    ]
-  },
-  {
     "unitId": 27
   },
   {
