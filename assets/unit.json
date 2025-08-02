@@ -2652,7 +2652,7 @@
         "skill": 1,
         "isConditionalSkillDebuff": true,
         "supplements": [
-          "スタン付与(5秒)→自分"
+          "スタン付与(5秒)/終了後→自分"
         ]
       }
     ],
@@ -3589,24 +3589,21 @@
         ]
       },
       {
-        "featureName": "proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-female",
         "damageFactor": 200,
         "potentialBonus": {
           "damageFactor": 220
         }
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite-female",
         "require": [
           "武器"
         ],
         "damageFactor": 130
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite-female",
         "skill": 1,
         "isConditionalSkillBuff": true,
         "attackDebuff": {
@@ -3637,6 +3634,40 @@
           "回復5%/命中(女性)"
         ]
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-definite-female"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-female"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-female"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-definite-female",
+          "definite-absorb"
+        ]
+      }
     ]
   },
   {
@@ -3657,7 +3688,7 @@
       "duration": 15,
       "cooldown": 25,
       "supplements": [
-        "スタン10秒/終了後→自分"
+        "スタン付与(10秒)/終了後→自分"
       ]
     },
     "potentials": [
