@@ -3825,21 +3825,21 @@
     },
     "features": [
       {
-        "featureName": "proper",
+        "featureName": "common-definite-male",
         "conditions": [
           "特"
         ],
         "damageFactor": 150
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite-male",
         "require": [
           "武器"
         ],
         "damageFactor": 120
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite-male",
         "skill": 1,
         "isConditionalSkillBuff": true,
         "attackDebuff": {
@@ -3851,7 +3851,7 @@
         ]
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite-male",
         "skill": 2,
         "isConditionalSkillBuff": true,
         "damageFactor": 200,
@@ -3890,26 +3890,26 @@
       },
       {
         "features": [
-          "proper"
+          "common-definite-male"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "proper"
+          "common-definite-male"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "proper"
+          "common-definite-male"
         ]
       },
       {
         "skill": -1,
         "proper": true,
         "features": [
-          "proper",
+          "common-definite-male",
           "definite-absorb"
         ]
       }
@@ -3934,7 +3934,7 @@
       "damageType": "物理",
       "supplements": [
         "敵HP10%dmg/発動→射程内",
-        "HP回復100%/発動"
+        "回復100%/発動"
       ]
     },
     "exSkill2": {
@@ -4125,6 +4125,35 @@
         "skill": 2,
         "supplements": [
           "移動可"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-regenerate-3%"
         ]
       }
     ]
@@ -4330,8 +4359,8 @@
         "supplements": [
           "毒回復/配置→射程内",
           "石化回復/配置→射程内",
-          "毒耐性+100→射程内(10秒)",
-          "石化耐性+100→射程内(10秒)"
+          "毒耐性+100(10秒)→射程内",
+          "石化耐性+100(10秒)→射程内"
         ],
         "potentialBonus": {}
       }
@@ -4359,6 +4388,75 @@
           "deploy-heal"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "skill": 0,
+        "target": "射程内",
+        "supplements": [
+          "配置時即時回復効果"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "petrify-invalid"
+          }
+        ]
+      },
+      {
+        "skill": 0,
+        "target": "射程内",
+        "range": null,
+        "supplements": [
+          "EX1発動時即時回復効果"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "petrify-invalid"
+          }
+        ]
+      },
+      {
+        "skill": 0,
+        "target": "射程内",
+        "duration": 10,
+        "supplements": [
+          "配置後10秒間"
+        ],
+        "effects": [
+          {
+            "type": "poison-resist",
+            "value": 100
+          },
+          {
+            "type": "petrify-resist",
+            "value": 100
+          }
+        ]
+      },
+      {
+        "skill": 2,
+        "target": "射程内",
+        "duration": 15,
+        "supplements": [
+          "発動時付与"
+        ],
+        "effects": [
+          {
+            "type": "defense-mul",
+            "value": 110
+          },
+          {
+            "type": "resist-mul",
+            "value": 110
+          }
+        ]
+      }
     ]
   },
   {
@@ -4383,7 +4481,7 @@
       "cooldown": 30,
       "supplements": [
         "射程内敵HP-15%/発動",
-        "回復100%/発動→自分"
+        "回復100%/発動"
       ]
     },
     "potentials": [
@@ -4395,7 +4493,9 @@
     ],
     "features": [
       {
-        "featureName": "skill-buff",
+        "featureName": "skill1-buff",
+        "isConditionalBuff": true,
+        "isBuffSkill": true,
         "conditions": [
           {
             "key": "*",
@@ -4411,6 +4511,39 @@
             }
           ],
           "attackMul": 150
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "skill1-buff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "target": "射程内",
+        "value": 105,
+        "supplements": [
+          "発動時永続付与(最大45%)"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "発動時永続付与(最大50%)"
+          ]
         }
       }
     ]
