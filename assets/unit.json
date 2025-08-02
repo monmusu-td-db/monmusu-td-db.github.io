@@ -2210,7 +2210,7 @@
       "duration": 15,
       "cooldown": 30,
       "supplements": [
-        "スタン付与10%"
+        "スタン付与10%→命中"
       ]
     },
     "exSkill2": {
@@ -2220,8 +2220,8 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "スタン付与10%",
-        "即死(低)"
+        "スタン付与10%→命中",
+        "即死(低)→命中"
       ]
     },
     "potentials": [
@@ -2259,18 +2259,86 @@
         ]
       },
       {
-        "featureName": "proper-stan",
+        "featureName": "common-definite-stan",
         "annotations": [
           "スタン特効"
         ],
-        "conditions": [
-          "特"
-        ],
         "damageFactor": 130
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "飛行特効",
+          "スタン特効"
+        ]
       }
     ],
     "fixedDelay": 60,
-    "rangeAdd": 100
+    "rangeAdd": 100,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-definite-double"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-definite-double"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-stan",
+          "common-definite-double"
+        ]
+      }
+    ]
   },
   {
     "id": 18,
