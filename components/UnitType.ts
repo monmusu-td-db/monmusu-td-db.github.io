@@ -8,7 +8,7 @@ import type {
 import type { BuffTargetTag, BuffTypeTag } from "./InBattleBuff";
 import type { SituationRequire } from "./Situation";
 
-// ここにjsonをコピペして型チェック可能
+// ここにunit.jsonをコピペして型チェック可能
 //         -> __ <-
 const units = [] as const satisfies RawUnits;
 
