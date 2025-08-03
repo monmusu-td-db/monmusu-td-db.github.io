@@ -104,6 +104,7 @@
       },
       {
         "featureName": "class-normal",
+        "isNotAbility": true,
         "supplements": [
           "対地限定攻撃"
         ]

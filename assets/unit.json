@@ -11716,7 +11716,6 @@
     "isUnhealable": true
   },
   {
-    "TODO_FATAL": "ex1対地限定かどうか調べる",
     "id": 103,
     "unitName": "【灯火のエキドナ娘】ミテラス",
     "unitShortName": "ミテラス/Xmas",
@@ -11751,7 +11750,7 @@
     ],
     "features": [
       {
-        "featureName": "support",
+        "featureName": "common-support",
         "isAbility": true,
         "isSupport": true,
         "conditions": [
@@ -11795,17 +11794,20 @@
     "situations": [
       {},
       {
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
       },
       {
         "features": [
-          "support"
+          "common-support"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "support"
+          "common-support"
         ]
       },
       {
@@ -13425,9 +13427,6 @@
           "value": 30
         },
         "target": "射程内",
-        "supplements": [
-          "自身以外が対象"
-        ],
         "potentialBonus": {
           "staticDefense": {
             "key": "defense",
@@ -13467,6 +13466,13 @@
       },
       {
         "proper": true,
+        "features": [
+          "common-support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
         "features": [
           "common-support"
         ]
