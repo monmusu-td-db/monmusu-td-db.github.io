@@ -843,11 +843,11 @@
   },
   {
     "featureName": "common-support",
-    "annotations": [
-      "加算バフ"
-    ],
+    "isAbility": true,
     "conditions": [
       "援"
-    ]
+    ],
+    "splash": false,
+    "wideTarget": false
   }
 ]
