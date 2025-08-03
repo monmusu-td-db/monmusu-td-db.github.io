@@ -32170,7 +32170,7 @@
     ]
   },
   {
-    "TODO_FATAL": "射程は目測/基礎statはLv45 TODO→base",
+    "TODO_DESC": "射程は目測",
     "id": 3200001,
     "parentId": 320,
     "unitName": "グレイクローン",
@@ -32178,10 +32178,10 @@
     "rarity": "C",
     "species": "エイリアン",
     "cost": 10,
-    "hp": 1505,
-    "attack": 812,
-    "defense": 146,
-    "resist": 179,
+    "hp": 2233,
+    "attack": 1463,
+    "defense": 174,
+    "resist": 224,
     "attackSpeed": 100,
     "delay": 30,
     "block": null,
