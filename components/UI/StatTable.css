@@ -32,7 +32,8 @@
   text-align: center;
 }
 
-.stat-table.pending {
+.stat-table-wrapper.pending,
+:not(.stat-table-wrapper.pending) > .stat-table.pending {
   opacity: 0.5;
   transition: opacity 0.2s 0.2s linear;
 }
