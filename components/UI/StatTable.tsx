@@ -77,15 +77,25 @@ function StatTable<T extends string>({
     }),
     [src, states, sort, toggleSort]
   );
+  const dValues = useDeferredValue(values);
   const {
     src: dSrc,
     states: dStates,
     sort: dSort,
     toggleSort: dToggleSort,
-  } = useDeferredValue(values);
+  } = dValues;
+  const isPending = dValues !== values;
 
   return (
-    <div className={cn("d-flex justify-content-center", className)}>
+    <div
+      className={cn(
+        "stat-table-wrapper d-flex justify-content-center",
+        className,
+        {
+          pending: isPending,
+        }
+      )}
+    >
       <TableControl
         src={dSrc}
         states={dStates}
