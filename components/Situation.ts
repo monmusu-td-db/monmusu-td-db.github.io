@@ -2878,6 +2878,7 @@ export default class Situation implements TableRow<Keys> {
                 item.unit?.className,
                 item.unit?.equipmentName,
                 item.unit?.cc4Name,
+                item.unit?.baseClassName,
               ]
             : [
                 parent.unit?.unitName,
@@ -2887,6 +2888,7 @@ export default class Situation implements TableRow<Keys> {
                 parent.unit?.className,
                 parent.unit?.equipmentName,
                 parent.unit?.cc4Name,
+                parent.unit?.baseClassName,
               ];
 
         const s = sb
