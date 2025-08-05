@@ -201,6 +201,7 @@ export default class Unit implements TableRow<Keys> {
   readonly className: Stat.Root<Data.UnitClassTag | undefined>;
   readonly equipmentName: IGetText;
   readonly cc4Name: IGetText;
+  readonly baseClassName: IGetText;
   readonly element: Stat.Root<Data.Element | undefined>;
   readonly species: Stat.Root<readonly Data.Species[]>;
   readonly cost: Stat.Root;
@@ -328,6 +329,14 @@ export default class Unit implements TableRow<Keys> {
         return Data.UnitClass.cc4NameOf(value);
       };
       this.cc4Name = { getText };
+    }
+
+    {
+      const getText = (s: Setting) => {
+        const value = this.className.getValue(s);
+        return Data.UnitClass.baseTagOf(value);
+      };
+      this.baseClassName = { getText };
     }
 
     const element = Data.Element.parse(src.element);
@@ -1444,7 +1453,13 @@ export default class Unit implements TableRow<Keys> {
     } else {
       const sb =
         parent === undefined
-          ? [this.rarity]
+          ? [
+              this.rarity,
+              this.className,
+              this.equipmentName,
+              this.cc4Name,
+              this.baseClassName,
+            ]
           : [
               parent.unitName,
               parent.unitShortName,
@@ -1453,6 +1468,7 @@ export default class Unit implements TableRow<Keys> {
               parent.className,
               parent.equipmentName,
               parent.cc4Name,
+              parent.baseClassName,
             ];
 
       const s = [
@@ -1461,9 +1477,6 @@ export default class Unit implements TableRow<Keys> {
         this.unitShortName,
         this.element,
         this.damageType,
-        this.className,
-        this.equipmentName,
-        this.cc4Name,
         this.exSkill1,
         this.exSkill2,
       ].map((v) => v.getText(states.setting)?.toString());
