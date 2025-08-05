@@ -12012,7 +12012,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "TODO_FATAL": "射程/ex1攻撃速度",
     "id": 106,
     "unitName": "【デカイオー娘】リッティ",
@@ -12020,7 +12019,7 @@
     "rarity": "L",
     "class": "バーバリアン",
     "element": "風",
-    "hp": 6786,
+    "hp": 6787,
     "attack": 1067,
     "defense": 465,
     "resist": 127,
@@ -12050,7 +12049,7 @@
       {
         "featureName": "common-ranged",
         "isConditionalBuff": true,
-        "damageFactor": 60,
+        "damageFactor": 80,
         "splash": true
       },
       {
@@ -12061,10 +12060,10 @@
       }
     ],
     "costAdd": 5,
-    "hpMul": 135,
-    "attackMul": 120,
+    "hpMul": 140,
+    "attackMul": 125,
     "potentialBonus": {
-      "hpMul": 145
+      "hpMul": 150
     },
     "situations": [
       {
