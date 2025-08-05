@@ -9020,7 +9020,7 @@
     "features": [
       {
         "supplements": [
-          "復活HP100%(1回のみ)"
+          "回復100%/死亡時(1回のみ)"
         ]
       },
       {
@@ -9031,7 +9031,7 @@
         "attackMul": 160,
         "defenseMul": 160,
         "deleteSupplements": [
-          "復活HP100%(1回のみ)"
+          "回復100%/死亡時(1回のみ)"
         ]
       },
       {
@@ -9749,7 +9749,7 @@
     "defense": 416,
     "resist": 122,
     "supplements": [
-      "復活HP100%(1回のみ)"
+      "回復100%/死亡時(1回のみ)"
     ],
     "exSkill1": {
       "skillName": "超活性",
@@ -31900,7 +31900,7 @@
       },
       {
         "supplements": [
-          "復活HP100%(1回のみ)",
+          "回復100%/死亡時(1回のみ)",
           "被Dmg25%引受→射程内"
         ]
       },
@@ -31922,7 +31922,7 @@
         ],
         "attackMul": 150,
         "deleteSupplements": [
-          "復活HP100%(1回のみ)"
+          "回復100%/死亡時(1回のみ)"
         ]
       }
     ],
@@ -34934,6 +34934,128 @@
             "value": 20
           }
         ]
+      }
+    ]
+  },
+  {
+    "TODO_FATAL": "ダンジョンHP上昇のバフ枠を調べる",
+    "id": 351,
+    "unitName": "【ダンジョン娘】ダリナ",
+    "unitShortName": "ダリナ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "地",
+    "hp": 7706,
+    "attack": 580,
+    "defense": 968,
+    "resist": 210,
+    "supplements": [
+      "回復100%/死亡時(1回のみ)"
+    ],
+    "exSkill1": {
+      "skillName": "ダンジョンプレベント",
+      "blockAdd": 2,
+      "duration": 30,
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "引き付け",
+        "スタン無効"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 100,
+        "magicalDamageCut": 100
+      },
+      {
+        "featureName": "common-dungeon",
+        "baseHpMul": 130
+      },
+      {
+        "featureName": "defense-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 300
+          }
+        ],
+        "defenseMul": 300
+      },
+      {
+        "featureName": "class-melee",
+        "isConditionalBuff": true,
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 30
+          },
+          "supplements": [
+            "ATK-30%→ブロック敵"
+          ]
+        }
+      }
+    ],
+    "hpMul": 150,
+    "attackMul": 80,
+    "defenseMul": 150,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-dungeon"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dungeon"
+        ]
+      },
+      {
+        "features": [
+          "defense-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "defense-mul"
+        ]
+      },
+      {
+        "features": [
+          "defense-mul",
+          "common-dungeon"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "defense-mul",
+          "common-dungeon"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "target": "全体",
+        "value": 160
       }
     ]
   }
