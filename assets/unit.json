@@ -35060,6 +35060,309 @@
     ]
   },
   {
+    "id": 352,
+    "unitName": "【天城のデーモンロード娘】ダムストー",
+    "unitShortName": "ダムストー/天城",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "風",
+    "hp": 3273,
+    "attack": 1005,
+    "defense": 227,
+    "resist": 292,
+    "exSkill1": {
+      "skillName": "悪魔のラプントゥー",
+      "attackMul": 220,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 25,
+      "supplements": [
+        "コスト-3/発動",
+        "ノックバック(小)→命中"
+      ],
+      "skillFeatures": [
+        {
+          "featureName": "common-phase5",
+          "duration": 30
+        }
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃速度+15",
+      "再出撃時間50%短縮"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "風"
+        ],
+        "cost": -1,
+        "attack": 109,
+        "potentialBonus": {
+          "attack": 112
+        }
+      }
+    ],
+    "features": [
+      {
+        "damageDebuff": 130
+      },
+      {
+        "featureName": "skill1-beat-20",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 20
+          }
+        ],
+        "attackSpeedBuff": 200
+      },
+      {
+        "featureName": "common-phase1",
+        "isConditionalBuff": true,
+        "attackMul": 125,
+        "defenseMul": 125,
+        "resistMul": 125,
+        "rangeAdd": 10
+      },
+      {
+        "featureName": "common-phase2",
+        "isConditionalBuff": true,
+        "attackMul": 150,
+        "defenseMul": 150,
+        "resistMul": 150,
+        "rangeAdd": 20
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalBuff": true,
+        "attackMul": 175,
+        "defenseMul": 175,
+        "resistMul": 175,
+        "rangeAdd": 30
+      },
+      {
+        "featureName": "common-phase4",
+        "isConditionalBuff": true,
+        "attackMul": 200,
+        "defenseMul": 200,
+        "resistMul": 200,
+        "rangeAdd": 40
+      },
+      {
+        "featureName": "common-phase5",
+        "isConditionalBuff": true,
+        "attackMul": 225,
+        "defenseMul": 225,
+        "resistMul": 225,
+        "rangeAdd": 50,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase4"
+        ]
+      },
+      {
+        "features": [
+          "common-phase4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase5"
+        ]
+      },
+      {
+        "features": [
+          "common-phase5"
+        ]
+      },
+      {
+        "features": [
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase1",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase2",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase2",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase3",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase4",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase4",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase5",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase5",
+          "skill1-beat-20"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "target": "射程内",
+        "value": 130
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase1"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル1回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase2"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル2回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase3"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル3回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase4"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル4回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase5"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル5回使用"
+        ]
+      }
+    ]
+  },
+  {
     "id": 353,
     "unitName": "【世界を超える者】エフトラ",
     "unitShortName": "エフトラ",
