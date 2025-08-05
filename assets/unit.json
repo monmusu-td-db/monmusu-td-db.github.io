@@ -35058,5 +35058,76 @@
         "value": 160
       }
     ]
+  },
+  {
+    "id": 353,
+    "unitName": "【世界を超える者】エフトラ",
+    "unitShortName": "エフトラ",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "光",
+    "hp": 2651,
+    "attack": 1072,
+    "defense": 227,
+    "resist": 297,
+    "moveType": "飛行",
+    "placement": "両",
+    "damageType": "貫通",
+    "supplements": [
+      "鈍足→命中",
+      "攻撃待機時間増加→命中"
+    ],
+    "exSkill1": {
+      "skillName": "封印銃ティルナノグ",
+      "attackMul": 300,
+      "criChanceAdd": 100,
+      "criChanceLimitAdd": 100,
+      "rounds": 4,
+      "duration": 15,
+      "cooldown": 25,
+      "supplements": [
+        "鈍足-95%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "バリア5000付与/配置"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "バリア7000付与/配置"
+          ]
+        }
+      },
+      {
+        "featureName": "skill1-attack",
+        "annotations": [
+          "EX1発動時攻撃"
+        ],
+        "interval": 1200,
+        "target": 8,
+        "rounds": 5
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-attack"
+        ]
+      }
+    ]
   }
 ]
