@@ -849,5 +849,11 @@
     ],
     "splash": false,
     "wideTarget": false
+  },
+  {
+    "featureName": "common-dungeon",
+    "annotations": [
+      "ダンジョンでの能力値"
+    ]
   }
 ]
