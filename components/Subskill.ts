@@ -50,6 +50,7 @@ interface JsonSubskillFactors {
   cooldown: number;
   moveSpeed: number;
   moveSpeedAdd: number;
+  moveCostCut: number;
   fieldBuffFactor: number;
 
   isHighBeat: boolean;
@@ -104,6 +105,7 @@ const subskillFactorKeys = [
   "cooldown",
   "moveSpeed",
   "moveSpeedAdd",
+  "moveCostCut",
   "fieldBuffFactor",
 
   "isHighBeat",
@@ -149,6 +151,7 @@ class SubskillFactors implements ISubskillFactors {
   readonly cooldown: number | undefined;
   readonly moveSpeed: number | undefined;
   readonly moveSpeedAdd: number | undefined;
+  readonly moveCostCut: number | undefined;
   readonly fieldBuffFactor: number | undefined;
 
   readonly isHighBeat: boolean | undefined;
@@ -190,6 +193,7 @@ class SubskillFactors implements ISubskillFactors {
     this.cooldown = src.cooldown;
     this.moveSpeed = src.moveSpeed;
     this.moveSpeedAdd = src.moveSpeedAdd;
+    this.moveCostCut = src.moveCostCut;
     this.fieldBuffFactor = src.fieldBuffFactor;
 
     this.isHighBeat = src.isHighBeat;
