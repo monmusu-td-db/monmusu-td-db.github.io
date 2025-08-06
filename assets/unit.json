@@ -12148,7 +12148,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "id": 107,
     "unitName": "【大悪魔召喚士】ラピス",
     "unitShortName": "ラピス",
@@ -12161,8 +12160,8 @@
     "resist": 596,
     "exSkill1": {
       "skillName": "デモニックフィールド",
-      "attackMul": 160,
-      "rangeMul": 160,
+      "attackMul": 180,
+      "rangeMul": 180,
       "duration": 20,
       "cooldown": 50
     },
