@@ -1454,6 +1454,7 @@ export default class Unit implements TableRow<Keys> {
       const sb =
         parent === undefined
           ? [
+              this.unitId,
               this.rarity,
               this.className,
               this.equipmentName,
@@ -1461,6 +1462,7 @@ export default class Unit implements TableRow<Keys> {
               this.baseClassName,
             ]
           : [
+              parent.unitId,
               parent.unitName,
               parent.unitShortName,
               parent.rarity,
