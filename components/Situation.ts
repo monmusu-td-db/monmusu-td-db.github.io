@@ -2270,8 +2270,10 @@ export default class Situation implements TableRow<Keys> {
           }
           return Percent.multiply(a, v.value);
         }
-        case AttackDebuff.enemyAttack:
-          return Percent.divide(limit, 100 - v.value) - limit;
+        case AttackDebuff.enemyAttack: {
+          const r = Percent.divide(limit, 100 - v.value) - limit;
+          return isNaN(r) ? 0 : r;
+        }
       }
     });
 
