@@ -12,7 +12,7 @@ type StatFactors = Data.DeploymentFactors | undefined;
 
 export class BaseStat<
   TStat extends number | undefined = number | undefined,
-  TFactors extends StatFactors = StatFactors
+  TFactors extends StatFactors = StatFactors,
 > extends StatTooltip<TStat, TFactors> {
   override isEnabled: StatHandler<boolean> = (s) =>
     this.getFactors(s) !== undefined;
@@ -117,6 +117,11 @@ export class BaseStat<
                   <T.Multiply enabled={f.formationBuff !== 100}>
                     <T.Value isPositive={f.formationBuff > 100}>
                       {d ? "編成バフ" : f.formationBuff + sign.PERCENT}
+                    </T.Value>
+                  </T.Multiply>
+                  <T.Multiply enabled={f.environmentBuff !== 100}>
+                    <T.Value isPositive={f.environmentBuff > 100}>
+                      {d ? "マップ環境バフ" : f.environmentBuff + sign.PERCENT}
                     </T.Value>
                   </T.Multiply>
                   {isFormationFactorAdd ? (
