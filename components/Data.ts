@@ -408,6 +408,7 @@ export class Condition {
     "same-element": "同属性",
     female: "女性",
     male: "男性",
+    human: "人間",
     fire: "火属性",
     water: "水属性",
     earth: "地属性",

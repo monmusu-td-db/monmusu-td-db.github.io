@@ -494,6 +494,15 @@
     ]
   },
   {
+    "featureName": "common-definite-human",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "human"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-fire",
     "conditions": [
       {
