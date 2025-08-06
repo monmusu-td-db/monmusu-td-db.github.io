@@ -704,7 +704,8 @@ export default class Unit implements TableRow<Keys> {
         }
         const base = src.moveCost ?? 3;
         const potential = this.getPotentialFactor(s, stat.moveCost);
-        return Math.max(base + potential, 0);
+        const subSkill = -this.getSubskillFactor(s, ssKeys.moveCostCut);
+        return Math.max(base + potential + subSkill, 0);
       },
     });
 
