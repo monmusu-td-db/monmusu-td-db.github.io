@@ -2117,6 +2117,8 @@ export interface IntervalBaseFactors
   readonly result: number;
 }
 export interface IntervalFactors extends ActualIntervalFactors {
+  readonly isSingleSkill?: boolean;
+  readonly duration?: number | undefined;
   readonly cooldown?: number;
   readonly cooldownFrame?: number;
   readonly minInterval?: number | undefined;

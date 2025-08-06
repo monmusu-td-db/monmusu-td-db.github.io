@@ -35411,10 +35411,10 @@
       },
       {
         "featureName": "skill1-attack",
+        "isSingleSkill": true,
         "annotations": [
           "EX1発動時攻撃"
         ],
-        "interval": 1200,
         "target": 8,
         "rounds": 5
       }

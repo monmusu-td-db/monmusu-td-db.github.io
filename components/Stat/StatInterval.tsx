@@ -28,6 +28,12 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
     }
     const b = f.base;
 
+    const frameRate = (d: boolean) => (
+      <T.Multiply>
+        {d ? "フレームレート" : Data.fps + sign.FRAME + "/" + sign.SECOND}
+      </T.Multiply>
+    );
+
     return (
       <>
         {!f.staticValue && !f.staticCooldown && b !== undefined && (
@@ -80,7 +86,15 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
                     </T.Negative>
                   ) : (
                     <>
-                      {d ? "攻撃間隔" : f.actualResult + sign.FRAME}
+                      {f.duration !== undefined ? (
+                        <>
+                          {f.cooldownFrame !== 1 && sign.BSTART}
+                          {d ? "効果時間" : f.duration + sign.SECOND}
+                          {f.cooldownFrame === 1 && frameRate(d)}
+                        </>
+                      ) : (
+                        <>{d ? "攻撃間隔" : f.actualResult + sign.FRAME}</>
+                      )}
                       {f.cooldownFrame === 1 ? (
                         <T.Plus>{d ? "再動(下限)" : 1 + sign.FRAME}</T.Plus>
                       ) : (
@@ -88,11 +102,8 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
                           <T.Plus>
                             {d ? "再動" : f.cooldown + sign.SECOND}
                           </T.Plus>
-                          <T.Multiply>
-                            {d
-                              ? "フレームレート"
-                              : Data.fps + sign.FRAME + "/" + sign.SECOND}
-                          </T.Multiply>
+                          {f.duration !== undefined && sign.BEND}
+                          {frameRate(d)}
                         </>
                       )}
                     </>
