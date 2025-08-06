@@ -2874,6 +2874,7 @@ export default class Situation implements TableRow<Keys> {
         const sb: (IGetText | undefined)[] =
           parent === undefined
             ? [
+                item.unit?.unitId,
                 item.unit?.rarity,
                 item.unit?.className,
                 item.unit?.equipmentName,
@@ -2881,6 +2882,7 @@ export default class Situation implements TableRow<Keys> {
                 item.unit?.baseClassName,
               ]
             : [
+                parent.unit?.unitId,
                 parent.unit?.unitName,
                 parent.unitShortName,
                 parent.unit?.rarity,
