@@ -4928,17 +4928,14 @@
         ]
       },
       {
-        "featureName": "proper-human",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-human",
         "damageFactor": 150,
         "potentialBonus": {
           "damageFactor": 160
         }
       },
       {
-        "featureName": "proper-human",
+        "featureName": "common-definite-human",
         "require": [
           "武器"
         ],
@@ -4947,17 +4944,21 @@
         ]
       },
       {
-        "featureName": "proper-poison",
+        "featureName": "common-definite-poison",
         "annotations": [
           "毒特効"
-        ],
-        "conditions": [
-          "特"
         ],
         "require": [
           "武器"
         ],
         "damageFactor": 140
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "人間特効",
+          "毒特効"
+        ]
       },
       {
         "featureName": "skill1-extra",
@@ -5014,33 +5015,33 @@
       },
       {
         "features": [
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 1,
         "features": [
           "skill1-extra",
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 2,
         "features": [
           "skill2-extra",
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
@@ -5048,16 +5049,7 @@
           "weapon"
         ],
         "features": [
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5066,46 +5058,7 @@
         ],
         "skill": 1,
         "features": [
-          "skill1-extra",
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 2,
-        "features": [
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 2,
-        "features": [
-          "skill2-extra",
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "features": [
-          "proper-human",
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5115,8 +5068,7 @@
         "skill": 1,
         "features": [
           "skill1-extra",
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5125,8 +5077,7 @@
         ],
         "skill": 2,
         "features": [
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5136,8 +5087,63 @@
         "skill": 2,
         "features": [
           "skill2-extra",
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-extra",
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "skill2-extra",
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
         ]
       }
     ]
