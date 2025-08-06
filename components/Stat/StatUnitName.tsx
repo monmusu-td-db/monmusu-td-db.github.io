@@ -69,7 +69,7 @@ export class StatUnitName extends StatTooltip<string> {
         <T.ListItem label={nameOf(stat.unitName)}>
           {textOf(unit.unitName)}
         </T.ListItem>
-        {!!parent && (
+        {!!parent && unit.isToken && (
           <T.ListItem label="トークン所有者">
             {textOf(parent.unitName)}
           </T.ListItem>

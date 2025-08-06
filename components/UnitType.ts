@@ -111,6 +111,9 @@ interface RawUnitBase extends RawUnitFactors {
   /** 回復不可能フラグ */
   isUnhealable?: boolean;
 
+  /** 非トークン子ユニットフラグ */
+  isNotToken?: boolean;
+
   /** 攻撃待機時間固定値(f) */
   fixedDelay?: number;
 
@@ -152,6 +155,18 @@ interface RawUnitFactors {
 
   /** 基礎魔法防御倍率 */
   resistMul?: number;
+
+  /** マップ環境HP倍率 */
+  envHpMul?: number;
+
+  /** マップ環境攻撃力倍率 */
+  envAttackMul?: number;
+
+  /** マップ環境物理防御倍率 */
+  envDefenseMul?: number;
+
+  /** マップ環境魔法防御倍率 */
+  envResistMul?: number;
 
   /** クリティカル率加算効果 */
   criChanceAdd?: number;

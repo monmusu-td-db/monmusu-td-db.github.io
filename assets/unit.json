@@ -6018,17 +6018,74 @@
           "key": "hp",
           "value": 3
         }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 500001,
+    "parentId": 50,
+    "unitName": "【ミノタウロス娘】シルバ",
+    "unitShortName": "シルバ（ダンジョン）",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "光",
+    "hp": 6628,
+    "attack": 977,
+    "defense": 438,
+    "resist": 129,
+    "exSkill1": {
+      "skillName": "全力フルスイング",
+      "attackMul": 170,
+      "target": "ブロック",
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃力+75"
+    ],
+    "weapon": {
+      "weaponName": "ミルキーアックス",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "annotations": [
+          "ダンジョンでの能力値"
+        ]
       },
       {
-        "featureName": "dungeon",
-        "hpMul": 180,
-        "attackMul": 150,
-        "potentialBonus": {
-          "attackMul": 160
+        "require": [
+          "武器"
+        ],
+        "attackAdd": {
+          "key": "hp",
+          "value": 3
         }
       }
     ],
     "isEventUnit": true,
+    "isNotToken": true,
+    "envHpMul": 180,
+    "envAttackMul": 150,
+    "potentialBonus": {
+      "envAttackMul": 160
+    },
     "situations": [
       {},
       {
@@ -34977,10 +35034,6 @@
         "magicalDamageCut": 100
       },
       {
-        "featureName": "common-dungeon",
-        "baseHpMul": 130
-      },
-      {
         "featureName": "defense-mul",
         "isConditionalBuff": true,
         "conditions": [
@@ -35015,17 +35068,6 @@
       },
       {
         "features": [
-          "common-dungeon"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-dungeon"
-        ]
-      },
-      {
-        "features": [
           "defense-mul"
         ]
       },
@@ -35033,19 +35075,6 @@
         "skill": 1,
         "features": [
           "defense-mul"
-        ]
-      },
-      {
-        "features": [
-          "defense-mul",
-          "common-dungeon"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "defense-mul",
-          "common-dungeon"
         ]
       }
     ],
@@ -35055,6 +35084,99 @@
         "skill": 1,
         "target": "全体",
         "value": 160
+      }
+    ]
+  },
+  {
+    "id": 3510001,
+    "parentId": 351,
+    "unitName": "【ダンジョン娘】ダリナ",
+    "unitShortName": "ダリナ（ダンジョン）",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "地",
+    "hp": 7106,
+    "attack": 580,
+    "defense": 878,
+    "resist": 210,
+    "supplements": [
+      "回復100%/死亡時(1回のみ)"
+    ],
+    "exSkill1": {
+      "skillName": "ダンジョンプレベント",
+      "blockAdd": 2,
+      "duration": 30,
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "引き付け",
+        "スタン無効"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "annotations": [
+          "ダンジョンでの能力値"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 100,
+        "magicalDamageCut": 100
+      },
+      {
+        "featureName": "defense-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 300
+          }
+        ],
+        "defenseMul": 300
+      },
+      {
+        "featureName": "class-melee",
+        "isConditionalBuff": true,
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 30
+          },
+          "supplements": [
+            "ATK-30%→ブロック敵"
+          ]
+        }
+      }
+    ],
+    "isNotToken": true,
+    "hpMul": 150,
+    "attackMul": 80,
+    "defenseMul": 150,
+    "envHpMul": 130,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "defense-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "defense-mul"
+        ]
       }
     ]
   },

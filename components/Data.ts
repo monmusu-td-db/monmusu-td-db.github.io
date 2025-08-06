@@ -2011,6 +2011,7 @@ export interface BarrackFactors extends BarrackFactorsBase {
 }
 export interface DeploymentFactorsBase extends BarrackFactors {
   readonly formationBuff: number;
+  readonly environmentBuff: number;
   readonly beastFormationBuff: number;
   readonly beastPossLevel: number;
   readonly beastPossAmount: number;
