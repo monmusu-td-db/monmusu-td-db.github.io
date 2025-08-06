@@ -19566,7 +19566,6 @@
     ]
   },
   {
-    "TODO_FATAL": "射程",
     "id": 190,
     "unitName": "【ストーンゴーレム娘】ネイス",
     "unitShortName": "ネイス",
@@ -19587,6 +19586,7 @@
       "skillName": "ガントレットファイア",
       "defenseMul": 700,
       "splash": true,
+      "range": 260,
       "duration": 30,
       "cooldown": 45
     },
