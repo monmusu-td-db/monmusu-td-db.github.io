@@ -4393,6 +4393,7 @@
       {
         "skill": 0,
         "target": "射程内",
+        "duration": 0,
         "supplements": [
           "配置時即時回復効果"
         ],
@@ -4643,6 +4644,7 @@
       {
         "skill": 0,
         "target": "射程内",
+        "duration": 0,
         "supplements": [
           "配置時即時回復効果"
         ],
@@ -4694,10 +4696,7 @@
       "attackMul": 170,
       "rangeMul": 150,
       "duration": 30,
-      "cooldown": 40,
-      "supplements": [
-        "物理被Dmg-20%→射程内"
-      ]
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -4734,6 +4733,14 @@
       },
       {
         "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "physical-damage-cut",
+        "skill": 2,
+        "target": "射程内",
+        "value": 20
       }
     ]
   },
@@ -4803,6 +4810,17 @@
           "common-fire-field"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "freeze-invalid",
+        "skill": -1,
+        "target": "射程内",
+        "duration": 0,
+        "supplements": [
+          "配置時即時回復効果"
+        ]
+      }
     ]
   },
   {
@@ -4819,11 +4837,12 @@
     "exSkill1": {
       "skillName": "怪根の癒し",
       "fixedDelay": 1,
+      "target": "射程内",
       "rangeMul": 160,
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "スタン確定付与"
+        "スタン確定付与→射程内"
       ]
     },
     "potentials": [
@@ -4840,6 +4859,16 @@
           "key": "attack-base",
           "value": 500
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "isGeneral": true,
+        "skill": 1
       }
     ]
   },
