@@ -470,6 +470,9 @@ interface RawFeatureFactor {
   /** スキル再発動時間継続短縮効果を効果時間も有効な設定にする */
   flagCooldownReductionType?: boolean;
 
+  /** 単発スキル扱いにして攻撃間隔表示を変更 */
+  isSingleSkill?: boolean;
+
   /** マス属性 */
   fieldElements?: readonly Data.Element[];
 

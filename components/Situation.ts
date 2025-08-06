@@ -385,7 +385,7 @@ export default class Situation implements TableRow<Keys> {
       calculater: (s) => {
         const factor = this.interval.getFactors(s);
         const ret = factor?.actualResult;
-        if (this.getSkill(s)?.duration === Data.Duration.single) {
+        if (factor?.isSingleSkill) {
           if (factor?.staticCooldown) {
             return factor.result;
           }
@@ -1992,16 +1992,32 @@ export default class Situation implements TableRow<Keys> {
       return { ...ret };
     }
 
-    if (this.getSkill(setting)?.duration === Data.Duration.single) {
+    const fea = this.getFeature(setting);
+    const duration = this.getSkill(setting)?.duration;
+    const isSingleSkill =
+      duration === Data.Duration.single || !!fea.isSingleSkill;
+
+    if (isSingleSkill) {
       const cooldown = this.cooldown.getValue(setting);
       if (cooldown === undefined) {
         return;
       }
 
       const cooldownFrame = Math.max(1, cooldown * Data.fps);
-      const minInterval = this.getFeature(setting).minInterval;
+      const minInterval = fea.minInterval;
       let staticCooldown = false;
-      let result = ret.actualResult + cooldownFrame;
+      let result;
+
+      if (duration === Data.Duration.single) {
+        result = ret.actualResult + cooldownFrame;
+      } else {
+        if (duration === undefined) {
+          return;
+        }
+        const durationFrame = duration * Data.fps;
+        result = durationFrame + cooldownFrame;
+      }
+
       if (minInterval !== undefined) {
         staticCooldown = minInterval > result;
         result = Math.max(minInterval, result);
@@ -2009,6 +2025,8 @@ export default class Situation implements TableRow<Keys> {
 
       return {
         ...ret,
+        isSingleSkill,
+        duration: duration !== Data.Duration.single ? duration : undefined,
         cooldown,
         cooldownFrame,
         staticCooldown,
@@ -2019,6 +2037,7 @@ export default class Situation implements TableRow<Keys> {
 
     return {
       ...ret,
+      isSingleSkill,
       result: ret.actualResult,
     };
   }
