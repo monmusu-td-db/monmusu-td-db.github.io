@@ -51,6 +51,7 @@ const keys = [
   stat.buffStanImmune,
   stat.buffPetrifyImmune,
   stat.buffFreezeImmune,
+  stat.buffBurnImmune,
   stat.buffWeatherChange,
   stat.inBattleBuffSupplements,
 ] as const;
@@ -93,11 +94,13 @@ class BuffType {
     stanInvalid: "stan-invalid",
     petrifyInvalid: "petrify-invalid",
     freezeInvalid: "freeze-invalid",
+    burnInvalid: "burn-invalid",
     poisonResist: "poison-resist",
     blindResist: "blind-resist",
     stanResist: "stan-resist",
     petrifyResist: "petrify-resist",
     freezeResist: "freeze-resist",
+    burnResist: "burn-resist",
     fieldBuffFactor: "field-buff-factor",
     fieldChange: "field-change",
     fieldBuffAdd: "field-buff-add",
@@ -128,6 +131,8 @@ class BuffType {
           return this.key.petrifyInvalid;
         case name.freeze:
           return this.key.freezeInvalid;
+        case name.burn:
+          return this.key.burnInvalid;
       }
     } else {
       switch (status) {
@@ -141,6 +146,8 @@ class BuffType {
           return this.key.petrifyResist;
         case name.freeze:
           return this.key.freezeResist;
+        case name.burn:
+          return this.key.burnResist;
       }
     }
   }
@@ -217,6 +224,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffStanImmune: Stat.Root;
   readonly buffPetrifyImmune: Stat.Root;
   readonly buffFreezeImmune: Stat.Root;
+  readonly buffBurnImmune: Stat.Root;
   readonly buffWeatherChange: Stat.Root<Data.Weather | undefined>;
 
   constructor(src: Source) {
@@ -532,6 +540,7 @@ export default class InBattleBuff implements TableRow<Key> {
         | typeof stat.buffStanImmune
         | typeof stat.buffPetrifyImmune
         | typeof stat.buffFreezeImmune
+        | typeof stat.buffBurnImmune
     ) => {
       const ret: Stat.Root = new Stat.Root({
         statType,
@@ -571,6 +580,7 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffStanImmune = getImmune(stat.buffStanImmune);
     this.buffPetrifyImmune = getImmune(stat.buffPetrifyImmune);
     this.buffFreezeImmune = getImmune(stat.buffFreezeImmune);
+    this.buffBurnImmune = getImmune(stat.buffBurnImmune);
 
     this.buffWeatherChange = new Stat.Root({
       statType: stat.buffWeatherChange,

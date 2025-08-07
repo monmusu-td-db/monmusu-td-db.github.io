@@ -1917,6 +1917,7 @@ const statusName = {
   stan: "スタン",
   petrify: "石化",
   freeze: "凍結",
+  burn: "火傷",
 } as const;
 type StatusKey = keyof typeof statusName;
 type StatusValue = (typeof statusName)[StatusKey];
@@ -1937,6 +1938,8 @@ export class Status {
         return statusName[this.key.petrify];
       case stat.buffFreezeImmune:
         return statusName[this.key.freeze];
+      case stat.buffBurnImmune:
+        return statusName[this.key.burn];
     }
   }
 }

@@ -63,6 +63,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffStanImmune:
       case stat.buffPetrifyImmune:
       case stat.buffFreezeImmune:
+      case stat.buffBurnImmune:
         end.push(index);
         break;
       case stat.rarity:
@@ -141,6 +142,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffStanImmune:
       case stat.buffPetrifyImmune:
       case stat.buffFreezeImmune:
+      case stat.buffBurnImmune:
         break;
       default:
         empty.push(index);
