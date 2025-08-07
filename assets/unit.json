@@ -35027,6 +35027,90 @@
     ]
   },
   {
+    "TODO_DESC": "コストは単独の場合1/23f増加、シャーマン0.4体相当",
+    "id": 350,
+    "unitName": "【ミュルミドーン娘】ミーデン",
+    "unitShortName": "ミーデン",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "地",
+    "hp": 6893,
+    "attack": 600,
+    "defense": 863,
+    "resist": 214,
+    "supplements": [
+      "コスト回復加速(小)"
+    ],
+    "exSkill1": {
+      "skillName": "女王への忠誠",
+      "rounds": 2,
+      "range": 100,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "defense",
+          "value": 30
+        }
+      },
+      {
+        "skill": 0,
+        "require": [
+          "地マス"
+        ],
+        "attackMul": 120,
+        "defenseMul": 120,
+        "potentialBonus": {
+          "attackMul": 130,
+          "defenseMul": 130
+        }
+      },
+      {
+        "skill": 1,
+        "require": [
+          "地マス"
+        ],
+        "isConditionalSkillBuff": true,
+        "attackMul": 140,
+        "defenseMul": 140,
+        "potentialBonus": {
+          "attackMul": 160,
+          "defenseMul": 160
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 150
+      }
+    ]
+  },
+  {
     "id": 351,
     "unitName": "【ダンジョン娘】ダリナ",
     "unitShortName": "ダリナ",
