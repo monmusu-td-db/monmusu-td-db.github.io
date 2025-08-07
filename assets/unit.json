@@ -5149,8 +5149,7 @@
     ]
   },
   {
-    "TODO_DESC": "statはwiki情報",
-    "TODO_FATAL": "ex2毒付与間隔はwiki情報",
+    "TODO_DESC": "ex2毒付与間隔はwiki情報",
     "id": 41,
     "unitName": "【アラクネ娘】フランシ",
     "unitShortName": "フランシ",
@@ -5240,6 +5239,7 @@
         "damageType": "貫通"
       }
     ],
+    "moveCostAdd": 5,
     "situations": [
       {},
       {
