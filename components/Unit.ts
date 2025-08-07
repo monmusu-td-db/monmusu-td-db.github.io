@@ -41,7 +41,7 @@ export interface JsonUnit {
   range?: number;
   moveSpeed?: number;
   moveType?: string | null;
-  moveCost?: number;
+  moveCostAdd?: number;
   damageType?: Data.JsonDamageType;
   placement?: Data.JsonPlacement;
   supplements?: readonly string[];
@@ -702,10 +702,11 @@ export default class Unit implements TableRow<Keys> {
         if (!this.moveType.getValue(s) || !this.moveSpeed.getValue(s)) {
           return;
         }
-        const base = src.moveCost ?? 3;
+        const base = 3;
+        const add = (classData?.moveCostAdd ?? 0) + (src.moveCostAdd ?? 0);
         const potential = this.getPotentialFactor(s, stat.moveCost);
         const subSkill = -this.getSubskillFactor(s, ssKeys.moveCostCut);
-        return Math.max(base + potential + subSkill, 0);
+        return Math.max(base + add + potential + subSkill, 0);
       },
     });
 
