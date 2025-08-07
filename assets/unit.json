@@ -35720,6 +35720,10 @@
     "attackMul": 130,
     "criChanceAdd": 20,
     "criDamageAdd": 40,
+    "potentialBonus": {
+      "criChanceAdd": 25,
+      "criDamageAdd": 50
+    },
     "situations": [
       {},
       {
