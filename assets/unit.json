@@ -35669,5 +35669,82 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_DESC": "PotentialはWiki情報",
+    "id": 354,
+    "unitName": "【北姫のシルバードラゴン娘】アルギュロ",
+    "unitShortName": "アルギュロ/北姫",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "水",
+    "hp": 6034,
+    "attack": 963,
+    "defense": 463,
+    "resist": 105,
+    "damageType": "魔法",
+    "supplements": [
+      "凍結付与(中)→命中",
+      "毒即時回復→射程内",
+      "スタン即時回復→射程内",
+      "火傷即時回復→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "魔剣フラガラッハ",
+      "attackMul": 360,
+      "attackMotionMul": 133,
+      "fixedDelay": 1,
+      "target": 1,
+      "rounds": 5,
+      "range": 350,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "凍結付与(超)/発動→射程内",
+        "即死(中)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "CRI率/CRI率上限+20%"
+    ],
+    "features": [
+      {
+        "featureName": "common-definite-freeze",
+        "damageFactor": 130
+      }
+    ],
+    "attackMul": 130,
+    "criChanceAdd": 20,
+    "criDamageAdd": 40,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "target": "射程内",
+        "supplements": [
+          "即時回復効果"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "stan-invalid"
+          },
+          {
+            "type": "burn-invalid"
+          }
+        ]
+      }
+    ]
   }
 ]
