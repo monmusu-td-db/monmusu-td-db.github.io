@@ -363,9 +363,6 @@
     ]
   },
   {
-    "TODO_DESC": "wiki情報",
-    "TODO_FATAL": "攻撃速度/待機時間",
-    "TODO_STAT_INFERRED": true,
     "id": 30001,
     "parentId": 3,
     "unitName": "触手",
@@ -376,8 +373,8 @@
     "attack": 727,
     "defense": 99,
     "resist": 99,
-    "attackSpeed": 999,
-    "delay": 99,
+    "attackSpeed": 100,
+    "delay": 25,
     "block": null,
     "target": 1,
     "moveSpeed": 0,
@@ -23275,7 +23272,6 @@
     ]
   },
   {
-    "TODO_FATAL": "種族特性の属性指定回復量増加は乗算か調べる",
     "id": 227,
     "unitName": "【学者】プロメスティン",
     "unitShortName": "プロメスティン",
@@ -28764,7 +28760,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 285,
     "unitName": "【シェイプシフター娘】アスタ",
     "unitShortName": "アスタ/進化",
