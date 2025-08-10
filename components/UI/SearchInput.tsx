@@ -19,7 +19,7 @@ function SearchInput({ className }: { className?: string }) {
     <Form className={className}>
       <InputGroup>
         <InputGroup.Text role="button" onClick={handleResetButton}>
-          <Icon.Search />
+          <Icon.Search width={19} height={19} />
         </InputGroup.Text>
         <Form.Control
           type="search"

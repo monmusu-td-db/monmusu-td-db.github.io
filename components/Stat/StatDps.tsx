@@ -12,7 +12,7 @@ const sign = Tt.sign;
 const AMOUNT = "合計";
 
 export class StatDps<
-  T extends number | undefined = number | undefined
+  T extends number | undefined = number | undefined,
 > extends StatTooltip<T, Factors> {
   override readonly isEnabled: StatHandler<boolean>;
 
@@ -49,92 +49,20 @@ export class StatDps<
       if (value === undefined) {
         return;
       }
+
+      const getColor = (lines: Data.TableColorLines) =>
+        Data.TableColor.getColorFromLines(lines, value);
+
       switch (damageType) {
         case Data.damageType.physic:
-          if (value < 1000) {
-            return;
-          }
-          if (value < 2000) {
-            return Data.tableColor.blue100;
-          }
-          if (value < 3000) {
-            return Data.tableColor.blue;
-          }
-          if (value < 5000) {
-            return Data.tableColor.blue300;
-          }
-          if (value < 7000) {
-            return Data.tableColor.blue500;
-          }
-          if (value < 10000) {
-            return Data.tableColor.blue700;
-          } else {
-            return Data.tableColor.blue900;
-          }
-
+          return getColor(Data.TableColor.dpsPhysicalLines);
         case Data.damageType.magic:
-          if (value < 1000) {
-            return;
-          }
-          if (value < 2000) {
-            return Data.tableColor.green100;
-          }
-          if (value < 3000) {
-            return Data.tableColor.green;
-          }
-          if (value < 5000) {
-            return Data.tableColor.green300;
-          }
-          if (value < 7000) {
-            return Data.tableColor.green500;
-          }
-          if (value < 10000) {
-            return Data.tableColor.green700;
-          } else {
-            return Data.tableColor.green900;
-          }
-
+          return getColor(Data.TableColor.dpsMagicalLines);
         case Data.damageType.true:
-          if (value < 1000) {
-            return;
-          }
-          if (value < 2000) {
-            return Data.tableColor.red100;
-          }
-          if (value < 3000) {
-            return Data.tableColor.red;
-          }
-          if (value < 5000) {
-            return Data.tableColor.red300;
-          }
-          if (value < 7000) {
-            return Data.tableColor.red500;
-          }
-          if (value < 10000) {
-            return Data.tableColor.red700;
-          } else {
-            return Data.tableColor.red900;
-          }
+          return getColor(Data.TableColor.dpsTrueDamageLines);
       }
-
       if (Data.DamageType.isHeal(damageType)) {
-        if (value < 300) {
-          return;
-        }
-        if (value < 400) {
-          return Data.tableColor.yellow100;
-        }
-        if (value < 600) {
-          return Data.tableColor.yellow300;
-        }
-        if (value < 800) {
-          return Data.tableColor.yellow500;
-        }
-        if (value < 1000) {
-          return Data.tableColor.yellow600;
-        } else {
-          return Data.tableColor.yellow800;
-        }
+        return getColor(Data.TableColor.dpsHealLines);
       }
     };
     return Data.TableColor.getSelector(getColor());
@@ -285,8 +213,8 @@ export class StatDps<
                             ? damage
                             : detail.damage
                           : d
-                          ? trueDamage
-                          : detail.trueDamage}
+                            ? trueDamage
+                            : detail.trueDamage}
                       </>
                     ) : (
                       <Tt.Brackets

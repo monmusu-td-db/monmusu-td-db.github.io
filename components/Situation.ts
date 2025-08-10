@@ -229,24 +229,6 @@ export default class Situation implements TableRow<Keys> {
         return Data.Condition.toSorted(ret);
       },
       color: (s) => {
-        const c = Data.Condition.key;
-        const cond = this.conditions.getValue(s);
-        if (
-          cond.find((v) => {
-            switch (v.key) {
-              case c.definite:
-              case c.enemy:
-                return true;
-              case c.hit:
-                if ((v.value ?? 0) > 1) {
-                  return true;
-                }
-            }
-          })
-        ) {
-          return tableColor.positive;
-        }
-
         const f = this.getFeature(s);
         const skillCond = f.skillCond?.conditions;
         if (skillCond !== undefined && skillCond.length > 0) {
@@ -266,6 +248,24 @@ export default class Situation implements TableRow<Keys> {
           if (f.isConditionalDebuff) {
             return tableColor.negativeWeak;
           }
+        }
+
+        const c = Data.Condition.key;
+        const cond = this.conditions.getValue(s);
+        if (
+          cond.find((v) => {
+            switch (v.key) {
+              case c.definite:
+              case c.enemy:
+                return true;
+              case c.hit:
+                if ((v.value ?? 0) > 1) {
+                  return true;
+                }
+            }
+          })
+        ) {
+          return tableColor.positiveWeak;
         }
       },
     });

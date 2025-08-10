@@ -149,8 +149,68 @@ export const tableColor = {
   yellow600: "yellow-600",
   yellow800: "yellow-800",
 } as const;
+const dpsPhysicalLines = [
+  [1000, undefined],
+  [2000, tableColor.blue100],
+  [3000, tableColor.blue],
+  [5000, tableColor.blue300],
+  [7000, tableColor.blue500],
+  [10000, tableColor.blue700],
+  [0, tableColor.blue900],
+] as const satisfies TableColorLines;
+const dpsMagicalLines = [
+  [1000, undefined],
+  [2000, tableColor.green100],
+  [3000, tableColor.green],
+  [5000, tableColor.green300],
+  [7000, tableColor.green500],
+  [10000, tableColor.green700],
+  [0, tableColor.green900],
+] as const satisfies TableColorLines;
+const dpsTrueDamageLines = [
+  [1000, undefined],
+  [2000, tableColor.red100],
+  [3000, tableColor.red],
+  [5000, tableColor.red300],
+  [7000, tableColor.red500],
+  [10000, tableColor.red700],
+  [0, tableColor.red900],
+] as const satisfies TableColorLines;
+const dpsHealLines = [
+  [300, undefined],
+  [400, tableColor.yellow100],
+  [600, tableColor.yellow300],
+  [800, tableColor.yellow500],
+  [1000, tableColor.yellow600],
+  [0, tableColor.yellow800],
+] as const satisfies TableColorLines;
+const limitPhysicalLines = [
+  [1500, undefined],
+  [3000, tableColor.blue100],
+  [4500, tableColor.blue],
+  [6000, tableColor.blue300],
+  [10000, tableColor.blue500],
+  [15000, tableColor.blue700],
+  [0, tableColor.blue900],
+] as const satisfies TableColorLines;
+const limitMagicalLines = [
+  [1500, undefined],
+  [3000, tableColor.green100],
+  [4500, tableColor.green],
+  [6000, tableColor.green300],
+  [10000, tableColor.green500],
+  [15000, tableColor.green700],
+  [0, tableColor.green900],
+] as const satisfies TableColorLines;
+export type TableColorLines = [number, TableColor | undefined][];
 export type TableColor = (typeof tableColor)[keyof typeof tableColor];
 export const TableColor = {
+  dpsPhysicalLines,
+  dpsMagicalLines,
+  dpsTrueDamageLines,
+  dpsHealLines,
+  limitPhysicalLines,
+  limitMagicalLines,
   getSelector(color: TableColor | undefined): string | undefined {
     if (color === undefined) {
       return;
@@ -197,12 +257,24 @@ export const TableColor = {
       }
     }
   },
+
+  getColorFromLines(
+    lines: TableColorLines,
+    value: number
+  ): TableColor | undefined {
+    for (let i = 0; i < lines.length - 1; i++) {
+      if (value < lines[i]![0]) {
+        return lines[i]![1];
+      }
+    }
+    return lines[lines.length - 1]![1];
+  },
 } as const;
 export const tableColorAlias = {
-  positive: tableColor.red,
-  negative: tableColor.blue,
-  positiveStrong: tableColor.red300,
-  negativeStrong: tableColor.blue300,
+  positive: tableColor.red300,
+  negative: tableColor.blue300,
+  positiveStrong: tableColor.red700,
+  negativeStrong: tableColor.blue700,
   positiveWeak: tableColor.red100,
   negativeWeak: tableColor.blue100,
   warning: tableColor.yellow,
