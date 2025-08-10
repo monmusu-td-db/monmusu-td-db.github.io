@@ -8182,12 +8182,9 @@
         ]
       },
       {
-        "featureName": "proper-ground",
+        "featureName": "common-definite-ground",
         "annotations": [
           "地上特効"
-        ],
-        "conditions": [
-          "特"
         ],
         "damageFactor": 140,
         "potentialBonus": {
@@ -8195,8 +8192,54 @@
         }
       },
       {
-        "featureName": "skill2-proper",
+        "featureName": "common-definite-ground",
+        "skill": 2,
         "damageFactor": 200
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 2
       }
     ]
   },
