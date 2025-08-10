@@ -64,7 +64,7 @@ function ExternalLink({
     <a href={href} className="d-block">
       {icon}
       <span className="mx-2">{children}</span>
-      <Icon.BoxArrowUpRight width={13.5} height={13.5} />
+      <Icon.BoxArrowUpRight width={14} height={14} />
     </a>
   );
 }
