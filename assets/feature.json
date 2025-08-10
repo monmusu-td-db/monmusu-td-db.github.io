@@ -503,6 +503,15 @@
     ]
   },
   {
+    "featureName": "common-definite-ground",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "ground"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-fire",
     "conditions": [
       {

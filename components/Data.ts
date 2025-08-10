@@ -487,6 +487,7 @@ export class Condition {
     wind: "風属性",
     light: "光属性",
     dark: "闇属性",
+    ground: "対地",
   } as const;
 
   private static readonly keys = getKeys(this.tag);
