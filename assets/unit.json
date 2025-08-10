@@ -6306,7 +6306,7 @@
     ]
   },
   {
-    "TODO_DESC": "ex2はwiki情報",
+    "TODO_DESC": "ex2はwiki情報/CTカットバフ",
     "id": 51,
     "unitName": "【アラクネ娘】カヅネ",
     "unitShortName": "カヅネ",
@@ -6465,7 +6465,44 @@
     "costAdd": 1,
     "potentialBonus": {
       "attackMul": 104
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "require": [
+          "武器"
+        ],
+        "target": "命中",
+        "supplements": [
+          "回復行動4回ごと"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "petrify-invalid"
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "petrify-invalid"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 53,
@@ -6597,7 +6634,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 55,
     "unitName": "【シルフ娘】シルフィーネ",
     "unitShortName": "シルフィーネ",
@@ -6653,15 +6689,6 @@
         "criChanceAdd": 20
       },
       {
-        "require": [
-          "武器",
-          "スキル"
-        ],
-        "supplements": [
-          "風マス化/発動→自分"
-        ]
-      },
-      {
         "skill": 1,
         "isBuffSkill": true,
         "physicalEvasion": 50,
@@ -6692,11 +6719,19 @@
         "skill": 1,
         "target": "射程内",
         "value": 50
+      },
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "風",
+        "supplements": [
+          "発動時"
+        ]
       }
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 56,
     "unitName": "【ザラタン娘】アックァ",
     "unitShortName": "アックァ",
@@ -6704,8 +6739,8 @@
     "class": "デストロイヤー",
     "element": "水",
     "hp": 8566,
-    "attack": 956,
-    "defense": 677,
+    "attack": 953,
+    "defense": 675,
     "resist": 110,
     "exSkill1": {
       "skillName": "ギガンティックラブ",
@@ -6761,13 +6796,11 @@
         "defenseMul": 300
       },
       {
-        "featureName": "skill1-phase1",
-        "phase": 1,
+        "featureName": "common-phase1",
         "attackMul": 112
       },
       {
-        "featureName": "skill1-phase5",
-        "phase": 5,
+        "featureName": "common-phase5",
         "attackMul": 160,
         "potentialBonus": {
           "phase": 6,
@@ -6781,23 +6814,23 @@
       {
         "skill": 1,
         "features": [
-          "skill1-phase1"
+          "common-phase1"
         ]
       },
       {
         "features": [
-          "skill1-phase1"
+          "common-phase1"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-phase5"
+          "common-phase5"
         ]
       },
       {
         "features": [
-          "skill1-phase5"
+          "common-phase5"
         ]
       },
       {
@@ -6821,7 +6854,7 @@
         ],
         "features": [
           "common-block1",
-          "skill1-phase1"
+          "common-phase1"
         ]
       },
       {
@@ -6845,7 +6878,7 @@
         ],
         "features": [
           "common-block5",
-          "skill1-phase1"
+          "common-phase1"
         ]
       },
       {
@@ -7146,7 +7179,7 @@
       "duration": 20,
       "cooldown": 30,
       "supplements": [
-        "猛毒付与(中)"
+        "猛毒付与(中)→命中"
       ]
     },
     "exSkill2": {
@@ -7156,8 +7189,8 @@
       "duration": 20,
       "cooldown": 30,
       "supplements": [
-        "猛毒付与(低)",
-        "石化付与(低)"
+        "猛毒付与(低)→命中",
+        "石化付与(低)→命中"
       ]
     },
     "potentials": [
@@ -7174,9 +7207,9 @@
     },
     "features": [
       {
-        "featureName": "normal",
+        "skill": 0,
         "supplements": [
-          "毒付与(稀)"
+          "毒付与(稀)→命中"
         ]
       },
       {
@@ -7186,12 +7219,9 @@
         ]
       },
       {
-        "featureName": "proper-poison",
+        "featureName": "common-definite-poison",
         "annotations": [
           "毒特効"
-        ],
-        "conditions": [
-          "特"
         ],
         "damageFactor": 150,
         "potentialBonus": {
@@ -7199,26 +7229,62 @@
         }
       },
       {
-        "featureName": "proper-poison",
+        "featureName": "common-definite-poison",
         "require": [
           "武器"
         ],
         "supplements": [
-          "敵物防-10→命中"
+          "DEF-10→命中"
         ]
       },
       {
-        "featureName": "proper-petrify",
+        "featureName": "common-definite-petrify",
         "annotations": [
           "石化特効"
-        ],
-        "conditions": [
-          "特"
         ],
         "damageFactor": 160
       }
     ],
-    "delayMul": 120
+    "delayMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-petrify"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-poison",
+          "common-definite-petrify"
+        ]
+      }
+    ]
   },
   {
     "id": 59,
@@ -7344,6 +7410,24 @@
         "damageType": "回復",
         "supplements": [
           "HP-20%/発動→自分"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "depend": [
+          "class-buff"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1"
         ]
       }
     ]
@@ -15865,7 +15949,6 @@
     "attackMul": 120
   },
   {
-    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 147,
     "unitName": "【大蛸娘】ウキスサ",
     "unitShortName": "ウキスサ",
@@ -15881,11 +15964,12 @@
     "exSkill1": {
       "skillName": "奥義ミズグルマ",
       "attackMul": 120,
+      "attackMotionMul": 278,
       "fixedDelay": 1,
       "target": 1,
       "splash": true,
       "rounds": 8,
-      "range": 300,
+      "range": 350,
       "duration": "単発",
       "cooldown": 25,
       "damageType": "魔法",
@@ -25841,7 +25925,6 @@
     ]
   },
   {
-    "TODO_FATAL": "継続ダメージHit数はWiki情報",
     "id": 252,
     "unitName": "【蛇骨婆娘】トモミ",
     "unitShortName": "トモミ",
@@ -25879,41 +25962,31 @@
         ]
       },
       {
-        "featureName": "extra-damage",
+        "featureName": "common-extra-field-damage",
         "conditions": [
           "追"
         ],
         "damageFactor": 50,
-        "criChanceAdd": -1000,
-        "target": "命中",
         "rounds": [
           {
-            "ratio": 2,
-            "value": 2
-          },
-          {
             "ratio": 1,
-            "value": 8
+            "value": 9
           },
           {
-            "ratio": 12,
+            "ratio": 4,
             "value": 0
           }
         ],
-        "splash": true
+        "splash": true,
+        "damageType": "魔法"
       },
       {
-        "featureName": "extra-damage",
+        "featureName": "common-extra-field-damage",
+        "isConditionalSkillBuff": true,
         "skill": 1,
-        "rounds": [
-          {
-            "ratio": 2,
-            "value": 2
-          },
-          {
-            "ratio": 1,
-            "value": 8
-          }
+        "rounds": 9,
+        "supplements": [
+          "凍結付与(中)→命中"
         ]
       }
     ],
@@ -25929,7 +26002,7 @@
       },
       {
         "features": [
-          "extra-damage"
+          "common-extra-field-damage"
         ]
       },
       {
@@ -25938,7 +26011,7 @@
       {
         "skill": 1,
         "features": [
-          "extra-damage"
+          "common-extra-field-damage"
         ]
       }
     ]
