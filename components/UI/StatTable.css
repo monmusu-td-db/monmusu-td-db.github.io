@@ -121,6 +121,25 @@
   }
 }
 
+.stat-table .supplement-bold {
+  color: var(--bs-red);
+}
+
+.stat-table .table-c-red-300 .supplement-bold {
+  color: color-mix(
+    in srgb,
+    var(--bs-red) 75%,
+    var(
+      --bs-table-color-state,
+      var(--bs-table-color-type, var(--bs-table-color))
+    )
+  );
+}
+
+[data-bs-theme="dark"] .stat-table .supplement-bold {
+  color: var(--bs-yellow);
+}
+
 th.hp,
 th.attack,
 th.defense,
