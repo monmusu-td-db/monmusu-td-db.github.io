@@ -18,12 +18,22 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
       ret.push(
         <Fragment key={item}>
           {i > 0 && " "}
-          <span>{item}</span>
+          <span>{this.getDecoratedItem(item)}</span>
         </Fragment>
       );
       i++;
     }
     return ret;
+  }
+
+  private getDecoratedItem(item: string): ReactNode {
+    switch (item) {
+      case "隠密":
+      case "隠密→射程内":
+        return <b className="supplement-bold">{item}</b>;
+      default:
+        return item;
+    }
   }
 
   // public override getTooltipBody(setting: Setting): ReactNode {
