@@ -1,0 +1,17 @@
+.color-desc {
+  flex: none;
+  width: 5em;
+  background-color: var(--bs-table-bg);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.color-desc-table {
+  max-width: 768px;
+  font-size: 0.8125rem;
+}
+
+.supplement-legend > u {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}

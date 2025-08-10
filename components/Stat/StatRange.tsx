@@ -53,7 +53,7 @@ export class StatRange extends BaseStat<number | undefined, Factors> {
         <T.Equation>
           {(d) => (
             <>
-              <T.Result>{d ? "実能力値" : f.result}</T.Result>
+              <T.Result>{d ? "戦闘中能力" : f.result}</T.Result>
               <T.Expression>
                 {f.fixedRange !== undefined ? (
                   <T.Value isPositive={f.fixedRange > f.subtotal}>

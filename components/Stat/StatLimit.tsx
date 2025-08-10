@@ -41,26 +41,18 @@ export class StatLimit extends StatTooltip<number | undefined, Factors> {
 
   private getColorStyle(setting: Setting): StatStyles {
     const value = this.getValue(setting);
-    const type = this.statType === Data.stat.physicalLimit;
-    const col = Data.tableColor;
-    const getColor = () => {
-      if (value === undefined || value < 1500) {
-        return;
-      } else if (value < 3000) {
-        return type ? col.blue100 : col.green100;
-      } else if (value < 4500) {
-        return type ? col.blue : col.green;
-      } else if (value < 6000) {
-        return type ? col.blue300 : col.green300;
-      } else if (value < 10000) {
-        return type ? col.blue500 : col.green500;
-      } else if (value < 15000) {
-        return type ? col.blue700 : col.green700;
-      } else {
-        return type ? col.blue900 : col.green900;
-      }
-    };
-    return Data.TableColor.getSelector(getColor());
+
+    if (value === undefined) {
+      return;
+    }
+
+    const lines =
+      this.statType === Data.stat.physicalLimit
+        ? Data.TableColor.limitPhysicalLines
+        : Data.TableColor.limitMagicalLines;
+    const color = Data.TableColor.getColorFromLines(lines, value);
+
+    return Data.TableColor.getSelector(color);
   }
 
   private getUnhealableStyle(setting: Setting): StatStyles {

@@ -1,0 +1,27 @@
+.md-content > h2:not(:first-child) {
+  margin-top: 3rem;
+}
+
+.md-content > h3 {
+  font-size: calc(1.275rem + 0.3vw);
+  margin-top: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .md-content > h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.md-content > h4 {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.md-content > dl > dt {
+  color: var(--bs-red);
+}
+
+[data-bs-theme="dark"] .md-content > dl > dt {
+  color: var(--bs-yellow);
+}

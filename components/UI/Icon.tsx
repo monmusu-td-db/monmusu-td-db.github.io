@@ -218,8 +218,8 @@ function MoonFill({ width, height }: Props) {
 }
 
 function Search({ width, height }: Props) {
-  width ??= 19;
-  height ??= 19;
+  width ??= 16;
+  height ??= 16;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

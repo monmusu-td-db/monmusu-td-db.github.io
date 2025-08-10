@@ -136,3 +136,8 @@ $popover-border-color: $border-color-translucent-dark;
     @include table-variant($color, $value);
   }
 }
+
+svg.bi {
+  display: inline-block;
+  vertical-align: -0.125em;
+}
