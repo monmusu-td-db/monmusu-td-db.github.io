@@ -7433,7 +7433,7 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1/ex2射程/ex2追加ダメージHit数",
+    "TODO_FATAL": "ex2射程/ex2攻撃モーション/ex2追加ダメージHit数",
     "id": 61,
     "unitName": "【レッドドラゴン娘】エリュート",
     "unitShortName": "エリュート",
@@ -7448,9 +7448,10 @@
     "exSkill1": {
       "skillName": "火竜轟焔斬",
       "attackMul": 150,
+      "attackMotionMul": 180,
       "fixedDelay": 1,
       "target": 1,
-      "range": 999,
+      "range": 350,
       "duration": "単発",
       "cooldown": 35,
       "damageType": "魔法"
@@ -7458,6 +7459,7 @@
     "exSkill2": {
       "skillName": "業火爆砕",
       "attackMul": 120,
+      "attackMotionMul": 999,
       "fixedDelay": 1,
       "target": 5,
       "range": 999,
@@ -7502,13 +7504,8 @@
         "attackMul": 200
       },
       {
-        "featureName": "extra-damage",
-        "conditions": [
-          "追"
-        ],
+        "featureName": "common-extra-field-damage",
         "damageFactor": 50,
-        "criChanceAdd": -1000,
-        "target": "命中",
         "splash": true,
         "rounds": 9
       }
@@ -7526,7 +7523,7 @@
         "skill": 1,
         "features": [
           "phase1",
-          "extra-damage"
+          "common-extra-field-damage"
         ]
       },
       {
@@ -7539,7 +7536,7 @@
         "skill": 2,
         "features": [
           "phase1",
-          "extra-damage",
+          "common-extra-field-damage",
           "common-1hit"
         ]
       },
@@ -7547,7 +7544,7 @@
         "skill": 2,
         "features": [
           "phase1",
-          "extra-damage",
+          "common-extra-field-damage",
           "common-5hits"
         ]
       },
@@ -7566,7 +7563,7 @@
         "skill": 1,
         "features": [
           "phase5",
-          "extra-damage"
+          "common-extra-field-damage"
         ]
       },
       {
@@ -7579,7 +7576,7 @@
         "skill": 2,
         "features": [
           "phase5",
-          "extra-damage",
+          "common-extra-field-damage",
           "common-1hit"
         ]
       },
@@ -7587,7 +7584,7 @@
         "skill": 2,
         "features": [
           "phase5",
-          "extra-damage",
+          "common-extra-field-damage",
           "common-5hits"
         ]
       },
@@ -7729,7 +7726,7 @@
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "暗闇付与(中)"
+        "暗闇付与(中)→命中"
       ]
     },
     "potentials": [
@@ -7747,7 +7744,16 @@
     "moveSpeedMul": 200,
     "potentialBonus": {
       "moveSpeedMul": 250
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
   },
   {
     "id": 64,
@@ -7893,9 +7899,9 @@
       "cooldown": 35,
       "damageType": "魔法",
       "supplements": [
-        "命中停止30f(1秒)",
+        "停止(1秒)→命中",
         "吹雪(10秒)/発動",
-        "即死(低)"
+        "即死(低)→命中"
       ]
     },
     "exSkill2": {
@@ -7907,7 +7913,7 @@
       "cooldown": 35,
       "damageType": "魔法",
       "supplements": [
-        "命中停止30f(1秒)",
+        "停止(1秒)→命中",
         "吹雪(10秒)/発動"
       ]
     },
@@ -7934,7 +7940,7 @@
       {
         "featureName": "common-regenerate-2%",
         "supplements": [
-          "回復2%/秒→吹雪中"
+          "回復2%/秒(吹雪中)"
         ],
         "deleteSupplements": [
           "回復2%/秒"
@@ -7945,7 +7951,25 @@
     "hpMul": 140,
     "potentialBonus": {
       "hpMul": 150
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-regenerate-2%"
+        ]
+      }
+    ]
   },
   {
     "id": 66,
@@ -8056,7 +8080,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 67,
     "unitName": "【ヒポグリフ娘】リクリフ",
     "unitShortName": "リクリフ",
@@ -25963,9 +25986,6 @@
       },
       {
         "featureName": "common-extra-field-damage",
-        "conditions": [
-          "追"
-        ],
         "damageFactor": 50,
         "rounds": [
           {
@@ -34008,7 +34028,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "停止0.5秒→命中"
+        "停止(0.5秒)→命中"
       ]
     },
     "potentials": [
