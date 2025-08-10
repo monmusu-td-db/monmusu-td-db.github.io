@@ -16,7 +16,10 @@ export default function App() {
       <Container className="md-content">
         <h2>このサイトについて</h2>
         <p>
-          当サイトでは<a href="https://monmusu-td.jp/">モンスター娘TD</a>
+          当サイトでは
+          <ExternalLink href="https://monmusu-td.jp/">
+            モンスター娘TD
+          </ExternalLink>
           のキャラクターの能力値、バフデバフをまとめています。
         </p>
         <h2>使い方の基本</h2>
@@ -53,9 +56,9 @@ export default function App() {
         </Example>
         <p>
           詳細は
-          <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet">
+          <ExternalLink href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet">
             外部サイトの構文表
-          </a>
+          </ExternalLink>
           などをご覧ください。
         </p>
         <h2>補足項目</h2>
@@ -364,4 +367,19 @@ function LinesCell({ lines }: { lines: Data.TableColorLines }): ReactNode {
 
 function Example({ children }: { children: ReactNode }) {
   return <div className="border rounded ps-2 pt-2 mb-2">{children}</div>;
+}
+
+function ExternalLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <a href={href} className="ex-link">
+      {children}
+      <Icon.BoxArrowUpRight width={14} height={14} />
+    </a>
+  );
 }
