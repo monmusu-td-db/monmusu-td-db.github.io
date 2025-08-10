@@ -5340,7 +5340,7 @@
       "cooldown": 10,
       "damageType": "魔法",
       "supplements": [
-        "tkn+1"
+        "tkn+1/発動"
       ]
     },
     "potentials": [
@@ -5366,11 +5366,31 @@
         ]
       },
       {
-        "featureName": "weapon-proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-poison",
         "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
       }
     ]
   },
@@ -5407,14 +5427,34 @@
         ]
       },
       {
-        "featureName": "weapon-proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-poison",
         "damageFactor": 130
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      }
+    ]
   },
   {
     "id": 44,
@@ -5467,14 +5507,13 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 45,
     "unitName": "【クィーンビー娘】メリッサ",
     "unitShortName": "メリッサ",
     "rarity": "E",
     "class": "シャーマン",
     "element": "闇",
-    "hp": 2750,
+    "hp": 2887,
     "attack": 0,
     "defense": 289,
     "resist": 447,
@@ -5495,7 +5534,7 @@
       "duration": 20,
       "cooldown": 45,
       "supplements": [
-        "猛毒付与(高)→射程内"
+        "猛毒付与(高)/発動→射程内"
       ]
     },
     "potentials": [
@@ -5519,14 +5558,11 @@
         "supplements": [
           "tkn+1/15秒"
         ]
-      },
-      {
-        "skill": 2,
-        "isBuffSkill": true,
-        "damageFactor": 110
       }
     ],
-    "hpMul": 105,
+    "potentialBonus": {
+      "hpMul": 105
+    },
     "situations": [
       {},
       {
@@ -5596,7 +5632,7 @@
       "duration": 1,
       "cooldown": 30,
       "supplements": [
-        "tkn+3"
+        "tkn+3/発動"
       ]
     },
     "exSkill2": {
@@ -5604,8 +5640,8 @@
       "duration": 15,
       "cooldown": 30,
       "supplements": [
-        "tkn+2",
-        "終了時HP0→ゴブリン戦士トークン"
+        "tkn+2/発動",
+        "HP0/終了後→ゴブリン戦士tkn"
       ]
     },
     "potentials": [
@@ -5614,6 +5650,31 @@
       "最大HP+400",
       "物理防御力+60",
       "魔法防御力+60"
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-buff"
+        ]
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 2
+      },
+      {
+        "depend": [
+          "class-buff"
+        ],
+        "skill": -1
+      }
     ]
   },
   {
@@ -5637,7 +5698,7 @@
     "damageType": "物理",
     "placement": "近",
     "supplements": [
-      "死亡時CT-3秒→全味方"
+      "CT-3秒/死亡時→全体"
     ],
     "features": [
       {
@@ -5648,7 +5709,18 @@
         "attackMul": 260
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill2-buff"
+        ]
+      }
+    ]
   },
   {
     "TODO_FATAL": "HP減少時攻撃速度",
@@ -5674,7 +5746,7 @@
       "cooldown": 45,
       "supplements": [
         "DEF-{attack-base*3}→命中",
-        "回復100%/スキル終了時"
+        "回復100%/終了後"
       ]
     },
     "exSkill2": {
@@ -5712,7 +5784,7 @@
           "スキル"
         ],
         "supplements": [
-          "MIN-HP1"
+          "HP0にならない"
         ]
       },
       {
@@ -5920,7 +5992,7 @@
       "duration": 40,
       "cooldown": 50,
       "supplements": [
-        "即死"
+        "即死→命中"
       ]
     },
     "exSkill2": {
@@ -5932,7 +6004,7 @@
       "duration": 25,
       "cooldown": 35,
       "supplements": [
-        "即死",
+        "即死→命中",
         "対地限定攻撃"
       ]
     },
@@ -5986,17 +6058,8 @@
         "defenseMul": 130
       },
       {
-        "featureName": "block4",
+        "featureName": "common-block4",
         "isConditionalBuff": true,
-        "require": [
-          "武器"
-        ],
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 4
-          }
-        ],
         "defenseMul": 220
       }
     ],
@@ -6005,10 +6068,128 @@
     "targetAdd": 1,
     "potentialBonus": {
       "hpMul": 146
-    }
+    },
+    "situations": [
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "block1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "block1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "block1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "features": [
+          "block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 2,
+        "features": [
+          "block0"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "block1",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "common-block4",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "block0",
+          "class-action"
+        ]
+      }
+    ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 50,
     "unitName": "【ミノタウロス娘】シルバ",
     "unitShortName": "シルバ",
@@ -6061,7 +6242,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 500001,
     "parentId": 50,
     "unitName": "【ミノタウロス娘】シルバ",
@@ -6144,7 +6324,7 @@
       "duration": 25,
       "cooldown": 40,
       "supplements": [
-        "CT-10秒/発動→味方遠"
+        "CT-10秒/発動→全体遠距離"
       ]
     },
     "exSkill2": {
@@ -6153,7 +6333,7 @@
       "duration": 25,
       "cooldown": 40,
       "supplements": [
-        "CT-7秒/発動→味方遠"
+        "CT-7秒/発動→全体遠距離"
       ]
     },
     "potentials": [
@@ -6183,12 +6363,12 @@
         "isNotAbility": true,
         "supplements": [
           "鈍足-20%→射程内",
-          "攻撃速度-20%→射程内敵"
+          "攻撃速度-20%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
             "鈍足-25%→射程内",
-            "攻撃速度-25%→射程内敵"
+            "攻撃速度-25%→射程内"
           ]
         }
       },
@@ -6197,12 +6377,12 @@
         "isNotAbility": true,
         "supplements": [
           "鈍足-40%→射程内",
-          "攻撃速度-40%→射程内敵"
+          "攻撃速度-40%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
             "鈍足-50%→射程内",
-            "攻撃速度-50%→射程内敵"
+            "攻撃速度-50%→射程内"
           ]
         }
       },
@@ -6211,12 +6391,12 @@
         "isNotAbility": true,
         "supplements": [
           "鈍足-60%→射程内",
-          "攻撃速度-60%→射程内敵"
+          "攻撃速度-60%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
             "鈍足-75%→射程内",
-            "攻撃速度-75%→射程内敵"
+            "攻撃速度-75%→射程内"
           ]
         }
       }
@@ -12463,7 +12643,7 @@
       "cooldown": 30,
       "supplements": [
         "引き付け",
-        "MIN-HP1",
+        "HP0にならない",
         "DEF-10→命中",
         "RES-10→命中",
         "HP回復100%/終了時"
@@ -23110,7 +23290,7 @@
       "cooldown": 30,
       "damageType": "魔法",
       "supplements": [
-        "MIN-HP1",
+        "HP0にならない",
         "低HP割合敵優先"
       ]
     },
@@ -31962,7 +32142,7 @@
       "duration": 20,
       "cooldown": 45,
       "supplements": [
-        "MIN-HP1"
+        "HP0にならない"
       ]
     },
     "potentials": [
@@ -33005,7 +33185,7 @@
         ],
         "isConditionalBuff": true,
         "supplements": [
-          "MIN-HP1"
+          "HP0にならない"
         ]
       },
       {
