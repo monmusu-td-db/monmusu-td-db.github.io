@@ -60,7 +60,7 @@ export class StatAttack extends SituationBaseStat<Factors> {
                   <>
                     <T.Result>{d ? "実攻撃力" : f.actualResult}</T.Result>
                     <T.Expression>
-                      {d ? "表示能力値" : f.inBattleResult}
+                      {d ? "戦闘中能力" : f.inBattleResult}
                       {getDamageFactor(d)}
                     </T.Expression>
                   </>
@@ -84,7 +84,7 @@ export class StatAttack extends SituationBaseStat<Factors> {
                         {d ? "CRI攻撃力" : f.criticalAttack}
                       </T.Result>
                       <T.Expression>
-                        {d ? "表示能力値" : f.inBattleResult}
+                        {d ? "戦闘中能力" : f.inBattleResult}
                         <T.Multiply>
                           <T.Positive>
                             {d

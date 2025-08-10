@@ -103,6 +103,24 @@
   color: var(--bs-red);
 }
 
+.stat-table .header-alias {
+  display: inline;
+}
+
+.stat-table .header-name {
+  display: none;
+}
+
+@media (min-height: 600px) {
+  .stat-table .header-alias {
+    display: none;
+  }
+
+  .stat-table .header-name {
+    display: inline;
+  }
+}
+
 th.hp,
 th.attack,
 th.defense,
@@ -245,6 +263,7 @@ th.buffBlindImmune,
 th.buffStanImmune,
 th.buffPetrifyImmune,
 th.buffFreezeImmune,
+th.buffBurnImmune,
 th.buffWeatherChange {
   width: 2.7rem;
 }

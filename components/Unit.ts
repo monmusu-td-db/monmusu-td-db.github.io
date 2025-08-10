@@ -41,7 +41,7 @@ export interface JsonUnit {
   range?: number;
   moveSpeed?: number;
   moveType?: string | null;
-  moveCost?: number;
+  moveCostAdd?: number;
   damageType?: Data.JsonDamageType;
   placement?: Data.JsonPlacement;
   supplements?: readonly string[];
@@ -54,11 +54,16 @@ export interface JsonUnit {
   features?: readonly JsonFeature[];
   isEventUnit?: boolean;
   isUnhealable?: boolean;
+  isNotToken?: boolean;
   costAdd?: number;
   hpMul?: number;
   attackMul?: number;
   defenseMul?: number;
   resistMul?: number;
+  envHpMul?: number;
+  envAttackMul?: number;
+  envDefenseMul?: number;
+  envResistMul?: number;
   criChanceAdd?: number;
   criDamageAdd?: number;
   penetrationAdd?: number;
@@ -84,6 +89,10 @@ type JsonPotentialBonus = Readonly<
     attackMul: number;
     defenseMul: number;
     resistMul: number;
+    envHpMul: number;
+    envAttackMul: number;
+    envDefenseMul: number;
+    envResistMul: number;
     criDamageAdd: number;
     attackSpeedAdd: number;
     rounds: Data.JsonRound;
@@ -201,6 +210,7 @@ export default class Unit implements TableRow<Keys> {
   readonly className: Stat.Root<Data.UnitClassTag | undefined>;
   readonly equipmentName: IGetText;
   readonly cc4Name: IGetText;
+  readonly baseClassName: IGetText;
   readonly element: Stat.Root<Data.Element | undefined>;
   readonly species: Stat.Root<readonly Data.Species[]>;
   readonly cost: Stat.Root;
@@ -242,6 +252,10 @@ export default class Unit implements TableRow<Keys> {
   readonly attackMul: number | undefined;
   readonly defenseMul: number | undefined;
   readonly resistMul: number | undefined;
+  readonly envHpMul: number | undefined;
+  readonly envAttackMul: number | undefined;
+  readonly envDefenseMul: number | undefined;
+  readonly envResistMul: number | undefined;
   readonly fixedDelay: number | undefined;
   readonly rangeAdd: number | undefined;
   readonly potentialBonus: JsonPotentialBonus | undefined;
@@ -265,7 +279,7 @@ export default class Unit implements TableRow<Keys> {
     });
 
     this.parentId = src.parentId;
-    this.isToken = this.parentId !== undefined;
+    this.isToken = this.parentId !== undefined && !src.isNotToken;
 
     this.unitName = new Stat.Root({
       statType: stat.unitName,
@@ -328,6 +342,14 @@ export default class Unit implements TableRow<Keys> {
         return Data.UnitClass.cc4NameOf(value);
       };
       this.cc4Name = { getText };
+    }
+
+    {
+      const getText = (s: Setting) => {
+        const value = this.className.getValue(s);
+        return Data.UnitClass.baseTagOf(value);
+      };
+      this.baseClassName = { getText };
     }
 
     const element = Data.Element.parse(src.element);
@@ -680,9 +702,11 @@ export default class Unit implements TableRow<Keys> {
         if (!this.moveType.getValue(s) || !this.moveSpeed.getValue(s)) {
           return;
         }
-        const base = src.moveCost ?? 3;
+        const base = 3;
+        const add = (classData?.moveCostAdd ?? 0) + (src.moveCostAdd ?? 0);
         const potential = this.getPotentialFactor(s, stat.moveCost);
-        return Math.max(base + potential, 0);
+        const subSkill = -this.getSubskillFactor(s, ssKeys.moveCostCut);
+        return Math.max(base + add + potential + subSkill, 0);
       },
     });
 
@@ -760,6 +784,10 @@ export default class Unit implements TableRow<Keys> {
     this.attackMul = src.attackMul;
     this.defenseMul = src.defenseMul;
     this.resistMul = src.resistMul;
+    this.envHpMul = src.envHpMul;
+    this.envAttackMul = src.envAttackMul;
+    this.envDefenseMul = src.envDefenseMul;
+    this.envResistMul = src.envResistMul;
     this.fixedDelay = src.fixedDelay;
     this.rangeAdd = src.rangeAdd;
     this.potentialBonus = src.potentialBonus;
@@ -910,6 +938,7 @@ export default class Unit implements TableRow<Keys> {
     const ret = {
       ...this.getBarrackFactors(setting, statType, value),
       formationBuff: this.getFormationBuffFactor(setting, statType),
+      environmentBuff: this.getEnvironmentBuffFactor(setting, statType),
       beastFormationBuff: this.getBeastFormationBuffFactor(setting, statType),
       beastPossLevel: this.isToken
         ? 100
@@ -933,19 +962,20 @@ export default class Unit implements TableRow<Keys> {
     if (this.isToken) {
       return res;
     }
-    const a =
+    const formation =
       statType !== stat.cost
         ? Percent.multiply(res, factors.formationBuff)
         : res + factors.formationBuff;
-    let b;
+    const envBuff = Percent.multiply(formation, factors.environmentBuff);
+    let beastFormation;
     if (Data.Beast.isFormationFactorAdd(statType)) {
-      b = Math.max(0, a + factors.beastFormationBuff);
+      beastFormation = Math.max(0, envBuff + factors.beastFormationBuff);
     } else {
-      b = Percent.multiply(a, factors.beastFormationBuff);
+      beastFormation = Percent.multiply(envBuff, factors.beastFormationBuff);
     }
-    const c = Percent.multiply(b, factors.beastPossLevel);
-    const d = c + factors.beastPossAmount;
-    return Percent.multiply(d, factors.typeBonusBuff);
+    const possLevel = Percent.multiply(beastFormation, factors.beastPossLevel);
+    const possAmount = possLevel + factors.beastPossAmount;
+    return Percent.multiply(possAmount, factors.typeBonusBuff);
   }
 
   isPotentialApplied(setting: Setting): boolean {
@@ -1164,6 +1194,45 @@ export default class Unit implements TableRow<Keys> {
       subskill,
       panel,
     ].reduce((a, c) => a + c - defaultValue, defaultValue);
+  }
+
+  private getEnvironmentBuffFactor(
+    setting: Setting,
+    statType: Data.StatType
+  ): number {
+    const isPotentialApplied = this.isPotentialApplied(setting);
+    let ret;
+    if (isPotentialApplied) {
+      switch (statType) {
+        case stat.hp:
+          ret = this.potentialBonus?.envHpMul;
+          break;
+        case stat.attack:
+          ret = this.potentialBonus?.envAttackMul;
+          break;
+        case stat.defense:
+          ret = this.potentialBonus?.envDefenseMul;
+          break;
+        case stat.resist:
+          ret = this.potentialBonus?.envResistMul;
+          break;
+      }
+    }
+    switch (statType) {
+      case stat.hp:
+        ret ??= this.envHpMul;
+        break;
+      case stat.attack:
+        ret ??= this.envAttackMul;
+        break;
+      case stat.defense:
+        ret ??= this.envDefenseMul;
+        break;
+      case stat.resist:
+        ret ??= this.envResistMul;
+        break;
+    }
+    return ret ?? 100;
   }
 
   private getBeastFactor(setting: Setting, key: BeastFactorKeys): number {
@@ -1444,8 +1513,16 @@ export default class Unit implements TableRow<Keys> {
     } else {
       const sb =
         parent === undefined
-          ? [this.rarity]
+          ? [
+              this.unitId,
+              this.rarity,
+              this.className,
+              this.equipmentName,
+              this.cc4Name,
+              this.baseClassName,
+            ]
           : [
+              parent.unitId,
               parent.unitName,
               parent.unitShortName,
               parent.rarity,
@@ -1453,6 +1530,7 @@ export default class Unit implements TableRow<Keys> {
               parent.className,
               parent.equipmentName,
               parent.cc4Name,
+              parent.baseClassName,
             ];
 
       const s = [
@@ -1461,9 +1539,6 @@ export default class Unit implements TableRow<Keys> {
         this.unitShortName,
         this.element,
         this.damageType,
-        this.className,
-        this.equipmentName,
-        this.cc4Name,
         this.exSkill1,
         this.exSkill2,
       ].map((v) => v.getText(states.setting)?.toString());

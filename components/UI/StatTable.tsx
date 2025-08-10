@@ -8,6 +8,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type ReactNode,
   type RefObject,
 } from "react";
 import { Alert, Table } from "react-bootstrap";
@@ -31,6 +32,7 @@ import type {
 // Types
 
 type Stat = StatRoot<unknown, unknown> | undefined;
+const stat = Data.stat;
 
 export type CellData = {
   ref: RefObject<HTMLElement | null>;
@@ -246,13 +248,47 @@ function Header_<T extends string>({
               role={role}
               onClick={() => handleClick?.(col.id)}
             >
-              {Data.StatType.getHeaderName(col.id, setting, col.name)}
+              <HeaderName statType={col.id} setting={setting} name={col.name} />
             </th>
           );
         })}
       </tr>
     </thead>
   );
+}
+
+function HeaderName({
+  statType,
+  setting,
+  name,
+}: {
+  statType: string;
+  setting: Setting;
+  name: string;
+}): ReactNode {
+  const base = Data.StatType.getHeaderName(statType, setting, name);
+
+  function getName(alias: string) {
+    return (
+      <>
+        <span className="header-alias">{alias}</span>
+        <span className="header-name">{base}</span>
+      </>
+    );
+  }
+
+  switch (statType) {
+    case stat.defense:
+      return getName("物防");
+    case stat.resist:
+      return getName("魔防");
+    case stat.duration:
+      return getName("効果(秒)");
+    case stat.damageType:
+      return getName("属性");
+    default:
+      return base;
+  }
 }
 
 const Body = memo(Body_) as typeof Body_;

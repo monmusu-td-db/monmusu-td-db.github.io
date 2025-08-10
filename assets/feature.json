@@ -494,6 +494,15 @@
     ]
   },
   {
+    "featureName": "common-definite-human",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "human"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-fire",
     "conditions": [
       {
@@ -849,5 +858,11 @@
     ],
     "splash": false,
     "wideTarget": false
+  },
+  {
+    "featureName": "common-dungeon",
+    "annotations": [
+      "ダンジョンでの能力値"
+    ]
   }
 ]
