@@ -70,6 +70,7 @@ const statusKey = [
   stat.buffStanImmune,
   stat.buffPetrifyImmune,
   stat.buffFreezeImmune,
+  stat.buffBurnImmune,
 ] as const satisfies InBattleBuffKey[];
 
 const weatherKey = [

@@ -264,6 +264,7 @@ const commonFeature = {
   healFlag: false,
   flagTargetSkillBuff: false,
   flagCooldownReductionType: false,
+  isSingleSkill: false,
   currentHp: 0,
   phase: 0,
   phaseName: "",

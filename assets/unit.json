@@ -363,9 +363,6 @@
     ]
   },
   {
-    "TODO_DESC": "wiki情報",
-    "TODO_FATAL": "攻撃速度/待機時間",
-    "TODO_STAT_INFERRED": true,
     "id": 30001,
     "parentId": 3,
     "unitName": "触手",
@@ -376,8 +373,8 @@
     "attack": 727,
     "defense": 99,
     "resist": 99,
-    "attackSpeed": 999,
-    "delay": 99,
+    "attackSpeed": 100,
+    "delay": 25,
     "block": null,
     "target": 1,
     "moveSpeed": 0,
@@ -4393,6 +4390,7 @@
       {
         "skill": 0,
         "target": "射程内",
+        "duration": 0,
         "supplements": [
           "配置時即時回復効果"
         ],
@@ -4643,6 +4641,7 @@
       {
         "skill": 0,
         "target": "射程内",
+        "duration": 0,
         "supplements": [
           "配置時即時回復効果"
         ],
@@ -4694,10 +4693,7 @@
       "attackMul": 170,
       "rangeMul": 150,
       "duration": 30,
-      "cooldown": 40,
-      "supplements": [
-        "物理被Dmg-20%→射程内"
-      ]
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -4734,6 +4730,14 @@
       },
       {
         "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "physical-damage-cut",
+        "skill": 2,
+        "target": "射程内",
+        "value": 20
       }
     ]
   },
@@ -4803,6 +4807,17 @@
           "common-fire-field"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "freeze-invalid",
+        "skill": -1,
+        "target": "射程内",
+        "duration": 0,
+        "supplements": [
+          "配置時即時回復効果"
+        ]
+      }
     ]
   },
   {
@@ -4819,11 +4834,12 @@
     "exSkill1": {
       "skillName": "怪根の癒し",
       "fixedDelay": 1,
+      "target": "射程内",
       "rangeMul": 160,
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "スタン確定付与"
+        "スタン確定付与→射程内"
       ]
     },
     "potentials": [
@@ -4840,6 +4856,16 @@
           "key": "attack-base",
           "value": 500
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "isGeneral": true,
+        "skill": 1
       }
     ]
   },
@@ -4899,17 +4925,14 @@
         ]
       },
       {
-        "featureName": "proper-human",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-human",
         "damageFactor": 150,
         "potentialBonus": {
           "damageFactor": 160
         }
       },
       {
-        "featureName": "proper-human",
+        "featureName": "common-definite-human",
         "require": [
           "武器"
         ],
@@ -4918,17 +4941,21 @@
         ]
       },
       {
-        "featureName": "proper-poison",
+        "featureName": "common-definite-poison",
         "annotations": [
           "毒特効"
-        ],
-        "conditions": [
-          "特"
         ],
         "require": [
           "武器"
         ],
         "damageFactor": 140
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "人間特効",
+          "毒特効"
+        ]
       },
       {
         "featureName": "skill1-extra",
@@ -4985,33 +5012,33 @@
       },
       {
         "features": [
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 1,
         "features": [
           "skill1-extra",
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
         "skill": 2,
         "features": [
           "skill2-extra",
-          "proper-human"
+          "common-definite-human"
         ]
       },
       {
@@ -5019,16 +5046,7 @@
           "weapon"
         ],
         "features": [
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5037,46 +5055,7 @@
         ],
         "skill": 1,
         "features": [
-          "skill1-extra",
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 2,
-        "features": [
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 2,
-        "features": [
-          "skill2-extra",
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "features": [
-          "proper-human",
-          "proper-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5086,8 +5065,7 @@
         "skill": 1,
         "features": [
           "skill1-extra",
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5096,8 +5074,7 @@
         ],
         "skill": 2,
         "features": [
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
         ]
       },
       {
@@ -5107,15 +5084,69 @@
         "skill": 2,
         "features": [
           "skill2-extra",
-          "proper-human",
-          "proper-poison"
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-extra",
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "skill2-extra",
+          "common-definite-double",
+          "common-definite-human",
+          "common-definite-poison"
         ]
       }
     ]
   },
   {
-    "TODO_DESC": "statはwiki情報",
-    "TODO_FATAL": "ex2毒付与間隔はwiki情報",
+    "TODO_DESC": "ex2毒付与間隔はwiki情報",
     "id": 41,
     "unitName": "【アラクネ娘】フランシ",
     "unitShortName": "フランシ",
@@ -5205,6 +5236,7 @@
         "damageType": "貫通"
       }
     ],
+    "moveCostAdd": 5,
     "situations": [
       {},
       {
@@ -6018,17 +6050,74 @@
           "key": "hp",
           "value": 3
         }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "StatはWiki情報",
+    "id": 500001,
+    "parentId": 50,
+    "unitName": "【ミノタウロス娘】シルバ",
+    "unitShortName": "シルバ（ダンジョン）",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "光",
+    "hp": 6628,
+    "attack": 977,
+    "defense": 438,
+    "resist": 129,
+    "exSkill1": {
+      "skillName": "全力フルスイング",
+      "attackMul": 170,
+      "target": "ブロック",
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃力+75"
+    ],
+    "weapon": {
+      "weaponName": "ミルキーアックス",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "annotations": [
+          "ダンジョンでの能力値"
+        ]
       },
       {
-        "featureName": "dungeon",
-        "hpMul": 180,
-        "attackMul": 150,
-        "potentialBonus": {
-          "attackMul": 160
+        "require": [
+          "武器"
+        ],
+        "attackAdd": {
+          "key": "hp",
+          "value": 3
         }
       }
     ],
     "isEventUnit": true,
+    "isNotToken": true,
+    "envHpMul": 180,
+    "envAttackMul": 150,
+    "potentialBonus": {
+      "envAttackMul": 160
+    },
     "situations": [
       {},
       {
@@ -9020,7 +9109,7 @@
     "features": [
       {
         "supplements": [
-          "復活HP100%(1回のみ)"
+          "回復100%/死亡時(1回のみ)"
         ]
       },
       {
@@ -9031,7 +9120,7 @@
         "attackMul": 160,
         "defenseMul": 160,
         "deleteSupplements": [
-          "復活HP100%(1回のみ)"
+          "回復100%/死亡時(1回のみ)"
         ]
       },
       {
@@ -9749,7 +9838,7 @@
     "defense": 416,
     "resist": 122,
     "supplements": [
-      "復活HP100%(1回のみ)"
+      "回復100%/死亡時(1回のみ)"
     ],
     "exSkill1": {
       "skillName": "超活性",
@@ -12012,7 +12101,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "TODO_FATAL": "射程/ex1攻撃速度",
     "id": 106,
     "unitName": "【デカイオー娘】リッティ",
@@ -12020,7 +12108,7 @@
     "rarity": "L",
     "class": "バーバリアン",
     "element": "風",
-    "hp": 6786,
+    "hp": 6787,
     "attack": 1067,
     "defense": 465,
     "resist": 127,
@@ -12050,7 +12138,7 @@
       {
         "featureName": "common-ranged",
         "isConditionalBuff": true,
-        "damageFactor": 60,
+        "damageFactor": 80,
         "splash": true
       },
       {
@@ -12061,10 +12149,10 @@
       }
     ],
     "costAdd": 5,
-    "hpMul": 135,
-    "attackMul": 120,
+    "hpMul": 140,
+    "attackMul": 125,
     "potentialBonus": {
-      "hpMul": 145
+      "hpMul": 150
     },
     "situations": [
       {
@@ -12092,7 +12180,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "id": 107,
     "unitName": "【大悪魔召喚士】ラピス",
     "unitShortName": "ラピス",
@@ -12105,8 +12192,8 @@
     "resist": 596,
     "exSkill1": {
       "skillName": "デモニックフィールド",
-      "attackMul": 160,
-      "rangeMul": 160,
+      "attackMul": 180,
+      "rangeMul": 180,
       "duration": 20,
       "cooldown": 50
     },
@@ -18993,8 +19080,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "dotのintervalはwiki情報",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 186,
     "unitName": "【ファイアードレイク娘】イグニ",
     "unitShortName": "イグニ/進化",
@@ -19511,7 +19597,6 @@
     ]
   },
   {
-    "TODO_FATAL": "射程",
     "id": 190,
     "unitName": "【ストーンゴーレム娘】ネイス",
     "unitShortName": "ネイス",
@@ -19532,6 +19617,7 @@
       "skillName": "ガントレットファイア",
       "defenseMul": 700,
       "splash": true,
+      "range": 260,
       "duration": 30,
       "cooldown": 45
     },
@@ -23186,7 +23272,6 @@
     ]
   },
   {
-    "TODO_FATAL": "種族特性の属性指定回復量増加は乗算か調べる",
     "id": 227,
     "unitName": "【学者】プロメスティン",
     "unitShortName": "プロメスティン",
@@ -28675,7 +28760,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 285,
     "unitName": "【シェイプシフター娘】アスタ",
     "unitShortName": "アスタ/進化",
@@ -31900,7 +31985,7 @@
       },
       {
         "supplements": [
-          "復活HP100%(1回のみ)",
+          "回復100%/死亡時(1回のみ)",
           "被Dmg25%引受→射程内"
         ]
       },
@@ -31922,7 +32007,7 @@
         ],
         "attackMul": 150,
         "deleteSupplements": [
-          "復活HP100%(1回のみ)"
+          "回復100%/死亡時(1回のみ)"
         ]
       }
     ],
@@ -34932,6 +35017,731 @@
           {
             "type": "critical-chance-limit-add",
             "value": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "コストは単独の場合1/23f増加、シャーマン0.4体相当",
+    "id": 350,
+    "unitName": "【ミュルミドーン娘】ミーデン",
+    "unitShortName": "ミーデン",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "地",
+    "hp": 6893,
+    "attack": 600,
+    "defense": 863,
+    "resist": 214,
+    "supplements": [
+      "コスト回復加速(小)"
+    ],
+    "exSkill1": {
+      "skillName": "女王への忠誠",
+      "rounds": 2,
+      "range": 100,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "defense",
+          "value": 30
+        }
+      },
+      {
+        "skill": 0,
+        "require": [
+          "地マス"
+        ],
+        "attackMul": 120,
+        "defenseMul": 120,
+        "potentialBonus": {
+          "attackMul": 130,
+          "defenseMul": 130
+        }
+      },
+      {
+        "skill": 1,
+        "require": [
+          "地マス"
+        ],
+        "isConditionalSkillBuff": true,
+        "attackMul": 140,
+        "defenseMul": 140,
+        "potentialBonus": {
+          "attackMul": 160,
+          "defenseMul": 160
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 150
+      }
+    ]
+  },
+  {
+    "id": 351,
+    "unitName": "【ダンジョン娘】ダリナ",
+    "unitShortName": "ダリナ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "地",
+    "hp": 7106,
+    "attack": 580,
+    "defense": 878,
+    "resist": 210,
+    "supplements": [
+      "回復100%/死亡時(1回のみ)"
+    ],
+    "exSkill1": {
+      "skillName": "ダンジョンプレベント",
+      "blockAdd": 2,
+      "duration": 30,
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "引き付け",
+        "スタン無効"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 100,
+        "magicalDamageCut": 100
+      },
+      {
+        "featureName": "defense-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 300
+          }
+        ],
+        "defenseMul": 300
+      },
+      {
+        "featureName": "class-melee",
+        "isConditionalBuff": true,
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 30
+          },
+          "supplements": [
+            "ATK-30%→ブロック敵"
+          ]
+        }
+      }
+    ],
+    "hpMul": 150,
+    "attackMul": 80,
+    "defenseMul": 150,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "defense-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "defense-mul"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "target": "全体",
+        "value": 160
+      }
+    ]
+  },
+  {
+    "id": 3510001,
+    "parentId": 351,
+    "unitName": "【ダンジョン娘】ダリナ",
+    "unitShortName": "ダリナ（ダンジョン）",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "地",
+    "hp": 7106,
+    "attack": 580,
+    "defense": 878,
+    "resist": 210,
+    "supplements": [
+      "回復100%/死亡時(1回のみ)"
+    ],
+    "exSkill1": {
+      "skillName": "ダンジョンプレベント",
+      "blockAdd": 2,
+      "duration": 30,
+      "cooldown": 30,
+      "damageType": null,
+      "supplements": [
+        "引き付け",
+        "スタン無効"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "HPが毎秒3%回復"
+    ],
+    "features": [
+      {
+        "annotations": [
+          "ダンジョンでの能力値"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 100,
+        "magicalDamageCut": 100
+      },
+      {
+        "featureName": "defense-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 300
+          }
+        ],
+        "defenseMul": 300
+      },
+      {
+        "featureName": "class-melee",
+        "isConditionalBuff": true,
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 30
+          },
+          "supplements": [
+            "ATK-30%→ブロック敵"
+          ]
+        }
+      }
+    ],
+    "isNotToken": true,
+    "hpMul": 150,
+    "attackMul": 80,
+    "defenseMul": 150,
+    "envHpMul": 130,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "defense-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "defense-mul"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 352,
+    "unitName": "【天城のデーモンロード娘】ダムストー",
+    "unitShortName": "ダムストー/天城",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "風",
+    "hp": 2673,
+    "attack": 1005,
+    "defense": 227,
+    "resist": 292,
+    "exSkill1": {
+      "skillName": "悪魔のラプントゥー",
+      "attackMul": 220,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 25,
+      "supplements": [
+        "コスト-3/発動",
+        "ノックバック(小)→命中"
+      ],
+      "skillFeatures": [
+        {
+          "featureName": "common-phase5",
+          "duration": 30
+        }
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃速度+15",
+      "再出撃時間50%短縮"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "風"
+        ],
+        "cost": -1,
+        "attack": 109,
+        "potentialBonus": {
+          "attack": 112
+        }
+      }
+    ],
+    "features": [
+      {
+        "damageDebuff": 130
+      },
+      {
+        "featureName": "skill1-beat-20",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 20
+          }
+        ],
+        "attackSpeedBuff": 200
+      },
+      {
+        "featureName": "common-phase1",
+        "isConditionalBuff": true,
+        "attackMul": 125,
+        "defenseMul": 125,
+        "resistMul": 125,
+        "rangeAdd": 10
+      },
+      {
+        "featureName": "common-phase2",
+        "isConditionalBuff": true,
+        "attackMul": 150,
+        "defenseMul": 150,
+        "resistMul": 150,
+        "rangeAdd": 20
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalBuff": true,
+        "attackMul": 175,
+        "defenseMul": 175,
+        "resistMul": 175,
+        "rangeAdd": 30
+      },
+      {
+        "featureName": "common-phase4",
+        "isConditionalBuff": true,
+        "attackMul": 200,
+        "defenseMul": 200,
+        "resistMul": 200,
+        "rangeAdd": 40
+      },
+      {
+        "featureName": "common-phase5",
+        "isConditionalBuff": true,
+        "attackMul": 225,
+        "defenseMul": 225,
+        "resistMul": 225,
+        "rangeAdd": 50,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase4"
+        ]
+      },
+      {
+        "features": [
+          "common-phase4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase5"
+        ]
+      },
+      {
+        "features": [
+          "common-phase5"
+        ]
+      },
+      {
+        "features": [
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase1",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase2",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase2",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase3",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase4",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase4",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase5",
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "features": [
+          "common-phase5",
+          "skill1-beat-20"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "target": "射程内",
+        "value": 130
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase1"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル1回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase2"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル2回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase3"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル3回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase4"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル4回使用"
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "common-phase5"
+        ],
+        "target": "射程内",
+        "value": 130,
+        "supplements": [
+          "スキル5回使用"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 353,
+    "unitName": "【世界を超える者】エフトラ",
+    "unitShortName": "エフトラ",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "光",
+    "hp": 2651,
+    "attack": 997,
+    "defense": 227,
+    "resist": 297,
+    "moveType": "飛行",
+    "placement": "両",
+    "damageType": "貫通",
+    "supplements": [
+      "鈍足→命中",
+      "攻撃待機時間増加→命中"
+    ],
+    "exSkill1": {
+      "skillName": "封印銃ティルナノグ",
+      "attackMul": 300,
+      "criChanceAdd": 100,
+      "criChanceLimitAdd": 100,
+      "rounds": 4,
+      "duration": 15,
+      "cooldown": 25,
+      "supplements": [
+        "鈍足-95%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "supplements": [
+          "バリア5000付与/配置"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "バリア7000付与/配置"
+          ]
+        }
+      },
+      {
+        "featureName": "skill1-attack",
+        "isSingleSkill": true,
+        "annotations": [
+          "EX1発動時攻撃"
+        ],
+        "target": 8,
+        "rounds": 5
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-attack"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_DESC": "PotentialはWiki情報",
+    "id": 354,
+    "unitName": "【北姫のシルバードラゴン娘】アルギュロ",
+    "unitShortName": "アルギュロ/北姫",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "水",
+    "hp": 6034,
+    "attack": 963,
+    "defense": 463,
+    "resist": 105,
+    "damageType": "魔法",
+    "supplements": [
+      "凍結付与(中)→命中",
+      "毒即時回復→射程内",
+      "スタン即時回復→射程内",
+      "火傷即時回復→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "魔剣フラガラッハ",
+      "attackMul": 360,
+      "attackMotionMul": 133,
+      "fixedDelay": 1,
+      "target": 1,
+      "rounds": 5,
+      "range": 350,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "凍結付与(超)/発動→射程内",
+        "即死(中)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "CRI率/CRI率上限+20%"
+    ],
+    "features": [
+      {
+        "featureName": "common-definite-freeze",
+        "damageFactor": 130
+      }
+    ],
+    "attackMul": 130,
+    "criChanceAdd": 20,
+    "criDamageAdd": 40,
+    "potentialBonus": {
+      "criChanceAdd": 25,
+      "criDamageAdd": 50
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "target": "射程内",
+        "supplements": [
+          "即時回復効果"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "stan-invalid"
+          },
+          {
+            "type": "burn-invalid"
           }
         ]
       }

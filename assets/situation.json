@@ -1,25 +1,5 @@
 [
   {
-    "unitId": 39,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 39,
-    "skill": 1,
-    "features": [
-      "class-heal"
-    ]
-  },
-  {
-    "unitId": 39,
-    "features": [
-      "class-heal",
-      "class-definite"
-    ]
-  },
-  {
     "unitId": 43
   },
   {

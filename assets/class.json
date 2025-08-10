@@ -770,6 +770,7 @@
     "delay": 20,
     "range": 190,
     "moveSpeed": 270,
+    "moveCostAdd": -2,
     "damageType": "物理",
     "placement": "両",
     "supplements": [

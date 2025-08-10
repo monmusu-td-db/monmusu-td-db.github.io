@@ -480,6 +480,7 @@ export class Condition {
     "same-element": "同属性",
     female: "女性",
     male: "男性",
+    human: "人間",
     fire: "火属性",
     water: "水属性",
     earth: "地属性",
@@ -1988,6 +1989,7 @@ const statusName = {
   stan: "スタン",
   petrify: "石化",
   freeze: "凍結",
+  burn: "火傷",
 } as const;
 type StatusKey = keyof typeof statusName;
 type StatusValue = (typeof statusName)[StatusKey];
@@ -2008,6 +2010,8 @@ export class Status {
         return statusName[this.key.petrify];
       case stat.buffFreezeImmune:
         return statusName[this.key.freeze];
+      case stat.buffBurnImmune:
+        return statusName[this.key.burn];
     }
   }
 }
@@ -2083,6 +2087,7 @@ export interface BarrackFactors extends BarrackFactorsBase {
 }
 export interface DeploymentFactorsBase extends BarrackFactors {
   readonly formationBuff: number;
+  readonly environmentBuff: number;
   readonly beastFormationBuff: number;
   readonly beastPossLevel: number;
   readonly beastPossAmount: number;
@@ -2189,6 +2194,8 @@ export interface IntervalBaseFactors
   readonly result: number;
 }
 export interface IntervalFactors extends ActualIntervalFactors {
+  readonly isSingleSkill?: boolean;
+  readonly duration?: number | undefined;
   readonly cooldown?: number;
   readonly cooldownFrame?: number;
   readonly minInterval?: number | undefined;

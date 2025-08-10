@@ -15,6 +15,7 @@ interface JsonClass {
   range?: number;
   moveSpeed: number;
   moveType?: string;
+  moveCostAdd?: number;
   penetration?: number;
   damageType?: Data.JsonDamageType;
   placement: Data.JsonPlacement;
@@ -42,6 +43,7 @@ class Class {
   readonly range: number | undefined;
   readonly moveSpeed: number;
   readonly moveType: Data.MoveType;
+  readonly moveCostAdd: number;
   readonly penetration: number;
   readonly damageType: Data.DamageType | undefined;
   readonly placement: Data.Placement;
@@ -62,6 +64,7 @@ class Class {
     this.range = src.range;
     this.moveSpeed = src.moveSpeed;
     this.moveType = Data.MoveType.parse(src.moveType) ?? Data.MoveType.normal;
+    this.moveCostAdd = src.moveCostAdd ?? 0;
     this.penetration = src.penetration ?? 0;
     this.damageType = Data.JsonDamageType.parse(src.damageType) ?? undefined;
     this.placement = Data.JsonPlacement.parse(src.placement);
