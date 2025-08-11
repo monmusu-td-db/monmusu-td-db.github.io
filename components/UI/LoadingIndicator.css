@@ -1,0 +1,36 @@
+@keyframes loading {
+  from {
+    top: 0px;
+  }
+
+  to {
+    top: 10px;
+  }
+}
+
+.loading-indicator {
+  pointer-events: none;
+  position: fixed;
+  left: calc(95vw - 100px);
+  top: calc(95vh - 100px);
+  z-index: 2000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s 0.75s linear;
+  opacity: 0;
+}
+
+[data-md-loading="show"] .loading-indicator {
+  opacity: 1;
+}
+
+.loading-indicator > div {
+  position: relative;
+  animation: 1s ease-in alternate infinite loading;
+}
+
+.loading-indicator > div > .spinner-border {
+  position: absolute;
+  left: 131px;
+  top: 58px;
+  color: var(--bs-black);
+}
