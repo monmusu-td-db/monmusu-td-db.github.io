@@ -23,11 +23,10 @@ function LoadingIndicator(): ReactNode {
           const ids = new Set();
 
           function checkIds() {
-            if (ids.size > 0) {
-              document.documentElement.setAttribute("data-md-loading", "show");
-            } else {
-              document.documentElement.setAttribute("data-md-loading", "hide");
-            }
+            document.documentElement.setAttribute(
+              "data-md-loading",
+              ids.size > 0 ? "show" : "hide"
+            );
           }
 
           window.${SETTER_NAME} = (id) => {
