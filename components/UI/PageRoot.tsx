@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from "react";
 import Panel from "./Panel";
 import Header from "./Navbar";
+import LoadingIndicator from "./LoadingIndicator";
 
 type PageType =
   | (typeof Panel.pageType)[keyof typeof Panel.pageType]
@@ -20,6 +21,7 @@ export default function PageRoot({
   return (
     <Panel.Contexts.Open.Provider value={panelOpen}>
       <Panel.Contexts.SetOpen.Provider value={setPanelOpen}>
+        <LoadingIndicator />
         <Header pageType={pageType} />
         <main>{children}</main>
       </Panel.Contexts.SetOpen.Provider>

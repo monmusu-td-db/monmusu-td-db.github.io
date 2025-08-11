@@ -5,6 +5,7 @@ import {
   memo,
   useCallback,
   useDeferredValue,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -60,6 +61,7 @@ function StatTable<T extends string>({
   const setting = Contexts.useSetting();
   const query = Contexts.useQuery();
   const uISetting = Contexts.useUISetting();
+
   const states = useMemo((): States => {
     return {
       filter,
@@ -87,6 +89,14 @@ function StatTable<T extends string>({
     toggleSort: dToggleSort,
   } = dValues;
   const isPending = dValues !== values;
+
+  useEffect(() => {
+    if (isPending) {
+      window.__setLoadingId(id);
+    } else {
+      window.__removeLoadingId(id);
+    }
+  }, [isPending, id]);
 
   return (
     <div
