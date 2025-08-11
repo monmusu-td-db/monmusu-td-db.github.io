@@ -96,6 +96,9 @@ function StatTable<T extends string>({
     } else {
       window.__removeLoadingId(id);
     }
+    return () => {
+      window.__removeLoadingId(id);
+    };
   }, [isPending, id]);
 
   return (

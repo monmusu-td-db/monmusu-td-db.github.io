@@ -30,7 +30,7 @@
 
 .loading-indicator > div > .spinner-border {
   position: absolute;
-  left: 131px;
-  top: 58px;
+  left: 139px;
+  top: 52px;
   color: var(--bs-black);
 }
