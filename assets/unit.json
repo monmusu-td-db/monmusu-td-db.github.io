@@ -13587,7 +13587,7 @@
         "range": null,
         "damageType": "貫通",
         "supplements": [
-          "スタン付与XX%(大)"
+          "スタン付与60%"
         ]
       },
       {
@@ -15044,7 +15044,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "スタン付与7%"
+      "スタン付与6%"
     ],
     "exSkill1": {
       "skillName": "お姉ちゃんサンダー！",
@@ -23081,7 +23081,7 @@
     ]
   },
   {
-    "TODO_FATAL": "継続ダメージ",
+    "TODO_DESC": "継続ダメージ射程は目測",
     "id": 221,
     "unitName": "【ビヨンデッタ娘】ペッシェ",
     "unitShortName": "ペッシェ",
@@ -23125,9 +23125,9 @@
           "ダメージフィールド"
         ],
         "damageFactor": 66,
-        "interval": 99,
+        "interval": 15,
         "target": "射程内",
-        "range": 999,
+        "range": 320,
         "damageType": "貫通",
         "supplements": [
           "RES-10→命中",
