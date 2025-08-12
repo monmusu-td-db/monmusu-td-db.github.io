@@ -8401,7 +8401,7 @@
       "cooldown": 25,
       "damageType": "魔法",
       "supplements": [
-        "コスト+8",
+        "コスト+8/発動",
         "攻撃速度減少→命中"
       ]
     },
@@ -8414,8 +8414,8 @@
       "cooldown": 30,
       "damageType": "魔法",
       "supplements": [
-        "コスト+10",
-        "凍結付与"
+        "コスト+10/発動",
+        "凍結付与(中)→命中"
       ]
     },
     "potentials": [
@@ -8474,7 +8474,31 @@
         "hits": 3
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-3hits"
+        ]
+      }
+    ]
   },
   {
     "id": 71,
@@ -8503,7 +8527,7 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "tkn+1",
+        "tkn+1/発動",
         "ATK-35→命中"
       ]
     },
@@ -8535,6 +8559,22 @@
             "回復3%/秒"
           ]
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate-3%"
+        ]
       }
     ]
   },
@@ -8586,7 +8626,24 @@
         "attackMul": 220
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill2-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 72,
