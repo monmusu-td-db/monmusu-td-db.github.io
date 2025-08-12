@@ -15,12 +15,22 @@
   top: calc(95vh - 100px);
   z-index: 2000;
   transform: translate(-50%, -50%);
-  transition: opacity 0.25s 0.75s linear;
+  transition: opacity 0.25s linear;
   opacity: 0;
 }
 
-[data-md-loading="show"] .loading-indicator {
+[data-md-loading="show"]:not([data-md-panel="open"]) .loading-indicator {
   opacity: 1;
+}
+
+[data-md-panel="open"] .loading-indicator {
+  left: calc(min(100vw, 1824px) - 100px);
+}
+
+@media (min-width: 1700px) {
+  [data-md-loading="show"] .loading-indicator {
+    opacity: 1;
+  }
 }
 
 .loading-indicator > div {
