@@ -57,3 +57,10 @@
 .modal-backdrop.selector-backdrop {
   z-index: calc(var(--bs-backdrop-zindex) + 20);
 }
+
+.modal.selector-modal.disabled,
+.modal-backdrop.selector-backdrop.disabled,
+.modal.selector-modal.disabled *,
+.modal-backdrop.selector-backdrop.disabled * {
+  pointer-events: none !important;
+}

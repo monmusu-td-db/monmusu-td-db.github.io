@@ -156,7 +156,7 @@ function Selector(props: SelectorModalProps) {
 
 function SelectorModal(props: ModalProps) {
   const modalClassNames = cn("selector-modal", { disabled: !props.show });
-  const backdropClassNames = cn("selector-backdrop");
+  const backdropClassNames = cn("selector-backdrop", { disabled: !props.show });
 
   return (
     <Modal
