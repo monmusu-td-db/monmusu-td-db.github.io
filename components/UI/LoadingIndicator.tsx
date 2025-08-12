@@ -31,7 +31,11 @@ function LoadingIndicator(): ReactNode {
 
   window.${SETTER_NAME} = (id) => {
     ids.add(id);
-    checkIds();
+
+    const time = id === "dynamic" ? 0 : 750;
+    window.setTimeout(() => {
+      checkIds();
+    }, time);
   };
 
   window.${REMOVER_NAME} = (id) => {
