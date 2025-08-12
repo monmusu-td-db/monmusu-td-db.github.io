@@ -12,8 +12,8 @@ const getSelector = Data.TableColor.getSelector;
 export default function App() {
   return (
     <PageRoot pageType="situation">
-      <TablesSituation id="situation" className="mb-5" />
-      <Container className="md-content">
+      <TablesSituation id="situation" />
+      <Container className="md-content mt-5">
         <h2>このサイトについて</h2>
         <p>
           当サイトでは

@@ -8,8 +8,16 @@ import type { StatTableProps } from "./StatTableUtil";
 import type StatTableType from "./StatTable";
 import dynamic from "next/dynamic";
 import { Container } from "react-bootstrap";
+import { useEffect } from "react";
 
 function Loading() {
+  useEffect(() => {
+    window.__setLoadingId("dynamic");
+    return () => {
+      window.__removeLoadingId("dynamic");
+    };
+  }, []);
+
   return (
     <Container>
       <div
