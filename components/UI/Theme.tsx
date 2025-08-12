@@ -26,37 +26,37 @@ function Initialize() {
       id="theme-control"
       dangerouslySetInnerHTML={{
         __html: `
-        (() => {
-          function setTheme(newTheme) {
-            switch (newTheme) {
-              case "${Theme.LIGHT}":
-              case "${Theme.DARK}":
-                document.documentElement.setAttribute("data-bs-theme", newTheme);
-            }
-          }
+(() => {
+  function setTheme(newTheme) {
+    switch (newTheme) {
+      case "${Theme.LIGHT}":
+      case "${Theme.DARK}":
+        document.documentElement.setAttribute("data-bs-theme", newTheme);
+    }
+  }
 
-          let selectedTheme;
-          try {
-            selectedTheme = localStorage.getItem("${STORAGE_KEY}");
-          } catch {}
+  let selectedTheme;
+  try {
+    selectedTheme = localStorage.getItem("${STORAGE_KEY}");
+  } catch {}
 
-          window.${SETTER_NAME} = (newTheme) => {
-            selectedTheme = newTheme;
-            setTheme(newTheme);
-            try {
-              localStorage.setItem("${STORAGE_KEY}", newTheme);
-            } catch {}
-          };
+  window.${SETTER_NAME} = (newTheme) => {
+    selectedTheme = newTheme;
+    setTheme(newTheme);
+    try {
+      localStorage.setItem("${STORAGE_KEY}", newTheme);
+    } catch {}
+  };
 
-          const colorQuery = window.matchMedia("prefers-color-scheme: dark");
-          setTheme(selectedTheme ?? (colorQuery.matches ? "dark" : "light"));
+  const colorQuery = window.matchMedia("prefers-color-scheme: dark");
+  setTheme(selectedTheme ?? (colorQuery.matches ? "dark" : "light"));
 
-          colorQuery.addEventListener("change", (e) => {
-            if (!selectedTheme) {
-              setTheme(e.matches ? "dark" : "light");
-            }
-          });
-        })();
+  colorQuery.addEventListener("change", (e) => {
+    if (!selectedTheme) {
+      setTheme(e.matches ? "dark" : "light");
+    }
+  });
+})();
       `,
       }}
     />
