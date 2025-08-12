@@ -19,26 +19,26 @@ function LoadingIndicator(): ReactNode {
         id="loading-indicator"
         dangerouslySetInnerHTML={{
           __html: `
-        (() => {
-          const ids = new Set();
+(() => {
+  const ids = new Set();
 
-          function checkIds() {
-            document.documentElement.setAttribute(
-              "data-md-loading",
-              ids.size > 0 ? "show" : "hide"
-            );
-          }
+  function checkIds() {
+    document.documentElement.setAttribute(
+      "data-md-loading",
+      ids.size > 0 ? "show" : "hide"
+    );
+  }
 
-          window.${SETTER_NAME} = (id) => {
-            ids.add(id);
-            checkIds();
-          };
+  window.${SETTER_NAME} = (id) => {
+    ids.add(id);
+    checkIds();
+  };
 
-          window.${REMOVER_NAME} = (id) => {
-            ids.delete(id);
-            checkIds();
-          };
-        })();
+  window.${REMOVER_NAME} = (id) => {
+    ids.delete(id);
+    checkIds();
+  };
+})();
         `,
         }}
       ></script>
