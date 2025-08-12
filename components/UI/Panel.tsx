@@ -136,7 +136,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
-            <footer>
+            <footer className="my-3">
               <div className="d-flex justify-content-end">
                 <Button
                   variant="secondary"
