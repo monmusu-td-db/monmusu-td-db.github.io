@@ -2087,7 +2087,7 @@
   },
   {
     "TODO_DESC": "ex2はWiki情報",
-    "TODO_FATAL": "ex1待機時間はwiki情報/ex2攻撃速度",
+    "TODO_FATAL": "ex2攻撃速度",
     "id": 16,
     "unitName": "【ケルベロス娘】テルル",
     "unitShortName": "テルル",
@@ -2101,7 +2101,7 @@
     "exSkill1": {
       "skillName": "わう！わう！わん！",
       "attackMul": 160,
-      "fixedDelay": 1,
+      "fixedDelay": 5,
       "target": 3,
       "rangeMul": 130,
       "duration": 20,
@@ -18284,8 +18284,6 @@
     "isUnhealable": true
   },
   {
-    "TODO_DESC": "StatはWiki情報/移動コストUP",
-    "TODO_FATAL": "ex1待機時間は要検証",
     "id": 173,
     "unitName": "【グレムリン娘】ノーティー",
     "unitShortName": "ノーティー",
@@ -18343,6 +18341,10 @@
       }
     ],
     "moveSpeedMul": 300,
+    "moveCostAdd": 4,
+    "potentialBonus": {
+      "moveSpeedMul": 350
+    },
     "situations": [
       {},
       {
@@ -20549,7 +20551,7 @@
     "TODO_FATAL": "ex1射程",
     "id": 194,
     "unitName": "【聖菓のワーベア娘】テティ",
-    "unitShortName": "テティ",
+    "unitShortName": "テティ/Xmas",
     "rarity": "L",
     "class": "モンク",
     "element": "地",
@@ -25190,8 +25192,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
-    "TODO_FATAL": "delay-20%→sk1-射程内味方",
     "id": 239,
     "unitName": "【パズズ娘】シィール",
     "unitShortName": "シィール",
@@ -25231,7 +25231,25 @@
       }
     ],
     "isEventUnit": true,
-    "delayMul": 80
+    "delayMul": 80,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "delay-mul",
+        "require": [
+          "自身以外"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "duration": 20,
+        "value": 80
+      }
+    ]
   },
   {
     "id": 240,
@@ -27332,7 +27350,6 @@
     ]
   },
   {
-    "TODO_FATAL": "スタン蓄積値",
     "id": 2620001,
     "parentId": 262,
     "unitName": "痺れキノコ",
@@ -28436,15 +28453,14 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報/再配置時間短縮12s",
-    "TODO_FATAL": "ex1射程はwiki情報",
+    "TODO_DESC": "再配置時間短縮12s",
     "id": 277,
     "unitName": "【黎明を齎す者】ルキファ",
     "unitShortName": "ルキファ",
     "rarity": "L",
     "class": "バーバリアン",
     "element": "闇",
-    "hp": 2727,
+    "hp": 5727,
     "attack": 1059,
     "defense": 489,
     "resist": 146,
@@ -31424,7 +31440,7 @@
     ]
   },
   {
-    "TODO_FATAL": "TODO",
+    "TODO_FATAL": "TODO Stat",
     "id": 305,
     "unitName": "【アスモデウス娘】エシュマナ",
     "unitShortName": "エシュマナ",
@@ -31436,6 +31452,9 @@
     "attack": 1068,
     "defense": 659,
     "resist": 120,
+    "supplements": [
+      "回復10%/撃破"
+    ],
     "exSkill1": {
       "skillName": "プチプチフレア",
       "attackMul": 400,
@@ -31460,7 +31479,82 @@
         }
       }
     ],
-    "hpMul": 80
+    "features": [
+      {
+        "featureName": "common-extra-field-damage-no-ability",
+        "damageFactor": 75,
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 0
+          },
+          {
+            "ratio": 1,
+            "value": 2
+          }
+        ]
+      },
+      {
+        "featureName": "beat-10",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 10
+          }
+        ],
+        "attackMul": 200
+      }
+    ],
+    "hpMul": 80,
+    "situations": [
+      {},
+      {
+        "features": [
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "features": [
+          "beat-10",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "id": 306,
@@ -33837,7 +33931,7 @@
     "defense": 255,
     "resist": 532,
     "supplements": [
-      "回復100%/撃破→自分"
+      "回復100%/撃破"
     ],
     "exSkill1": {
       "skillName": "バストユニオン",
@@ -34624,7 +34718,7 @@
     "defense": 447,
     "resist": 59,
     "supplements": [
-      "回復100%/撃破→自分",
+      "回復100%/撃破",
       "コスト+1/撃破"
     ],
     "exSkill1": {
