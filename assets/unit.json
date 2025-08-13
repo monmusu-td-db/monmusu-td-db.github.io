@@ -8728,7 +8728,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 73,
     "unitName": "【ワーラット娘】ラタ",
     "unitShortName": "ラタ",
@@ -8736,9 +8735,9 @@
     "class": "チーフアサシン",
     "element": "闇",
     "hp": 4054,
-    "attack": 501,
-    "defense": 415,
-    "resist": 125,
+    "attack": 502,
+    "defense": 416,
+    "resist": 124,
     "exSkill1": {
       "skillName": "つかまらないっち！",
       "hpMul": 180,
@@ -8769,17 +8768,11 @@
         "magicalEvasion": 50
       },
       {
-        "featureName": "dot",
-        "isAbility": true,
-        "annotations": [
-          "種族特性"
-        ],
+        "featureName": "common-dot",
         "staticDamage": {
           "key": "attack",
           "value": 5
         },
-        "interval": 30,
-        "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
@@ -8788,7 +8781,7 @@
         }
       },
       {
-        "featureName": "dot",
+        "featureName": "common-dot",
         "skill": 1,
         "staticDamage": {
           "key": "attack",
@@ -8829,13 +8822,13 @@
       },
       {
         "features": [
-          "dot"
+          "common-dot"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "dot"
+          "common-dot"
         ]
       },
       {
