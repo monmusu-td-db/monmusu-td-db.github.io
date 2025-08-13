@@ -8847,7 +8847,6 @@
     ]
   },
   {
-    "TODO_DESC": "専用武器でスキル中移動コスト0",
     "id": 74,
     "unitName": "【オークロード娘】デルボア",
     "unitShortName": "デルボア",
@@ -8894,6 +8893,13 @@
         "cooldownCut": 2
       },
       {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "moveCostAdd": -99
+      },
+      {
         "featureName": "skill1-heal",
         "skill": 1,
         "staticDamage": {
@@ -8915,18 +8921,18 @@
         "isConditionalBuff": true,
         "damageFactor": 200,
         "supplements": [
-          "即死(低)"
+          "即死(低)→命中"
         ]
       },
       {
-        "featureName": "skill2-phase1",
+        "featureName": "phase1",
         "moveSpeedAdd": 50,
         "supplements": [
           "移動速度+50"
         ]
       },
       {
-        "featureName": "skill2-phase2",
+        "featureName": "common-phase2",
         "phase": 2,
         "phaseName": "ギアブーストII",
         "attackMul": 150,
@@ -8936,7 +8942,7 @@
         ]
       },
       {
-        "featureName": "skill2-phase3",
+        "featureName": "common-phase3",
         "phase": 3,
         "phaseName": "ギアブーストIII",
         "attackMul": 200,
@@ -8946,7 +8952,7 @@
         ]
       },
       {
-        "featureName": "skill2-phase4",
+        "featureName": "common-phase4",
         "phase": 4,
         "phaseName": "ギアブーストIV",
         "attackMul": 250,
@@ -8956,7 +8962,7 @@
         ]
       },
       {
-        "featureName": "skill2-phase5",
+        "featureName": "common-phase5",
         "phase": 5,
         "phaseName": "MAXギア！",
         "attackMul": 300,
@@ -8969,7 +8975,96 @@
     "moveSpeedMul": 250,
     "potentialBonus": {
       "moveSpeedMul": 300
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase4"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase5"
+        ]
+      },
+      {
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "phase1",
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase2",
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase3",
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase4",
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase5",
+          "common-charge-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-heal"
+        ]
+      }
+    ]
   },
   {
     "id": 75,
@@ -8993,7 +9088,7 @@
       "duration": 15,
       "cooldown": 40,
       "supplements": [
-        "スタン付与45%"
+        "スタン付与45%→命中"
       ]
     },
     "exSkill2": {
@@ -9033,13 +9128,13 @@
       {
         "skill": 0,
         "supplements": [
-          "スタン付与10%"
+          "スタン付与10%→命中"
         ]
       },
       {
         "skill": 2,
         "supplements": [
-          "スタン付与10%"
+          "スタン付与10%→命中"
         ]
       }
     ],
@@ -9047,19 +9142,27 @@
     "criDamageAdd": 50,
     "potentialBonus": {
       "criDamageAdd": 80
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 76,
     "unitName": "【ワーベア娘】テティ",
     "unitShortName": "テティ",
     "rarity": "E",
     "class": "バーバリアン",
     "element": "地",
-    "hp": 6246,
-    "attack": 984,
-    "defense": 445,
+    "hp": 6257,
+    "attack": 985,
+    "defense": 446,
     "resist": 134,
     "exSkill1": {
       "skillName": "キャワワって言いなさい！",
@@ -12560,6 +12663,7 @@
     ]
   },
   {
+    "TODO_FATAL": "攻撃デバフの潜在覚醒ボーナスを調べる",
     "id": 107,
     "unitName": "【大悪魔召喚士】ラピス",
     "unitShortName": "ラピス",
@@ -12588,18 +12692,18 @@
       {
         "attackDebuff": {
           "key": "enemy-attack",
-          "value": 10
+          "value": 15
         },
         "supplements": [
-          "ATK-10%→全体"
+          "ATK-15%→全体"
         ],
         "potentialBonus": {
           "attackDebuff": {
             "key": "enemy-attack",
-            "value": 13
+            "value": 18
           },
           "supplements": [
-            "ATK-13%→全体"
+            "ATK-18%→全体"
           ]
         }
       },
@@ -15751,7 +15855,7 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "コスト+19",
+        "コスト+19/発動",
         "移動可"
       ]
     },
@@ -15765,7 +15869,8 @@
     "features": [
       {
         "skill": 1,
-        "moveSpeedAdd": 300
+        "moveSpeedAdd": 300,
+        "moveCostAdd": -99
       },
       {
         "featureName": "charge-attack",
@@ -15777,11 +15882,11 @@
         "conditions": [
           "突"
         ],
-        "damageFactor": 160,
+        "damageFactor": 180,
         "interval": null,
         "wideTarget": false,
         "potentialBonus": {
-          "damageFactor": 180
+          "damageFactor": 200
         }
       }
     ],
@@ -15805,7 +15910,7 @@
       "duration": 40,
       "cooldown": 50,
       "supplements": [
-        "tkn+3",
+        "tkn+5",
         "隠密"
       ]
     },
