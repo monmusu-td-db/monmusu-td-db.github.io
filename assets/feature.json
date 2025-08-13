@@ -794,6 +794,14 @@
     "target": "命中"
   },
   {
+    "featureName": "common-extra-field-damage-no-ability",
+    "conditions": [
+      "追"
+    ],
+    "criChanceAdd": -1000,
+    "target": "命中"
+  },
+  {
     "featureName": "common-0-sec",
     "conditions": [
       {
