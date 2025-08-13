@@ -127,7 +127,7 @@ interface RawUnitBase extends RawUnitFactors {
   deployCount?: number;
 
   /** 移動コスト */
-  moveCost?: number;
+  moveCostAdd?: number;
 
   /** 潜在覚醒コンプリート効果 */
   potentialBonus?: Readonly<RawUnitFactors>;

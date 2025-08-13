@@ -142,6 +142,7 @@ export default class Situation implements TableRow<Keys> {
     number | undefined,
     Data.MoveSpeedFactors | undefined
   >;
+  readonly moveCost: Stat.Root;
   readonly damageType: Stat.Root<Data.DamageType | undefined>;
   readonly dps0: Stat.Dps;
   readonly dps1: Stat.Dps;
@@ -1217,6 +1218,21 @@ export default class Situation implements TableRow<Keys> {
           subskillAdd,
           result,
         };
+      },
+    });
+
+    this.moveCost = new Stat.Root({
+      statType: stat.moveCost,
+      calculater: (s) => {
+        const base = this.unit?.moveCost.getValue(s);
+        if (base === undefined) {
+          return;
+        }
+
+        const fea = this.getFeature(s);
+        const feaAdd = fea.moveCostAdd ?? 0;
+
+        return Math.max(0, base + feaAdd);
       },
     });
 

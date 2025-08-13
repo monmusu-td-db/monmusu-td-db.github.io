@@ -60,7 +60,7 @@ export class StatUnitName extends StatTooltip<string> {
     const species = unit.species.getValue(setting).join(" / ");
     const moveType = textOf(unit.moveType);
     const moveSpeed = situation.moveSpeed.getValue(setting);
-    const moveCost = unit.moveCost.getValue(setting);
+    const moveCost = situation.moveCost.getValue(setting);
     const placement = valueOf(unit.placement);
     const deployCount = valueOf(unit.deployCount);
 
