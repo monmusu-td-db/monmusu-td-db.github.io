@@ -92,7 +92,7 @@ export class StatDps<
     const isTrueDamageValid =
       f.penetration > 0 && (isDefresValid || f.typeDamageCut > 0);
     const isAmountEnabled =
-      (isTypeDamageValid && isTrueDamageValid) || f.round > 1 || f.hits > 1;
+      (isTypeDamageValid && isTrueDamageValid) || f.round !== 1 || f.hits > 1;
 
     const isNormalShowed = f.criticalChance < 100;
     const isCriticalShowed = f.criticalChance > 0;
@@ -242,10 +242,10 @@ export class StatDps<
                         </Tt.Plus>
                       </Tt.Brackets>
                     )}
-                    <Tt.Multiply enabled={f.round > 1}>
-                      <Tt.Positive>
+                    <Tt.Multiply enabled={f.round !== 1}>
+                      <Tt.Value isPositive={f.round > 1}>
                         {d ? "平均連射数" : f.round.toFixed(1)}
-                      </Tt.Positive>
+                      </Tt.Value>
                     </Tt.Multiply>
                     <Tt.Multiply enabled={f.hits > 1}>
                       <Tt.Positive>
