@@ -834,9 +834,23 @@ export default class Unit implements TableRow<Keys> {
       });
     });
 
+    function checkGeneralFlag(obj: Readonly<Partial<JsonUnitSituation>>) {
+      let ret = obj.isGeneral;
+      if (
+        !obj.isGeneralAction &&
+        !obj.isGeneralDefinite &&
+        !obj.isGeneralDefiniteAction
+      ) {
+        ret ??= true;
+      } else {
+        ret ??= false;
+      }
+      return ret;
+    }
+
     src?.forEach((unitSituation) => {
       if (unitSituation.proper) {
-        const isGeneral = unitSituation.isGeneral ?? true;
+        const isGeneral = checkGeneralFlag(unitSituation);
         ret.push({
           ...unitSituation,
           isGeneral,
@@ -852,7 +866,7 @@ export default class Unit implements TableRow<Keys> {
 
     src?.forEach((unitSituation) => {
       if (unitSituation.bottom) {
-        const isGeneral = unitSituation.isGeneral ?? true;
+        const isGeneral = checkGeneralFlag(unitSituation);
         ret.push({
           ...unitSituation,
           isGeneral,
