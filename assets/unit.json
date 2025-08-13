@@ -31440,7 +31440,7 @@
     ]
   },
   {
-    "TODO_FATAL": "TODO Stat",
+    "TODO_STAT_INFERRED": true,
     "id": 305,
     "unitName": "【アスモデウス娘】エシュマナ",
     "unitShortName": "エシュマナ",
@@ -31458,8 +31458,12 @@
     "exSkill1": {
       "skillName": "プチプチフレア",
       "attackMul": 400,
+      "attackMotionMul": 174,
+      "target": "射程内",
+      "range": 150,
       "duration": 20,
-      "cooldown": 45
+      "cooldown": 45,
+      "damageType": "魔法"
     },
     "potentials": [
       "出撃コスト-1",
@@ -31492,7 +31496,13 @@
             "ratio": 1,
             "value": 2
           }
-        ]
+        ],
+        "damageType": "魔法"
+      },
+      {
+        "featureName": "common-extra-field-damage-no-ability",
+        "skill": 1,
+        "rounds": 2
       },
       {
         "featureName": "beat-10",
@@ -31520,6 +31530,28 @@
       {
         "skill": 1,
         "features": [
+          "common-1hit",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits",
           "common-extra-field-damage-no-ability"
         ]
       },
@@ -31543,6 +31575,31 @@
       {
         "skill": 1,
         "features": [
+          "common-1hit",
+          "beat-10",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "beat-10",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "beat-10",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits",
           "beat-10",
           "common-extra-field-damage-no-ability"
         ]
