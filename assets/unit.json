@@ -9407,9 +9407,10 @@
     "class": "アーチャー",
     "element": "風",
     "hp": 3036,
-    "attack": 655,
+    "attack": 617,
     "defense": 315,
     "resist": 193,
+    "placement": "両",
     "exSkill1": {
       "skillName": "リーフシード",
       "attackMul": 300,
@@ -9424,7 +9425,7 @@
       "skillName": "ジャイアントツリー",
       "hpMul": 200,
       "attackMul": 300,
-      "block": 3,
+      "blockAdd": 2,
       "duration": 35,
       "cooldown": 40,
       "skillFeatures": [
