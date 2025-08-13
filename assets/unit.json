@@ -9224,7 +9224,8 @@
       "duration": "単発",
       "cooldown": 20,
       "supplements": [
-        "攻撃回避100%"
+        "攻撃回避100%",
+        "猛毒付与(中)→命中"
       ]
     },
     "exSkill2": {
@@ -9273,7 +9274,27 @@
     "moveSpeedMul": 300,
     "potentialBonus": {
       "moveSpeedMul": 350
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "skill2-buff"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 78,
@@ -9396,7 +9417,7 @@
       "duration": 45,
       "cooldown": 50,
       "supplements": [
-        "鈍足"
+        "鈍足(大)→命中"
       ]
     },
     "exSkill2": {
@@ -9408,12 +9429,12 @@
       "cooldown": 40,
       "skillFeatures": [
         {
-          "featureName": "ranged",
+          "featureName": "common-ranged",
           "attackMotionMul": 136,
           "delayMul": 80
         },
         {
-          "featureName": "melee",
+          "featureName": "common-melee",
           "attackMotionMul": 117,
           "delayMul": 112,
           "target": "ブロック"
@@ -9429,30 +9450,15 @@
     ],
     "features": [
       {
-        "featureName": "ranged",
-        "conditions": [
-          "遠"
-        ]
-      },
-      {
-        "featureName": "melee",
-        "conditions": [
-          "近"
-        ],
+        "featureName": "common-melee",
         "range": null
       },
       {
-        "featureName": "absorb",
-        "conditions": [
-          "吸"
-        ],
+        "featureName": "common-absorb",
         "staticDamage": {
           "key": "hp",
           "value": 8
-        },
-        "target": "自分",
-        "flagRangeIsVisible": true,
-        "damageType": "吸収"
+        }
       }
     ],
     "costAdd": 6,
@@ -9461,7 +9467,76 @@
     "rangeAdd": 20,
     "potentialBonus": {
       "attackMul": 137
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "isGeneralDefinite": true,
+        "features": [
+          "common-ranged",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "common-ranged",
+          "common-absorb",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "isGeneralAction": true,
+        "features": [
+          "common-melee",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-2%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-2%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-regenerate-2%"
+        ]
+      }
+    ]
   },
   {
     "id": 80,
