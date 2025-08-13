@@ -1667,35 +1667,51 @@ const units = (() => {
   });
 
   if (process.env.NODE_ENV !== "production") {
-    const ids = new Set<number>();
-    let lastId = -1;
-    ret.forEach((unit) => {
-      const id = unit.src.parentId ?? unit.src.id;
-      ids.add(id);
-      if (lastId < id) {
-        lastId = id;
-      }
-    });
-    console.log(
-      "必要実装数:" +
-        (lastId - ids.size) +
-        "　実装済み:" +
-        ids.size +
-        "　最新ユニットID:" +
-        lastId
-    );
-
-    const pendingIds = (() => {
-      const ret = [];
-      for (let id = 1; id <= lastId; id++) {
-        if (!ids.has(id)) {
-          ret.push(id);
-        }
-      }
-      return ret;
-    })();
-    console.log("未実装ユニットID:[" + pendingIds.join(", ") + "]");
+    getUnitPendingLog(ret);
+    getFatalLog();
   }
 
   return ret;
 })();
+
+function getUnitPendingLog(units: readonly Unit[]) {
+  const ids = new Set<number>();
+  let lastId = -1;
+  units.forEach((unit) => {
+    const id = unit.src.parentId ?? unit.src.id;
+    ids.add(id);
+    if (lastId < id) {
+      lastId = id;
+    }
+  });
+  console.log(
+    "必要実装数:" +
+      (lastId - ids.size) +
+      "　実装済み:" +
+      ids.size +
+      "　最新ユニットID:" +
+      lastId
+  );
+
+  const pendingIds = (() => {
+    const ret = [];
+    for (let id = 1; id <= lastId; id++) {
+      if (!ids.has(id)) {
+        ret.push(id);
+      }
+    }
+    return ret;
+  })();
+  console.log("未実装ユニットID:[" + pendingIds.join(", ") + "]");
+}
+
+function getFatalLog() {
+  const names: (string | undefined)[] = [];
+  jsonUnits.forEach((unit) => {
+    if (unit.TODO_FATAL) {
+      names.push(unit.id + ":" + unit.unitShortName);
+    }
+  });
+
+  console.log("要修正ユニット名:[" + names.join(", ") + "]");
+}
