@@ -12,7 +12,7 @@ const getSelector = Data.TableColor.getSelector;
 export default function App() {
   return (
     <PageRoot pageType="situation">
-      <TablesSituation id="situation" />
+      <TablesSituation id="situation" maxRows={100} />
       <Container className="md-content mt-5">
         <h2>このサイトについて</h2>
         <p>

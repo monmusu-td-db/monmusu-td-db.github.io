@@ -35,6 +35,7 @@ export type TableRow<T extends string> = {
 export interface StatTableProps {
   id: string;
   className?: string;
+  maxRows?: number;
 }
 
 export class TableSourceUtil {
