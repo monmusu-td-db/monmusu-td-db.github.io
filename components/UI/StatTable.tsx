@@ -56,6 +56,7 @@ function StatTable<T extends string>({
   src,
   className,
   id,
+  maxRows,
 }: StatTableSourceProps<T>) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
@@ -117,6 +118,7 @@ function StatTable<T extends string>({
         id={id}
         sort={dSort}
         toggleSort={dToggleSort}
+        maxRows={maxRows}
       />
     </div>
   );
@@ -129,24 +131,46 @@ function TableControl_<T extends string>({
   id,
   sort,
   toggleSort,
+  maxRows,
 }: {
   src: TableSource<T>;
   states: States;
   id: string;
   sort: Sort<T>;
   toggleSort: HandleSort<T>;
+  maxRows: number | undefined;
 }) {
+  const [visibleRows, setVisibleRows] = useState(maxRows);
   const panelOpen = Panel.Contexts.useOpen();
 
+  const filteredList = useMemo(() => {
+    return src.filter(states);
+  }, [src, states]);
+  const listLength = filteredList.length;
+  const maxLength = Math.max(listLength, maxRows ?? 0);
+
+  const handleScroll = useCallback(
+    function handleScroll() {
+      setVisibleRows((p) => {
+        if (p === undefined || maxRows === undefined) {
+          return;
+        } else {
+          return Math.min(maxLength, p + maxRows);
+        }
+      });
+    },
+    [maxRows, maxLength]
+  );
+
   const data: TableData<T> = useMemo(() => {
-    const filteredList = src.filter(states);
+    const trancatedList = filteredList.slice(0, visibleRows);
     let sortedList;
     if (sort.column === undefined) {
-      sortedList = filteredList;
+      sortedList = trancatedList;
     } else {
       sortedList = src.sort(
         states.setting,
-        filteredList,
+        trancatedList,
         sort.column,
         sort.isReversed
       );
@@ -155,7 +179,7 @@ function TableControl_<T extends string>({
       headers: src.headers,
       rows: sortedList,
     };
-  }, [src, states, sort]);
+  }, [src, states, sort, visibleRows, filteredList]);
 
   const [tooltipCond, handlers] = TooltipControl.useTooltip();
 
@@ -181,6 +205,14 @@ function TableControl_<T extends string>({
     handlers.hide();
   }
 
+  if (maxRows !== undefined && visibleRows !== undefined) {
+    if (maxLength < visibleRows) {
+      // 表の内容が変化した際に同時表示数をリセットする
+      setVisibleRows(maxLength);
+      return;
+    }
+  }
+
   return (
     <TooltipControl cond={tooltipCond} setting={dStates.setting}>
       <TableStyle headers={dData.headers} id={id} />
@@ -190,7 +222,7 @@ function TableControl_<T extends string>({
         id={id}
         className={cn("stat-table", { pending: isPending })}
       >
-        <EmptyAlert tableData={dData} />
+        <Caption tableData={dData} onScroll={handleScroll} />
         <Header
           headers={dData.headers}
           setting={dStates.setting}
@@ -347,13 +379,38 @@ function Body_<T extends string>({
   );
 }
 
-function EmptyAlert<T extends string>({
+function Caption<T extends string>({
   tableData,
+  onScroll,
 }: {
   tableData: TableData<T>;
+  onScroll: () => void;
 }) {
+  const ref = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (element === null) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          onScroll();
+        }
+      },
+      { rootMargin: "50px 50px 50px 50px" }
+    );
+
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+    };
+  }, [onScroll]);
+
   if (tableData.rows.length > 0) {
-    return;
+    return <caption ref={ref} style={{ height: "1px" }} />;
   } else {
     return (
       <caption>
