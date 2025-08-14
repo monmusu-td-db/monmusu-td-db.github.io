@@ -7433,7 +7433,7 @@
     ]
   },
   {
-    "TODO_FATAL": "ex2射程/ex2攻撃モーション/ex2追加ダメージHit数",
+    "TODO_DESC": "ex2追加ダメージHit数は要検証",
     "id": 61,
     "unitName": "【レッドドラゴン娘】エリュート",
     "unitShortName": "エリュート",
@@ -7459,10 +7459,10 @@
     "exSkill2": {
       "skillName": "業火爆砕",
       "attackMul": 120,
-      "attackMotionMul": 999,
+      "attackMotionMul": 88,
       "fixedDelay": 1,
       "target": 5,
-      "range": 999,
+      "range": 450,
       "duration": "単発",
       "cooldown": 30,
       "damageType": "魔法"
@@ -11874,7 +11874,6 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1発動フレーム/継続ダメージHit数はWiki情報",
     "id": 98,
     "unitName": "【カリュブディス娘】リュプチェ",
     "unitShortName": "リュプチェ",
@@ -11893,7 +11892,7 @@
       "cooldown": 40,
       "supplements": [
         "HP-8%/発動→射程内",
-        "スタン付与XX%(大)→命中"
+        "スタン付与50%→命中"
       ]
     },
     "potentials": [
@@ -11917,7 +11916,7 @@
     "features": [
       {
         "skill": 1,
-        "interval": 999
+        "interval": 40
       },
       {
         "featureName": "skill-dot",
@@ -12660,7 +12659,6 @@
     ]
   },
   {
-    "TODO_FATAL": "射程/ex1攻撃速度",
     "id": 106,
     "unitName": "【デカイオー娘】リッティ",
     "unitShortName": "リッティ",
@@ -12671,15 +12669,12 @@
     "attack": 1067,
     "defense": 465,
     "resist": 127,
-    "range": 999,
-    "supplements": [
-      "即死(低)→命中ブロック敵"
-    ],
+    "range": 200,
     "exSkill1": {
       "skillName": "究極撃滅破壊形態起動！",
       "attackMul": 320,
       "defenseMul": 320,
-      "attackMotionMul": 126,
+      "attackMotionMul": 153,
       "blockAdd": 2,
       "splash": true,
       "rangeMul": 150,
@@ -12695,6 +12690,12 @@
     ],
     "features": [
       {
+        "featureName": "common-melee",
+        "supplements": [
+          "即死(低)→命中"
+        ]
+      },
+      {
         "featureName": "common-ranged",
         "isConditionalBuff": true,
         "damageFactor": 80,
@@ -12703,7 +12704,6 @@
       {
         "featureName": "common-ranged",
         "skill": 1,
-        "attackMotionMul": 153,
         "rounds": 3
       }
     ],
@@ -31440,7 +31440,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 305,
     "unitName": "【アスモデウス娘】エシュマナ",
     "unitShortName": "エシュマナ",
