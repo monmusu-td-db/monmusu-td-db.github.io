@@ -11135,14 +11135,6 @@
       "射程+15",
       "射程+15"
     ],
-    "features": [
-      {
-        "skill": 1,
-        "deleteSupplements": [
-          "対地限定攻撃"
-        ]
-      }
-    ],
     "rangeAdd": 20,
     "potentialBonus": {
       "rangeAdd": 27
@@ -11150,7 +11142,10 @@
     "situations": [
       {},
       {
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
       }
     ]
   },
@@ -11192,9 +11187,6 @@
         "annotations": [
           "種族特性"
         ],
-        "conditions": [
-          "特"
-        ],
         "staticDamage": {
           "key": "hp",
           "value": 3
@@ -11223,7 +11215,8 @@
         "proper": true,
         "skill": -1,
         "features": [
-          "common-absorb"
+          "common-absorb",
+          "common-definite-female"
         ]
       }
     ]
@@ -11798,10 +11791,7 @@
     ],
     "features": [
       {
-        "physicalDamageCut": 20,
-        "supplements": [
-          "物理被Dmg-20%→全体"
-        ]
+        "physicalDamageCut": 20
       },
       {
         "skill": 1,
@@ -11811,6 +11801,28 @@
       {
         "skill": 1,
         "physicalDamageCut": 100
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "反射30%"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "反射37%"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "supplements": [
+          "反射30%"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "反射37%"
+          ]
+        }
       },
       {
         "skill": 2,
@@ -11825,26 +11837,43 @@
         }
       },
       {
-        "featureName": "normal",
-        "supplements": [
-          "反射30%"
-        ],
-        "potentialBonus": {
-          "supplements": [
-            "反射37%"
-          ]
-        }
-      },
-      {
         "featureName": "defense-mul",
         "isConditionalBuff": true,
         "conditions": [
           {
             "key": "*",
-            "value": 150
+            "value": 250
           }
         ],
-        "defenseMul": 150
+        "defenseMul": 250
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "defense-mul"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "physical-damage-cut",
+        "skill": -1,
+        "target": "全体",
+        "value": 20
+      },
+      {
+        "type": "defense-mul",
+        "skill": 1,
+        "target": "全体",
+        "value": 250
       }
     ]
   },
@@ -11873,11 +11902,7 @@
     "exSkill2": {
       "skillName": "蒼々の天啓",
       "duration": 20,
-      "cooldown": 40,
-      "supplements": [
-        "再出撃時間-80%→全体",
-        "撤退時回復コスト90%→全体"
-      ]
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -12147,8 +12172,8 @@
       "duration": 15,
       "cooldown": 30,
       "supplements": [
-        "コスト+16",
-        "tkn+1"
+        "コスト+16/発動",
+        "tkn+1/発動"
       ]
     },
     "potentials": [
@@ -12167,35 +12192,51 @@
         "fixedDelay": 10
       },
       {
-        "featureName": "attack-mul1",
+        "featureName": "common-team-buff1",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 1
-          }
-        ],
         "attackMul": 120,
         "potentialBonus": {
           "attackMul": 125
         }
       },
       {
-        "featureName": "attack-mul2",
+        "featureName": "common-team-buff2",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 2
-          }
-        ],
         "attackMul": 140,
         "potentialBonus": {
           "attackMul": 150
         }
       }
     ],
-    "deployCount": 0
+    "deployCount": 0,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff2"
+        ]
+      }
+    ]
   },
   {
     "id": 960001,
@@ -12219,6 +12260,9 @@
     "moveType": "飛行",
     "damageType": "物理",
     "placement": "近",
+    "supplements": [
+      "対地限定攻撃"
+    ],
     "features": [
       {
         "featureName": "skill1-buff",
@@ -12230,7 +12274,18 @@
       }
     ],
     "isUnhealable": true,
-    "deployCount": 0
+    "deployCount": 0,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "ex2はwiki情報",
