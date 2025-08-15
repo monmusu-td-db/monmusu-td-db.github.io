@@ -4205,41 +4205,20 @@
         "damageType": null
       },
       {
-        "featureName": "barrier",
         "skill": 0,
-        "annotations": [
-          "配置時バリア付与"
-        ],
-        "staticDamage": {
-          "key": "attack-base",
-          "value": 300
-        },
         "supplements": [
           "バリア{attack-base*300}付与/配置→射程内"
         ],
         "potentialBonus": {
-          "staticDamage": {
-            "key": "attack-base",
-            "value": 350
-          },
           "supplements": [
             "バリア{attack-base*350}付与/配置→射程内"
           ]
         }
       },
       {
-        "featureName": "barrier",
         "require": [
           "スキル"
         ],
-        "isAbility": true,
-        "annotations": [
-          "バリア付与/発動"
-        ],
-        "staticDamage": {
-          "key": "attack-base",
-          "value": 500
-        },
         "supplements": [
           "バリア{attack-base*500}付与/発動→射程内"
         ]
@@ -4252,23 +4231,6 @@
       },
       {
         "skill": 2
-      },
-      {
-        "features": [
-          "barrier"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "barrier"
-        ]
-      },
-      {
-        "skill": 2,
-        "features": [
-          "barrier"
-        ]
       }
     ]
   },
