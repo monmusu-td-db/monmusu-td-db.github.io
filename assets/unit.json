@@ -10859,7 +10859,7 @@
         "rounds": 5
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-poison",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -10888,9 +10888,6 @@
       {
         "featureName": "common-absorb",
         "isConditionalSkillBuff": true,
-        "conditions": [
-          "特"
-        ],
         "staticDamage": {
           "key": "hp",
           "value": 6
@@ -10921,21 +10918,21 @@
       {
         "features": [
           "common-melee",
-          "common-definite"
+          "common-definite-poison"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-melee",
-          "common-definite"
+          "common-definite-poison"
         ]
       },
       {
         "skill": 2,
         "features": [
           "common-melee",
-          "common-definite"
+          "common-definite-poison"
         ]
       },
       {
@@ -10958,21 +10955,21 @@
       {
         "features": [
           "common-ranged",
-          "common-definite"
+          "common-definite-poison"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-ranged",
-          "common-definite"
+          "common-definite-poison"
         ]
       },
       {
         "skill": 2,
         "features": [
           "common-ranged",
-          "common-definite"
+          "common-definite-poison"
         ]
       },
       {
@@ -10986,7 +10983,8 @@
         "proper": true,
         "skill": 2,
         "features": [
-          "common-absorb"
+          "common-absorb",
+          "common-definite-poison"
         ]
       },
       {
@@ -11073,6 +11071,34 @@
       },
       {
         "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "redeploy-time-cut",
+        "target": "射程内",
+        "value": 15,
+        "potentialBonus": {
+          "value": 20
+        }
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": 1,
+        "target": "射程内",
+        "value": 30,
+        "potentialBonus": {
+          "value": 40
+        }
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": 2,
+        "target": "射程内",
+        "value": 30,
+        "potentialBonus": {
+          "value": 40
+        }
       }
     ]
   },
