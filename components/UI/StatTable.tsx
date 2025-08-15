@@ -162,24 +162,29 @@ function TableControl_<T extends string>({
     [maxRows, maxLength]
   );
 
-  const data: TableData<T> = useMemo(() => {
-    const trancatedList = filteredList.slice(0, visibleRows);
-    let sortedList;
+  const sortedList = useMemo(() => {
+    let ret;
     if (sort.column === undefined) {
-      sortedList = trancatedList;
+      ret = filteredList;
     } else {
-      sortedList = src.sort(
+      ret = src.sort(
         states.setting,
-        trancatedList,
+        filteredList,
         sort.column,
         sort.isReversed
       );
     }
+    return ret;
+  }, [filteredList, sort.column, sort.isReversed, src, states.setting]);
+
+  const data: TableData<T> = useMemo(() => {
+    const trancatedList = sortedList.slice(0, visibleRows);
+
     return {
       headers: src.headers,
-      rows: sortedList,
+      rows: trancatedList,
     };
-  }, [src, states, sort, visibleRows, filteredList]);
+  }, [sortedList, visibleRows, src.headers]);
 
   const [tooltipCond, handlers] = TooltipControl.useTooltip();
 
