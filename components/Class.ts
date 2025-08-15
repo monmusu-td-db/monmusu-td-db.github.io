@@ -19,6 +19,7 @@ interface JsonClass {
   penetration?: number;
   damageType?: Data.JsonDamageType;
   placement: Data.JsonPlacement;
+  deployCount?: number;
   supplements?: string[];
   features?: JsonFeature[];
   situations?: JsonClassSituations;
@@ -47,6 +48,7 @@ class Class {
   readonly penetration: number;
   readonly damageType: Data.DamageType | undefined;
   readonly placement: Data.Placement;
+  readonly deployCount: number | undefined;
   readonly supplements: ReadonlySet<string>;
   readonly features: readonly Readonly<FeatureOutput>[];
   readonly situations: JsonClassSituations | undefined;
@@ -68,6 +70,7 @@ class Class {
     this.penetration = src.penetration ?? 0;
     this.damageType = Data.JsonDamageType.parse(src.damageType) ?? undefined;
     this.placement = Data.JsonPlacement.parse(src.placement);
+    this.deployCount = src.deployCount;
     this.supplements = new Set(src.supplements);
     this.features = Feature.parseList(src.features ?? []);
     this.situations = src.situations;

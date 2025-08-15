@@ -712,7 +712,7 @@ export default class Unit implements TableRow<Keys> {
 
     this.deployCount = new Stat.Root({
       statType: stat.deployCount,
-      calculater: () => src.deployCount,
+      calculater: () => src.deployCount ?? classData?.deployCount,
     });
 
     const placement = Data.JsonPlacement.parse(src.placement);
