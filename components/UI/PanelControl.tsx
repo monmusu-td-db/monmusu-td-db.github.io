@@ -14,6 +14,7 @@ declare global {
 function PanelControl(): ReactNode {
   return (
     <script
+      id="panel-control"
       dangerouslySetInnerHTML={{
         __html: `
 (() => {
