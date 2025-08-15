@@ -7,7 +7,7 @@ import LinkFocusFix from "./LinkFocusFix";
 
 export default function Footer() {
   return (
-    <footer className="bd-footer bg-body-tertiary mt-4 pt-4 pb-3">
+    <footer className="bd-footer bg-body-secondary pt-4 pb-3">
       <LinkFocusFix />
       <Container className="text-body-secondary">
         <Row>

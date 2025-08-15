@@ -31,7 +31,7 @@ function NavArea() {
   const labelId = "navbar-offcanvas-label";
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-secondary">
       <Container>
         <div className="d-flex">
           <Navbar.Toggle aria-controls={offcanvasId} />

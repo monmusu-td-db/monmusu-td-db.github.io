@@ -2,6 +2,7 @@
   position: relative;
   background-color: var(--bs-gray);
   width: 100%;
+  margin-top: 10vh;
 }
 
 .bd-footer a {
@@ -13,4 +14,14 @@
 .bd-footer a:focus {
   color: var(--bs-link-hover-color);
   text-decoration: underline;
+}
+
+@media (max-width: 767.98px) {
+  .bd-footer .hstack > *:first-child {
+    margin-left: auto;
+  }
+
+  .bd-footer .hstack > *:last-child {
+    margin-right: auto;
+  }
 }
