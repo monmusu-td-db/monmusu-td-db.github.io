@@ -9543,43 +9543,12 @@
     ],
     "features": [
       {
-        "featureName": "skill1-1hit",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 1
-          }
-        ]
-      },
-      {
-        "featureName": "skill1-2hits",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 2
-          }
-        ],
-        "hits": 2
-      },
-      {
-        "featureName": "skill1-3hits",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 3
-          }
-        ],
-        "hits": 3
-      },
-      {
-        "featureName": "skill1-phase1",
-        "phase": 1,
+        "featureName": "common-phase1",
         "defenseMul": 130,
         "resistMul": 130
       },
       {
-        "featureName": "skill1-phase5",
-        "phase": 5,
+        "featureName": "common-phase5",
         "defenseMul": 250,
         "resistMul": 250
       }
@@ -9590,7 +9559,37 @@
     "potentialBonus": {
       "defenseMul": 120,
       "resistMul": 120
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hit",
+          "common-phase1"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-phase5"
+        ]
+      }
+    ]
   },
   {
     "id": 81,
@@ -9629,6 +9628,7 @@
     ],
     "features": [
       {
+        "isNotAbility": true,
         "supplements": [
           "回復100%/死亡時(1回のみ)"
         ]
@@ -9655,16 +9655,60 @@
         }
       },
       {
-        "featureName": "skill2-heal",
-        "isAbility": true,
-        "conditions": [
-          "吸"
-        ],
+        "featureName": "common-absorb",
+        "target": "射程内",
         "staticDamage": {
           "key": "attack-base",
           "value": 35
-        },
-        "damageType": "吸収"
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "revived"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action",
+          "revived"
+        ]
       }
     ]
   },
@@ -9688,6 +9732,10 @@
         "ratio": 3,
         "value": 3
       }
+    ],
+    "supplements": [
+      "DEF-{attack-base*8}/配置→全体",
+      "RES-{attack-base*8}/配置→全体"
     ],
     "exSkill1": {
       "skillName": "浜辺の大立ち回りわん！",
@@ -9716,25 +9764,6 @@
       "攻撃力+75",
       "攻撃速度+15"
     ],
-    "features": [
-      {
-        "featureName": "debuff-defense",
-        "isAbility": true,
-        "annotations": [
-          "種族特性"
-        ],
-        "staticDamage": {
-          "key": "attack-base",
-          "value": -8
-        },
-        "interval": null,
-        "target": "全体",
-        "damageType": null,
-        "supplements": [
-          "配置時物理魔法防御デバフ"
-        ]
-      }
-    ],
     "penetrationAdd": 50,
     "potentialBonus": {
       "rounds": [
@@ -9747,7 +9776,16 @@
           "value": 3
         }
       ]
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ]
   },
   {
     "id": 83,
@@ -10056,8 +10094,8 @@
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "射程内停止90f(3秒)",
-        "コスト+12"
+        "停止(3秒)/発動→射程内",
+        "コスト+12/発動"
       ]
     },
     "exSkill2": {
@@ -10067,8 +10105,8 @@
       "rangeMul": 200,
       "cooldown": 40,
       "supplements": [
-        "射程内停止90f(3秒)",
-        "コスト+15"
+        "停止(3秒)/発動→射程内",
+        "コスト+15/発動"
       ]
     },
     "potentials": [
@@ -10080,47 +10118,10 @@
     ],
     "features": [
       {
-        "featureName": "block0",
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "featureName": "block1",
-        "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 1
-          }
+        "require": [
+          "スキル"
         ],
-        "attackMul": 110,
-        "defenseMul": 110
-      },
-      {
-        "featureName": "block3",
-        "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 3
-          }
-        ],
-        "attackMul": 130,
-        "defenseMul": 130
-      },
-      {
-        "featureName": "skill",
-        "flagNoDps": true
-      },
-      {
-        "featureName": "skill1-normal",
-        "annotations": [
-          "なぞなぞタイムである！"
-        ]
+        "damageType": null
       },
       {
         "featureName": "skill1-phase1",
@@ -10135,9 +10136,17 @@
         "defenseMul": 250
       },
       {
-        "featureName": "skill2-normal",
+        "featureName": "skill1-phase1",
+        "skill": 0,
         "annotations": [
-          "神殿の守護者"
+          "なぞなぞタイムである！"
+        ]
+      },
+      {
+        "featureName": "skill1-phase5",
+        "skill": 0,
+        "annotations": [
+          "なぞなぞタイムである！"
         ]
       },
       {
@@ -10153,16 +10162,454 @@
         "defenseMul": 155
       },
       {
-        "featureName": "proper-human",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "skill2-phase1",
+        "skill": 0,
+        "annotations": [
+          "神殿の守護者"
+        ]
+      },
+      {
+        "featureName": "skill2-phase5",
+        "skill": 0,
+        "annotations": [
+          "神殿の守護者"
+        ]
+      },
+      {
+        "featureName": "common-block1-emphasis",
+        "isConditionalBuff": true,
+        "attackMul": 110,
+        "defenseMul": 110
+      },
+      {
+        "featureName": "common-block3",
+        "isConditionalBuff": true,
+        "attackMul": 130,
+        "defenseMul": 130
+      },
+      {
+        "featureName": "common-definite-human",
         "damageFactor": 150
       }
     ],
     "costAdd": 2,
     "defenseMul": 120,
-    "blockAdd": 1
+    "blockAdd": 1,
+    "situations": [
+      {
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase1",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase1",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase5",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase5",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-phase1",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill2-phase1",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-phase5",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill2-phase5",
+          "common-block0"
+        ]
+      },
+      {
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase1",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase1",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase5",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase5",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-phase1",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill2-phase1",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-phase5",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill2-phase5",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase1",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase1",
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-phase5",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill1-phase5",
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-phase1",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill2-phase1",
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-phase5",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "skill2-phase5",
+          "common-block3"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-human",
+          "skill1-phase1",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill1-phase1",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-human",
+          "skill1-phase5",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill1-phase5",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-human",
+          "skill2-phase1",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill2-phase1",
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-human",
+          "skill2-phase5",
+          "common-block0",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill2-phase5",
+          "common-block0"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-human",
+          "skill1-phase1",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill1-phase1",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-human",
+          "skill1-phase5",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill1-phase5",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-human",
+          "skill2-phase1",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill2-phase1",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-human",
+          "skill2-phase5",
+          "common-block1-emphasis",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill2-phase5",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-human",
+          "skill1-phase1",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill1-phase1",
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-human",
+          "skill1-phase5",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill1-phase5",
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-human",
+          "skill2-phase1",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill2-phase1",
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-human",
+          "skill2-phase5",
+          "common-block3",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-human",
+          "skill2-phase5",
+          "common-block3"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 2,
+        "target": "射程内",
+        "value": 106,
+        "supplements": [
+          "発動時永続付与(最大30%)"
+        ]
+      },
+      {
+        "type": "defense-mul",
+        "skill": 2,
+        "target": "射程内",
+        "value": 111,
+        "supplements": [
+          "発動時永続付与(最大55%)"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "ex2はwiki情報",

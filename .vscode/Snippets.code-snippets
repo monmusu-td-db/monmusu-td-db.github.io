@@ -1,80 +1,82 @@
 {
-	// Place your monmusu-tools ワークスペース snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
-	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
-	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
-	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
-	// Placeholders with the same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"scope": "javascript,typescript",
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log output to console"
-	// }
-	"ユニットテンプレート": {
-		"scope": "json",
-		"prefix": "unit",
-		"description": "ユニットテンプレート",
-		"body": [
-			"{",
-			"  \"id\": $1,",
-			"  \"unitName\": \"$2\",",
-			"  \"unitShortName\": \"$3\",",
-			"  \"rarity\": $4,",
-			"  \"class\": $5,",
-			"  \"element\": $6,",
-			"  \"hp\": $7,",
-			"  \"attack\": $8,",
-			"  \"defense\": $9,",
-			"  \"resist\": $10,",
-			"  \"exSkill1\": {",
-			"    \"skillName\": \"$11\"",
-			"  },",
-			"  \"potentials\": [",
-			"    \"出撃コスト-1\",",
-			"    \"出撃コスト-1\",",
-			"    $12,",
-			"    $13,",
-			"    $14",
-			"  ],",
-			"  \"situations\": [",
-			"    {},",
-			"    {",
-			"      \"skill\": 1",
-			"    }",
-			"  ]",
-			"},",
-		],
-	},
-	"サブスキルテンプレート": {
-		"scope": "json",
-		"prefix": "subskill",
-		"description": "サブスキルテンプレート",
-		"body": [
-			"{",
-			"\"name\": \"$1\",",
-			"\"rarity\": $2,",
-			"\"group\": $3,",
-			"\"desc\": \"$4\"$5",
-			"},",
-		],
-	},
-	"シチュエーションテンプレート": {
-		"scope": "json",
-		"prefix": "situation",
-		"description": "",
-		"body": [
-			"{",
-			"  \"unitId\":$1",
-			"},",
-			"{",
-			"  \"unitId\":$1,",
-			"  \"skill\":1",
-			"},",
-		]
-	},
+  // Place your monmusu-tools ワークスペース snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "ユニットテンプレート": {
+    "scope": "json",
+    "prefix": "unit",
+    "description": "ユニットテンプレート",
+    "body": [
+      "{",
+      "  \"id\": $1,",
+      "  \"unitName\": \"$2\",",
+      "  \"unitShortName\": \"$3\",",
+      "  \"rarity\": $4,",
+      "  \"class\": $5,",
+      "  \"element\": $6,",
+      "  \"hp\": $7,",
+      "  \"attack\": $8,",
+      "  \"defense\": $9,",
+      "  \"resist\": $10,",
+      "  \"exSkill1\": {",
+      "    \"skillName\": \"$11\"",
+      "  },",
+      "  \"potentials\": [",
+      "    \"出撃コスト-1\",",
+      "    \"出撃コスト-1\",",
+      "    $12,",
+      "    $13,",
+      "    $14",
+      "  ],",
+      "  \"situations\": [",
+      "    {},",
+      "    {",
+      "      \"skill\": 1",
+      "    }",
+      "  ]",
+      "},",
+    ],
+  },
+  "サブスキルテンプレート": {
+    "scope": "json",
+    "prefix": "subskill",
+    "description": "サブスキルテンプレート",
+    "body": [
+      "{",
+      "\"name\": \"$1\",",
+      "\"rarity\": $2,",
+      "\"group\": $3,",
+      "\"desc\": \"$4\"$5",
+      "},",
+    ],
+  },
+  "unitSituation": {
+    "scope": "json",
+    "prefix": "situation",
+    "description": "unit situation",
+    "body": [
+      "\"situations\": [",
+      "  {},",
+      "  {",
+      "    \"skill\": 1",
+      "  },",
+      "  {",
+      "    \"skill\": 2",
+      "  }",
+      "]",
+    ],
+  },
 }
