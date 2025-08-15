@@ -1,10 +1,10 @@
 @keyframes loading {
   from {
-    top: 0px;
+    transform: translateY(0);
   }
 
   to {
-    top: 10px;
+    transform: translateY(10px);
   }
 }
 
