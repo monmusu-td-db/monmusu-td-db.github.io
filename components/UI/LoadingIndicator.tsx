@@ -32,10 +32,9 @@ function LoadingIndicator(): ReactNode {
   window.${SETTER_NAME} = (id) => {
     ids.add(id);
 
-    const time = id === "dynamic" ? 0 : 750;
     window.setTimeout(() => {
       checkIds();
-    }, time);
+    }, 750);
   };
 
   window.${REMOVER_NAME} = (id) => {

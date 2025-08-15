@@ -12,7 +12,6 @@ import { useEffect } from "react";
 
 function Loading() {
   useEffect(() => {
-    window.__setLoadingId("dynamic");
     return () => {
       window.__removeLoadingId("dynamic");
     };
@@ -20,6 +19,16 @@ function Loading() {
 
   return (
     <Container>
+      <script
+        id="dynamic-loading"
+        dangerouslySetInnerHTML={{
+          __html: `
+(() => {
+  window.__setLoadingId("dynamic");
+})()
+        `,
+        }}
+      />
       <div
         className="d-flex justify-content-center align-items-center border"
         style={{ height: "100px" }}
