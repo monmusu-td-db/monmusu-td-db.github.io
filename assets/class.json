@@ -1118,6 +1118,7 @@
     "range": 265,
     "moveSpeed": 80,
     "placement": "遠",
+    "deployCount": 0,
     "features": [
       {
         "isNotAbility": true,
