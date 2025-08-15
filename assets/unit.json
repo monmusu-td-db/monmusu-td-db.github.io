@@ -159,7 +159,7 @@
   },
   {
     "TODO_DESC": "ex2はWiki情報",
-    "TODO_FATAL": "ex1/ex2射程はwiki情報/攻撃モーション速度はwiki情報からの推測",
+    "TODO_FATAL": "ex2射程はwiki情報",
     "id": 2,
     "unitName": "【キマイラ娘】ラゴス",
     "unitShortName": "ラゴス",
@@ -230,7 +230,7 @@
     ],
     "features": [
       {
-        "attackMotionMul": 154
+        "attackMotionMul": 148
       },
       {
         "require": [
@@ -14270,7 +14270,6 @@
     ]
   },
   {
-    "TODO_FATAL": "スタン蓄積値",
     "id": 118,
     "unitName": "【魔王】アリスフィーズ",
     "unitShortName": "アリスフィーズ",
@@ -14322,7 +14321,7 @@
         "range": null,
         "damageType": "貫通",
         "supplements": [
-          "スタン付与XX%(大)"
+          "スタン付与60%"
         ]
       }
     ],
@@ -14526,26 +14525,24 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1スタン/スタン蓄積タイミング要検証",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 121,
     "unitName": "【四天王】たまも",
     "unitShortName": "たまも",
     "rarity": "L",
     "class": "シャーマン",
     "element": "地",
-    "hp": 2850,
+    "hp": 2839,
     "attack": 0,
-    "defense": 327,
-    "resist": 467,
+    "defense": 384,
+    "resist": 471,
     "exSkill1": {
       "skillName": "見た目で侮るでないぞ",
       "rangeMul": 180,
       "duration": 40,
       "cooldown": 45,
       "supplements": [
-        "スタン付与XX%(小)→命中"
+        "スタン付与10%→命中"
       ]
     },
     "potentials": [
