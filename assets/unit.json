@@ -15586,7 +15586,7 @@
       "duration": 20,
       "cooldown": 40,
       "supplements": [
-        "鈍足/スキル中→射程内",
+        "鈍足(スキル中)→射程内",
         "攻撃速度減少→射程内"
       ]
     },
@@ -15845,7 +15845,51 @@
     "attackMul": 115,
     "potentialBonus": {
       "attackMul": 122
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-beat-20"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-normal"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "skill1-beat-20",
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "id": 134,
@@ -15962,6 +16006,14 @@
           "regenerate"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "stan-resist",
+        "skill": 1,
+        "target": "射程内",
+        "value": 30
+      }
     ]
   },
   {
@@ -15978,7 +16030,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "スタン付与6%"
+      "スタン付与6%→命中"
     ],
     "exSkill1": {
       "skillName": "お姉ちゃんサンダー！",
@@ -15998,16 +16050,11 @@
     ],
     "features": [
       {
-        "featureName": "extra-damage",
-        "isAbility": true,
-        "conditions": [
-          "追"
-        ],
+        "featureName": "common-extra-damage",
         "staticDamage": {
           "key": "attack",
           "value": 50
         },
-        "target": "命中",
         "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
@@ -16017,15 +16064,38 @@
         }
       },
       {
-        "featureName": "enemy1",
-        "conditions": [
-          {
-            "key": "敵",
-            "value": 1
-          }
-        ],
-        "damageFactor": 110,
-        "fixedTarget": 1
+        "featureName": "common-enemy1",
+        "damageFactor": 110
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-extra-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-extra-damage"
+        ]
       }
     ]
   },
@@ -16051,7 +16121,7 @@
       "duration": 70,
       "cooldown": 45,
       "supplements": [
-        "毒付与→自分"
+        "毒付与/10秒→自分"
       ]
     },
     "potentials": [
@@ -16077,110 +16147,139 @@
         "physicalDamageCut": 70
       },
       {
-        "featureName": "skill1-dot",
+        "featureName": "common-skill-dot",
         "staticDamage": {
           "key": "attack",
           "value": 100
-        },
-        "interval": 60,
-        "target": "射程内",
-        "damageType": "貫通"
+        }
       },
       {
-        "featureName": "skill1-phase1",
-        "phase": 1,
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 163
+          }
+        ],
         "attackMul": 163,
         "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 184
+            }
+          ],
           "attackMul": 184
         }
       },
       {
-        "featureName": "skill1-phase2",
-        "phase": 2,
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 226
+          }
+        ],
         "attackMul": 226,
         "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 268
+            }
+          ],
           "attackMul": 268
         }
       },
       {
-        "featureName": "skill1-phase3",
-        "phase": 3,
+        "featureName": "attack-mul3",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 280
+          }
+        ],
         "attackMul": 280,
         "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 340
+            }
+          ],
           "attackMul": 340
         }
       }
     ],
     "situations": [
-      {
-        "features": [
-          "normal"
-        ]
-      },
+      {},
       {
         "skill": 1
       },
       {
         "skill": 1,
         "features": [
-          "skill1-dot"
+          "common-skill-dot"
         ]
       },
       {
         "features": [
           "normal",
-          "skill1-phase1"
+          "attack-mul1"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-phase1"
+          "attack-mul1"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-dot",
-          "skill1-phase1"
+          "common-skill-dot",
+          "attack-mul1"
         ]
       },
       {
         "features": [
           "normal",
-          "skill1-phase2"
+          "attack-mul2"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-phase2"
+          "attack-mul2"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-dot",
-          "skill1-phase2"
+          "common-skill-dot",
+          "attack-mul2"
         ]
       },
       {
         "features": [
           "normal",
-          "skill1-phase3"
+          "attack-mul3"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-phase3"
+          "attack-mul3"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-dot",
-          "skill1-phase3"
+          "common-skill-dot",
+          "attack-mul3"
         ]
       }
     ]
@@ -16201,7 +16300,7 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "tkn+1"
+        "tkn+1→命中"
       ]
     },
     "potentials": [
@@ -16228,7 +16327,13 @@
       }
     ],
     "costAdd": -4,
-    "hpMul": 80
+    "hpMul": 80,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 1370001,
@@ -16277,7 +16382,18 @@
         "attackMul": 260
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 138,
@@ -16321,7 +16437,13 @@
     "potentialBonus": {
       "physicalEvasion": 45,
       "magicalEvasion": 45
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "TODO_FATAL": "スキル射程",
@@ -16507,13 +16629,8 @@
     ],
     "features": [
       {
-        "featureName": "extra-damage",
-        "conditions": [
-          "追"
-        ],
+        "featureName": "common-extra-field-damage",
         "damageFactor": 30,
-        "criChanceAdd": -1000,
-        "target": "命中",
         "rounds": [
           {
             "ratio": 1,
@@ -16530,9 +16647,26 @@
         }
       },
       {
-        "featureName": "extra-damage",
+        "featureName": "common-extra-field-damage",
         "skill": 1,
         "rounds": 11
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
       }
     ]
   },
@@ -16556,7 +16690,7 @@
       "duration": 40,
       "cooldown": 50,
       "supplements": [
-        "tkn+1",
+        "tkn+1/発動",
         "敵味方HP-1%/10秒→射程内"
       ]
     },
