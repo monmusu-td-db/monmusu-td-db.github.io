@@ -14064,16 +14064,10 @@
       "attackMul": 500,
       "defenseMul": 500,
       "attackMotionMul": 205,
+      "splash": true,
+      "range": 250,
       "duration": 11,
-      "cooldown": 35,
-      "supplements": [],
-      "skillFeatures": [
-        {
-          "featureName": "skill1-normal",
-          "splash": true,
-          "range": 250
-        }
-      ]
+      "cooldown": 35
     },
     "potentials": [
       "出撃コスト-1",
@@ -14103,6 +14097,7 @@
         "require": [
           "スキル"
         ],
+        "isConditionalSkillBuff": true,
         "physicalDamageCut": 40
       }
     ],
@@ -14166,7 +14161,7 @@
     ],
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-ground",
         "skill": 1,
         "isConditionalBuff": true,
         "damageFactor": 300
@@ -14179,7 +14174,7 @@
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-definite"
+          "common-definite-ground"
         ]
       },
       {
@@ -14192,7 +14187,7 @@
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-definite"
+          "common-definite-ground"
         ]
       },
       {
@@ -14205,7 +14200,7 @@
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-definite"
+          "common-definite-ground"
         ]
       },
       {
@@ -14238,7 +14233,7 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "即死(低)"
+        "即死(低)→命中"
       ]
     },
     "potentials": [
@@ -14251,6 +14246,7 @@
     "features": [
       {
         "featureName": "deploy-attack",
+        "isAbility": true,
         "flagNoDps": true,
         "annotations": [
           "配置時追加攻撃"
@@ -14269,7 +14265,30 @@
     "potentialBonus": {
       "physicalEvasion": 45,
       "magicalEvasion": 45
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "deploy-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
     "id": 117,
@@ -14320,7 +14339,7 @@
           "移動不可"
         ],
         "deleteSupplements": [
-          "スタン付与20%"
+          "スタン付与20%→命中"
         ]
       },
       {
@@ -14336,16 +14355,12 @@
         "damageType": null
       },
       {
-        "featureName": "dot",
-        "isAbility": true,
+        "featureName": "common-skill-dot",
         "staticDamage": {
           "key": "attack",
           "value": 50
         },
-        "interval": 30,
-        "target": "射程内",
-        "range": 150,
-        "damageType": "貫通"
+        "range": 150
       }
     ],
     "situations": [
@@ -14361,7 +14376,7 @@
         "proper": true,
         "skill": 1,
         "features": [
-          "dot"
+          "common-skill-dot"
         ]
       },
       {
@@ -14416,7 +14431,7 @@
         "range": null,
         "damageType": "貫通",
         "supplements": [
-          "スタン付与60%"
+          "スタン付与60%→命中"
         ]
       },
       {
@@ -14431,7 +14446,7 @@
         "range": null,
         "damageType": "貫通",
         "supplements": [
-          "スタン付与60%"
+          "スタン付与60%→命中"
         ]
       }
     ],
