@@ -1712,6 +1712,6 @@ function getFatalLog() {
       names.push(unit.id + ":" + unit.unitShortName);
     }
   });
-
+  console.log("要修正ユニット数:" + names.length);
   console.log("要修正ユニット名:[" + names.join(", ") + "]");
 }
