@@ -256,6 +256,15 @@
     "range": null
   },
   {
+    "featureName": "common-team-buff0",
+    "conditions": [
+      {
+        "key": "t",
+        "value": 0
+      }
+    ]
+  },
+  {
     "featureName": "common-team-buff1",
     "isConditionalBuff": true,
     "conditions": [

@@ -12475,19 +12475,19 @@
     ],
     "features": [
       {
-        "featureName": "common-skill1-phase2",
+        "featureName": "common-phase2",
         "hpMul": 140,
         "attackMul": 140,
         "defenseMul": 140
       },
       {
-        "featureName": "common-skill1-phase3",
+        "featureName": "common-phase3",
         "hpMul": 180,
         "attackMul": 180,
         "defenseMul": 180
       },
       {
-        "featureName": "common-skill1-phase4",
+        "featureName": "common-phase4",
         "hpMul": 220,
         "attackMul": 220,
         "defenseMul": 220
@@ -12504,25 +12504,25 @@
       {
         "skill": 1,
         "features": [
-          "common-skill1-phase1"
+          "common-phase1"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-skill1-phase2"
+          "common-phase2"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-skill1-phase3"
+          "common-phase3"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-skill1-phase4"
+          "common-phase4"
         ]
       }
     ]
@@ -12676,7 +12676,7 @@
       "duration": 20,
       "cooldown": 30,
       "supplements": [
-        "命中停止15f(0.5秒)"
+        "停止(0.5秒)→命中"
       ]
     },
     "exSkill2": {
@@ -12991,17 +12991,6 @@
         }
       }
     ],
-    "features": [
-      {
-        "skill": 1,
-        "isNotAbility": true,
-        "isBuffSkill": true,
-        "magicalDamageCut": 15,
-        "supplements": [
-          "魔法被Dmg-15%→射程内"
-        ]
-      }
-    ],
     "isEventUnit": true,
     "costAdd": -1,
     "situations": [
@@ -13009,13 +12998,21 @@
       {
         "skill": 1
       }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "target": "射程内",
+        "value": 15
+      }
     ]
   },
   {
     "id": 1040001,
     "parentId": 104,
     "unitName": "マズル",
-    "unitShortName": "マズル//Xmas T",
+    "unitShortName": "マズル/Xmas T",
     "rarity": "C",
     "class": "バード",
     "element": "光",
@@ -13035,15 +13032,6 @@
         "supplements": [
           "limit45秒"
         ]
-      },
-      {
-        "skill": 1,
-        "isNotAbility": true,
-        "isBuffSkill": true,
-        "magicalDamageCut": 15,
-        "supplements": [
-          "魔法被Dmg-15%→射程内"
-        ]
       }
     ],
     "isUnhealable": true,
@@ -13051,6 +13039,14 @@
       {},
       {
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "skill": 1,
+        "target": "射程内",
+        "value": 15
       }
     ]
   },
@@ -13075,7 +13071,7 @@
       "duration": 30,
       "cooldown": 45,
       "supplements": [
-        "tkn+1→3体撃破毎"
+        "tkn+1/3体撃破毎"
       ]
     },
     "potentials": [
@@ -13092,7 +13088,7 @@
           "スキル"
         ],
         "supplements": [
-          "tkn+2"
+          "tkn+2/発動"
         ]
       },
       {
@@ -13145,6 +13141,18 @@
     "situations": [
       {
         "proper": true
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": -1,
+        "target": "付与対象",
+        "duration": 20,
+        "value": 115,
+        "potentialBonus": {
+          "value": 118
+        }
       }
     ]
   },
@@ -13229,7 +13237,7 @@
     ]
   },
   {
-    "TODO_FATAL": "攻撃デバフの潜在覚醒ボーナスを調べる",
+    "TODO_DESC": "攻撃デバフの潜在覚醒ボーナスを調べる",
     "id": 107,
     "unitName": "【大悪魔召喚士】ラピス",
     "unitShortName": "ラピス",
@@ -13455,7 +13463,7 @@
       "cooldown": 15,
       "damageType": "貫通",
       "supplements": [
-        "スタン付与80%"
+        "スタン付与80%→命中"
       ]
     },
     "potentials": [
@@ -13470,20 +13478,33 @@
         "featureName": "flying-attack",
         "isAbility": true,
         "isMoving": true,
+        "flagNoDps": false,
         "annotations": [
           "移動攻撃"
         ],
         "damageFactor": 30,
         "interval": 60,
         "target": "射程内",
+        "splash": false,
         "range": 200,
         "damageType": "魔法",
         "supplements": [
-          "スタン付与10%"
+          "スタン付与10%→命中"
         ],
         "potentialBonus": {
           "damageFactor": 35
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "flying-attack"
+        ]
       }
     ]
   },
@@ -13677,32 +13698,78 @@
         "skill": 1,
         "isBuffSkill": true,
         "attackSpeedBuff": 200,
-        "delayMul": 50,
+        "delayMul": 50
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
         "supplements": [
           "ノックバック→命中"
         ]
       },
       {
-        "featureName": "token-buff1",
+        "featureName": "common-team-buff1",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 1
-          }
-        ],
         "attackMul": 130
       },
       {
-        "featureName": "token-buff4",
+        "featureName": "common-team-buff4",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 4
-          }
-        ],
         "attackMul": 220
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-team-buff0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff0"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff4"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "require": [
+          "風属性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 200
+          },
+          {
+            "type": "delay-mul",
+            "value": 50
+          }
+        ]
       }
     ]
   },
@@ -13733,34 +13800,69 @@
         "isBuffSkill": true,
         "parentSkill": 1,
         "attackSpeedBuff": 200,
-        "delayMul": 50,
+        "delayMul": 50
+      },
+      {
+        "featureName": "skill1-buff",
+        "isConditionalSkillBuff": true,
         "supplements": [
           "ノックバック→命中"
         ]
       },
       {
-        "featureName": "token-buff1",
-        "conditions": [
-          {
-            "key": "t",
-            "value": 1
-          }
-        ],
+        "featureName": "common-team-buff1",
+        "isConditionalBuff": true,
         "attackMul": 130
       },
       {
-        "featureName": "token-buff4",
+        "featureName": "common-team-buff4",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 4
-          }
-        ],
         "attackMul": 220
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff",
+          "common-team-buff1"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-team-buff4"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff",
+          "common-team-buff4"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "require": [
+          "風属性"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "value": 130,
+        "supplements": [
+          "配置1体毎"
+        ]
+      }
+    ]
   },
   {
     "id": 112,
@@ -13994,16 +14096,24 @@
         }
       },
       {
-        "featureName": "normal",
+        "skill": 0,
         "physicalDamageCut": 20
       },
       {
-        "featureName": "skill",
+        "require": [
+          "スキル"
+        ],
         "physicalDamageCut": 40
       }
     ],
     "costAdd": 3,
-    "defenseMul": 140
+    "defenseMul": 140,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "TODO_DESC": "StatはWiki情報",
