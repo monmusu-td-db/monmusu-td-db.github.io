@@ -63,7 +63,20 @@
       "},",
     ],
   },
-  "unitSituation": {
+  "unitSituation1": {
+    "scope": "json",
+    "prefix": "situation",
+    "description": "unit situation",
+    "body": [
+      "\"situations\": [",
+      "  {},",
+      "  {",
+      "    \"skill\": 1",
+      "  }",
+      "]",
+    ],
+  },
+  "unitSituation2": {
     "scope": "json",
     "prefix": "situation",
     "description": "unit situation",
