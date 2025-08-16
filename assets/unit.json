@@ -16787,25 +16787,33 @@
         "moveCostAdd": -99
       },
       {
-        "featureName": "charge-attack",
+        "featureName": "common-charge-attack",
         "isConditionalBuff": true,
-        "isMoving": true,
-        "annotations": [
-          "移動中"
-        ],
-        "conditions": [
-          "突"
-        ],
         "damageFactor": 180,
-        "interval": null,
-        "wideTarget": false,
         "potentialBonus": {
           "damageFactor": 200
         }
       }
     ],
     "isEventUnit": true,
-    "moveSpeedMul": 200
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      }
+    ]
   },
   {
     "id": 143,
@@ -16824,8 +16832,10 @@
       "duration": 40,
       "cooldown": 50,
       "supplements": [
-        "tkn+5",
-        "隠密"
+        "tkn+5/発動",
+        "隠密",
+        "ATK-40%(3秒)→命中",
+        "DEF-40%(3秒)→命中"
       ]
     },
     "potentials": [
@@ -16840,12 +16850,25 @@
         "defenseDebuff": {
           "valueMul": 40
         }
+      },
+      {
+        "skill": 1,
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 40
+        }
       }
     ],
     "penetrationAdd": 40,
     "potentialBonus": {
       "penetrationAdd": 52
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 1430001,
@@ -16882,7 +16905,12 @@
     "penetrationAdd": 40,
     "potentialBonus": {
       "penetrationAdd": 52
-    }
+    },
+    "situations": [
+      {
+        "proper": true
+      }
+    ]
   },
   {
     "id": 144,
@@ -16895,6 +16923,7 @@
     "attack": 942,
     "defense": 247,
     "resist": 279,
+    "rounds": 2,
     "placement": "両",
     "exSkill1": {
       "skillName": "バーストレーザー",
@@ -16913,18 +16942,18 @@
       "射程+15",
       "物理ダメージ20%軽減"
     ],
-    "features": [
-      {
-        "featureName": "normal",
-        "rounds": 2
-      }
-    ],
     "costAdd": 12,
     "hpMul": 200,
     "defenseMul": 150,
     "potentialBonus": {
       "hpMul": 230
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 145,
@@ -16961,19 +16990,19 @@
         "skill": 1,
         "isConditionalSkillDebuff": true,
         "supplements": [
-          "スタン5秒/終了後→自分"
+          "スタン(5秒)/終了後→自分"
         ]
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-male",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "supplements": [
-          "スタン付与20%→命中男性"
+          "スタン付与20%→命中"
         ]
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-male",
         "isConditionalSkillBuff": true,
         "damageFactor": 200
       }
@@ -16990,13 +17019,13 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-male"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-male"
         ]
       },
       {
@@ -17033,10 +17062,7 @@
       "damageType": "魔法",
       "skillFeatures": [
         {
-          "featureName": "proper",
-          "conditions": [
-            "特"
-          ],
+          "featureName": "common-definite-ground",
           "damageFactor": 150
         }
       ]
@@ -17067,21 +17093,95 @@
         }
       },
       {
-        "featureName": "proper",
+        "featureName": "class-definite",
+        "annotations": [
+          "スタン特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-ground",
         "annotations": [
           "地上特効"
         ]
       },
       {
-        "featureName": "class-definite",
-        "annotations": [
-          "スタン特効"
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "スタン特効",
+          "地上特効"
         ]
       }
     ],
     "costAdd": 5,
     "hpMul": 130,
-    "attackMul": 120
+    "attackMul": 120,
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "deploy-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack",
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "deploy-attack",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "deploy-attack",
+          "common-definite-double",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "deploy-attack"
+        ]
+      }
+    ]
   },
   {
     "id": 147,
@@ -17527,7 +17627,6 @@
     ]
   },
   {
-    "TODO_DESC": "移動コスト+9",
     "TODO_STAT_INFERRED": true,
     "id": 154,
     "unitName": "【不知火娘】ヌイ",
@@ -17559,6 +17658,7 @@
       "攻撃力+50",
       "射程+10"
     ],
+    "moveCostAdd": 9,
     "situations": [
       {},
       {
