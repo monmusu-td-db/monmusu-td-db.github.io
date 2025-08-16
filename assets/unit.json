@@ -14505,7 +14505,7 @@
     ],
     "features": [
       {
-        "featureName": "common-block1",
+        "featureName": "common-block1-emphasis",
         "isConditionalBuff": true,
         "damageFactor": 110,
         "attackSpeedBuff": 117,
@@ -14534,7 +14534,53 @@
     "potentialBonus": {
       "attackMul": 119,
       "defenseMul": 119
-    }
+    },
+    "situations": [
+      {
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block3"
+        ]
+      }
+    ]
   },
   {
     "id": 120,
@@ -14575,8 +14621,8 @@
         "skill": 1,
         "isConditionalSkillBuff": true,
         "supplements": [
-          "DEF-{attack*20}/スキル中→射程内",
-          "RES-{attack*20}/スキル中→射程内"
+          "DEF-{attack*20}(スキル中)→射程内",
+          "RES-{attack*20}(スキル中)→射程内"
         ]
       }
     ],
@@ -14630,8 +14676,8 @@
         "skill": 1,
         "isConditionalSkillBuff": true,
         "supplements": [
-          "DEF-{attack*20}/スキル中→射程内",
-          "RES-{attack*20}/スキル中→射程内"
+          "DEF-{attack*20}(スキル中)→射程内",
+          "RES-{attack*20}(スキル中)→射程内"
         ]
       }
     ],
@@ -15184,7 +15230,7 @@
         ]
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-ground",
         "skill": 1,
         "damageFactor": 200
       },
@@ -15213,6 +15259,12 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-ground"
+        ]
       },
       {
         "proper": true,
@@ -15297,7 +15349,7 @@
         "featureName": "skill1-normal",
         "isConditionalSkillBuff": true,
         "supplements": [
-          "スタン付与8%"
+          "スタン付与8%→命中"
         ]
       },
       {
@@ -15341,7 +15393,50 @@
     "attackMul": 115,
     "potentialBonus": {
       "attackMul": 119
-    }
+    },
+    "situations": [
+      {
+        "features": [
+          "hp-over-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-over-100%"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -15389,10 +15484,7 @@
         ]
       },
       {
-        "featureName": "proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-petrify",
         "damageFactor": 180,
         "potentialBonus": {
           "damageFactor": 200
@@ -15407,13 +15499,13 @@
       },
       {
         "features": [
-          "proper"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "proper"
+          "common-definite-petrify"
         ]
       }
     ]
@@ -15439,7 +15531,7 @@
       "cooldown": 40,
       "supplements": [
         "ノックバック→命中",
-        "即死"
+        "即死(中)→命中"
       ]
     },
     "potentials": [
@@ -15453,7 +15545,7 @@
       {
         "featureName": "class-attack",
         "supplements": [
-          "即死(超高)"
+          "即死(超高)→命中"
         ]
       }
     ],
