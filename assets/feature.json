@@ -521,6 +521,15 @@
     ]
   },
   {
+    "featureName": "common-definite-yokai",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "yokai"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-fire",
     "conditions": [
       {
