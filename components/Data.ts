@@ -488,6 +488,7 @@ export class Condition {
     light: "光属性",
     dark: "闇属性",
     ground: "対地",
+    yokai: "妖怪",
   } as const;
 
   private static readonly keys = getKeys(this.tag);
