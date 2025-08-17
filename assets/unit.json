@@ -18906,7 +18906,7 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "tkn+1"
+        "tkn+1/発動"
       ]
     },
     "potentials": [
@@ -19043,6 +19043,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true
@@ -19090,19 +19091,35 @@
         "damageType": "魔法"
       },
       {
-        "featureName": "dot",
-        "annotations": [
-          "種族特性"
-        ],
+        "featureName": "common-dot",
         "staticDamage": {
           "key": "attack",
           "value": 10
         },
-        "interval": 30,
-        "target": "ブロック",
-        "splash": false,
-        "range": null,
-        "damageType": "貫通"
+        "target": "ブロック"
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "fire-field-normal"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
       }
     ]
   },
@@ -19200,23 +19217,30 @@
         }
       },
       {
-        "featureName": "regenerate",
-        "conditions": [
-          "再all"
-        ],
+        "featureName": "common-regenerate-all",
         "staticDamage": {
           "key": "attack-base",
           "value": 8
         },
-        "interval": 30,
-        "target": "全体",
-        "damageType": "再生",
         "supplements": [
-          "対象→水属性マス味方"
+          "回復対象→水属性マス味方"
         ]
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate-all"
+        ]
+      }
+    ]
   },
   {
     "id": 172,
