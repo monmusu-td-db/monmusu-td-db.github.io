@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# モンスター娘TD DB
 
-## Getting Started
+モンスター娘TDのデータベースサイト、[モンスター娘TD DB](https://example.com) のソースコードです。
 
-First, run the development server:
+## 使い方
+
+[Node.js](https://nodejs.org/ja) をインストールし、作業フォルダで以下のコマンドを実行します。
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+結果を確認するには [http://localhost:3000](http://localhost:3000) を開いてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 参考文献
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+内容の参考にさせていただいたサイトです。
 
-## Learn More
+- [モンスター娘TD攻略 Wiki](https://monmusu-td.wikiru.jp/) - キャラクター情報など
+- [くろもじ屋′](https://kuromojiya.sakura.ne.jp/) - 表のレイアウトなど
 
-To learn more about Next.js, take a look at the following resources:
+以下は技術面の参考にさせていただいたサイトです。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [React](https://ja.react.dev/)
+- [Next.js](https://nextjs.org/)
+- [MDN Web Docs](https://developer.mozilla.org/ja/)
+- [サバイバルTypeScript](https://typescriptbook.jp/)
+- [Bootstrap](https://getbootstrap.jp/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
