@@ -17862,6 +17862,7 @@
     "defense": 426,
     "resist": 284,
     "moveType": "ワープ",
+    "moveCostAdd": 5,
     "exSkill1": {
       "skillName": "忍法地均し蜘蛛糸縛り",
       "attackMul": 160,
@@ -17870,7 +17871,7 @@
       "duration": 15,
       "cooldown": 45,
       "supplements": [
-        "攻撃速度-50%→射程内敵",
+        "攻撃速度-50%→射程内",
         "鈍足-50%→射程内",
         "地マス化/発動→自分"
       ]
@@ -17898,14 +17899,57 @@
         ]
       },
       {
-        "featureName": "proper",
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-back-attack",
         "damageFactor": 200,
         "potentialBonus": {
           "damageFactor": 250
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "features": [
+          "common-definite-back-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-back-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "発動時"
+        ]
       }
     ]
   },
@@ -18308,12 +18352,9 @@
         ]
       },
       {
-        "featureName": "buff-species",
+        "featureName": "common-definite-yokai",
         "annotations": [
           "妖怪特効"
-        ],
-        "conditions": [
-          "特"
         ],
         "staticDamage": {
           "key": "static",
@@ -18329,9 +18370,10 @@
         }
       },
       {
-        "featureName": "buff-proper-species",
-        "annotations": [
-          "妖怪特効"
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "妖怪特効",
+          "同属性特効"
         ],
         "staticDamage": {
           "key": "static",
@@ -18371,7 +18413,7 @@
         "isGeneral": false,
         "features": [
           "class-buff",
-          "buff-species"
+          "common-definite-yokai"
         ]
       },
       {
@@ -18380,7 +18422,8 @@
         "isGeneral": false,
         "features": [
           "class-buff-definite",
-          "buff-proper-species"
+          "common-definite-yokai",
+          "common-definite-double"
         ]
       },
       {
@@ -18454,6 +18497,7 @@
     "defense": 415,
     "resist": 282,
     "moveType": "隠密",
+    "moveCostAdd": -1,
     "exSkill1": {
       "skillName": "つちのこのつち",
       "attackSpeedBuff": 150,
@@ -18462,7 +18506,7 @@
       "duration": 25,
       "cooldown": 40,
       "supplements": [
-        "猛毒付与30%",
+        "猛毒付与30%→命中",
         "隠密"
       ]
     },
@@ -18489,22 +18533,6 @@
         ]
       },
       {
-        "featureName": "skill-earth-field",
-        "isAbility": true,
-        "fieldElements": [
-          "地"
-        ],
-        "conditions": [
-          "追"
-        ],
-        "staticDamage": {
-          "key": "attack",
-          "value": 100
-        },
-        "target": "命中",
-        "damageType": "物理"
-      },
-      {
         "featureName": "class-wind-field",
         "skill": 1,
         "fixedDelay": 1
@@ -18516,7 +18544,21 @@
     "moveSpeedMul": 200,
     "potentialBonus": {
       "moveSpeedMul": 250
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-wind-field",
+          "class-earth-field"
+        ]
+      }
+    ]
   },
   {
     "id": 166,
@@ -18572,6 +18614,20 @@
         ]
       },
       {
+        "featureName": "common-charge-attack",
+        "annotations": [
+          "移動中"
+        ]
+      },
+      {
+        "featureName": "common-charge-attack",
+        "skill": 0,
+        "isConditionalBuff": true,
+        "supplements": [
+          "CT-1秒/秒"
+        ]
+      },
+      {
         "featureName": "class-action",
         "annotations": [
           "種族特性+ハイタフネス"
@@ -18595,7 +18651,52 @@
     "moveSpeedMul": 200,
     "potentialBonus": {
       "moveSpeedMul": 250
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "id": 167,
@@ -18637,6 +18738,12 @@
       },
       {
         "featureName": "hp-over-80%",
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ],
         "damageFactor": 120
       },
       {
@@ -18663,9 +18770,118 @@
         "featureName": "skill1-phase3",
         "phase": 3,
         "hpMul": 160
+      },
+      {
+        "featureName": "common-phase1",
+        "hpMul": 120
+      },
+      {
+        "featureName": "common-phase2",
+        "hpMul": 140
+      },
+      {
+        "featureName": "common-phase3",
+        "hpMul": 160
       }
     ],
-    "hpMul": 120
+    "hpMul": 120,
+    "situations": [
+      {
+        "features": [
+          "hp-over-80%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-over-80%",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-over-80%",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-over-80%",
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "hp-79%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "common-phase3"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-phase1",
+          "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-phase2",
+          "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-phase3",
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ]
   },
   {
     "id": 168,
