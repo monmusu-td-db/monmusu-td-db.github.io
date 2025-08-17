@@ -15511,7 +15511,6 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 130,
     "unitName": "【転校生ジャイアント娘】メロン",
     "unitShortName": "メロン/学園",
@@ -26756,8 +26755,7 @@
     "magicalEvasion": 30
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1攻撃速度",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 244,
     "unitName": "【風嫁のジン娘】ヤーセファ",
     "unitShortName": "ヤーセファ/嫁",
@@ -26773,7 +26771,8 @@
       "attackMul": 220,
       "criChanceAdd": 20,
       "criChanceLimitAdd": 20,
-      "attackSpeedBuff": 999,
+      "attackSpeedBuff": 175,
+      "fixedDelay": 6,
       "targetAdd": 2,
       "rangeMul": 160,
       "duration": 30,
@@ -29800,7 +29799,6 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
     "id": 278,
     "unitName": "【Gデカイオー娘】ブライニー",
     "unitShortName": "ブライニー",
