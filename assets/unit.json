@@ -21744,7 +21744,6 @@
     ]
   },
   {
-    "TODO_FATAL": "射程",
     "id": 192,
     "unitName": "【氷雪のカリュブディス娘】リュプチェ",
     "unitShortName": "リュプチェ/Xmas",
@@ -21759,7 +21758,7 @@
       "skillName": "クリスマスブライニクル",
       "attackMul": 220,
       "target": 4,
-      "range": 999,
+      "range": 500,
       "duration": 25,
       "cooldown": 35,
       "supplements": [
@@ -23853,7 +23852,6 @@
     ]
   },
   {
-    "TODO_FATAL": "バフ枠は推測",
     "id": 2110001,
     "parentId": 211,
     "unitName": "御買得品",
@@ -30511,8 +30509,7 @@
     "hpMul": 85
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1射程はwiki情報",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 282,
     "unitName": "【レヴィアタン娘】キネア",
     "unitShortName": "キネア",
@@ -32466,7 +32463,6 @@
   },
   {
     "TODO_DESC": "毒/暗闇/スタン耐性デバフ/毒ダメージ量増加/スタン効果時間増加",
-    "TODO_FATAL": "ex1スタン蓄積値はwiki情報",
     "id": 300,
     "unitName": "【暗陰巫バイコーン娘】ヴァリナ",
     "unitShortName": "ヴァリナ/正月",
@@ -32829,7 +32825,7 @@
     ]
   },
   {
-    "TODO_FATAL": "持続ダメージはWiki情報",
+    "TODO_DESC": "継続ダメージの射程は330くらい",
     "id": 304,
     "unitName": "【ベルゼブブ娘】アゼプ",
     "unitShortName": "アゼプ",
@@ -32896,8 +32892,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
-    "TODO_FATAL": "射程",
     "id": 3040001,
     "parentId": 304,
     "unitName": "執事",
@@ -32912,7 +32906,7 @@
     "resist": 299,
     "block": 0,
     "target": 1,
-    "range": 999,
+    "range": 30,
     "moveSpeed": 0,
     "damageType": "物理",
     "placement": "近",
