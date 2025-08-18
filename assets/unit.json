@@ -10762,7 +10762,7 @@
       "duration": "単発",
       "cooldown": 25,
       "supplements": [
-        "CT-2秒/敵撃破時"
+        "CT-2秒/撃破"
       ]
     },
     "potentials": [
@@ -19697,7 +19697,7 @@
       "duration": 15,
       "cooldown": 30,
       "supplements": [
-        "CT-2秒/敵撃破時",
+        "CT-2秒/撃破",
         "移動可"
       ]
     },
@@ -20526,8 +20526,8 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "tkn+1",
-        "バインド(90f/3秒)"
+        "tkn+1/発動",
+        "バインド(3秒)"
       ]
     },
     "potentials": [
@@ -20540,16 +20540,22 @@
     "features": [
       {
         "supplements": [
-          "バインド(60f/2秒)/配置"
+          "バインド(2秒)/配置"
         ],
         "potentialBonus": {
           "supplements": [
-            "バインド(90f/3秒)/配置"
+            "バインド(3秒)/配置"
           ]
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 1820001,
@@ -20572,7 +20578,12 @@
     "placement": "的",
     "isUnhealable": true,
     "supplements": [
-      "鈍足-50%/3秒→命中"
+      "鈍足-50%(3秒)→命中"
+    ],
+    "situations": [
+      {
+        "proper": true
+      }
     ]
   },
   {
@@ -20630,14 +20641,21 @@
     ],
     "features": [
       {
-        "featureName": "normal",
+        "skill": 0,
         "attackMotionMul": 177,
         "supplements": [
-          "猛毒付与"
+          "猛毒付与(3連目)→命中",
+          "CT-1秒/撃破"
         ]
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "TODO_FATAL": "ex1攻撃待機時間",
@@ -20731,7 +20749,7 @@
       "duration": 40,
       "cooldown": 50,
       "supplements": [
-        "tkn+1"
+        "tkn+1/発動"
       ]
     },
     "potentials": [
@@ -20756,18 +20774,15 @@
     ],
     "features": [
       {
-        "featureName": "skill1-phase1",
-        "phase": 1,
+        "featureName": "common-phase1",
         "rangeAdd": 40
       },
       {
-        "featureName": "skill1-phase2",
-        "phase": 2,
+        "featureName": "common-phase2",
         "rangeAdd": 80
       },
       {
-        "featureName": "skill1-phase3",
-        "phase": 3,
+        "featureName": "common-phase3",
         "rangeAdd": 120
       },
       {
@@ -20806,54 +20821,39 @@
       {
         "skill": 1,
         "features": [
-          "skill1-phase1"
+          "common-phase1"
         ]
       },
       {
         "features": [
-          "skill1-phase1"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "skill1-phase2"
-        ]
-      },
-      {
-        "features": [
-          "skill1-phase2"
+          "common-phase1"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "skill1-phase3"
+          "common-phase2"
         ]
       },
       {
         "features": [
-          "skill1-phase3"
-        ]
-      },
-      {
-        "proper": true,
-        "features": [
-          "regenerate"
+          "common-phase2"
         ]
       },
       {
         "skill": 1,
-        "proper": true,
         "features": [
-          "skill1-phase1",
-          "regenerate"
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "common-phase3"
         ]
       },
       {
         "proper": true,
         "features": [
-          "skill1-phase1",
           "regenerate"
         ]
       },
@@ -20861,14 +20861,14 @@
         "skill": 1,
         "proper": true,
         "features": [
-          "skill1-phase2",
+          "common-phase1",
           "regenerate"
         ]
       },
       {
         "proper": true,
         "features": [
-          "skill1-phase2",
+          "common-phase1",
           "regenerate"
         ]
       },
@@ -20876,14 +20876,29 @@
         "skill": 1,
         "proper": true,
         "features": [
-          "skill1-phase3",
+          "common-phase2",
           "regenerate"
         ]
       },
       {
         "proper": true,
         "features": [
-          "skill1-phase3",
+          "common-phase2",
+          "regenerate"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "common-phase3",
+          "regenerate"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-phase3",
           "regenerate"
         ]
       }
@@ -20966,6 +20981,14 @@
         "features": [
           "support"
         ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-cut",
+        "skill": 1,
+        "target": "射程内",
+        "value": 20
       }
     ]
   },
@@ -23039,7 +23062,7 @@
     "defense": 235,
     "resist": 573,
     "supplements": [
-      "CT-1秒/敵撃破時"
+      "CT-1秒/撃破"
     ],
     "exSkill1": {
       "skillName": "ドラゴニックウェーブ",
@@ -33738,7 +33761,7 @@
     "supplements": [
       "火傷付与(稀)",
       "火傷付与(稀+)→ブロック敵",
-      "HP回復3%/敵撃破→悪魔"
+      "HP回復3%/撃破→悪魔"
     ],
     "exSkill1": {
       "skillName": "悪魔仕込みの腕前",
@@ -35014,7 +35037,7 @@
       {
         "skill": 0,
         "supplements": [
-          "CT-1秒/敵撃破時"
+          "CT-1秒/撃破"
         ]
       },
       {
