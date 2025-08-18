@@ -25557,8 +25557,7 @@
     "isEventUnit": true
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1全体攻撃の属性を調べる",
+    "TODO_DESC": "PotentialはWiki情報/ex1全体攻撃は貫通ダメージ",
     "id": 229,
     "unitName": "【暗黒魔導師】アリストロメリア",
     "unitShortName": "アリストロメリア",
@@ -30640,7 +30639,6 @@
     ]
   },
   {
-    "TODO_FATAL": "スタン蓄積値",
     "id": 283,
     "unitName": "【ワキヤン・タンカ娘】ワエマワ",
     "unitShortName": "ワエマワ/進化",
@@ -30663,7 +30661,7 @@
       "duration": 25,
       "cooldown": 40,
       "supplements": [
-        "スタン付与XX%(中)"
+        "スタン付与45%→命中"
       ]
     },
     "potentials": [
@@ -30687,7 +30685,7 @@
       {
         "skill": 0,
         "supplements": [
-          "スタン付与XX%(小)"
+          "スタン付与10%/命中"
         ]
       },
       {
@@ -34506,8 +34504,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1追加ダメージのHit数を調べる",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 321,
     "unitName": "【ムーンラビット娘】フィーユェ",
     "unitShortName": "フィーユェ",
@@ -35721,8 +35718,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1割合ダメージ間隔はwiki情報",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 334,
     "unitName": "【ネクロマンサー】クロム",
     "unitShortName": "クロム",
