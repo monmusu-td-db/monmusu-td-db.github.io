@@ -22048,6 +22048,7 @@
     ]
   },
   {
+    "TODO_DESC": "移動速度加算タイミングはwiki情報",
     "TODO_STAT_INFERRED": true,
     "id": 195,
     "unitName": "【風神娘】シナツ",
@@ -22083,17 +22084,38 @@
     "features": [
       {
         "supplements": [
-          "移動速度+60(7秒)→全味方"
+          "移動速度+60(7秒)/命中→全体"
         ],
         "potentialBonus": {
           "supplements": [
-            "移動速度+75(7秒)→全味方"
+            "移動速度+75(7秒)/命中→全体"
           ]
         }
       }
     ],
     "isEventUnit": true,
-    "rangeAdd": 30
+    "rangeAdd": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "move-speed-add",
+        "skill": -1,
+        "target": "全体",
+        "duration": 7,
+        "value": 60,
+        "supplements": [
+          "命中毎"
+        ],
+        "potentialBonus": {
+          "value": 75
+        }
+      }
+    ]
   },
   {
     "TODO_FATAL": "ex1攻撃速度",
@@ -22128,6 +22150,14 @@
         "isConditionalSkillBuff": true,
         "attackSpeedBuff": 999,
         "delayMul": 99
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "supplements": [
+          "毒無効",
+          "スタン無効"
+        ]
       },
       {
         "featureName": "class-action",
@@ -22281,7 +22311,7 @@
       "duration": 20,
       "cooldown": 30,
       "supplements": [
-        "凍結付与(低)"
+        "凍結付与(低)→命中"
       ]
     },
     "potentials": [
@@ -22300,6 +22330,12 @@
         "potentialBonus": {
           "damageFactor": 140
         }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },
@@ -22341,6 +22377,7 @@
       },
       {
         "featureName": "deploy-attack",
+        "isAbility": true,
         "flagNoDps": true,
         "annotations": [
           "配置時攻撃"
@@ -22432,6 +22469,68 @@
           }
         }
       }
+    ],
+    "situations": [
+      {},
+      {
+        "depend": [
+          "class-buff"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "deploy-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "support1"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "support5"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "support10"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 150
+          },
+          {
+            "type": "delay-mul",
+            "value": 50
+          }
+        ]
+      }
     ]
   },
   {
@@ -22452,7 +22551,7 @@
       "duration": 20,
       "cooldown": 25,
       "supplements": [
-        "tkn+1"
+        "tkn+1/発動"
       ]
     },
     "potentials": [
@@ -22501,15 +22600,8 @@
         }
       },
       {
-        "featureName": "support",
-        "isAbility": true,
+        "featureName": "common-support",
         "isSupport": true,
-        "annotations": [
-          "加算バフ"
-        ],
-        "conditions": [
-          "援"
-        ],
         "staticDamage": {
           "key": "static",
           "value": 50
@@ -22536,7 +22628,7 @@
         "proper": true,
         "features": [
           "common-token-limit-nodesc",
-          "support"
+          "common-support"
         ]
       }
     ]
