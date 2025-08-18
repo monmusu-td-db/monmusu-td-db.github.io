@@ -21315,6 +21315,7 @@
     ]
   },
   {
+    "TODO_DESC": "再出撃時間-12秒→自分",
     "id": 188,
     "unitName": "【闇の墓守】リッチ",
     "unitShortName": "リッチ",
@@ -21354,38 +21355,32 @@
     "features": [
       {
         "supplements": [
-          "再出撃時間-12秒→自分",
-          "射程内呪殺15%(ボス8%)"
+          "呪殺15%(ボス8%)→射程内"
         ],
         "potentialBonus": {
           "supplements": [
-            "射程内呪殺20%(ボス10%)"
+            "呪殺20%(ボス10%)→射程内"
           ]
         }
-      },
+      }
+    ],
+    "situations": [
+      {},
       {
-        "featureName": "skill1-1hit",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 1
-          }
+        "skill": 1,
+        "features": [
+          "common-1hit"
         ]
       },
       {
-        "featureName": "skill1-2hits",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 2
-          }
-        ],
-        "hits": 2
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
       }
     ]
   },
   {
-    "TODO_DESC": "移動コスト+5",
     "id": 189,
     "unitName": "【レイス娘】ダルシー",
     "unitShortName": "ダルシー",
@@ -21457,6 +21452,7 @@
     ],
     "physicalEvasion": 30,
     "magicalEvasion": 30,
+    "moveCostAdd": 5,
     "situations": [
       {
         "exclude": [
@@ -21554,7 +21550,13 @@
     "defenseMul": 140,
     "potentialBonus": {
       "defenseMul": 160
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -21693,7 +21695,53 @@
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-add"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-add"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "support"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-absorb"
+        ]
+      }
+    ]
   },
   {
     "TODO_FATAL": "射程",
@@ -21736,7 +21784,7 @@
     ],
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-freeze",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -21744,7 +21792,7 @@
         }
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-freeze",
         "skill": 1,
         "isConditionalSkillBuff": true,
         "damageFactor": 130
@@ -21776,7 +21824,7 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-freeze"
         ]
       },
       {
@@ -21785,13 +21833,13 @@
         ],
         "features": [
           "common-block3",
-          "common-definite"
+          "common-definite-freeze"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-freeze"
         ]
       }
     ],
