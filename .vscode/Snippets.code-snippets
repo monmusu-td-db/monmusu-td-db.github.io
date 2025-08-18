@@ -92,4 +92,10 @@
       "]",
     ],
   },
+  "tokenSituation": {
+    "scope": "json",
+    "prefix": "token situation",
+    "description": "token situation",
+    "body": ["\"situations\": [", "  {", "    \"proper\": true", "  }", "]"],
+  },
 }
