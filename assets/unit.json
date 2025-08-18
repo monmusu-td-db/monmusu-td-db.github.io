@@ -9579,7 +9579,7 @@
       {
         "skill": 1,
         "features": [
-          "common-3hit",
+          "common-3hits",
           "common-phase1"
         ]
       },
@@ -17861,7 +17861,6 @@
     "defense": 426,
     "resist": 284,
     "moveType": "ワープ",
-    "moveCostAdd": 5,
     "exSkill1": {
       "skillName": "忍法地均し蜘蛛糸縛り",
       "attackMul": 160,
@@ -17871,8 +17870,7 @@
       "cooldown": 45,
       "supplements": [
         "攻撃速度-50%→射程内",
-        "鈍足-50%→射程内",
-        "地マス化/発動→自分"
+        "鈍足-50%→射程内"
       ]
     },
     "potentials": [
@@ -17905,6 +17903,7 @@
         }
       }
     ],
+    "moveCostAdd": 5,
     "situations": [
       {},
       {
@@ -18496,7 +18495,6 @@
     "defense": 415,
     "resist": 282,
     "moveType": "隠密",
-    "moveCostAdd": -1,
     "exSkill1": {
       "skillName": "つちのこのつち",
       "attackSpeedBuff": 150,
@@ -18541,6 +18539,7 @@
     "costAdd": -3,
     "hpMul": 80,
     "moveSpeedMul": 200,
+    "moveCostAdd": -1,
     "potentialBonus": {
       "moveSpeedMul": 250
     },
@@ -18596,22 +18595,6 @@
       "移動消費コスト-2"
     ],
     "features": [
-      {
-        "featureName": "charge-attack",
-        "isConditionalBuff": true,
-        "isMoving": true,
-        "annotations": [
-          "移動中"
-        ],
-        "interval": null
-      },
-      {
-        "featureName": "charge-attack",
-        "skill": 0,
-        "supplements": [
-          "CT-1秒/秒"
-        ]
-      },
       {
         "featureName": "common-charge-attack",
         "annotations": [
@@ -18754,21 +18737,6 @@
           }
         ],
         "currentHp": 79
-      },
-      {
-        "featureName": "skill1-phase1",
-        "phase": 1,
-        "hpMul": 120
-      },
-      {
-        "featureName": "skill1-phase2",
-        "phase": 2,
-        "hpMul": 140
-      },
-      {
-        "featureName": "skill1-phase3",
-        "phase": 3,
-        "hpMul": 160
       },
       {
         "featureName": "common-phase1",
@@ -19239,6 +19207,17 @@
           "common-regenerate-all"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "target": "射程内",
+        "element": "水",
+        "supplements": [
+          "発動時",
+          "射程内ランダムで1マス変化"
+        ]
+      }
     ]
   },
   {
@@ -19257,7 +19236,9 @@
       "skillName": "頑張れ頑張れゴブ♪",
       "duration": 20,
       "cooldown": 30,
-      "supplements": []
+      "supplements": [
+        "コスト+1/24f(0.8秒)"
+      ]
     },
     "exSkill2": {
       "skillName": "トばしちゃうゴブ♪",
@@ -19267,8 +19248,8 @@
       "duration": 20,
       "cooldown": 30,
       "supplements": [
-        "コスト+16",
-        "スタン付与10%"
+        "コスト+16/発動",
+        "スタン付与10%/命中"
       ]
     },
     "potentials": [
@@ -19288,62 +19269,8 @@
         "fixedDelay": 10
       },
       {
-        "featureName": "team-buff1",
-        "conditions": [
-          {
-            "key": "t",
-            "value": 1
-          }
-        ],
-        "attackMul": 107
-      },
-      {
-        "featureName": "team-buff1",
-        "skill": 2,
-        "attackMul": 130
-      },
-      {
-        "featureName": "team-buff5",
-        "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 5
-          }
-        ],
-        "attackMul": 135
-      },
-      {
-        "featureName": "team-buff5",
-        "isConditionalBuff": true,
-        "skill": 2,
-        "attackMul": 250
-      },
-      {
-        "featureName": "team-buff9",
-        "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 9
-          }
-        ],
-        "attackMul": 163
-      },
-      {
-        "featureName": "team-buff9",
-        "isConditionalBuff": true,
-        "skill": 2,
-        "attackMul": 370
-      },
-      {
-        "featureName": "skill1",
-        "supplements": [
-          "コスト+1/24f(0.8秒)"
-        ]
-      },
-      {
         "featureName": "skill1-regenerate",
+        "isAbility": true,
         "conditions": [
           "再all"
         ],
@@ -19359,33 +19286,159 @@
         ]
       },
       {
-        "featureName": "skill2-1hit",
+        "featureName": "common-team-buff1-no-emphasis",
+        "attackMul": 107
+      },
+      {
+        "featureName": "common-team-buff1-no-emphasis",
+        "skill": 2,
+        "attackMul": 130
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "attackMul": 135
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "skill": 2,
+        "attackMul": 250
+      },
+      {
+        "featureName": "common-team-buff9",
+        "isConditionalBuff": true,
         "conditions": [
           {
-            "key": "hit",
-            "value": 1
+            "key": "t",
+            "value": 9
           }
+        ],
+        "attackMul": 163
+      },
+      {
+        "featureName": "common-team-buff9",
+        "isConditionalBuff": true,
+        "skill": 2,
+        "attackMul": 370
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-team-buff1-no-emphasis"
         ]
       },
       {
-        "featureName": "skill2-2hits",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 2
-          }
-        ],
-        "hits": 2
+        "skill": 1,
+        "features": [
+          "common-team-buff1-no-emphasis"
+        ]
       },
       {
-        "featureName": "skill2-3hits",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 3
-          }
+        "skill": 2,
+        "features": [
+          "common-team-buff1-no-emphasis",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff1-no-emphasis",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff1-no-emphasis",
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff5",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff5",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff5",
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff9"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff9"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff9",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff9",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-team-buff9",
+          "common-3hits"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-regenerate"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "require": [
+          "ゴブリン特性"
         ],
-        "hits": 3
+        "target": "全体",
+        "value": 107,
+        "supplements": [
+          "配置中のゴブリン族1体毎"
+        ]
       }
     ]
   },
@@ -19423,14 +19476,8 @@
         "attackMul": 135
       },
       {
-        "featureName": "team-buff9",
+        "featureName": "common-team-buff9",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 9
-          }
-        ],
         "attackMul": 163
       },
       {
@@ -19444,6 +19491,7 @@
       },
       {
         "featureName": "skill1-regenerate",
+        "isAbility": true,
         "parentSkill": 1,
         "conditions": [
           "再all"
@@ -19458,7 +19506,41 @@
         "damageType": "再生"
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "team-buff5"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "team-buff5",
+          "skill1-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-team-buff9"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-team-buff9",
+          "skill1-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-regenerate"
+        ]
+      }
+    ]
   },
   {
     "id": 173,
