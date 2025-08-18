@@ -1,51 +1,5 @@
 [
   {
-    "unitId": 201,
-    "features": [
-      "class-melee"
-    ]
-  },
-  {
-    "unitId": 201,
-    "skill": 1,
-    "features": [
-      "class-melee"
-    ]
-  },
-  {
-    "unitId": 201,
-    "features": [
-      "charge-attack"
-    ]
-  },
-  {
-    "unitId": 201,
-    "skill": 1,
-    "features": [
-      "charge-attack"
-    ]
-  },
-  {
-    "unitId": 201,
-    "features": [
-      "class-ranged"
-    ]
-  },
-  {
-    "unitId": 201,
-    "skill": 1,
-    "features": [
-      "class-ranged"
-    ]
-  },
-  {
-    "unitId": 201,
-    "skill": -1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
     "unitId": 212
   },
   {
