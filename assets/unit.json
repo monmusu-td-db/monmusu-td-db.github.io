@@ -12888,17 +12888,12 @@
     "features": [
       {
         "featureName": "common-support",
-        "isAbility": true,
         "isSupport": true,
-        "conditions": [
-          "援"
-        ],
         "staticDamage": {
           "key": "attack",
           "value": 20
         },
         "target": "射程内",
-        "damageType": null,
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
@@ -19211,6 +19206,7 @@
     "buffs": [
       {
         "type": "field-change",
+        "skill": 1,
         "target": "射程内",
         "element": "水",
         "supplements": [
@@ -19733,23 +19729,33 @@
         ]
       },
       {
-        "featureName": "charge-attack",
+        "featureName": "common-charge-attack",
         "isConditionalBuff": true,
-        "isMoving": true,
-        "annotations": [
-          "移動中"
-        ],
-        "conditions": [
-          "突"
-        ],
         "damageFactor": 200,
-        "interval": null,
         "potentialBonus": {
           "damageFactor": 250
         }
       }
     ],
-    "moveSpeedMul": 250
+    "moveSpeedMul": 250,
+    "moveCostAdd": 2,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      }
+    ]
   },
   {
     "id": 176,
@@ -19786,11 +19792,11 @@
     "features": [
       {
         "supplements": [
-          "バインド(30f/1秒)"
+          "バインド(1秒)"
         ],
         "potentialBonus": {
           "supplements": [
-            "バインド(39f/1.3秒)"
+            "バインド(1.3秒)"
           ]
         }
       },
@@ -19798,6 +19804,12 @@
         "skill": 1,
         "isBuffSkill": true,
         "delayMul": 50
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       }
     ]
   },
@@ -19833,7 +19845,18 @@
         "delayMul": 50
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
@@ -19855,7 +19878,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "即死(低)"
+        "即死(低)/命中"
       ]
     },
     "potentials": [
@@ -20116,21 +20139,15 @@
       "攻撃力+75",
       "攻撃時最大HPの1%回復"
     ],
-    "targetAdd": 1,
     "features": [
       {
-        "featureName": "support",
-        "isAbility": true,
+        "featureName": "common-support",
         "isSupport": true,
-        "conditions": [
-          "援"
-        ],
         "staticDamage": {
           "key": "attack",
           "value": 50
         },
         "target": "射程内",
-        "damageType": null,
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
@@ -20150,6 +20167,41 @@
         },
         "target": "射程内",
         "damageType": "吸収"
+      }
+    ],
+    "targetAdd": 1,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-support"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-heal"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
       }
     ]
   },
@@ -20371,10 +20423,7 @@
       "attackMul": 200,
       "rangeMul": 160,
       "duration": 20,
-      "cooldown": 50,
-      "supplements": [
-        "闇マス化/発動→射程内闇味方"
-      ]
+      "cooldown": 50
     },
     "potentials": [
       "出撃コスト-1",
@@ -20401,6 +20450,20 @@
       {},
       {
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "闇属性"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "element": "闇",
+        "supplements": [
+          "発動時"
+        ]
       }
     ]
   },
@@ -20433,6 +20496,11 @@
           "value": 100
         },
         "interval": 60
+      }
+    ],
+    "situations": [
+      {
+        "proper": true
       }
     ]
   },
