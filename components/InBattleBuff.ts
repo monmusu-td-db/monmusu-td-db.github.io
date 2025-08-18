@@ -28,6 +28,7 @@ const keys = [
   stat.buffResistMul,
   stat.buffPhysicalDamageCut,
   stat.buffMagicalDamageCut,
+  stat.buffDamageCut,
   stat.buffCriChanceAdd,
   stat.buffCriDamageAdd,
   stat.buffDamageFactor,
@@ -72,6 +73,7 @@ class BuffType {
     resistMul: "resist-mul",
     physicalDamageCut: "physical-damage-cut",
     magicalDamageCut: "magical-damage-cut",
+    damageCut: "damage-cut",
     damageFactor: "damage-factor",
     damageDebuff: "damage-debuff",
     physicalDamageDebuff: "physical-damage-debuff",
@@ -201,6 +203,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffResistMul: Stat.Root;
   readonly buffPhysicalDamageCut: Stat.Root;
   readonly buffMagicalDamageCut: Stat.Root;
+  readonly buffDamageCut: Stat.Root;
   readonly buffCriChanceAdd: Stat.Root;
   readonly buffCriDamageAdd: Stat.Root;
   readonly buffDamageFactor: Stat.Root;
@@ -366,23 +369,36 @@ export default class InBattleBuff implements TableRow<Key> {
     this.buffDefenseMul = getBuffMul(stat.buffDefenseMul);
     this.buffResistMul = getBuffMul(stat.buffResistMul);
 
-    const getDamageCut = (isPhysical: boolean) => {
-      const key = isPhysical
-        ? typeKey.physicalDamageCut
-        : typeKey.magicalDamageCut;
+    const getDamageCut = (
+      statType:
+        | typeof stat.buffPhysicalDamageCut
+        | typeof stat.buffMagicalDamageCut
+        | typeof stat.buffDamageCut
+    ) => {
+      let key;
+      switch (statType) {
+        case stat.buffPhysicalDamageCut:
+          key = typeKey.physicalDamageCut;
+          break;
+        case stat.buffMagicalDamageCut:
+          key = typeKey.magicalDamageCut;
+          break;
+        case stat.buffDamageCut:
+          key = typeKey.damageCut;
+          break;
+      }
 
       const ret: Stat.Root = new Stat.Root({
-        statType: isPhysical
-          ? stat.buffPhysicalDamageCut
-          : stat.buffMagicalDamageCut,
+        statType,
         calculater: this.getEffectCalculaterFn(key),
         isReversed: true,
         text: (s) => this.getPercentText(ret.getValue(s)),
       });
       return ret;
     };
-    this.buffPhysicalDamageCut = getDamageCut(true);
-    this.buffMagicalDamageCut = getDamageCut(false);
+    this.buffPhysicalDamageCut = getDamageCut(stat.buffPhysicalDamageCut);
+    this.buffMagicalDamageCut = getDamageCut(stat.buffMagicalDamageCut);
+    this.buffDamageCut = getDamageCut(stat.buffDamageCut);
 
     const getCriticalAdd = (isChance: boolean) => {
       const key = isChance ? typeKey.criChanceAdd : typeKey.criDamageAdd;

@@ -38,6 +38,7 @@ const damageKeys = [
 const defensiveKeys = [
   stat.buffPhysicalDamageCut,
   stat.buffMagicalDamageCut,
+  stat.buffDamageCut,
   stat.buffPhysicalEvasion,
   stat.buffMagicalEvasion,
 ] as const satisfies InBattleBuffKey[];
