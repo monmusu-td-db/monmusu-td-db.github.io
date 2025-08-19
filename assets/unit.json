@@ -23955,29 +23955,33 @@
         ]
       },
       {
-        "featureName": "skill1-enemy1",
-        "conditions": [
-          {
-            "key": "敵",
-            "value": 1
-          }
-        ],
-        "damageFactor": 130,
-        "fixedTarget": 1
+        "featureName": "common-enemy1",
+        "damageFactor": 130
       },
       {
-        "featureName": "skill1-enemy2",
-        "conditions": [
-          {
-            "key": "敵",
-            "value": 2
-          }
-        ],
-        "damageFactor": 115,
-        "fixedTarget": 2
+        "featureName": "common-enemy2",
+        "damageFactor": 115
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy2"
+        ]
+      }
+    ]
   },
   {
     "id": 213,
@@ -24000,7 +24004,7 @@
       "duration": 20,
       "cooldown": 48,
       "supplements": [
-        "鈍足-30%/3秒→命中"
+        "鈍足-30%(3秒)→命中"
       ]
     },
     "potentials": [
@@ -24009,6 +24013,82 @@
       "攻撃力+75",
       "攻撃力+75",
       "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "CT-4秒/4秒(待機中)"
+        ]
+      },
+      {
+        "supplements": [
+          "RES-20→命中"
+        ]
+      },
+      {
+        "featureName": "10-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 10
+          }
+        ],
+        "resistDebuff": {
+          "time": 300,
+          "valueAdd": 20
+        }
+      },
+      {
+        "featureName": "20-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "防御デバフ累積効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 20
+          }
+        ],
+        "resistDebuff": {
+          "time": 600,
+          "valueAdd": 20
+        }
+      }
+    ],
+    "moveCostAdd": 5,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "10-sec"
+        ]
+      },
+      {
+        "features": [
+          "20-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "20-sec"
+        ]
+      }
     ]
   },
   {
@@ -24055,7 +24135,13 @@
       }
     ],
     "costAdd": 3,
-    "defenseMul": 140
+    "defenseMul": 140,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 2140001,
@@ -24105,7 +24191,29 @@
         "defenseMul": 240
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 215,
@@ -24151,6 +24259,21 @@
       }
     ],
     "features": [
+      {
+        "featureName": "common-dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 10
+        }
+      },
+      {
+        "featureName": "common-dot",
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        }
+      },
       {
         "featureName": "dot",
         "staticDamage": {
@@ -24200,9 +24323,49 @@
         "target": "射程内",
         "splash": false,
         "damageType": null
+      },
+      {
+        "featureName": "common-support",
+        "isSupport": true,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 10
+        },
+        "target": "射程内"
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "over-charge"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-support"
+        ]
+      }
+    ]
   },
   {
     "id": 216,
@@ -24245,7 +24408,24 @@
         "attackMul": 800
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      }
+    ]
   },
   {
     "id": 2160001,
@@ -24267,7 +24447,7 @@
     "damageType": "物理",
     "placement": "両",
     "supplements": [
-      "身代わり"
+      "身代わり→使役者"
     ],
     "features": [
       {
@@ -24277,7 +24457,12 @@
         "resistMul": 105
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      }
+    ]
   },
   {
     "id": 217,
