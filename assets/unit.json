@@ -38358,5 +38358,76 @@
         ]
       }
     ]
+  },
+  {
+    "id": 356,
+    "unitName": "【ガンダルヴァ娘】ナーダ",
+    "unitShortName": "ナーダ",
+    "rarity": "L",
+    "class": "バード",
+    "element": "風",
+    "hp": 3516,
+    "attack": 286,
+    "defense": 365,
+    "resist": 327,
+    "moveType": "飛行",
+    "supplements": [
+      "ATK-20%→射程内",
+      "鈍足-20%→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "幻惑のラーガ",
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "最大HP+600",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "damageDebuff": 115,
+        "physicalEvasion": 30,
+        "magicalEvasion": 30
+      }
+    ],
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "potentialBonus": {
+      "physicalEvasion": 50,
+      "magicalEvasion": 50
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "damage-debuff",
+            "value": 115
+          },
+          {
+            "type": "physical-evasion",
+            "value": 30
+          },
+          {
+            "type": "magical-evasion",
+            "value": 30
+          }
+        ]
+      }
+    ]
   }
 ]
