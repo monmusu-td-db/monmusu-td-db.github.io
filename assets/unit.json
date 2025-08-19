@@ -24275,23 +24275,6 @@
         }
       },
       {
-        "featureName": "dot",
-        "staticDamage": {
-          "key": "attack",
-          "value": 10
-        },
-        "interval": 30,
-        "damageType": "貫通"
-      },
-      {
-        "featureName": "dot",
-        "skill": 1,
-        "staticDamage": {
-          "key": "attack",
-          "value": 20
-        }
-      },
-      {
         "featureName": "over-charge",
         "isAbility": true,
         "conditions": [
@@ -24307,22 +24290,6 @@
         "supplements": [
           "回復7%/秒→全体"
         ]
-      },
-      {
-        "featureName": "support",
-        "isAbility": true,
-        "isSupport": true,
-        "conditions": [
-          "援"
-        ],
-        "staticDamage": {
-          "key": "attack-base",
-          "value": 10
-        },
-        "interval": null,
-        "target": "射程内",
-        "splash": false,
-        "damageType": null
       },
       {
         "featureName": "common-support",
@@ -24484,7 +24451,7 @@
       "cooldown": 30,
       "damageType": "魔法",
       "supplements": [
-        "射程内停止150f(5秒)"
+        "停止(5秒)→射程内"
       ]
     },
     "potentials": [
@@ -24496,23 +24463,8 @@
     ],
     "features": [
       {
-        "featureName": "block0",
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 0
-          }
-        ]
-      },
-      {
-        "featureName": "block1",
+        "featureName": "common-block1-emphasis",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 1
-          }
-        ],
         "attackMul": 112,
         "defenseMul": 112,
         "potentialBonus": {
@@ -24521,14 +24473,8 @@
         }
       },
       {
-        "featureName": "block4",
+        "featureName": "common-block4",
         "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "BL",
-            "value": 4
-          }
-        ],
         "attackMul": 148,
         "defenseMul": 148,
         "potentialBonus": {
@@ -24569,6 +24515,164 @@
         "featureName": "token-block",
         "damageCut": 20
       }
+    ],
+    "situations": [
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block4"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "token-1hit",
+          "token-block",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "token-2hits",
+          "token-block",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "token-1hit",
+          "token-block",
+          "common-block4"
+        ]
+      },
+      {
+        "depend": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "token-2hits",
+          "token-block",
+          "common-block4"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "token-1hit",
+          "token-block",
+          "common-block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "token-2hits",
+          "token-block",
+          "common-block0"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "token-1hit",
+          "token-block",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "token-2hits",
+          "token-block",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "token-1hit",
+          "token-block",
+          "common-block4"
+        ]
+      },
+      {
+        "depend": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "token-2hits",
+          "token-block",
+          "common-block4"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
     ]
   },
   {
@@ -24599,7 +24703,16 @@
       "cooldown": 30,
       "damageType": "魔法"
     },
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "skill": 1,
+        "proper": true
+      }
+    ]
   },
   {
     "TODO_DESC": "PotentialはWiki情報/CTカットバフ",
@@ -24725,7 +24838,7 @@
       "duration": 20,
       "cooldown": 40,
       "supplements": [
-        "tkn+1"
+        "tkn+1/発動"
       ]
     },
     "potentials": [
@@ -24751,9 +24864,12 @@
         "target": "射程内"
       },
       {
-        "featureName": "regenerate-proper",
+        "featureName": "regenerate-definite",
         "conditions": [
-          "特"
+          {
+            "key": "特",
+            "type": "same-element"
+          }
         ],
         "staticDamage": {
           "key": "attack-base",
@@ -24782,9 +24898,12 @@
         "damageType": "回復"
       },
       {
-        "featureName": "skill1-heal-proper",
+        "featureName": "skill1-heal-definite",
         "conditions": [
-          "特"
+          {
+            "key": "特",
+            "type": "same-element"
+          }
         ],
         "staticDamage": {
           "key": "hp-base",
@@ -24810,7 +24929,7 @@
         "skill": 1,
         "features": [
           "skill1-heal",
-          "skill1-heal-proper"
+          "skill1-heal-definite"
         ]
       },
       {
@@ -24823,7 +24942,7 @@
         "proper": true,
         "features": [
           "common-regenerate",
-          "regenerate-proper"
+          "regenerate-definite"
         ]
       },
       {
@@ -24838,7 +24957,7 @@
         "skill": 1,
         "features": [
           "common-regenerate",
-          "regenerate-proper"
+          "regenerate-definite"
         ]
       }
     ]
@@ -24901,13 +25020,7 @@
     ],
     "features": [
       {
-        "featureName": "melee",
-        "conditions": [
-          "近"
-        ]
-      },
-      {
-        "featureName": "melee",
+        "featureName": "common-melee",
         "skill": 0,
         "physicalDamageCut": 40,
         "magicalDamageCut": 40,
@@ -24917,7 +25030,7 @@
         }
       },
       {
-        "featureName": "melee",
+        "featureName": "common-melee",
         "skill": 1,
         "physicalDamageCut": 80,
         "magicalDamageCut": 80,
@@ -24978,7 +25091,7 @@
         }
       },
       {
-        "featureName": "debuff-defense",
+        "featureName": "defense-debuff",
         "annotations": [
           "防御デバフ"
         ],
@@ -24990,18 +25103,89 @@
         "damageType": null
       },
       {
-        "featureName": "ranged",
-        "conditions": [
-          "遠"
-        ]
-      },
-      {
         "featureName": "weaken",
         "isConditionalBuff": true,
         "annotations": [
           "スタン・石化・凍結状態時"
         ],
         "damageCut": -50
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "10-sec",
+          "common-melee"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "20-sec",
+          "common-melee"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "30-sec",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "defense-debuff"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "weaken",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "weaken",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "weaken",
+          "common-ranged"
+        ]
       }
     ]
   },
@@ -25033,6 +25217,10 @@
     ],
     "features": [
       {
+        "attackDebuff": {
+          "key": "attack-base",
+          "value": 100
+        },
         "supplements": [
           "ATK-{attack-base*50}/常時→射程外",
           "ATK-{attack-base*100}/常時→射程内"
@@ -25268,6 +25456,7 @@
     "resist": 129,
     "exSkill1": {
       "skillName": "メガロスプラッシュ",
+      "attackMotionMul": 155,
       "fixedDelay": 1,
       "duration": "単発",
       "cooldown": 15,
@@ -25321,23 +25510,57 @@
       {
         "featureName": "skill1-heal",
         "isAbility": true,
-        "conditions": [
-          "癒"
-        ],
         "staticDamage": {
           "key": "hp",
           "value": 60
         },
         "target": "自分",
         "rounds": 1,
-        "damageType": "回復"
+        "damageType": "回復",
+        "supplements": [
+          "回復60%/発動"
+        ]
       }
     ],
     "costAdd": 5,
     "hpMul": 140,
     "potentialBonus": {
       "hpMul": 150
-    }
+    },
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-attack"
+        ]
+      },
+      {
+        "depend": [
+          "class-attack"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "skill1-heal"
+        ]
+      }
+    ]
   },
   {
     "id": 225,
@@ -33008,7 +33231,7 @@
     ]
   },
   {
-    "TODO_DESC": "継続ダメージの射程は330くらい",
+    "TODO_DESC": "継続ダメージの射程は目測",
     "id": 304,
     "unitName": "【ベルゼブブ娘】アゼプ",
     "unitShortName": "アゼプ",
@@ -33057,7 +33280,7 @@
         "interval": 15,
         "target": "射程内",
         "splash": false,
-        "range": null,
+        "range": 330,
         "damageType": "魔法"
       }
     ],
