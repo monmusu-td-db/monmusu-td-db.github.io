@@ -38429,5 +38429,125 @@
         ]
       }
     ]
+  },
+  {
+    "id": 357,
+    "unitName": "【トロールクィーン娘】ドミルーナ",
+    "unitShortName": "ドミルーナ",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "地",
+    "hp": 4523,
+    "attack": 710,
+    "defense": 452,
+    "resist": 239,
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "クィーンレクイエム",
+      "attackSpeedBuff": 150,
+      "rounds": 2,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "スタン付与35%→命中",
+        "ATK+60%(5秒)/撃破"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "スキル初回待ち時間-6秒"
+    ],
+    "features": [
+      {
+        "featureName": "common-regenerate",
+        "staticDamage": {
+          "key": "hp-base",
+          "value": 5
+        },
+        "supplements": [
+          "回復5%/秒"
+        ]
+      },
+      {
+        "featureName": "hp-100%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ],
+        "attackMul": 230
+      },
+      {
+        "featureName": "hp-89%",
+        "isConditionalDebuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 89
+          }
+        ],
+        "currentHp": 89,
+        "attackMul": 200
+      },
+      {
+        "featureName": "hp-79%",
+        "isConditionalDebuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 79
+          }
+        ],
+        "currentHp": 79
+      }
+    ],
+    "hpMul": 115,
+    "attackMul": 120,
+    "potentialBonus": {
+      "hpMul": 120,
+      "attackMul": 125
+    },
+    "situations": [
+      {
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "hp-89%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-89%"
+        ]
+      },
+      {
+        "features": [
+          "hp-79%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-79%"
+        ]
+      }
+    ]
   }
 ]
