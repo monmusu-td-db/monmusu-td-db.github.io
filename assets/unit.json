@@ -1471,6 +1471,7 @@
         "initialTimeCut": 8
       },
       {
+        "isNotAbility": true,
         "supplements": [
           "ATK-{attack-base*20}/死亡時→ブロック敵",
           "DEF-{attack-base*20}/死亡時→ブロック敵"
@@ -1492,6 +1493,13 @@
       },
       {
         "skill": 2
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
       }
     ]
   },
@@ -6769,7 +6777,22 @@
         ]
       },
       {
-        "featureName": "common-block1",
+        "featureName": "block1",
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "BL",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "featureName": "block1",
+        "require": [
+          "武器"
+        ],
         "isConditionalBuff": true,
         "defenseMul": 140
       },
@@ -6793,51 +6816,96 @@
     ],
     "isEventUnit": true,
     "situations": [
-      {},
       {
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "block0"
+        ]
+      },
+      {
+        "exclude": [
+          "class-melee"
+        ],
         "skill": 1,
         "features": [
+          "block0",
           "common-phase1"
         ]
       },
       {
+        "exclude": [
+          "class-melee"
+        ],
         "features": [
+          "block0",
           "common-phase1"
         ]
       },
       {
+        "exclude": [
+          "class-melee"
+        ],
         "skill": 1,
         "features": [
+          "block0",
           "common-phase5"
         ]
       },
       {
+        "exclude": [
+          "class-melee"
+        ],
         "features": [
+          "block0",
           "common-phase5"
         ]
       },
       {
-        "require": [
-          "weapon"
-        ],
         "exclude": [
           "class-ranged"
         ],
         "features": [
-          "common-block1"
+          "block1"
         ]
       },
       {
         "skill": 1,
-        "require": [
-          "weapon"
-        ],
         "exclude": [
           "class-ranged"
         ],
         "features": [
-          "common-block1",
+          "block1",
           "common-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "block1",
+          "common-phase1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "skill": 1,
+        "features": [
+          "block1",
+          "common-phase5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-ranged"
+        ],
+        "features": [
+          "block1",
+          "common-phase5"
         ]
       },
       {
@@ -6865,8 +6933,14 @@
         ]
       },
       {
-        "skill": -1,
         "proper": true,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
         "features": [
           "class-action"
         ]
@@ -12342,7 +12416,6 @@
       "hpMul": 280,
       "duration": 30,
       "cooldown": 40,
-      "damageType": null,
       "supplements": [
         "引き付け",
         "反射100%"
@@ -12371,8 +12444,12 @@
       },
       {
         "skill": 2,
-        "interval": null,
         "magicalDamageCut": 80
+      },
+      {
+        "featureName": "skill2",
+        "interval": null,
+        "damageType": null
       }
     ],
     "costAdd": 5,
@@ -12383,7 +12460,30 @@
         "skill": 1
       },
       {
-        "skill": 2
+        "skill": 2,
+        "features": [
+          "skill2"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "class-action"
+        ]
       }
     ]
   },
@@ -28164,7 +28264,7 @@
       "duration": 25,
       "cooldown": 35,
       "supplements": [
-        "即死(低)"
+        "即死(低)→命中"
       ]
     },
     "potentials": [
@@ -28176,7 +28276,7 @@
     ],
     "features": [
       {
-        "featureName": "hp-over-80%",
+        "featureName": "common-hp-100%",
         "damageFactor": 120
       },
       {
@@ -28210,7 +28310,38 @@
       }
     ],
     "isEventUnit": true,
-    "hpMul": 120
+    "hpMul": 120,
+    "situations": [
+      {
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "hp-79%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-79%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "id": 250,
