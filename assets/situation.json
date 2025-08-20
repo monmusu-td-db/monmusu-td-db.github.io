@@ -1,31 +1,5 @@
 [
   {
-    "unitId": 228,
-    "features": [
-      "class-melee"
-    ]
-  },
-  {
-    "unitId": 228,
-    "features": [
-      "class-ranged"
-    ]
-  },
-  {
-    "unitId": 228,
-    "skill": 1,
-    "features": [
-      "class-ranged"
-    ]
-  },
-  {
-    "unitId": 228,
-    "skill": -1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
     "unitId": 232
   },
   {
