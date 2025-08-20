@@ -5447,6 +5447,7 @@
     "attack": 530,
     "defense": 380,
     "resist": 181,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "小悪魔ダンス",
@@ -15201,6 +15202,7 @@
     "attack": 599,
     "defense": 251,
     "resist": 601,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "不死竜の恩寵",
@@ -25298,6 +25300,7 @@
     "attack": 1068,
     "defense": 216,
     "resist": 532,
+    "block": 0,
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "ヤキいれてやりましょう",
@@ -26726,7 +26729,7 @@
       "duration": "単発",
       "cooldown": 40,
       "supplements": [
-        "スタン付与100%"
+        "スタン付与100%→命中"
       ]
     },
     "potentials": [
@@ -26750,7 +26753,13 @@
     "attackMul": 120,
     "potentialBonus": {
       "hpMul": 130
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   },
   {
     "id": 236,
@@ -26900,6 +26909,7 @@
     "attack": 1036,
     "defense": 257,
     "resist": 469,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "超毒付与/配置→全体",
@@ -26944,6 +26954,16 @@
       {
         "featureName": "common-definite",
         "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "特",
+            "type": "poison"
+          },
+          {
+            "key": "特",
+            "type": "petrify"
+          }
+        ],
         "damageFactor": 145,
         "potentialBonus": {
           "damageFactor": 155
@@ -26955,11 +26975,8 @@
         "damageType": "貫通"
       },
       {
-        "featureName": "definite-double",
+        "featureName": "common-definite-double",
         "isConditionalBuff": true,
-        "annotations": [
-          "二重特効"
-        ],
         "damageFactor": 145,
         "potentialBonus": {
           "damageFactor": 155
@@ -26985,14 +27002,14 @@
       {
         "features": [
           "common-definite",
-          "definite-double"
+          "common-definite-double"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-definite",
-          "definite-double"
+          "common-definite-double"
         ]
       }
     ]
@@ -29760,6 +29777,7 @@
     "attack": 676,
     "defense": 284,
     "resist": 429,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "毒無効"
@@ -38385,6 +38403,7 @@
     "attack": 997,
     "defense": 227,
     "resist": 297,
+    "block": 0,
     "moveType": "飛行",
     "placement": "両",
     "damageType": "貫通",
@@ -38554,6 +38573,7 @@
     "attack": 286,
     "defense": 365,
     "resist": 327,
+    "block": 0,
     "moveType": "飛行",
     "supplements": [
       "ATK-20%→射程内",
