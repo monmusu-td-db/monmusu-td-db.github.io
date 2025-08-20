@@ -476,6 +476,7 @@ export class Condition {
     petrify: "石化",
     freeze: "凍結",
     burn: "火傷",
+    blind: "暗闇",
     "back-attack": "背面攻撃",
     "same-element": "同属性",
     female: "女性",
