@@ -4321,7 +4321,20 @@
           "毒耐性+100(10秒)→射程内",
           "石化耐性+100(10秒)→射程内"
         ],
-        "potentialBonus": {}
+        "potentialBonus": {
+          "supplements": [
+            "毒回復/配置→射程内",
+            "石化回復/配置→射程内",
+            "毒耐性+100(12秒)→射程内",
+            "石化耐性+100(12秒)→射程内"
+          ]
+        }
+      },
+      {
+        "featureName": "skill1-buff",
+        "annotations": [
+          "緑樹の癒光"
+        ]
       }
     ],
     "situations": [
@@ -4366,9 +4379,13 @@
         ]
       },
       {
-        "skill": 0,
+        "skill": -1,
+        "features": [
+          "skill1-buff"
+        ],
         "target": "射程内",
         "range": null,
+        "duration": 0,
         "supplements": [
           "EX1発動時即時回復効果"
         ],
@@ -6672,6 +6689,9 @@
         "skill": -1,
         "require": [
           "自身が風マスに配置中"
+        ],
+        "features": [
+          "common-wind-field"
         ],
         "target": "射程内",
         "value": 20
@@ -19430,6 +19450,7 @@
         "require": [
           "ゴブリン特性"
         ],
+        "skill": -1,
         "target": "全体",
         "value": 107,
         "supplements": [
@@ -25563,6 +25584,7 @@
     ]
   },
   {
+    "TODO_DESC": "再出撃時間-50%→自分",
     "id": 225,
     "unitName": "【ラードーン娘】エルタ",
     "unitShortName": "エルタ",
@@ -25574,9 +25596,6 @@
     "defense": 364,
     "resist": 442,
     "species": "ドラゴン",
-    "supplements": [
-      "再出撃時間-50%→自分"
-    ],
     "exSkill1": {
       "skillName": "炎の護竜",
       "attackMul": 340,
@@ -25589,7 +25608,7 @@
       "damageType": "魔法",
       "supplements": [
         "HP0にならない",
-        "低HP割合敵優先"
+        "低HP割合敵優先攻撃"
       ]
     },
     "potentials": [
@@ -25613,6 +25632,42 @@
       {
         "skill": 1
       }
+    ],
+    "buffs": [
+      {
+        "target": "射程内",
+        "skill": 0,
+        "effects": [
+          {
+            "type": "attack-mul",
+            "value": 130,
+            "potentialBonus": {
+              "value": 140
+            }
+          },
+          {
+            "type": "attack-speed-buff",
+            "value": 130
+          }
+        ]
+      },
+      {
+        "target": "射程内",
+        "skill": 1,
+        "effects": [
+          {
+            "type": "attack-mul",
+            "value": 130,
+            "potentialBonus": {
+              "value": 140
+            }
+          },
+          {
+            "type": "attack-speed-buff",
+            "value": 130
+          }
+        ]
+      }
     ]
   },
   {
@@ -25633,7 +25688,7 @@
     "placement": "付",
     "supplements": [
       "配置後即時消滅",
-      "回復8%/秒(20秒)→付与対象"
+      "回復8%(20秒)/秒→付与対象"
     ],
     "isUnhealable": true,
     "situations": [
@@ -36177,7 +36232,28 @@
     ],
     "buffs": [
       {
-        "skill": -1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "stan-invalid"
+          },
+          {
+            "type": "petrify-invalid",
+            "status": false,
+            "potentialBonus": {
+              "status": true
+            }
+          }
+        ],
+        "supplements": [
+          "即時回復効果"
+        ]
+      },
+      {
+        "skill": 1,
         "target": "射程内",
         "effects": [
           {
@@ -36200,7 +36276,12 @@
       },
       {
         "type": "redeploy-time-cut",
-        "skill": -1,
+        "target": "射程内",
+        "value": 30
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": 1,
         "target": "射程内",
         "value": 30
       }
@@ -38340,7 +38421,24 @@
     ],
     "buffs": [
       {
-        "skill": -1,
+        "target": "射程内",
+        "supplements": [
+          "即時回復効果"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "stan-invalid"
+          },
+          {
+            "type": "burn-invalid"
+          }
+        ]
+      },
+      {
+        "skill": 1,
         "target": "射程内",
         "supplements": [
           "即時回復効果"
