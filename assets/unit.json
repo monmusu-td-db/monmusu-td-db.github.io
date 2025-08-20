@@ -26407,6 +26407,29 @@
         }
       }
     ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-light-field"
+        ]
+      }
+    ],
     "buffs": [
       {
         "type": "field-change",
@@ -26420,7 +26443,7 @@
     ]
   },
   {
-    "TODO_FATAL": "毒ダメージ増加",
+    "TODO_DESC": "毒ダメージ増加",
     "id": 233,
     "unitName": "【劇薬のリッチ娘】リコ",
     "unitShortName": "リコ/学園",
@@ -26448,6 +26471,11 @@
       "トークン所持数+2"
     ],
     "features": [
+      {
+        "supplements": [
+          "毒Dmg+15%→全体"
+        ]
+      },
       {
         "supplements": [
           "鈍足-20%→毒状態敵"
@@ -30663,6 +30691,9 @@
         "defenseMul": 120,
         "cooldownReductions": [
           1.5
+        ],
+        "supplements": [
+          "CT-2秒/1秒"
         ]
       },
       {
@@ -30671,6 +30702,9 @@
         "defenseMul": 140,
         "cooldownReductions": [
           1.25
+        ],
+        "supplements": [
+          "CT-4秒/1秒"
         ]
       },
       {
@@ -30679,6 +30713,9 @@
         "defenseMul": 160,
         "cooldownReductions": [
           1.166667
+        ],
+        "supplements": [
+          "CT-6秒/1秒"
         ]
       },
       {
@@ -30687,6 +30724,9 @@
         "defenseMul": 180,
         "cooldownReductions": [
           1.125
+        ],
+        "supplements": [
+          "CT-8秒/1秒"
         ]
       },
       {
@@ -30695,6 +30735,9 @@
         "defenseMul": 200,
         "cooldownReductions": [
           1.1
+        ],
+        "supplements": [
+          "CT-10秒/1秒"
         ]
       }
     ],
@@ -33726,7 +33769,8 @@
         ],
         "isConditionalBuff": true,
         "supplements": [
-          "隠密"
+          "隠密",
+          "CT-1秒/2秒"
         ],
         "cooldownReductions": [
           2
@@ -34526,6 +34570,7 @@
     ]
   },
   {
+    "TODO_FATAL": "CTカット表示追加",
     "id": 316,
     "unitName": "【ヴォジャノーイ娘】リグラーナ",
     "unitShortName": "リグラーナ",
@@ -36657,6 +36702,9 @@
         "damageFactor": 120,
         "cooldownReductions": [
           4
+        ],
+        "supplements": [
+          "CT-1秒/3秒"
         ]
       }
     ],
