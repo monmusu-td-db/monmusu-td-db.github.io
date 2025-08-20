@@ -9105,6 +9105,9 @@
         ],
         "cooldownReductions": [
           4
+        ],
+        "supplements": [
+          "CT-1秒/4秒"
         ]
       },
       {
@@ -26017,7 +26020,23 @@
         }
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "PotentialはWiki情報/ex1全体攻撃は貫通ダメージ",
@@ -26083,6 +26102,9 @@
     "attack": 613,
     "defense": 420,
     "resist": 112,
+    "supplements": [
+      "コスト+3/撃破"
+    ],
     "exSkill1": {
       "skillName": "行くぞ！コウモリの嵐！",
       "targetAdd": 3,
@@ -26245,7 +26267,7 @@
         "damageFactor": 70
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-stan",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -26254,9 +26276,6 @@
       },
       {
         "featureName": "common-absorb",
-        "conditions": [
-          "特"
-        ],
         "staticDamage": {
           "key": "hp",
           "value": 10
@@ -26293,19 +26312,20 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "proper": true,
         "skill": 1,
         "features": [
+          "common-definite-stan",
           "common-absorb"
         ]
       },
@@ -26350,7 +26370,6 @@
       "duration": "永続",
       "cooldown": 180,
       "supplements": [
-        "光マス化/発動→自分",
         "移動可"
       ]
     },
@@ -26371,6 +26390,14 @@
           2
         ],
         "supplements": [
+          "CT-1秒/2秒"
+        ]
+      },
+      {
+        "require": [
+          "光マス"
+        ],
+        "supplements": [
           "バリア{attack-base*200}付与/20秒"
         ],
         "potentialBonus": {
@@ -26378,6 +26405,17 @@
             "バリア{attack-base*240}付与/20秒"
           ]
         }
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "光",
+        "supplements": [
+          "発動時"
+        ]
       }
     ]
   },
