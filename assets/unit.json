@@ -12386,8 +12386,6 @@
     ]
   },
   {
-    "TODO_DESC": "ex2はwiki情報",
-    "TODO_FATAL": "ex1攻撃速度",
     "id": 97,
     "unitName": "【ミスリルゴーレム娘】ミスレナ",
     "unitShortName": "ミスレナ",
@@ -12406,7 +12404,7 @@
       "skillName": "超ハードコーティング",
       "attackMul": 240,
       "defenseMul": 360,
-      "attackMotionMul": 999,
+      "attackMotionMul": 150,
       "splash": true,
       "duration": 30,
       "cooldown": 50
@@ -14904,7 +14902,6 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1 delay",
     "id": 122,
     "unitName": "【四天王】アルマエルマ",
     "unitShortName": "アルマエルマ",
@@ -14918,7 +14915,8 @@
     "exSkill1": {
       "skillName": "たっぷり遊んであげる♪",
       "attackMul": 160,
-      "delayMul": 99,
+      "attackMotionMul": 150,
+      "delayMul": 15,
       "rounds": 5,
       "duration": 30,
       "cooldown": 30
@@ -14933,6 +14931,7 @@
     "features": [
       {
         "skill": 0,
+        "attackMotionMul": 120,
         "rounds": [
           {
             "ratio": 3,
@@ -14944,6 +14943,7 @@
           }
         ],
         "potentialBonus": {
+          "attackMotionMul": 126,
           "rounds": [
             {
               "ratio": 12,
@@ -31939,7 +31939,7 @@
     ]
   },
   {
-    "TODO_FATAL": "配置時攻撃射程/鈍足が命中時か否か/配置時攻撃の状態異常付与",
+    "TODO_DESC": "配置時攻撃の状態異常付与",
     "id": 287,
     "unitName": "【フラットウッズ・モンスター娘】クリプト",
     "unitShortName": "クリプト",
@@ -31952,14 +31952,15 @@
     "defense": 325,
     "resist": 153,
     "supplements": [
-      "猛毒付与(稀)",
-      "暗闇付与(稀)"
+      "猛毒付与(稀)→命中",
+      "暗闇付与(稀)→命中"
     ],
     "exSkill1": {
       "skillName": "トキシックレイ",
       "attackMul": 320,
       "target": "射程内",
       "rounds": 1,
+      "range": 170,
       "duration": 20,
       "cooldown": 5,
       "damageType": "魔法",
@@ -31989,25 +31990,32 @@
         "range": 200,
         "damageType": "魔法",
         "supplements": [
-          "鈍足→命中"
+          "鈍足→射程内"
         ],
         "potentialBonus": {
           "damageFactor": 250
         }
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite",
         "isConditionalBuff": true,
         "annotations": [
           "毒 or 暗闇特効"
         ],
         "conditions": [
-          "特"
+          {
+            "key": "特",
+            "type": "poison"
+          },
+          {
+            "key": "特",
+            "type": "blind"
+          }
         ],
         "damageFactor": 120
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite",
         "skill": 1,
         "isConditionalBuff": true,
         "damageFactor": 120
@@ -32016,18 +32024,19 @@
         "featureName": "definite-double",
         "isConditionalBuff": true,
         "annotations": [
-          "二重特効"
+          "毒特効",
+          "暗闇特効"
         ],
-        "conditions": [
-          "特"
+        "deleteAnnotations": [
+          "毒 or 暗闇特効"
         ],
-        "damageFactor": 144
+        "damageFactor": 120
       },
       {
         "featureName": "definite-double",
         "skill": 1,
         "isConditionalBuff": true,
-        "damageFactor": 144
+        "damageFactor": 120
       },
       {
         "featureName": "class-definite",
@@ -32053,7 +32062,7 @@
           "class-attack"
         ],
         "features": [
-          "proper"
+          "common-definite"
         ]
       },
       {
@@ -32062,7 +32071,7 @@
         ],
         "skill": 1,
         "features": [
-          "proper"
+          "common-definite"
         ]
       },
       {
@@ -32070,6 +32079,7 @@
           "class-attack"
         ],
         "features": [
+          "common-definite",
           "definite-double"
         ]
       },
@@ -32079,6 +32089,7 @@
         ],
         "skill": 1,
         "features": [
+          "common-definite",
           "definite-double"
         ]
       },
@@ -32122,7 +32133,7 @@
         ],
         "features": [
           "class-attack",
-          "proper"
+          "common-definite"
         ]
       },
       {
@@ -32131,7 +32142,7 @@
         ],
         "features": [
           "deploy-attack",
-          "proper"
+          "common-definite"
         ]
       },
       {
@@ -32141,7 +32152,7 @@
         "skill": 1,
         "features": [
           "class-attack",
-          "proper"
+          "common-definite"
         ]
       },
       {
@@ -32151,7 +32162,7 @@
         "skill": 1,
         "features": [
           "deploy-attack",
-          "proper"
+          "common-definite"
         ]
       },
       {
@@ -32160,6 +32171,7 @@
         ],
         "features": [
           "class-attack",
+          "common-definite",
           "definite-double"
         ]
       },
@@ -32169,6 +32181,7 @@
         ],
         "features": [
           "deploy-attack",
+          "common-definite",
           "definite-double"
         ]
       },
@@ -32179,6 +32192,7 @@
         "skill": 1,
         "features": [
           "class-attack",
+          "common-definite",
           "definite-double"
         ]
       },
@@ -32189,6 +32203,7 @@
         "skill": 1,
         "features": [
           "deploy-attack",
+          "common-definite",
           "definite-double"
         ]
       }
@@ -32910,7 +32925,6 @@
     ]
   },
   {
-    "TODO_FATAL": "回復の値はwiki情報",
     "id": 297,
     "unitName": "【聖煌のリッチ娘】リコ",
     "unitShortName": "リコ/Xmas",
@@ -32943,8 +32957,8 @@
           "トークン付与対象への回復"
         ],
         "staticDamage": {
-          "key": "attack-base",
-          "value": 20
+          "key": "static",
+          "value": 60
         },
         "target": 1,
         "range": null
@@ -32965,7 +32979,6 @@
     ]
   },
   {
-    "TODO_DESC": "コストはWiki情報",
     "id": 2970001,
     "parentId": 297,
     "unitName": "リッチクッキー",
