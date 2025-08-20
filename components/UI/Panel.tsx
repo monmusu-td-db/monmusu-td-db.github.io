@@ -132,7 +132,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
                   <TabEnemy key={resetKey} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.OTHER}>
-                  <TabOther key={resetKey} />
+                  <TabOther key={resetKey} isSituation={isSituation} />
                 </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
@@ -436,27 +436,6 @@ const TabUnitContent = memo(function TabUnitContent({
   const isSituation = PageTypeUtil.isSituation(pageType);
   const isBuff = PageTypeUtil.isBuff(pageType);
 
-  function getTypeValue(value: string) {
-    switch (value) {
-      default:
-        return 0;
-      case Setting.PARTIAL:
-        return 1;
-      case Setting.NONE:
-        return 2;
-    }
-  }
-  function getTypeName(value: number) {
-    switch (value) {
-      default:
-        return Setting.ALL;
-      case 1:
-        return Setting.PARTIAL;
-      case 2:
-        return Setting.NONE;
-    }
-  }
-
   return (
     <Form>
       <PanelUI.CardButtonGroup label="サブスキル">
@@ -592,49 +571,6 @@ const TabUnitContent = memo(function TabUnitContent({
                 sign="秒"
               />
             </Row>
-          </Col>
-        </PanelUI.FormGroup>
-      )}
-      <PanelUI.FormGroup label="潜在覚醒">
-        <Col md={7} className="d-grid">
-          <PanelUI.FormRadio
-            name="s-potential"
-            items={[
-              "全員に適用",
-              <>
-                E以下orイベユニのみ
-                <span className="d-none d-sm-inline">適用</span>
-              </>,
-              "適用しない",
-            ]}
-            value={getTypeValue(setting.potential)}
-            onChange={(v) => onChangeSetting({ potential: getTypeName(v) })}
-          />
-        </Col>
-      </PanelUI.FormGroup>
-      <PanelUI.FormGroup label="専用武器">
-        <Col md={7} className="d-grid">
-          <PanelUI.FormRadio
-            name="s-weapon"
-            items={["武器強化を適用", "基礎性能のみ適用", "適用しない"]}
-            value={getTypeValue(setting.weapon)}
-            onChange={(v) => onChangeSetting({ weapon: getTypeName(v) })}
-          />
-        </Col>
-      </PanelUI.FormGroup>
-      {isSituation && (
-        <PanelUI.FormGroup label="属性マス">
-          <Col sm={8} md={5} className="d-grid">
-            <PanelUI.FormRadio
-              name="s-field-element"
-              items={["無属性", "ユニットと同属性"]}
-              value={setting.fieldElement === Setting.NONE ? 0 : 1}
-              onChange={(v) =>
-                onChangeSetting({
-                  fieldElement: v === 0 ? Setting.NONE : Setting.SAME,
-                })
-              }
-            />
           </Col>
         </PanelUI.FormGroup>
       )}
@@ -874,24 +810,98 @@ const TabEnemyContent = memo(function TabEnemyContent({
   );
 });
 
-function TabOther() {
+function TabOther({ isSituation }: { isSituation: boolean }) {
   const [setting, handleChange] = useSettingChange();
 
-  return <TabOtherContent setting={setting} onChange={handleChange} />;
+  return (
+    <TabOtherContent
+      setting={setting}
+      onChange={handleChange}
+      isSituation={isSituation}
+    />
+  );
 }
 
 const TabOtherContent = memo(function TabOtherContent({
   setting,
   onChange,
+  isSituation,
 }: {
   setting: Setting;
   onChange: (nextValue: Partial<Setting>) => void;
+  isSituation: boolean;
 }) {
   const storageOption = Contexts.useSaveOption();
   const setStorageOption = Contexts.useSetSaveOption();
 
+  function getTypeValue(value: string) {
+    switch (value) {
+      default:
+        return 0;
+      case Setting.PARTIAL:
+        return 1;
+      case Setting.NONE:
+        return 2;
+    }
+  }
+  function getTypeName(value: number) {
+    switch (value) {
+      default:
+        return Setting.ALL;
+      case 1:
+        return Setting.PARTIAL;
+      case 2:
+        return Setting.NONE;
+    }
+  }
+
   return (
     <Form>
+      <PanelUI.FormGroup label="潜在覚醒">
+        <Col md={7} className="d-grid">
+          <PanelUI.FormRadio
+            name="s-potential"
+            items={[
+              "全員に適用",
+              <>
+                E以下orイベユニのみ
+                <span className="d-none d-sm-inline">適用</span>
+              </>,
+              "適用しない",
+            ]}
+            value={getTypeValue(setting.potential)}
+            onChange={(v) => onChange({ potential: getTypeName(v) })}
+          />
+        </Col>
+      </PanelUI.FormGroup>
+      <PanelUI.FormGroup label="専用武器">
+        <Col md={7} className="d-grid">
+          <PanelUI.FormRadio
+            name="s-weapon"
+            items={["武器強化を適用", "基礎性能のみ適用", "適用しない"]}
+            value={getTypeValue(setting.weapon)}
+            onChange={(v) => onChange({ weapon: getTypeName(v) })}
+          />
+        </Col>
+      </PanelUI.FormGroup>
+      {isSituation && (
+        <>
+          <PanelUI.FormGroup label="属性マス">
+            <Col sm={8} md={5} className="d-grid">
+              <PanelUI.FormRadio
+                name="s-field-element"
+                items={["無属性", "ユニットと同属性"]}
+                value={setting.fieldElement === Setting.NONE ? 0 : 1}
+                onChange={(v) =>
+                  onChange({
+                    fieldElement: v === 0 ? Setting.NONE : Setting.SAME,
+                  })
+                }
+              />
+            </Col>
+          </PanelUI.FormGroup>
+        </>
+      )}
       <PanelUI.FormGroup label="クラス名表示">
         <Col sm={8} md={5} className="d-grid">
           <PanelUI.FormRadio

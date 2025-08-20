@@ -565,9 +565,6 @@ export const Filter = {
 type SettingUnit = {
   readonly subskill1: number;
   readonly subskill2: number;
-  readonly potential: Status1;
-  readonly weapon: Status1;
-  readonly fieldElement: Status2;
   readonly hpMul: number;
   readonly attackMul: number;
   readonly defenseMul: number;
@@ -586,9 +583,6 @@ type SettingUnit = {
 const defaultSettingUnit = {
   subskill1: -1,
   subskill2: -1,
-  potential: PARTIAL,
-  weapon: ALL,
-  fieldElement: NONE,
   hpMul: 0,
   attackMul: 0,
   defenseMul: 0,
@@ -607,9 +601,6 @@ const defaultSettingUnit = {
 const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
   subskill1: Valid.isNumber,
   subskill2: Valid.isNumber,
-  potential: Valid.isStatus1,
-  weapon: Valid.isStatus1,
-  fieldElement: Valid.isStatus2,
   hpMul: Valid.isMul,
   attackMul: Valid.isMul,
   defenseMul: Valid.isMul,
@@ -707,12 +698,21 @@ const settingEnemyValidation = {
 } as const satisfies Record<keyof SettingEnemy, ValidationFunc>;
 
 type SettingOther = {
+  readonly potential: Status1;
+  readonly weapon: Status1;
+  readonly fieldElement: Status2;
   readonly classNameType: ClassNameTypeStatus;
 };
 const defaultSettingOther = {
+  potential: PARTIAL,
+  weapon: ALL,
+  fieldElement: NONE,
   classNameType: DEFAULT_CLASS_NAME_TYPE,
 } as const satisfies SettingOther;
 const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
+  potential: Valid.isStatus1,
+  weapon: Valid.isStatus1,
+  fieldElement: Valid.isStatus2,
   classNameType: Valid.isClassNameTypeStatus,
 } as const satisfies Record<keyof SettingOther, ValidationFunc>;
 
