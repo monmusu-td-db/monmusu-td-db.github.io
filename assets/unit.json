@@ -25888,7 +25888,7 @@
         "damageFactor": 130
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-light",
         "isConditionalBuff": true,
         "annotations": [
           "光属性特効"
@@ -25922,7 +25922,7 @@
       {
         "proper": true,
         "features": [
-          "common-definite",
+          "common-definite-light",
           "common-hp-100%"
         ]
       },
@@ -25930,14 +25930,14 @@
         "proper": true,
         "skill": 1,
         "features": [
-          "common-definite",
+          "common-definite-light",
           "common-hp-100%"
         ]
       },
       {
         "proper": true,
         "features": [
-          "common-definite",
+          "common-definite-light",
           "hp-99%"
         ]
       },
@@ -25945,7 +25945,7 @@
         "proper": true,
         "skill": 1,
         "features": [
-          "common-definite",
+          "common-definite-light",
           "hp-99%"
         ]
       },
@@ -27071,7 +27071,7 @@
         }
       },
       {
-        "featureName": "proper-debuff",
+        "featureName": "definite-debuff",
         "isConditionalBuff": true,
         "isNotAbility": true,
         "skill": 0,
@@ -27095,7 +27095,7 @@
         }
       },
       {
-        "featureName": "proper-debuff",
+        "featureName": "definite-debuff",
         "isConditionalSkillBuff": true,
         "isNotAbility": true,
         "require": [
@@ -27175,14 +27175,14 @@
       },
       {
         "features": [
-          "common-definite",
-          "proper-debuff"
+          "common-definite-male",
+          "definite-debuff"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "proper-debuff"
+          "definite-debuff"
         ]
       },
       {
@@ -27194,15 +27194,15 @@
       {
         "features": [
           "attack-mul1",
-          "common-definite",
-          "proper-debuff"
+          "common-definite-male",
+          "definite-debuff"
         ]
       },
       {
         "skill": 1,
         "features": [
           "attack-mul1",
-          "proper-debuff"
+          "definite-debuff"
         ]
       },
       {
@@ -27214,15 +27214,15 @@
       {
         "features": [
           "attack-mul2",
-          "common-definite",
-          "proper-debuff"
+          "common-definite-male",
+          "definite-debuff"
         ]
       },
       {
         "skill": 1,
         "features": [
           "attack-mul2",
-          "proper-debuff"
+          "definite-debuff"
         ]
       },
       {
@@ -27237,7 +27237,7 @@
         "skill": -1,
         "features": [
           "common-absorb",
-          "common-definite",
+          "common-definite-male",
           "definite-absorb"
         ]
       }
@@ -27548,36 +27548,37 @@
         "magicalDamageCut": 25
       },
       {
+        "isNotAbility": true,
         "attackDebuff": {
           "key": "attack-base",
           "value": 24
-        }
+        },
+        "supplements": [
+          "ATK-{attack-base*24}→射程内"
+        ]
       },
       {
-        "featureName": "skill1-dot",
-        "isAbility": true,
+        "featureName": "common-skill-dot",
         "staticDamage": {
           "key": "attack",
           "value": 60
         },
-        "interval": 30,
-        "target": "射程内",
-        "range": 190,
-        "damageType": "貫通"
+        "range": 190
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
       },
       {
-        "featureName": "attack-debuff",
-        "annotations": [
-          "射程内攻撃デバフ"
+        "exclude": [
+          "class-action"
         ],
-        "staticDamage": {
-          "key": "attack-base",
-          "value": -24
-        },
-        "interval": null,
-        "target": "射程内",
-        "range": 200,
-        "damageType": null
+        "isGeneralAction": true,
+        "features": [
+          "common-skill-dot"
+        ]
       }
     ]
   },
@@ -27615,7 +27616,33 @@
     ],
     "features": [
       {
-        "featureName": "attack-mul",
+        "supplements": [
+          "ATK-1%→命中"
+        ]
+      },
+      {
+        "supplements": [
+          "-ATK+[減少値×2]"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "-ATK+[減少値×3]"
+          ]
+        }
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 500
+          }
+        ],
+        "attackMul": 500
+      },
+      {
+        "featureName": "attack-mul2",
         "isConditionalBuff": true,
         "conditions": [
           {
@@ -27627,7 +27654,36 @@
       }
     ],
     "physicalEvasion": 30,
-    "magicalEvasion": 30
+    "magicalEvasion": 30,
+    "moveCostAdd": 5,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "PotentialはWiki情報",
@@ -27935,7 +27991,7 @@
         "criChanceLimitAdd": 20
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-back-attack",
         "isConditionalBuff": true,
         "annotations": [
           "背面攻撃"
@@ -27961,13 +28017,13 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
@@ -27984,14 +28040,14 @@
       {
         "features": [
           "critical-damage-add",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       },
       {
         "skill": 1,
         "features": [
           "critical-damage-add",
-          "common-definite"
+          "common-definite-back-attack"
         ]
       }
     ]
@@ -28027,39 +28083,62 @@
     "features": [
       {
         "supplements": [
-          "攻撃速度減少(6秒間)→命中"
+          "攻撃速度減少(6秒)→命中"
         ],
         "potentialBonus": {
           "supplements": [
-            "攻撃速度減少(9秒間)→命中"
+            "攻撃速度減少(9秒)→命中"
           ]
         }
       },
       {
-        "featureName": "skill1-phase1",
-        "phase": 1,
+        "featureName": "common-phase1",
         "cooldownCut": 5
       },
       {
-        "featureName": "skill1-phase2",
-        "phase": 2,
+        "featureName": "common-phase2",
         "attackMul": 130,
         "targetAdd": 1,
         "cooldownCut": 10
       },
       {
-        "featureName": "skill1-phase3",
-        "phase": 3,
+        "featureName": "common-phase3",
         "attackMul": 160,
         "targetAdd": 2,
         "cooldownCut": 15
       },
       {
-        "featureName": "skill1-phase4",
-        "phase": 4,
+        "featureName": "common-phase4",
         "attackMul": 190,
         "targetAdd": 3,
         "cooldownCut": 20
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-phase4"
+        ]
       }
     ]
   },
@@ -28583,6 +28662,9 @@
       {
         "featureName": "common-definite-back-attack",
         "isConditionalBuff": true,
+        "annotations": [
+          "背面攻撃"
+        ],
         "damageFactor": 300,
         "potentialBonus": {
           "damageFactor": 360
