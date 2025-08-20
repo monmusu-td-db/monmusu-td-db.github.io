@@ -1,38 +1,5 @@
 [
   {
-    "unitId": 232
-  },
-  {
-    "unitId": 232,
-    "skill": 1
-  },
-  {
-    "unitId": 232,
-    "features": [
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 232,
-    "skill": 1,
-    "features": [
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 232,
-    "features": [
-      "class-attack-mul2"
-    ]
-  },
-  {
-    "unitId": 232,
-    "skill": 1,
-    "features": [
-      "class-attack-mul2"
-    ]
-  },
-  {
     "unitId": 235,
     "features": [
       "class-melee"
