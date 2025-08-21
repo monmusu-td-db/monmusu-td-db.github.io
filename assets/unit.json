@@ -29881,25 +29881,19 @@
       "cooldown": 40,
       "damageType": "魔法",
       "supplements": [
-        "スタン付与30%"
+        "スタン付与30%→命中"
       ],
       "skillFeatures": [
         {
-          "featureName": "team-buff1",
-          "conditions": [
-            {
-              "key": "t",
-              "value": 1
-            }
-          ],
+          "featureName": "common-team-buff1-no-emphasis",
           "hpMul": 115
         },
         {
-          "featureName": "team-buff5",
+          "featureName": "common-team-buff5",
           "hpMul": 175
         },
         {
-          "featureName": "team-buff10",
+          "featureName": "common-team-buff10",
           "hpMul": 250
         }
       ]
@@ -29927,25 +29921,68 @@
     "features": [
       {
         "magicalDamageCut": 35
-      },
+      }
+    ],
+    "situations": [
+      {},
       {
-        "featureName": "team-buff5",
-        "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 5
-          }
+        "skill": 1,
+        "features": [
+          "common-team-buff1-no-emphasis"
         ]
       },
       {
-        "featureName": "team-buff10",
-        "isConditionalBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 10
-          }
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%",
+          "common-team-buff1-no-emphasis"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%",
+          "common-team-buff10"
         ]
       }
     ]
@@ -29972,7 +30009,7 @@
       "duration": 30,
       "cooldown": 35,
       "supplements": [
-        "暗闇付与"
+        "暗闇付与→命中"
       ]
     },
     "potentials": [
@@ -30156,7 +30193,7 @@
       "duration": "永続",
       "cooldown": 130,
       "supplements": [
-        "凍結付与(低)"
+        "凍結付与(低)→命中"
       ]
     },
     "potentials": [
@@ -30192,7 +30229,39 @@
     "potentialBonus": {
       "hpMul": 125,
       "attackMul": 115
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "Stat/Potential/ex1はWiki情報",
@@ -30383,6 +30452,18 @@
         ],
         "attackMul": 280
       }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill1-beat-20"
+        ]
+      }
     ]
   },
   {
@@ -30511,6 +30592,7 @@
       "コスト+1/3秒"
     ],
     "isUnhealable": true,
+    "deployCount": 2,
     "situations": [
       {
         "proper": true
@@ -30597,7 +30679,7 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "スタン付与XX%"
+        "スタン付与XX%(大)→命中"
       ]
     },
     "potentials": [
