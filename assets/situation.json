@@ -1,58 +1,5 @@
 [
   {
-    "unitId": 256
-  },
-  {
-    "unitId": 256,
-    "skill": 1
-  },
-  {
-    "unitId": 256,
-    "features": [
-      "common-team-buff1"
-    ]
-  },
-  {
-    "unitId": 256,
-    "skill": 1,
-    "features": [
-      "common-team-buff1"
-    ]
-  },
-  {
-    "unitId": 256,
-    "features": [
-      "common-team-buff2"
-    ]
-  },
-  {
-    "unitId": 256,
-    "skill": 1,
-    "features": [
-      "common-team-buff2"
-    ]
-  },
-  {
-    "unitId": 256,
-    "features": [
-      "common-team-buff3"
-    ]
-  },
-  {
-    "unitId": 256,
-    "skill": 1,
-    "features": [
-      "common-team-buff3"
-    ]
-  },
-  {
-    "unitId": 2560001
-  },
-  {
-    "unitId": 2560001,
-    "skill": 1
-  },
-  {
     "unitId": 263,
     "features": [
       "class-melee"

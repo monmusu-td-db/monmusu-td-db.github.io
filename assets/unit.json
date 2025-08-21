@@ -28984,17 +28984,12 @@
         ]
       },
       {
-        "featureName": "attack-add-buff",
-        "isAbility": true,
+        "featureName": "common-support",
         "isSupport": true,
         "annotations": [
           "種族特性",
           "加算バフ",
           "妖怪対象"
-        ],
-        "conditions": [
-          "特",
-          "援"
         ],
         "staticDamage": {
           "key": "attack-base",
@@ -29003,16 +28998,11 @@
         "target": "射程内"
       },
       {
-        "featureName": "dot",
-        "annotations": [
-          "種族特性"
-        ],
+        "featureName": "common-dot",
         "staticDamage": {
           "key": "attack",
           "value": 5
         },
-        "interval": 30,
-        "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
@@ -29021,7 +29011,7 @@
         }
       },
       {
-        "featureName": "dot",
+        "featureName": "common-dot",
         "require": [
           "火マス"
         ],
@@ -29054,14 +29044,14 @@
       {
         "proper": true,
         "features": [
-          "dot"
+          "common-dot"
         ]
       },
       {
         "proper": true,
         "skill": 1,
         "features": [
-          "dot"
+          "common-dot"
         ]
       },
       {
@@ -29071,7 +29061,7 @@
         ],
         "features": [
           "common-fire-field",
-          "dot"
+          "common-dot"
         ]
       },
       {
@@ -29082,14 +29072,15 @@
         ],
         "features": [
           "common-fire-field",
-          "dot"
+          "common-dot"
         ]
       },
       {
         "bottom": true,
         "skill": -1,
         "features": [
-          "attack-add-buff"
+          "common-definite-yokai",
+          "common-support"
         ]
       }
     ],
@@ -29127,7 +29118,7 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "tkn+1"
+        "tkn+1/発動"
       ]
     },
     "potentials": [
@@ -29161,10 +29152,68 @@
     "criDamageAdd": 50,
     "potentialBonus": {
       "criDamageAdd": 70
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff2"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff3"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "target": "全体",
+        "supplements": [
+          "トラップ系配置1体毎"
+        ],
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 5
+          },
+          {
+            "type": "critical-damage-add",
+            "value": 10
+          }
+        ]
+      }
+    ]
   },
   {
-    "TODO_FATAL": "攻撃速度/射程",
+    "TODO_FATAL": "攻撃速度/射程/ex1→被ダメ増加",
     "id": 2560001,
     "parentId": 256,
     "unitName": "偵察ドローン",
@@ -29186,7 +29235,7 @@
     "damageType": "魔法",
     "placement": "両",
     "exSkill1": {
-      "skillName": "電磁パルス TODO→被ダメ増加",
+      "skillName": "電磁パルス",
       "target": "射程内",
       "duration": 20,
       "cooldown": 30,
@@ -29194,7 +29243,16 @@
         "鈍足→射程内"
       ]
     },
-    "isUnhealable": true
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "skill": 1
+      }
+    ]
   },
   {
     "TODO_DESC": "コストは単独の場合1/23f増加、シャーマン0.4体相当",
@@ -29219,7 +29277,7 @@
       "duration": 40,
       "cooldown": 45,
       "supplements": [
-        "tkn+2"
+        "tkn+2/発動"
       ]
     },
     "potentials": [
@@ -29322,7 +29380,7 @@
       "duration": "単発",
       "cooldown": 15,
       "supplements": [
-        "コスト+6"
+        "コスト+6/発動"
       ]
     },
     "isUnhealable": true,
@@ -29361,7 +29419,7 @@
       "duration": 40,
       "cooldown": 30,
       "supplements": [
-        "コスト+20"
+        "コスト+20/発動"
       ]
     },
     "potentials": [
@@ -29445,7 +29503,7 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "即死(低)"
+        "即死(低)→命中"
       ]
     },
     "potentials": [
@@ -29474,6 +29532,10 @@
         "annotations": [
           "配置後20秒間"
         ]
+      },
+      {
+        "featureName": "water-field-buff",
+        "range": 200
       }
     ],
     "attackMul": 120,
@@ -29532,6 +29594,21 @@
         ],
         "features": [
           "water-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-buff-add",
+        "skill": -1,
+        "features": [
+          "water-field-buff"
+        ],
+        "target": "射程内",
+        "duration": 20,
+        "element": "水",
+        "supplements": [
+          "配置後20秒間"
         ]
       }
     ]
