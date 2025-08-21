@@ -5471,10 +5471,7 @@
       "delayMul": 35,
       "duration": 15,
       "cooldown": 15,
-      "damageType": "魔法",
-      "supplements": [
-        "移動可"
-      ]
+      "damageType": "魔法"
     },
     "potentials": [
       "出撃コスト-1",
@@ -5482,6 +5479,14 @@
       "攻撃力+50",
       "攻撃速度+10",
       "魔法防御力+60"
+    ],
+    "features": [
+      {
+        "skill": 2,
+        "supplements": [
+          "移動可"
+        ]
+      }
     ],
     "moveSpeedMul": 150,
     "situations": [
@@ -8803,10 +8808,7 @@
       "hpMul": 180,
       "attackMul": 190,
       "duration": "永続",
-      "cooldown": 120,
-      "supplements": [
-        "移動可"
-      ]
+      "cooldown": 120
     },
     "potentials": [
       "出撃コスト-1",
@@ -8821,6 +8823,12 @@
       "attack": 60
     },
     "features": [
+      {
+        "skill": 1,
+        "supplements": [
+          "移動可"
+        ]
+      },
       {
         "skill": 1,
         "isConditionalSkillBuff": true,
@@ -18727,9 +18735,6 @@
       "defenseMul": 160,
       "duration": "永続",
       "cooldown": 150,
-      "supplements": [
-        "移動可"
-      ],
       "skillFeatures": [
         {
           "featureName": "charge-attack",
@@ -18746,6 +18751,12 @@
       "移動消費コスト-2"
     ],
     "features": [
+      {
+        "skill": 1,
+        "supplements": [
+          "移動可"
+        ]
+      },
       {
         "featureName": "common-charge-attack",
         "annotations": [
@@ -26561,10 +26572,7 @@
       "laser": true,
       "rangeMul": 160,
       "duration": "永続",
-      "cooldown": 180,
-      "supplements": [
-        "移動可"
-      ]
+      "cooldown": 180
     },
     "potentials": [
       "出撃コスト-1",
@@ -26575,6 +26583,12 @@
     ],
     "costAdd": -3,
     "features": [
+      {
+        "skill": 1,
+        "supplements": [
+          "移動可"
+        ]
+      },
       {
         "require": [
           "光マス"
@@ -30771,16 +30785,17 @@
     "features": [
       {
         "supplements": [
-          "暗闇付与(稀)"
+          "暗闇付与(稀)→命中"
         ],
         "potentialBonus": {
           "supplements": [
-            "暗闇付与(低)"
+            "暗闇付与(低)→命中"
           ]
         }
       }
     ],
     "isEventUnit": true,
+    "moveCostAdd": 5,
     "situations": [
       {},
       {
@@ -30930,35 +30945,27 @@
         "supplements": [
           "移動可"
         ]
-      },
+      }
+    ],
+    "situations": [
+      {},
       {
-        "featureName": "skill1-1hit",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 1
-          }
+        "skill": 1,
+        "features": [
+          "common-1hit"
         ]
       },
       {
-        "featureName": "skill1-2hits",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 2
-          }
-        ],
-        "hits": 2
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
       },
       {
-        "featureName": "skill1-3hits",
-        "conditions": [
-          {
-            "key": "hit",
-            "value": 3
-          }
-        ],
-        "hits": 3
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
       }
     ]
   },
