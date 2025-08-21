@@ -5597,6 +5597,7 @@
       "毒付与→命中"
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -5698,6 +5699,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true
@@ -8684,6 +8686,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -12774,12 +12777,13 @@
         "damageType": "貫通"
       }
     ],
+    "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
       }
-    ],
-    "isUnhealable": true
+    ]
   },
   {
     "id": 101,
@@ -12946,7 +12950,7 @@
         "target": "射程内",
         "damageType": "魔法",
         "supplements": [
-          "猛毒付与(高)"
+          "猛毒付与(高)→命中"
         ]
       },
       {
@@ -12956,6 +12960,8 @@
         "attackMul": 250
       }
     ],
+    "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -12973,8 +12979,7 @@
           "skill1-buff"
         ]
       }
-    ],
-    "isUnhealable": true
+    ]
   },
   {
     "id": 103,
@@ -13940,6 +13945,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true,
@@ -14801,6 +14807,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {},
       {
@@ -15268,6 +15275,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -16504,6 +16512,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 2,
     "situations": [
       {
         "proper": true
@@ -19994,6 +20003,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -20504,6 +20514,7 @@
     ],
     "isUnhealable": true,
     "costAdd": -11,
+    "deployCount": 1,
     "situations": [
       {},
       {
@@ -20646,6 +20657,7 @@
         "interval": 60
       }
     ],
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -21115,6 +21127,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -24626,6 +24639,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -25186,6 +25200,7 @@
     ],
     "isEventUnit": true,
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true
@@ -29384,6 +29399,7 @@
       ]
     },
     "isUnhealable": true,
+    "deployCount": 2,
     "situations": [
       {
         "proper": true
@@ -29725,7 +29741,7 @@
         }
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-same-element",
         "isConditionalBuff": true,
         "damageFactor": 120
       }
@@ -29743,13 +29759,13 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-same-element"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-same-element"
         ]
       }
     ],
@@ -29802,6 +29818,7 @@
     "isEventUnit": true,
     "physicalEvasion": 30,
     "magicalEvasion": 30,
+    "deployCount": 0,
     "potentialBonus": {
       "physicalEvasion": 40,
       "magicalEvasion": 40
@@ -29834,6 +29851,7 @@
       "HP0/ブロック時"
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
