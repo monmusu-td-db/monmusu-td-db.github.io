@@ -23542,9 +23542,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1射程はwiki情報",
-    "TODO_STAT_INFERRED": true,
+    "TODO_DESC": "PotentialはWiki情報/ex1射程要検証",
     "id": 207,
     "unitName": "【華春のバジリスク娘】ディリオ",
     "unitShortName": "ディリオ/正月",
@@ -23552,7 +23550,7 @@
     "class": "ランサー",
     "element": "地",
     "hp": 4667,
-    "attack": 683,
+    "attack": 682,
     "defense": 489,
     "resist": 61,
     "supplements": [
@@ -23564,7 +23562,7 @@
       "attackMul": 220,
       "target": 3,
       "splash": true,
-      "range": 300,
+      "rangeMul": 267,
       "duration": 18,
       "cooldown": 30,
       "damageType": "魔法",
@@ -31627,6 +31625,7 @@
   },
   {
     "TODO_DESC": "PotentialはWiki情報",
+    "TODO_FATAL": "ex1射程要検証",
     "id": 282,
     "unitName": "【レヴィアタン娘】キネア",
     "unitShortName": "キネア",
@@ -31647,7 +31646,7 @@
       "attackMul": 240,
       "targetAdd": 3,
       "splash": true,
-      "range": 300,
+      "rangeMul": 300,
       "duration": 30,
       "cooldown": 30,
       "damageType": "魔法",
@@ -32017,6 +32016,7 @@
     ]
   },
   {
+    "TODO_FATAL": "ex1射程要検証",
     "id": 286,
     "unitName": "【チュパカブラ娘】チュピナ",
     "unitShortName": "チュピナ",
@@ -36395,8 +36395,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "種族特性回復間隔を調べる/ex1モーション時間/ex1射程",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 329,
     "unitName": "【カーバンクルドラゴン娘】ルルゥ",
     "unitShortName": "ルルゥ/進化",
@@ -36414,9 +36413,10 @@
     "exSkill1": {
       "skillName": "ジュエリーフラッシュ",
       "attackMul": 280,
+      "attackMotionMul": 205,
       "fixedDelay": 1,
       "target": 5,
-      "range": 999,
+      "range": 400,
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
@@ -37419,6 +37419,7 @@
     ]
   },
   {
+    "TODO_FATAL": "ex1射程要検証",
     "id": 340,
     "unitName": "【青龍娘】ランシャン",
     "unitShortName": "ランシャン",
@@ -37940,7 +37941,7 @@
     ]
   },
   {
-    "TODO_DESC": "stat、potentials、ex1はwiki情報",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 346,
     "unitName": "【爽蒼のワードラゴン娘】ハイルィ",
     "unitShortName": "ハイルィ/水着",
