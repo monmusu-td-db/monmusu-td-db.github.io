@@ -9733,6 +9733,7 @@
       },
       {
         "featureName": "revived",
+        "isConditionalBuff": true,
         "annotations": [
           "復活後"
         ],
@@ -9744,6 +9745,7 @@
       },
       {
         "featureName": "revived",
+        "isConditionalSkillBuff": true,
         "require": [
           "スキル"
         ],
@@ -17618,6 +17620,19 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action"
+        ]
       }
     ]
   },
@@ -17673,6 +17688,13 @@
         "skill": 1,
         "features": [
           "common-hp-50%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
         ]
       }
     ]
@@ -22832,7 +22854,13 @@
       },
       {
         "proper": true,
-        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
         "features": [
           "class-action"
         ]
@@ -23318,6 +23346,53 @@
       {
         "features": [
           "common-phase5"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-phase1",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-phase2",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-phase3",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-phase4",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-phase5",
+          "class-action"
         ]
       }
     ],
@@ -28372,37 +28447,47 @@
     ],
     "features": [
       {
+        "isNotAbility": true,
         "supplements": [
-          "猛毒付与(稀)",
-          "スタン付与10%"
+          "猛毒付与(稀)→命中",
+          "スタン付与10%→命中"
         ]
       },
       {
         "hasPotentials": [
           "攻撃時毒確率+20%"
         ],
+        "isNotAbility": true,
         "supplements": [
-          "猛毒付与(稀+20%)"
+          "猛毒付与(稀+20%)→命中"
         ],
         "deleteSupplements": [
-          "猛毒付与(稀)"
+          "猛毒付与(稀)→命中"
         ]
       },
       {
         "hasPotentials": [
           "攻撃時スタン蓄積+10"
         ],
+        "isNotAbility": true,
         "supplements": [
-          "スタン付与20%"
+          "スタン付与20%→命中"
         ],
         "deleteSupplements": [
-          "スタン付与10%"
+          "スタン付与10%→命中"
         ]
       },
       {
-        "featureName": "proper",
+        "featureName": "common-definite",
         "conditions": [
-          "特"
+          {
+            "key": "特",
+            "type": "stan"
+          },
+          {
+            "key": "特",
+            "type": "poison"
+          }
         ],
         "damageFactor": 140,
         "potentialBonus": {
@@ -28410,13 +28495,7 @@
         }
       },
       {
-        "featureName": "definite-double",
-        "annotations": [
-          "二重特効"
-        ],
-        "conditions": [
-          "特"
-        ],
+        "featureName": "common-definite-double",
         "damageFactor": 140,
         "potentialBonus": {
           "damageFactor": 160
@@ -28439,7 +28518,50 @@
         ]
       }
     ],
-    "isEventUnit": true
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-double"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-double"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "class-action",
+          "action-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action",
+          "action-absorb"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "Stat/Potential/ex1はWiki情報",
@@ -37445,6 +37567,21 @@
         "skill": 1,
         "features": [
           "common-charge-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-ability",
+          "class-action"
         ]
       },
       {
