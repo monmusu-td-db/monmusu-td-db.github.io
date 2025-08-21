@@ -540,6 +540,15 @@
     ]
   },
   {
+    "featureName": "common-definite-same-element",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "same-element"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-fire",
     "conditions": [
       {
