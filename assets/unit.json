@@ -22524,7 +22524,6 @@
     "resist": 483,
     "exSkill1": {
       "skillName": "神力の焔",
-      "target": "全体",
       "rangeMul": 180,
       "duration": 20,
       "cooldown": 50
@@ -22544,6 +22543,7 @@
           "value": 1800
         },
         "interval": 90,
+        "target": "全体",
         "damageType": "魔法"
       },
       {
@@ -31021,6 +31021,43 @@
       {},
       {
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 110
+          },
+          {
+            "type": "delay-mul",
+            "value": 90
+          },
+          {
+            "type": "move-speed-mul",
+            "value": 130
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 120
+          },
+          {
+            "type": "delay-mul",
+            "value": 80
+          },
+          {
+            "type": "move-speed-mul",
+            "value": 160
+          }
+        ]
       }
     ]
   },
