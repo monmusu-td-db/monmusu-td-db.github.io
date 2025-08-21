@@ -701,6 +701,22 @@
     "damageType": "再生"
   },
   {
+    "featureName": "common-regenerate-area",
+    "isAbility": true,
+    "annotations": [
+      "種族特性"
+    ],
+    "conditions": [
+      "再area"
+    ],
+    "interval": 30,
+    "target": "射程内",
+    "splash": false,
+    "rounds": 1,
+    "duration": "常時",
+    "damageType": "再生"
+  },
+  {
     "featureName": "common-regenerate-weapon",
     "isAbility": true,
     "annotations": [
