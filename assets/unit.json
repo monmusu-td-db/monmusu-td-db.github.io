@@ -35000,8 +35000,7 @@
       "cooldown": 45,
       "damageType": "魔法",
       "supplements": [
-        "スタン付与35%",
-        "火マス化/発動→射程内火味方"
+        "スタン付与35%→命中"
       ]
     },
     "potentials": [
@@ -35053,6 +35052,20 @@
           "common-fire-field"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "火属性"
+        ],
+        "target": "射程内",
+        "element": "火",
+        "supplements": [
+          "配置時",
+          "戦闘中一回のみ"
+        ]
+      }
     ]
   },
   {
@@ -35069,8 +35082,8 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "火傷付与(稀)",
-      "火傷付与(高)/CRI時"
+      "火傷付与(稀)→命中",
+      "火傷付与(高)/CRI時→命中"
     ],
     "exSkill1": {
       "skillName": "ラヴァーレッド・シグマ",
@@ -35095,23 +35108,13 @@
         }
       },
       {
-        "featureName": "proper-burn",
+        "featureName": "common-definite-burn",
         "annotations": [
           "火傷特効"
-        ],
-        "conditions": [
-          "特"
         ]
       },
       {
-        "featureName": "proper-burn",
-        "hasPotentials": [
-          "火傷の敵へ与ダメ1.2倍"
-        ],
-        "damageFactor": 120
-      },
-      {
-        "featureName": "proper-burn",
+        "featureName": "common-definite-burn",
         "skill": 1,
         "isBuffSkill": true,
         "damageDebuff": 140
@@ -35121,12 +35124,99 @@
         "annotations": [
           "飛行特効"
         ]
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "火傷特効",
+          "飛行特効"
+        ]
       }
     ],
     "criChanceAdd": 40,
     "potentialBonus": {
       "criChanceAdd": 45
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "hasPotentials": [
+          "火傷の敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "hasPotentials": [
+          "火傷の敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-burn",
+          "common-definite-double"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-burn",
+          "common-definite-double"
+        ]
+      },
+      {
+        "proper": true,
+        "isGeneralDefinite": true,
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefinite": true,
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "class-action",
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "class-action",
+          "common-burn-dot"
+        ]
+      }
+    ]
   },
   {
     "id": 311,
