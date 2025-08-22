@@ -82,6 +82,15 @@
     ]
   },
   {
+    "featureName": "common-earth-field",
+    "fieldElements": [
+      "地"
+    ],
+    "annotations": [
+      "地マス配置時"
+    ]
+  },
+  {
     "featureName": "common-light-field",
     "fieldElements": [
       "光"

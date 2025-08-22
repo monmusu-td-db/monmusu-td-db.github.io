@@ -32092,7 +32092,7 @@
       {
         "featureName": "common-extra-field-damage",
         "supplements": [
-          "暗闇付与"
+          "暗闇付与→命中"
         ]
       },
       {
@@ -32572,7 +32572,7 @@
     "element": "地",
     "species": "妖怪",
     "hp": 6173,
-    "attack": 891,
+    "attack": 892,
     "defense": 357,
     "resist": 158,
     "supplements": [
@@ -32589,7 +32589,7 @@
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "即死(低)"
+        "即死(低)→命中"
       ]
     },
     "potentials": [
@@ -32601,7 +32601,7 @@
     ],
     "features": [
       {
-        "featureName": "common-block1",
+        "featureName": "common-block1-emphasis",
         "attackMul": 130,
         "defenseMul": 130,
         "potentialBonus": {
@@ -32619,21 +32619,57 @@
         }
       },
       {
-        "featureName": "skill1-enemy1",
-        "conditions": [
-          {
-            "key": "敵",
-            "value": 1
-          }
-        ],
-        "damageFactor": 200,
-        "fixedTarget": 1
+        "featureName": "common-enemy1",
+        "damageFactor": 200
       }
     ],
     "situations": [
-      {},
       {
-        "skill": 1
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis",
+          "common-enemy1"
+        ]
+      },
+      {
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-enemy1"
+        ]
       }
     ]
   },
@@ -32648,7 +32684,7 @@
     "species": "妖怪",
     "cost": 15,
     "hp": 6173,
-    "attack": 891,
+    "attack": 892,
     "defense": 357,
     "resist": 158,
     "exSkill1": {
@@ -32661,17 +32697,96 @@
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "即死(低)"
+        "即死(低)→命中"
       ]
     },
+    "features": [
+      {
+        "featureName": "common-block1-emphasis",
+        "attackMul": 130,
+        "defenseMul": 130,
+        "potentialBonus": {
+          "attackMul": 140,
+          "defenseMul": 140
+        }
+      },
+      {
+        "featureName": "common-block2",
+        "attackMul": 160,
+        "defenseMul": 160,
+        "potentialBonus": {
+          "attackMul": 180,
+          "defenseMul": 180
+        }
+      },
+      {
+        "featureName": "common-enemy1",
+        "damageFactor": 200
+      }
+    ],
     "isUnhealable": true,
     "situations": [
-      {},
+      {
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
       {
         "exclude": [
-          "class-attack"
+          "class-action"
         ],
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block1-emphasis",
+          "common-enemy1"
+        ]
+      },
+      {
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block2"
+        ]
+      },
+      {
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-block0",
+          "common-enemy1"
+        ]
       }
     ]
   },
@@ -32693,11 +32808,10 @@
       "rangeMul": 180,
       "targetAdd": 4,
       "duration": 25,
-      "cooldown": 35,
-      "supplements": []
+      "cooldown": 35
     },
     "supplements": [
-      "鈍足/10秒→命中"
+      "鈍足(10秒)→命中"
     ],
     "potentials": [
       "出撃コスト-2",
@@ -32708,9 +32822,10 @@
     ],
     "features": [
       {
-        "potentialBonus": {
-          "fieldBuffFactor": 300
-        }
+        "hasPotentials": [
+          "地属性マスボーナス3倍"
+        ],
+        "fieldBuffFactor": 300
       },
       {
         "require": [
@@ -32719,30 +32834,77 @@
         "damageFactor": 120
       },
       {
-        "skill": 0,
-        "potentialBonus": {
-          "supplements": [
-            "スタン付与10%"
-          ]
-        }
+        "hasPotentials": [
+          "攻撃時スタン蓄積+10"
+        ],
+        "supplements": [
+          "スタン付与10%→命中"
+        ]
       },
       {
         "skill": 1,
-        "supplements": [
-          "地マス化/発動→配置マス",
-          "スタン付与15%"
+        "require": [
+          "地マス"
         ],
-        "potentialBonus": {
-          "supplements": [
-            "地マス化/発動→射程内地味方",
-            "スタン付与25%"
-          ]
-        }
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "スタン付与15%→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "地マス"
+        ],
+        "hasPotentials": [
+          "攻撃時スタン蓄積+10"
+        ],
+        "supplements": [
+          "スタン付与25%→命中"
+        ],
+        "deleteSupplements": [
+          "スタン付与10%→命中",
+          "スタン付与15%→命中"
+        ]
       }
     ],
     "isEventUnit": true,
     "attackMul": 150,
-    "rangeAdd": -10
+    "rangeAdd": -10,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-earth-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-earth-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "発動時"
+        ],
+        "potentialBonus": {
+          "require": [
+            "地属性"
+          ],
+          "target": "射程内"
+        }
+      }
+    ]
   },
   {
     "id": 290,
