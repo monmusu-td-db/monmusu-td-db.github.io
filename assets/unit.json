@@ -16584,7 +16584,7 @@
     ]
   },
   {
-    "TODO_FATAL": "スキル射程",
+    "TODO_FATAL": "ex2",
     "id": 139,
     "unitName": "【ドラゴンゾンビ娘】ディフォーラ",
     "unitShortName": "ディフォーラ",
@@ -16605,7 +16605,7 @@
     "exSkill1": {
       "skillName": "アシッドコラプション",
       "attackMul": 380,
-      "range": 190,
+      "range": 180,
       "splash": true,
       "duration": 20,
       "cooldown": 30
@@ -25605,7 +25605,7 @@
     ]
   },
   {
-    "TODO_FATAL": "スタン蓄積値/攻撃速度強化/ex1射程",
+    "TODO_DESC": "おそらく攻撃速度強化は累積しない/攻撃待機時間短縮は乗算",
     "id": 223,
     "unitName": "【雷神娘】チザネ",
     "unitShortName": "チザネ",
@@ -25618,13 +25618,13 @@
     "defense": 342,
     "resist": 144,
     "supplements": [
-      "スタン付与XX%(小)→命中"
+      "スタン付与15%→命中"
     ],
     "exSkill1": {
       "skillName": "大召雷",
       "attackMul": 240,
       "target": 5,
-      "range": 999,
+      "range": 460,
       "duration": 15,
       "cooldown": 50,
       "damageType": "魔法"
@@ -25647,8 +25647,8 @@
         "annotations": [
           "攻撃速度強化"
         ],
-        "attackSpeedBuff": 999,
-        "delayMul": 999
+        "attackSpeedBuff": 120,
+        "delayMul": 85
       }
     ],
     "situations": [
@@ -25657,11 +25657,17 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-attack"
+        ],
         "features": [
           "attack-speed-buff"
         ]
       },
       {
+        "exclude": [
+          "class-attack"
+        ],
         "skill": 1,
         "features": [
           "attack-speed-buff"
@@ -31641,6 +31647,7 @@
   },
   {
     "TODO_DESC": "PotentialはWiki情報",
+    "TODO_FATAL": "ex1射程要検証",
     "id": 282,
     "unitName": "【レヴィアタン娘】キネア",
     "unitShortName": "キネア",
@@ -32032,13 +32039,13 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1射程要検証",
     "id": 286,
     "unitName": "【チュパカブラ娘】チュピナ",
     "unitShortName": "チュピナ",
     "rarity": "L",
     "class": "ランサー",
     "element": "闇",
+    "species": "エイリアン",
     "hp": 4477,
     "attack": 677,
     "defense": 477,
@@ -35633,7 +35640,6 @@
     ]
   },
   {
-    "TODO_FATAL": "スタン蓄積値はwiki情報",
     "id": 315,
     "unitName": "【さとり娘】マシラ",
     "unitShortName": "マシラ",
@@ -35656,7 +35662,7 @@
       "cooldown": 45,
       "damageType": "貫通",
       "supplements": [
-        "スタン付与20%"
+        "スタン付与35%→命中"
       ]
     },
     "potentials": [
