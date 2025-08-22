@@ -34165,7 +34165,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "火傷付与(稀)"
+      "火傷付与(稀)→命中"
     ],
     "exSkill1": {
       "skillName": "デモンアロー",
@@ -34197,7 +34197,45 @@
       }
     ],
     "isEventUnit": true,
-    "costAdd": -1
+    "costAdd": -1,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "isGeneralDefinite": true,
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefinite": true,
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "class-action",
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "class-action",
+          "common-burn-dot"
+        ]
+      }
+    ]
   },
   {
     "TODO_FATAL": "通常/ex1スタン蓄積値はwiki情報",
@@ -34406,6 +34444,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true
@@ -34615,7 +34654,7 @@
       "cooldown": 30,
       "damageType": "魔法",
       "supplements": [
-        "tkn+1",
+        "tkn+1/発動",
         "鈍足(大)→命中",
         "攻撃速度減少(大)→命中"
       ]
@@ -34686,8 +34725,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "火マス化/発動→自分&自tkn",
-        "tkn+2"
+        "tkn+2/発動"
       ]
     },
     "potentials": [
@@ -34724,7 +34762,42 @@
     "potentialBonus": {
       "costAdd": -6,
       "hpMul": 80
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-fire-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "火",
+        "supplements": [
+          "発動時",
+          "自身と自身のトークンのマスが変化"
+        ]
+      }
+    ]
   },
   {
     "id": 3070001,
@@ -34766,18 +34839,40 @@
         "attackMul": 220,
         "rangeMul": 150,
         "penetrationAdd": 30
-      },
-      {
-        "featureName": "fire-field",
-        "fieldElements": [
-          "火"
-        ],
-        "annotations": [
-          "火マス配置時"
-        ]
       }
     ],
-    "isUnhealable": true
+    "isUnhealable": true,
+    "deployCount": 2,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-fire-field",
+          "skill1-buff"
+        ]
+      }
+    ]
   },
   {
     "id": 308,
@@ -34791,7 +34886,7 @@
     "defense": 633,
     "resist": 116,
     "supplements": [
-      "スタン付与30%"
+      "スタン付与30%→命中"
     ],
     "exSkill1": {
       "skillName": "ハンマーミキサー",
@@ -34812,7 +34907,7 @@
     "features": [
       {
         "deleteSupplements": [
-          "スタン付与20%"
+          "スタン付与20%→命中"
         ]
       },
       {
@@ -34833,21 +34928,54 @@
         }
       },
       {
-        "featureName": "skill1-absorb",
-        "isAbility": true,
-        "conditions": [
-          "吸"
-        ],
+        "featureName": "common-absorb",
         "staticDamage": {
           "key": "hp",
           "value": 1
-        },
-        "target": "自分",
-        "damageType": "吸収"
+        }
       }
     ],
     "costAdd": 3,
-    "hpMul": 120
+    "hpMul": 120,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "class-action-base"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-action-base"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "class-action-base",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
   },
   {
     "TODO_STAT_INFERRED": true,
