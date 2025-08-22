@@ -144,13 +144,13 @@ interface JsonBuffSingle extends JsonBuffBase {
   readonly type: string;
   readonly potentialBonus?: Omit<
     JsonBuffSingle,
-    "type" | "require" | "skill" | "potentialBonus"
+    "type" | "skill" | "potentialBonus"
   >;
 }
 interface JsonBuffMultiple extends JsonBuffBase {
   readonly potentialBonus?: Omit<
     JsonBuffMultiple,
-    "require" | "skill" | "potentialBonus" | "effects"
+    "skill" | "potentialBonus" | "effects"
   >;
   readonly effects: readonly JsonBuffEffect[];
 }

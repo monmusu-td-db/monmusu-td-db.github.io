@@ -798,10 +798,7 @@ interface RawBuff extends RawBuffFactor {
   effects?: readonly RawBuffEffect[];
 
   /** 潜在覚醒コンプリート効果 */
-  potentialBonus?: Omit<
-    RawBuff,
-    "type" | "require" | "skill" | "potentialBonus"
-  >;
+  potentialBonus?: Omit<RawBuff, "type" | "skill" | "potentialBonus">;
 }
 
 /** バフ効果設定 */

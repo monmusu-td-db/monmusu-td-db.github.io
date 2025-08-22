@@ -24,7 +24,11 @@ function Supplement({
   isPotentialApplied: boolean;
 }): ReactNode {
   const requirements: string[] = [];
-  buff.require?.forEach((str) => {
+  const potentialRequire = isPotentialApplied
+    ? buff.potentialBonus?.require
+    : undefined;
+  const require = potentialRequire ?? buff.require;
+  require?.forEach((str) => {
     let text;
     switch (str) {
       case FeatureRequire.weapon:
