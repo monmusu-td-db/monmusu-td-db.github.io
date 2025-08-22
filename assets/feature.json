@@ -844,7 +844,10 @@
     "rounds": 1,
     "splash": false,
     "duration": 30,
-    "damageType": "貫通"
+    "damageType": "貫通",
+    "supplements": [
+      "火傷1付与ごとの値"
+    ]
   },
   {
     "featureName": "common-extra-damage",
