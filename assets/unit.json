@@ -32877,11 +32877,17 @@
         "skill": 1
       },
       {
+        "require": [
+          "no-panel-field-element"
+        ],
         "features": [
           "common-earth-field"
         ]
       },
       {
+        "require": [
+          "no-panel-field-element"
+        ],
         "skill": 1,
         "features": [
           "common-earth-field"
@@ -32950,20 +32956,18 @@
     ],
     "features": [
       {
-        "featureName": "charge-attack",
-        "isConditionalBuff": true,
-        "isMoving": true,
-        "annotations": [
-          "移動中"
-        ],
-        "conditions": [
-          "突"
-        ],
-        "damageFactor": 200,
-        "interval": null
+        "skill": 1,
+        "supplements": [
+          "移動可"
+        ]
       },
       {
-        "featureName": "charge-attack",
+        "featureName": "common-charge-attack",
+        "isConditionalBuff": true,
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-charge-attack",
         "skill": 1,
         "isConditionalBuff": true,
         "physicalDamageCut": 60,
@@ -32985,7 +32989,35 @@
         "damageFactor": 150
       }
     ],
-    "moveSpeedMul": 300
+    "moveSpeedMul": 300,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "Stat/Potential/ex1はWiki情報",
@@ -33057,7 +33089,7 @@
     "block": 0,
     "moveType": "飛行",
     "supplements": [
-      "火傷付与(稀)"
+      "火傷付与(稀)→命中"
     ],
     "exSkill1": {
       "skillName": "穿つ萌矢",
@@ -33096,14 +33128,18 @@
         ]
       },
       {
-        "featureName": "proper-burn",
+        "featureName": "common-definite-burn",
         "annotations": [
           "火傷特効"
         ],
-        "conditions": [
-          "特"
-        ],
         "damageFactor": 120
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "飛行特効",
+          "火傷特効"
+        ]
       },
       {
         "featureName": "skill1-heal",
@@ -33118,6 +33154,97 @@
         "target": "射程内",
         "rounds": 1,
         "damageType": "吸収"
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "proper": true,
+        "isGeneralDefinite": true,
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefinite": true,
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "class-action",
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "class-action",
+          "common-burn-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefinite": true,
+        "features": [
+          "skill1-heal"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "isGeneralDefiniteAction": true,
+        "features": [
+          "class-action",
+          "skill1-heal"
+        ]
       }
     ]
   },
@@ -33221,8 +33348,7 @@
       "duration": 15,
       "cooldown": 45,
       "supplements": [
-        "火傷付与(稀)",
-        "移動可"
+        "火傷付与(稀)→命中"
       ]
     },
     "potentials": [
@@ -33233,6 +33359,12 @@
       "スキル再使用時間-4秒"
     ],
     "features": [
+      {
+        "skill": 1,
+        "supplements": [
+          "移動可"
+        ]
+      },
       {
         "featureName": "extra-damage",
         "annotations": [
@@ -33249,7 +33381,35 @@
     "potentialBonus": {
       "physicalEvasion": 40,
       "magicalEvasion": 40
-    }
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "features": [
+          "common-burn-dot"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-burn-dot"
+        ]
+      }
+    ]
   },
   {
     "id": 295,
@@ -33669,6 +33829,7 @@
     "isEventUnit": true,
     "physicalEvasion": 30,
     "magicalEvasion": 30,
+    "deployCount": 0,
     "potentialBonus": {
       "physicalEvasion": 40,
       "magicalEvasion": 40
@@ -33677,6 +33838,20 @@
       {},
       {
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "petrify-invalid"
+          },
+          {
+            "type": "blind-invalid"
+          }
+        ]
       }
     ]
   },
