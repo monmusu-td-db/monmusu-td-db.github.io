@@ -31641,7 +31641,6 @@
   },
   {
     "TODO_DESC": "PotentialはWiki情報",
-    "TODO_FATAL": "ex1射程要検証",
     "id": 282,
     "unitName": "【レヴィアタン娘】キネア",
     "unitShortName": "キネア",
@@ -31662,7 +31661,7 @@
       "attackMul": 240,
       "targetAdd": 3,
       "splash": true,
-      "rangeMul": 300,
+      "rangeMul": 250,
       "duration": 30,
       "cooldown": 30,
       "damageType": "魔法",
@@ -35723,7 +35722,6 @@
     ]
   },
   {
-    "TODO_FATAL": "CTカット表示追加",
     "id": 316,
     "unitName": "【ヴォジャノーイ娘】リグラーナ",
     "unitShortName": "リグラーナ",
@@ -35751,14 +35749,6 @@
     ],
     "features": [
       {
-        "require": [
-          "水マス"
-        ],
-        "supplements": [
-          "CT-1秒/3秒"
-        ]
-      },
-      {
         "skill": 1,
         "isConditionalBuff": true,
         "supplements": [
@@ -35774,6 +35764,20 @@
         "damageFactor": 130,
         "supplements": [
           "CT-1秒/3秒"
+        ],
+        "cooldownReductions": [
+          12
+        ]
+      },
+      {
+        "require": [
+          "水マス"
+        ],
+        "supplements": [
+          "CT-1秒/3秒"
+        ],
+        "cooldownReductions": [
+          4
         ]
       }
     ],
