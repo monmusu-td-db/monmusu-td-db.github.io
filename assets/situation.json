@@ -1,38 +1,5 @@
 [
   {
-    "unitId": 289
-  },
-  {
-    "unitId": 289,
-    "skill": 1
-  },
-  {
-    "unitId": 289,
-    "features": [
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 289,
-    "skill": 1,
-    "features": [
-      "class-attack-mul1"
-    ]
-  },
-  {
-    "unitId": 289,
-    "features": [
-      "class-attack-mul2"
-    ]
-  },
-  {
-    "unitId": 289,
-    "skill": 1,
-    "features": [
-      "class-attack-mul2"
-    ]
-  },
-  {
     "unitId": 290
   },
   {
