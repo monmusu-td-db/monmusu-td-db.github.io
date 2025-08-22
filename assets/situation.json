@@ -1,32 +1,5 @@
 [
   {
-    "unitId": 281
-  },
-  {
-    "unitId": 281,
-    "skill": 1
-  },
-  {
-    "unitId": 281,
-    "skill": 1,
-    "features": [
-      "proper-poison"
-    ]
-  },
-  {
-    "unitId": 281,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
-    "unitId": 281,
-    "skill": 1,
-    "features": [
-      "class-action"
-    ]
-  },
-  {
     "unitId": 289
   },
   {

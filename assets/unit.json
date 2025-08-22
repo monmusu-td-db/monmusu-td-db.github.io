@@ -31554,6 +31554,7 @@
     ]
   },
   {
+    "TODO_DESC": "毒ダメージ増加",
     "id": 281,
     "unitName": "【ニーズホッグ娘】ニーサ",
     "unitShortName": "ニーサ",
@@ -31565,6 +31566,10 @@
     "attack": 587,
     "defense": 280,
     "resist": 499,
+    "supplements": [
+      "猛毒付与(稀)→命中",
+      "毒Dmg+30%→全体"
+    ],
     "exSkill1": {
       "skillName": "崇毒の息吹",
       "rangeMul": 240,
@@ -31572,23 +31577,11 @@
       "cooldown": 45,
       "skillFeatures": [
         {
-          "featureName": "class-action",
-          "supplements": [
-            "鈍足→射程内"
-          ]
-        },
-        {
-          "featureName": "proper-poison",
-          "conditions": [
-            "特"
-          ],
+          "featureName": "common-definite-poison",
           "damageFactor": 120
         }
       ]
     },
-    "supplements": [
-      "猛毒付与(稀)"
-    ],
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -31610,6 +31603,7 @@
     "features": [
       {
         "featureName": "class-action",
+        "isAbility": true,
         "staticDamage": {
           "key": "static",
           "value": 200
@@ -31618,10 +31612,32 @@
         "target": "射程内",
         "duration": 30,
         "damageType": "貫通"
+      },
+      {
+        "featureName": "class-action",
+        "skill": 1,
+        "supplements": [
+          "鈍足→射程内"
+        ]
       }
     ],
     "isEventUnit": true,
-    "hpMul": 85
+    "hpMul": 85,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      }
+    ]
   },
   {
     "TODO_DESC": "PotentialはWiki情報",
@@ -31814,7 +31830,7 @@
         "criChanceLimitAdd": 50
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-stan",
         "isConditionalSkillBuff": true,
         "skill": 1,
         "damageFactor": 200
@@ -31852,28 +31868,28 @@
         "skill": 1,
         "features": [
           "common-1hit",
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-2hits",
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-3hits",
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-4hits",
-          "common-definite"
+          "common-definite-stan"
         ]
       }
     ]
@@ -31916,7 +31932,7 @@
     ],
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-air",
         "isConditionalBuff": true,
         "damageFactor": 200,
         "potentialBonus": {
@@ -31924,6 +31940,7 @@
         }
       }
     ],
+    "moveCostAdd": 2,
     "situations": [
       {},
       {
@@ -31931,13 +31948,13 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-air"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-air"
         ]
       }
     ]
@@ -32041,7 +32058,7 @@
       "damageType": "貫通",
       "supplements": [
         "コスト-5/発動",
-        "コスト+6"
+        "コスト+6/発動"
       ]
     },
     "potentials": [
@@ -32073,13 +32090,7 @@
         ]
       },
       {
-        "featureName": "extra-damage",
-        "isAbility": true,
-        "conditions": [
-          "追"
-        ],
-        "criChanceAdd": -1000,
-        "target": "命中",
+        "featureName": "common-extra-field-damage",
         "supplements": [
           "暗闇付与"
         ]
@@ -32164,7 +32175,7 @@
       {
         "skill": 1,
         "features": [
-          "extra-damage"
+          "common-extra-field-damage"
         ]
       },
       {
@@ -32181,7 +32192,7 @@
       {
         "skill": 1,
         "features": [
-          "extra-damage",
+          "common-extra-field-damage",
           "attack-mul1"
         ]
       },
@@ -32199,7 +32210,7 @@
       {
         "skill": 1,
         "features": [
-          "extra-damage",
+          "common-extra-field-damage",
           "attack-mul3"
         ]
       },
@@ -32217,7 +32228,7 @@
       {
         "skill": 1,
         "features": [
-          "extra-damage",
+          "common-extra-field-damage",
           "attack-mul5"
         ]
       },
@@ -32235,7 +32246,7 @@
       {
         "skill": 1,
         "features": [
-          "extra-damage",
+          "common-extra-field-damage",
           "attack-mul-max"
         ]
       },
