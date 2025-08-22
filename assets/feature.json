@@ -522,6 +522,15 @@
     ]
   },
   {
+    "featureName": "common-definite-air",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "air"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-ground",
     "conditions": [
       {
