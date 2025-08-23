@@ -13613,7 +13613,6 @@
     ]
   },
   {
-    "TODO_FATAL": "攻撃速度上昇",
     "id": 110,
     "unitName": "【迎春のデュラハン娘】プラチナ",
     "unitShortName": "プラチナ/正月",
@@ -30451,7 +30450,6 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1射程はwiki情報",
     "id": 270,
     "unitName": "【リトルグリーンマン娘】プリプリダ",
     "unitShortName": "プリプリダ",
@@ -30552,7 +30550,6 @@
     ]
   },
   {
-    "TODO_FATAL": "攻撃速度",
     "id": 2700001,
     "parentId": 270,
     "unitName": "リトルグリーンマン",
@@ -30565,8 +30562,8 @@
     "defense": 119,
     "resist": 119,
     "range": 230,
-    "attackSpeed": 999,
-    "delay": 99,
+    "attackSpeed": 100,
+    "delay": 25,
     "block": 1,
     "target": 1,
     "moveSpeed": 130,
@@ -30643,7 +30640,7 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1スタン/スタン時間/防御デバフ",
+    "TODO_DESC": "スタン時間",
     "id": 272,
     "unitName": "【ファフニール娘】ニッドラ",
     "unitShortName": "ニッドラ",
@@ -30663,7 +30660,7 @@
       "duration": 20,
       "cooldown": 35,
       "supplements": [
-        "スタン付与XX%(大)→命中"
+        "スタン付与65%→命中"
       ]
     },
     "potentials": [
@@ -34209,7 +34206,6 @@
     ]
   },
   {
-    "TODO_FATAL": "通常/ex1スタン蓄積値はwiki情報",
     "id": 303,
     "unitName": "【麒麟娘】ルイシャ",
     "unitShortName": "ルイシャ",
@@ -34266,7 +34262,7 @@
         "target": 1,
         "range": null,
         "supplements": [
-          "スタン付与20%(中)→命中"
+          "スタン付与20%→命中"
         ]
       },
       {
@@ -34275,7 +34271,7 @@
         "skill": 1,
         "target": 5,
         "supplements": [
-          "スタン付与50%(大)→命中"
+          "スタン付与40%→命中"
         ]
       }
     ],
