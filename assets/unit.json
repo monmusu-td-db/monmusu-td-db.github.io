@@ -21084,10 +21084,7 @@
       {
         "skill": 1,
         "isBuffSkill": true,
-        "damageCut": 20,
-        "supplements": [
-          "被Dmg-20%→射程内"
-        ]
+        "damageCut": 20
       },
       {
         "featureName": "support",
@@ -23056,7 +23053,7 @@
         ],
         "supplements": [
           "HP-50%/発動→射程内敵味方",
-          "(HP-10%→射程内ボス)"
+          "-(HP-10%→射程内ボス)"
         ]
       },
       {
@@ -26727,7 +26724,7 @@
     "damageType": "魔法",
     "placement": "付",
     "supplements": [
-      "超毒付与(稀)"
+      "超毒付与(稀)→命中"
     ],
     "isUnhealable": true,
     "situations": [
