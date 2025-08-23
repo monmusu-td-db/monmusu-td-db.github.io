@@ -4392,7 +4392,6 @@
           "skill1-buff"
         ],
         "target": "射程内",
-        "range": null,
         "duration": 0,
         "supplements": [
           "EX1発動時即時回復効果"
@@ -24077,7 +24076,6 @@
         ],
         "skill": -1,
         "target": "付与対象",
-        "range": null,
         "effects": [
           {
             "type": "hp-mul",
@@ -24095,7 +24093,6 @@
         ],
         "skill": -1,
         "target": "付与対象",
-        "range": null,
         "effects": [
           {
             "type": "attack-mul",
@@ -26740,7 +26737,6 @@
         "type": "attack-mul",
         "skill": -1,
         "target": "付与対象",
-        "range": null,
         "duration": 40,
         "value": 112
       }
@@ -33670,7 +33666,6 @@
         ],
         "skill": -1,
         "target": "付与対象",
-        "range": null,
         "duration": 30,
         "supplements": [
           "手動配置"
@@ -33701,7 +33696,6 @@
           "parent-skill1"
         ],
         "target": "付与対象",
-        "range": null,
         "duration": 30,
         "supplements": [
           "ex1による自動配置"
@@ -33730,7 +33724,6 @@
         ],
         "skill": -1,
         "target": "付与対象",
-        "range": null,
         "value": 120,
         "duration": 30,
         "supplements": [
@@ -33750,7 +33743,6 @@
           "parent-skill1"
         ],
         "target": "付与対象",
-        "range": null,
         "value": 120,
         "duration": 30,
         "supplements": [
@@ -36623,7 +36615,6 @@
         "type": "attack-mul",
         "skill": -1,
         "target": "付与対象",
-        "range": null,
         "value": 120,
         "potentialBonus": {
           "value": 125
