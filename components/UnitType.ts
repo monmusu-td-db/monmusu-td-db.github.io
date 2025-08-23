@@ -748,6 +748,20 @@ interface RawSituation {
    */
   isGeneralDefinite: boolean;
 
+  /**
+   * フィルター状況設定を一部無視して表示
+   *
+   * (クラスACT)
+   */
+  isGeneralAction: boolean;
+
+  /**
+   * フィルター状況設定を一部無視して表示
+   *
+   * (クラス特効+ACT、斧 被ダメ強化+ACT、鞭 防御デバフ+ACT)
+   */
+  isGeneralDefiniteAction: boolean;
+
   /** 必要潜在覚醒(AND) */
   hasPotentials?: readonly Data.Potential[];
 
@@ -835,7 +849,15 @@ interface RawConditionKvp {
   value: number;
 }
 
-type RawCondition = Data.ConditionTag | RawConditionKvp;
+interface RawConditionKeyType {
+  /** 状況種別 */
+  key: Data.ConditionTag;
+
+  /** 効果量 */
+  type: (typeof Data.Condition.definiteKeys)[number];
+}
+
+type RawCondition = Data.ConditionTag | RawConditionKvp | RawConditionKeyType;
 
 export default units;
 export type {

@@ -495,7 +495,7 @@ export class Condition {
   private static readonly keys = getKeys(this.tag);
   private static readonly entries = getEntries(this.tag);
   static readonly key = Enum(this.keys);
-  private static definiteKeys = getKeys(this.definiteDesc);
+  static readonly definiteKeys = getKeys(this.definiteDesc);
 
   static parseList(
     list: readonly JsonCondition[] | undefined
