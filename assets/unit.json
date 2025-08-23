@@ -36726,7 +36726,7 @@
         ]
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-freeze",
         "isConditionalBuff": true,
         "damageFactor": 130,
         "potentialBonus": {
@@ -36745,7 +36745,7 @@
           "class-earth-field"
         ],
         "features": [
-          "common-definite"
+          "common-definite-freeze"
         ]
       },
       {
@@ -36755,7 +36755,7 @@
         ],
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-freeze"
         ]
       }
     ],
@@ -37159,7 +37159,7 @@
         ]
       },
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-stan",
         "isConditionalBuff": true,
         "damageFactor": 180,
         "potentialBonus": {
@@ -37185,13 +37185,13 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
@@ -37208,14 +37208,14 @@
       {
         "features": [
           "attack-mul",
-          "common-definite"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
           "attack-mul",
-          "common-definite"
+          "common-definite-stan"
         ]
       }
     ]
@@ -37574,7 +37574,7 @@
     ],
     "features": [
       {
-        "featureName": "common-definite",
+        "featureName": "common-definite-petrify",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -37591,13 +37591,13 @@
       },
       {
         "features": [
-          "common-definite"
+          "common-definite-petrify"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "common-definite"
+          "common-definite-petrify"
         ]
       }
     ]
@@ -38221,7 +38221,6 @@
     ]
   },
   {
-    "TODO_DESC": "移動コスト上昇",
     "id": 344,
     "unitName": "【浜夏のジャバウォック娘】リデル",
     "unitShortName": "リデル/水着",
@@ -38270,6 +38269,7 @@
       }
     ],
     "moveSpeedMul": 250,
+    "moveCostAdd": 2,
     "situations": [
       {},
       {
