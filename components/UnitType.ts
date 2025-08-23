@@ -795,13 +795,6 @@ interface RawBuff extends RawBuffFactor {
   /** 対象 */
   target?: BuffTargetTag;
 
-  /**
-   * 射程
-   *
-   * nullで無効化
-   * */
-  range?: number | null;
-
   /** 効果持続時間(s) */
   duration?: number | typeof Data.Duration.always;
 

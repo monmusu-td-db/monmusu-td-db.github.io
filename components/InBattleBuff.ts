@@ -677,16 +677,10 @@ export default class InBattleBuff implements TableRow<Key> {
   }
 
   private getRangeValue(setting: Setting): number | undefined {
-    const rawValue = this.unit.isPotentialApplied(setting)
-      ? (this.rawBuff.potentialBonus?.range ?? this.rawBuff.range)
-      : this.rawBuff.range;
     const targetValue = this.buffTarget.getValue(setting);
 
-    if (rawValue === null && targetValue === undefined) {
+    if (targetValue === undefined) {
       return;
-    }
-    if (typeof rawValue === "number") {
-      return rawValue;
     }
     switch (targetValue) {
       case target.self:
