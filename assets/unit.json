@@ -11148,33 +11148,6 @@
       "物理防御力+90",
       "射程+15"
     ],
-    "features": [
-      {
-        "skill": 0,
-        "supplements": [
-          "再出撃時間-15%→射程内"
-        ],
-        "potentialBonus": {
-          "supplements": [
-            "再出撃時間-20%→射程内"
-          ]
-        }
-      },
-      {
-        "require": [
-          "スキル"
-        ],
-        "isBuffSkill": true,
-        "supplements": [
-          "再出撃時間-30%→射程内"
-        ],
-        "potentialBonus": {
-          "supplements": [
-            "再出撃時間-40%→射程内"
-          ]
-        }
-      }
-    ],
     "situations": [
       {},
       {
@@ -35614,7 +35587,7 @@
     "defense": 402,
     "resist": 127,
     "supplements": [
-      "火傷付与(稀)",
+      "火傷付与(稀)→命中",
       "火傷付与(稀+)→ブロック敵",
       "HP回復3%/撃破→悪魔"
     ],
@@ -35849,6 +35822,7 @@
     ]
   },
   {
+    "TODO_DESC": "再出撃時間-50%(70%/potentialBonus)→自分",
     "id": 317,
     "unitName": "【シームルグ娘】パリンダーヴァ",
     "unitShortName": "パリンダーヴァ",
@@ -35879,16 +35853,6 @@
       "HPが毎秒3%回復"
     ],
     "features": [
-      {
-        "supplements": [
-          "再出撃時間-50%→自分"
-        ],
-        "potentialBonus": {
-          "supplements": [
-            "再出撃時間-70%→自分"
-          ]
-        }
-      },
       {
         "supplements": [
           "回復100%/死亡時(1回のみ)",
@@ -36118,7 +36082,7 @@
       "cooldown": 5,
       "supplements": [
         "コスト-10/発動",
-        "tkn+2"
+        "tkn+2/発動"
       ]
     },
     "potentials": [
@@ -36334,20 +36298,16 @@
         ]
       },
       {
-        "featureName": "support",
+        "featureName": "common-support",
         "isAbility": true,
         "annotations": [
           "種族特性"
-        ],
-        "conditions": [
-          "援"
         ],
         "staticDefense": {
           "key": "defense",
           "value": 50
         },
         "target": "射程内",
-        "damageType": null,
         "potentialBonus": {
           "staticDefense": {
             "key": "defense",
@@ -36365,14 +36325,14 @@
       {
         "proper": true,
         "features": [
-          "support"
+          "common-support"
         ]
       },
       {
         "proper": true,
         "skill": 1,
         "features": [
-          "support"
+          "common-support"
         ]
       }
     ]
@@ -36415,11 +36375,8 @@
     ],
     "features": [
       {
-        "featureName": "proper-stan",
+        "featureName": "common-definite-stan",
         "isConditionalBuff": true,
-        "conditions": [
-          "特"
-        ],
         "damageFactor": 120
       },
       {
@@ -36437,13 +36394,13 @@
       },
       {
         "features": [
-          "proper-stan"
+          "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "proper-stan"
+          "common-definite-stan"
         ]
       }
     ],
@@ -36500,40 +36457,22 @@
         }
       },
       {
-        "featureName": "team-buff5",
+        "featureName": "common-team-buff5",
         "isConditionalSkillBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 5
-          }
-        ],
         "skill": 1,
         "attackMul": 125,
         "criChanceAdd": 10
       },
       {
-        "featureName": "team-buff10",
+        "featureName": "common-team-buff10",
         "isConditionalSkillBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 10
-          }
-        ],
         "skill": 1,
         "attackMul": 150,
         "criChanceAdd": 20
       },
       {
-        "featureName": "team-buff15",
+        "featureName": "common-team-buff15",
         "isConditionalSkillBuff": true,
-        "conditions": [
-          {
-            "key": "t",
-            "value": 15
-          }
-        ],
         "skill": 1,
         "attackMul": 175,
         "criChanceAdd": 30
@@ -36547,19 +36486,19 @@
       {
         "skill": 1,
         "features": [
-          "team-buff5"
+          "common-team-buff5"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "team-buff10"
+          "common-team-buff10"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "team-buff15"
+          "common-team-buff15"
         ]
       }
     ]
@@ -36597,9 +36536,6 @@
         "HP-100%→自分"
       ]
     },
-    "features": [
-      {}
-    ],
     "isUnhealable": true,
     "situations": [
       {
@@ -36707,7 +36643,7 @@
     "defense": 239,
     "resist": 287,
     "supplements": [
-      "猛毒付与(稀)"
+      "猛毒付与(稀)→命中"
     ],
     "exSkill1": {
       "skillName": "デスワームカノン",

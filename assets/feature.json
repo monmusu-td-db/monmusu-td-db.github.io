@@ -363,6 +363,16 @@
     ]
   },
   {
+    "featureName": "common-team-buff15",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 15
+      }
+    ]
+  },
+  {
     "featureName": "common-1hit",
     "conditions": [
       {
