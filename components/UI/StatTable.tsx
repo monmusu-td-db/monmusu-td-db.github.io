@@ -40,10 +40,12 @@ export type CellData = {
   stat: Stat;
 };
 
-type Sort<T extends string> = {
+interface Sort<T extends string> {
   column: T | undefined;
   isReversed: boolean;
-};
+}
+
+type SortHistory<T extends string> = [Sort<T>, Sort<T> | undefined];
 
 interface StatTableSourceProps<T extends string> extends StatTableProps {
   src: TableSource<T>;
@@ -136,7 +138,7 @@ function TableControl_<T extends string>({
   src: TableSource<T>;
   states: States;
   id: string;
-  sort: Sort<T>;
+  sort: SortHistory<T>;
   toggleSort: HandleSort<T>;
   maxRows: number | undefined;
 }) {
@@ -163,19 +165,31 @@ function TableControl_<T extends string>({
   );
 
   const sortedList = useMemo(() => {
+    const currentSort = sort[0];
+    const prevSort = sort[1];
+
     let ret;
-    if (sort.column === undefined) {
+    if (currentSort.column === undefined) {
       ret = filteredList;
     } else {
+      const prevSortedList =
+        !prevSort || !prevSort.column
+          ? filteredList
+          : src.sort(
+              states.setting,
+              filteredList,
+              prevSort.column,
+              prevSort.isReversed
+            );
       ret = src.sort(
         states.setting,
-        filteredList,
-        sort.column,
-        sort.isReversed
+        prevSortedList,
+        currentSort.column,
+        currentSort.isReversed
       );
     }
     return ret;
-  }, [filteredList, sort.column, sort.isReversed, src, states.setting]);
+  }, [filteredList, sort, src, states.setting]);
 
   const data: TableData<T> = useMemo(() => {
     const trancatedList = sortedList.slice(0, visibleRows);
@@ -237,7 +251,7 @@ function TableControl_<T extends string>({
         <Body
           tableData={dData}
           setting={dStates.setting}
-          sortColumn={dSort.column}
+          sortColumn={dSort[0].column}
           handlers={dHandlers}
         />
       </Table>
@@ -248,18 +262,38 @@ function TableControl_<T extends string>({
 type HandleSort<T extends string> = (column: T) => void;
 function useSort<T extends string>(
   src: TableSource<T>
-): [Sort<T>, HandleSort<T>] {
-  const [sort, setSort] = useState<Sort<T>>({
-    column: src.headers[0]?.id,
-    isReversed: false,
-  });
+): [SortHistory<T>, HandleSort<T>] {
+  const [sort, setSort] = useState<SortHistory<T>>([
+    {
+      column: src.headers[0]?.id,
+      isReversed: false,
+    },
+    undefined,
+  ]);
 
-  const handleToggle = useCallback((column: T) => {
-    setSort((p) => ({
-      column,
-      isReversed: p.column === column ? !p.isReversed : p.isReversed,
-    }));
-  }, []);
+  const handleToggle = useCallback(
+    (column: T) => {
+      setSort((p) => {
+        if (p[0].column === column) {
+          let prevSort;
+          if (column !== src.headers[0]?.id) {
+            prevSort = p[1];
+          }
+          const ret: SortHistory<T> = [{ ...p[0] }, prevSort];
+          ret[0].isReversed = !ret[0].isReversed;
+          return ret;
+        } else {
+          let prevSort;
+          if (column !== src.headers[0]?.id) {
+            prevSort = p[0];
+          }
+          const ret = { column, isReversed: p[0].isReversed };
+          return [ret, prevSort];
+        }
+      });
+    },
+    [src.headers]
+  );
 
   return [sort, handleToggle];
 }
@@ -273,18 +307,30 @@ function Header_<T extends string>({
 }: {
   headers: readonly TableHeader<T>[];
   setting: Setting;
-  sort: Sort<T>;
+  sort: SortHistory<T>;
   onClick: HandleSort<T>;
 }) {
   const sortColor = Data.TableColor.getSelector(
-    sort.isReversed ? Data.tableColor.blue : Data.tableColor.red
+    sort[0].isReversed
+      ? Data.tableColorAlias.negative
+      : Data.tableColorAlias.positive
+  );
+  const prevSortColor = Data.TableColor.getSelector(
+    sort[1]?.isReversed
+      ? Data.tableColorAlias.negativeWeak
+      : Data.tableColorAlias.positiveWeak
   );
 
   return (
     <thead>
       <tr>
         {headers.map((col) => {
-          const sortCn = col.id === sort.column ? sortColor : undefined;
+          let sortCn;
+          if (col.id === sort[0].column) {
+            sortCn = sortColor;
+          } else if (sort[1] && col.id === sort[1].column) {
+            sortCn = prevSortColor;
+          }
           let role, handleClick: HandleSort<T> | undefined;
           if (TableStyle.isSortable(col.id)) {
             role = "button";
