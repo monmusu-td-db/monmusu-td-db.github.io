@@ -3775,7 +3775,7 @@
         "skill": 1,
         "isConditionalSkillDebuff": true,
         "supplements": [
-          "スタン10秒/終了後→自分"
+          "スタン(10秒)/終了後→自分"
         ]
       }
     ],
@@ -8203,7 +8203,7 @@
     "defense": 336,
     "resist": 186,
     "supplements": [
-      "スタン付与10%"
+      "スタン付与10%→命中"
     ],
     "exSkill1": {
       "skillName": "百烈岩・天",
@@ -19933,11 +19933,11 @@
     "features": [
       {
         "supplements": [
-          "バインド(1秒)"
+          "バインド(1秒)→命中"
         ],
         "potentialBonus": {
           "supplements": [
-            "バインド(1.3秒)"
+            "バインド(1.3秒)→命中"
           ]
         }
       },
@@ -19976,7 +19976,7 @@
     "placement": "近",
     "supplements": [
       "隠密",
-      "バインド(15f/0.5秒)"
+      "バインド(0.5秒)→命中"
     ],
     "features": [
       {
@@ -20671,7 +20671,7 @@
       "cooldown": 40,
       "supplements": [
         "tkn+1/発動",
-        "バインド(3秒)"
+        "バインド(3秒)/発動→射程内"
       ]
     },
     "potentials": [
@@ -20684,11 +20684,11 @@
     "features": [
       {
         "supplements": [
-          "バインド(2秒)/配置"
+          "バインド(2秒)/配置→射程内"
         ],
         "potentialBonus": {
           "supplements": [
-            "バインド(3秒)/配置"
+            "バインド(3秒)/配置→射程内"
           ]
         }
       }
@@ -25673,7 +25673,7 @@
           "range": 150,
           "supplements": [
             "回復60%/発動",
-            "スタン付与100%"
+            "スタン付与100%→命中"
           ]
         }
       ]
@@ -35967,7 +35967,7 @@
         "range": null,
         "damageType": "魔法",
         "supplements": [
-          "暗闇付与(稀)"
+          "暗闇付与(稀)→命中"
         ]
       },
       {
