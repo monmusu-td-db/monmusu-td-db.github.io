@@ -172,6 +172,7 @@ const target = {
   block: "ブロック敵",
   self: "自分",
   master: "付与対象",
+  hit: "命中",
 } as const;
 export type BuffTargetTag = (typeof target)[keyof typeof target];
 
@@ -666,10 +667,12 @@ export default class InBattleBuff implements TableRow<Key> {
         return -900;
       case target.block:
         return -800;
-      case target.master:
+      case target.hit:
         return -700;
-      case target.self:
+      case target.master:
         return -600;
+      case target.self:
+        return -500;
     }
   }
 
