@@ -30836,6 +30836,9 @@
       {
         "featureName": "common-definite",
         "skill": 1,
+        "annotations": [
+          "ボス特効"
+        ],
         "isConditionalBuff": true,
         "damageFactor": 300
       }
