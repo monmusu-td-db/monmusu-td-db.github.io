@@ -36,6 +36,7 @@ export interface StatTableProps {
   id: string;
   className?: string;
   maxRows?: number;
+  showIcon?: boolean;
 }
 
 export class TableSourceUtil {

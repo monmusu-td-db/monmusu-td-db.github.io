@@ -1,6 +1,6 @@
 import {
   TablesFormationBuff,
-  TablesInBattleBuff,
+  // TablesInBattleBuff,
   TablesInBattleBuffAttackSpeed,
   TablesInBattleBuffBase,
   TablesInBattleBuffDamage,
@@ -39,19 +39,19 @@ function FormationBuff() {
   return (
     <>
       <h2>編成バフ</h2>
-      <TablesFormationBuff id="formation" className="mb-5" />
+      <TablesFormationBuff id="formation" className="mb-5" showIcon />
     </>
   );
 }
 
-function InBattleBuff() {
-  return (
-    <>
-      <h2>戦闘中バフ</h2>
-      <TablesInBattleBuff id="in-battle" className="mb-5" />
-    </>
-  );
-}
+// function InBattleBuff() {
+//   return (
+//     <>
+//       <h2>戦闘中バフ</h2>
+//       <TablesInBattleBuff id="in-battle" className="mb-5" />
+//     </>
+//   );
+// }
 
 function InBattleBuffBase() {
   return (
