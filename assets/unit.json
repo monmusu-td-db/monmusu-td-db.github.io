@@ -2094,8 +2094,6 @@
     ]
   },
   {
-    "TODO_DESC": "ex2はWiki情報",
-    "TODO_FATAL": "ex2攻撃速度",
     "id": 16,
     "unitName": "【ケルベロス娘】テルル",
     "unitShortName": "テルル",
@@ -2118,7 +2116,7 @@
     "exSkill2": {
       "skillName": "獣頭の咆哮",
       "attackMul": 220,
-      "attackMotionMul": 99,
+      "attackMotionMul": 153,
       "target": 1,
       "laser": true,
       "rangeMul": 220,
@@ -12635,7 +12633,7 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1/2射程/ex2攻撃速度",
+    "TODO_FATAL": "ex2射程/ex2攻撃速度",
     "id": 100,
     "unitName": "【ブラックドラゴン娘】マウロ",
     "unitShortName": "マウロ",
@@ -12651,7 +12649,7 @@
       "skillName": "ブラックノヴァ",
       "attackMul": 360,
       "splash": true,
-      "range": 999,
+      "range": 250,
       "duration": 25,
       "cooldown": 60,
       "damageType": "貫通"
@@ -20800,7 +20798,7 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1攻撃待機時間",
+    "TODO_DESC": "ex1攻撃待機時間短縮はおそらく機能していない",
     "id": 184,
     "unitName": "【ナベリウス娘】テルル",
     "unitShortName": "テルル/進化",
@@ -20818,7 +20816,6 @@
     "exSkill1": {
       "skillName": "乱れ撃つわん！",
       "attackMul": 180,
-      "delayMul": 999,
       "rounds": 6,
       "rangeMul": 160,
       "duration": 20,
@@ -22257,7 +22254,6 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1攻撃速度",
     "id": 196,
     "unitName": "【大鬼娘】ハガネ",
     "unitShortName": "ハガネ",
@@ -22287,8 +22283,8 @@
         "featureName": "class-normal",
         "skill": 1,
         "isConditionalSkillBuff": true,
-        "attackSpeedBuff": 999,
-        "delayMul": 99
+        "attackSpeedBuff": 125,
+        "delayMul": 75
       },
       {
         "featureName": "class-action",
@@ -22302,8 +22298,8 @@
         "featureName": "class-action",
         "skill": 1,
         "isConditionalSkillBuff": true,
-        "attackSpeedBuff": 999,
-        "delayMul": 99
+        "attackSpeedBuff": 150,
+        "delayMul": 25
       },
       {
         "featureName": "hp-49%",
@@ -30581,7 +30577,6 @@
     ]
   },
   {
-    "TODO_FATAL": "delayCutはWiki情報",
     "id": 271,
     "unitName": "【リトルグリーンマン娘】ピンダ",
     "unitShortName": "ピンダ",
@@ -31613,7 +31608,6 @@
   },
   {
     "TODO_DESC": "PotentialはWiki情報",
-    "TODO_FATAL": "ex1射程要検証",
     "id": 282,
     "unitName": "【レヴィアタン娘】キネア",
     "unitShortName": "キネア",
@@ -33529,8 +33523,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
-    "TODO_FATAL": "ex1射程",
     "id": 2960001,
     "parentId": 296,
     "unitName": "グロウソウル",
@@ -33543,8 +33535,8 @@
     "defense": 0,
     "resist": 0,
     "block": null,
-    "target": "射程内",
-    "range": 999,
+    "target": 99,
+    "range": 220,
     "moveSpeed": 0,
     "damageType": "魔法",
     "placement": "的",
