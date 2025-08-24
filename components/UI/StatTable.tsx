@@ -28,7 +28,7 @@ import type {
   TableRow,
   TableSource,
 } from "./StatTableUtil";
-import Image from "next/image";
+import Images from "./Images";
 
 //
 // Types
@@ -482,15 +482,7 @@ function Caption<T extends string>({
           {showIcon ? (
             <BRow className="empty-alert-row">
               <Col xs={12} sm={5} md={4}>
-                <Image
-                  src="/loading.png" // TODO
-                  width={200}
-                  height={200}
-                  alt=""
-                  priority
-                  quality={100}
-                  className="d-block mx-auto"
-                />
+                <Images.EmptyAlert className="d-block mx-auto" />
               </Col>
               <Col xs={12} sm={7} md={8} className="d-flex align-items-center">
                 {text}

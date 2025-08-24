@@ -1,7 +1,6 @@
 "use client";
 
 import "./Navbar.css";
-import Image from "next/image";
 import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import Icon from "./Icon";
 import { type ReactNode } from "react";
@@ -9,6 +8,7 @@ import Theme from "./Theme";
 import Panel, { type PageType } from "./Panel";
 import cn from "classnames";
 import SearchInput from "./SearchInput";
+import Images from "./Images";
 
 const SEARCH_ICON_SIZE = 18;
 const PAGE_NAME = "モンスター娘TD DB";
@@ -77,32 +77,22 @@ function Brand() {
 }
 
 function Logo() {
-  return (
-    <Image
-      src={"/logo.png"}
-      width={40}
-      height={40}
-      alt={IMAGE_ALT_TEXT}
-      className="logo"
-      priority
-      quality={100}
-    />
-  );
+  return <Images.Logo className="logo" alt={IMAGE_ALT_TEXT} />;
 }
 
-function LogoPlaceholder() {
-  return (
-    <Image
-      src={"/logo_placeholder.svg"}
-      width={40}
-      height={40}
-      alt={IMAGE_ALT_TEXT}
-      className="logo"
-      priority
-      quality={100}
-    />
-  );
-}
+// function LogoPlaceholder() {
+//   return (
+//     <Image
+//       src={"/logo_placeholder.svg"}
+//       width={40}
+//       height={40}
+//       alt={IMAGE_ALT_TEXT}
+//       className="logo"
+//       priority
+//       quality={100}
+//     />
+//   );
+// }
 
 function ThemeToggler() {
   return (
