@@ -12,7 +12,7 @@ import {
   type ReactNode,
   type RefObject,
 } from "react";
-import { Alert, Table } from "react-bootstrap";
+import { Alert, Table, Row as BRow, Col } from "react-bootstrap";
 import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting, type States } from "../States";
 import TooltipControl, { type TooltipEventHandlers } from "./TooltipControl";
@@ -28,6 +28,7 @@ import type {
   TableRow,
   TableSource,
 } from "./StatTableUtil";
+import Image from "next/image";
 
 //
 // Types
@@ -59,6 +60,7 @@ function StatTable<T extends string>({
   className,
   id,
   maxRows,
+  showIcon,
 }: StatTableSourceProps<T>) {
   const filter = Contexts.useFilter();
   const setting = Contexts.useSetting();
@@ -121,6 +123,7 @@ function StatTable<T extends string>({
         sort={dSort}
         toggleSort={dToggleSort}
         maxRows={maxRows}
+        showIcon={showIcon ?? false}
       />
     </div>
   );
@@ -134,6 +137,7 @@ function TableControl_<T extends string>({
   sort,
   toggleSort,
   maxRows,
+  showIcon,
 }: {
   src: TableSource<T>;
   states: States;
@@ -141,6 +145,7 @@ function TableControl_<T extends string>({
   sort: SortHistory<T>;
   toggleSort: HandleSort<T>;
   maxRows: number | undefined;
+  showIcon: boolean;
 }) {
   const [visibleRows, setVisibleRows] = useState(maxRows);
   const panelOpen = Panel.Contexts.useOpen();
@@ -241,7 +246,11 @@ function TableControl_<T extends string>({
         id={id}
         className={cn("stat-table", { pending: isPending })}
       >
-        <Caption tableData={dData} onScroll={handleScroll} />
+        <Caption
+          tableData={dData}
+          onScroll={handleScroll}
+          showIcon={showIcon}
+        />
         <Header
           headers={dData.headers}
           setting={dStates.setting}
@@ -433,9 +442,11 @@ function Body_<T extends string>({
 function Caption<T extends string>({
   tableData,
   onScroll,
+  showIcon,
 }: {
   tableData: TableData<T>;
   onScroll: () => void;
+  showIcon: boolean;
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
@@ -463,10 +474,31 @@ function Caption<T extends string>({
   if (tableData.rows.length > 0) {
     return <caption ref={ref} style={{ height: "1px" }} />;
   } else {
+    const text =
+      "表示結果がありませんでした。フィルターや検索ワードを確認してください。";
     return (
-      <caption>
-        <Alert variant="info">
-          表示結果がありませんでした。フィルターや検索ワードを確認してください。
+      <caption className="stat-empty-alert">
+        <Alert variant="info" className="mx-2">
+          {showIcon ? (
+            <BRow className="empty-alert-row">
+              <Col xs={12} sm={5} md={4}>
+                <Image
+                  src="/loading.png" // TODO
+                  width={200}
+                  height={200}
+                  alt=""
+                  priority
+                  quality={100}
+                  className="d-block mx-auto"
+                />
+              </Col>
+              <Col xs={12} sm={7} md={8} className="d-flex align-items-center">
+                {text}
+              </Col>
+            </BRow>
+          ) : (
+            text
+          )}
         </Alert>
       </caption>
     );

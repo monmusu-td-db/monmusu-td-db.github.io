@@ -292,3 +292,15 @@ th.buffCriChanceAdd,
 th.buffCriDamageAdd {
   width: 3rem;
 }
+
+.stat-empty-alert {
+  max-width: 100vw;
+}
+
+[data-md-loading="show"] .empty-alert-row > div:first-child {
+  display: none;
+}
+
+[data-md-loading="show"] .empty-alert-row > div:last-child {
+  width: 100%;
+}
