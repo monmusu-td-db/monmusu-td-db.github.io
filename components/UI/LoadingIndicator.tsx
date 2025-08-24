@@ -1,6 +1,6 @@
 import "./LoadingIndicator.css";
-import Image from "next/image";
 import { type ReactNode } from "react";
+import Images from "./Images";
 
 const SETTER_NAME = "__setLoadingId";
 const REMOVER_NAME = "__removeLoadingId";
@@ -47,14 +47,7 @@ function LoadingIndicator(): ReactNode {
       ></script>
       <div className="loading-indicator">
         <div>
-          <Image
-            src="/loading.png"
-            width={200}
-            height={200}
-            alt="Loading..."
-            priority
-            quality={100}
-          />
+          <Images.Loading />
           <div className="spinner-border">
             <span className="visually-hidden">Loading...</span>
           </div>
