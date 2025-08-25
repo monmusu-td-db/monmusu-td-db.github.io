@@ -2,15 +2,21 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import Panel from "./Panel";
-import Header from "./Navbar";
 import LoadingIndicator from "./LoadingIndicator";
 import PanelControl from "./PanelControl";
+import { Button } from "react-bootstrap";
+import Icon from "./Icon";
+import SearchInput from "./SearchInput";
+import Header from "./Header";
+import cn from "classnames";
+
+const SEARCH_ICON_SIZE = 18;
 
 type PageType =
   | (typeof Panel.pageType)[keyof typeof Panel.pageType]
   | undefined;
 
-export default function PageRoot({
+function PageRoot({
   children,
   pageType,
 }: {
@@ -35,9 +41,47 @@ export default function PageRoot({
       <Panel.Contexts.SetOpen.Provider value={setPanelOpen}>
         <PanelControl />
         <LoadingIndicator />
-        <Header pageType={pageType} />
+        <HeaderControl pageType={pageType} />
         <main>{children}</main>
       </Panel.Contexts.SetOpen.Provider>
     </Panel.Contexts.Open.Provider>
   );
 }
+
+function HeaderControl({ pageType }: { pageType?: PageType }) {
+  const open = Panel.Contexts.useOpen();
+  const setOpen = Panel.Contexts.useSetOpen();
+
+  return (
+    <Header
+      panel={
+        <Panel open={open} onClose={() => setOpen(false)} pageType={pageType} />
+      }
+      searchInput={
+        <SearchInput className="header-search-input d-none d-md-block" />
+      }
+      panelToggler={<PanelToggler />}
+    />
+  );
+}
+
+function PanelToggler() {
+  const open = Panel.Contexts.useOpen();
+  const setOpen = Panel.Contexts.useSetOpen();
+
+  return (
+    <div className="flex ms-1 me-1">
+      <Button
+        variant="outline-secondary"
+        className={cn("header-btn", { "header-btn-checked": open })}
+        onClick={() => setOpen((p) => !p)}
+        aria-controls={Panel.ID}
+        aria-expanded={open}
+      >
+        <Icon.GearFill width={SEARCH_ICON_SIZE} height={SEARCH_ICON_SIZE} />
+      </Button>
+    </div>
+  );
+}
+
+export default PageRoot;

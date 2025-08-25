@@ -1,9 +1,5 @@
-import PageRoot from "@/components/UI/PageRoot";
+import Header from "@/components/UI/Header";
 
 export default function App() {
-  return (
-    <PageRoot>
-      <></>
-    </PageRoot>
-  );
+  return <Header />;
 }
