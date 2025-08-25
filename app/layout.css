@@ -18,6 +18,10 @@
   margin-top: 1rem;
 }
 
+.md-content > h2 {
+  scroll-margin-top: calc(58px + 1rem);
+}
+
 .md-content > dl > dt {
   color: var(--bs-red);
 }
