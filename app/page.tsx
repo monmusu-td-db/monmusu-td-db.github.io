@@ -6,6 +6,7 @@ import Icon from "@/components/UI/Icon";
 import * as Data from "@/components/Data";
 import classNames from "classnames";
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 const getSelector = Data.TableColor.getSelector;
 
@@ -29,7 +30,28 @@ export default function App() {
           または、検索バー <Icon.Search />{" "}
           に名前等を入力することでも表示することができます。
         </p>
-        <p>表示される内容はすべてクラスチェンジ最大/Lv150の情報です。</p>
+        <p>
+          表示される内容はすべてLv150/スキルレベル最大の情報です。
+          計算の内容は計算順や丸め誤差等の影響で多少異なることがあります。
+          また、攻撃速度に関しては計測のずれによって多少の誤差がある場合がありますので、
+          あらかじめご了承ください。
+        </p>
+        <p>
+          表の見出し部分を選択すると内容を並べ替えることができます。
+          状態によって以下のように色分けされます。
+        </p>
+        <ColorDesc color={Data.tableColorAlias.positive}>
+          効果量の高い順（優先）
+        </ColorDesc>
+        <ColorDesc color={Data.tableColorAlias.negative}>
+          効果量の低い順（優先）
+        </ColorDesc>
+        <ColorDesc color={Data.tableColorAlias.positiveWeak}>
+          効果量の高い順
+        </ColorDesc>
+        <ColorDesc color={Data.tableColorAlias.negativeWeak}>
+          効果量の低い順
+        </ColorDesc>
         <h2>検索バーの仕様</h2>
         <p>検索バーに入力した内容は以下の項目から検索されます。</p>
         <ul>
@@ -62,7 +84,17 @@ export default function App() {
           などをご覧ください。
         </p>
         <h2>補足項目</h2>
-        <p>補足項目の読み方を説明します。</p>
+        <p>
+          補足項目にはデバフ効果や回避、合計ダメージなどが含まれています。
+          バフに関しては加算バフ<b>以外</b>は、
+          <Link href="./buff">バフページ</Link>
+          に表記されているため省略しています。
+          ただし例外として状態異常耐性バフについては、
+          ユニットの状態異常耐性との一貫性、検索性のため省略していません。
+        </p>
+        <p>
+          また、内容を簡潔にするため短縮構文を多用しています。以下その構文を説明します。
+        </p>
         <Example>
           <p>
             <b>例文：</b> ATK-15%(10秒)/発動→射程内
@@ -330,6 +362,10 @@ export default function App() {
         </ul>
         <h2>その他</h2>
         <p>入力欄の隣にある領域を押すと、入力欄の内容がリセットされます。</p>
+        <p>
+          属性マスの効果は自前で属性変化可能なユニットに関しては別途表記していますが、
+          そのほかのユニットでは表記していません。
+        </p>
       </Container>
     </PageRoot>
   );
