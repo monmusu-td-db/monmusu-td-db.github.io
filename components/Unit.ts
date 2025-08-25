@@ -313,14 +313,7 @@ export default class Unit implements TableRow<Keys> {
         comparer: () => comparer,
         item: (s) => {
           const value = this.className.getValue(s);
-          switch (s.classNameType) {
-            case Setting.TYPE_CC1:
-              return value;
-            case Setting.TYPE_CC4:
-              return Data.UnitClass.cc4NameOf(value);
-            case Setting.TYPE_EQUIPMENT:
-              return Data.UnitClass.equipmentNameOf(value);
-          }
+          return Data.UnitClass.getName(s.classNameType, value);
         },
       });
     }

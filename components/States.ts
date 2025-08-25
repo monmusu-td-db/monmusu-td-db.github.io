@@ -30,7 +30,7 @@ const TYPE_CC1 = "cc1";
 const TYPE_CC4 = "cc4";
 const TYPE_EQUIPMENT = "equipment";
 const DEFAULT_CLASS_NAME_TYPE = TYPE_EQUIPMENT;
-type ClassNameTypeStatus =
+export type ClassNameTypeStatus =
   | typeof TYPE_CC1
   | typeof TYPE_CC4
   | typeof TYPE_EQUIPMENT;
