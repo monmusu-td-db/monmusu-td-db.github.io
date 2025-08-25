@@ -1553,9 +1553,6 @@ export default class Situation implements TableRow<Keys> {
 
     {
       switch (statType) {
-        case stat.hp:
-          checkPercent(fea.currentHp);
-          break;
         case stat.attack:
           checkPercent(this.getBuffDamageFactor(setting));
           checkBoolean(this.criticalChance.getFactors(setting).buffColor);
@@ -1594,6 +1591,11 @@ export default class Situation implements TableRow<Keys> {
       }
     }
     {
+      switch (statType) {
+        case stat.hp:
+          checkPercent(fea.currentHp);
+          break;
+      }
       checkCond(fea.cond);
 
       if (colorFlag !== undefined) {
