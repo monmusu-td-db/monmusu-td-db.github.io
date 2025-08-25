@@ -1,5 +1,5 @@
 import jsonWord from "@/assets/word.json";
-import { Setting } from "./States";
+import { Setting, type ClassNameTypeStatus } from "./States";
 
 // Const
 
@@ -1249,6 +1249,17 @@ export class UnitClass {
       case n.shaman:
       case n.bard:
         return UnitBaseClass.tag.supporter;
+    }
+  }
+
+  static getName(type: ClassNameTypeStatus, value: UnitClassTag | undefined) {
+    switch (type) {
+      case Setting.TYPE_CC1:
+        return value;
+      case Setting.TYPE_CC4:
+        return this.cc4NameOf(value);
+      case Setting.TYPE_EQUIPMENT:
+        return this.equipmentNameOf(value);
     }
   }
 }
