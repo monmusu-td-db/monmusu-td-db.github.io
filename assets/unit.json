@@ -526,7 +526,7 @@
       "cooldown": 30,
       "damageType": null,
       "supplements": [
-        "石化付与→射程内"
+        "石化付与/発動→射程内"
       ]
     },
     "exSkill2": {
@@ -535,10 +535,7 @@
       "splash": true,
       "duration": 15,
       "cooldown": 35,
-      "damageType": "魔法",
-      "supplements": [
-        "石化付与20%→命中"
-      ]
+      "damageType": "魔法"
     },
     "potentials": [
       "出撃コスト-1",
@@ -547,17 +544,54 @@
       "攻撃力+50",
       "攻撃力+50"
     ],
+    "weapon": {
+      "weaponName": "鶏頭戦斧",
+      "attack": 60,
+      "defense": 20
+    },
     "features": [
       {
         "skill": 0,
+        "exclude": [
+          "武器"
+        ],
         "supplements": [
           "石化付与5%→命中"
         ]
       },
       {
-        "skill": 1,
+        "skill": 0,
+        "require": [
+          "武器"
+        ],
         "supplements": [
+          "石化付与15%→命中"
+        ]
+      },
+      {
+        "skill": 2,
+        "exclude": [
+          "武器"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "石化付与20%→命中"
+        ],
+        "deleteSupplements": [
           "石化付与5%→命中"
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "武器"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "石化付与30%→命中"
+        ],
+        "deleteSupplements": [
+          "石化付与15%→命中"
         ]
       },
       {
@@ -705,9 +739,26 @@
       "射程+10",
       "再出撃時間50%短縮"
     ],
+    "weapon": {
+      "weaponName": "バウバウシャベル",
+      "hp": 250,
+      "attack": 55
+    },
     "features": [
       {
         "attackMul": 115
+      },
+      {
+        "require": [
+          "武器",
+          "地マス"
+        ],
+        "cooldownReductions": [
+          4
+        ],
+        "supplements": [
+          "CT-1秒/4秒"
+        ]
       }
     ],
     "costAdd": -2,
@@ -727,6 +778,51 @@
       {
         "skill": 2,
         "features": [
+          "common-token-limit"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-earth-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-earth-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 2,
+        "features": [
+          "common-earth-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-earth-field",
+          "common-token-limit"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 2,
+        "features": [
+          "common-earth-field",
           "common-token-limit"
         ]
       }
@@ -4833,6 +4929,11 @@
       "攻撃力+50",
       "射程+10"
     ],
+    "weapon": {
+      "weaponName": "メディカルワンドード",
+      "hp": 100,
+      "resist": 70
+    },
     "features": [
       {
         "skill": 1,
@@ -4840,6 +4941,13 @@
           "key": "attack-base",
           "value": 500
         }
+      },
+      {
+        "featureName": "class-definite",
+        "require": [
+          "武器"
+        ],
+        "damageDebuff": 110
       }
     ],
     "situations": [
@@ -4850,6 +4958,17 @@
         ],
         "isGeneral": true,
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "require": [
+          "武器",
+          "スタン特効"
+        ],
+        "target": "射程内",
+        "value": 110
       }
     ]
   },
@@ -5641,6 +5760,23 @@
       "最大HP+400",
       "物理防御力+60",
       "魔法防御力+60"
+    ],
+    "weapon": {
+      "weaponName": "女王の御幣",
+      "hp": 100,
+      "defense": 35,
+      "resist": 35
+    },
+    "formationBuffs": [
+      {
+        "require": [
+          "武器"
+        ],
+        "targets": [
+          "ゴブリン"
+        ],
+        "cost": -3
+      }
     ],
     "situations": [
       {
