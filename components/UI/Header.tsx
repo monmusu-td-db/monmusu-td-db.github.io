@@ -1,32 +1,35 @@
 "use client";
 
-import "./Navbar.css";
-import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
-import Icon from "./Icon";
+import Icon from "@/components/UI/Icon";
+import "./Header.css";
+import Images from "@/components/UI/Images";
 import { type ReactNode } from "react";
-import Theme from "./Theme";
-import Panel, { type PageType } from "./Panel";
-import cn from "classnames";
-import SearchInput from "./SearchInput";
-import Images from "./Images";
+import { Button, Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
+import Theme from "@/components/UI/Theme";
 
-const SEARCH_ICON_SIZE = 18;
+const ICON_SIZE = 18;
 const PAGE_NAME = "モンスター娘TD DB";
 const IMAGE_ALT_TEXT = "モンスター娘TD DB ロゴ";
 
-function Header({ pageType }: { pageType?: PageType }) {
-  const open = Panel.Contexts.useOpen();
-  const setOpen = Panel.Contexts.useSetOpen();
+interface HeaderProps extends NavAreaProps {
+  panel?: ReactNode;
+}
 
+function Header(props: HeaderProps): ReactNode {
   return (
     <header className="sticky-top header">
-      <NavArea />
-      <Panel open={open} onClose={() => setOpen(false)} pageType={pageType} />
+      <NavArea {...props} />
+      {props.panel}
     </header>
   );
 }
 
-function NavArea() {
+interface NavAreaProps {
+  searchInput?: ReactNode;
+  panelToggler?: ReactNode;
+}
+
+function NavArea({ searchInput, panelToggler }: NavAreaProps) {
   const offcanvasId = "navbar-offcanvas";
   const labelId = "navbar-offcanvas-label";
 
@@ -54,10 +57,10 @@ function NavArea() {
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
-        <SearchInput className="header-search-input d-none d-md-block" />
+        {searchInput}
         <div className="d-flex justify-content-end">
           <ThemeToggler />
-          <PanelToggler />
+          {panelToggler}
         </div>
       </Container>
     </Navbar>
@@ -97,39 +100,17 @@ function Logo() {
 function ThemeToggler() {
   return (
     <>
-      <div className="d-none ms-1 me-1 theme-light">
+      <div className="d-none mx-1 theme-light">
         <HeaderButton onClick={() => Theme.toggle(Theme.LIGHT)}>
-          <Icon.BrightnessHignFill
-            width={SEARCH_ICON_SIZE}
-            height={SEARCH_ICON_SIZE}
-          />
+          <Icon.BrightnessHignFill width={ICON_SIZE} height={ICON_SIZE} />
         </HeaderButton>
       </div>
-      <div className="d-none ms-1 me-1 theme-dark">
+      <div className="d-none mx-1 theme-dark">
         <HeaderButton onClick={() => Theme.toggle(Theme.DARK)}>
-          <Icon.MoonFill width={SEARCH_ICON_SIZE} height={SEARCH_ICON_SIZE} />
+          <Icon.MoonFill width={ICON_SIZE} height={ICON_SIZE} />
         </HeaderButton>
       </div>
     </>
-  );
-}
-
-function PanelToggler() {
-  const open = Panel.Contexts.useOpen();
-  const setOpen = Panel.Contexts.useSetOpen();
-
-  return (
-    <div className="flex ms-1 me-1">
-      <Button
-        variant="outline-secondary"
-        className={cn("header-btn", { "header-btn-checked": open })}
-        onClick={() => setOpen((p) => !p)}
-        aria-controls={Panel.ID}
-        aria-expanded={open}
-      >
-        <Icon.GearFill width={SEARCH_ICON_SIZE} height={SEARCH_ICON_SIZE} />
-      </Button>
-    </div>
   );
 }
 
