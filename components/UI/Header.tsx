@@ -34,7 +34,7 @@ function NavArea({ searchInput, panelToggler }: NavAreaProps) {
   const labelId = "navbar-offcanvas-label";
 
   return (
-    <Navbar expand="lg" className="bg-body-secondary">
+    <Navbar expand="xl" className="bg-body-secondary">
       <Container>
         <div className="d-flex">
           <Navbar.Toggle aria-controls={offcanvasId} />
