@@ -46,10 +46,25 @@ function EmptyAlert({ className }: Props) {
   );
 }
 
+function NotFound({ className }: Props) {
+  return (
+    <Image
+      src="/loading.png" // TODO
+      width={200}
+      height={200}
+      alt=""
+      priority
+      quality={100}
+      className={className}
+    />
+  );
+}
+
 const Images = {
   Logo,
   Loading,
   EmptyAlert,
+  NotFound,
 };
 
 export default Images;
