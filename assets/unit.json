@@ -6652,7 +6652,7 @@
       "duration": 10,
       "cooldown": 60,
       "supplements": [
-        "コスト-17/発動"
+        "コスト+17/発動"
       ],
       "skillFeatures": [
         {
@@ -6668,7 +6668,23 @@
       "攻撃速度+15",
       "移動速度1.5倍"
     ],
+    "weapon": {
+      "weaponName": "タイガーファング",
+      "hp": 250,
+      "attack": 25,
+      "attackSpeed": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "コスト+1/3体撃破"
+        ]
+      },
       {
         "featureName": "common-skill1-phase2",
         "phaseName": "MAXタイガーモード！"
@@ -8874,7 +8890,24 @@
       "攻撃力+75",
       "攻撃速度+15"
     ],
+    "weapon": {
+      "weaponName": "ナスィーム",
+      "hp": 200,
+      "attack": 60
+    },
     "features": [
+      {
+        "featureName": "common-absorb",
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 10
+        },
+        "target": "全体",
+        "damageType": "回復",
+        "supplements": [
+          "回復{attack-base*10}/命中→全体"
+        ]
+      },
       {
         "featureName": "heal-all",
         "annotations": [
@@ -8909,6 +8942,15 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-absorb"
+        ]
       },
       {
         "proper": true,
@@ -18328,7 +18370,7 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "回復{attack-base*20}×3/通過時→味方"
+        "回復{attack-base*20}×3/通過時→全体"
       ]
     },
     "potentials": [
