@@ -22,7 +22,7 @@ export default function App() {
           </ExternalLink>
           のキャラクターの能力値、バフデバフをまとめています。
         </p>
-        <h2>使い方の基本</h2>
+        <h2 id="description">使い方の基本</h2>
         <p>
           右上の歯車アイコン <Icon.GearFill />{" "}
           をクリックしてフィルターを選択することで、合致するキャラクターが表示されます。

@@ -13,6 +13,7 @@ import {
 } from "@/components/UI/Tables";
 import PageRoot from "@/components/UI/PageRoot";
 import { Container } from "react-bootstrap";
+import Link from "next/link";
 
 export default function App() {
   return (
@@ -30,6 +31,9 @@ export default function App() {
         <InBattleBuffField />
         <InBattleBuffStatus />
         <InBattleBuffWeather />
+      </Container>
+      <Container className="md-content">
+        <Description />
       </Container>
     </PageRoot>
   );
@@ -133,6 +137,30 @@ function InBattleBuffWeather() {
     <>
       <h2>天候変化</h2>
       <TablesInBattleBuffWeather id="in-battle-weather" className="mb-5" />
+    </>
+  );
+}
+
+function Description() {
+  return (
+    <>
+      <h2>解説</h2>
+      <p>
+        基本的な使い方は<Link href="./#description">メインページ</Link>
+        と同じなので、そちらも参考にしてください。
+      </p>
+      <p>
+        補足欄に書かれている赤字は限定条件です。
+        この条件を満たした場合のみ適用されることを示しています。
+      </p>
+      <p>
+        クリティカル率増加の項目にあるカッコは、クリティカル<b>上限</b>
+        増加効果を表しています。
+      </p>
+      <p>
+        いわゆる加算バフはこのページには表示していません。代わりに
+        <Link href="./">メインページ</Link>に含まれています。
+      </p>
     </>
   );
 }
