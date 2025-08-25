@@ -96,8 +96,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
                 </div>
                 <Nav
                   variant="underline"
-                  justify
-                  className="col-12 col-sm-9 ps-3 pe-3 me-auto ms-auto mb-2"
+                  className="panel-header col-12 col-sm-9 ps-3 pe-3 me-auto ms-auto mb-2"
                 >
                   <Nav.Item>
                     <Nav.Link eventKey={tabs.FILTER}>フィルター</Nav.Link>

@@ -6,3 +6,15 @@
 .panel-backdrop {
   z-index: 1015;
 }
+
+.panel-header > .nav-item {
+  text-align: center;
+  flex: auto;
+}
+
+@media (min-width: 768px) {
+  .panel-header > .nav-item {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+}
