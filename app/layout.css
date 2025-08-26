@@ -33,3 +33,17 @@
 .md-content .text-require {
   color: var(--bs-red);
 }
+
+.md-toc nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.md-toc h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.md-toc hr {
+  margin: 0.25rem 0;
+}
