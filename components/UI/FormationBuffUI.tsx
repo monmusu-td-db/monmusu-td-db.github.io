@@ -63,14 +63,20 @@ function SupplementItem({
   const keys = Data.FormationBuffRequire.keys;
   switch (requireKey) {
     case keys.weapon:
-      return FormationBuffUI.getSupplementText(requireKey, element);
+      return (
+        <RequireText>
+          {FormationBuffUI.getSupplementText(requireKey, element)}
+        </RequireText>
+      );
     case keys.sameElement8:
       if (element === undefined) {
         return FormationBuffUI.getSupplementText(requireKey, element);
       } else {
-        return (
-          <span className={Data.TableClass.buffRequire}>{element}属性8体</span>
-        );
+        return <RequireText>{element}属性8体</RequireText>;
       }
   }
+}
+
+function RequireText({ children }: { children?: ReactNode }) {
+  return <span className={Data.TableClass.buffRequire}>{children}</span>;
 }
