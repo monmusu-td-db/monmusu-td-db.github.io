@@ -9425,6 +9425,27 @@
       "攻撃力+75",
       "物理防御力+90"
     ],
+    "weapon": {
+      "weaponName": "ベアアックス",
+      "hp": 500,
+      "defense": 30
+    },
+    "features": [
+      {
+        "featureName": "hp-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "武器特性"
+        ],
+        "conditions": [
+          {
+            "key": "*",
+            "value": 130
+          }
+        ],
+        "hpMul": 130
+      }
+    ],
     "isEventUnit": true,
     "costAdd": 4,
     "hpMul": 110,
@@ -9439,8 +9460,59 @@
         "skill": 1
       },
       {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-attack-add"
+        ],
+        "features": [
+          "hp-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-attack-add"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-mul"
+        ]
+      },
+      {
         "proper": true,
         "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "hp-mul",
+          "common-regenerate-3%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "hp-mul",
           "common-regenerate-3%"
         ]
       }
@@ -9816,6 +9888,12 @@
       "物理防御力+90",
       "魔法防御力+90"
     ],
+    "weapon": {
+      "weaponName": "緋緋色金の杖",
+      "hp": 200,
+      "attack": 30,
+      "resist": 30
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -9826,6 +9904,14 @@
       }
     ],
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "defenseMul": 130,
+        "resistMul": 130,
+        "damageCut": 20
+      },
       {
         "featureName": "common-phase1",
         "defenseMul": 130,
@@ -9871,6 +9957,25 @@
         "proper": true,
         "features": [
           "common-phase5"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "require": [
+          "ドラゴン特性"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "effects": [
+          {
+            "type": "defense-mul",
+            "value": 130
+          },
+          {
+            "type": "resist-mul",
+            "value": 130
+          }
         ]
       }
     ]
@@ -14431,6 +14536,11 @@
       "魔法防御力+60",
       "射程+10"
     ],
+    "weapon": {
+      "weaponName": "ミネラルワンド",
+      "resist": 55,
+      "range": 10
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -14440,6 +14550,21 @@
       }
     ],
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "defenseDebuff": {
+          "valueMul": 20
+        },
+        "resistDebuff": {
+          "valueMul": 20
+        },
+        "supplements": [
+          "DEF-20%→射程内",
+          "RES-20%→射程内"
+        ]
+      },
       {
         "featureName": "common-definite-ground",
         "skill": 1,
