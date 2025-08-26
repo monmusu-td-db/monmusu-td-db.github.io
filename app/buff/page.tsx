@@ -15,11 +15,64 @@ import PageRoot from "@/components/UI/PageRoot";
 import { Container } from "react-bootstrap";
 import Link from "next/link";
 
-export default function App() {
+interface HeaderData {
+  id: string;
+  name: string;
+}
+
+const headers = {
+  FORMATION: {
+    id: "formation",
+    name: "編成バフ",
+  },
+  BASE: {
+    id: "base",
+    name: "基礎能力値バフ",
+  },
+  DAMAGE: {
+    id: "damage",
+    name: "ダメージバフ",
+  },
+  DEFENSIVE: {
+    id: "defensive",
+    name: "防御系バフ",
+  },
+  ATTACK_SPEED: {
+    id: "attack-speed",
+    name: "攻撃速度バフ",
+  },
+  MOVE_SPEED: {
+    id: "move-speed",
+    name: "移動速度バフ",
+  },
+  DEPLOYMENT: {
+    id: "deployment",
+    name: "再出撃バフ",
+  },
+  FIELD: {
+    id: "field",
+    name: "マスバフ",
+  },
+  STATUS: {
+    id: "status",
+    name: "状態異常耐性バフ",
+  },
+  WEATHER: {
+    id: "weather",
+    name: "天候変化",
+  },
+  DESC: {
+    id: "description",
+    name: "解説",
+  },
+} as const satisfies Record<string, HeaderData>;
+
+function App() {
   return (
     <PageRoot pageType="buff">
-      <Container fluid="xxl">
+      <Container className="md-content" fluid="xxl">
         <h1>バフ一覧</h1>
+        <Toc />
         <FormationBuff />
         {/* <InBattleBuff /> */}
         <InBattleBuffBase />
@@ -31,8 +84,6 @@ export default function App() {
         <InBattleBuffField />
         <InBattleBuffStatus />
         <InBattleBuffWeather />
-      </Container>
-      <Container className="md-content">
         <Description />
       </Container>
     </PageRoot>
@@ -42,7 +93,7 @@ export default function App() {
 function FormationBuff() {
   return (
     <>
-      <h2>編成バフ</h2>
+      <Header src={headers.FORMATION} />
       <TablesFormationBuff id="formation" className="mb-5" showIcon />
     </>
   );
@@ -60,7 +111,7 @@ function FormationBuff() {
 function InBattleBuffBase() {
   return (
     <>
-      <h2>基礎能力値バフ</h2>
+      <Header src={headers.BASE} />
       <TablesInBattleBuffBase id="in-battle-base" className="mb-5" />
     </>
   );
@@ -69,7 +120,7 @@ function InBattleBuffBase() {
 function InBattleBuffDamage() {
   return (
     <>
-      <h2>ダメージバフ</h2>
+      <Header src={headers.DAMAGE} />
       <TablesInBattleBuffDamage id="in-battle-damage" className="mb-5" />
     </>
   );
@@ -78,7 +129,7 @@ function InBattleBuffDamage() {
 function InBattleBuffDefensive() {
   return (
     <>
-      <h2>防御系バフ</h2>
+      <Header src={headers.DEFENSIVE} />
       <TablesInBattleBuffDefensive id="in-battle-defensive" className="mb-5" />
     </>
   );
@@ -87,7 +138,7 @@ function InBattleBuffDefensive() {
 function InBattleBuffAttackSpeed() {
   return (
     <>
-      <h2>攻撃速度バフ</h2>
+      <Header src={headers.ATTACK_SPEED} />
       <TablesInBattleBuffAttackSpeed
         id="in-battle-attack-speed"
         className="mb-5"
@@ -99,7 +150,7 @@ function InBattleBuffAttackSpeed() {
 function InBattleBuffMoveSpeed() {
   return (
     <>
-      <h2>移動速度バフ</h2>
+      <Header src={headers.MOVE_SPEED} />
       <TablesInBattleBuffMoveSpeed id="in-battle-move-speed" className="mb-5" />
     </>
   );
@@ -108,7 +159,7 @@ function InBattleBuffMoveSpeed() {
 function InBattleBuffRedeploy() {
   return (
     <>
-      <h2>再出撃バフ</h2>
+      <Header src={headers.DEPLOYMENT} />
       <TablesInBattleBuffRedeploy id="in-battle-redeploy" className="mb-5" />
     </>
   );
@@ -117,7 +168,7 @@ function InBattleBuffRedeploy() {
 function InBattleBuffField() {
   return (
     <>
-      <h2>マスバフ</h2>
+      <Header src={headers.FIELD} />
       <TablesInBattleBuffField id="in-battle-field" className="mb-5" />
     </>
   );
@@ -126,7 +177,7 @@ function InBattleBuffField() {
 function InBattleBuffStatus() {
   return (
     <>
-      <h2>状態異常耐性バフ</h2>
+      <Header src={headers.STATUS} />
       <TablesInBattleBuffStatus id="in-battle-status" className="mb-5" />
     </>
   );
@@ -135,7 +186,7 @@ function InBattleBuffStatus() {
 function InBattleBuffWeather() {
   return (
     <>
-      <h2>天候変化</h2>
+      <Header src={headers.WEATHER} />
       <TablesInBattleBuffWeather id="in-battle-weather" className="mb-5" />
     </>
   );
@@ -144,7 +195,7 @@ function InBattleBuffWeather() {
 function Description() {
   return (
     <>
-      <h2>解説</h2>
+      <Header src={headers.DESC} />
       <p>
         基本的な使い方は<Link href="./#description">メインページ</Link>
         と同じなので、そちらも参考にしてください。
@@ -165,3 +216,41 @@ function Description() {
     </>
   );
 }
+
+function Header({ src }: { src: HeaderData }) {
+  return <h2 id={src.id}>{src.name}</h2>;
+}
+
+function Toc() {
+  return (
+    <div className="md-toc mt-3 mb-5 px-1">
+      <h2>項目</h2>
+      <hr />
+      <nav>
+        <ul>
+          <TocItem src={headers.FORMATION} />
+          <TocItem src={headers.BASE} />
+          <TocItem src={headers.DAMAGE} />
+          <TocItem src={headers.DEFENSIVE} />
+          <TocItem src={headers.ATTACK_SPEED} />
+          <TocItem src={headers.MOVE_SPEED} />
+          <TocItem src={headers.DEPLOYMENT} />
+          <TocItem src={headers.FIELD} />
+          <TocItem src={headers.STATUS} />
+          <TocItem src={headers.WEATHER} />
+          <TocItem src={headers.DESC} />
+        </ul>
+      </nav>
+    </div>
+  );
+}
+
+function TocItem({ src }: { src: HeaderData }) {
+  return (
+    <li>
+      <a href={"#" + src.id}>{src.name}</a>
+    </li>
+  );
+}
+
+export default App;
