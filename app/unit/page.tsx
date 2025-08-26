@@ -4,7 +4,7 @@ import PageRoot from "@/components/UI/PageRoot";
 export default function App() {
   return (
     <PageRoot>
-      <TablesUnit id="unit" showIcon />
+      <TablesUnit id="unit" maxRows={100} showIcon />
     </PageRoot>
   );
 }
