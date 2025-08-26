@@ -13,6 +13,8 @@ export default function Footer() {
         <Row>
           <Col md={8}>
             <Stack direction="horizontal" gap={3} className="mb-3">
+              <Link href="/">メインページ</Link>
+              <Vr />
               <Link href="/unit">ユニット</Link>
               <Vr />
               <Link href="/buff">バフ</Link>
