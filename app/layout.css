@@ -29,3 +29,7 @@
 [data-bs-theme="dark"] .md-content > dl > dt {
   color: var(--bs-yellow);
 }
+
+.md-content .text-require {
+  color: var(--bs-red);
+}
