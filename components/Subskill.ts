@@ -31,6 +31,7 @@ interface JsonSubskillFactors {
   attackMul: number;
   defenseMul: number;
   resistMul: number;
+  hpAddBuff: number;
   damageFactor: number;
   criChanceAdd: number;
   criDamageAdd: number;
@@ -86,6 +87,7 @@ const subskillFactorKeys = [
   "attackMul",
   "defenseMul",
   "resistMul",
+  "hpAddBuff",
   "damageFactor",
   "criChanceAdd",
   "criDamageAdd",
@@ -132,6 +134,7 @@ class SubskillFactors implements ISubskillFactors {
   readonly attackMul: number | undefined;
   readonly defenseMul: number | undefined;
   readonly resistMul: number | undefined;
+  readonly hpAddBuff: number | undefined;
   readonly damageFactor: number | undefined;
   readonly criChanceAdd: number | undefined;
   readonly criDamageAdd: number | undefined;
@@ -174,6 +177,7 @@ class SubskillFactors implements ISubskillFactors {
     this.attackMul = src.attackMul;
     this.defenseMul = src.defenseMul;
     this.resistMul = src.resistMul;
+    this.hpAddBuff = src.hpAddBuff;
     this.damageFactor = src.damageFactor;
     this.criChanceAdd = src.criChanceAdd;
     this.criDamageAdd = src.criDamageAdd;

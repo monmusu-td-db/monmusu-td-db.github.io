@@ -2194,5 +2194,90 @@
         "hpMul": 100
       }
     ]
+  },
+  {
+    "name": "オーシャンパーティー",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "配置時、マップ上のマスをランダムで水属性に変更(最大3マス)水マス配置時、与ダメージ1.1倍",
+    "features": [
+      {
+        "require": [
+          "水マス"
+        ],
+        "damageFactor": 10
+      }
+    ]
+  },
+  {
+    "name": "真夏の水分チャージ",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "HPが1秒ごとに35回復する 水属性マスに配置時、回復量2倍、最大HP+300",
+    "regenerate": 35,
+    "features": [
+      {
+        "require": [
+          "水マス"
+        ],
+        "hpAddBuff": 300,
+        "regenerate": 70
+      }
+    ]
+  },
+  {
+    "name": "サンプル採取",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "出撃コスト+5になるが\n自身の攻撃で敵撃破時にコスト2回復する",
+    "cost": 5
+  },
+  {
+    "name": "被検体K121",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "【改造コボルト娘】ペントをトークンとして使役可能(元々トークン所持している場合は無効)",
+    "isIneffective": true
+  },
+  {
+    "name": "HP犠牲攻撃強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+25%、代わりに最大HP-10%",
+    "hp": -10,
+    "attack": 25
+  },
+  {
+    "name": "魔法防御犠牲HP強化",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "最大HP+30%、代わりに魔法防御-7%",
+    "hp": 30,
+    "resist": -7
+  },
+  {
+    "name": "攻撃強化+撤退時コスト回復",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+17%、撤退時のコスト回復量が70%になる",
+    "attack": 17,
+    "withdrawCostReturn": 70
+  },
+  {
+    "name": "HP強化+再出撃時間短縮",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "HP+20%、再出撃までの時間を45%短縮",
+    "hp": 20,
+    "redeployTimeCut": 45
+  },
+  {
+    "name": "リジェネレーション+再出撃時間短縮",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "HPが1秒ごとに20回復し、再出撃までの時間を45%短縮",
+    "isIneffective": true,
+    "regenerate": 20,
+    "redeployTimeCut": 45
   }
 ]

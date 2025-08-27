@@ -2125,6 +2125,7 @@ export interface ActualHpFactors extends InBattleFactors {
   readonly isUnhealable: boolean;
   readonly currentFactor: number;
   readonly panelAdd: number;
+  readonly subskillHpAdd: number;
   readonly actualResult: number;
 }
 
