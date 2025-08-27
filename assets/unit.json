@@ -11184,7 +11184,8 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1攻撃速度はwiki情報からの推測値",
+    "TODO_DESC": "1r29f/2r44f/3r60f/4r76f/5r92f",
+    "TODO_FATAL": "ex2攻撃速度",
     "id": 88,
     "unitName": "【ヒュドラ娘】ユラ",
     "unitShortName": "ユラ",
@@ -11202,7 +11203,8 @@
     "exSkill1": {
       "skillName": "超活性",
       "attackMul": 150,
-      "attackSpeedBuff": 150,
+      "attackSpeedBuff": 145,
+      "fixedDelay": 10,
       "duration": 30,
       "cooldown": 30
     },
@@ -11231,13 +11233,26 @@
       },
       {
         "featureName": "common-melee",
+        "attackMotionMul": 211,
         "rounds": [
           {
-            "ratio": 1,
+            "ratio": 64,
             "value": 1
           },
           {
-            "ratio": 3,
+            "ratio": 48,
+            "value": 2
+          },
+          {
+            "ratio": 36,
+            "value": 3
+          },
+          {
+            "ratio": 27,
+            "value": 4
+          },
+          {
+            "ratio": 81,
             "value": 5
           }
         ]
@@ -11247,6 +11262,7 @@
         "require": [
           "スキル"
         ],
+        "attackMotionMul": 150,
         "rounds": 5
       },
       {
@@ -13006,7 +13022,6 @@
     ]
   },
   {
-    "TODO_FATAL": "射程はWiki情報/ダメージ間隔要調査",
     "id": 1000001,
     "parentId": 100,
     "unitName": "ブラックホール",
@@ -13020,7 +13035,7 @@
     "resist": 0,
     "block": 0,
     "target": 0,
-    "range": 100,
+    "range": 90,
     "moveSpeed": 0,
     "placement": "両",
     "supplements": [
@@ -13033,7 +13048,7 @@
           "key": "attack",
           "value": 100
         },
-        "interval": 30,
+        "interval": 60,
         "damageCut": 100,
         "damageType": "貫通"
       }
@@ -22384,8 +22399,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報/attack-mulの時間はwiki情報",
-    "TODO_FATAL": "ex1射程",
+    "TODO_DESC": "PotentialはWiki情報/attack-mulの時間はwiki情報",
     "id": 194,
     "unitName": "【聖菓のワーベア娘】テティ",
     "unitShortName": "テティ/Xmas",
@@ -22396,12 +22410,15 @@
     "attack": 913,
     "defense": 337,
     "resist": 141,
+    "supplements": [
+      "ATK+1%/54f"
+    ],
     "exSkill1": {
       "skillName": "ケーキ乱舞！",
       "hpMul": 150,
       "attackMul": 150,
       "target": 3,
-      "range": 999,
+      "range": 200,
       "duration": "永続",
       "cooldown": 120
     },
@@ -22440,13 +22457,17 @@
       },
       {
         "featureName": "attack-mul",
+        "isConditionalBuff": true,
         "conditions": [
           {
             "key": "s",
-            "value": 100
+            "value": 90
           }
         ],
-        "attackMul": 150
+        "attackMul": 150,
+        "deleteSupplements": [
+          "ATK+1%/54f"
+        ]
       }
     ],
     "situations": [
@@ -31069,8 +31090,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1射程はwiki情報",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 274,
     "unitName": "【ヴォーパルビースト娘】ラピナス",
     "unitShortName": "ラピナス",
@@ -31086,7 +31106,7 @@
       "attackMul": 300,
       "fixedDelay": 1,
       "target": 3,
-      "range": 240,
+      "range": 250,
       "duration": "単発",
       "cooldown": 30
     },
@@ -38352,8 +38372,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1対地限定かどうか調べる",
+    "TODO_DESC": "PotentialはWiki情報",
     "id": 342,
     "unitName": "【紅孩児娘】フォーシャン",
     "unitShortName": "フォーシャン",
@@ -38365,12 +38384,10 @@
     "attack": 704,
     "defense": 464,
     "resist": 60,
-    "supplements": [
-      "火傷付与(稀)→命中"
-    ],
     "exSkill1": {
       "skillName": "轟く豪炎",
       "attackMul": 600,
+      "range": 200,
       "duration": 20,
       "cooldown": 35,
       "supplements": [
@@ -38388,6 +38405,12 @@
     ],
     "features": [
       {
+        "skill": 0,
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ]
+      },
+      {
         "featureName": "common-absorb",
         "annotations": [
           "種族特性"
@@ -38403,10 +38426,16 @@
     ],
     "hpMul": 90,
     "attackMul": 120,
+    "potentialBonus": {
+      "attackMul": 125
+    },
     "situations": [
       {},
       {
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "class-ranged-attack"
+        ]
       },
       {
         "hasPotentials": [
