@@ -30,6 +30,10 @@ export class StatHp extends SituationBaseStat<Factors> {
       <T.Info>{d ? "設定値" : Math.abs(f.panelAdd)}</T.Info>
     );
 
+    const getSubskillAdd = (d: boolean) => (
+      <T.Info>{d ? "サブスキル加算値" : Math.abs(f.subskillHpAdd)}</T.Info>
+    );
+
     return (
       <>
         {super.getTooltipBody(setting)}
@@ -48,6 +52,12 @@ export class StatHp extends SituationBaseStat<Factors> {
                 </T.Multiply>
                 <T.Plus enabled={f.panelAdd > 0}>{getPanelAdd(d)}</T.Plus>
                 <T.Minus enabled={f.panelAdd < 0}>{getPanelAdd(d)}</T.Minus>
+                <T.Plus enabled={f.subskillHpAdd > 0}>
+                  {getSubskillAdd(d)}
+                </T.Plus>
+                <T.Minus enabled={f.subskillHpAdd < 0}>
+                  {getSubskillAdd(d)}
+                </T.Minus>
               </T.Expression>
             </>
           )}

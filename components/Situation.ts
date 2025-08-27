@@ -1685,9 +1685,12 @@ export default class Situation implements TableRow<Keys> {
     const isUnhealable = this.getIsUnhealable(setting);
     const currentFactor = this.getFeature(setting).currentHp ?? 100;
     const panelAdd = this.getPanelAddFactor(setting, stat.hp);
+    const subskillHpAdd = this.getSubskillFactor(setting, ssKeys.hpAddBuff);
     const actualResult = Math.max(
       0,
-      Percent.multiply(base.inBattleResult, currentFactor) + panelAdd
+      Percent.multiply(base.inBattleResult, currentFactor) +
+        panelAdd +
+        subskillHpAdd
     );
 
     return {
@@ -1695,6 +1698,7 @@ export default class Situation implements TableRow<Keys> {
       isUnhealable,
       currentFactor,
       panelAdd,
+      subskillHpAdd,
       actualResult,
     };
   }
@@ -2741,6 +2745,10 @@ export default class Situation implements TableRow<Keys> {
     if (fea.isAction) {
       types.push("ACT");
     }
+    const fieldElements = this.getFieldElements(setting);
+    fieldElements.forEach((element) => {
+      types.push(`${element}マス`);
+    });
     const fn = (ss: Subskill | undefined): number | undefined => {
       if (ss === undefined) {
         return;
