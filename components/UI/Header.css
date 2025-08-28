@@ -64,6 +64,12 @@ html[data-bs-theme="dark"] .theme-dark {
   margin-top: auto;
 }
 
+@media (min-height: 768px) {
+  .offcanvas-icon {
+    margin-bottom: 2.5rem;
+  }
+}
+
 @media (min-width: 1200px) {
   .navbar-expand-xl .offcanvas .offcanvas-icon {
     display: none;
