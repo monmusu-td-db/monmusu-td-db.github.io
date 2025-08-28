@@ -57,3 +57,15 @@ html[data-bs-theme="dark"] .theme-dark {
   color: var(--bs-btn-active-color) !important;
   background-color: var(--bs-btn-active-bg) !important;
 }
+
+.offcanvas-icon {
+  display: block;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+@media (min-width: 1200px) {
+  .navbar-expand-xl .offcanvas .offcanvas-icon {
+    display: none;
+  }
+}
