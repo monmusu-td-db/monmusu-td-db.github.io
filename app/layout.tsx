@@ -4,6 +4,8 @@ import { StatesRoot } from "../components/UI/StatesRoot";
 import Theme from "@/components/UI/Theme";
 import type { Metadata } from "next";
 import Footer from "./Footer";
+import LoadingIndicator from "@/components/UI/LoadingIndicator";
+import PanelControl from "@/components/UI/PanelControl";
 
 export const metadata: Metadata = {
   title: "モンスター娘TD DB",
@@ -23,6 +25,8 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <body>
         <Theme.Initialize />
+        <LoadingIndicator />
+        <PanelControl />
         <StatesRoot>{children}</StatesRoot>
         <Footer />
       </body>

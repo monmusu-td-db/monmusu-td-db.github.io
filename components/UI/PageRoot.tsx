@@ -2,8 +2,6 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import Panel from "./Panel";
-import LoadingIndicator from "./LoadingIndicator";
-import PanelControl from "./PanelControl";
 import { Button } from "react-bootstrap";
 import Icon from "./Icon";
 import SearchInput from "./SearchInput";
@@ -39,8 +37,6 @@ function PageRoot({
   return (
     <Panel.Contexts.Open.Provider value={panelOpen}>
       <Panel.Contexts.SetOpen.Provider value={setPanelOpen}>
-        <PanelControl />
-        <LoadingIndicator />
         <HeaderControl pageType={pageType} />
         <main>{children}</main>
       </Panel.Contexts.SetOpen.Provider>
