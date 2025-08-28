@@ -50,11 +50,12 @@ function NavArea({ searchInput, panelToggler }: NavAreaProps) {
               <Brand />
             </Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body>
+          <Offcanvas.Body className="d-flex">
             <Nav className="justify-content-start flex-grow-1 pe-3">
               <Nav.Link href="/unit">ユニット</Nav.Link>
               <Nav.Link href="/buff">バフ</Nav.Link>
             </Nav>
+            <Images.OffCanvas className="offcanvas-icon" />
           </Offcanvas.Body>
         </Navbar.Offcanvas>
         {searchInput}
