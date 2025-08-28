@@ -14,6 +14,7 @@ import {
 import PageRoot from "@/components/UI/PageRoot";
 import { Container } from "react-bootstrap";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 interface HeaderData {
   id: string;
@@ -70,9 +71,11 @@ const headers = {
 function App() {
   return (
     <PageRoot pageType="buff">
-      <Container className="md-content" fluid="xxl">
+      <Container className="md-content">
         <h1>バフ一覧</h1>
         <Toc />
+      </Container>
+      <Container fluid="xxl">
         <FormationBuff />
         {/* <InBattleBuff /> */}
         <InBattleBuffBase />
@@ -84,6 +87,8 @@ function App() {
         <InBattleBuffField />
         <InBattleBuffStatus />
         <InBattleBuffWeather />
+      </Container>
+      <Container className="md-content">
         <Description />
       </Container>
     </PageRoot>
@@ -92,10 +97,9 @@ function App() {
 
 function FormationBuff() {
   return (
-    <>
-      <Header src={headers.FORMATION} />
+    <TableWrapper src={headers.FORMATION}>
       <TablesFormationBuff id="formation" className="mb-5" showIcon />
-    </>
+    </TableWrapper>
   );
 }
 
@@ -110,85 +114,76 @@ function FormationBuff() {
 
 function InBattleBuffBase() {
   return (
-    <>
-      <Header src={headers.BASE} />
+    <TableWrapper src={headers.BASE}>
       <TablesInBattleBuffBase id="in-battle-base" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffDamage() {
   return (
-    <>
-      <Header src={headers.DAMAGE} />
+    <TableWrapper src={headers.DAMAGE}>
       <TablesInBattleBuffDamage id="in-battle-damage" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffDefensive() {
   return (
-    <>
-      <Header src={headers.DEFENSIVE} />
+    <TableWrapper src={headers.DEFENSIVE}>
       <TablesInBattleBuffDefensive id="in-battle-defensive" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffAttackSpeed() {
   return (
-    <>
-      <Header src={headers.ATTACK_SPEED} />
+    <TableWrapper src={headers.ATTACK_SPEED}>
       <TablesInBattleBuffAttackSpeed
         id="in-battle-attack-speed"
         className="mb-5"
       />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffMoveSpeed() {
   return (
-    <>
-      <Header src={headers.MOVE_SPEED} />
+    <TableWrapper src={headers.MOVE_SPEED}>
       <TablesInBattleBuffMoveSpeed id="in-battle-move-speed" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffRedeploy() {
   return (
-    <>
-      <Header src={headers.DEPLOYMENT} />
+    <TableWrapper src={headers.DEPLOYMENT}>
       <TablesInBattleBuffRedeploy id="in-battle-redeploy" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffField() {
   return (
-    <>
-      <Header src={headers.FIELD} />
+    <TableWrapper src={headers.FIELD}>
       <TablesInBattleBuffField id="in-battle-field" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffStatus() {
   return (
-    <>
-      <Header src={headers.STATUS} />
+    <TableWrapper src={headers.STATUS}>
       <TablesInBattleBuffStatus id="in-battle-status" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
 function InBattleBuffWeather() {
   return (
-    <>
-      <Header src={headers.WEATHER} />
+    <TableWrapper src={headers.WEATHER}>
       <TablesInBattleBuffWeather id="in-battle-weather" className="mb-5" />
-    </>
+    </TableWrapper>
   );
 }
 
@@ -213,6 +208,21 @@ function Description() {
         いわゆる加算バフはこのページには表示していません。代わりに
         <Link href="./">メインページ</Link>に含まれています。
       </p>
+    </>
+  );
+}
+
+function TableWrapper({
+  src,
+  children,
+}: {
+  src: HeaderData;
+  children?: ReactNode;
+}) {
+  return (
+    <>
+      <Header src={src} />
+      {children}
     </>
   );
 }
