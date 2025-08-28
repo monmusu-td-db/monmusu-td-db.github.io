@@ -12932,7 +12932,6 @@
     ]
   },
   {
-    "TODO_FATAL": "ex2射程/ex2攻撃速度",
     "id": 100,
     "unitName": "【ブラックドラゴン娘】マウロ",
     "unitShortName": "マウロ",
@@ -12957,7 +12956,7 @@
       "skillName": "ブラックスーパーモード",
       "attackMul": 300,
       "rounds": 2,
-      "range": 999,
+      "range": 250,
       "duration": 15,
       "cooldown": 40,
       "damageType": "貫通"
@@ -36642,7 +36641,6 @@
   },
   {
     "TODO_DESC": "スタン時間延長",
-    "TODO_FATAL": "スタン付与量/ex1射程",
     "id": 323,
     "unitName": "【呪剣のファフニール娘】ニッドラ",
     "unitShortName": "ニッドラ/学園",
@@ -36656,13 +36654,13 @@
     "resist": 220,
     "damageType": "魔法",
     "supplements": [
-      "スタン付与XX%"
+      "スタン付与10%/命中"
     ],
     "exSkill1": {
       "skillName": "舞い奪う呪剣",
       "attackMul": 180,
       "rounds": 4,
-      "range": 999,
+      "range": 230,
       "duration": 20,
       "cooldown": 35,
       "supplements": [
@@ -36685,6 +36683,9 @@
       {
         "featureName": "class-melee",
         "magicalDamageDebuff": 120,
+        "supplements": [
+          "スタン時間+20%→ブロック敵"
+        ],
         "potentialBonus": {
           "magicalDamageDebuff": 125
         }
@@ -38233,7 +38234,6 @@
     ]
   },
   {
-    "TODO_FATAL": "ex1射程要検証",
     "id": 340,
     "unitName": "【青龍娘】ランシャン",
     "unitShortName": "ランシャン",
