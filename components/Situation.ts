@@ -295,10 +295,11 @@ export default class Situation implements TableRow<Keys> {
         const feature = this.getFeature(s);
         const fea = feature.criChanceAdd ?? 0;
         const potential = this.unit?.isPotentialApplied(s)
-          ? (this.unit?.getPotentialFactor(s, stat.criticalChance) ?? 0)
+          ? this.unit?.getPotentialFactor(s, stat.criticalChance) ?? 0
           : 0;
         const subskill = this.getSubskillFactor(s, ssKeys.criChanceAdd);
-        const result = limit(base + skill + fea + potential + subskill);
+        const panel = s.criChanceAdd;
+        const result = limit(base + skill + fea + potential + subskill + panel);
 
         const skillColor = getColor(limit(base + skill), limit(base));
         const buffFea = feature.skillBuffs?.criChanceAdd ?? 0;
@@ -323,10 +324,12 @@ export default class Situation implements TableRow<Keys> {
         const feature = this.getFeature(s);
         const fea = feature.criDamageAdd ?? 0;
         const potential = this.unit?.isPotentialApplied(s)
-          ? (this.unit?.getPotentialFactor(s, stat.criticalDamage) ?? 0)
+          ? this.unit?.getPotentialFactor(s, stat.criticalDamage) ?? 0
           : 0;
         const subskill = this.getSubskillFactor(s, ssKeys.criDamageAdd);
-        const result = limit(base + skill + fea + potential + subskill);
+        const panel = s.criDamageAdd;
+        const result = limit(base + skill + fea + potential + subskill + panel);
+
         const skillColor = getColor(limit(base + skill), limit(base));
         const buffFea = feature.skillBuffs?.criDamageAdd ?? 0;
         const buffColor = getColor(limit(base + buffFea), limit(base));
@@ -347,9 +350,10 @@ export default class Situation implements TableRow<Keys> {
           (this.getSkill(s)?.criChanceLimitAdd ?? 0) +
           (this.getFeature(s).criChanceLimitAdd ?? 0);
         const p = this.unit?.isPotentialApplied(s)
-          ? (this.unit?.getPotentialFactor(s, stat.criticalChanceLimit) ?? 0)
+          ? this.unit?.getPotentialFactor(s, stat.criticalChanceLimit) ?? 0
           : 0;
-        return Math.min(100, Data.defaultCriChanceLimit + a + p);
+        const panel = s.criChanceLimitAdd;
+        return Math.min(100, Data.defaultCriChanceLimit + a + p + panel);
       },
     });
 
@@ -359,7 +363,8 @@ export default class Situation implements TableRow<Keys> {
         const a =
           (this.getSkill(s)?.criDamageLimitAdd ?? 0) +
           (this.getFeature(s).criDamageLimitAdd ?? 0);
-        return Data.defaultCriDamageLimit + a;
+        const panel = s.criDamageLimitAdd;
+        return Data.defaultCriDamageLimit + a + panel;
       },
     });
 
@@ -479,9 +484,9 @@ export default class Situation implements TableRow<Keys> {
         const isFixed = fea.fixedTarget !== undefined;
         const targetBase = isFixed
           ? fea.fixedTarget
-          : (fea.target ??
+          : fea.target ??
             sk?.target ??
-            (u?.isBlock ? Data.Target.block : u?.target));
+            (u?.isBlock ? Data.Target.block : u?.target);
         if (targetBase === undefined) {
           return;
         }
@@ -491,12 +496,8 @@ export default class Situation implements TableRow<Keys> {
         const target = isBlock
           ? block
           : isFixed
-            ? targetBase
-            : Data.Target.sum(
-                targetBase,
-                sk?.targetAdd ?? 0,
-                fea.targetAdd ?? 0
-              );
+          ? targetBase
+          : Data.Target.sum(targetBase, sk?.targetAdd ?? 0, fea.targetAdd ?? 0);
         if (target === undefined) {
           return;
         }
@@ -2513,8 +2514,8 @@ export default class Situation implements TableRow<Keys> {
       (damageType === Data.DamageType.physic
         ? setting.enemyPhysicalDamageCut
         : damageType === Data.DamageType.magic
-          ? setting.enemyMagicalDamageCut
-          : 0);
+        ? setting.enemyMagicalDamageCut
+        : 0);
 
     const damageDebuff = Data.Percent.multiply(
       fea.damageDebuff ?? 100,
