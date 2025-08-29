@@ -483,7 +483,7 @@ const TabUnitContent = memo(function TabUnitContent({
                         [Data.BaseStatType.mulKey[v]]: n,
                       })
                     }
-                    isValid={Setting.isValidMul}
+                    isValid={Setting.Valid.isMul}
                   />
                 ))}
               </Row>
@@ -503,7 +503,7 @@ const TabUnitContent = memo(function TabUnitContent({
                         [Data.BaseStatType.addKey[v]]: n,
                       })
                     }
-                    isValid={Setting.isValidAdd}
+                    isValid={Setting.Valid.isAdd}
                     sign=""
                   />
                 ))}
@@ -518,21 +518,51 @@ const TabUnitContent = memo(function TabUnitContent({
                   label={"攻撃倍率"}
                   value={setting.damageFactor}
                   onChange={(n) => onChangeSetting({ damageFactor: n })}
-                  isValid={Setting.isValidMul}
+                  isValid={Setting.Valid.isMul}
                 />
                 <PanelUI.FormNumber
                   name={"physical-damage-cut"}
                   label={"物理攻撃軽減"}
                   value={setting.physicalDamageCut}
                   onChange={(n) => onChangeSetting({ physicalDamageCut: n })}
-                  isValid={Setting.isValidDamageCut}
+                  isValid={Setting.Valid.isDamageCut}
                 />
                 <PanelUI.FormNumber
                   name={"magical-damage-cut"}
                   label={"魔法攻撃軽減"}
                   value={setting.magicalDamageCut}
                   onChange={(n) => onChangeSetting({ magicalDamageCut: n })}
-                  isValid={Setting.isValidDamageCut}
+                  isValid={Setting.Valid.isDamageCut}
+                />
+              </Row>
+              <Row>
+                <PanelUI.FormNumber
+                  name={"cri-chance-add"}
+                  label={"CRI率"}
+                  value={setting.criChanceAdd}
+                  onChange={(n) => onChangeSetting({ criChanceAdd: n })}
+                  isValid={Setting.Valid.isCriChanceAdd}
+                />
+                <PanelUI.FormNumber
+                  name={"cri-chance-limit-add"}
+                  label={"CRI率上限"}
+                  value={setting.criChanceLimitAdd}
+                  onChange={(n) => onChangeSetting({ criChanceLimitAdd: n })}
+                  isValid={Setting.Valid.isCriChanceLimitAdd}
+                />
+                <PanelUI.FormNumber
+                  name={"cri-damage-add"}
+                  label={"CRIダメージ"}
+                  value={setting.criDamageAdd}
+                  onChange={(n) => onChangeSetting({ criDamageAdd: n })}
+                  isValid={Setting.Valid.isCriDamageAdd}
+                />
+                <PanelUI.FormNumber
+                  name={"cri-damage-limit-add"}
+                  label={"CRIダメージ上限"}
+                  value={setting.criDamageLimitAdd}
+                  onChange={(n) => onChangeSetting({ criDamageLimitAdd: n })}
+                  isValid={Setting.Valid.isCriDamageLimitAdd}
                 />
               </Row>
             </Col>
@@ -550,14 +580,14 @@ const TabUnitContent = memo(function TabUnitContent({
                     label={"攻撃速度バフ"}
                     value={setting.attackSpeedBuff}
                     onChange={(n) => onChangeSetting({ attackSpeedBuff: n })}
-                    isValid={Setting.isValidMul}
+                    isValid={Setting.Valid.isMul}
                   />
                   <PanelUI.FormNumber
                     name={"delay-cut"}
                     label={"待機時間短縮"}
                     value={setting.delayCut}
                     onChange={(n) => onChangeSetting({ delayCut: n })}
-                    isValid={Setting.isValidCut}
+                    isValid={Setting.Valid.isCut}
                   />
                 </>
               )}
@@ -566,7 +596,7 @@ const TabUnitContent = memo(function TabUnitContent({
                 label={"スキルCT短縮"}
                 value={setting.cooldownCut}
                 onChange={(n) => onChangeSetting({ cooldownCut: n })}
-                isValid={Setting.isValidCooldownCut}
+                isValid={Setting.Valid.isCooldownCut}
                 sign="秒"
               />
             </Row>
@@ -673,7 +703,7 @@ const TabFormationContent = memo(function TabFormationContent({
                     [Setting.formation.key[v]]: n,
                   })
                 }
-                isValid={Setting.isValidMul}
+                isValid={Setting.Valid.isMul}
               />
             ))}
           </Row>
@@ -742,7 +772,7 @@ const TabEnemyContent = memo(function TabEnemyContent({
                       [key]: n,
                     })
                   }
-                  isValid={Setting.isValidDps}
+                  isValid={Setting.Valid.isDps}
                   sign={i}
                   leftButton
                 />
@@ -759,21 +789,21 @@ const TabEnemyContent = memo(function TabEnemyContent({
               label={"ダメージ軽減"}
               value={setting.enemyDamageCut}
               onChange={(n) => onChange({ enemyDamageCut: n })}
-              isValid={Setting.isValidDamageCutPos}
+              isValid={Setting.Valid.isDamageCutPos}
             />
             <PanelUI.FormNumber
               name={"enemy-physical-damage-cut"}
               label={"物理攻撃軽減"}
               value={setting.enemyPhysicalDamageCut}
               onChange={(n) => onChange({ enemyPhysicalDamageCut: n })}
-              isValid={Setting.isValidDamageCutPos}
+              isValid={Setting.Valid.isDamageCutPos}
             />
             <PanelUI.FormNumber
               name={"enemy-magical-damage-cut"}
               label={"魔法攻撃軽減"}
               value={setting.enemyMagicalDamageCut}
               onChange={(n) => onChange({ enemyMagicalDamageCut: n })}
-              isValid={Setting.isValidDamageCutPos}
+              isValid={Setting.Valid.isDamageCutPos}
             />
           </Row>
         </Col>
@@ -786,21 +816,21 @@ const TabEnemyContent = memo(function TabEnemyContent({
               label={"ダメージ耐性減少"}
               value={setting.damageDebuff}
               onChange={(n) => onChange({ damageDebuff: n })}
-              isValid={Setting.isValidMul}
+              isValid={Setting.Valid.isMul}
             />
             <PanelUI.FormNumber
               name={"enemy-physical-damage-debuff"}
               label={"物理耐性減少"}
               value={setting.physicalDamageDebuff}
               onChange={(n) => onChange({ physicalDamageDebuff: n })}
-              isValid={Setting.isValidMul}
+              isValid={Setting.Valid.isMul}
             />
             <PanelUI.FormNumber
               name={"enemy-magical-damage-debuff"}
               label={"魔法耐性減少"}
               value={setting.magicalDamageDebuff}
               onChange={(n) => onChange({ magicalDamageDebuff: n })}
-              isValid={Setting.isValidMul}
+              isValid={Setting.Valid.isMul}
             />
           </Row>
         </Col>

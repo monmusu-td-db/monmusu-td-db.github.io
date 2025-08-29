@@ -114,6 +114,22 @@ class Valid {
     }
     return false;
   }
+
+  static isCriChanceAdd(value: unknown): boolean {
+    return typeof value === "number" && value >= -100 && value <= 100;
+  }
+
+  static isCriChanceLimitAdd(value: unknown): boolean {
+    return typeof value === "number" && value >= 0 && value <= 100;
+  }
+
+  static isCriDamageAdd(value: unknown): boolean {
+    return typeof value === "number" && value >= -1000 && value <= 1000;
+  }
+
+  static isCriDamageLimitAdd(value: unknown): boolean {
+    return typeof value === "number" && value >= 0 && value <= 1000;
+  }
 }
 
 // Types
@@ -576,6 +592,10 @@ type SettingUnit = {
   readonly damageFactor: number;
   readonly physicalDamageCut: number;
   readonly magicalDamageCut: number;
+  readonly criChanceAdd: number;
+  readonly criChanceLimitAdd: number;
+  readonly criDamageAdd: number;
+  readonly criDamageLimitAdd: number;
   readonly attackSpeedBuff: number;
   readonly delayCut: number;
   readonly cooldownCut: number;
@@ -596,6 +616,10 @@ const defaultSettingUnit = {
   damageFactor: 0,
   physicalDamageCut: 0,
   magicalDamageCut: 0,
+  criChanceAdd: 0,
+  criChanceLimitAdd: 0,
+  criDamageAdd: 0,
+  criDamageLimitAdd: 0,
   cooldownCut: 0,
 } as const satisfies SettingUnit;
 const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
@@ -614,6 +638,10 @@ const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
   damageFactor: Valid.isMul,
   physicalDamageCut: Valid.isDamageCut,
   magicalDamageCut: Valid.isDamageCut,
+  criChanceAdd: Valid.isCriChanceAdd,
+  criChanceLimitAdd: Valid.isCriChanceLimitAdd,
+  criDamageAdd: Valid.isCriDamageAdd,
+  criDamageLimitAdd: Valid.isCriDamageLimitAdd,
   cooldownCut: Valid.isCooldownCut,
 } as const satisfies Record<keyof SettingUnit, ValidationFunc>;
 
@@ -741,14 +769,7 @@ export const Setting = {
   TYPE_CC4,
   TYPE_EQUIPMENT,
   list: Data.getKeys(defaultSetting),
-  isValidMul: Valid.isMul,
-  isValidAdd: Valid.isAdd,
-  isValidCut: Valid.isCut,
-  isValidDamageCut: Valid.isDamageCut,
-  isValidDamageCutPos: Valid.isDamageCutPos,
-  isValidAttackSpeed: Valid.isAttackSpeed,
-  isValidCooldownCut: Valid.isCooldownCut,
-  isValidDps: Valid.isDps,
+  Valid,
   defaultValue: defaultSetting,
 
   formation: {
