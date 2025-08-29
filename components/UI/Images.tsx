@@ -13,7 +13,6 @@ function Logo({ className, alt }: Props & { alt: string }) {
       alt={alt}
       className={className}
       priority
-      quality={100}
     />
   );
 }
@@ -26,7 +25,6 @@ function Loading({ className }: Props) {
       height={200}
       alt="Loading..."
       priority
-      quality={100}
       className={className}
     />
   );
@@ -40,7 +38,6 @@ function EmptyAlert({ className }: Props) {
       height={200}
       alt=""
       priority
-      quality={100}
       className={className}
     />
   );
@@ -54,7 +51,6 @@ function NotFound({ className }: Props) {
       height={200}
       alt=""
       priority
-      quality={100}
       className={className}
     />
   );
@@ -68,7 +64,6 @@ function OffCanvas({ className }: Props) {
       height={200}
       alt=""
       priority
-      quality={100}
       className={className}
     />
   );
