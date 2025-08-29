@@ -589,6 +589,13 @@ const TabUnitContent = memo(function TabUnitContent({
                     onChange={(n) => onChangeSetting({ delayCut: n })}
                     isValid={Setting.Valid.isCut}
                   />
+                  {/* <PanelUI.FormNumber
+                    name={"penetration-add"}
+                    label={"貫通率増加"}
+                    value={setting.penetrationAdd}
+                    onChange={(n) => onChangeSetting({ penetrationAdd: n })}
+                    isValid={Setting.Valid.isPenetrationAdd}
+                  /> */}
                 </>
               )}
               <PanelUI.FormNumber

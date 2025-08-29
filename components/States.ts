@@ -116,11 +116,11 @@ class Valid {
   }
 
   static isCriChanceAdd(value: unknown): boolean {
-    return typeof value === "number" && value >= -100 && value <= 100;
+    return typeof value === "number" && value >= -100 && value <= 1000;
   }
 
   static isCriChanceLimitAdd(value: unknown): boolean {
-    return typeof value === "number" && value >= 0 && value <= 100;
+    return typeof value === "number" && value >= 0 && value <= 1000;
   }
 
   static isCriDamageAdd(value: unknown): boolean {
@@ -130,6 +130,10 @@ class Valid {
   static isCriDamageLimitAdd(value: unknown): boolean {
     return typeof value === "number" && value >= 0 && value <= 1000;
   }
+
+  // static isPenetrationAdd(value: unknown): boolean {
+  //   return typeof value === "number" && value >= 0 && value <= 1000;
+  // }
 }
 
 // Types
@@ -598,6 +602,7 @@ type SettingUnit = {
   readonly criDamageLimitAdd: number;
   readonly attackSpeedBuff: number;
   readonly delayCut: number;
+  // readonly penetrationAdd: number; // 貫通率の仕様がよくわからないので保留
   readonly cooldownCut: number;
 };
 const defaultSettingUnit = {
@@ -620,6 +625,7 @@ const defaultSettingUnit = {
   criChanceLimitAdd: 0,
   criDamageAdd: 0,
   criDamageLimitAdd: 0,
+  // penetrationAdd: 0,
   cooldownCut: 0,
 } as const satisfies SettingUnit;
 const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
@@ -642,6 +648,7 @@ const settingUnitValidation: Record<keyof SettingUnit, ValidationFunc> = {
   criChanceLimitAdd: Valid.isCriChanceLimitAdd,
   criDamageAdd: Valid.isCriDamageAdd,
   criDamageLimitAdd: Valid.isCriDamageLimitAdd,
+  // penetrationAdd: Valid.isPenetrationAdd,
   cooldownCut: Valid.isCooldownCut,
 } as const satisfies Record<keyof SettingUnit, ValidationFunc>;
 
