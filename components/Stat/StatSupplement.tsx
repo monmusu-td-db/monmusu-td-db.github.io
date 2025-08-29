@@ -4,12 +4,6 @@ import { StatRoot } from "./StatRoot";
 import * as Data from "../Data";
 
 export class StatSupplement extends StatRoot<ReadonlySet<string>> {
-  // override isNotDescList: boolean = true;
-  // override isEnabled: StatHandler<boolean> = (s) => {
-  //   const value = this.getValue(s);
-  //   return value.size > 0;
-  // };
-
   protected override getDefaultItem(setting: Setting): ReactNode {
     const list = this.getValue(setting);
     const ret: ReactNode[] = [];
@@ -27,26 +21,24 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
   }
 
   private getDecoratedItem(item: string): ReactNode {
+    if (item[0] === "計" && item.endsWith("dmg")) {
+      return (
+        <>
+          {item[0]}
+          <Bold>{item.slice(1, -3)}</Bold>
+          {item.slice(-3)}
+        </>
+      );
+    }
+
     switch (item) {
       case "隠密":
       case "隠密→射程内":
-        return <b className="supplement-bold">{item}</b>;
+        return <Bold>{item}</Bold>;
       default:
         return item;
     }
   }
-
-  // public override getTooltipBody(setting: Setting): ReactNode {
-  //   const value = this.getValue(setting);
-  //   const list = (() => {
-  //     const ret = [];
-  //     for (const str of value) {
-  //       ret.push(<li key={str}>{str}</li>);
-  //     }
-  //     return ret;
-  //   })();
-  //   return <ul className="ps-3">{list}</ul>;
-  // }
 
   static merge(
     ...values: (ReadonlySet<string> | undefined)[]
@@ -171,23 +163,8 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
     }
     return ret;
   }
+}
 
-  // protected getDefaultItemOld(setting: Setting): ReactNode {
-  //   const value = this.getValue(setting);
-  //   const ret: ReactNode[] = [];
-  //   for (const str of value) {
-  //     if (str.startsWith("limit")) {
-  //       ret.push(
-  //         <>
-  //           <span className="text-danger">limit</span>
-  //           {str.slice(5)}
-  //         </>
-  //       );
-  //     } else {
-  //       ret.push(str);
-  //     }
-  //   }
-
-  //   return <JoinTexts texts={ret} nowrap />;
-  // }
+function Bold({ children }: { children?: ReactNode }) {
+  return <b className="supplement-bold">{children}</b>;
 }
