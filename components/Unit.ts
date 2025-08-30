@@ -220,7 +220,7 @@ export default class Unit implements TableRow<Keys> {
   readonly criticalChance: Stat.Root;
   readonly criticalDamage: Stat.Root;
   readonly criticalChanceLimit: Stat.Root;
-  readonly penetration: Stat.Root<number | undefined, Data.PenetrationFactors>;
+  readonly penetration: Stat.Root<number | undefined>;
   readonly physicalEvasion: Stat.Root;
   readonly magicalEvasion: Stat.Root;
   readonly attackSpeed: Stat.AttackSpeed;
@@ -439,16 +439,10 @@ export default class Unit implements TableRow<Keys> {
     this.penetration = new Stat.Root({
       statType: stat.penetration,
       calculater: (s) => {
-        const factor = this.penetration.getFactors(s);
-        return Data.Penetration.getValue(factor.base, factor.multiply);
-      },
-      factors: (s) => {
         const base = src.penetrationAdd ?? 0;
         const potential = this.getPotentialFactor(s, stat.penetration);
-        return {
-          base: base + potential,
-          multiply: classData?.penetration ?? 0,
-        };
+
+        return Data.Percent.accumulate(base, potential);
       },
     });
 
