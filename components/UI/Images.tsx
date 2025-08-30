@@ -1,10 +1,13 @@
-import Image from "next/image";
+import Image, { type ImageProps } from "next/image";
+import IconToggler from "./IconToggler";
 
 interface Props {
-  className?: string;
+  className?: string | undefined;
 }
 
-function Logo({ className, alt }: Props & { alt: string }) {
+type IconProps = Omit<ImageProps, "src" | "alt"> & { alt?: string | undefined };
+
+function Logo({ className, alt }: Omit<ImageProps, "src">) {
   return (
     <Image
       src={"/logo.png"}
@@ -17,60 +20,52 @@ function Logo({ className, alt }: Props & { alt: string }) {
   );
 }
 
-function Loading({ className }: Props) {
+function Icon1(props: IconProps) {
   return (
     <Image
-      src="/loading.png"
+      {...props}
+      src="/icon1.png"
       width={200}
       height={200}
-      alt="Loading..."
       priority
-      className={className}
+      alt={props.alt ?? ""}
     />
   );
+}
+
+function Icon2(props: IconProps) {
+  return (
+    <Image
+      {...props}
+      src="/icon2.png"
+      width={200}
+      height={200}
+      priority
+      alt={props.alt ?? ""}
+    />
+  );
+}
+
+function Loading({ className }: Props) {
+  return <Icon1 className={className} alt="loading..." />;
 }
 
 function EmptyAlert({ className }: Props) {
-  return (
-    <Image
-      src="/loading.png" // TODO
-      width={200}
-      height={200}
-      alt=""
-      priority
-      className={className}
-    />
-  );
+  return <IconToggler className={className} />;
 }
 
 function NotFound({ className }: Props) {
-  return (
-    <Image
-      src="/loading.png" // TODO
-      width={200}
-      height={200}
-      alt=""
-      priority
-      className={className}
-    />
-  );
+  return <Icon1 className={className} />;
 }
 
 function OffCanvas({ className }: Props) {
-  return (
-    <Image
-      src="/loading.png" // TODO
-      width={200}
-      height={200}
-      alt=""
-      priority
-      className={className}
-    />
-  );
+  return <IconToggler className={className} />;
 }
 
 const Images = {
   Logo,
+  Icon1,
+  Icon2,
   Loading,
   EmptyAlert,
   NotFound,
