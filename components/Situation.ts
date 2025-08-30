@@ -127,7 +127,7 @@ export default class Situation implements TableRow<Keys> {
   readonly criticalDamage: Stat.Root<number, Data.CriticalFactors>;
   readonly criticalChanceLimit: Stat.Root<number>;
   readonly criticalDamageLimit: Stat.Root<number>;
-  readonly penetration: Stat.Root<number | undefined, Data.PenetrationFactors>;
+  readonly penetration: Stat.Root<number | undefined>;
   readonly physicalLimit: Stat.Limit;
   readonly magicalLimit: Stat.Limit;
   readonly physicalDamageCut: Stat.Root<number, Data.DamageCutFactors>;
@@ -371,18 +371,12 @@ export default class Situation implements TableRow<Keys> {
     this.penetration = new Stat.Root({
       statType: stat.penetration,
       calculater: (s) => {
-        const factor = this.penetration.getFactors(s);
-        return Data.Penetration.getValue(factor.base, factor.multiply);
-      },
-      factors: (s) => {
-        const unitFactor = this.unit?.penetration.getFactors(s);
+        const base = this.unit?.penetration.getValue(s);
         const ss = this.getSubskillFactor(s, ssKeys.penetration) ?? 0;
         const fea = this.getFeature(s).penetrationAdd ?? 0;
+        const panel = s.penetrationAdd;
 
-        return {
-          base: (unitFactor?.base ?? 0) + ss + fea,
-          multiply: unitFactor?.multiply ?? 0,
-        };
+        return Data.Percent.accumulate(base, ss, fea, panel);
       },
     });
 
@@ -1245,6 +1239,11 @@ export default class Situation implements TableRow<Keys> {
         if (f === null || skill === null) {
           return;
         }
+        // TODO 無限ループ対策する
+        // const penetration = this.penetration.getValue(s);
+        // if (penetration !== undefined && penetration >= 100) {
+        //   return Data.damageType.true;
+        // }
         return f ?? skill ?? this.unit?.damageType.getValue(s);
       },
       comparer: (s) => Data.DamageType.indexOf(this.damageType.getValue(s)),
