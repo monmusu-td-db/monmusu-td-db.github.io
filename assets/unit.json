@@ -13192,7 +13192,7 @@
     ]
   },
   {
-    "TODO_FATAL": "射程",
+    "TODO_FATAL": "射程は動画情報",
     "id": 1020001,
     "parentId": 102,
     "unitName": "妖花",
@@ -13206,7 +13206,7 @@
     "resist": 0,
     "block": 1,
     "target": 0,
-    "range": 999,
+    "range": 265,
     "moveSpeed": 0,
     "placement": "両",
     "features": [
@@ -16902,9 +16902,9 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "DEF-30%→TODO全体?",
-        "攻撃速度-XX%→TODO全体?",
-        "暗闇付与→TODO射程内?"
+        "DEF-30%→命中",
+        "攻撃速度減少→命中",
+        "暗闇付与→命中"
       ]
     },
     "potentials": [
@@ -24096,7 +24096,7 @@
     ]
   },
   {
-    "TODO_FATAL": "射程/スタン蓄積値",
+    "TODO_FATAL": "射程/スタン蓄積値は動画情報",
     "id": 209,
     "unitName": "【アークエンジェル娘】オシュネー",
     "unitShortName": "オシュネー",
@@ -24112,12 +24112,12 @@
       "skillName": "正義の光",
       "attackMul": 150,
       "target": "射程内",
-      "range": 999,
+      "range": 200,
       "duration": 30,
       "cooldown": 35,
       "damageType": "魔法",
       "supplements": [
-        "スタン付与XX%"
+        "スタン付与35%→命中"
       ]
     },
     "potentials": [
@@ -27018,7 +27018,7 @@
     ]
   },
   {
-    "TODO_FATAL": "攻撃速度/射程",
+    "TODO_FATAL": "攻撃速度/射程は動画情報",
     "TODO_STAT_INFERRED": true,
     "id": 2330001,
     "parentId": 233,
@@ -27030,11 +27030,11 @@
     "attack": 538,
     "defense": 119,
     "resist": 184,
-    "attackSpeed": 999,
-    "delay": 99,
+    "attackSpeed": 100,
+    "delay": 20,
     "block": null,
     "target": 1,
-    "range": 999,
+    "range": 220,
     "moveSpeed": 0,
     "damageType": "魔法",
     "placement": "付",
@@ -27061,8 +27061,8 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報/加算バフ/種族特性バフ射程はwiki情報",
-    "TODO_FATAL": "ex1攻撃速度",
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/加算バフ/種族特性バフ射程は動画情報",
+    "TODO_FATAL": "ex1攻撃速度は動画情報/非ブロック時攻撃待機時間はwiki情報",
     "TODO_STAT_INFERRED": true,
     "id": 234,
     "unitName": "【壊奏の猫又娘】ブンコ",
@@ -27078,7 +27078,7 @@
     "exSkill1": {
       "skillName": "これが私のロックだよ～♪",
       "attackMul": 380,
-      "attackMotionMul": 999,
+      "attackMotionMul": 153,
       "duration": 30,
       "cooldown": 40
     },
@@ -27148,7 +27148,7 @@
           "time": 270
         },
         "target": "射程内",
-        "range": 180,
+        "range": 200,
         "flagRangeIsVisible": true,
         "damageType": null
       },
@@ -27161,13 +27161,23 @@
       {
         "featureName": "common-ranged",
         "skill": 1,
-        "fixedDelay": 1
+        "fixedDelay": 120,
+        "range": 200
       }
     ],
     "situations": [
       {},
       {
-        "skill": 1
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
       },
       {
         "proper": true,
@@ -27195,6 +27205,7 @@
         "skill": 1,
         "features": [
           "common-ranged",
+          "ranged-buff",
           "support-attack"
         ]
       }
@@ -35598,7 +35609,6 @@
   },
   {
     "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1射程",
     "id": 312,
     "unitName": "【蘭華のジャイアント娘】メロン",
     "unitShortName": "メロン/蘭華",
@@ -35614,6 +35624,7 @@
       "attackMul": 200,
       "target": 5,
       "rounds": 2,
+      "range": 270,
       "duration": 20,
       "cooldown": 45,
       "supplements": [
