@@ -5851,7 +5851,6 @@
     ]
   },
   {
-    "TODO_FATAL": "HP減少時攻撃速度",
     "id": 47,
     "unitName": "【デュラハン娘】プラチナ",
     "unitShortName": "プラチナ",
@@ -5937,6 +5936,8 @@
         "featureName": "common-hp-50%",
         "isConditionalBuff": true,
         "attackMul": 200,
+        "attackSpeedBuff": 200,
+        "delayMul": 15,
         "potentialBonus": {
           "attackMul": 225
         }
@@ -28556,7 +28557,7 @@
     ]
   },
   {
-    "TODO_FATAL": "攻撃速度",
+    "TODO_FATAL": "攻撃速度は動画情報",
     "id": 248,
     "unitName": "【ベルフェゴール娘】ペルペ",
     "unitShortName": "ペルペ",
@@ -28571,6 +28572,7 @@
     "exSkill1": {
       "skillName": "研究の成果よ～",
       "attackMul": 280,
+      "fixedDelay": 1,
       "rangeMul": 200,
       "targetAdd": 1,
       "duration": 30,
@@ -28617,6 +28619,7 @@
         "cooldownCut": 20
       }
     ],
+    "delayMul": 140,
     "situations": [
       {},
       {
@@ -28893,7 +28896,7 @@
   },
   {
     "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "ex1攻撃速度",
+    "TODO_FATAL": "ex1攻撃速度は動画情報",
     "id": 251,
     "unitName": "【鬼熊娘】ミクマ",
     "unitShortName": "ミクマ",
@@ -28911,7 +28914,7 @@
     "exSkill1": {
       "skillName": "ベアスイング",
       "attackMul": 420,
-      "attackMotionMul": 999,
+      "attackMotionMul": 134,
       "duration": 20,
       "cooldown": 35,
       "supplements": [
@@ -29541,7 +29544,7 @@
     ]
   },
   {
-    "TODO_FATAL": "攻撃速度/射程/ex1→被ダメ増加",
+    "TODO_FATAL": "攻撃速度/射程は動画情報",
     "id": 2560001,
     "parentId": 256,
     "unitName": "偵察ドローン",
@@ -29553,11 +29556,11 @@
     "attack": 638,
     "defense": 189,
     "resist": 111,
-    "attackSpeed": 999,
-    "delay": 99,
+    "attackSpeed": 100,
+    "delay": 35,
     "block": 0,
     "target": 1,
-    "range": 999,
+    "range": 280,
     "moveSpeed": 100,
     "moveType": "飛行",
     "damageType": "魔法",
@@ -29571,6 +29574,12 @@
         "鈍足→射程内"
       ]
     },
+    "features": [
+      {
+        "skill": 1,
+        "damageDebuff": 110
+      }
+    ],
     "isUnhealable": true,
     "situations": [
       {
@@ -29579,6 +29588,14 @@
       {
         "proper": true,
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 110
       }
     ]
   },
@@ -33319,8 +33336,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
-    "TODO_FATAL": "復活特性",
+    "TODO_DESC": "Stat/Potential/ex1はWiki情報/復活特性",
     "TODO_STAT_INFERRED": true,
     "id": 291,
     "unitName": "【キョンシー娘】テンミィ",
@@ -33336,6 +33352,9 @@
     "attack": 900,
     "defense": 307,
     "resist": 135,
+    "supplements": [
+      "死亡時復活(20秒後)"
+    ],
     "exSkill1": {
       "skillName": "鋭い毒爪",
       "attackMul": 180,
