@@ -40289,6 +40289,91 @@
     ]
   },
   {
+    "id": 358,
+    "unitName": "【夜魔】ニクス",
+    "unitShortName": "ニクス",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "火",
+    "hp": 2525,
+    "attack": 1036,
+    "defense": 225,
+    "resist": 564,
+    "exSkill1": {
+      "skillName": "バーニングフレア",
+      "attackMul": 200,
+      "fixedDelay": 1,
+      "target": 3,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "HP-5%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "フォースロッド",
+      "hp": 200,
+      "attack": 10,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "武器特性"
+        ],
+        "attackMul": 140,
+        "supplements": [
+          "ATK+40%(15秒)/発動"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul"
+        ]
+      }
+    ]
+  },
+  {
     "id": 359,
     "unitName": "【吸血鬼】マリア",
     "unitShortName": "マリア",
