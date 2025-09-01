@@ -40356,6 +40356,7 @@
       },
       {
         "featureName": "hp-49%",
+        "currentHp": 49,
         "require": [
           "武器"
         ],
