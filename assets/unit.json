@@ -40287,5 +40287,89 @@
         ]
       }
     ]
+  },
+  {
+    "id": 361,
+    "unitName": "【ミルエス軍】ティレマ",
+    "unitShortName": "ティレマ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "風",
+    "hp": 6840,
+    "attack": 604,
+    "defense": 863,
+    "resist": 214,
+    "supplements": [
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "スタンドアウト",
+      "attackMul": 160,
+      "blockAdd": 2,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "引き付け",
+        "反射200%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+90",
+      "魔法防御力+90",
+      "スキル初回待ち時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "ミルエスの剣",
+      "hp": 400,
+      "defense": 20,
+      "resist": 20
+    },
+    "features": [
+      {
+        "skill": 0,
+        "physicalDamageCut": 15,
+        "magicalDamageCut": 15
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 50,
+        "magicalDamageCut": 50
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "attackAdd": {
+          "key": "defense",
+          "value": 10
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "attackAdd": {
+          "key": "resist",
+          "value": 10
+        }
+      },
+      {
+        "featureName": "class-melee",
+        "isConditionalBuff": true,
+        "defenseMul": 200,
+        "potentialBonus": {
+          "defenseMul": 230
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   }
 ]
