@@ -40289,6 +40289,136 @@
     ]
   },
   {
+    "id": 359,
+    "unitName": "【吸血鬼】マリア",
+    "unitShortName": "マリア",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "闇",
+    "hp": 6151,
+    "attack": 1067,
+    "defense": 469,
+    "resist": 141,
+    "supplements": [
+      "HP-50%/配置→自分"
+    ],
+    "exSkill1": {
+      "skillName": "ブリオンの秘術",
+      "attackMul": 240,
+      "attackSpeedBuff": 200,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "HP-50%→自分",
+        "{attack*500}dmg/発動→周囲"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "ソウルリーパー",
+      "hp": 100,
+      "attack": 45,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "hpMul": 200,
+        "attackAdd": {
+          "key": "current-hp",
+          "value": 10
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "current-hp",
+            "value": 12
+          }
+        }
+      },
+      {
+        "featureName": "hp-100%",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "hp-49%",
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 49
+          }
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 50
+        },
+        "supplements": [
+          "回復{attack-base*50}/命中"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "id": 361,
     "unitName": "【ミルエス軍】ティレマ",
     "unitShortName": "ティレマ",
