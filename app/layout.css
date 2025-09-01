@@ -1,3 +1,8 @@
+body {
+  /* Chromiumのスクロールバー対策 */
+  margin-left: calc(100vw - 100%);
+}
+
 .md-content > h2:not(:first-child) {
   margin-top: 3rem;
 }

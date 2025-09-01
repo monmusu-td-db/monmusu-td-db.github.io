@@ -22,6 +22,7 @@ function SearchInput({ className }: { className?: string }) {
           <Icon.Search width={19} height={19} />
         </InputGroup.Text>
         <Form.Control
+          name="md-search-input"
           type="search"
           placeholder="検索"
           value={query}
