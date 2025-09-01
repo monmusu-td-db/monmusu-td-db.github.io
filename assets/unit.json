@@ -40419,6 +40419,126 @@
     ]
   },
   {
+    "id": 360,
+    "unitName": "【妖狐剣客】ナズナ",
+    "unitShortName": "ナズナ",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "火",
+    "hp": 5562,
+    "attack": 1174,
+    "defense": 467,
+    "resist": 106,
+    "exSkill1": {
+      "skillName": "狐炎剣",
+      "attackMul": 320,
+      "fixedDelay": 1,
+      "target": 1,
+      "rounds": 2,
+      "laser": true,
+      "range": 350,
+      "duration": "単発",
+      "cooldown": 20
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "weapon": {
+      "weaponName": "カンムイの剣",
+      "hp": 150,
+      "attack": 40,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "火傷付与(稀+)→命中"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "HP-5%→命中火傷敵"
+        ]
+      },
+      {
+        "featureName": "beat-10",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 10
+          }
+        ],
+        "attackMul": 300
+      },
+      {
+        "featureName": "common-definite-burn",
+        "damageFactor": 120,
+        "potentialBonus": {
+          "damageFactor": 130
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn",
+          "beat-10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn",
+          "beat-10"
+        ]
+      }
+    ]
+  },
+  {
     "id": 361,
     "unitName": "【ミルエス軍】ティレマ",
     "unitShortName": "ティレマ",
