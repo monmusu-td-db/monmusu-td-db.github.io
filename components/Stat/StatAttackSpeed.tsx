@@ -34,11 +34,16 @@ export function AttackSpeedTooltip({
 }) {
   const f = factors;
   const attackSpeedBuff = f.attackSpeedBuff ?? 100;
-  const p = f.attackSpeedPotential > 0;
+  const agilityBuff = f.attackSpeedAgilityBuff ?? 0;
+  const abilityEnabled = f.attackSpeedAbility > 0;
+  const potentialEnabled = f.attackSpeedPotential > 0;
+  const weaponEnabled = f.attackSpeedWeapon > 0;
+  const agilityEnabled = agilityBuff > 0;
+  const p =
+    abilityEnabled || potentialEnabled || weaponEnabled || agilityEnabled;
   const b = p && (!!f.attackMotionMul || attackSpeedBuff !== 100);
   const ammCol = (f.attackMotionMul ?? 100) < 100;
   const asbCol = attackSpeedBuff > 100;
-  const agilityBuff = f.attackSpeedAgilityBuff ?? 0;
   return (
     <T.Equation>
       {(d) => (
@@ -49,22 +54,22 @@ export function AttackSpeedTooltip({
           <T.Expression>
             <T.Brackets enabled={b}>
               {d ? "基礎値" : f.attackSpeedBase + sign.FRAME}
-              <T.Minus enabled={f.attackSpeedAbility > 0}>
+              <T.Minus enabled={abilityEnabled}>
                 <T.Positive>
                   {d ? "種族特性" : f.attackSpeedAbility + sign.FRAME}
                 </T.Positive>
               </T.Minus>
-              <T.Minus enabled={p}>
+              <T.Minus enabled={potentialEnabled}>
                 <T.Positive>
                   {d ? "潜在覚醒" : f.attackSpeedPotential + sign.FRAME}
                 </T.Positive>
               </T.Minus>
-              <T.Minus enabled={f.attackSpeedWeapon > 0}>
+              <T.Minus enabled={weaponEnabled}>
                 <T.Positive>
                   {d ? "専用武器" : f.attackSpeedWeapon + sign.FRAME}
                 </T.Positive>
               </T.Minus>
-              <T.Minus enabled={agilityBuff > 0}>
+              <T.Minus enabled={agilityEnabled}>
                 <T.Positive>
                   {d ? "基礎攻撃速度バフ" : agilityBuff + sign.FRAME}
                 </T.Positive>
