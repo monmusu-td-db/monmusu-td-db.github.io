@@ -15,6 +15,11 @@ import PageRoot from "@/components/UI/PageRoot";
 import { Container } from "react-bootstrap";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "バフ一覧",
+};
 
 interface HeaderData {
   id: string;

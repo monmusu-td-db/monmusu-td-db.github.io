@@ -7,12 +7,29 @@ import Footer from "./Footer";
 import LoadingIndicator from "@/components/UI/LoadingIndicator";
 import PanelControl from "@/components/UI/PanelControl";
 
+const TITLE = "モンスター娘TD DB";
+const DESC =
+  "モンスター娘TDのキャラクターの能力値、バフデバフをまとめているサイトです。";
+
 export const metadata: Metadata = {
-  title: "モンスター娘TD DB",
-  description:
-    "モンスター娘TDのキャラクターの能力値、バフデバフをまとめているサイトです。",
+  title: {
+    template: `%s - ${TITLE}`,
+    default: TITLE,
+  },
+  description: DESC,
   icons: {
     icon: "/favicon.png",
+  },
+  openGraph: {
+    title: TITLE,
+    images: "/ogp.jpg",
+    description: DESC,
+    locale: "ja_JP",
+    url: "http://localhost:3000/", // TODO
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@kd1042",
   },
 };
 
