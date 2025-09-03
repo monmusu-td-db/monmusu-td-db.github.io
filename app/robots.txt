@@ -1,0 +1,5 @@
+User-agent: Twitterbot
+Allow: /assets/ogp.jpg
+
+User-agent: *
+Disallow: /assets/
