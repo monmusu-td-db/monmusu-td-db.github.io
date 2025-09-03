@@ -55,7 +55,7 @@ function EmptyAlert({ className }: Props) {
 }
 
 function NotFound({ className }: Props) {
-  return <Icon1 className={className} />;
+  return <IconToggler className={className} />;
 }
 
 function OffCanvas({ className }: Props) {
