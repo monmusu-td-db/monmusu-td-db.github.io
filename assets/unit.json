@@ -40707,5 +40707,158 @@
         "skill": 1
       }
     ]
+  },
+  {
+    "TODO_DESC": "Potential/ex1はWiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 362,
+    "unitName": "【冒険者】ラビィ",
+    "unitShortName": "ラビィ",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "光",
+    "hp": 6398,
+    "attack": 919,
+    "defense": 349,
+    "resist": 150,
+    "supplements": [
+      "CT-4秒/撃破"
+    ],
+    "exSkill1": {
+      "skillName": "フルコンボ",
+      "attackMul": 320,
+      "attackMotionMul": 140,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "rounds": 4,
+      "range": 120,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "攻撃回避100%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "ラビィのグローブ",
+      "hp": 100,
+      "attack": 70
+    },
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-extra-damage",
+        "isAbility": true,
+        "isConditionalBuff": true,
+        "rounds": [
+          {
+            "ratio": 3,
+            "value": 0
+          },
+          {
+            "ratio": 2,
+            "value": 2
+          }
+        ],
+        "damageFactor": 120,
+        "potentialBonus": {
+          "rounds": [
+            {
+              "ratio": 1,
+              "value": 0
+            },
+            {
+              "ratio": 1,
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "featureName": "common-regenerate-3%",
+        "currentHp": 50,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 50
+          }
+        ]
+      },
+      {
+        "featureName": "beat-20",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 20
+          }
+        ],
+        "attackSpeedBuff": 200
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-20"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "beat-20",
+          "common-extra-damage"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-20"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
   }
 ]
