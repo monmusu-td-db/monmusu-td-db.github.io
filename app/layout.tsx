@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@kd1042",
   },
-  robots: {},
 };
 
 export default function RootLayout({
