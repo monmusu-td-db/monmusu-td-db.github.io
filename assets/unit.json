@@ -40721,9 +40721,6 @@
     "attack": 919,
     "defense": 349,
     "resist": 150,
-    "supplements": [
-      "CT-4秒/撃破"
-    ],
     "exSkill1": {
       "skillName": "フルコンボ",
       "attackMul": 320,
@@ -40751,6 +40748,11 @@
       "attack": 70
     },
     "features": [
+      {
+        "supplements": [
+          "CT-4秒/撃破"
+        ]
+      },
       {
         "require": [
           "スキル"
@@ -40793,6 +40795,9 @@
             "key": "HP",
             "value": 50
           }
+        ],
+        "deleteSupplements": [
+          "CT-4秒/撃破"
         ]
       },
       {
