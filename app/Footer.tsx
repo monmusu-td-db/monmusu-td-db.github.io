@@ -3,12 +3,10 @@ import "./Footer.css";
 import Icon from "@/components/UI/Icon";
 import type { ReactNode } from "react";
 import NextLink, { type LinkProps } from "next/link";
-// import LinkFocusFix from "./LinkFocusFix";
 
 export default function Footer() {
   return (
     <footer className="bd-footer bg-body-secondary pt-4 pb-3">
-      {/* <LinkFocusFix /> */}
       <Container className="text-body-secondary">
         <Row>
           <Col md={8}>

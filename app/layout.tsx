@@ -8,6 +8,8 @@ import LoadingIndicator from "@/components/UI/LoadingIndicator";
 import PanelControl from "@/components/UI/PanelControl";
 
 const SITE_URL = "http://localhost:3000/"; // TODO
+// const SITE_URL = "https://monmusu-td-db.github.io/"
+const ASSETS_PATH = "/assets/";
 const TITLE = "モンスター娘TD DB";
 const DESC =
   "モンスター娘TDのキャラクターの能力値、バフデバフをまとめているサイトです。";
@@ -20,11 +22,11 @@ export const metadata: Metadata = {
   },
   description: DESC,
   icons: {
-    icon: "/favicon.png",
+    icon: ASSETS_PATH + "favicon.png",
   },
   openGraph: {
     title: TITLE,
-    images: "/ogp.jpg",
+    images: ASSETS_PATH + "ogp.jpg",
     description: DESC,
     locale: "ja_JP",
     url: SITE_URL,
@@ -33,6 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@kd1042",
   },
+  robots: {},
 };
 
 export default function RootLayout({
