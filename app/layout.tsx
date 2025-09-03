@@ -7,11 +7,13 @@ import Footer from "./Footer";
 import LoadingIndicator from "@/components/UI/LoadingIndicator";
 import PanelControl from "@/components/UI/PanelControl";
 
+const SITE_URL = "http://localhost:3000/"; // TODO
 const TITLE = "モンスター娘TD DB";
 const DESC =
   "モンスター娘TDのキャラクターの能力値、バフデバフをまとめているサイトです。";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     template: `%s - ${TITLE}`,
     default: TITLE,
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     images: "/ogp.jpg",
     description: DESC,
     locale: "ja_JP",
-    url: "http://localhost:3000/", // TODO
+    url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
