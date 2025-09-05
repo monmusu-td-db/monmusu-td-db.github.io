@@ -36,7 +36,17 @@ function InfoAlert({
   );
 }
 
-function Empty() {
+function Empty({ noIcon }: { noIcon?: boolean }) {
+  const text =
+    "表示結果がありませんでした。フィルターや検索ワードを確認してください。";
+  if (noIcon) {
+    return (
+      <Alert variant="info" className="mx-2">
+        {text}
+      </Alert>
+    );
+  }
+
   const icon = (
     <>
       <Images.EmptyAlert className="d-block" />
@@ -51,7 +61,7 @@ function Empty() {
       icon={icon}
       iconClassName="info"
     >
-      表示結果がありませんでした。フィルターや検索ワードを確認してください。
+      {text}
     </InfoAlert>
   );
 }

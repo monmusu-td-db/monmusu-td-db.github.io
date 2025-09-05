@@ -474,11 +474,9 @@ function Caption<T extends string>({
   if (tableData.rows.length > 0) {
     return <caption ref={ref} style={{ height: "1px" }} />;
   } else {
-    const text =
-      "表示結果がありませんでした。フィルターや検索ワードを確認してください。";
     return (
       <caption className="stat-empty-alert">
-        {showIcon ? <InfoAlert.Empty /> : text}
+        <InfoAlert.Empty noIcon={!showIcon} />
       </caption>
     );
   }
