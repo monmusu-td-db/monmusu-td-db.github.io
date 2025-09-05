@@ -1,6 +1,7 @@
 .panel {
   max-height: calc(100vh - 58px);
   overflow-y: scroll;
+  padding-bottom: calc(100vh - 100svh);
 }
 
 .panel-backdrop {

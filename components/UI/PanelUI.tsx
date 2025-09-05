@@ -85,7 +85,7 @@ function FormCheckbox({
 function FormCheckboxGroup({ children }: { children: ReactNode }) {
   return (
     <Container as={Col}>
-      <Row className="gy-1">{children}</Row>
+      <Row className="gx-3 gx-md-4 gy-1">{children}</Row>
     </Container>
   );
 }
