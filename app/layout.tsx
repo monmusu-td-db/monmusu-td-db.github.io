@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: DESC,
   icons: {
     icon: ASSETS_PATH + "favicon.png",
-    apple: ASSETS_PATH + "favicon.png",
+    apple: ASSETS_PATH + "apple_icon.png",
   },
   openGraph: {
     title: TITLE,
