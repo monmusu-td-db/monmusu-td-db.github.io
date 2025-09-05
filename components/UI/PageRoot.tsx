@@ -66,7 +66,7 @@ function PanelToggler() {
   const setOpen = Panel.Contexts.useSetOpen();
 
   return (
-    <div className="flex ms-1 me-1">
+    <div className="mx-sm-1">
       <Button
         variant="outline-secondary"
         className={cn("header-btn", { "header-btn-checked": open })}

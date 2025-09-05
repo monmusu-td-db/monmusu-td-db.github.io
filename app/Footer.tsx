@@ -1,4 +1,4 @@
-import { Col, Container, Row, Stack } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./Footer.css";
 import Icon from "@/components/UI/Icon";
 import type { ReactNode } from "react";
@@ -10,34 +10,30 @@ export default function Footer() {
       <Container className="text-body-secondary">
         <Row>
           <Col md={8}>
-            <Stack direction="horizontal" gap={3} className="mb-3">
+            <div className="bd-footer-text mb-3">
               <Link href="/">メインページ</Link>
-              <Vr />
               <Link href="/unit">ユニット</Link>
-              <Vr />
               <Link href="/buff">バフ</Link>
-              <Vr />
               <Link href="https://forms.gle/G33dyiF9kU5hXm3k8">
                 お問い合わせ
               </Link>
-            </Stack>
+            </div>
           </Col>
           <Col md={4}>
-            <Stack direction="horizontal" gap={3} className="mb-3">
+            <div className="bd-footer-text mb-3">
               <ExternalLink
                 href="https://x.com/kd1042"
                 icon={<Icon.TwitterX width={21} height={21} />}
               >
                 X
               </ExternalLink>
-              <Vr />
               <ExternalLink
                 href="https://github.com/monmusu-td-db/monmusu-td-db.github.io"
                 icon={<Icon.GitHub width={21} height={21} />}
               >
                 GitHub
               </ExternalLink>
-            </Stack>
+            </div>
           </Col>
         </Row>
       </Container>
@@ -46,11 +42,11 @@ export default function Footer() {
 }
 
 function Link(props: LinkProps & { children?: ReactNode }) {
-  return <NextLink {...props} className="d-block" />;
-}
-
-function Vr() {
-  return <div className="vr" />;
+  return (
+    <div>
+      <NextLink {...props} />
+    </div>
+  );
 }
 
 function ExternalLink({
@@ -63,10 +59,12 @@ function ExternalLink({
   icon: ReactNode;
 }) {
   return (
-    <a href={href} className="d-block">
-      {icon}
-      <span className="mx-2">{children}</span>
-      <Icon.BoxArrowUpRight width={14} height={14} />
-    </a>
+    <div>
+      <a href={href}>
+        {icon}
+        <span className="mx-2">{children}</span>
+        <Icon.BoxArrowUpRight width={14} height={14} />
+      </a>
+    </div>
   );
 }

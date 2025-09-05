@@ -101,12 +101,12 @@ function Logo() {
 function ThemeToggler() {
   return (
     <>
-      <div className="d-none mx-1 theme-light">
+      <div className="d-none mx-sm-1 theme-light">
         <HeaderButton onClick={() => Theme.toggle(Theme.LIGHT)}>
           <Icon.BrightnessHignFill width={ICON_SIZE} height={ICON_SIZE} />
         </HeaderButton>
       </div>
-      <div className="d-none mx-1 theme-dark">
+      <div className="d-none mx-sm-1 theme-dark">
         <HeaderButton onClick={() => Theme.toggle(Theme.DARK)}>
           <Icon.MoonFill width={ICON_SIZE} height={ICON_SIZE} />
         </HeaderButton>
