@@ -1,0 +1,28 @@
+.info-alert-icon-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.info-alert-icon-wrapper .bi {
+  position: absolute;
+  left: 154px;
+  top: 69px;
+  transform: translate(-50%, -50%);
+}
+
+.info-alert-icon-wrapper.warning {
+  color: var(--bs-yellow);
+}
+
+.info-alert-icon-wrapper.info {
+  color: var(--bs-blue);
+}
+
+[data-md-loading="show"] .empty-alert-row > div:first-child {
+  display: none;
+}
+
+[data-md-loading="show"] .empty-alert-row > div:last-child {
+  width: 100%;
+}

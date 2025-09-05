@@ -12,7 +12,7 @@ import {
   type ReactNode,
   type RefObject,
 } from "react";
-import { Alert, Table, Row as BRow, Col } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting, type States } from "../States";
 import TooltipControl, { type TooltipEventHandlers } from "./TooltipControl";
@@ -28,7 +28,7 @@ import type {
   TableRow,
   TableSource,
 } from "./StatTableUtil";
-import Images from "./Images";
+import InfoAlert from "./InfoAlert";
 
 //
 // Types
@@ -478,20 +478,7 @@ function Caption<T extends string>({
       "表示結果がありませんでした。フィルターや検索ワードを確認してください。";
     return (
       <caption className="stat-empty-alert">
-        <Alert variant="info" className="mx-2">
-          {showIcon ? (
-            <BRow className="empty-alert-row">
-              <Col xs={12} sm={5} md={4}>
-                <Images.EmptyAlert className="d-block mx-auto" />
-              </Col>
-              <Col xs={12} sm={7} md={8} className="d-flex align-items-center">
-                {text}
-              </Col>
-            </BRow>
-          ) : (
-            text
-          )}
-        </Alert>
+        {showIcon ? <InfoAlert.Empty /> : text}
       </caption>
     );
   }
