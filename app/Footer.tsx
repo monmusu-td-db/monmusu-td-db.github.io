@@ -17,7 +17,9 @@ export default function Footer() {
               <Vr />
               <Link href="/buff">バフ</Link>
               <Vr />
-              <Link href="/contact">お問い合わせ</Link>
+              <Link href="https://forms.gle/G33dyiF9kU5hXm3k8">
+                お問い合わせ
+              </Link>
             </Stack>
           </Col>
           <Col md={4}>
@@ -30,7 +32,7 @@ export default function Footer() {
               </ExternalLink>
               <Vr />
               <ExternalLink
-                href="#"
+                href="https://github.com/monmusu-td-db/monmusu-td-db.github.io"
                 icon={<Icon.GitHub width={21} height={21} />}
               >
                 GitHub

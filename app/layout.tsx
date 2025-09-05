@@ -7,8 +7,8 @@ import Footer from "./Footer";
 import LoadingIndicator from "@/components/UI/LoadingIndicator";
 import PanelControl from "@/components/UI/PanelControl";
 
-const SITE_URL = "http://localhost:3000/"; // TODO
-// const SITE_URL = "https://monmusu-td-db.github.io/"
+// const SITE_URL = "http://localhost:3000/";
+const SITE_URL = "https://monmusu-td-db.github.io/";
 const ASSETS_PATH = "/assets/";
 const TITLE = "モンスター娘TD DB";
 const DESC =

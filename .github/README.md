@@ -1,6 +1,6 @@
 # モンスター娘TD DB
 
-モンスター娘TDのデータベースサイト、[モンスター娘TD DB](https://example.com) のソースコードです。
+モンスター娘TDのデータベースサイト、[モンスター娘TD DB](https://monmusu-td-db.github.io/) のソースコードです。
 
 ## ローカルでの使い方
 
