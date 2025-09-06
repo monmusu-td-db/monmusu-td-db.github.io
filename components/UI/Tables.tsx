@@ -8,27 +8,11 @@ import type { StatTableProps } from "./StatTableUtil";
 import type StatTableType from "./StatTable";
 import dynamic from "next/dynamic";
 import { Container } from "react-bootstrap";
-import { useEffect } from "react";
+import LoadingIndicator from "./LoadingIndicator";
 
 function Loading() {
-  useEffect(() => {
-    return () => {
-      window.__removeLoadingId("dynamic");
-    };
-  }, []);
-
   return (
     <Container>
-      <script
-        id="dynamic-loading"
-        dangerouslySetInnerHTML={{
-          __html: `
-(() => {
-  window.__setLoadingId("dynamic");
-})()
-        `,
-        }}
-      />
       <div
         className="d-flex justify-content-center align-items-center border"
         style={{ height: "100px" }}
@@ -41,21 +25,39 @@ function Loading() {
   );
 }
 
+function LoadingIcon() {
+  return (
+    <Container>
+      <div
+        className="d-flex justify-content-center align-items-center border"
+        style={{ height: "250px" }}
+      >
+        <LoadingIndicator.Icon />
+      </div>
+    </Container>
+  );
+}
+
 const LazyLoading = dynamic(() => import("./StatTable"), {
   ssr: false,
   loading: () => <Loading />,
 }) as typeof StatTableType;
 
+const LazyLoadingIcon = dynamic(() => import("./StatTable"), {
+  ssr: false,
+  loading: () => <LoadingIcon />,
+}) as typeof StatTableType;
+
 export function TablesUnit(props: StatTableProps) {
-  return <LazyLoading {...props} src={Unit.tableData} />;
+  return <LazyLoadingIcon {...props} src={Unit.tableData} />;
 }
 
 export function TablesSituation(props: StatTableProps) {
-  return <LazyLoading {...props} src={Situation.tableData} />;
+  return <LazyLoadingIcon {...props} src={Situation.tableData} />;
 }
 
 export function TablesFormationBuff(props: StatTableProps) {
-  return <LazyLoading {...props} src={FormationBuff.tableData} />;
+  return <LazyLoadingIcon {...props} src={FormationBuff.tableData} />;
 }
 
 export function TablesInBattleBuff(props: StatTableProps) {
