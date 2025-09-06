@@ -1,6 +1,7 @@
 import "./LoadingIndicator.css";
 import { type ReactNode } from "react";
 import Images from "./Images";
+import cn from "classnames";
 
 const SETTER_NAME = "__setLoadingId";
 const REMOVER_NAME = "__removeLoadingId";
@@ -12,7 +13,7 @@ declare global {
   }
 }
 
-function LoadingIndicator(): ReactNode {
+function Page(): ReactNode {
   return (
     <>
       <script
@@ -45,16 +46,26 @@ function LoadingIndicator(): ReactNode {
         `,
         }}
       ></script>
-      <div className="loading-indicator">
-        <div>
-          <Images.Loading />
-          <div className="spinner-border">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </div>
+      <Icon className="page" />
     </>
   );
 }
+
+function Icon({ className }: { className?: string | undefined }) {
+  return (
+    <div className={cn("loading-indicator", className)}>
+      <div>
+        <Images.Loading />
+        <div className="spinner-border">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const LoadingIndicator = Object.assign(Page, {
+  Icon,
+});
 
 export default LoadingIndicator;
