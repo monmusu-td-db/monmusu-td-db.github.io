@@ -39,7 +39,7 @@ function Icon2(props: IconProps) {
   return (
     <Image
       {...props}
-      src={ASSETS_PATH + "/icon2.png"}
+      src={ASSETS_PATH + "icon2.png"}
       width={200}
       height={200}
       priority
