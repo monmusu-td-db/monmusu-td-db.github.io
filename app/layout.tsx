@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Footer from "./Footer";
 import LoadingIndicator from "@/components/UI/LoadingIndicator";
 import PanelControl from "@/components/UI/PanelControl";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // const SITE_URL = "http://localhost:3000/";
 const SITE_URL = "https://monmusu-td-db.github.io/";
@@ -52,6 +53,7 @@ export default function RootLayout({
         <StatesRoot>{children}</StatesRoot>
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-5CN3B6CY7F" />
     </html>
   );
 }
