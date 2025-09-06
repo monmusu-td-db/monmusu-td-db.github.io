@@ -1,6 +1,6 @@
 .card-button {
-  width: 17rem;
-  height: 4.7rem;
+  width: 270px;
+  height: 73px;
   font-size: 0.875rem;
   background-color: var(--bs-table-bg);
   color: var(--bs-table-color);

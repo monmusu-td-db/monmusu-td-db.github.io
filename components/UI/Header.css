@@ -51,7 +51,9 @@ html[data-bs-theme="dark"] .theme-dark {
 }
 
 .header-btn:hover {
-  background-color: var(--bs-btn-hover-bg) !important;
+  color: unset;
+  background-color: unset;
+  border-color: unset;
 }
 
 .header-btn.header-btn-checked {
@@ -60,15 +62,10 @@ html[data-bs-theme="dark"] .theme-dark {
 }
 
 .offcanvas-icon {
-  display: block;
-  margin-left: auto;
-  margin-top: auto;
-}
-
-@media (min-height: 768px) {
-  .offcanvas-icon {
-    margin-bottom: 2.5rem;
-  }
+  position: absolute;
+  left: 100vw;
+  top: 100svh;
+  transform: translate(-115%, -115%);
 }
 
 @media (min-width: 1200px) {

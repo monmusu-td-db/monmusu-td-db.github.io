@@ -178,7 +178,7 @@ function RemoveButton({
   className?: string | undefined;
 }) {
   return (
-    <Col xs={4} sm={3} md={2} className={cn("d-grid", className)}>
+    <Col xs={4} md={3} className={cn("d-grid", className)}>
       <BButton variant="danger" onClick={onClick}>
         はずす
       </BButton>
