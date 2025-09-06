@@ -63,7 +63,7 @@ html[data-bs-theme="dark"] .theme-dark {
 
 .offcanvas-icon {
   position: absolute;
-  left: 100vw;
+  left: 100%;
   top: 100svh;
   transform: translate(-115%, -115%);
 }
