@@ -2,7 +2,6 @@ import jsonSituations from "@/assets/situation.json";
 import * as Data from "./Data";
 import * as Stat from "./Stat";
 import {
-  Filter,
   FilterCondition,
   FilterUnitClass,
   Setting,
