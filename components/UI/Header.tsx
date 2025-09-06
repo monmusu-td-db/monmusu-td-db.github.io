@@ -49,18 +49,25 @@ function NavArea({ searchInput, panelToggler }: NavAreaProps) {
             <Offcanvas.Title id={labelId}>
               <Brand />
             </Offcanvas.Title>
+            <div className="d-xl-none mx-auto">
+              <ThemeToggler />
+            </div>
           </Offcanvas.Header>
-          <Offcanvas.Body className="d-flex">
+          <Offcanvas.Body>
             <Nav className="justify-content-start flex-grow-1 pe-3">
               <Nav.Link href="/unit">ユニット</Nav.Link>
               <Nav.Link href="/buff">バフ</Nav.Link>
             </Nav>
-            <Images.OffCanvas className="offcanvas-icon" />
+            <div className="offcanvas-icon">
+              <Images.OffCanvas />
+            </div>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
         {searchInput}
         <div className="d-flex justify-content-end">
-          <ThemeToggler />
+          <div className="d-none d-xl-block">
+            <ThemeToggler />
+          </div>
           {panelToggler}
         </div>
       </Container>

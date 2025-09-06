@@ -213,12 +213,12 @@ function SubskillSelector(props: {
           <Modal.Header className="pb-2">
             <Row className="col">
               <Col xs={10} sm={11}>
-                <Row className="gy-2">
-                  <Modal.Title className="col-8 col-sm-4 col-md-3">
+                <Row className="gy-2 gx-2 gx-sm-3">
+                  <Modal.Title className="col-8 col-md-4">
                     {labelTexts.HEADER}
                   </Modal.Title>
                   <CardSelector.RemoveButton onClick={selector.handleRemove} />
-                  <Col xs={12} sm={5} className="d-flex align-items-center">
+                  <Col xs={12} md={5} className="d-flex align-items-center">
                     <Row className="gx-1 col">
                       <HeaderButton
                         id={groups.ATTACK}
