@@ -36,12 +36,18 @@ body {
   color: var(--bs-red);
 }
 
-[data-bs-theme="dark"] .md-content > dl > dt {
+[data-bs-theme="dark"] .md-content > dl > dt,
+[data-bs-theme="dark"] .md-content strong {
   color: var(--bs-yellow);
 }
 
-.md-content .text-require {
+.md-content .text-require,
+.md-content strong {
   color: var(--bs-red);
+}
+
+.md-content strong {
+  font-size: 1.125rem;
 }
 
 .md-toc nav ul {
