@@ -551,6 +551,11 @@ type FilterPlacement = (typeof filterPlacementKeys)[number];
 const filterTokenKeys = Data.TokenType.list;
 type FilterToken = Data.TokenTypeKey;
 
+const initialFilterObj = [
+  [Data.UnitClass.key.barbarian, true],
+  [Data.Species.key.undead, true],
+] as const satisfies [FilterKeys, boolean][];
+const initialFilter = new Map<FilterKeys, boolean>(initialFilterObj);
 const defaultFilter = new Map<FilterKeys, boolean>();
 export type FilterKeys =
   | FilterRarity
@@ -907,28 +912,6 @@ export function useAllStates() {
   };
 }
 
-export function useFilterState(): [Filter, Dispatch<FilterAction>] {
-  const [filter, dispatch] = useReducer(filterReducer, defaultFilter);
-  const [init, setInit] = useState(false);
-  const storageOption = Contexts.useSaveOption();
-
-  useEffect(() => {
-    dispatch({
-      type: FilterAction.initialize,
-      initialValue: Storage.getFilter(),
-    });
-    setInit(true);
-  }, []);
-
-  useEffect(() => {
-    if (init) {
-      Storage.setFilter(filter, storageOption === STORAGE_LOCAL);
-    }
-  }, [filter, init, storageOption]);
-
-  return [filter, dispatch];
-}
-
 const SettingAction = {
   change: "change",
   resetUnit: "reset-unit",
@@ -970,43 +953,6 @@ function settingReducer(state: Setting, action: SettingAction): Setting {
   }
 }
 
-export function useSettingState(): [Setting, Dispatch<SettingAction>] {
-  const [setting, dispatch] = useReducer(settingReducer, defaultSetting);
-  const [init, setInit] = useState(false);
-  const storageOption = Contexts.useSaveOption();
-
-  useEffect(() => {
-    dispatch({ type: SettingAction.change, nextValue: Storage.getSetting() });
-    setInit(true);
-  }, []);
-
-  useEffect(() => {
-    if (init) {
-      Storage.setSetting(setting, storageOption === STORAGE_LOCAL);
-    }
-  }, [setting, init, storageOption]);
-
-  return [setting, dispatch];
-}
-
-export function useQueryState(): [string, Dispatch<SetStateAction<string>>] {
-  const [query, setQuery] = useState("");
-  const [init, setInit] = useState(false);
-
-  useEffect(() => {
-    setQuery(Storage.getQuery());
-    setInit(true);
-  }, []);
-
-  useEffect(() => {
-    if (init) {
-      Storage.setQuery(query);
-    }
-  }, [query, init]);
-
-  return [query, setQuery];
-}
-
 const UISettingAction = {
   change: "change",
   update: "update",
@@ -1037,46 +983,6 @@ function uISettingReducer(
       }
     }
   }
-}
-
-export function useUISettingState(): [UISetting, Dispatch<UISettingAction>] {
-  const [uISetting, dispatch] = useReducer(uISettingReducer, defaultUISetting);
-  const [init, setInit] = useState(false);
-  const storageOption = Contexts.useSaveOption();
-
-  useEffect(() => {
-    dispatch({
-      type: UISettingAction.change,
-      nextValue: Storage.getUISetting(),
-    });
-    setInit(true);
-  }, []);
-
-  useEffect(() => {
-    if (init) {
-      Storage.setUISetting(uISetting, storageOption === STORAGE_LOCAL);
-    }
-  }, [uISetting, init, storageOption]);
-
-  return [uISetting, dispatch];
-}
-
-export function useSaveOptionState(): [SaveStatus, Dispatch<SaveStatus>] {
-  const [saveOption, setSaveOption] = useState<SaveStatus>(DEFAULT_SAVE_OPTION);
-  const [init, setInit] = useState(false);
-
-  useEffect(() => {
-    setSaveOption(Storage.getSaveOption());
-    setInit(true);
-  }, [init]);
-
-  useEffect(() => {
-    if (init) {
-      Storage.setSaveOption(saveOption);
-    }
-  }, [saveOption, init]);
-
-  return [saveOption, setSaveOption];
 }
 
 // Contexts
@@ -1225,7 +1131,7 @@ class Storage {
     const ret = new Map<FilterKeys, boolean>();
 
     if (!this.isFilter(obj)) {
-      return ret;
+      return initialFilter;
     }
     for (const key of filterKeys) {
       if (obj[key] === undefined) {
