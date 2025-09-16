@@ -866,7 +866,6 @@ export function useAllStates() {
   const [saveOption, setSaveOption] = useState<SaveStatus>(DEFAULT_SAVE_OPTION);
 
   const [init, setInit] = useState(false);
-  const storageOption = Contexts.useSaveOption();
 
   useEffect(() => {
     dispatchFilter({
@@ -889,14 +888,14 @@ export function useAllStates() {
 
   useEffect(() => {
     if (init) {
-      const isLocal = storageOption === STORAGE_LOCAL;
+      const isLocal = saveOption === STORAGE_LOCAL;
       Storage.setFilter(filter, isLocal);
       Storage.setSetting(setting, isLocal);
       Storage.setQuery(query);
       Storage.setUISetting(uISetting, isLocal);
       Storage.setSaveOption(saveOption);
     }
-  }, [filter, setting, query, uISetting, saveOption, init, storageOption]);
+  }, [filter, setting, query, uISetting, saveOption, init]);
 
   return {
     filter,
