@@ -1,4 +1,4 @@
-User-agent: Twitterbot
+User-agent: *
 Allow: /assets/ogp.jpg
 
 User-agent: *
