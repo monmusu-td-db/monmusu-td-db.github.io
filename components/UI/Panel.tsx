@@ -85,7 +85,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
       <Collapse in={open}>
         <section id={ID} className="bg-body-tertiary panel">
           <Container fluid="sm" className="pb-2">
-            <SearchInput className="d-block d-md-none mb-2" />
+            <SearchInput className="d-block d-md-none my-2" />
             <Tab.Container
               activeKey={tab}
               onSelect={(t) => setTab(t ?? tabs.FILTER)}
