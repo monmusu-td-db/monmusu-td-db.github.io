@@ -9,6 +9,7 @@ import type StatTableType from "./StatTable";
 import dynamic from "next/dynamic";
 import { Container } from "react-bootstrap";
 import LoadingIndicator from "./LoadingIndicator";
+import { SpinnerBorder } from "./Util";
 
 function Loading() {
   return (
@@ -17,9 +18,7 @@ function Loading() {
         className="d-flex justify-content-center align-items-center border"
         style={{ height: "100px" }}
       >
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
+        <SpinnerBorder />
       </div>
     </Container>
   );

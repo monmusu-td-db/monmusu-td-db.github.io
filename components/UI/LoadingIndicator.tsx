@@ -2,6 +2,7 @@ import "./LoadingIndicator.css";
 import { type ReactNode } from "react";
 import Images from "./Images";
 import cn from "classnames";
+import { SpinnerBorder } from "./Util";
 
 const SETTER_NAME = "__setLoadingId";
 const REMOVER_NAME = "__removeLoadingId";
@@ -56,9 +57,7 @@ function Icon({ className }: { className?: string | undefined }) {
     <div className={cn("loading-indicator", className)}>
       <div>
         <Images.Loading />
-        <div className="spinner-border">
-          <span className="visually-hidden">Loading...</span>
-        </div>
+        <SpinnerBorder />
       </div>
     </div>
   );
