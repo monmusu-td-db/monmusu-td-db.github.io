@@ -8183,6 +8183,28 @@
           "common-regenerate-2%"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "吹雪",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "weather-change",
+        "skill": 2,
+        "target": "全体",
+        "duration": 10,
+        "weather": "吹雪",
+        "supplements": [
+          "発動時"
+        ]
+      }
     ]
   },
   {
@@ -10379,6 +10401,16 @@
               "value": 70
             }
           }
+        ]
+      },
+      {
+        "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "熱波",
+        "supplements": [
+          "発動時"
         ]
       }
     ]

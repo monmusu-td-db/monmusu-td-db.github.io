@@ -868,8 +868,8 @@ const JsonSkillFeature = {
         v.duration === Duration.single
           ? Duration.single
           : v.duration === undefined
-            ? undefined
-            : JsonDuration.parse(v.duration);
+          ? undefined
+          : JsonDuration.parse(v.duration);
       let ret: Partial<SkillBase>;
       if (duration !== undefined) {
         ret = { ...raw, duration };
@@ -2033,11 +2033,13 @@ export class Status {
 const weatherName = {
   rain: "雨",
   blizzard: "吹雪",
+  heatWave: "熱波",
 } as const;
 type WeatherKey = keyof typeof weatherName;
 const weatherColor = {
   rain: tableColor.blue,
   blizzard: tableColor.blue900,
+  heatWave: tableColor.red,
 } as const satisfies Record<WeatherKey, TableColor>;
 export type Weather = (typeof weatherName)[WeatherKey];
 export const Weather = {
