@@ -29,6 +29,7 @@ import type {
   TableSource,
 } from "./StatTableUtil";
 import InfoAlert from "./InfoAlert";
+import { SpinnerBorder } from "./Util";
 
 //
 // Types
@@ -155,6 +156,7 @@ function TableControl_<T extends string>({
   }, [src, states]);
   const listLength = filteredList.length;
   const maxLength = Math.max(listLength, maxRows ?? 0);
+  const isTrancated = maxLength > (visibleRows ?? Infinity);
 
   const handleScroll = useCallback(
     function handleScroll() {
@@ -250,6 +252,7 @@ function TableControl_<T extends string>({
           tableData={dData}
           onScroll={handleScroll}
           showIcon={showIcon}
+          isTrancated={isTrancated}
         />
         <Header
           headers={dData.headers}
@@ -443,10 +446,12 @@ function Caption<T extends string>({
   tableData,
   onScroll,
   showIcon,
+  isTrancated,
 }: {
   tableData: TableData<T>;
   onScroll: () => void;
   showIcon: boolean;
+  isTrancated: boolean;
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
@@ -472,7 +477,17 @@ function Caption<T extends string>({
   }, [onScroll]);
 
   if (tableData.rows.length > 0) {
-    return <caption ref={ref} style={{ height: "1px" }} />;
+    if (isTrancated) {
+      return (
+        <caption ref={ref}>
+          <div className="d-flex justify-content-center my-1">
+            <SpinnerBorder />
+          </div>
+        </caption>
+      );
+    } else {
+      return;
+    }
   } else {
     return (
       <caption className="stat-empty-alert">
