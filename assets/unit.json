@@ -19147,6 +19147,13 @@
       "duration": 15,
       "cooldown": 30
     },
+    "exSkill2": {
+      "skillName": "サマーフィーバー",
+      "hpMul": 140,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 40
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -19198,6 +19205,22 @@
       {
         "featureName": "common-phase3",
         "hpMul": 160
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageFactor": 200,
+        "splash": true,
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 3
+          },
+          {
+            "ratio": 1,
+            "value": 12
+          }
+        ],
+        "damageType": "魔法"
       }
     ],
     "hpMul": 120,
@@ -19229,6 +19252,19 @@
         ]
       },
       {
+        "skill": 2,
+        "features": [
+          "hp-over-80%"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "hp-over-80%",
+          "common-extra-field-damage"
+        ]
+      },
+      {
         "features": [
           "hp-79%"
         ]
@@ -19252,6 +19288,19 @@
         "features": [
           "hp-79%",
           "common-phase3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "hp-79%"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "hp-79%",
+          "common-extra-field-damage"
         ]
       },
       {
