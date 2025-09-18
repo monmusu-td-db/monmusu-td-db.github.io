@@ -19406,6 +19406,19 @@
         "tkn+1/発動"
       ]
     },
+    "exSkill2": {
+      "skillName": "バブルランチャー",
+      "attackMul": 350,
+      "rounds": 2,
+      "splash": true,
+      "rangeMul": 130,
+      "duration": 20,
+      "cooldown": 25,
+      "supplements": [
+        "ノックバック→命中",
+        "鈍足-25%(10秒)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -19470,12 +19483,24 @@
         ]
       },
       {
+        "skill": 2,
+        "features": [
+          "common-0-sec"
+        ]
+      },
+      {
         "features": [
           "15-sec"
         ]
       },
       {
         "skill": 1,
+        "features": [
+          "15-sec"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "15-sec"
         ]
@@ -19487,6 +19512,12 @@
       },
       {
         "skill": 1,
+        "features": [
+          "30-sec"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "30-sec"
         ]
@@ -19502,6 +19533,16 @@
       },
       {
         "skill": 1,
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "skill": 2,
         "proper": true,
         "hasPotentials": [
           "攻撃時最大HPの1%回復"
