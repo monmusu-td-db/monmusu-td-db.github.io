@@ -40946,5 +40946,106 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_FATAL": "追加ダメージHit数は要検証",
+    "id": 363,
+    "unitName": "【シーサーペント娘】ミストラーナ",
+    "unitShortName": "ミストラーナ",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "水",
+    "hp": 5087,
+    "attack": 799,
+    "defense": 445,
+    "resist": 235,
+    "supplements": [
+      "攻撃待機時間増加(30%)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "アビスストーム",
+      "attackMul": 300,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "exclude": [
+          "水マス"
+        ],
+        "physicalEvasion": 20,
+        "magicalEvasion": 20,
+        "potentialBonus": {
+          "physicalEvasion": 30,
+          "magicalEvasion": 30
+        }
+      },
+      {
+        "require": [
+          "水マス"
+        ],
+        "isConditionalBuff": true,
+        "physicalEvasion": 40,
+        "magicalEvasion": 40,
+        "potentialBonus": {
+          "physicalEvasion": 60,
+          "magicalEvasion": 60
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "fieldElements": [
+          "水"
+        ]
+      },
+      {
+        "featureName": "common-regenerate-area",
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "supplements": [
+          "回復3%/秒→射程内"
+        ]
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageFactor": 18,
+        "rounds": 9,
+        "damageType": "物理",
+        "supplements": [
+          "鈍足(大)→命中"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-regenerate-area"
+        ]
+      }
+    ]
   }
 ]

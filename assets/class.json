@@ -1015,6 +1015,7 @@
       {
         "featureName": "class-action",
         "isAction": true,
+        "isNotAbility": true,
         "annotations": [
           "テラーペイン"
         ],
