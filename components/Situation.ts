@@ -2,6 +2,7 @@ import jsonSituations from "@/assets/situation.json";
 import * as Data from "./Data";
 import * as Stat from "./Stat";
 import {
+  Filter,
   FilterCondition,
   FilterUnitClass,
   Setting,
@@ -2915,9 +2916,9 @@ export default class Situation implements TableRow<Keys> {
       }
 
       if (!states.query) {
-        return true;
+        // return true;
         // 何もフィルターを設定していないときに表示を消去
-        // return Filter.baseKeys.some((k) => states.filter.get(k));
+        return Filter.baseKeys.some((k) => states.filter.get(k));
       } else {
         const sb: (IGetText | undefined)[] =
           parent === undefined

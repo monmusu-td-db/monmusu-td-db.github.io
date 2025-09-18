@@ -551,11 +551,12 @@ type FilterPlacement = (typeof filterPlacementKeys)[number];
 const filterTokenKeys = Data.TokenType.list;
 type FilterToken = Data.TokenTypeKey;
 
-const initialFilterObj = [
-  [Data.UnitClass.key.barbarian, true],
-  [Data.Species.key.undead, true],
-] as const satisfies [FilterKeys, boolean][];
-const initialFilter = new Map<FilterKeys, boolean>(initialFilterObj);
+// const initialFilterObj = [
+//   [Data.UnitClass.key.barbarian, true],
+//   [Data.Species.key.undead, true],
+// ] as const satisfies [FilterKeys, boolean][];
+// const initialFilter = new Map<FilterKeys, boolean>(initialFilterObj);
+const initialFilter = new Map<FilterKeys, boolean>();
 const defaultFilter = new Map<FilterKeys, boolean>();
 export type FilterKeys =
   | FilterRarity
