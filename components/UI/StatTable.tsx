@@ -29,7 +29,6 @@ import type {
   TableSource,
 } from "./StatTableUtil";
 import InfoAlert from "./InfoAlert";
-import { SpinnerBorder } from "./Util";
 
 //
 // Types
@@ -227,6 +226,17 @@ function TableControl_<T extends string>({
     handlers: dHandlers,
   } = deferredCond;
 
+  useEffect(() => {
+    if (isPending) {
+      window.__setLoadingId(id + "-control");
+    } else {
+      window.__removeLoadingId(id + "-control");
+    }
+    return () => {
+      window.__removeLoadingId(id + "-control");
+    };
+  }, [isPending, id]);
+
   if ((isPending || panelOpen) && tooltipCond.show) {
     handlers.hide();
   }
@@ -248,12 +258,7 @@ function TableControl_<T extends string>({
         id={id}
         className={cn("stat-table", { pending: isPending })}
       >
-        <Caption
-          tableData={dData}
-          onScroll={handleScroll}
-          showIcon={showIcon}
-          isTrancated={isTrancated}
-        />
+        <Caption tableData={dData} showIcon={showIcon} />
         <Header
           headers={dData.headers}
           setting={dStates.setting}
@@ -265,6 +270,8 @@ function TableControl_<T extends string>({
           setting={dStates.setting}
           sortColumn={dSort[0].column}
           handlers={dHandlers}
+          onScroll={handleScroll}
+          isTrancated={isTrancated}
         />
       </Table>
     </TooltipControl>
@@ -405,17 +412,44 @@ function Body_<T extends string>({
   setting,
   sortColumn,
   handlers,
+  onScroll,
+  isTrancated,
 }: {
   tableData: TableData<T>;
   setting: Setting;
   sortColumn: T | undefined;
   handlers: TooltipEventHandlers;
+  onScroll: () => void;
+  isTrancated: boolean;
 }) {
+  const lastRowRef = useRef<HTMLTableRowElement>(null);
   let previousId: number | undefined;
+
+  useEffect(() => {
+    const element = lastRowRef.current;
+    if (element === null || !isTrancated) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          onScroll();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "50px 50px 50px 50px" }
+    );
+
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+    };
+  });
 
   return (
     <tbody>
-      {tableData.rows.map((row) => {
+      {tableData.rows.map((row, index) => {
         let separator;
         if (
           row instanceof Situation &&
@@ -427,8 +461,14 @@ function Body_<T extends string>({
           }
           previousId = id;
         }
+
+        const isLastItem = tableData.rows.length - 1 === index;
         return (
-          <tr key={row.id} className={separator ? "separator" : undefined}>
+          <tr
+            ref={isLastItem ? lastRowRef : undefined}
+            key={row.id}
+            className={separator ? "separator" : undefined}
+          >
             <Row
               headers={tableData.headers}
               row={row}
@@ -444,50 +484,13 @@ function Body_<T extends string>({
 
 function Caption<T extends string>({
   tableData,
-  onScroll,
   showIcon,
-  isTrancated,
 }: {
   tableData: TableData<T>;
-  onScroll: () => void;
   showIcon: boolean;
-  isTrancated: boolean;
 }) {
-  const ref = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const element = ref.current;
-    if (element === null) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          onScroll();
-        }
-      },
-      { rootMargin: "50px 50px 50px 50px" }
-    );
-
-    observer.observe(element);
-    return () => {
-      observer.disconnect();
-    };
-  }, [onScroll]);
-
   if (tableData.rows.length > 0) {
-    if (isTrancated) {
-      return (
-        <caption ref={ref}>
-          <div className="d-flex justify-content-center my-1">
-            <SpinnerBorder />
-          </div>
-        </caption>
-      );
-    } else {
-      return;
-    }
+    return;
   } else {
     return (
       <caption className="stat-empty-alert">
