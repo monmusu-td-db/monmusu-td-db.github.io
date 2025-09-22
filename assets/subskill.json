@@ -2279,5 +2279,29 @@
     "isIneffective": true,
     "regenerate": 20,
     "redeployTimeCut": 45
+  },
+  {
+    "name": "超・巨鎧騎士の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+650、斧装備クラスにセット時追加で攻撃力+120",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "バーバリアン"
+        ],
+        "attackAdd": 120
+      }
+    ]
+  },
+  {
+    "name": "元気一発！ごくごくミルク",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "配置してから30秒間、攻撃力/物理防御力/魔法防御力が+100%",
+    "attackMul": 100,
+    "defenseMul": 100,
+    "resistMul": 100
   }
 ]
