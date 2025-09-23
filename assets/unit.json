@@ -41087,5 +41087,254 @@
         ]
       }
     ]
+  },
+  {
+    "id": 364,
+    "unitName": "【シージャイアント娘】オルメア",
+    "unitShortName": "オルメア",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "水",
+    "hp": 6398,
+    "attack": 928,
+    "defense": 337,
+    "resist": 155,
+    "supplements": [
+      "回復{max-hp*50}/撤退→射程内(200)"
+    ],
+    "exSkill1": {
+      "skillName": "オーシャンバースト",
+      "hpMul": 200,
+      "target": "射程内",
+      "rounds": 1,
+      "range": 300,
+      "duration": 20,
+      "cooldown": 40,
+      "damageType": "魔法",
+      "supplements": [
+        "回復100%/発動",
+        "ノックバック→命中",
+        "鈍足→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "costAdd": 5,
+    "hpMul": 130,
+    "attackMul": 120,
+    "features": [
+      {
+        "hpAdd": {
+          "key": "attack-base",
+          "value": 100
+        }
+      },
+      {
+        "featureName": "deploy-attack",
+        "isAbility": true,
+        "flagNoDps": true,
+        "annotations": [
+          "配置時追加攻撃"
+        ],
+        "damageFactor": 200,
+        "interval": null,
+        "target": "射程内",
+        "rounds": 1,
+        "splash": false,
+        "range": 200,
+        "damageType": "魔法",
+        "potentialBonus": {
+          "damageFactor": 250
+        }
+      },
+      {
+        "featureName": "common-hp-100%",
+        "require": [
+          "スキル"
+        ],
+        "isConditionalBuff": true,
+        "attackMul": 300
+      },
+      {
+        "featureName": "hp-79%",
+        "require": [
+          "スキル"
+        ],
+        "currentHp": 79,
+        "isConditionalDebuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 79
+          }
+        ],
+        "attackMul": 200
+      },
+      {
+        "featureName": "common-definite-ground",
+        "isConditionalBuff": true,
+        "annotations": [
+          "地上特効"
+        ],
+        "damageFactor": 200
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "スタン特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "スタン特効",
+          "地上特効"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-100%",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-100%",
+          "common-definite-ground",
+          "common-definite-double"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "common-definite-ground",
+          "common-definite-double"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-79%"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "deploy-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack",
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-100%",
+          "deploy-attack",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-100%",
+          "deploy-attack",
+          "common-definite-double",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-100%",
+          "deploy-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack",
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "deploy-attack",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "deploy-attack",
+          "common-definite-double",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-79%",
+          "deploy-attack"
+        ]
+      }
+    ]
   }
 ]
