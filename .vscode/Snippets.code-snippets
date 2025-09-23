@@ -81,5 +81,16 @@
     "prefix": "token situation",
     "description": "token situation",
     "body": ["\"situations\": [", "  {", "    \"proper\": true", "  }", "]"]
+  },
+  "changelog": {
+    "scope": "json",
+    "prefix": "changelog",
+    "description": "changelog snippet",
+    "body": [
+      "{",
+      "  \"date\": \"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\",",
+      "  \"desc\": \"$1\"",
+      "},"
+    ]
   }
 }
