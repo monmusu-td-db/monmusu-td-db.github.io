@@ -1,0 +1,7 @@
+.change-log time::before {
+  content: "（";
+}
+
+.change-log time::after {
+  content: "）";
+}

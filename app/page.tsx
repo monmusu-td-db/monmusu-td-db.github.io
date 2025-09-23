@@ -7,6 +7,7 @@ import * as Data from "@/components/Data";
 import classNames from "classnames";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Changelog from "@/components/UI/Changelog";
 
 const getSelector = Data.TableColor.getSelector;
 
@@ -15,6 +16,8 @@ export default function App() {
     <PageRoot pageType="situation">
       <TablesSituation id="situation" maxRows={100} showIcon />
       <Container className="md-content mt-5">
+        <h2>更新履歴</h2>
+        <Changelog />
         <h2>このサイトについて</h2>
         <p>
           当サイトでは
