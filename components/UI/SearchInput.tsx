@@ -1,18 +1,18 @@
 "use client";
 
 import { Contexts } from "@/components/States";
-import { useRef } from "react";
+// import { useRef } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import Icon from "./Icon";
 
 function SearchInput({ className }: { className?: string }) {
   const query = Contexts.useQuery();
   const setQuery = Contexts.useSetQuery();
-  const inputRef = useRef<HTMLInputElement>(null);
+  // const inputRef = useRef<HTMLInputElement>(null);
 
   function handleResetButton() {
     setQuery("");
-    inputRef.current?.focus();
+    // inputRef.current?.focus();
   }
 
   return (
@@ -27,7 +27,7 @@ function SearchInput({ className }: { className?: string }) {
           placeholder="検索"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          ref={inputRef}
+          // ref={inputRef}
         />
       </InputGroup>
     </Form>
