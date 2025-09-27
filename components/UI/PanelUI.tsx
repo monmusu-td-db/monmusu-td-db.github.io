@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  useRef,
+  // useRef,
   useState,
   type ChangeEventHandler,
   type ReactNode,
@@ -301,7 +301,7 @@ function FormNumber(props: {
   leftButton?: boolean;
 }) {
   const [text, setText] = useState<null | string>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  // const inputRef = useRef<HTMLInputElement>(null);
 
   const isInvalid = text !== null;
   const defaultValue = (props.defaultValue ?? 0).toString();
@@ -318,7 +318,7 @@ function FormNumber(props: {
 
   function handleReset() {
     handleChange(defaultValue);
-    inputRef.current?.focus();
+    // inputRef.current?.focus();
   }
 
   const button = (
@@ -340,7 +340,7 @@ function FormNumber(props: {
           value={isInvalid ? text : props.value}
           onChange={(e) => handleChange(e.target.value)}
           isInvalid={isInvalid}
-          ref={inputRef}
+          // ref={inputRef}
         />
         {!props.leftButton && button}
         {isInvalid && (
