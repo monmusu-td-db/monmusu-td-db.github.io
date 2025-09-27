@@ -18,6 +18,14 @@ type CommonKeysBegin = (typeof commonKeysBegin)[number];
 const commonKeysEnd = [stat.inBattleBuffSupplements] as const;
 type CommonKeysEnd = (typeof commonKeysEnd)[number];
 type Keys<T extends InBattleBuffKey> = T | CommonKeysBegin | CommonKeysEnd;
+const commonKeysBeginNoTarget = [
+  stat.unitId,
+  stat.unitShortName,
+  stat.skillName,
+  stat.initialTime,
+  stat.duration,
+  stat.cooldown,
+] as const satisfies InBattleBuffKey[];
 
 const baseKeys = [
   stat.buffHpMul,
@@ -80,15 +88,21 @@ const weatherKey = [
 
 export default class InBattleBuffVariants extends InBattleBuff {
   private static getKeys<T extends InBattleBuffKey>(
-    rawKeys: readonly T[]
+    rawKeys: readonly T[],
+    noTarget: boolean
   ): readonly Keys<T>[] {
-    return [...commonKeysBegin, ...rawKeys, ...commonKeysEnd];
+    if (noTarget) {
+      return [...commonKeysBeginNoTarget, ...rawKeys, ...commonKeysEnd];
+    } else {
+      return [...commonKeysBegin, ...rawKeys, ...commonKeysEnd];
+    }
   }
 
   private static getTableData<T extends InBattleBuffKey>(
-    rawKeys: readonly T[]
+    rawKeys: readonly T[],
+    noTarget?: boolean
   ): TableSource<Keys<T>> {
-    const keys = this.getKeys(rawKeys);
+    const keys = this.getKeys(rawKeys, noTarget ?? false);
     return {
       headers: Data.StatType.getHeaders(keys),
       filter: (states) => {
@@ -135,6 +149,6 @@ export default class InBattleBuffVariants extends InBattleBuff {
   }
 
   static get tableDataWeather() {
-    return this.getTableData(weatherKey);
+    return this.getTableData(weatherKey, true);
   }
 }
