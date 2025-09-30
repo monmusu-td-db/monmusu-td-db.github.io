@@ -715,7 +715,8 @@ export default class Situation implements TableRow<Keys> {
           return;
         }
 
-        const fixedRange = fea.range ?? sk?.range;
+        const featureRange = fea.range !== -1 ? fea.range : undefined;
+        const fixedRange = featureRange ?? sk?.range;
         if (fixedRange === undefined && unitFactor === undefined) {
           return;
         }
