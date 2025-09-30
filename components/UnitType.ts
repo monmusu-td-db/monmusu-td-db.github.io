@@ -221,7 +221,7 @@ interface RawCommonUnit extends RawUnitBase {
     Data.Potential,
     Data.Potential,
     Data.Potential,
-    Data.Potential,
+    Data.Potential
   ];
 
   /** 専用武器データ */
@@ -481,6 +481,9 @@ interface RawFeatureFactor {
 
   /** 対象数強調表示フラグ */
   flagTargetSkillBuff?: boolean;
+
+  /** 対象数強調表示無効化フラグ */
+  flagNoTargetSkillBuff?: boolean;
 
   /** スキル再発動時間継続短縮効果を効果時間も有効な設定にする */
   flagCooldownReductionType?: boolean;

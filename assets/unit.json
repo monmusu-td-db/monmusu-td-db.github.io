@@ -41418,6 +41418,10 @@
         "target": "射程内",
         "range": 200,
         "damageType": "魔法"
+      },
+      {
+        "featureName": "class-attack",
+        "flagNoTargetSkillBuff": true
       }
     ],
     "situations": [

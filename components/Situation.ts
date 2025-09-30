@@ -566,13 +566,15 @@ export default class Situation implements TableRow<Keys> {
             sk?.targetAdd ?? 0
           );
           const skillPointBase = getPoint(skillNum);
-          const skillPoint = calcPoints(
-            skillPointBase,
-            splashFactor.skillPoint,
-            roundsFactor.skillPoint,
-            sk?.laser ? 1 : 0,
-            fea.flagTargetSkillBuff ? 1 : 0
-          );
+          const skillPoint = fea.flagNoTargetSkillBuff
+            ? 0
+            : calcPoints(
+                skillPointBase,
+                splashFactor.skillPoint,
+                roundsFactor.skillPoint,
+                sk?.laser ? 1 : 0,
+                fea.flagTargetSkillBuff ? 1 : 0
+              );
           if (skillPoint > 0) {
             return tableColor.positive;
           }
