@@ -263,6 +263,7 @@ const commonFeature = {
   isUnhealable: false,
   healFlag: false,
   flagTargetSkillBuff: false,
+  flagNoTargetSkillBuff: false,
   flagCooldownReductionType: false,
   isSingleSkill: false,
   currentHp: 0,
