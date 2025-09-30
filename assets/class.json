@@ -413,6 +413,7 @@
           "剣気解放"
         ],
         "target": 1,
+        "splash": false,
         "laser": true,
         "range": 250,
         "moveSpeedMul": 150,
