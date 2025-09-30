@@ -41338,6 +41338,136 @@
     ]
   },
   {
+    "id": 366,
+    "unitName": "【銀月の亜神】アラン",
+    "unitShortName": "アラン",
+    "rarity": "L",
+    "class": "サムライ",
+    "element": "闇",
+    "hp": 7437,
+    "attack": 1385,
+    "defense": 591,
+    "resist": 128,
+    "target": 1,
+    "splash": true,
+    "range": 250,
+    "damageType": "魔法",
+    "supplements": [
+      "ATK+5%/12f(非攻撃/生存時)",
+      "死亡時復活(15秒後)"
+    ],
+    "exSkill1": {
+      "skillName": "軍神の砦",
+      "damageFactor": 140,
+      "targetAdd": 2,
+      "rangeMul": 140,
+      "duration": 25,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル初回待ち時間-6秒"
+    ],
+    "features": [
+      {
+        "isConditionalDebuff": true,
+        "attackMul": 50,
+        "potentialBonus": {
+          "attackMul": 70
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "magicalDamageDebuff": 140,
+        "physicalDamageCut": 75,
+        "magicalDamageCut": 75
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 750
+          }
+        ],
+        "attackMul": 800,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 770
+            }
+          ]
+        }
+      },
+      {
+        "featureName": "class-action",
+        "range": -1
+      }
+    ],
+    "costAdd": -5,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 140
+      }
+    ]
+  },
+  {
     "id": 367,
     "unitName": "【プシュキニア娘】メルーネ",
     "unitShortName": "メルーネ",
