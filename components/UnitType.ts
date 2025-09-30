@@ -653,6 +653,7 @@ interface RawFeatureFactor {
    * 射程
    *
    * nullで無効化
+   * -1で固定値設定を解除
    * */
   range?: number | null;
 
