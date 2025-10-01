@@ -41631,7 +41631,7 @@
   {
     "id": 368,
     "unitName": "【慈雨のプリンシパリティ娘】フィリス",
-    "unitShortName": "フィリス",
+    "unitShortName": "フィリス/慈雨",
     "rarity": "L",
     "class": "ウォーロック",
     "element": "闇",
@@ -41763,6 +41763,117 @@
             "type": "blind-invalid",
             "target": "射程内"
           }
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 369,
+    "unitName": "【煽怒のニーズホッグ娘】ニーサ",
+    "unitShortName": "ニーサ/煽怒",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "火",
+    "hp": 7159,
+    "attack": 570,
+    "defense": 893,
+    "resist": 208,
+    "targetAdd": 2,
+    "supplements": [
+      "毒無効",
+      "火傷無効",
+      "鈍足-30%→毒or火傷敵"
+    ],
+    "exSkill1": {
+      "skillName": "堕天の崇毒",
+      "attackMul": 340,
+      "rounds": 3,
+      "range": 400,
+      "duration": 30,
+      "cooldown": 45,
+      "supplements": [
+        "猛毒付与(高)→命中",
+        "火傷付与(高)→命中",
+        "HP0にならない"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "最大HP+600",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 107
+      },
+      {
+        "targets": [
+          "自分"
+        ],
+        "hp": 85
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-definite",
+        "isConditionalBuff": true,
+        "annotations": [
+          "毒 or 火傷特効"
+        ],
+        "conditions": [
+          {
+            "key": "特",
+            "type": "poison"
+          },
+          {
+            "key": "特",
+            "type": "burn"
+          }
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-definite-double",
+        "isConditionalBuff": true,
+        "deleteAnnotations": [
+          "毒 or 火傷特効"
+        ],
+        "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "features": [
+          "common-definite",
+          "common-definite-double"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "common-definite-double"
         ]
       }
     ]
