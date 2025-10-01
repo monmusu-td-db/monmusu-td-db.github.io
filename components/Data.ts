@@ -914,6 +914,7 @@ export const Duration = {
 
 export type FormationBuffTarget =
   | typeof FormationBuff.all
+  | typeof FormationBuff.self
   | Element
   | UnitBaseClassTag
   | Species;
@@ -936,6 +937,7 @@ export interface FormationBuff {
 }
 export const FormationBuff = {
   all: "全て",
+  self: "自分",
   valueOf(target: FormationBuffValue, statType: StatType): number | undefined {
     switch (statType) {
       case stat.cost:
@@ -970,7 +972,7 @@ export const JsonFormationBuff = {
         targets: new Set(
           v.targets
             .map((t) => {
-              if (t === FormationBuff.all) {
+              if (t === FormationBuff.all || t === FormationBuff.self) {
                 return t;
               }
 

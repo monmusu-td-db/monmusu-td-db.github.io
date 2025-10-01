@@ -1175,6 +1175,7 @@ export default class Unit implements TableRow<Keys> {
 
         const isTarget = [
           Data.FormationBuff.all,
+          Data.FormationBuff.self,
           this.element.getValue(setting),
           Data.UnitClass.baseTagOf(this.className.getValue(setting)),
           ...this.species.getValue(setting),
