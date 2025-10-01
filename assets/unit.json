@@ -41627,5 +41627,144 @@
         ]
       }
     ]
+  },
+  {
+    "id": 368,
+    "unitName": "【慈雨のプリンシパリティ娘】フィリス",
+    "unitShortName": "フィリス",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "hp": 2641,
+    "attack": 996,
+    "defense": 220,
+    "resist": 577,
+    "moveType": "飛行",
+    "supplements": [
+      "コスト+3/撃破"
+    ],
+    "exSkill1": {
+      "skillName": "慈悲の嵐雨",
+      "attackMul": 300,
+      "targetAdd": 2,
+      "rangeMul": 150,
+      "duration": "永続",
+      "cooldown": 60
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-6秒"
+    ],
+    "features": [
+      {
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 20
+        },
+        "supplements": [
+          "ATK-20%→射程内"
+        ],
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "enemy-attack",
+            "value": 30
+          },
+          "supplements": [
+            "ATK-30%→射程内"
+          ]
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "スタン無効→射程内",
+          "暗闇無効→射程内"
+        ]
+      },
+      {
+        "require": [
+          "闇マス"
+        ],
+        "isConditionalSkillBuff": true,
+        "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dark-field",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dark-field",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-dark-field",
+          "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "target": "射程内",
+        "element": "闇",
+        "supplements": [
+          "配置時",
+          "射程内ランダムで3マス+自身のマスが変化"
+        ]
+      },
+      {
+        "skill": 1,
+        "effects": [
+          {
+            "type": "stan-invalid",
+            "target": "射程内"
+          },
+          {
+            "type": "blind-invalid",
+            "target": "射程内"
+          }
+        ]
+      }
+    ]
   }
 ]
