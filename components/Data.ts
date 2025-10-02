@@ -1855,6 +1855,7 @@ export type Weapon = Readonly<{
   attackSpeed?: number;
   block?: number;
   range?: number;
+  costAdd?: number;
   hpMul?: number;
   attackMul?: number;
   moveSpeedMul?: number;
