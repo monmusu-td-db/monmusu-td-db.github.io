@@ -394,7 +394,9 @@ export default class Unit implements TableRow<Keys> {
         const cost = getCost(s);
         if (cost !== undefined) {
           const ss = this.getSubskillFactor(s, ssKeys.cost);
-          return this.calculateStat(s, stat.cost, cost + ss);
+          const weapon =
+            (Data.Weapon.isApplied(s) ? this.weapon?.costAdd : undefined) ?? 0;
+          return this.calculateStat(s, stat.cost, cost + ss + weapon);
         }
       },
     });
