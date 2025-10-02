@@ -13632,6 +13632,9 @@
       },
       {
         "featureName": "common-melee",
+        "require": [
+          "武器"
+        ],
         "damageFactor": 120
       },
       {
