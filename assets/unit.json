@@ -13617,12 +13617,22 @@
       "最大HP+600",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "強靭戦斧デカックス",
+      "hp": 200,
+      "attack": 40,
+      "defense": 20
+    },
     "features": [
       {
         "featureName": "common-melee",
         "supplements": [
           "即死(低)→命中"
         ]
+      },
+      {
+        "featureName": "common-melee",
+        "damageFactor": 120
       },
       {
         "featureName": "common-ranged",
@@ -13693,6 +13703,11 @@
       "射程+15",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "デモンミニオン",
+      "attack": 50,
+      "resist": 30
+    },
     "features": [
       {
         "attackDebuff": {
@@ -13716,6 +13731,19 @@
         "skill": 1,
         "isBuffSkill": true,
         "damageFactor": 130
+      },
+      {
+        "featureName": "common-dot-no-annotation",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "専用武器特性"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 10
+        }
       }
     ],
     "targetAdd": 3,
@@ -13724,6 +13752,31 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2"
+        ],
+        "features": [
+          "common-dot-no-annotation"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2"
+        ],
+        "skill": 1,
+        "features": [
+          "common-dot-no-annotation"
+        ]
       }
     ],
     "buffs": [
@@ -17236,6 +17289,11 @@
       "物理攻撃回避40%",
       "魔法攻撃回避40%"
     ],
+    "weapon": {
+      "weaponName": "空裂の聖槍",
+      "hp": 500,
+      "attack": 30
+    },
     "features": [
       {
         "skill": 1,
@@ -17249,6 +17307,18 @@
         "potentialBonus": {
           "damageFactor": 200
         }
+      },
+      {
+        "featureName": "common-charge-attack",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "annotations": [
+          "移動中"
+        ],
+        "physicalDamageCut": 20,
+        "magicalDamageCut": 20
       }
     ],
     "isEventUnit": true,
@@ -17301,6 +17371,11 @@
       "攻撃速度+15",
       "スキル初回待ち時間-6秒"
     ],
+    "weapon": {
+      "weaponName": "受け継ぎし黒弓",
+      "attack": 55,
+      "range": 10
+    },
     "features": [
       {
         "defenseDebuff": {
@@ -17355,6 +17430,12 @@
             "貫通52%"
           ]
         }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 120
       }
     ],
     "isUnhealable": true,
@@ -17397,6 +17478,19 @@
       "物理防御力+90",
       "射程+15",
       "物理ダメージ20%軽減"
+    ],
+    "weapon": {
+      "weaponName": "69口径魔導レーザー砲",
+      "attack": 40,
+      "defense": 40
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "cooldownCut": 12
+      }
     ],
     "costAdd": 12,
     "hpMul": 200,

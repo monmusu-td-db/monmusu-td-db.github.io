@@ -828,6 +828,14 @@
     "damageType": "貫通"
   },
   {
+    "featureName": "common-dot-no-annotation",
+    "isAbility": true,
+    "interval": 30,
+    "target": "射程内",
+    "splash": false,
+    "damageType": "貫通"
+  },
+  {
     "featureName": "common-skill-dot",
     "isAbility": true,
     "annotations": [
