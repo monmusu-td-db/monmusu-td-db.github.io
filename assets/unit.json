@@ -22014,6 +22014,12 @@
       "射程+15",
       "再出撃時間50%短縮"
     ],
+    "weapon": {
+      "weaponName": "墓守の杖",
+      "hp": 100,
+      "defense": 35,
+      "resist": 35
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -22032,19 +22038,108 @@
             "呪殺20%(ボス10%)→射程内"
           ]
         }
+      },
+      {
+        "featureName": "team-buff1",
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "t",
+            "value": 1
+          }
+        ],
+        "attackMul": 120
+      },
+      {
+        "featureName": "common-team-buff5",
+        "require": [
+          "武器"
+        ],
+        "attackMul": 200
+      },
+      {
+        "featureName": "common-team-buff10",
+        "require": [
+          "武器"
+        ],
+        "attackMul": 300
       }
     ],
     "situations": [
-      {},
+      {
+        "features": [
+          "team-buff1"
+        ]
+      },
       {
         "skill": 1,
         "features": [
+          "team-buff1",
           "common-1hit"
         ]
       },
       {
         "skill": 1,
         "features": [
+          "team-buff1",
+          "common-2hits"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-1hit"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-2hits"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff10",
+          "common-1hit"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff10",
           "common-2hits"
         ]
       }
@@ -25086,7 +25181,22 @@
       "攻撃力+75",
       "CRI率/CRI率上限+30%"
     ],
+    "weapon": {
+      "weaponName": "攻勢斬神剣",
+      "hp": 600,
+      "defense": 10,
+      "resist": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "supplements": [
+          "バリア{attack-base*100}付与/発動"
+        ]
+      },
       {
         "featureName": "attack-mul",
         "isConditionalBuff": true,
@@ -25186,6 +25296,11 @@
       "物理防御力+90",
       "物理ダメージ20%軽減"
     ],
+    "weapon": {
+      "weaponName": "太古の戦鎚",
+      "attack": 30,
+      "defense": 50
+    },
     "features": [
       {
         "featureName": "common-block1-emphasis",
@@ -25428,6 +25543,16 @@
       "cooldown": 30,
       "damageType": "魔法"
     },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
     "isUnhealable": true,
     "situations": [
       {
@@ -31624,7 +31749,19 @@
       "攻撃力+75",
       "再出撃時間50%短縮"
     ],
+    "weapon": {
+      "weaponName": "天別つ翼",
+      "hp": 250,
+      "attack": 55,
+      "costAdd": -5
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 10
+      },
       {
         "featureName": "common-dot",
         "skill": 0,
@@ -31788,6 +31925,12 @@
       "攻撃力+75",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "究極武装Gデカーマー",
+      "hp": 300,
+      "attack": 20,
+      "defense": 30
+    },
     "features": [
       {
         "featureName": "common-block1-emphasis",
@@ -31843,6 +31986,17 @@
         "supplements": [
           "CT-10秒/1秒"
         ]
+      },
+      {
+        "featureName": "beat-20",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 20
+          }
+        ],
+        "hpMul": 160
       }
     ],
     "costAdd": 5,
@@ -31921,6 +32075,126 @@
       {
         "skill": 1,
         "features": [
+          "common-block5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-melee"
+        ],
+        "features": [
+          "beat-20",
+          "common-block0"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-20",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-20",
+          "common-block2"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-20",
+          "common-block3"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-20",
+          "common-block4"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-20",
+          "common-block5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-melee"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-20",
+          "common-block0"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-20",
+          "common-block1-emphasis"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-20",
+          "common-block2"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-20",
+          "common-block3"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-20",
+          "common-block4"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-20",
           "common-block5"
         ]
       }
