@@ -2303,5 +2303,29 @@
     "attackMul": 100,
     "defenseMul": 100,
     "resistMul": 100
+  },
+  {
+    "name": "攻撃犠牲HP強化",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "最大HP+30%、代わりに攻撃力-7%",
+    "hp": 30,
+    "attack": -7
+  },
+  {
+    "name": "HP犠牲貫通攻撃",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "24%の確率で敵の防御力を無視する、代わりに最大HP-10%",
+    "hp": -10,
+    "penetration": 24
+  },
+  {
+    "name": "HP犠牲クリティカル率強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "クリティカル率+28%、代わりに最大HP-10%",
+    "hp": -10,
+    "criChanceAdd": 28
   }
 ]
