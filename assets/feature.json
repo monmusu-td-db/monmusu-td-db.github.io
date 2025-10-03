@@ -631,6 +631,60 @@
     ]
   },
   {
+    "featureName": "common-definite-fire-field",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "fire-field"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-fire-field",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "fire-field"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-water-field",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "water-field"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-earth-field",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "earth-field"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-light-field",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "light-field"
+      }
+    ]
+  },
+  {
+    "featureName": "common-definite-dark-field",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "dark-field"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-double",
     "annotations": [
       "二重特効"

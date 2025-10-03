@@ -490,6 +490,12 @@ export class Condition {
     dark: "闇属性",
     ground: "対地",
     yokai: "妖怪",
+    "fire-field": "火マス",
+    "water-field": "水マス",
+    "earth-field": "地マス",
+    "wind-field": "風マス",
+    "light-field": "光マス",
+    "dark-field": "闇マス",
   } as const;
 
   private static readonly keys = getKeys(this.tag);
