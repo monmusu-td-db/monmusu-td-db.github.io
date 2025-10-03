@@ -41709,6 +41709,116 @@
     ]
   },
   {
+    "id": 365,
+    "unitName": "【ドラゴニュートプリースト娘】セラ",
+    "unitShortName": "セラ",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "火",
+    "species": "ドラゴン",
+    "hp": 4128,
+    "attack": 660,
+    "defense": 296,
+    "resist": 403,
+    "exSkill1": {
+      "skillName": "火竜の祈祷",
+      "attackMul": 220,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 44,
+      "supplements": [
+        "バリア{attack-base*200}付与/発動",
+        "-→射程内火マス"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "ドラゴン"
+        ],
+        "hp": 105,
+        "attack": 105,
+        "potentialBonus": {
+          "hp": 107,
+          "attack": 107
+        }
+      }
+    ],
+    "features": [
+      {
+        "featureName": "common-definite-fire-field",
+        "isConditionalBuff": true,
+        "annotations": [
+          "火マス特効"
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "同属性特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "火マス特効",
+          "同属性特効"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-fire-field"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-fire-field"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-fire-field",
+          "common-definite-double"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-fire-field",
+          "common-definite-double"
+        ]
+      }
+    ]
+  },
+  {
     "id": 366,
     "unitName": "【銀月の亜神】アラン",
     "unitShortName": "アラン",
