@@ -42235,6 +42235,7 @@
       },
       {
         "skill": 1,
+        "target": "射程内",
         "effects": [
           {
             "type": "stan-invalid",
