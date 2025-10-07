@@ -1,7 +1,7 @@
 import * as Data from "./Data";
 import Situation, { type JsonSituation } from "./Situation";
 import * as Stat from "./Stat";
-import type { Setting, States } from "./States";
+import { Filter, type Setting, type States } from "./States";
 import { InBattleBuffUI } from "./UI/InBattleBuffUI";
 import {
   TableSourceUtil,
@@ -274,7 +274,7 @@ export default class InBattleBuff implements TableRow<Key> {
       statType: stat.buffTarget,
       calculater: (s) => {
         return unit.isPotentialApplied(s)
-          ? (buff.potentialBonus?.target ?? buff.target)
+          ? buff.potentialBonus?.target ?? buff.target
           : buff.target;
       },
       comparer: (s) => this.getTargetComparer(s),
@@ -311,7 +311,7 @@ export default class InBattleBuff implements TableRow<Key> {
           }
         }
         const rawValue = unit.isPotentialApplied(s)
-          ? (buff.potentialBonus?.duration ?? buff.duration)
+          ? buff.potentialBonus?.duration ?? buff.duration
           : buff.duration;
         const inBattleBuff = parse(rawValue);
         const inBattleBuffAlways =
@@ -697,7 +697,11 @@ export default class InBattleBuff implements TableRow<Key> {
     states: States,
     list: readonly InBattleBuff[]
   ): readonly InBattleBuff[] {
-    return list.filter((buff) => buff.unit.filterFn(states));
+    if (states.filter.get(Filter.filterBuffPageKey.filterDisabled)) {
+      return list;
+    } else {
+      return list.filter((buff) => buff.unit.filterFn(states));
+    }
   }
 
   protected static get list(): readonly InBattleBuff[] {

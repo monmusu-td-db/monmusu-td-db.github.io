@@ -551,12 +551,16 @@ type FilterPlacement = (typeof filterPlacementKeys)[number];
 const filterTokenKeys = Data.TokenType.list;
 type FilterToken = Data.TokenTypeKey;
 
-// const initialFilterObj = [
-//   [Data.UnitClass.key.barbarian, true],
-//   [Data.Species.key.undead, true],
-// ] as const satisfies [FilterKeys, boolean][];
-// const initialFilter = new Map<FilterKeys, boolean>(initialFilterObj);
-const initialFilter = new Map<FilterKeys, boolean>();
+const filterBuffPageKeys = ["filterDisabled"] as const;
+type FilterBuffPage = (typeof filterBuffPageKeys)[number];
+
+const initialFilterObj = [
+  // [Data.UnitClass.key.barbarian, true],
+  // [Data.Species.key.undead, true],
+  ["filterDisabled", true],
+] as const satisfies [FilterKeys, boolean][];
+const initialFilter = new Map<FilterKeys, boolean>(initialFilterObj);
+// const initialFilter = new Map<FilterKeys, boolean>();
 const defaultFilter = new Map<FilterKeys, boolean>();
 export type FilterKeys =
   | FilterRarity
@@ -567,7 +571,8 @@ export type FilterKeys =
   | FilterDamageType
   | FilterMoveType
   | FilterPlacement
-  | FilterToken;
+  | FilterToken
+  | FilterBuffPage;
 const filterKeys: FilterKeys[] = [
   ...filterRarityKeys,
   ...filterElementKeys,
@@ -578,12 +583,14 @@ const filterKeys: FilterKeys[] = [
   ...filterMoveTypeKeys,
   ...filterPlacementKeys,
   ...filterTokenKeys,
+  ...filterBuffPageKeys,
 ];
 
 export type FilterObject = Partial<Record<FilterKeys, boolean>>;
 export type Filter = ReadonlyMap<FilterKeys, boolean>;
 export const Filter = {
   baseKeys: filterKeys.filter((k) => !FilterCondition.isKey(k)),
+  filterBuffPageKey: Data.Enum(filterBuffPageKeys),
 } as const;
 
 // Setting
