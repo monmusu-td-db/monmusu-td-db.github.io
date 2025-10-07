@@ -29,7 +29,7 @@ import {
   FilterUnitClass,
   Setting,
   Contexts,
-  type Filter,
+  Filter,
   type FilterObject,
   type UISetting,
 } from "@/components/States";
@@ -119,7 +119,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
               </Row>
               <Tab.Content>
                 <Tab.Pane eventKey={tabs.FILTER}>
-                  <TabFilter isSituation={isSituation} />
+                  <TabFilter pageType={pageType} />
                 </Tab.Pane>
                 <Tab.Pane eventKey={tabs.UNIT}>
                   <TabUnit key={resetKey} pageType={pageType} />
@@ -157,7 +157,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
   );
 }
 
-function TabFilter({ isSituation }: { isSituation: boolean }) {
+function TabFilter({ pageType }: { pageType: PageType }) {
   const filter = Contexts.useFilter();
   const dispatchFilter = Contexts.useDispatchFilter();
   const handleChange = useCallback(
@@ -172,7 +172,7 @@ function TabFilter({ isSituation }: { isSituation: boolean }) {
     <TabFilterContent
       filter={filter}
       onChange={handleChange}
-      isSituation={isSituation}
+      pageType={pageType}
       setting={setting}
     />
   );
@@ -181,15 +181,17 @@ function TabFilter({ isSituation }: { isSituation: boolean }) {
 const TabFilterContent = memo(function TabFilterContent({
   filter,
   onChange,
-  isSituation,
+  pageType,
   setting,
 }: {
   filter: Filter;
   onChange: (nextValue: FilterObject) => void;
-  isSituation: boolean;
+  pageType: PageType;
   setting: Setting;
 }) {
   const conditions = FilterCondition.getVisibleItems(filter);
+  const isSituation = PageTypeUtil.isSituation(pageType);
+  const isBuff = PageTypeUtil.isBuff(pageType);
 
   return (
     <Form>
@@ -389,6 +391,26 @@ const TabFilterContent = memo(function TabFilterContent({
           })}
         </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
+      {isBuff && (
+        <PanelUI.FormGroup label="バフページフィルター適用">
+          <PanelUI.FormCheckboxGroup>
+            {(() => {
+              const key = Filter.filterBuffPageKey.filterDisabled;
+              const checked = filter.get(key) ?? false;
+              return (
+                <PanelUI.FormCheckbox
+                  key={key}
+                  name={key}
+                  label="無効化"
+                  checked={checked}
+                  onClick={() => onChange({ [key]: !checked })}
+                  grid
+                />
+              );
+            })()}
+          </PanelUI.FormCheckboxGroup>
+        </PanelUI.FormGroup>
+      )}
     </Form>
   );
 });

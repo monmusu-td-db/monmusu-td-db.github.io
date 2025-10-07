@@ -2,7 +2,7 @@ import * as Data from "./Data";
 import * as Stat from "./Stat";
 import Unit from "./Unit";
 import type { TableSource, TableRow } from "./UI/StatTableUtil";
-import type { Setting, States } from "./States";
+import { Filter, type Setting, type States } from "./States";
 import FormationBuffUI from "./UI/FormationBuffUI";
 
 const stat = Data.stat;
@@ -215,7 +215,11 @@ export default class FormationBuff implements TableRow<Keys> {
   }
 
   private static filter(states: States, list: readonly FormationBuff[]) {
-    return list.filter((buff) => buff.unit.filterFn(states));
+    if (states.filter.get(Filter.filterBuffPageKey.filterDisabled)) {
+      return list;
+    } else {
+      return list.filter((buff) => buff.unit.filterFn(states));
+    }
   }
 
   static get tableData(): TableSource<Keys> {
