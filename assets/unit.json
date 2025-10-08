@@ -42041,6 +42041,9 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-attack"
+        ],
         "skill": 1,
         "features": [
           "extra-damage"
