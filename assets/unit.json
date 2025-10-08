@@ -41979,7 +41979,7 @@
       "魔法防御力+90",
       "攻撃時最大HPの1%回復"
     ],
-    "costAdd": -3,
+    "costAdd": 3,
     "attackMul": 120,
     "resistMul": 300,
     "features": [
