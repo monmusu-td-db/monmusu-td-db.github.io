@@ -2921,7 +2921,11 @@ export default class Situation implements TableRow<Keys> {
       if (!states.query) {
         // return true;
         // 何もフィルターを設定していないときに表示を消去
-        return Filter.baseKeys.some((k) => states.filter.get(k));
+        return Filter.baseKeys.some(
+          (k) =>
+            states.filter.get(k) &&
+            k !== Filter.filterBuffPageKey.filterDisabled
+        );
       } else {
         const sb: (IGetText | undefined)[] =
           parent === undefined
