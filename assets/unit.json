@@ -42364,6 +42364,210 @@
     ]
   },
   {
+    "id": 371,
+    "unitName": "【戯夜宴ティターニア娘】オプスカリテ",
+    "unitShortName": "オプスカリテ/Hw",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "風",
+    "species": "妖精",
+    "hp": 3009,
+    "attack": 526,
+    "defense": 294,
+    "resist": 499,
+    "moveType": "飛行",
+    "supplements": [
+      "CT-5秒/呪詛付与"
+    ],
+    "exSkill1": {
+      "skillName": "スプーキードール",
+      "attackMul": 260,
+      "targetAdd": 1,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "暗闇付与(中)→命中",
+        "暗闇付与(超高)→命中呪詛敵"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "features": [
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "resistDebuff": {
+          "valueMul": 40
+        },
+        "duration": 20,
+        "supplements": [
+          "RES-40%→呪詛敵",
+          "鈍足-80%→呪詛敵"
+        ]
+      },
+      {
+        "featureName": "common-team-buff1",
+        "isConditionalBuff": true,
+        "rangeMul": 103
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "rangeMul": 115
+      },
+      {
+        "featureName": "common-team-buff10",
+        "isConditionalBuff": true,
+        "rangeMul": 130
+      },
+      {
+        "featureName": "common-definite",
+        "annotations": [
+          "呪詛or暗闇特効"
+        ],
+        "conditions": [
+          {
+            "key": "特",
+            "type": "blind"
+          },
+          {
+            "key": "特",
+            "type": "curse"
+          }
+        ],
+        "damageFactor": 130
+      }
+    ],
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "potentialBonus": {
+      "physicalEvasion": 50,
+      "magicalEvasion": 50
+    },
+    "situations": [
+      {
+        "exclude": [
+          "class-action"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "exclude": [
+          "class-action"
+        ],
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-definite",
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "common-team-buff1"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-definite",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-definite",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "common-team-buff10"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "呪詛or暗闇特効"
+        ],
+        "skill": 1,
+        "target": "全体",
+        "value": 130
+      }
+    ]
+  },
+  {
     "TODO_DESC": "スタン時間延長",
     "id": 372,
     "unitName": "【戯花宴オベロン娘】リュミヴェル",
