@@ -42376,9 +42376,6 @@
     "defense": 294,
     "resist": 499,
     "moveType": "飛行",
-    "supplements": [
-      "CT-5秒/呪詛付与"
-    ],
     "exSkill1": {
       "skillName": "スプーキードール",
       "attackMul": 260,
@@ -42407,6 +42404,7 @@
         },
         "duration": 20,
         "supplements": [
+          "CT-5秒/呪詛付与",
           "RES-40%→呪詛敵",
           "鈍足-80%→呪詛敵"
         ]
