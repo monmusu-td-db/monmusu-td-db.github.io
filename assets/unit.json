@@ -42362,5 +42362,144 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_DESC": "スタン時間延長",
+    "id": 372,
+    "unitName": "【戯花宴オベロン娘】リュミヴェル",
+    "unitShortName": "リュミヴェル/Hw",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "風",
+    "species": "妖精",
+    "hp": 4487,
+    "attack": 701,
+    "defense": 445,
+    "resist": 243,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "フェアリートリック",
+      "attackMul": 300,
+      "attackSpeedBuff": 200,
+      "duration": 20,
+      "cooldown": 40,
+      "damageType": "魔法",
+      "supplements": [
+        "スタン付与35%/命中",
+        "スタン時間+30%→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "physicalDamageCut": 20,
+        "magicalDamageCut": 20,
+        "supplements": [
+          "ACT+10%/撃破"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ACT+13%/撃破"
+          ]
+        }
+      },
+      {
+        "featureName": "common-team-buff1",
+        "isConditionalBuff": true,
+        "attackMul": 110
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "attackMul": 150
+      },
+      {
+        "featureName": "common-team-buff10",
+        "isConditionalBuff": true,
+        "attackMul": 200
+      },
+      {
+        "skill": 1,
+        "featureName": "common-definite-stan",
+        "isConditionalBuff": true,
+        "damageFactor": 150
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-action"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-team-buff1"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-team-buff10"
+        ]
+      }
+    ]
   }
 ]
