@@ -42364,6 +42364,113 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 370,
+    "unitName": "【戯灯瓜ジャックランタン娘】テナ",
+    "unitShortName": "テナ/Hw",
+    "rarity": "E",
+    "class": "パペッティア",
+    "element": "火",
+    "hp": 2860,
+    "attack": 529,
+    "defense": 275,
+    "resist": 469,
+    "exSkill1": {
+      "skillName": "パンプキンスマイル",
+      "attackMul": 140,
+      "rangeMul": 130,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "火傷付与(中)→命中",
+        "火傷付与(高)→命中呪詛敵"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "火傷付与(低)→命中"
+        ]
+      },
+      {
+        "require": [
+          "火マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "duration": 10,
+        "supplements": [
+          "火傷耐性-40→呪詛敵"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "hasPotentials": [
+          "火傷の敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "hasPotentials": [
+          "火傷の敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-burn"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 3700001,
+    "parentId": 370,
+    "unitName": "いたずらカボチャ",
+    "unitShortName": "カボチャT",
+    "rarity": "C",
+    "element": "火",
+    "cost": 20,
+    "hp": 100,
+    "attack": 1000,
+    "defense": 0,
+    "resist": 0,
+    "block": 1,
+    "target": 0,
+    "range": 100,
+    "moveSpeed": 0,
+    "placement": "近",
+    "supplements": [
+      "スタン付与100%/死亡時→射程内",
+      "火傷付与/死亡時→射程内"
+    ],
+    "features": [],
+    "isUnhealable": true,
+    "situations": [
+      {}
+    ]
+  },
+  {
     "id": 371,
     "unitName": "【戯夜宴ティターニア娘】オプスカリテ",
     "unitShortName": "オプスカリテ/Hw",
