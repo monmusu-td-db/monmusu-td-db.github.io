@@ -42755,12 +42755,20 @@
         ]
       },
       {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff"
+        ],
         "skill": 1,
         "features": [
           "common-team-buff1"
         ]
       },
       {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff"
+        ],
         "skill": 1,
         "features": [
           "common-definite-stan",
@@ -42776,12 +42784,20 @@
         ]
       },
       {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff"
+        ],
         "skill": 1,
         "features": [
           "common-team-buff5"
         ]
       },
       {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff"
+        ],
         "skill": 1,
         "features": [
           "common-definite-stan",
@@ -42797,12 +42813,20 @@
         ]
       },
       {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff"
+        ],
         "skill": 1,
         "features": [
           "common-team-buff10"
         ]
       },
       {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff"
+        ],
         "skill": 1,
         "features": [
           "common-definite-stan",
