@@ -42708,7 +42708,10 @@
     "features": [
       {
         "physicalDamageCut": 20,
-        "magicalDamageCut": 20,
+        "magicalDamageCut": 20
+      },
+      {
+        "featureName": "beat",
         "supplements": [
           "ACT+10%/撃破"
         ],
@@ -42744,6 +42747,9 @@
       {
         "exclude": [
           "class-action"
+        ],
+        "features": [
+          "beat"
         ]
       },
       {
@@ -42757,6 +42763,34 @@
       {
         "isGeneralDefinite": true,
         "exclude": [
+          "class-debuff",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "beat",
+          "common-team-buff1"
+        ]
+      },
+      {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "beat",
+          "common-definite-stan",
+          "common-team-buff1"
+        ]
+      },
+      {
+        "isGeneralDefinite": true,
+        "depend": [
+          "class-action"
+        ],
+        "exclude": [
           "class-debuff"
         ],
         "skill": 1,
@@ -42766,6 +42800,9 @@
       },
       {
         "isGeneralDefinite": true,
+        "depend": [
+          "class-action"
+        ],
         "exclude": [
           "class-debuff"
         ],
@@ -42786,6 +42823,34 @@
       {
         "isGeneralDefinite": true,
         "exclude": [
+          "class-debuff",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "beat",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "beat",
+          "common-definite-stan",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "isGeneralDefinite": true,
+        "depend": [
+          "class-action"
+        ],
+        "exclude": [
           "class-debuff"
         ],
         "skill": 1,
@@ -42795,6 +42860,9 @@
       },
       {
         "isGeneralDefinite": true,
+        "depend": [
+          "class-action"
+        ],
         "exclude": [
           "class-debuff"
         ],
@@ -42815,6 +42883,34 @@
       {
         "isGeneralDefinite": true,
         "exclude": [
+          "class-debuff",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "beat",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "isGeneralDefinite": true,
+        "exclude": [
+          "class-debuff",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "beat",
+          "common-definite-stan",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "isGeneralDefinite": true,
+        "depend": [
+          "class-action"
+        ],
+        "exclude": [
           "class-debuff"
         ],
         "skill": 1,
@@ -42824,6 +42920,9 @@
       },
       {
         "isGeneralDefinite": true,
+        "depend": [
+          "class-action"
+        ],
         "exclude": [
           "class-debuff"
         ],
