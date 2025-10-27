@@ -559,9 +559,15 @@ const initialFilterObj = [
   // [Data.Species.key.undead, true],
   ["filterDisabled", true],
 ] as const satisfies [FilterKeys, boolean][];
-const initialFilter = new Map<FilterKeys, boolean>(initialFilterObj);
+const initialFilter: ReadonlyMap<FilterKeys, boolean> = new Map<
+  FilterKeys,
+  boolean
+>(initialFilterObj);
 // const initialFilter = new Map<FilterKeys, boolean>();
-const defaultFilter = new Map<FilterKeys, boolean>();
+const defaultFilter: ReadonlyMap<FilterKeys, boolean> = new Map<
+  FilterKeys,
+  boolean
+>();
 export type FilterKeys =
   | FilterRarity
   | FilterElement
@@ -831,6 +837,7 @@ const FilterAction = {
   change: "change",
   initialize: "initialize",
   reset: "reset",
+  buffPageReset: "buffPageReset",
 } as const;
 type FilterAction =
   | {
@@ -843,6 +850,9 @@ type FilterAction =
     }
   | {
       type: typeof FilterAction.reset;
+    }
+  | {
+      type: typeof FilterAction.buffPageReset;
     };
 
 function filterReducer(state: Filter, action: FilterAction): Filter {
@@ -858,7 +868,15 @@ function filterReducer(state: Filter, action: FilterAction): Filter {
       return action.initialValue;
     }
     case FilterAction.reset: {
-      return defaultFilter;
+      const ret = new Map(defaultFilter);
+      const value = state.get("filterDisabled");
+      if (value !== undefined) {
+        ret.set("filterDisabled", value);
+      }
+      return ret;
+    }
+    case FilterAction.buffPageReset: {
+      return initialFilter;
     }
   }
 }
@@ -1133,7 +1151,7 @@ class Storage {
     this.setObject(storageKeys.SETTING, obj, isLocal);
   }
 
-  static getFilter(): Map<FilterKeys, boolean> {
+  static getFilter(): ReadonlyMap<FilterKeys, boolean> {
     const obj = this.getObject(storageKeys.FILTER);
     const ret = new Map<FilterKeys, boolean>();
 

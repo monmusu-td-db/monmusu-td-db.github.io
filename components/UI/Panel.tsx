@@ -57,11 +57,18 @@ function Panel({ open, onClose, pageType }: PanelProps) {
   const dispatchFilter = Contexts.useDispatchFilter();
   const dispatchSetting = Contexts.useDispatchSetting();
 
+  const isSituation = PageTypeUtil.isSituation(pageType);
+  const isBuff = PageTypeUtil.isBuff(pageType);
+
   function handleReset(): void {
     setResetKey((p) => p + 1);
     switch (tab) {
       case tabs.FILTER:
-        dispatchFilter({ type: Contexts.FilterAction.reset });
+        dispatchFilter({
+          type: isBuff
+            ? Contexts.FilterAction.buffPageReset
+            : Contexts.FilterAction.reset,
+        });
         break;
       case tabs.UNIT:
         dispatchSetting({ type: Contexts.SettingAction.resetUnit });
@@ -77,8 +84,6 @@ function Panel({ open, onClose, pageType }: PanelProps) {
         break;
     }
   }
-
-  const isSituation = PageTypeUtil.isSituation(pageType);
 
   return (
     <>
