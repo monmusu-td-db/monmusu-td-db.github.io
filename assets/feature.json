@@ -55,6 +55,17 @@
     "damageFactor": 120
   },
   {
+    "hasPotentials": [
+      "スキル時ACT+30%"
+    ],
+    "require": [
+      "スキル"
+    ],
+    "supplements": [
+      "ACT+30%/発動"
+    ]
+  },
+  {
     "featureName": "common-fire-field",
     "fieldElements": [
       "火"
