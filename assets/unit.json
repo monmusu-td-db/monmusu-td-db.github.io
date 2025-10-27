@@ -42933,5 +42933,175 @@
         ]
       }
     ]
+  },
+  {
+    "id": 375,
+    "unitName": "【俱利伽羅龍王娘】マウロ",
+    "unitShortName": "マウロ/進化",
+    "rarity": "L",
+    "class": "サムライ",
+    "element": "闇",
+    "hp": 7758,
+    "attack": 1208,
+    "defense": 576,
+    "resist": 129,
+    "supplements": [
+      "HP-3%/秒→自分",
+      "呪殺15%(ボス×)→全体火傷敵"
+    ],
+    "exSkill1": {
+      "skillName": "黒龍滅殺剣",
+      "attackMul": 320,
+      "target": 1,
+      "rounds": 4,
+      "splash": true,
+      "range": 250,
+      "duration": 30,
+      "cooldown": 40,
+      "damageType": "貫通"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル時ACT+30%"
+    ],
+    "weapon": {
+      "weaponName": "滅龍黒炎剣",
+      "hp": 100,
+      "attack": 70
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "火傷付与(稀+)→命中"
+        ]
+      },
+      {
+        "featureName": "common-token-limit-nodesc",
+        "isConditionalBuff": true,
+        "annotations": [
+          "付与トークン配置時"
+        ],
+        "damageFactor": 120,
+        "supplements": [
+          "引き付け",
+          "攻撃無効化(ブロック敵以外)"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 30
+        },
+        "supplements": [
+          "回復{attack-base*30}/命中"
+        ]
+      }
+    ],
+    "attackMul": 150,
+    "potentialBonus": {
+      "attackMul": 160
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-token-limit-nodesc",
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_FATAL": "StatはLv10",
+    "id": 3750001,
+    "parentId": 375,
+    "unitName": "火焔光背",
+    "unitShortName": "火焔光背T",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 2132,
+    "attack": 0,
+    "defense": 132,
+    "resist": 21,
+    "block": 0,
+    "target": 0,
+    "moveSpeed": 0,
+    "placement": "付",
+    "features": [
+      {
+        "supplements": [
+          "limit40秒"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "limit60秒"
+        ],
+        "deleteSupplements": [
+          "limit40秒"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "武器"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "value": 120,
+        "supplements": [
+          "limit60秒"
+        ]
+      }
+    ]
   }
 ]
