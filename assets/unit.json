@@ -42935,6 +42935,92 @@
     ]
   },
   {
+    "TODO_DESC": "再出撃時間-9秒→自分",
+    "id": 373,
+    "unitName": "【ホーリースケルトン娘】ペロロス",
+    "unitShortName": "ペロロス/進化",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "光",
+    "hp": 6257,
+    "attack": 491,
+    "defense": 930,
+    "resist": 235,
+    "supplements": [
+      "毒無効",
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "セイントガード",
+      "defenseMul": 280,
+      "resistMul": 280,
+      "duration": 15,
+      "cooldown": 45,
+      "supplements": [
+        "スタン付与35%/命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+90",
+      "魔法防御力+90",
+      "HPが毎秒3%回復"
+    ],
+    "weapon": {
+      "weaponName": "セイントブレード",
+      "hp": 300,
+      "attack": 10,
+      "defense": 20,
+      "resist": 20
+    },
+    "features": [
+      {
+        "potentialBonus": {
+          "physicalDamageCut": 10,
+          "magicalDamageCut": 10
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "cooldownCut": 10
+      },
+      {
+        "featureName": "hp-25%",
+        "currentHp": 25,
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 25
+          }
+        ],
+        "physicalDamageCut": 60,
+        "magicalDamageCut": 60
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 60,
+        "magicalDamageCut": 60
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "features": [
+          "hp-25%"
+        ]
+      },
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "TODO_DESC": "再出撃短縮/死亡時攻撃射程",
     "id": 374,
     "unitName": "【トゥルーヴァンパイア娘】ヴェラートゥ",
