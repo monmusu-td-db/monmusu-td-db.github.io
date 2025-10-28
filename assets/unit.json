@@ -43193,5 +43193,109 @@
         ]
       }
     ]
+  },
+  {
+    "id": 376,
+    "unitName": "【ブリアレオース娘】ラキオン",
+    "unitShortName": "ラキオン/進化",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "水",
+    "hp": 2779,
+    "attack": 669,
+    "defense": 331,
+    "resist": 185,
+    "exSkill1": {
+      "skillName": "激流射・疾",
+      "attackMul": 220,
+      "attackMotionMul": 30,
+      "attackSpeedBuff": 125,
+      "delayMul": 5,
+      "splash": true,
+      "rangeMul": 240,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "アイガイオーン",
+      "attack": 30,
+      "resist": 10,
+      "range": 5
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "範囲攻撃/4回攻撃"
+        ]
+      },
+      {
+        "require": [
+          "スキル",
+          "武器"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "飛行特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-ground",
+        "isConditionalBuff": true,
+        "annotations": [
+          "地上特効"
+        ],
+        "damageFactor": 200
+      }
+    ],
+    "criChanceAdd": 30,
+    "criDamageAdd": 50,
+    "target": 2,
+    "potentialBonus": {
+      "criChanceAdd": 40
+    },
+    "situations": [
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1
+      }
+    ]
   }
 ]
