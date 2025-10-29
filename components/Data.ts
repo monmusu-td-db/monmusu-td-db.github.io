@@ -1866,6 +1866,7 @@ export type Weapon = Readonly<{
   hpMul?: number;
   attackMul?: number;
   moveSpeedMul?: number;
+  upgradeCut?: number;
 }>;
 export const Weapon = {
   isKey(key: string): key is keyof Weapon {

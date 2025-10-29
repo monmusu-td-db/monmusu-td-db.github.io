@@ -8410,6 +8410,12 @@
       "攻撃速度+15",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "マンガノン",
+      "attack": 55,
+      "range": 10,
+      "upgradeCut": 18
+    },
     "features": [
       {
         "featureName": "class-definite",
@@ -8431,6 +8437,13 @@
         "featureName": "common-definite-ground",
         "skill": 2,
         "damageFactor": 200
+      },
+      {
+        "featureName": "common-definite-stan",
+        "annotations": [
+          "スタン特効"
+        ],
+        "damageFactor": 120
       }
     ],
     "situations": [
@@ -8476,6 +8489,61 @@
           "class-definite"
         ],
         "skill": 2
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-stan",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-stan"
+        ]
       }
     ]
   },
@@ -9790,6 +9858,12 @@
       "攻撃力+75",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "神木の弓",
+      "hp": 550,
+      "range": 10,
+      "upgradeCut": 18
+    },
     "features": [
       {
         "featureName": "common-melee",
@@ -9801,6 +9875,32 @@
           "key": "hp",
           "value": 8
         }
+      },
+      {
+        "featureName": "common-melee-weapon",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "damageCut": 30
+      },
+      {
+        "featureName": "weapon-definite",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "damageFactor": 120
+      },
+      {
+        "featureName": "weapon-definite",
+        "skill": 2,
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "非ブロック時"
+        ]
       }
     ],
     "costAdd": 6,
@@ -9811,14 +9911,69 @@
       "attackMul": 137
     },
     "situations": [
-      {},
       {
-        "skill": 1
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-melee-weapon"
+        ]
       },
       {
-        "skill": 2,
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
-          "common-ranged"
+          "common-ranged-weapon"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-ranged-weapon",
+          "weapon-definite"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-melee-weapon"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-ranged-weapon"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-ranged-weapon",
+          "weapon-definite"
         ]
       },
       {
@@ -9827,7 +9982,27 @@
         ],
         "skill": 2,
         "features": [
-          "common-melee"
+          "common-melee",
+          "common-melee-weapon"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-ranged",
+          "weapon-definite"
         ]
       },
       {
@@ -13000,6 +13175,13 @@
       "攻撃力+75",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "ブラックライズ",
+      "hp": 100,
+      "attack": 70,
+      "range": 10,
+      "upgradeCut": 6
+    },
     "features": [
       {
         "featureName": "common-hp-50%",
@@ -13019,6 +13201,28 @@
         "supplements": [
           "HP-4%/秒→自分"
         ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "CT-10秒/tkn配置時"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "武器"
+        ],
+        "range": 260
+      },
+      {
+        "skill": 2,
+        "require": [
+          "武器"
+        ],
+        "range": 260
       }
     ],
     "attackMul": 115,
