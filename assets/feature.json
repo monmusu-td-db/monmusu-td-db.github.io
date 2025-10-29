@@ -457,6 +457,24 @@
     ]
   },
   {
+    "featureName": "common-melee-weapon",
+    "require": [
+      "武器"
+    ],
+    "conditions": [
+      "近"
+    ]
+  },
+  {
+    "featureName": "common-ranged-weapon",
+    "require": [
+      "武器"
+    ],
+    "conditions": [
+      "遠"
+    ]
+  },
+  {
     "featureName": "common-definite",
     "conditions": [
       "特"
