@@ -1046,7 +1046,7 @@ export default class Unit implements TableRow<Keys> {
     if (n === 0 || !k) {
       return 0;
     }
-    const upgradeValue = 240 / n - (this.weapon?.upgradeCut ?? 0);
+    const upgradeValue = 216 / n + (this.weapon?.upgradeValue ?? 24 / n);
     return statType === stat.hp ? upgradeValue * 10 : upgradeValue;
   }
 
