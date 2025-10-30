@@ -8414,7 +8414,7 @@
       "weaponName": "マンガノン",
       "attack": 55,
       "range": 10,
-      "upgradeCut": 18
+      "upgradeValue": 6
     },
     "features": [
       {
@@ -9862,7 +9862,7 @@
       "weaponName": "神木の弓",
       "hp": 550,
       "range": 10,
-      "upgradeCut": 18
+      "upgradeValue": 6
     },
     "features": [
       {
@@ -13180,7 +13180,7 @@
       "hp": 100,
       "attack": 70,
       "range": 10,
-      "upgradeCut": 6
+      "upgradeValue": 6
     },
     "features": [
       {
