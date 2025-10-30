@@ -664,6 +664,13 @@
       "物理防御力+60",
       "魔法防御力+60"
     ],
+    "weapon": {
+      "weaponName": "ロー・オブ・ザ・オーシャン",
+      "hp": 200,
+      "defense": 30,
+      "resist": 30,
+      "upgradeValue": 6
+    },
     "features": [
       {
         "skill": 0,
@@ -686,7 +693,22 @@
         "require": [
           "水マス"
         ],
+        "isConditionalBuff": true,
         "attackSpeedBuff": 120
+      },
+      {
+        "featureName": "cooldown-reduction",
+        "require": [
+          "武器",
+          "水マス"
+        ],
+        "isConditionalBuff": true,
+        "cooldownReductions": [
+          4
+        ],
+        "supplements": [
+          "CT-1秒/4秒"
+        ]
       }
     ],
     "situations": [
@@ -696,6 +718,36 @@
       },
       {
         "skill": 2
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-water-field",
+          "cooldown-reduction"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-water-field",
+          "cooldown-reduction"
+        ]
+      },
+      {
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "skill": 2,
+        "features": [
+          "common-water-field",
+          "cooldown-reduction"
+        ]
       }
     ]
   },
@@ -2677,6 +2729,13 @@
       "物理防御力+60",
       "物理防御力+60"
     ],
+    "weapon": {
+      "weaponName": "ドレーンシューター",
+      "attack": 35,
+      "defense": 20,
+      "range": 10,
+      "upgradeValue": 6
+    },
     "features": [
       {
         "require": [
@@ -2685,12 +2744,44 @@
         "fieldElements": [
           "水"
         ]
+      },
+      {
+        "skill": 0,
+        "require": [
+          "武器",
+          "地マス",
+          "水マス"
+        ],
+        "isConditionalBuff": true,
+        "attackMul": 85,
+        "rounds": 2
       }
     ],
     "situations": [
       {},
       {
         "skill": 1
+      },
+      {
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-water-field",
+          "common-earth-field"
+        ]
+      },
+      {
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-water-field",
+          "common-earth-field"
+        ]
       }
     ]
   },
@@ -2880,7 +2971,20 @@
       "魔法防御力+60",
       "移動速度1.5倍"
     ],
+    "weapon": {
+      "weaponName": "ヘルハウンドファング",
+      "attack": 80,
+      "upgradeValue": 6
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ]
+      },
       {
         "featureName": "attack-debuff",
         "isAbility": true,
@@ -3856,7 +3960,29 @@
       "魔法防御力+60",
       "射程+10"
     ],
+    "weapon": {
+      "weaponName": "雪の国の物語",
+      "hp": 250,
+      "attack": 30,
+      "range": 10,
+      "upgradeValue": 6
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 5
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "fieldElements": [
+          "水"
+        ]
+      },
       {
         "require": [
           "水マス"
@@ -4569,6 +4695,12 @@
       "攻撃力+75",
       "攻撃速度+15"
     ],
+    "weapon": {
+      "weaponName": "ブラッディワンド",
+      "hp": 500,
+      "attack": 30,
+      "upgradeValue": 8
+    },
     "features": [
       {
         "featureName": "skill1-buff",
@@ -4590,21 +4722,89 @@
           ],
           "attackMul": 150
         }
+      },
+      {
+        "featureName": "hp-100%",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ],
+        "damageFactor": 110
+      },
+      {
+        "featureName": "hp-99%",
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 99
+          }
+        ]
       }
     ],
     "situations": [
-      {},
       {
-        "skill": 1
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "hp-100%"
+        ]
       },
       {
         "features": [
+          "hp-100%",
           "skill1-buff"
         ]
       },
       {
         "skill": 1,
         "features": [
+          "hp-100%",
+          "skill1-buff"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "hp-99%",
+          "skill1-buff"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "hp-99%",
           "skill1-buff"
         ]
       }
@@ -4623,6 +4823,16 @@
             "発動時永続付与(最大50%)"
           ]
         }
+      },
+      {
+        "type": "damage-factor",
+        "skill": -1,
+        "require": [
+          "武器",
+          "自身のHP100%以上"
+        ],
+        "target": "射程内",
+        "value": 110
       }
     ]
   },
@@ -5596,7 +5806,21 @@
       "攻撃速度+10",
       "魔法防御力+60"
     ],
+    "weapon": {
+      "weaponName": "ティーズトリッキー",
+      "attack": 5,
+      "attackSpeed": 15,
+      "upgradeValue": 6
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "移動中隠密"
+        ]
+      },
       {
         "skill": 2,
         "supplements": [
@@ -8246,6 +8470,13 @@
       "攻撃力+75",
       "物理防御力+90"
     ],
+    "weapon": {
+      "weaponName": "カルン",
+      "hp": 200,
+      "attack": 20,
+      "defense": 15,
+      "resist": 15
+    },
     "penetrationAdd": 20,
     "physicalEvasion": 40,
     "magicalEvasion": 40,
@@ -8253,6 +8484,14 @@
       "physicalEvasion": 45,
       "magicalEvasion": 45
     },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "attackMul": 130
+      }
+    ],
     "situations": [
       {},
       {
@@ -8299,6 +8538,12 @@
     "features": [
       {
         "initialTimeCut": 0
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "attackMul": 130
       }
     ],
     "isUnhealable": true,
@@ -8345,12 +8590,30 @@
       "攻撃力+75",
       "物理防御力+90"
     ],
+    "weapon": {
+      "weaponName": "ストームエッジ",
+      "attack": 55,
+      "range": 10,
+      "upgradeValue": 6
+    },
     "features": [
       {
         "defenseDebuff": {
           "key": "attack-base",
           "valueAdd": 15
-        }
+        },
+        "supplements": [
+          "DEF-{attack-base*15}→射程内"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "criChanceAdd": 10,
+        "supplements": [
+          "DEF-15/CRI時→命中"
+        ]
       }
     ],
     "potentialBonus": {
@@ -11212,6 +11475,7 @@
   },
   {
     "TODO_DESC": "ex2はwiki情報",
+    "TODO_FATAL": "upgradeValueは推測値",
     "id": 86,
     "unitName": "【アンドロスフィンクス娘】ラフーカ",
     "unitShortName": "ラフーカ",
@@ -11247,6 +11511,13 @@
       "攻撃力+75",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "ガーディアンクワンド",
+      "attack": 10,
+      "resist": 20,
+      "attackSpeed": 10,
+      "upgradeValue": 6
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -11256,6 +11527,17 @@
         "potentialBonus": {
           "attack": 113
         }
+      },
+      {
+        "targets": [
+          "火"
+        ],
+        "require": [
+          "武器"
+        ],
+        "hp": 107,
+        "defense": 107,
+        "resist": 107
       }
     ],
     "features": [
