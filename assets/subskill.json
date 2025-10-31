@@ -2327,5 +2327,77 @@
     "desc": "クリティカル率+28%、代わりに最大HP-10%",
     "hp": -10,
     "criChanceAdd": 28
+  },
+  {
+    "name": "移動速度上昇 IV",
+    "rarity": "L",
+    "group": "支援",
+    "class": "移動速度上昇",
+    "desc": "移動速度+100%",
+    "isGeneral": true,
+    "moveSpeed": 100
+  },
+  {
+    "name": "底力(物理防御) IV",
+    "rarity": "L",
+    "group": "防御",
+    "class": "底力(物理防御)",
+    "desc": "HP減少量に応じて物理防御力が上昇する(最大70%)",
+    "isGeneral": true,
+    "defenseMul": 70
+  },
+  {
+    "name": "スーパーコンペンセーション",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "HP+30%、スキル発動時、自身のHPを20%回復",
+    "isGeneral": true,
+    "hp": 30
+  },
+  {
+    "name": "ウォーターエクステンド",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "編成時水属性モンスター娘のHPと攻撃力+10%",
+    "isGeneral": true,
+    "features": [
+      {
+        "require": [
+          "水"
+        ],
+        "formationHp": 10,
+        "formationAttack": 10
+      }
+    ]
+  },
+  {
+    "name": "綺麗な花には毒がある",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "被弾時相手を猛毒状態にし、ブロック敵から受ける物理魔法ダメージを15%軽減する",
+    "physicalDamageCut": 15,
+    "magicalDamageCut": 15
+  },
+  {
+    "name": "クラーケンソウル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "暗闇状態の敵へのダメージ1.5倍\nクラーケン(原種)をトークンとして使役可",
+    "isGeneral": true,
+    "damageFactor": 50
+  },
+  {
+    "name": "3.5th Anniversaryの闘祈",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "スキル中、与えるダメージが1.35倍になる",
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 35
+      }
+    ]
   }
 ]
