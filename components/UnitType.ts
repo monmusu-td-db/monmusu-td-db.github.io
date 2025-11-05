@@ -126,9 +126,6 @@ interface RawUnitBase extends RawUnitFactors {
   /** 配置数に含まれない数(0で無制限) */
   deployCount?: number;
 
-  /** 移動コスト */
-  moveCostAdd?: number;
-
   /** 潜在覚醒コンプリート効果 */
   potentialBonus?: Readonly<RawUnitFactors>;
 
@@ -201,6 +198,9 @@ interface RawUnitFactors {
 
   /** 魔法回避率 */
   magicalEvasion?: number;
+
+  /** 移動コスト */
+  moveCostAdd?: number;
 
   /** 移動速度加算効果 */
   moveSpeedAdd?: number;
@@ -529,6 +529,9 @@ interface RawFeatureFactor {
 
   /** ダメージ倍率 */
   damageFactor?: number;
+
+  /** HP加算バフ */
+  hpAdd?: number | RawAdditionFactor;
 
   /** 攻撃力加算バフ */
   attackAdd?: number | RawAdditionFactor;

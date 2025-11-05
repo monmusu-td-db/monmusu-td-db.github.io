@@ -42805,12 +42805,10 @@
         "target": "射程内",
         "effects": [
           {
-            "type": "stan-invalid",
-            "target": "射程内"
+            "type": "stan-invalid"
           },
           {
-            "type": "blind-invalid",
-            "target": "射程内"
+            "type": "blind-invalid"
           }
         ]
       }

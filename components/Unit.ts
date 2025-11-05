@@ -99,6 +99,7 @@ type JsonPotentialBonus = Readonly<
     rangeAdd: number;
     physicalEvasion: number;
     magicalEvasion: number;
+    moveCostAdd: number;
     moveSpeedAdd: number;
     moveSpeedMul: number;
   }>
@@ -691,7 +692,13 @@ export default class Unit implements TableRow<Keys> {
           return;
         }
         const base = 3;
-        const add = (classData?.moveCostAdd ?? 0) + (src.moveCostAdd ?? 0);
+        const unitAdd =
+          (this.isPotentialApplied(s)
+            ? src.potentialBonus?.moveCostAdd
+            : undefined) ??
+          src.moveCostAdd ??
+          0;
+        const add = (classData?.moveCostAdd ?? 0) + unitAdd;
         const potential = this.getPotentialFactor(s, stat.moveCost);
         const subSkill = -this.getSubskillFactor(s, ssKeys.moveCostCut);
         return Math.max(base + add + potential + subSkill, 0);
