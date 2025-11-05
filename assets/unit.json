@@ -21415,6 +21415,25 @@
         "phaseName": "豪快シャドウスローイング",
         "attackMul": 350,
         "range": 550
+      },
+      {
+        "featureName": "class-action",
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "annotations": [
+          "+潜在覚醒特性"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 8
+        },
+        "supplements": [
+          "回復8%/秒"
+        ],
+        "deleteSupplements": [
+          "回復5%/秒"
+        ]
       }
     ],
     "situations": [
@@ -21457,6 +21476,16 @@
         "features": [
           "common-definite-stan",
           "common-phase3"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
         ]
       },
       {
@@ -26905,6 +26934,16 @@
         "skill": 1,
         "features": [
           "skill1-heal"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
         ]
       }
     ]
@@ -39158,6 +39197,25 @@
           "damage-factor",
           "attack-mul"
         ]
+      },
+      {
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "skill": 1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
       }
     ]
   },
@@ -40401,6 +40459,16 @@
         "features": [
           "defense-mul"
         ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
       }
     ],
     "buffs": [
@@ -40501,6 +40569,16 @@
         "skill": 1,
         "features": [
           "defense-mul"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
         ]
       }
     ]
@@ -43504,6 +43582,16 @@
       },
       {
         "skill": 1
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
       }
     ]
   },
