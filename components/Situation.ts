@@ -1636,10 +1636,8 @@ export default class Situation implements TableRow<Keys> {
     }
 
     const additionFactor =
-      statType === stat.hp
-        ? 0
-        : this.getFeatureAddFactor(setting, statType) +
-          this.getPanelAddFactor(setting, statType);
+      this.getFeatureAddFactor(setting, statType) +
+      (statType === stat.hp ? 0 : this.getPanelAddFactor(setting, statType));
 
     const ret: Data.InBattleFactorsBase = {
       ...f,
@@ -1872,6 +1870,12 @@ export default class Situation implements TableRow<Keys> {
           case AdditionFactor.HP_BASE: {
             return Percent.multiply(
               this.unit?.hp.getFactors(setting)?.deploymentResult,
+              f.value
+            );
+          }
+          case AdditionFactor.ATTACK_BASE: {
+            return Percent.multiply(
+              this.unit?.attack.getFactors(setting)?.deploymentResult,
               f.value
             );
           }
