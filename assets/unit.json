@@ -43958,5 +43958,110 @@
         "skill": 1
       }
     ]
+  },
+  {
+    "id": 379,
+    "unitName": "【マーシアン娘】ブルベリ",
+    "unitShortName": "ブルベリ",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "火",
+    "species": "エイリアン",
+    "hp": 2608,
+    "attack": 660,
+    "defense": 264,
+    "resist": 537,
+    "supplements": [
+      "火傷無効",
+      "凍結無効"
+    ],
+    "exSkill1": {
+      "skillName": "スプレッドフレア",
+      "attackMul": 260,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-12/発動",
+        "火傷付与(超)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "アストロデバイス",
+      "hp": 200,
+      "resist": 10,
+      "range": 20
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ]
+      },
+      {
+        "require": [
+          "火マス"
+        ],
+        "isConditionalBuff": true,
+        "targetAdd": 2,
+        "potentialBonus": {
+          "targetAdd": 3
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "fieldElements": [
+          "火"
+        ],
+        "supplements": [
+          "HP-1%→命中火傷敵"
+        ]
+      },
+      {
+        "featureName": "common-definite-burn",
+        "isConditionalBuff": true,
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-definite-burn",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "resistDebuff": {
+          "valueMul": 30
+        },
+        "supplements": [
+          "RES-30%→射程内火傷敵"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      }
+    ]
   }
 ]
