@@ -43958,5 +43958,94 @@
         "skill": 1
       }
     ]
+  },
+  {
+    "TODO_FATAL": "武器貫通率は仮の数値",
+    "id": 378,
+    "unitName": "【レプティリアン娘】スレイゼル",
+    "unitShortName": "スレイゼル",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "水",
+    "species": "エイリアン",
+    "hp": 2522,
+    "attack": 669,
+    "defense": 304,
+    "resist": 220,
+    "supplements": [
+      "コスト+1/撃破",
+      "ATK+8%(10秒)/攻撃"
+    ],
+    "exSkill1": {
+      "skillName": "フェイタリティトキシン",
+      "targetAdd": 2,
+      "rangeMul": 240,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト+8/発動",
+        "毒付与(高)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "weapon": {
+      "weaponName": "デッドアイ",
+      "attack": 30,
+      "range": 20
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "毒付与(稀)→命中"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "penetrationAdd": 0
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "common-definite-poison",
+        "isConditionalBuff": true,
+        "damageFactor": 130,
+        "potentialBonus": {
+          "damageFactor": 150
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      }
+    ]
   }
 ]
