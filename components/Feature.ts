@@ -315,6 +315,9 @@ const commonFeature = {
   fieldBuffFactor: 0,
   cooldownCut: 0,
   cooldownReductions: [] as readonly number[],
+  intervalAttackSpeedAdd: 0,
+  intervalFixedDelayAdd: 0,
+  intervalCooldownNum: 0,
 };
 interface JsonFeatureDiff {
   fieldElements: readonly string[];
