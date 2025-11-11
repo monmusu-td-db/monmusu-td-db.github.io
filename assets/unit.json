@@ -39700,6 +39700,7 @@
         "hasPotentials": [
           "攻撃時最大HPの1%回復"
         ],
+        "skill": -1,
         "features": [
           "common-potential-absorb-1%"
         ]
@@ -39709,6 +39710,7 @@
         "hasPotentials": [
           "攻撃時最大HPの1%回復"
         ],
+        "skill": -1,
         "features": [
           "common-ability",
           "common-potential-absorb-1%"
@@ -40079,6 +40081,7 @@
         "hasPotentials": [
           "攻撃時最大HPの1%回復"
         ],
+        "skill": -1,
         "features": [
           "common-potential-absorb-1%"
         ]
@@ -41677,6 +41680,16 @@
           "common-definite-burn",
           "beat-10"
         ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "skill": -1,
+        "features": [
+          "common-potential-absorb-1%"
+        ]
       }
     ]
   },
@@ -42672,6 +42685,16 @@
           "common-definite-freeze",
           "common-definite-double",
           "extra-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "skill": -1,
+        "features": [
+          "common-potential-absorb-1%"
         ]
       }
     ]
@@ -44165,6 +44188,7 @@
         "hasPotentials": [
           "攻撃時最大HPの1%回復"
         ],
+        "skill": -1,
         "features": [
           "common-potential-absorb-1%"
         ]
