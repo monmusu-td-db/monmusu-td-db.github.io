@@ -43983,7 +43983,7 @@
     ]
   },
   {
-    "TODO_FATAL": "武器貫通率は仮の数値",
+    "TODO_DESC": "武器貫通率は推測",
     "id": 378,
     "unitName": "【レプティリアン娘】スレイゼル",
     "unitShortName": "スレイゼル",
@@ -44031,18 +44031,19 @@
       },
       {
         "require": [
-          "武器"
-        ],
-        "penetrationAdd": 0
-      },
-      {
-        "require": [
           "スキル"
         ],
         "isConditionalSkillBuff": true,
         "supplements": [
           "隠密"
         ]
+      },
+      {
+        "featureName": "common-definite-poison",
+        "require": [
+          "武器"
+        ],
+        "penetrationAdd": 25
       },
       {
         "featureName": "common-definite-poison",
