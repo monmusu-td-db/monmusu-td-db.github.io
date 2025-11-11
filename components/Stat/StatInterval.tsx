@@ -93,7 +93,16 @@ export class StatInterval extends StatTooltip<number | undefined, Factors> {
                           {f.cooldownFrame === 1 && frameRate(d)}
                         </>
                       ) : (
-                        <>{d ? "攻撃間隔" : f.actualResult + sign.FRAME}</>
+                        <>
+                          {d ? "攻撃間隔" : f.actualResult + sign.FRAME}
+                          {!!f.intervalAdd && (
+                            <T.Plus>
+                              {d
+                                ? "段階スキル加算値"
+                                : f.intervalAdd + sign.FRAME}
+                            </T.Plus>
+                          )}
+                        </>
                       )}
                       {f.cooldownFrame === 1 ? (
                         <T.Plus>{d ? "再動(下限)" : 1 + sign.FRAME}</T.Plus>
