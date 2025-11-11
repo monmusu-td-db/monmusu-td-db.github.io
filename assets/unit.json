@@ -43974,7 +43974,7 @@
     "resist": 220,
     "supplements": [
       "コスト+1/撃破",
-      "ATK+8%(10秒)/攻撃"
+      "ATK+8%(10秒)/命中毒状態敵"
     ],
     "exSkill1": {
       "skillName": "フェイタリティトキシン",
@@ -44024,10 +44024,52 @@
       {
         "featureName": "common-definite-poison",
         "isConditionalBuff": true,
+        "annotations": [
+          "毒特効"
+        ],
         "damageFactor": 130,
         "potentialBonus": {
           "damageFactor": 150
         }
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "飛行特効"
+        ]
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 180
+          }
+        ],
+        "attackMul": 180
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 260
+          }
+        ],
+        "attackMul": 260
+      },
+      {
+        "featureName": "attack-mul3",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 340
+          }
+        ],
+        "attackMul": 340
       }
     ],
     "situations": [
@@ -44044,6 +44086,87 @@
         "skill": 1,
         "features": [
           "common-definite-poison"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul1",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul3",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul3",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "features": [
+          "common-potential-absorb-1%"
         ]
       }
     ]
