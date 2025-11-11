@@ -44063,5 +44063,215 @@
         ]
       }
     ]
+  },
+  {
+    "id": 380,
+    "unitName": "【スターリターナー娘】アステリオム",
+    "unitShortName": "アステリオム",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "光",
+    "species": "エイリアン",
+    "hp": 6398,
+    "attack": 920,
+    "defense": 348,
+    "resist": 151,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "スパイラルエッジ",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 5,
+      "supplements": [
+        "コスト-3/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "再出撃時間50%短縮"
+    ],
+    "weapon": {
+      "weaponName": "コズミックチェンジャー",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "0-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "ショタマター効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 0
+          }
+        ],
+        "hpMul": 400,
+        "attackMul": 400,
+        "defenseMul": 400,
+        "resistMul": 400,
+        "supplements": [
+          "ショタ効果延長(60秒)/20体撃破",
+          "スタン(5秒)/ショタ終了後→自分"
+        ]
+      },
+      {
+        "featureName": "60-sec",
+        "isConditionalDebuff": true,
+        "conditions": [
+          {
+            "key": "s",
+            "value": 60
+          }
+        ],
+        "attackSpeedBuff": 87
+      },
+      {
+        "featureName": "skill1-phase1",
+        "rounds": 1,
+        "laser": true,
+        "range": 350,
+        "intervalAttackSpeedAdd": 150,
+        "intervalFixedDelayAdd": 2,
+        "intervalCooldownNum": 2
+      },
+      {
+        "featureName": "common-phase2",
+        "isConditionalSkillBuff": true,
+        "phaseName": "スーパーノヴァ",
+        "target": "射程内",
+        "rounds": 1,
+        "range": 250,
+        "intervalAttackSpeedAdd": 150,
+        "intervalFixedDelayAdd": 2,
+        "intervalCooldownNum": 2,
+        "supplements": [
+          "コスト-5/発動"
+        ],
+        "deleteSupplements": [
+          "コスト-3/発動"
+        ]
+      },
+      {
+        "featureName": "common-phase3",
+        "isConditionalSkillBuff": true,
+        "phaseName": "マターシュート",
+        "attackMotionMul": 357,
+        "rounds": 12,
+        "laser": true,
+        "range": 500,
+        "intervalAttackSpeedAdd": 66,
+        "intervalFixedDelayAdd": 2,
+        "intervalCooldownNum": 2,
+        "supplements": [
+          "コスト-7/発動"
+        ],
+        "deleteSupplements": [
+          "コスト-3/発動"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "0-sec"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "0-sec",
+          "skill1-phase1"
+        ]
+      },
+      {
+        "depend": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "0-sec"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "0-sec",
+          "common-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "0-sec",
+          "common-phase3"
+        ]
+      },
+      {
+        "features": [
+          "60-sec"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "60-sec",
+          "skill1-phase1"
+        ]
+      },
+      {
+        "depend": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "60-sec"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "60-sec",
+          "common-phase2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "60-sec",
+          "common-phase3"
+        ]
+      }
+    ]
   }
 ]
