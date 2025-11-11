@@ -2047,6 +2047,34 @@ export default class Situation implements TableRow<Keys> {
         result = durationFrame + cooldownFrame;
       }
 
+      const attackSpeedBuffPos = Percent.max(
+        fea.attackSpeedBuff,
+        this.getSubskillFactor(setting, ssKeys.attackSpeedBuff),
+        100 + setting.attackSpeedBuff
+      );
+      const attackSpeedBuffNeg = Math.min(
+        ...[
+          fea.attackSpeedBuff,
+          this.getSubskillFactor(setting, ssKeys.attackSpeedBuff),
+          100 + setting.attackSpeedBuff,
+        ].map((v) => v ?? 100)
+      );
+      const attackSpeedBuff = Percent.sum(
+        attackSpeedBuffPos,
+        attackSpeedBuffNeg
+      );
+      const attackSpeedAdd =
+        (fea.intervalAttackSpeedAdd &&
+          this.calculateAttackSpeedBuff(
+            fea.intervalAttackSpeedAdd,
+            attackSpeedBuff
+          )) ??
+        0;
+      const fixedDelayAdd = fea.intervalFixedDelayAdd ?? 0;
+      const cooldownAdd = (fea.intervalCooldownNum ?? 0) * cooldownFrame;
+      const intervalAdd = attackSpeedAdd + fixedDelayAdd + cooldownAdd;
+      result += intervalAdd;
+
       if (minInterval !== undefined) {
         staticCooldown = minInterval > result;
         result = Math.max(minInterval, result);
@@ -2060,6 +2088,7 @@ export default class Situation implements TableRow<Keys> {
         cooldownFrame,
         staticCooldown,
         minInterval,
+        intervalAdd,
         result,
       };
     }
@@ -2097,14 +2126,16 @@ export default class Situation implements TableRow<Keys> {
     };
   }
 
+  private calculateAttackSpeedBuff(motionSpeed: number, speedBuff: number) {
+    return Math.round((motionSpeed * 100) / speedBuff);
+  }
+
   private getIntervalBaseFactors(
     setting: Setting
   ): Data.IntervalBaseFactors | undefined {
     // TODO バグの温床なのでなんとかしたい
     const f = this.getFeature(setting);
 
-    const getAtkSpdResult = (motionSpeed: number, speedBuff: number) =>
-      Math.round((motionSpeed * 100) / speedBuff);
     const sk = this.getSkill(setting);
 
     const unitASF = this.unit?.attackSpeed.getFactors(setting);
@@ -2142,7 +2173,7 @@ export default class Situation implements TableRow<Keys> {
       ].map((v) => v ?? 100)
     );
     const attackSpeedBuff = Percent.sum(attackSpeedBuffPos, attackSpeedBuffNeg);
-    const attackSpeedResult = getAtkSpdResult(
+    const attackSpeedResult = this.calculateAttackSpeedBuff(
       attackMotionSpeed,
       attackSpeedBuff
     );
@@ -2174,7 +2205,7 @@ export default class Situation implements TableRow<Keys> {
 
     const baseAtkSpdResult = attackSpeed;
     const skMotionSpeed = Percent.multiply(attackSpeed, sk?.attackMotionMul);
-    const skAtkSpdResult = getAtkSpdResult(
+    const skAtkSpdResult = this.calculateAttackSpeedBuff(
       skMotionSpeed,
       Math.max(sk?.attackSpeedBuff ?? 100, f.skillCond?.attackSpeedBuff ?? 100)
     );
@@ -2184,7 +2215,10 @@ export default class Situation implements TableRow<Keys> {
       sk?.attackSpeedBuff,
       f.skillBuffs?.attackSpeedBuff
     );
-    const buffAtkSpdResult = getAtkSpdResult(buffMotionSpeed, buffAtkSpdBuff);
+    const buffAtkSpdResult = this.calculateAttackSpeedBuff(
+      buffMotionSpeed,
+      buffAtkSpdBuff
+    );
     const { attackSpeedResult: condAttackSpeed } =
       Data.getAttackSpeedFactorsSituation(
         unitASF,
@@ -2194,7 +2228,7 @@ export default class Situation implements TableRow<Keys> {
       condAttackSpeed,
       f.cond?.attackMotionMul
     );
-    const condAtkSpdResult = getAtkSpdResult(
+    const condAtkSpdResult = this.calculateAttackSpeedBuff(
       condMotionSpeed,
       f.cond?.attackSpeedBuff ?? 100
     );
