@@ -697,6 +697,15 @@ interface RawFeatureFactor {
   /** スキル再発動時間継続短縮効果 */
   cooldownReductions?: readonly number[];
 
+  /** 単発スキル攻撃動作速度加算値 */
+  intervalAttackSpeedAdd?: number;
+
+  /** 単発スキル固定攻撃待機時間加算値 */
+  intervalFixedDelayAdd?: number;
+
+  /** 単発スキルCT加算回数 */
+  intervalCooldownNum?: number;
+
   /** ダメージ種別 */
   damageType?: Data.RawDamageType;
 
