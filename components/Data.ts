@@ -2374,6 +2374,8 @@ const beastList = [
   "天逆毎姫",
   "パニエ",
   "四神",
+  "光珠のルルゥ",
+  "ヴィヴィヴァーチェ：宇宙服",
 ] as const;
 export type Beast = (typeof beastList)[number];
 export const Beast = {
