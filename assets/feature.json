@@ -597,6 +597,15 @@
     ]
   },
   {
+    "featureName": "common-definite-alien",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "alien"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-same-element",
     "conditions": [
       {
