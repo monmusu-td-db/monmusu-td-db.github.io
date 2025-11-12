@@ -43983,6 +43983,122 @@
     ]
   },
   {
+    "id": 377,
+    "unitName": "【エルバッキー娘】ルミューダ",
+    "unitShortName": "ルミューダ",
+    "rarity": "E",
+    "class": "プリースト",
+    "element": "風",
+    "species": "エイリアン",
+    "hp": 3575,
+    "attack": 687,
+    "defense": 266,
+    "resist": 418,
+    "supplements": [
+      "毒無効→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "テイルフォース",
+      "rangeMul": 170,
+      "duration": 15,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-8/発動",
+        "隠密",
+        "ATK-{attack*30}/常時→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "攻撃速度+15",
+      "スキル初回待ち時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "アルターゴゾ",
+      "attack": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "moveCostAdd": -99
+      },
+      {
+        "skill": 0,
+        "isConditionalBuff": true,
+        "supplements": [
+          "隠密(5秒)/移動配置完了後"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "隠密(6秒)/移動配置完了後"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "attackDebuff": {
+          "key": "attack",
+          "value": 30
+        }
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "風特効"
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-definite-alien",
+        "isConditionalBuff": true,
+        "annotations": [
+          "エイリアン特効"
+        ],
+        "damageFactor": 130
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-alien"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-alien"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "poison-invalid",
+        "target": "射程内"
+      },
+      {
+        "type": "poison-invalid",
+        "skill": 1,
+        "target": "射程内"
+      }
+    ]
+  },
+  {
     "TODO_DESC": "武器貫通率は推測",
     "id": 378,
     "unitName": "【レプティリアン娘】スレイゼル",
