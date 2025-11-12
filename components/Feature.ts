@@ -156,6 +156,7 @@ const JsonAttackDebuff = {
     switch (obj.key) {
       case Data.StaticDamage.ATTACK_BASE:
       case AttackDebuff.enemyAttack:
+      case stat.attack:
         break;
       default:
         return false;
@@ -167,7 +168,8 @@ export type AttackDebuff = {
   /** 種別 */
   readonly key:
     | typeof Data.StaticDamage.ATTACK_BASE
-    | typeof AttackDebuff.enemyAttack;
+    | typeof AttackDebuff.enemyAttack
+    | typeof stat.attack;
 
   /** 効果量 */
   readonly value: number;

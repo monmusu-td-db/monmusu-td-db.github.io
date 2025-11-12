@@ -2356,6 +2356,13 @@ export default class Situation implements TableRow<Keys> {
           const r = Percent.divide(limit, 100 - v.value) - limit;
           return isNaN(r) ? 0 : r;
         }
+        case stat.attack: {
+          const res = this.attack.getFactors(setting)?.inBattleResult;
+          if (res === undefined) {
+            return 0;
+          }
+          return Percent.multiply(res, v.value);
+        }
       }
     });
 
