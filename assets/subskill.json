@@ -2399,5 +2399,35 @@
         "damageFactor": 35
       }
     ]
+  },
+  {
+    "name": "パラマウントユニバース",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "スキル発動中、CRI率/CRIDmg+10%、スキルを使用するたび効果量上昇（最大50%）",
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "criChanceAdd": 50,
+        "criDamageAdd": 50
+      }
+    ]
+  },
+  {
+    "name": "エイリアンズコード",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "エイリアンにセット時、編成時エイリアンのHPと攻撃力+10%",
+    "features": [
+      {
+        "require": [
+          "エイリアン"
+        ],
+        "formationHp": 10,
+        "formationAttack": 10
+      }
+    ]
   }
 ]
