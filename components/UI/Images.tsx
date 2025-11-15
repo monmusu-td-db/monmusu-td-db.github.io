@@ -12,7 +12,7 @@ type IconProps = Omit<ImageProps, "src" | "alt"> & { alt?: string | undefined };
 function Logo({ className, alt }: Omit<ImageProps, "src">) {
   return (
     <Image
-      src={ASSETS_PATH + "logo.png"}
+      src={ASSETS_PATH + "logo.png?20251115"}
       width={40}
       height={40}
       alt={alt}
