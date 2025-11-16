@@ -1343,6 +1343,7 @@ export default class Unit implements TableRow<Keys> {
         switch (v) {
           case Data.Species.name.dragon:
           case Data.Species.name.undead:
+          case Data.Species.name.alien:
             return true;
         }
         return false;
