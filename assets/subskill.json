@@ -2401,6 +2401,13 @@
     ]
   },
   {
+    "name": "被検体S6",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "【改造サハギン娘】ハギナをトークンとして使役可能",
+    "isIneffective": true
+  },
+  {
     "name": "パラマウントユニバース",
     "rarity": "L",
     "group": "攻撃",
@@ -2429,5 +2436,13 @@
         "formationAttack": 10
       }
     ]
+  },
+  {
+    "name": "エレメンタルアセンブリ",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "編成モンスター娘の属性1種類につき、全モンスター娘のHPと攻撃力+3%(最大6属性まで)",
+    "formationHp": 18,
+    "formationAttack": 18
   }
 ]
