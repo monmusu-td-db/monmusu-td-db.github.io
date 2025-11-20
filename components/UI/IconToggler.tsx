@@ -2,7 +2,7 @@
 
 import cn from "classnames";
 import Images from "./Images";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Condition {
   showDiff: boolean;
@@ -16,6 +16,11 @@ const defaultCondition: Condition = {
 
 function IconToggler({ className }: { className?: string | undefined }) {
   const [cond, setCond] = useState(defaultCondition);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = Images.icon2Src;
+  }, []);
 
   function handleToggle() {
     if (!cond.cooldown) {
