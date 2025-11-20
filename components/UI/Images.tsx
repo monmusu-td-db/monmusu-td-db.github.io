@@ -1,4 +1,4 @@
-import Image, { type ImageProps } from "next/image";
+import NextImage, { type ImageProps } from "next/image";
 import IconToggler from "./IconToggler";
 
 const ASSETS_PATH = "/assets/";
@@ -11,7 +11,7 @@ type IconProps = Omit<ImageProps, "src" | "alt"> & { alt?: string | undefined };
 
 function Logo({ className, alt }: Omit<ImageProps, "src">) {
   return (
-    <Image
+    <NextImage
       src={ASSETS_PATH + "logo.png?20251115"}
       width={40}
       height={40}
@@ -24,7 +24,7 @@ function Logo({ className, alt }: Omit<ImageProps, "src">) {
 
 function Icon1(props: IconProps) {
   return (
-    <Image
+    <NextImage
       {...props}
       src={ASSETS_PATH + "icon1.png"}
       width={200}
@@ -35,11 +35,13 @@ function Icon1(props: IconProps) {
   );
 }
 
+const icon2Src = ASSETS_PATH + "icon2.png";
+
 function Icon2(props: IconProps) {
   return (
-    <Image
+    <NextImage
       {...props}
-      src={ASSETS_PATH + "icon2.png"}
+      src={icon2Src}
       width={200}
       height={200}
       priority
@@ -68,6 +70,7 @@ const Images = {
   Logo,
   Icon1,
   Icon2,
+  icon2Src,
   Loading,
   EmptyAlert,
   NotFound,
