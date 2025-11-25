@@ -1394,6 +1394,7 @@ const species = {
   fairy: "妖精",
   demon: "悪魔",
   undead: "アンデッド",
+  demi: "デミ",
 } as const;
 type SpeciesKey = keyof typeof species;
 const SpeciesKey = Enum(getKeys(species));
