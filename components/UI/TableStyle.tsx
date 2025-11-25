@@ -46,6 +46,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffCriChanceAdd:
       case stat.buffCriDamageAdd:
       case stat.buffDamageFactor:
+      case stat.buffHealFactor:
       case stat.buffDamageDebuff:
       case stat.buffPhysicalDamageDebuff:
       case stat.buffMagicalDamageDebuff:
@@ -124,6 +125,7 @@ const TableStyle = memo(function TableStyle({
       case stat.buffCriChanceAdd:
       case stat.buffCriDamageAdd:
       case stat.buffDamageFactor:
+      case stat.buffHealFactor:
       case stat.buffDamageDebuff:
       case stat.buffPhysicalDamageDebuff:
       case stat.buffMagicalDamageDebuff:
