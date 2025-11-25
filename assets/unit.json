@@ -668,8 +668,7 @@
       "weaponName": "ロー・オブ・ザ・オーシャン",
       "hp": 200,
       "defense": 30,
-      "resist": 30,
-      "upgradeValue": 6
+      "resist": 30
     },
     "features": [
       {
@@ -2735,8 +2734,7 @@
       "weaponName": "ドレーンシューター",
       "attack": 35,
       "defense": 20,
-      "range": 10,
-      "upgradeValue": 6
+      "range": 10
     },
     "features": [
       {
@@ -2975,8 +2973,7 @@
     ],
     "weapon": {
       "weaponName": "ヘルハウンドファング",
-      "attack": 80,
-      "upgradeValue": 6
+      "attack": 80
     },
     "features": [
       {
@@ -3967,8 +3964,7 @@
       "weaponName": "雪の国の物語",
       "hp": 250,
       "attack": 30,
-      "range": 10,
-      "upgradeValue": 6
+      "range": 10
     },
     "features": [
       {
@@ -4702,8 +4698,7 @@
     "weapon": {
       "weaponName": "ブラッディワンド",
       "hp": 500,
-      "attack": 30,
-      "upgradeValue": 8
+      "attack": 30
     },
     "features": [
       {
@@ -5813,8 +5808,7 @@
     "weapon": {
       "weaponName": "ティーズトリッキー",
       "attack": 5,
-      "attackSpeed": 15,
-      "upgradeValue": 6
+      "attackSpeed": 15
     },
     "features": [
       {
@@ -8601,8 +8595,7 @@
     "weapon": {
       "weaponName": "ストームエッジ",
       "attack": 55,
-      "range": 10,
-      "upgradeValue": 6
+      "range": 10
     },
     "features": [
       {
@@ -8685,8 +8678,7 @@
     "weapon": {
       "weaponName": "マンガノン",
       "attack": 55,
-      "range": 10,
-      "upgradeValue": 6
+      "range": 10
     },
     "features": [
       {
@@ -10136,8 +10128,7 @@
     "weapon": {
       "weaponName": "神木の弓",
       "hp": 550,
-      "range": 10,
-      "upgradeValue": 6
+      "range": 10
     },
     "features": [
       {
@@ -11487,7 +11478,6 @@
   },
   {
     "TODO_DESC": "ex2はwiki情報",
-    "TODO_FATAL": "upgradeValueは推測値",
     "id": 86,
     "unitName": "【アンドロスフィンクス娘】ラフーカ",
     "unitShortName": "ラフーカ",
@@ -11527,8 +11517,7 @@
       "weaponName": "ガーディアンクワンド",
       "attack": 10,
       "resist": 20,
-      "attackSpeed": 10,
-      "upgradeValue": 6
+      "attackSpeed": 10
     },
     "formationBuffs": [
       {
@@ -13473,8 +13462,7 @@
       "weaponName": "ブラックライズ",
       "hp": 100,
       "attack": 70,
-      "range": 10,
-      "upgradeValue": 6
+      "range": 10
     },
     "features": [
       {
