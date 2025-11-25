@@ -36569,6 +36569,17 @@
           "common-burn-dot"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "require": [
+          "火傷特効"
+        ],
+        "skill": 1,
+        "target": "全体",
+        "value": 140
+      }
     ]
   },
   {
