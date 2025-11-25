@@ -44626,5 +44626,249 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_DESC": "攻撃待機時間は要検証",
+    "id": 381,
+    "unitName": "【エンジェル娘】マイネートー",
+    "unitShortName": "マイネートー",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "光",
+    "hp": 2639,
+    "attack": 664,
+    "defense": 304,
+    "resist": 213,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "エンジェリックハゥル",
+      "attackMul": 240,
+      "delayMul": 15,
+      "targetAdd": 3,
+      "duration": 30,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "攻撃速度+15",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "セイントボウ",
+      "hp": 250,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "光マス"
+        ],
+        "attackMul": 150,
+        "rangeMul": 150
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "{attack-base*25}回復/攻撃→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "{attack-base*30}回復/攻撃→射程内"
+          ]
+        }
+      },
+      {
+        "skill": 0,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "{attack-base*27.5}回復/攻撃→射程内"
+        ],
+        "deleteSupplements": [
+          "{attack-base*25}回復/攻撃→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "{attack-base*33}回復/攻撃→射程内"
+          ],
+          "deleteSupplements": [
+            "{attack-base*30}回復/攻撃→射程内"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "{attack-base*50}回復/攻撃→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "{attack-base*60}回復/攻撃→射程内"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "{attack-base*55}回復/攻撃→射程内"
+        ],
+        "deleteSupplements": [
+          "{attack-base*50}回復/攻撃→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "{attack-base*66}回復/攻撃→射程内"
+          ],
+          "deleteSupplements": [
+            "{attack-base*60}回復/攻撃→射程内"
+          ]
+        }
+      },
+      {
+        "supplements": [
+          "ATK+5%(10秒)/攻撃→射程内"
+        ]
+      },
+      {
+        "featureName": "heal",
+        "isAbility": true,
+        "annotations": [
+          "攻撃時回復効果"
+        ],
+        "damageType": "回復"
+      },
+      {
+        "featureName": "heal",
+        "skill": 0,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 25
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 30
+          }
+        }
+      },
+      {
+        "featureName": "heal",
+        "skill": 0,
+        "require": [
+          "武器"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 27.5
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 33
+          }
+        }
+      },
+      {
+        "featureName": "heal",
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 50
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 60
+          }
+        }
+      },
+      {
+        "featureName": "heal",
+        "skill": 1,
+        "require": [
+          "武器"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 55
+        },
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack-base",
+            "value": 66
+          }
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "heal"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "heal"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "光",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "heal-factor",
+        "skill": -1,
+        "require": [
+          "武器"
+        ],
+        "target": "全体",
+        "value": 110
+      }
+    ]
   }
 ]
