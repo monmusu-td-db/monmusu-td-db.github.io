@@ -38,6 +38,7 @@ const damageKeys = [
   stat.buffCriChanceAdd,
   stat.buffCriDamageAdd,
   stat.buffDamageFactor,
+  stat.buffHealFactor,
   stat.buffDamageDebuff,
   stat.buffPhysicalDamageDebuff,
   stat.buffMagicalDamageDebuff,
