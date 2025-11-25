@@ -76,6 +76,7 @@
     "buffCriChanceAdd": "クリティカル率増加",
     "buffCriDamageAdd": "クリティカルダメージ増加",
     "buffDamageFactor": "ダメージ倍率",
+    "buffHealFactor": "回復倍率",
     "buffDamageDebuff": "敵被ダメージ増加",
     "buffPhysicalDamageDebuff": "敵物理被ダメージ増加",
     "buffMagicalDamageDebuff": "敵魔法被ダメージ増加",

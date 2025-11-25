@@ -32,6 +32,7 @@ const keys = [
   stat.buffCriChanceAdd,
   stat.buffCriDamageAdd,
   stat.buffDamageFactor,
+  stat.buffHealFactor,
   stat.buffDamageDebuff,
   stat.buffPhysicalDamageDebuff,
   stat.buffMagicalDamageDebuff,
@@ -75,6 +76,7 @@ class BuffType {
     magicalDamageCut: "magical-damage-cut",
     damageCut: "damage-cut",
     damageFactor: "damage-factor",
+    healFactor: "heal-factor",
     damageDebuff: "damage-debuff",
     physicalDamageDebuff: "physical-damage-debuff",
     magicalDamageDebuff: "magical-damage-debuff",
@@ -208,6 +210,7 @@ export default class InBattleBuff implements TableRow<Key> {
   readonly buffCriChanceAdd: Stat.Root;
   readonly buffCriDamageAdd: Stat.Root;
   readonly buffDamageFactor: Stat.Root;
+  readonly buffHealFactor: Stat.Root;
   readonly buffDamageDebuff: Stat.Root;
   readonly buffPhysicalDamageDebuff: Stat.Root;
   readonly buffMagicalDamageDebuff: Stat.Root;
@@ -428,6 +431,13 @@ export default class InBattleBuff implements TableRow<Key> {
       calculater: this.getEffectCalculaterFn(typeKey.damageFactor),
       isReversed: true,
       text: (s) => this.getMulPercentText(this.buffDamageFactor.getValue(s)),
+    });
+
+    this.buffHealFactor = new Stat.Root({
+      statType: stat.buffHealFactor,
+      calculater: this.getEffectCalculaterFn(typeKey.healFactor),
+      isReversed: true,
+      text: (s) => this.getMulPercentText(this.buffHealFactor.getValue(s)),
     });
 
     const getDamageDebuff = (
