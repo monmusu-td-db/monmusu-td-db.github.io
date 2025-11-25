@@ -28717,7 +28717,10 @@
     "features": [
       {
         "skill": 1,
-        "damageFactor": 300
+        "damageFactor": 300,
+        "supplements": [
+          "最大HP+{attack*200}→命中"
+        ]
       },
       {
         "featureName": "attack-mul1",
@@ -30343,20 +30346,20 @@
       {
         "featureName": "common-team-buff1",
         "isConditionalBuff": true,
-        "criChanceAdd": 5,
-        "criDamageAdd": 10
-      },
-      {
-        "featureName": "common-team-buff2",
-        "isConditionalBuff": true,
         "criChanceAdd": 10,
         "criDamageAdd": 20
       },
       {
+        "featureName": "common-team-buff2",
+        "isConditionalBuff": true,
+        "criChanceAdd": 20,
+        "criDamageAdd": 40
+      },
+      {
         "featureName": "common-team-buff3",
         "isConditionalBuff": true,
-        "criChanceAdd": 15,
-        "criDamageAdd": 30
+        "criChanceAdd": 30,
+        "criDamageAdd": 60
       }
     ],
     "criChanceAdd": 10,
@@ -30413,11 +30416,11 @@
         "effects": [
           {
             "type": "critical-chance-add",
-            "value": 5
+            "value": 10
           },
           {
             "type": "critical-damage-add",
-            "value": 10
+            "value": 20
           }
         ]
       }
@@ -30461,6 +30464,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true
@@ -31089,7 +31093,7 @@
       "target": 3,
       "range": 250,
       "duration": 35,
-      "cooldown": 40,
+      "cooldown": 35,
       "damageType": "魔法",
       "supplements": [
         "スタン付与30%→命中"
@@ -31218,7 +31222,7 @@
       "targetAdd": 1,
       "rangeMul": 240,
       "duration": 30,
-      "cooldown": 35,
+      "cooldown": 30,
       "supplements": [
         "暗闇付与→命中"
       ]
@@ -31888,7 +31892,7 @@
       "skillName": "守護の呪い",
       "attackMul": 220,
       "damageFactor": 130,
-      "rangeMul": 180,
+      "rangeMul": 220,
       "duration": 20,
       "cooldown": 35,
       "supplements": [
@@ -31916,11 +31920,11 @@
       },
       {
         "supplements": [
-          "スタン時間+20%→射程内"
+          "スタン時間+30%→射程内"
         ],
         "potentialBonus": {
           "supplements": [
-            "スタン時間+25%→射程内"
+            "スタン時間+35%→射程内"
           ]
         }
       },
@@ -32113,6 +32117,9 @@
     "attack": 542,
     "defense": 405,
     "resist": 127,
+    "supplements": [
+      "攻撃速度+30%/移動中"
+    ],
     "exSkill1": {
       "skillName": "不思議な卵",
       "attackMul": 220,
@@ -32135,7 +32142,6 @@
         "criChanceLimitAdd": 20
       },
       {
-        "skill": 0,
         "target": [
           1,
           3
