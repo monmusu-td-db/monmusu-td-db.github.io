@@ -193,17 +193,23 @@
       "target": "射程内",
       "range": 150,
       "duration": 30,
-      "cooldown": 50,
-      "damageType": "魔法"
+      "cooldown": 35,
+      "damageType": "魔法",
+      "supplements": [
+        "火傷付与(稀)→命中"
+      ]
     },
     "exSkill2": {
       "skillName": "合魔の猛炎",
       "attackMul": 500,
       "target": 4,
       "range": 150,
-      "duration": 20,
-      "cooldown": 60,
-      "damageType": "魔法"
+      "duration": 30,
+      "cooldown": 40,
+      "damageType": "魔法",
+      "supplements": [
+        "火傷付与(稀)→命中"
+      ]
     },
     "potentials": [
       "出撃コスト-1",
@@ -11984,18 +11990,21 @@
     "defense": 489,
     "resist": 63,
     "rounds": 2,
+    "supplements": [
+      "スタン付与10%→命中",
+      "猛毒付与(稀)→命中",
+      "石化付与(稀)→命中"
+    ],
     "exSkill1": {
       "skillName": "イービルサンダー",
       "attackMul": 220,
+      "target": 3,
       "rangeMul": 220,
       "duration": 15,
       "cooldown": 30,
       "damageType": "魔法",
       "supplements": [
-        "コスト+16/発動",
-        "スタン付与10%→命中",
-        "猛毒付与(稀)→命中",
-        "石化付与(稀)→命中"
+        "コスト+16/発動"
       ]
     },
     "potentials": [
@@ -12004,6 +12013,19 @@
       "攻撃力+75",
       "射程+15",
       "射程+15"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "wideTarget": false
+      },
+      {
+        "featureName": "common-definite",
+        "annotations": [
+          "毒/スタン/石化特効"
+        ],
+        "damageFactor": 130
+      }
     ],
     "rangeAdd": 20,
     "potentialBonus": {
@@ -12014,6 +12036,24 @@
       {
         "skill": 1,
         "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "features": [
+          "common-definite",
+          "common-definite-poison",
+          "common-definite-stan",
+          "common-definite-petrify"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "common-definite-poison",
+          "common-definite-stan",
+          "common-definite-petrify",
           "class-ranged-attack"
         ]
       }
@@ -16056,7 +16096,7 @@
       "attackMul": 180,
       "rangeMul": 160,
       "duration": 25,
-      "cooldown": 40,
+      "cooldown": 35,
       "supplements": [
         "tkn+1/発動"
       ]
@@ -16686,7 +16726,9 @@
     "moveType": "突進",
     "supplements": [
       "移動速度+70(10秒)/配置後",
-      "移動速度+70(10秒)/移動後"
+      "移動速度+70(10秒)/移動後",
+      "ATK+10%(10秒)/配置後",
+      "ATK+10%(10秒)/移動後"
     ],
     "exSkill1": {
       "skillName": "ジェットスライダー",
@@ -20447,7 +20489,7 @@
       },
       {
         "featureName": "common-team-buff1-no-emphasis",
-        "attackMul": 107
+        "attackMul": 115
       },
       {
         "featureName": "common-team-buff1-no-emphasis",
@@ -20457,7 +20499,7 @@
       {
         "featureName": "common-team-buff5",
         "isConditionalBuff": true,
-        "attackMul": 135
+        "attackMul": 175
       },
       {
         "featureName": "common-team-buff5",
@@ -20474,7 +20516,7 @@
             "value": 9
           }
         ],
-        "attackMul": 163
+        "attackMul": 235
       },
       {
         "featureName": "common-team-buff9",
@@ -20634,12 +20676,12 @@
             "value": 5
           }
         ],
-        "attackMul": 135
+        "attackMul": 175
       },
       {
         "featureName": "common-team-buff9",
         "isConditionalBuff": true,
-        "attackMul": 163
+        "attackMul": 235
       },
       {
         "featureName": "skill1-buff",
