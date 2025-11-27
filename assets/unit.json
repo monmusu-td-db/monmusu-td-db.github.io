@@ -44955,5 +44955,344 @@
         "value": 110
       }
     ]
+  },
+  {
+    "id": 382,
+    "unitName": "【ケートス娘】ノノア",
+    "unitShortName": "ノノア",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "水",
+    "hp": 6893,
+    "attack": 1051,
+    "defense": 446,
+    "resist": 134,
+    "exSkill1": {
+      "skillName": "ローンチカタラクト",
+      "target": "射程内",
+      "range": 200,
+      "duration": "単発",
+      "cooldown": 15
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "メイルバンカー",
+      "hp": 500,
+      "attack": 30
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "hp": 115
+      }
+    ],
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "attackAdd": {
+          "key": "hp",
+          "value": 30
+        },
+        "supplements": [
+          "即死(低)→命中"
+        ]
+      },
+      {
+        "featureName": "team-buff1",
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "t",
+            "value": 1
+          }
+        ],
+        "attackMul": 105
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "attackMul": 125
+      },
+      {
+        "featureName": "common-team-buff10",
+        "isConditionalBuff": true,
+        "attackMul": 150
+      },
+      {
+        "featureName": "common-extra-damage",
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack",
+          "value": 50
+        },
+        "target": "射程内",
+        "range": 500
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 140
+          }
+        ],
+        "attackMul": 140
+      },
+      {
+        "featureName": "common-hp-50%",
+        "isConditionalBuff": true,
+        "damageCut": 30,
+        "attackSpeedBuff": 190,
+        "supplements": [
+          "回復10%/命中"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "team-buff1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul",
+          "team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-damage",
+          "attack-mul",
+          "team-buff1"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-extra-damage",
+          "attack-mul",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-extra-damage",
+          "attack-mul",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "features": [
+          "common-hp-50%",
+          "team-buff1"
+        ]
+      },
+      {
+        "features": [
+          "common-hp-50%",
+          "attack-mul",
+          "team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "attack-mul",
+          "team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "common-extra-damage",
+          "attack-mul",
+          "team-buff1"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-hp-50%",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-hp-50%",
+          "attack-mul",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "attack-mul",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "common-extra-damage",
+          "attack-mul",
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-hp-50%",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-hp-50%",
+          "attack-mul",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "attack-mul",
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "common-extra-damage",
+          "attack-mul",
+          "common-team-buff10"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": 1,
+        "require": [
+          "水属性"
+        ],
+        "target": "射程内",
+        "value": 140,
+        "supplements": [
+          "発動後10秒間"
+        ]
+      }
+    ]
   }
 ]
