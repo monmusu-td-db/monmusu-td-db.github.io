@@ -1140,7 +1140,7 @@
         "annotations": [
           "配置時攻撃"
         ],
-        "damageFactor": 100,
+        "damageFactor": 200,
         "interval": null,
         "target": "射程内",
         "range": null,
@@ -1397,7 +1397,7 @@
       "attackMul": 240,
       "splash": true,
       "duration": 20,
-      "cooldown": 45,
+      "cooldown": 40,
       "supplements": [
         "スタン付与50%→命中"
       ]
@@ -1407,7 +1407,7 @@
       "attackMul": 320,
       "physicalEvasion": 80,
       "duration": 25,
-      "cooldown": 45
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -1616,7 +1616,8 @@
     "weapon": {
       "weaponName": "太古の石棺",
       "hp": 250,
-      "attack": 55
+      "attack": 55,
+      "costAdd": -3
     },
     "features": [
       {
@@ -1789,7 +1790,9 @@
       "cooldown": 30,
       "supplements": [
         "猛毒付与(中)→命中",
-        "石化付与(中)→命中"
+        "石化付与(中)→命中",
+        "DEF-10%(5秒)→命中",
+        "RES-10%(5秒)→命中"
       ]
     },
     "potentials": [
@@ -2563,11 +2566,11 @@
           "武器"
         ],
         "supplements": [
-          "RES-20→命中"
+          "RES-10%→命中"
         ]
       },
       {
-        "featureName": "10-sec",
+        "featureName": "5-sec",
         "isConditionalBuff": true,
         "annotations": [
           "防御デバフ累積効果"
@@ -2575,12 +2578,12 @@
         "conditions": [
           {
             "key": "s",
-            "value": 10
+            "value": 5
           }
         ],
         "resistDebuff": {
-          "time": 300,
-          "valueAdd": 20
+          "time": 150,
+          "valueMul": 10
         }
       }
     ],
@@ -2614,21 +2617,21 @@
       },
       {
         "features": [
-          "10-sec",
+          "5-sec",
           "common-definite-back-attack"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "10-sec",
+          "5-sec",
           "common-definite-back-attack"
         ]
       },
       {
         "skill": 2,
         "features": [
-          "10-sec",
+          "5-sec",
           "common-definite-back-attack"
         ]
       },
@@ -4978,7 +4981,7 @@
       "skillName": "すらいむ☆ア・ラモード",
       "attackMul": 170,
       "duration": 30,
-      "cooldown": 40,
+      "cooldown": 35,
       "supplements": [
         "引き付け"
       ]
@@ -4988,7 +4991,7 @@
       "attackMul": 170,
       "rangeMul": 150,
       "duration": 30,
-      "cooldown": 40
+      "cooldown": 35
     },
     "potentials": [
       "出撃コスト-1",
@@ -6820,7 +6823,6 @@
         ]
       }
     ],
-    "costAdd": 1,
     "potentialBonus": {
       "attackMul": 104
     },
@@ -13428,8 +13430,8 @@
       }
     ],
     "costAdd": -6,
-    "hpMul": 80,
-    "attackMul": 80,
+    "hpMul": 90,
+    "attackMul": 90,
     "potentialBonus": {
       "costAdd": -8
     },
@@ -15150,10 +15152,10 @@
     },
     "exSkill2": {
       "skillName": "石心の力",
-      "attackMul": 120,
+      "attackMul": 200,
       "target": 5,
       "splash": false,
-      "rangeMul": 130,
+      "rangeMul": 150,
       "duration": 25,
       "cooldown": 35
     },
@@ -18088,7 +18090,7 @@
       {
         "featureName": "common-definite-male",
         "isConditionalSkillBuff": true,
-        "damageFactor": 200
+        "damageFactor": 300
       }
     ],
     "isEventUnit": true,
@@ -29498,7 +29500,7 @@
       "attackMul": 280,
       "fixedDelay": 1,
       "rangeMul": 200,
-      "targetAdd": 1,
+      "targetAdd": 2,
       "duration": 30,
       "cooldown": 40
     },
@@ -29521,26 +29523,22 @@
         }
       },
       {
-        "featureName": "common-phase1",
-        "cooldownCut": 5
-      },
-      {
         "featureName": "common-phase2",
-        "attackMul": 130,
+        "attackMul": 140,
         "targetAdd": 1,
-        "cooldownCut": 10
+        "cooldownCut": 7
       },
       {
         "featureName": "common-phase3",
-        "attackMul": 160,
+        "attackMul": 180,
         "targetAdd": 2,
-        "cooldownCut": 15
+        "cooldownCut": 14
       },
       {
         "featureName": "common-phase4",
-        "attackMul": 190,
+        "attackMul": 220,
         "targetAdd": 3,
-        "cooldownCut": 20
+        "cooldownCut": 21
       }
     ],
     "delayMul": 140,
