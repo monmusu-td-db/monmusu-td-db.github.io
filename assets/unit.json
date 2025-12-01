@@ -45292,5 +45292,132 @@
         ]
       }
     ]
+  },
+  {
+    "id": 385,
+    "unitName": "【雷震子娘】リュオライ",
+    "unitShortName": "リュオライ",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 8706,
+    "attack": 1068,
+    "defense": 601,
+    "resist": 108,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "縁風渦",
+      "attackMul": 140,
+      "rounds": 5,
+      "splash": true,
+      "range": 100,
+      "duration": 20,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "weapon": {
+      "weaponName": "金剛棍",
+      "attack": 30,
+      "attackSpeed": 10
+    },
+    "features": [
+      {
+        "supplements": [
+          "超過電→周囲敵",
+          "-敵ATK200%物理Dmg/スタン時"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "超過電→周囲敵",
+            "-敵ATK250%物理Dmg/スタン時"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "スタン時間+30%→全体",
+          "スタン耐性減少(小)→全体"
+        ]
+      },
+      {
+        "featureName": "common-block3",
+        "isConditionalBuff": true,
+        "physicalEvasion": 75,
+        "magicalEvasion": 75
+      },
+      {
+        "featureName": "damage-field",
+        "annotations": [
+          "ダメージフィールド"
+        ],
+        "damageFactor": 100,
+        "criChanceAdd": -1000,
+        "interval": 30,
+        "target": "射程内",
+        "rounds": 1,
+        "splash": false,
+        "range": null,
+        "damageType": "物理"
+      }
+    ],
+    "attackSpeedAdd": 45,
+    "rounds": 2,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-field"
+        ]
+      },
+      {
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-block3",
+          "damage-field"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "bottom": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "skill": -1,
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
   }
 ]
