@@ -45419,5 +45419,143 @@
         ]
       }
     ]
+  },
+  {
+    "id": 386,
+    "unitName": "【白沢娘】レイロン",
+    "unitShortName": "レイロン",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2608,
+    "attack": 609,
+    "defense": 253,
+    "resist": 611,
+    "supplements": [
+      "回避無視100%",
+      "暗闇付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "導士地",
+      "attackMul": 260,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "tkn+1/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル初回待ち時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "豊識図巻",
+      "hp": 150,
+      "attack": 10,
+      "resist": 20,
+      "range": 10
+    },
+    "features": [
+      {
+        "skill": 1,
+        "criChanceAdd": 20
+      },
+      {
+        "featureName": "common-definite-ground",
+        "damageFactor": 200,
+        "potentialBonus": {
+          "damageFactor": 250
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-definite-ground"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "critical-chance-add",
+        "skill": 1,
+        "target": "射程内",
+        "value": 20
+      }
+    ]
+  },
+  {
+    "id": 3860001,
+    "parentId": 386,
+    "unitName": "巨岩壁",
+    "unitShortName": "巨岩壁T",
+    "rarity": "C",
+    "element": "地",
+    "cost": 0,
+    "hp": 9960,
+    "attack": 0,
+    "defense": 0,
+    "resist": 0,
+    "block": 3,
+    "moveSpeed": 0,
+    "placement": "近",
+    "isUnhealable": true,
+    "deployCount": 0,
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "hpMul": 150
+      }
+    ],
+    "situations": [
+      {}
+    ]
   }
 ]
