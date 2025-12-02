@@ -45559,6 +45559,58 @@
     ]
   },
   {
+    "TODO_DESC": "スタン蓄積値はwiki情報",
+    "TODO_STAT_INFERRED": true,
+    "id": 387,
+    "unitName": "【金華猫娘】ミンユエ",
+    "unitShortName": "ミンユエ",
+    "rarity": "E",
+    "class": "ウィッパー",
+    "element": "光",
+    "species": "妖怪",
+    "hp": 4304,
+    "attack": 672,
+    "defense": 426,
+    "resist": 235,
+    "exSkill1": {
+      "skillName": "魅乱鞭打",
+      "attackMul": 200,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "スタン蓄積10%→命中",
+        "暗闇付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "weapon": {
+      "weaponName": "絢爛鞭",
+      "attack": 25,
+      "resist": 30,
+      "attackSpeed": 5
+    },
+    "criChanceAdd": 20,
+    "criDamageAdd": 50,
+    "physicalEvasion": 20,
+    "magicalEvasion": 20,
+    "potentialBonus": {
+      "physicalEvasion": 25,
+      "magicalEvasion": 25
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 388,
     "unitName": "【黒猪精娘】トンジャオ",
     "unitShortName": "トンジャオ",
