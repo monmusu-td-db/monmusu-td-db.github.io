@@ -45557,5 +45557,88 @@
     "situations": [
       {}
     ]
+  },
+  {
+    "id": 388,
+    "unitName": "【黒猪精娘】トンジャオ",
+    "unitShortName": "トンジャオ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 7293,
+    "attack": 1063,
+    "defense": 477,
+    "resist": 131,
+    "supplements": [
+      "スタン無効",
+      "即死無効",
+      "HP-10%/150+36f→自分",
+      "CT-10秒/150+36f",
+      "回復10%/150+36f→自分"
+    ],
+    "exSkill1": {
+      "skillName": "震振停波",
+      "attackMul": 340,
+      "target": "射程内",
+      "duration": 25,
+      "cooldown": 45,
+      "supplements": [
+        "停止(2秒)/命中地上敵"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "妖怪"
+        ],
+        "hp": 108,
+        "attack": 108,
+        "potentialBonus": {
+          "hp": 110,
+          "attack": 110
+        }
+      },
+      {
+        "targets": [
+          "地"
+        ],
+        "hp": 110,
+        "attack": 110
+      }
+    ],
+    "weapon": {
+      "weaponName": "帝歯斧",
+      "hp": 400,
+      "attack": 20,
+      "defense": 20
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "element": "地",
+        "target": "射程内",
+        "require": [
+          "地属性"
+        ],
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
   }
 ]
