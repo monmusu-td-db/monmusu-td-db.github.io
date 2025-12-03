@@ -1808,6 +1808,7 @@ const potentialList = [
   { name: "攻撃時スタン蓄積+10", stat: null, value: 10 },
   { name: "攻撃時毒確率+20%", stat: null, value: 1 },
   { name: "地属性マスボーナス3倍", stat: null, value: 3 },
+  { name: "闇属性マスボーナス3倍", stat: null, value: 3 },
   { name: "スタン耐性+50", stat: stat.supplements, value: 50 },
   { name: "移動時スキル継続", stat: null, value: 1 },
   { name: "火傷の敵へ与ダメ1.2倍", stat: null, value: 1 },
@@ -1816,6 +1817,7 @@ const potentialList = [
   { name: "30%で貫通攻撃", stat: stat.penetration, value: 30 },
   { name: "スタン無効", stat: null, value: 1 },
   { name: "回復量20%上昇", stat: null, value: 1 },
+  { name: "スキル時自マス変化：闇", stat: null, value: 1 },
 ] as const satisfies PotentialEffect[];
 export type Potential = (typeof potentialList)[number]["name"];
 export const Potential = {

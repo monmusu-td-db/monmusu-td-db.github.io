@@ -45394,6 +45394,148 @@
     ]
   },
   {
+    "id": 384,
+    "unitName": "【鉄扇公主娘】マユリヤ",
+    "unitShortName": "マユリヤ",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 4465,
+    "attack": 729,
+    "defense": 345,
+    "resist": 106,
+    "exSkill1": {
+      "skillName": "招嵐脅地",
+      "attackMul": 340,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "即死(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-2",
+      "攻撃力+120",
+      "闇属性マスボーナス3倍",
+      "スキル再使用時間-6秒",
+      "スキル時自マス変化：闇"
+    ],
+    "weapon": {
+      "weaponName": "芭蕉扇",
+      "hp": 500,
+      "attack": 30
+    },
+    "features": [
+      {
+        "hasPotentials": [
+          "闇属性マスボーナス3倍"
+        ],
+        "fieldBuffFactor": 300
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "moveSpeedMul": 150,
+        "moveCostAdd": -1
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "ノックバック(小)→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "ノックバック(大)→命中"
+        ]
+      },
+      {
+        "featureName": "common-team-buff1-no-emphasis",
+        "attackMul": 112
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "attackMul": 160
+      },
+      {
+        "featureName": "common-team-buff10",
+        "isConditionalBuff": true,
+        "attackMul": 220
+      }
+    ],
+    "isEventUnit": true,
+    "splash": true,
+    "delayMul": 130,
+    "potentialBonus": {
+      "targetAdd": 1
+    },
+    "situations": [
+      {
+        "features": [
+          "common-team-buff1-no-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1-no-emphasis"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff10"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "闇",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "move-speed-mul",
+        "skill": -1,
+        "require": [
+          "武器",
+          "飛行移動"
+        ],
+        "target": "全体",
+        "value": 50,
+        "supplements": [
+          "移動コスト-1"
+        ]
+      }
+    ]
+  },
+  {
     "id": 385,
     "unitName": "【雷震子娘】リュオライ",
     "unitShortName": "リュオライ",
