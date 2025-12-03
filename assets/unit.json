@@ -45294,6 +45294,106 @@
     ]
   },
   {
+    "id": 383,
+    "unitName": "【河伯娘】カリョウ",
+    "unitShortName": "カリョウ",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 3835,
+    "attack": 671,
+    "defense": 299,
+    "resist": 425,
+    "exSkill1": {
+      "skillName": "水仙防",
+      "attackMul": 320,
+      "delayMul": 250,
+      "rangeMul": 140,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "バリア{attack-base*100}付与→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "スキル初回待ち時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "妖宝杖",
+      "hp": 250,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "隠密"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "criChanceAdd": 20,
+    "potentialBonus": {
+      "criChanceAdd": 25
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element",
+          "weapon"
+        ],
+        "features": [
+          "common-water-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element",
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-water-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "critical-chance-add",
+        "require": [
+          "水属性"
+        ],
+        "target": "射程内",
+        "value": 20,
+        "potentialBonus": {
+          "value": 25
+        }
+      },
+      {
+        "type": "critical-chance-add",
+        "skill": 1,
+        "require": [
+          "水属性"
+        ],
+        "target": "射程内",
+        "value": 20,
+        "potentialBonus": {
+          "value": 25
+        }
+      }
+    ]
+  },
+  {
     "id": 385,
     "unitName": "【雷震子娘】リュオライ",
     "unitShortName": "リュオライ",
