@@ -13670,6 +13670,11 @@
             "吹雪(7秒)/発動"
           ]
         }
+      },
+      {
+        "featureName": "common-definite-freeze",
+        "isConditionalBuff": true,
+        "damageFactor": 130
       }
     ],
     "isEventUnit": true,
@@ -13680,6 +13685,23 @@
       },
       {
         "skill": 2
+      },
+      {
+        "features": [
+          "common-definite-freeze"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-freeze"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite-freeze"
+        ]
       }
     ],
     "buffs": [
@@ -18451,7 +18473,7 @@
     "resist": 57,
     "exSkill1": {
       "skillName": "ツラヌキの舞",
-      "attackMul": 120,
+      "attackMul": 190,
       "attackSpeedBuff": 150,
       "fixedDelay": 10,
       "duration": 15,
@@ -18636,7 +18658,7 @@
       {
         "featureName": "common-hp-50%",
         "isConditionalBuff": true,
-        "damageFactor": 130
+        "damageFactor": 180
       }
     ],
     "hpMul": 120,
@@ -18765,7 +18787,7 @@
       "攻撃力+50",
       "射程+10"
     ],
-    "moveCostAdd": 9,
+    "moveCostAdd": 5,
     "situations": [
       {},
       {
@@ -18927,7 +18949,8 @@
       "duration": 30,
       "cooldown": 30,
       "supplements": [
-        "鈍足-20%→射程内"
+        "鈍足-20%→射程内",
+        "雨(10秒)/発動"
       ]
     },
     "potentials": [
@@ -18952,6 +18975,16 @@
         "weather": "雨",
         "supplements": [
           "配置時"
+        ]
+      },
+      {
+        "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "雨",
+        "supplements": [
+          "発動時"
         ]
       }
     ]
@@ -19238,7 +19271,7 @@
       "physicalEvasion": 60,
       "magicalEvasion": 60,
       "duration": "永続",
-      "cooldown": 135
+      "cooldown": 120
     },
     "potentials": [
       "出撃コスト-1",
@@ -19308,7 +19341,7 @@
       "hpMul": 220,
       "attackMul": 260,
       "duration": "永続",
-      "cooldown": 135,
+      "cooldown": 120,
       "supplements": [
         "引き付け"
       ]
@@ -23410,10 +23443,10 @@
     ],
     "exSkill1": {
       "skillName": "大暴風",
-      "attackMul": 140,
+      "attackMul": 210,
       "rounds": 4,
       "rangeMul": 180,
-      "duration": 12,
+      "duration": 20,
       "cooldown": 50
     },
     "potentials": [
