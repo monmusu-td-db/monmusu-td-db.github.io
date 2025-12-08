@@ -30048,7 +30048,7 @@
       {
         "skill": 1,
         "isBuffSkill": true,
-        "attackMul": 230
+        "attackMul": 240
       }
     ],
     "situations": [
@@ -30101,7 +30101,7 @@
     "resist": 279,
     "exSkill1": {
       "skillName": "忍法・乱れ皿",
-      "attackMul": 230,
+      "attackMul": 240,
       "targetAdd": 2,
       "rounds": 3,
       "duration": 25,
@@ -34697,17 +34697,15 @@
     "resist": 487,
     "supplements": [
       "火傷付与(稀)→命中",
-      "火傷付与率増加→敵全体"
+      "火傷付与率増加→敵全体",
+      "ACT+10%/命中火傷or呪詛敵"
     ],
     "exSkill1": {
       "skillName": "丑の釘打ち",
       "attackMul": 240,
       "rangeMul": 190,
       "duration": 20,
-      "cooldown": 35,
-      "supplements": [
-        "{attack*200}dmg/発動→呪詛敵"
-      ]
+      "cooldown": 35
     },
     "potentials": [
       "出撃コスト-1",
@@ -34739,12 +34737,28 @@
           "鈍足(大)→射程内",
           "ATK-50%→射程内"
         ]
+      },
+      {
+        "featureName": "common-extra-damage",
+        "annotations": [
+          "火傷or呪詛敵追加ダメージ"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 300
+        }
       }
     ],
     "situations": [
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-damage"
+        ]
       },
       {
         "proper": true,
