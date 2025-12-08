@@ -24096,7 +24096,6 @@
   },
   {
     "TODO_DESC": "Stat/Potential/ex1はWiki情報/攻撃力は推測",
-    "TODO_FATAL": "スタン蓄積値はwiki情報",
     "TODO_STAT_INFERRED": true,
     "id": 202,
     "unitName": "【牛鬼娘】ウシオ",
@@ -24110,7 +24109,8 @@
     "defense": 556,
     "resist": 129,
     "supplements": [
-      "スタン付与10%→命中"
+      "スタン付与20%→命中",
+      "ACT+5%/被Dmg"
     ],
     "exSkill1": {
       "skillName": "剛剣・山津波",
@@ -24132,10 +24132,10 @@
         "isConditionalBuff": true,
         "rounds": 2,
         "supplements": [
-          "スタン付与20%→命中"
+          "スタン付与40%→命中"
         ],
         "deleteSupplements": [
-          "スタン付与10%→命中"
+          "スタン付与20%→命中"
         ]
       },
       {
@@ -24147,7 +24147,6 @@
         }
       }
     ],
-    "costAdd": 3,
     "hpMul": 130,
     "attackMul": 120,
     "situations": [
