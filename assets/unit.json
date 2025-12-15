@@ -45982,6 +45982,159 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 389,
+    "unitName": "【聖宴のゴブリン娘】アニシラ",
+    "unitShortName": "アニシラ/Xmas",
+    "rarity": "E",
+    "class": "シャーマン",
+    "element": "風",
+    "hp": 2959,
+    "attack": 0,
+    "defense": 281,
+    "resist": 447,
+    "exSkill1": {
+      "skillName": "ゴブリンセットアップ！",
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
+        "コスト+5/発動",
+        "tkn+2/発動",
+        "HP0/終了後→聖夜ゴブリンtkn"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "移動消費コスト-2"
+    ],
+    "weapon": {
+      "weaponName": "ゴブリース",
+      "hp": 400,
+      "resist": 15,
+      "range": 10
+    },
+    "features": [
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 200
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "require": [
+          "武器",
+          "ゴブリン特性"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "value": 105,
+        "supplements": [
+          "配置中のゴブリン族1体毎"
+        ]
+      },
+      {
+        "type": "attack-mul",
+        "require": [
+          "ゴブリン特性"
+        ],
+        "skill": 1,
+        "target": "全体",
+        "value": 200
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 3890001,
+    "parentId": 389,
+    "unitName": "聖夜のゴブリン",
+    "unitShortName": "聖夜ゴブリンT",
+    "rarity": "C",
+    "element": "風",
+    "species": "ゴブリン",
+    "cost": 4,
+    "hp": 1893,
+    "attack": 617,
+    "defense": 119,
+    "resist": 59,
+    "attackSpeed": 100,
+    "delay": 25,
+    "block": 1,
+    "target": 1,
+    "moveSpeed": 130,
+    "damageType": "物理",
+    "placement": "近",
+    "supplements": [
+      "ATK+20%(20秒)/死亡時→全体",
+      "DEF+20%(20秒)/死亡時→全体",
+      "RES+20%(20秒)/死亡時→全体"
+    ],
+    "features": [
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackMul": 200
+      }
+    ],
+    "isUnhealable": true,
+    "deployCount": 1,
+    "situations": [
+      {
+        "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": -1,
+        "target": "全体",
+        "duration": 20,
+        "value": 120,
+        "supplements": [
+          "死亡後20秒間"
+        ]
+      },
+      {
+        "type": "defense-mul",
+        "skill": -1,
+        "target": "全体",
+        "duration": 20,
+        "value": 120,
+        "supplements": [
+          "死亡後20秒間"
+        ]
+      },
+      {
+        "type": "resist-mul",
+        "skill": -1,
+        "target": "全体",
+        "duration": 20,
+        "value": 120,
+        "supplements": [
+          "死亡後20秒間"
+        ]
+      }
+    ]
+  },
+  {
     "id": 390,
     "unitName": "【聖花の雪女娘】ニホ",
     "unitShortName": "ニホ/Xmas",
