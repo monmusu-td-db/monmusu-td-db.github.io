@@ -2762,6 +2762,7 @@ export default class Situation implements TableRow<Keys> {
     const types: (string | undefined)[] = [
       className,
       Data.UnitClass.baseTagOf(className),
+      this.unit.element.getValue(setting),
       ...species,
     ];
     const fnHp = (n: number) => {

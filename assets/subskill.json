@@ -2474,5 +2474,35 @@
         "damageFactor": 10
       }
     ]
+  },
+  {
+    "name": "捕獲！生意気盛りな男勇者",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "R以下にセット時、攻撃力+20%、HP+23%　男勇者をトークンとして使役可能",
+    "features": [
+      {
+        "require": [
+          "R以下"
+        ],
+        "hp": 23,
+        "attack": 20
+      }
+    ]
+  },
+  {
+    "name": "捕獲！プライド高き男剣士",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "火属性ユニットにセット時、攻撃速度が増加　男剣士をトークンとして使役可能",
+    "features": [
+      {
+        "require": [
+          "火"
+        ],
+        "attackSpeedBuff": 20,
+        "delayCut": 15
+      }
+    ]
   }
 ]

@@ -1400,12 +1400,16 @@ export default class Unit implements TableRow<Keys> {
 
     const [ss1, ss2] = this.getSubskills(setting);
     const className = this.className.getValue(setting);
-    const types = [
+    const rarity = this.rarity.getValue(setting);
+    const types: (string | undefined)[] = [
       className,
       Data.UnitClass.baseTagOf(className),
       this.element.getValue(setting),
       ...this.species.getValue(setting),
     ];
+    if (rarity === Data.Rarity.R || rarity === Data.Rarity.C) {
+      types.push("R以下");
+    }
     const fn = (ss: Subskill | undefined) => {
       if (ss === undefined) {
         return;
