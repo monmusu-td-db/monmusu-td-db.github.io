@@ -46125,5 +46125,136 @@
         ]
       }
     ]
+  },
+  {
+    "id": 391,
+    "unitName": "【聖獅のネメアレオ娘】メアルス",
+    "unitShortName": "メアルス/Xmas",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "光",
+    "hp": 2687,
+    "attack": 956,
+    "defense": 224,
+    "resist": 582,
+    "placement": "両",
+    "supplements": [
+      "スタン無効",
+      "凍結無効"
+    ],
+    "exSkill1": {
+      "skillName": "ホーリーブライト",
+      "attackMul": 240,
+      "targetAdd": 2,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "バリア{attack-base*50}付与/撃破"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "魔法防御力+90",
+      "魔法防御力+90",
+      "攻撃対象数+1"
+    ],
+    "weapon": {
+      "weaponName": "ブロッサムワンド",
+      "hp": 250,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "physicalDamageCut": 20,
+        "magicalDamageCut": 50
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "attackAdd": {
+          "key": "resist",
+          "value": 50
+        }
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "magicalDamageCut": 100
+      },
+      {
+        "featureName": "1hit",
+        "hasPotentials": [
+          "攻撃対象数+1"
+        ],
+        "conditions": [
+          {
+            "key": "hit",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "defenseMul": 120,
+    "resistMul": 120,
+    "situations": [
+      {
+        "features": [
+          "1hit"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "攻撃対象数+1"
+        ],
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "hasPotentials": [
+          "攻撃対象数+1"
+        ],
+        "features": [
+          "common-4hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "require": [
+          "自身以外"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "value": 25,
+        "potentialBonus": {
+          "value": 30
+        }
+      }
+    ]
   }
 ]
