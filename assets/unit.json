@@ -46029,6 +46029,7 @@
         "skill": 1
       }
     ],
+    "isEventUnit": true,
     "buffs": [
       {
         "type": "attack-mul",
