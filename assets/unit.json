@@ -45980,5 +45980,150 @@
         ]
       }
     ]
+  },
+  {
+    "id": 390,
+    "unitName": "【聖花の雪女娘】ニホ",
+    "unitShortName": "ニホ/Xmas",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 2639,
+    "attack": 653,
+    "defense": 315,
+    "resist": 210,
+    "supplements": [
+      "凍結無効"
+    ],
+    "exSkill1": {
+      "skillName": "ウィンタースノー",
+      "attackMul": 220,
+      "targetAdd": 2,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "停止(1秒)→命中",
+        "凍結付与(中)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "カタパルトフロスト",
+      "hp": 50,
+      "range": 10,
+      "attackSpeed": 10
+    },
+    "features": [
+      {
+        "supplements": [
+          "ATK+30%(20秒)/敵凍結"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK+40%(20秒)/敵凍結"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "凍結耐性低下→射程内敵"
+        ]
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "凍結付与(稀)→命中"
+        ]
+      },
+      {
+        "featureName": "common-definite-freeze",
+        "damageFactor": 150
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 130
+          }
+        ],
+        "attackMul": 130
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 160
+          }
+        ],
+        "attackMul": 160
+      },
+      {
+        "featureName": "attack-mul3",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 190
+          }
+        ],
+        "attackMul": 190
+      }
+    ],
+    "rangeAdd": 200,
+    "fixedDelay": 40,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul3"
+        ]
+      }
+    ]
   }
 ]
