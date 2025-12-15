@@ -46213,7 +46213,16 @@
             "value": 130
           }
         ],
-        "attackMul": 130
+        "attackMul": 130,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 140
+            }
+          ],
+          "attackMul": 140
+        }
       },
       {
         "featureName": "attack-mul2",
@@ -46224,7 +46233,16 @@
             "value": 160
           }
         ],
-        "attackMul": 160
+        "attackMul": 160,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 180
+            }
+          ],
+          "attackMul": 180
+        }
       },
       {
         "featureName": "attack-mul3",
@@ -46235,7 +46253,16 @@
             "value": 190
           }
         ],
-        "attackMul": 190
+        "attackMul": 190,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "*",
+              "value": 220
+            }
+          ],
+          "attackMul": 220
+        }
       }
     ],
     "rangeAdd": 200,
