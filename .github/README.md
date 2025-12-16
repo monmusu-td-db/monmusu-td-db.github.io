@@ -28,3 +28,8 @@ npm run dev
 - [サバイバルTypeScript](https://typescriptbook.jp/)
 - [Bootstrap](https://getbootstrap.jp/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
+
+## ライセンス
+
+本リポジトリに含まれるソースコードは MIT License のもとで公開されています。
+ゲームデータ・画像の権利は各権利者に帰属します。
