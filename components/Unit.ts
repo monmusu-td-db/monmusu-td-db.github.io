@@ -1344,6 +1344,7 @@ export default class Unit implements TableRow<Keys> {
           case Data.Species.name.dragon:
           case Data.Species.name.undead:
           case Data.Species.name.alien:
+          case Data.Species.name.demi:
             return true;
         }
         return false;
