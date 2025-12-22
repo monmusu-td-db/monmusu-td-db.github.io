@@ -46,6 +46,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="jq-VHZwxd-CdI8-g2Vc6ZsrN0-3rJDEYEk7nfBKbGeE"
+        />
+      </head>
       <body>
         <Theme.Initialize />
         <LoadingIndicator />
