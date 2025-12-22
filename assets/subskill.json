@@ -2511,11 +2511,30 @@
     "group": "攻撃",
     "desc": "配置中のデミ、妖精、ゴブリン、コボルト1体につきその属性の攻撃力4%上昇",
     "features": [
-      "デミ",
-      "妖精",
-      "ゴブリン",
-      "コボルト"
-    ],
-    "attackMul": 4
+      {
+        "require": [
+          "デミ"
+        ],
+        "attackMul": 4
+      },
+      {
+        "require": [
+          "妖精"
+        ],
+        "attackMul": 4
+      },
+      {
+        "require": [
+          "ゴブリン"
+        ],
+        "attackMul": 4
+      },
+      {
+        "require": [
+          "コボルト"
+        ],
+        "attackMul": 4
+      }
+    ]
   }
 ]
