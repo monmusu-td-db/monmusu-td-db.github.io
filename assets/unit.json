@@ -46549,5 +46549,74 @@
         "value": 280
       }
     ]
+  },
+  {
+    "id": 394,
+    "unitName": "【初瑞の麒麟娘】ルイシャ",
+    "unitShortName": "ルイシャ/正月",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 3008,
+    "attack": 0,
+    "defense": 307,
+    "resist": 479,
+    "exSkill1": {
+      "skillName": "慶賀の神鳴り",
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "敵HP20%魔法Dmg/発動→射程内",
+        "スタン付与100%/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "招福角杖",
+      "hp": 200,
+      "resist": 35,
+      "range": 10
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "require": [
+          "同一属性8体"
+        ],
+        "hp": 115,
+        "potentialBonus": {
+          "hp": 120
+        }
+      }
+    ],
+    "features": [
+      {
+        "require": [
+          "スキル",
+          "武器"
+        ],
+        "supplements": [
+          "バリア{max-hp*50}付与/発動→射程内"
+        ]
+      }
+    ],
+    "hpMul": 200,
+    "rangeAdd": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
   }
 ]
