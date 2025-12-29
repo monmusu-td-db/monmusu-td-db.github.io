@@ -46437,5 +46437,117 @@
         }
       }
     ]
+  },
+  {
+    "id": 393,
+    "unitName": "【初灯の槌の子娘】ヤノ",
+    "unitShortName": "ヤノ/正月",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 2959,
+    "attack": 549,
+    "defense": 290,
+    "resist": 495,
+    "moveType": "隠密",
+    "placement": "両",
+    "supplements": [
+      "隠密",
+      "猛毒付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "午蛇の呪毒",
+      "attackMul": 240,
+      "targetAdd": 2,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "猛毒付与(高)/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "移動時スキル継続"
+    ],
+    "weapon": {
+      "weaponName": "陰陽午",
+      "resist": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "supplements": [
+          "ACT+10%/命中毒状態敵"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ACT+15%/命中毒状態敵"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "moveCostAdd": -99
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "damageDebuff": 280
+      },
+      {
+        "featureName": "common-definite-poison",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "resistDebuff": {
+          "valueMul": 30
+        },
+        "supplements": [
+          "RES-30%→全体毒状態敵"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "duration": 20,
+        "supplements": [
+          "鈍足-60%→呪詛敵"
+        ]
+      }
+    ],
+    "moveSpeedMul": 200,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 280
+      }
+    ]
   }
 ]
