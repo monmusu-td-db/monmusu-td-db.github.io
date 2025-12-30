@@ -2536,5 +2536,44 @@
         "attackMul": 4
       }
     ]
+  },
+  {
+    "name": "ファンタジスタスノウ",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "配置時、20秒間天候：吹雪にする　吹雪状態の時、自身の与えるダメージが1.6倍",
+    "damageFactor": 60
+  },
+  {
+    "name": "開けてびっくり福袋",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "配置時、攻撃力、物理防御、魔法防御、最大HPのいずれか一つを30%増加",
+    "hpMul": 30,
+    "attackMul": 30,
+    "defenseMul": 30,
+    "resistMul": 30
+  },
+  {
+    "name": "フルパワークリティカル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "HP100%時、自身のクリティカル率+50%",
+    "criChanceAdd": 50
+  },
+  {
+    "name": "前途妖々",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "回復10%/撃破、攻撃力+10%(10秒)/撃破、妖怪はさらに攻撃力+5%(10秒)",
+    "attackMul": 10,
+    "features": [
+      {
+        "require": [
+          "妖怪"
+        ],
+        "attackMul": 15
+      }
+    ]
   }
 ]
