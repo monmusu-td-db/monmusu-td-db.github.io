@@ -46439,6 +46439,77 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 392,
+    "unitName": "【賀春のコボルト娘】バウ",
+    "unitShortName": "バウ/正月",
+    "rarity": "E",
+    "class": "バーバリアン",
+    "element": "地",
+    "species": "コボルト",
+    "hp": 5568,
+    "attack": 886,
+    "defense": 387,
+    "resist": 116,
+    "exSkill1": {
+      "skillName": "コボルトクラッシュ",
+      "attackMul": 180,
+      "target": "射程内",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "コボルト"
+        ],
+        "cost": -2,
+        "potentialBonus": {
+          "cost": -3
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "バウバウアックス",
+      "hp": 400,
+      "attack": 40
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "コスト+3/発動"
+        ]
+      },
+      {
+        "isBuffSkill": true,
+        "skill": 1,
+        "hpMul": 120,
+        "supplements": [
+          "HP+20%(15秒)/発動→コボルト"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "costAdd": -2,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
     "id": 393,
     "unitName": "【初灯の槌の子娘】ヤノ",
     "unitShortName": "ヤノ/正月",
