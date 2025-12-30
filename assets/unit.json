@@ -46618,5 +46618,111 @@
         "skill": 1
       }
     ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 395,
+    "unitName": "【賀岩のストーンゴーレム娘】ネイス",
+    "unitShortName": "ネイス/正月",
+    "rarity": "L",
+    "class": "ニンジャ",
+    "element": "地",
+    "hp": 3024,
+    "attack": 500,
+    "defense": 452,
+    "resist": 277,
+    "supplements": [
+      "毒無効",
+      "スタン無効",
+      "呪殺10%(ボス無効)→命中",
+      "{attack*200}dmg/呪殺→周囲"
+    ],
+    "exSkill1": {
+      "skillName": "鋭石御奉射",
+      "attackMul": 200,
+      "attackMotionMul": 170,
+      "defenseMul": 700,
+      "rounds": 3,
+      "laser": true,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+90",
+      "物理防御力+90",
+      "物理ダメージ20%軽減"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "地"
+        ],
+        "attack": 110,
+        "defense": 110,
+        "potentialBonus": {
+          "attack": 112,
+          "defense": 112
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "破魔石矢",
+      "attack": 40,
+      "defense": 40
+    },
+    "features": [
+      {
+        "attackAdd": {
+          "key": "defense",
+          "value": 25
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "ノックバック(小)→命中"
+        ]
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "鈍足→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "鈍足(大)→命中"
+        ]
+      }
+    ],
+    "costAdd": 3,
+    "hpMul": 150,
+    "defenseMul": 140,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
   }
 ]
