@@ -418,7 +418,12 @@ function ExternalLink({
   children: ReactNode;
 }) {
   return (
-    <a href={href} className="ex-link">
+    <a
+      href={href}
+      className="ex-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
       <Icon.BoxArrowUpRight width={14} height={14} />
     </a>

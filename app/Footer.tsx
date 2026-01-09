@@ -60,7 +60,7 @@ function ExternalLink({
 }) {
   return (
     <div>
-      <a href={href}>
+      <a href={href} target="_blank" rel="noopener noreferrer">
         {icon}
         <span className="mx-2">{children}</span>
         <Icon.BoxArrowUpRight width={14} height={14} />
