@@ -8,6 +8,13 @@ import classNames from "classnames";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Changelog from "@/components/UI/Changelog";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "メインページ - モンスター娘TD DB",
+  description:
+    "このサイトはモンスター娘TDのキャラクターの能力値やDPSを、サブスキルや編成バフなどに合わせて計算できるデータベースです。",
+};
 
 const getSelector = Data.TableColor.getSelector;
 

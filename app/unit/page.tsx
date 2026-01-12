@@ -2,8 +2,12 @@ import { TablesUnit } from "@/components/UI/Tables";
 import PageRoot from "@/components/UI/PageRoot";
 import type { Metadata } from "next";
 
+const DESC =
+  "このページではモンスター娘TDのキャラクターの能力値を、サブスキルや編成バフなどに合わせて計算できます。";
+
 export const metadata: Metadata = {
-  title: "ユニット一覧",
+  title: "キャラクター一覧",
+  description: DESC,
 };
 
 export default function App() {

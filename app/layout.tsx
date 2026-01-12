@@ -27,9 +27,7 @@ export const metadata: Metadata = {
     apple: ASSETS_PATH + "apple_icon.png",
   },
   openGraph: {
-    title: TITLE,
     images: ASSETS_PATH + "ogp.jpg",
-    description: DESC,
     locale: "ja_JP",
     url: SITE_URL,
   },

@@ -19,6 +19,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "バフ一覧",
+  description:
+    "このページではモンスター娘TDのキャラクターのバフをまとめています。",
 };
 
 interface HeaderData {
