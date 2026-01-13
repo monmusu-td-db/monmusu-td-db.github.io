@@ -19762,15 +19762,54 @@
         "deleteAnnotations": [
           "ハイタフネス"
         ],
+        "deleteSupplements": [
+          "回復5%/秒"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "skill": 0,
         "staticDamage": {
           "key": "hp",
           "value": 8
         },
         "supplements": [
           "回復8%/秒"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "require": [
+          "スキル"
         ],
-        "deleteSupplements": [
-          "回復5%/秒"
+        "staticDamage": {
+          "key": "hp",
+          "value": 9
+        },
+        "supplements": [
+          "回復9%/秒"
+        ]
+      },
+      {
+        "featureName": "regenerate-4%",
+        "isAbility": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          "再"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 4
+        },
+        "interval": 30,
+        "target": "自分",
+        "rounds": 1,
+        "duration": "常時",
+        "damageType": "再生",
+        "supplements": [
+          "回復4%/秒"
         ]
       }
     ],
@@ -19807,7 +19846,7 @@
         "proper": true,
         "skill": 1,
         "features": [
-          "common-regenerate-3%"
+          "regenerate-4%"
         ]
       },
       {
@@ -30697,7 +30736,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 258,
     "unitName": "【海岸傘ゾンビ娘】ロトーナ",
     "unitShortName": "ロトーナ/水着",
@@ -30738,9 +30776,9 @@
         "annotations": [
           "種族特性"
         ],
-        "hpMul": 160,
+        "hpMul": 170,
         "potentialBonus": {
-          "hpMul": 170
+          "hpMul": 180
         }
       }
     ],
@@ -31020,7 +31058,24 @@
       "射程+15",
       "近接マスに配置可能"
     ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "hp": 108,
+        "attack": 108
+      }
+    ],
     "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "凍結付与/発動→射程内"
+        ]
+      },
       {
         "attackAdd": {
           "key": "hp",
@@ -31033,11 +31088,11 @@
         "damageFactor": 120
       }
     ],
-    "costAdd": 4,
-    "hpMul": 130,
+    "costAdd": 3,
+    "hpMul": 150,
     "blockAdd": 1,
     "potentialBonus": {
-      "hpMul": 140
+      "hpMul": 160
     },
     "situations": [
       {},
