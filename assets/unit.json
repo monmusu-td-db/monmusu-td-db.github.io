@@ -6947,6 +6947,7 @@
     ]
   },
   {
+    "TODO_FATAL": "ex2追加ダメージ回数は要検証/ex2DEF低下は要検証",
     "id": 54,
     "unitName": "【グリフォン娘】クリフォ",
     "unitShortName": "クリフォ",
@@ -6968,6 +6969,18 @@
         "ノックバック→命中"
       ]
     },
+    "exSkill2": {
+      "skillName": "疾風ノ輪舞",
+      "attackMul": 280,
+      "fixedDelay": 1,
+      "target": 3,
+      "rangeMul": 150,
+      "duration": "単発",
+      "cooldown": 35,
+      "supplements": [
+        "DEF-10(10秒)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -6982,10 +6995,20 @@
     },
     "features": [
       {
+        "skill": 0,
         "target": [
           1,
           2
-        ],
+        ]
+      },
+      {
+        "skill": 1,
+        "target": [
+          1,
+          2
+        ]
+      },
+      {
         "defenseDebuff": {
           "key": "attack-base",
           "valueAdd": 30
@@ -7001,12 +7024,41 @@
         "skill": 1,
         "criChanceAdd": 30,
         "criChanceLimitAdd": 30
+      },
+      {
+        "featureName": "common-extra-field-damage-no-ability",
+        "damageFactor": 30,
+        "rounds": 13
       }
     ],
     "situations": [
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-1hit",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-2hits",
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-3hits",
+          "common-extra-field-damage-no-ability"
+        ]
       }
     ]
   },
