@@ -10353,6 +10353,18 @@
         "範囲拡大"
       ]
     },
+    "exSkill2": {
+      "skillName": "光彩の祝福",
+      "attackMul": 220,
+      "fixedDelay": 1,
+      "target": 5,
+      "rangeMul": 190,
+      "duration": "単発",
+      "cooldown": 20,
+      "supplements": [
+        "コスト+8/発動"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -10422,6 +10434,41 @@
         "skill": 1,
         "features": [
           "common-3hits",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-1hit",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-2hits",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-3hits",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-4hits",
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-5hits",
           "common-phase1"
         ]
       },
