@@ -46949,5 +46949,93 @@
         ]
       }
     ]
+  },
+  {
+    "id": 398,
+    "unitName": "【ガルーダ娘】ヴァルディア",
+    "unitShortName": "ヴァルディア",
+    "rarity": "L",
+    "class": "ウィッパー",
+    "element": "風",
+    "hp": 4560,
+    "attack": 748,
+    "defense": 426,
+    "resist": 233,
+    "moveType": "飛行",
+    "supplements": [
+      "+1スタック/攻撃"
+    ],
+    "exSkill1": {
+      "skillName": "ガルラ・ヴァハーナ",
+      "attackMul": 240,
+      "physicalEvasion": 80,
+      "magicalEvasion": 80,
+      "duration": 20,
+      "cooldown": 25,
+      "supplements": [
+        "+10スタック/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "CRI率/CRI率上限+20%"
+    ],
+    "weapon": {
+      "weaponName": "ティーカーコーラー",
+      "hp": 300,
+      "attack": 50,
+      "hpMul": 150
+    },
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20,
+        "potentialBonus": {
+          "criChanceAdd": 25,
+          "criChanceLimitAdd": 25
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "毒無効",
+          "火傷無効"
+        ]
+      },
+      {
+        "featureName": "stack-10",
+        "isConditionalBuff": true,
+        "annotations": [
+          "種族特性10"
+        ],
+        "delayMul": 75,
+        "rangeMul": 160,
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ],
+        "deleteSupplements": [
+          "+1スタック/攻撃"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "stack-10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "stack-10"
+        ]
+      }
+    ]
   }
 ]
