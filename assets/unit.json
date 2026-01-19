@@ -46949,5 +46949,150 @@
         ]
       }
     ]
+  },
+  {
+    "id": 399,
+    "unitName": "【ナーガ娘】ジャルナギー",
+    "unitShortName": "ジャルナギー",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "水",
+    "hp": 5987,
+    "attack": 1001,
+    "defense": 455,
+    "resist": 103,
+    "supplements": [
+      "雨(30秒)/配置"
+    ],
+    "exSkill1": {
+      "skillName": "ナーガ・タルワール",
+      "attackMul": 320,
+      "fixedDelay": 1,
+      "target": 3,
+      "range": 400,
+      "duration": "単発",
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "ヴィシャダントゥ",
+      "attack": 55,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "猛毒付与(稀)→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "猛毒付与(高)→命中"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "毒即時回復→射程内"
+        ]
+      },
+      {
+        "featureName": "common-definite-poison",
+        "annotations": [
+          "天候：雨or毒特効"
+        ],
+        "damageFactor": 250,
+        "supplements": [
+          "回復阻害→全体特効敵"
+        ],
+        "potentialBonus": {
+          "damageFactor": 300
+        }
+      },
+      {
+        "featureName": "common-enemy1",
+        "rounds": 3
+      },
+      {
+        "featureName": "common-enemy2",
+        "rounds": 2
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy1"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison",
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison",
+          "common-enemy1"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "poison-invalid",
+        "require": [
+          "武器"
+        ],
+        "target": "全体",
+        "supplements": [
+          "即時回復効果"
+        ]
+      },
+      {
+        "type": "weather-change",
+        "target": "全体",
+        "duration": 30,
+        "weather": "雨",
+        "supplements": [
+          "配置時"
+        ]
+      }
+    ]
   }
 ]
