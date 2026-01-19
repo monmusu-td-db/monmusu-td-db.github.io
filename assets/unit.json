@@ -47164,6 +47164,7 @@
     "buffs": [
       {
         "type": "poison-invalid",
+        "skill": -1,
         "require": [
           "武器"
         ],
@@ -47174,6 +47175,7 @@
       },
       {
         "type": "weather-change",
+        "skill": -1,
         "target": "全体",
         "duration": 30,
         "weather": "雨",
