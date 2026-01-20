@@ -46951,6 +46951,97 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 396,
+    "unitName": "【グリマルキン娘】ルネルカ",
+    "unitShortName": "ルネルカ",
+    "rarity": "E",
+    "class": "コンジャラー",
+    "element": "風",
+    "hp": 2476,
+    "attack": 599,
+    "defense": 249,
+    "resist": 610,
+    "supplements": [
+      "RES-20%(3秒)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "マジックブレイク",
+      "attackMul": 220,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "weapon": {
+      "weaponName": "ニャンダーブック",
+      "resist": 30,
+      "range": 20
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "ソーサラー"
+        ],
+        "attack": 106,
+        "potentialBonus": {
+          "attack": 108
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "magicalDamageDebuff": 120
+      },
+      {
+        "featureName": "common-team-buff1-no-emphasis",
+        "require": [
+          "武器"
+        ],
+        "rangeAdd": 5
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {
+        "features": [
+          "common-team-buff1-no-emphasis"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1-no-emphasis"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 120
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 120,
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
+  },
+  {
     "id": 397,
     "unitName": "【ナーガ娘】ジャルナギー",
     "unitShortName": "ジャルナギー",
