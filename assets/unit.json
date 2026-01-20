@@ -47184,5 +47184,95 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 399,
+    "unitName": "【フンババ娘】フーボァ",
+    "unitShortName": "フーボァ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "地",
+    "hp": 6787,
+    "attack": 1034,
+    "defense": 449,
+    "resist": 134,
+    "exSkill1": {
+      "skillName": "フンバ・バースト",
+      "attackMul": 380,
+      "range": 400,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "引き付け"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "スキル初回待ち時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "デストロイバラッグ",
+      "hp": 400,
+      "attack": 40
+    },
+    "features": [
+      {
+        "skill": 0,
+        "physicalDamageCut": 35
+      },
+      {
+        "skill": 1,
+        "physicalDamageCut": 70
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "反射120%"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "反射150%"
+          ]
+        }
+      },
+      {
+        "skill": 1,
+        "supplements": [
+          "反射240%"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "反射300%"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "回復100%/死亡時(1回のみ)"
+        ]
+      }
+    ],
+    "hpMul": 130,
+    "blockAdd": 1,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-regenerate-3%"
+        ]
+      }
+    ]
   }
 ]
