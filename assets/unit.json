@@ -13427,6 +13427,12 @@
       "射程+15",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "コーラルスタッフ",
+      "hp": 400,
+      "resist": 15,
+      "range": 10
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -13442,6 +13448,21 @@
       {
         "skill": 1,
         "interval": 40
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "cooldownCut": 4
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "supplements": [
+          "回復10%/発動→射程内"
+        ]
       },
       {
         "featureName": "skill-dot",
@@ -15116,9 +15137,25 @@
       "攻撃力+75",
       "攻撃速度+15"
     ],
+    "weapon": {
+      "weaponName": "ヴァンピィソード",
+      "hp": 300,
+      "attack": 50
+    },
     "features": [
       {
+        "require": [
+          "武器"
+        ],
+        "isNotAbility": true,
+        "moveCostAdd": -99,
+        "supplements": [
+          "コスト+1/撃破"
+        ]
+      },
+      {
         "featureName": "common-absorb",
+        "isAbility": true,
         "staticDamage": {
           "key": "hp",
           "value": 4
@@ -15181,6 +15218,7 @@
     ]
   },
   {
+    "TODO_DESC": "再出撃時間-30%→自分/武器、撤退時回復コスト60%",
     "id": 114,
     "unitName": "【アイアンゴーレム娘】アイレン",
     "unitShortName": "アイレン",
@@ -15212,6 +15250,12 @@
       "物理防御力+90",
       "物理防御力+90"
     ],
+    "weapon": {
+      "weaponName": "コウテツブロー",
+      "hp": 400,
+      "attack": 10,
+      "defense": 30
+    },
     "features": [
       {
         "attackAdd": {
@@ -18282,7 +18326,21 @@
       "攻撃力+75",
       "再出撃時間50%短縮"
     ],
+    "weapon": {
+      "weaponName": "巨炎拳",
+      "hp": 200,
+      "attack": 40,
+      "resist": 20
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "{attack*200}魔法dmg/撤退時→周囲"
+        ]
+      },
       {
         "featureName": "deploy-attack",
         "flagNoDps": true,
@@ -23044,6 +23102,11 @@
       "物理防御力+90",
       "再出撃時間50%短縮"
     ],
+    "weapon": {
+      "weaponName": "バムピィガントレット",
+      "hp": 200,
+      "defense": 60
+    },
     "features": [
       {
         "damageFactor": 160,
@@ -23051,6 +23114,10 @@
           "key": "defense",
           "value": 70
         }
+      },
+      {
+        "featureName": "weapon-attack-mul",
+        "attackMul": 200
       }
     ],
     "costAdd": 3,
@@ -23062,6 +23129,23 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "weapon-attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "weapon-attack-mul"
+        ]
       }
     ]
   },
