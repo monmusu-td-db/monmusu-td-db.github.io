@@ -13864,6 +13864,11 @@
       "最大HP+600",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "アルパカズラ",
+      "resist": 55,
+      "range": 10
+    },
     "features": [
       {
         "isNotAbility": true,
@@ -13883,6 +13888,15 @@
         "supplements": [
           "tkn+2/発動",
           "HP0/発動→妖花トークン"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "DEF-20%→射程内毒状態敵",
+          "RES-20%→射程内毒状態敵"
         ]
       }
     ],
@@ -15443,7 +15457,20 @@
       "最大HP+600",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "カチコチグローブ",
+      "hp": 200,
+      "attack": 60
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "吹雪(10秒)/配置"
+        ]
+      },
       {
         "featureName": "deploy-attack",
         "isAbility": true,
@@ -15486,6 +15513,21 @@
         "skill": 1,
         "features": [
           "deploy-attack"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "require": [
+          "武器"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "吹雪",
+        "supplements": [
+          "配置時"
         ]
       }
     ]
@@ -16551,7 +16593,20 @@
       "最大HP+600",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "グレイスアーム",
+      "attack": 55,
+      "attackSpeed": 5
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "HP回復100%/HP低下時50%"
+        ]
+      },
       {
         "featureName": "skill1-normal",
         "isConditionalSkillBuff": true,
@@ -18236,12 +18291,25 @@
       "最大HP+600",
       "攻撃時最大HPの1%回復"
     ],
+    "weapon": {
+      "weaponName": "フランケアックス",
+      "hp": 600,
+      "attack": 20
+    },
     "features": [
       {
         "skill": 1,
         "isConditionalSkillDebuff": true,
         "supplements": [
           "スタン(5秒)/終了後→自分"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "スタン即時回復"
         ]
       },
       {
@@ -18256,6 +18324,13 @@
         "featureName": "common-definite-male",
         "isConditionalSkillBuff": true,
         "damageFactor": 300
+      },
+      {
+        "featureName": "common-regenerate-weapon",
+        "staticDamage": {
+          "key": "hp",
+          "value": 2
+        }
       }
     ],
     "isEventUnit": true,
@@ -18287,6 +18362,16 @@
         ],
         "features": [
           "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "common-regenerate-weapon"
         ]
       }
     ]
@@ -22611,7 +22696,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 187,
     "unitName": "【ワーウルフ娘】ウォルーザ",
     "unitShortName": "ウォルーザ",
@@ -22639,7 +22723,18 @@
       "攻撃速度+10",
       "攻撃時最大HPの1%回復"
     ],
+    "weapon": {
+      "weaponName": "ルパインクロー",
+      "hp": 400,
+      "attack": 40
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 25
+      },
       {
         "featureName": "normal",
         "range": 200
