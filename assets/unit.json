@@ -47544,5 +47544,97 @@
         ]
       }
     ]
+  },
+  {
+    "id": 400,
+    "unitName": "【グレイスドラゴン娘】マハムート",
+    "unitShortName": "マハムート",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "火",
+    "species": "ビジター",
+    "hp": 8706,
+    "attack": 1068,
+    "defense": 601,
+    "resist": 108,
+    "exSkill1": {
+      "skillName": "BH・ドミネーション",
+      "attackMul": 420,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "ノックバック(大)→命中",
+        "即死→命中",
+        "{attack*200}dmg/発動→敵全体",
+        "鈍足/発動→全体命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "weapon": {
+      "weaponName": "星砕き",
+      "hp": 200,
+      "attack": 60
+    },
+    "features": [
+      {
+        "attackSpeedBuff": 150,
+        "deleteSupplements": [
+          "スタン付与20%→命中"
+        ],
+        "potentialBonus": {
+          "attackSpeedBuff": 170
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "ノックバック耐性低下→全体",
+          "即死耐性低下→全体"
+        ]
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "ノックバック→命中"
+        ]
+      }
+    ],
+    "attackMul": 130,
+    "delayMul": 160,
+    "range": 240,
+    "splash": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-speed-buff",
+        "skill": -1,
+        "target": "射程内",
+        "value": 150,
+        "potentialBonus": {
+          "value": 170
+        }
+      }
+    ]
   }
 ]
