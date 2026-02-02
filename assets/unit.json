@@ -47638,7 +47638,6 @@
     ]
   },
   {
-    "TODO_FATAL": "tkn",
     "id": 401,
     "unitName": "【フェアリーリコリス娘】ヒガンバナ",
     "unitShortName": "ヒガンバナ",
@@ -47896,12 +47895,7 @@
     ],
     "isUnhealable": true,
     "situations": [
-      {
-        "proper": true,
-        "features": [
-          "common-token-limit-nodesc"
-        ]
-      }
+      {}
     ]
   }
 ]
