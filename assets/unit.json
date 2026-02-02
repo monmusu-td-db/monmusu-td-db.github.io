@@ -47544,5 +47544,272 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_FATAL": "tkn",
+    "id": 401,
+    "unitName": "【フェアリーリコリス娘】ヒガンバナ",
+    "unitShortName": "ヒガンバナ",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "火",
+    "species": "ビジター",
+    "hp": 2608,
+    "attack": 660,
+    "defense": 264,
+    "resist": 537,
+    "moveType": "隠密",
+    "supplements": [
+      "ATK+120%(5秒)/回避"
+    ],
+    "exSkill1": {
+      "skillName": "妖尾術・炎獄乱舞",
+      "attackMul": 240,
+      "target": 9,
+      "rangeMul": 240,
+      "duration": 30,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "狐花之呪符",
+      "resist": 20,
+      "range": 30
+    },
+    "features": [
+      {
+        "skill": 0,
+        "physicalEvasion": 50,
+        "magicalEvasion": 50
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "physicalEvasion": 100,
+        "magicalEvasion": 100,
+        "supplements": [
+          "引き付け"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "物理魔法回避10%→射程内他者"
+        ]
+      },
+      {
+        "featureName": "class-enemy1",
+        "skill": 1,
+        "rounds": 9
+      },
+      {
+        "featureName": "class-enemy2",
+        "skill": 1,
+        "rounds": 3
+      },
+      {
+        "featureName": "enemy4",
+        "annotations": [
+          "敵3～4体"
+        ],
+        "conditions": [
+          {
+            "key": "敵",
+            "value": 4
+          }
+        ],
+        "fixedTarget": 4,
+        "rounds": 3
+      },
+      {
+        "featureName": "enemy7",
+        "annotations": [
+          "敵5～7体"
+        ],
+        "conditions": [
+          {
+            "key": "敵",
+            "value": 7
+          }
+        ],
+        "fixedTarget": 7,
+        "rounds": 2
+      },
+      {
+        "featureName": "enemy9",
+        "annotations": [
+          "敵8～9体"
+        ],
+        "conditions": [
+          {
+            "key": "敵",
+            "value": 9
+          }
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 220
+          }
+        ],
+        "attackMul": 220
+      }
+    ],
+    "targetAdd": 2,
+    "potentialBonus": {
+      "targetAdd": 3
+    },
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2"
+        ],
+        "skill": 1,
+        "features": [
+          "enemy9"
+        ]
+      },
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "enemy7"
+        ]
+      },
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "enemy4"
+        ]
+      },
+      {
+        "depend": [
+          "class-enemy1"
+        ],
+        "skill": 1
+      },
+      {
+        "depend": [
+          "class-enemy2"
+        ],
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2"
+        ],
+        "skill": 1,
+        "features": [
+          "enemy9",
+          "attack-mul"
+        ]
+      },
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "enemy7",
+          "attack-mul"
+        ]
+      },
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2",
+          "class-action"
+        ],
+        "skill": 1,
+        "features": [
+          "enemy4",
+          "attack-mul"
+        ]
+      },
+      {
+        "depend": [
+          "class-enemy1"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "depend": [
+          "class-enemy2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4010001,
+    "parentId": 401,
+    "unitName": "呪符トークン",
+    "unitShortName": "呪符T",
+    "rarity": "C",
+    "element": "火",
+    "cost": 5,
+    "hp": 100,
+    "attack": 0,
+    "defense": 0,
+    "resist": 0,
+    "block": null,
+    "moveSpeed": 0,
+    "placement": "付",
+    "features": [
+      {
+        "supplements": [
+          "物理魔法回避50%→付与対象",
+          "ATK+120%(5秒)/回避→使役者"
+        ]
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
+    ]
   }
 ]
