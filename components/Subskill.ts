@@ -32,6 +32,7 @@ interface JsonSubskillFactors {
   defenseMul: number;
   resistMul: number;
   hpAddBuff: number;
+  attackAddBuff: number;
   damageFactor: number;
   criChanceAdd: number;
   criDamageAdd: number;
@@ -88,6 +89,7 @@ const subskillFactorKeys = [
   "defenseMul",
   "resistMul",
   "hpAddBuff",
+  "attackAddBuff",
   "damageFactor",
   "criChanceAdd",
   "criDamageAdd",
@@ -135,6 +137,7 @@ class SubskillFactors implements ISubskillFactors {
   readonly defenseMul: number | undefined;
   readonly resistMul: number | undefined;
   readonly hpAddBuff: number | undefined;
+  readonly attackAddBuff: number | undefined;
   readonly damageFactor: number | undefined;
   readonly criChanceAdd: number | undefined;
   readonly criDamageAdd: number | undefined;
@@ -178,6 +181,7 @@ class SubskillFactors implements ISubskillFactors {
     this.defenseMul = src.defenseMul;
     this.resistMul = src.resistMul;
     this.hpAddBuff = src.hpAddBuff;
+    this.attackAddBuff = src.attackAddBuff;
     this.damageFactor = src.damageFactor;
     this.criChanceAdd = src.criChanceAdd;
     this.criDamageAdd = src.criDamageAdd;
@@ -248,7 +252,7 @@ class Subskill {
 
   getFactor<T extends keyof SubskillFactors>(
     key: T,
-    types: (string | undefined)[]
+    types: (string | undefined)[],
   ): SubskillFactors[T] {
     if (this.features !== undefined) {
       for (const f of this.features) {
@@ -277,7 +281,7 @@ class Subskill {
 
   static isStackable(
     obj1: Subskill | undefined,
-    obj2: Subskill | undefined
+    obj2: Subskill | undefined,
   ): boolean {
     if (
       obj1?.id === obj2?.id ||
@@ -294,7 +298,7 @@ class Subskill {
 }
 
 const list: Subskill[] = jsonSubskill.map(
-  (item, index) => new Subskill(item, index)
+  (item, index) => new Subskill(item, index),
 );
 
 export default Subskill;
