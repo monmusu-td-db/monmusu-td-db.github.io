@@ -36896,12 +36896,25 @@
       "射程+15",
       "火傷の敵へ与ダメ1.2倍"
     ],
+    "weapon": {
+      "weaponName": "穿星弓",
+      "attack": 30,
+      "range": 20
+    },
     "features": [
       {
         "criChanceLimitAdd": 40,
         "potentialBonus": {
           "criChanceLimitAdd": 45
         }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "確定CRI(1回)/撃破後"
+        ]
       },
       {
         "featureName": "common-definite-burn",
@@ -37059,6 +37072,12 @@
       "攻撃力+75",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "ペタルダンス",
+      "attack": 40,
+      "defense": 20,
+      "resist": 20
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -37083,6 +37102,15 @@
       {
         "skill": 0,
         "rounds": 2
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "moveCostAdd": -99,
+        "supplements": [
+          "CT-3秒/回避"
+        ]
       },
       {
         "featureName": "skill1-absorb",
@@ -37131,6 +37159,7 @@
     "rarity": "L",
     "class": "チーフアサシン",
     "element": "風",
+    "species": "デミ",
     "hp": 4477,
     "attack": 502,
     "defense": 438,
@@ -37155,6 +37184,11 @@
       "最大HP+600",
       "物理ダメージ20%軽減"
     ],
+    "weapon": {
+      "weaponName": "ペタルジョーヌ",
+      "hp": 600,
+      "attack": 20
+    },
     "features": [
       {
         "attackAdd": {
@@ -37171,6 +37205,12 @@
       {
         "skill": 1,
         "damageFactor": 130
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "fieldBuffFactor": 400
       }
     ],
     "costAdd": 5,
