@@ -48045,5 +48045,93 @@
         "skill": 1
       }
     ]
+  },
+  {
+    "id": 404,
+    "unitName": "【甘断斧ヴォーパルビースト娘】ラピナス",
+    "unitShortName": "ラピナス/VT",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "風",
+    "hp": 5939,
+    "attack": 1051,
+    "defense": 501,
+    "resist": 138,
+    "supplements": [
+      "HP-10%→命中CRI敵"
+    ],
+    "exSkill1": {
+      "skillName": "甘斬サマーソルト",
+      "attackMotionMul": 335,
+      "fixedDelay": 1,
+      "target": 1,
+      "range": 250,
+      "duration": "単発",
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "CRI率/CRI率上限+20%"
+    ],
+    "weapon": {
+      "weaponName": "ショコラ・デ・ギロチン",
+      "attack": 80
+    },
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20,
+        "criDamageAdd": 50,
+        "potentialBonus": {
+          "criChanceAdd": 25,
+          "criChanceLimitAdd": 25
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "回復50%/ブロック敵死亡時"
+        ]
+      },
+      {
+        "featureName": "normal",
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "HP-22%→命中(敵HP50%以上)",
+          "即死→命中(敵HP50%未満)",
+          "即死→命中ブロック敵"
+        ]
+      },
+      {
+        "featureName": "common-definite",
+        "annotations": [
+          "ボス敵(HP50%未満)"
+        ],
+        "damageFactor": 300
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      }
+    ]
   }
 ]
