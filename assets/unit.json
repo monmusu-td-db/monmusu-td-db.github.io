@@ -47978,6 +47978,75 @@
     ]
   },
   {
+    "id": 402,
+    "unitName": "【癒飴ガーゴイル娘】ユイル",
+    "unitShortName": "ユイル/VT",
+    "rarity": "E",
+    "class": "プリースト",
+    "element": "水",
+    "hp": 3673,
+    "attack": 569,
+    "defense": 304,
+    "resist": 428,
+    "block": 0,
+    "moveType": "飛行",
+    "supplements": [
+      "石化無効",
+      "石化回復→命中"
+    ],
+    "exSkill1": {
+      "skillName": "甘美の呻き",
+      "attackMul": 200,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "物理防御力+90",
+      "物理防御力+90",
+      "攻撃対象数+1"
+    ],
+    "weapon": {
+      "weaponName": "キャンディポール",
+      "hp": 550,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "毒回復→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "defenseMul": 220
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "水",
+        "supplements": [
+          "配置時"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_FATAL": "攻撃速度、攻撃間隔、スキル攻撃間隔",
     "id": 403,
     "unitName": "【甘創のホワイトラビット娘】ティッカ",
