@@ -48065,6 +48065,7 @@
     "exSkill1": {
       "skillName": "ドルチェ・ヴィータ",
       "attackMul": 240,
+      "delayMul": 75,
       "targetAdd": 1,
       "rangeMul": 200,
       "duration": 30,
@@ -48114,6 +48115,14 @@
       {},
       {
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "delay-mul",
+        "skill": 1,
+        "target": "射程内",
+        "value": 75
       }
     ]
   },
