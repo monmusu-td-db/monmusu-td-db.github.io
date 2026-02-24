@@ -48212,5 +48212,152 @@
         ]
       }
     ]
+  },
+  {
+    "id": 405,
+    "unitName": "【ムシュフシュ娘】ムルアザール",
+    "unitShortName": "ムルアザール",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "火",
+    "hp": 4743,
+    "attack": 698,
+    "defense": 477,
+    "resist": 60,
+    "supplements": [
+      "CT-1秒/命中火傷敵"
+    ],
+    "rounds": [
+      {
+        "ratio": 10,
+        "value": 1
+      },
+      {
+        "ratio": 6,
+        "value": 2
+      },
+      {
+        "ratio": 9,
+        "value": 3
+      }
+    ],
+    "exSkill1": {
+      "skillName": "トキシックブレイズ",
+      "attackMul": 340,
+      "rounds": 1,
+      "splash": true,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "猛毒付与(中)→命中",
+        "火傷付与(中)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "神滅の毒牙",
+      "hp": 400,
+      "attack": 40
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "猛毒付与/2連目→命中",
+          "火傷付与/3連目→命中"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "deleteSupplements": [
+          "CT-1秒/命中火傷敵"
+        ],
+        "supplements": [
+          "CT-1秒/命中毒or火傷敵"
+        ]
+      },
+      {
+        "featureName": "common-definite",
+        "isConditionalBuff": true,
+        "annotations": [
+          "毒 or 火傷特効"
+        ],
+        "conditions": [
+          {
+            "key": "特",
+            "type": "poison"
+          },
+          {
+            "key": "特",
+            "type": "burn"
+          }
+        ],
+        "damageFactor": 200,
+        "potentialBonus": {
+          "damageFactor": 250
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack",
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack",
+          "common-definite",
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack",
+          "common-definite",
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "class-ranged-attack",
+          "common-definite",
+          "common-3hits"
+        ]
+      }
+    ]
   }
 ]
