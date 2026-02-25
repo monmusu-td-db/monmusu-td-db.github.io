@@ -3903,6 +3903,16 @@
         "スタン付与(10秒)/終了後→自分"
       ]
     },
+    "exSkill2": {
+      "skillName": "蝋燭の怪火",
+      "attackMul": 160,
+      "rangeMul": 130,
+      "duration": 15,
+      "cooldown": 35,
+      "supplements": [
+        "火傷付与(稀)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -3931,6 +3941,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
@@ -5061,6 +5074,20 @@
       "cooldown": 25,
       "damageType": "魔法"
     },
+    "exSkill2": {
+      "skillName": "イグニスファトゥス",
+      "attackMul": 300,
+      "attackMotionMul": 200,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "rangeMul": 130,
+      "duration": "単発",
+      "cooldown": 20,
+      "damageType": "魔法",
+      "supplements": [
+        "火傷付与(中)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -5089,6 +5116,9 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "require": [
           "no-panel-field-element"
         ],
@@ -5101,6 +5131,15 @@
           "no-panel-field-element"
         ],
         "skill": 1,
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 2,
         "features": [
           "common-fire-field"
         ]
