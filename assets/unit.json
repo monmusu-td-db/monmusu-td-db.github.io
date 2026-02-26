@@ -4710,6 +4710,18 @@
         "回復100%/発動"
       ]
     },
+    "exSkill2": {
+      "skillName": "高まる渇望",
+      "attackMotionMul": 200,
+      "fixedDelay": 1,
+      "rangeMul": 160,
+      "duration": "単発",
+      "cooldown": 15,
+      "damageType": null,
+      "supplements": [
+        "回復20%/発動→射程内"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -4781,6 +4793,12 @@
         ]
       },
       {
+        "skill": 2,
+        "features": [
+          "hp-100%"
+        ]
+      },
+      {
         "features": [
           "hp-100%",
           "skill1-buff"
@@ -4788,6 +4806,13 @@
       },
       {
         "skill": 1,
+        "features": [
+          "hp-100%",
+          "skill1-buff"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "hp-100%",
           "skill1-buff"
@@ -4806,6 +4831,15 @@
           "weapon"
         ],
         "skill": 1,
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
         "features": [
           "hp-99%"
         ]
@@ -4824,6 +4858,16 @@
           "weapon"
         ],
         "skill": 1,
+        "features": [
+          "hp-99%",
+          "skill1-buff"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 2,
         "features": [
           "hp-99%",
           "skill1-buff"
@@ -7121,6 +7165,13 @@
         "ノックバック→命中"
       ]
     },
+    "exSkill2": {
+      "skillName": "祝福の風",
+      "attackMul": 120,
+      "rangeMul": 130,
+      "duration": 30,
+      "cooldown": 40
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -7151,10 +7202,22 @@
         "fieldBuffFactor": 200
       },
       {
+        "skill": 0,
         "require": [
           "風マス"
         ],
         "criChanceAdd": 20
+      },
+      {
+        "skill": 1,
+        "require": [
+          "風マス"
+        ],
+        "criChanceAdd": 20
+      },
+      {
+        "skill": 2,
+        "criChanceAdd": 30
       },
       {
         "skill": 1,
@@ -7170,12 +7233,44 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "require": [
+          "no-panel-field-element",
+          "weapon"
+        ],
+        "features": [
+          "common-wind-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element",
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-wind-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element",
+          "weapon"
+        ],
+        "skill": 2,
+        "features": [
+          "common-wind-field"
+        ]
       }
     ],
     "buffs": [
       {
         "type": "critical-chance-add",
-        "skill": -1,
+        "skill": 0,
         "require": [
           "自身が風マスに配置中"
         ],
@@ -7184,6 +7279,24 @@
         ],
         "target": "射程内",
         "value": 20
+      },
+      {
+        "type": "critical-chance-add",
+        "skill": 1,
+        "require": [
+          "自身が風マスに配置中"
+        ],
+        "features": [
+          "common-wind-field"
+        ],
+        "target": "射程内",
+        "value": 20
+      },
+      {
+        "type": "critical-chance-add",
+        "skill": 2,
+        "target": "射程内",
+        "value": 30
       },
       {
         "type": "physical-evasion",
