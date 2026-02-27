@@ -8011,6 +8011,12 @@
       "duration": 20,
       "cooldown": 30
     },
+    "exSkill2": {
+      "skillName": "母性の炎",
+      "rangeMul": 190,
+      "duration": 30,
+      "cooldown": 35
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -8047,6 +8053,21 @@
     ],
     "features": [
       {
+        "skill": 2,
+        "attackAdd": {
+          "key": "hp",
+          "value": 15
+        },
+        "defenseAdd": {
+          "key": "hp",
+          "value": 15
+        },
+        "resistAdd": {
+          "key": "hp",
+          "value": 15
+        }
+      },
+      {
         "featureName": "skill1",
         "annotations": [
           "発動時回復"
@@ -8061,6 +8082,23 @@
         "supplements": [
           "HP-20%/発動→自分"
         ]
+      },
+      {
+        "featureName": "common-support",
+        "isSupport": true,
+        "staticDamage": {
+          "key": "hp",
+          "value": 15
+        },
+        "staticDefense": {
+          "key": "hp",
+          "value": 15
+        },
+        "staticResist": {
+          "key": "hp",
+          "value": 15
+        },
+        "target": "射程内"
       }
     ],
     "situations": [
@@ -8078,6 +8116,16 @@
         "skill": 1,
         "features": [
           "skill1"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "common-support"
         ]
       }
     ]
@@ -12260,6 +12308,15 @@
         "コスト+16/発動"
       ]
     },
+    "exSkill2": {
+      "skillName": "ヴォーテックスラブ",
+      "rangeMul": 220,
+      "duration": 35,
+      "cooldown": 20,
+      "supplements": [
+        "コスト+12/発動"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -12278,6 +12335,27 @@
           "毒/スタン/石化特効"
         ],
         "damageFactor": 130
+      },
+      {
+        "featureName": "skill2-attack",
+        "annotations": [
+          "ダメージフィールド"
+        ],
+        "damageFactor": 50,
+        "criChanceAdd": -1000,
+        "interval": 60,
+        "target": "射程内",
+        "range": null,
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "skill2-attack",
+        "isConditionalBuff": true,
+        "supplements": [
+          "スタン付与10%→命中",
+          "猛毒付与(低)→命中",
+          "石化付与(低)→命中"
+        ]
       }
     ],
     "rangeAdd": 20,
@@ -12293,6 +12371,19 @@
         ]
       },
       {
+        "skill": 2,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "class-ranged-attack",
+          "skill2-attack"
+        ]
+      },
+      {
         "features": [
           "common-definite",
           "common-definite-poison",
@@ -12303,6 +12394,27 @@
       {
         "skill": 1,
         "features": [
+          "common-definite",
+          "common-definite-poison",
+          "common-definite-stan",
+          "common-definite-petrify",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-definite",
+          "common-definite-poison",
+          "common-definite-stan",
+          "common-definite-petrify",
+          "class-ranged-attack"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "skill2-attack",
           "common-definite",
           "common-definite-poison",
           "common-definite-stan",
