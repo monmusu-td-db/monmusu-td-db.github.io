@@ -48625,6 +48625,189 @@
     ]
   },
   {
+    "id": 406,
+    "unitName": "【コスモブロブ娘】ブロラ",
+    "unitShortName": "ブロラ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "地",
+    "species": "エイリアン",
+    "hp": 6628,
+    "attack": 1059,
+    "defense": 450,
+    "resist": 137,
+    "exSkill1": {
+      "skillName": "軟体めがばいと",
+      "fixedDelay": 1,
+      "target": "射程内",
+      "range": 300,
+      "duration": "単発",
+      "cooldown": 5,
+      "supplements": [
+        "コスト-8/発動",
+        "HP+1%(20秒)/命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "攻撃時最大HPの1%回復"
+    ],
+    "weapon": {
+      "weaponName": "ブロロアックス",
+      "hp": 800
+    },
+    "features": [
+      {
+        "physicalDamageCut": 20,
+        "magicalDamageCut": 20
+      },
+      {
+        "attackAdd": {
+          "key": "current-hp",
+          "value": 30
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "current-hp",
+            "value": 35
+          }
+        }
+      },
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "武器効果"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 1
+        },
+        "supplements": [
+          "回復1%/命中"
+        ]
+      },
+      {
+        "featureName": "beat-10",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 10
+          }
+        ],
+        "hpMul": 300,
+        "blockAdd": 1
+      },
+      {
+        "featureName": "beat-20",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 20
+          }
+        ],
+        "hpMul": 500,
+        "blockAdd": 2
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-10"
+        ]
+      },
+      {
+        "features": [
+          "beat-20"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-20"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "skill": -1,
+        "features": [
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "beat-10",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "skill": -1,
+        "features": [
+          "beat-10",
+          "common-potential-absorb-1%"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "beat-20",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "hasPotentials": [
+          "攻撃時最大HPの1%回復"
+        ],
+        "skill": -1,
+        "features": [
+          "beat-20",
+          "common-potential-absorb-1%"
+        ]
+      }
+    ]
+  },
+  {
     "id": 407,
     "unitName": "【トライポッド娘】トライヴェラ",
     "unitShortName": "トライヴェラ",
