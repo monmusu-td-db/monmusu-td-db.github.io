@@ -48623,5 +48623,126 @@
         ]
       }
     ]
+  },
+  {
+    "id": 407,
+    "unitName": "【トライポッド娘】トライヴェラ",
+    "unitShortName": "トライヴェラ",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "火",
+    "species": "エイリアン",
+    "hp": 2651,
+    "attack": 997,
+    "defense": 231,
+    "resist": 292,
+    "supplements": [
+      "火傷付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "高出力電磁光線",
+      "attackMul": 220,
+      "splash": true,
+      "rangeMul": 240,
+      "duration": 20,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-10/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "weapon": {
+      "weaponName": "多脚式破壊兵器-α型",
+      "attack": 30,
+      "range": 20
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "エイリアン"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      },
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 108,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "require": [
+          "武器"
+        ],
+        "fieldElements": [
+          "火"
+        ]
+      },
+      {
+        "featureName": "common-definite-burn",
+        "damageDebuff": 200
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageFactor": 100,
+        "rounds": 2,
+        "splash": false
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "require": [
+          "火傷敵"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "value": 200
+      }
+    ]
   }
 ]
