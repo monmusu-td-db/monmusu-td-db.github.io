@@ -15825,6 +15825,11 @@
       "攻撃力+75",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "ブレストショーラ",
+      "hp": 400,
+      "attack": 40
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -15836,6 +15841,15 @@
           "hp": 113,
           "attack": 113
         }
+      },
+      {
+        "targets": [
+          "火"
+        ],
+        "require": [
+          "武器"
+        ],
+        "cost": -2
       }
     ],
     "features": [
@@ -17453,6 +17467,13 @@
       "最大HP+600",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "フロワナハル",
+      "costAdd": -2,
+      "hp": 300,
+      "attack": 25,
+      "range": 10
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -17464,6 +17485,15 @@
           "hp": 113,
           "attack": 113
         }
+      },
+      {
+        "targets": [
+          "水"
+        ],
+        "require": [
+          "武器"
+        ],
+        "cost": -2
       }
     ],
     "features": [
