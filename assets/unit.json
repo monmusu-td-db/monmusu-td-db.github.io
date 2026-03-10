@@ -14789,6 +14789,12 @@
       "攻撃力+75",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "レッドスプラッター",
+      "hp": 300,
+      "attack": 25,
+      "attackSpeed": 5
+    },
     "features": [
       {
         "skill": 0,
@@ -14816,6 +14822,15 @@
         "damageFactor": 130,
         "potentialBonus": {
           "damageFactor": 139
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "hpAdd": {
+          "key": "attack-base",
+          "value": 100
         }
       },
       {
@@ -15416,6 +15431,11 @@
       "魔法防御力+90",
       "魔法防御力+90"
     ],
+    "weapon": {
+      "weaponName": "リチュアブック",
+      "attack": 50,
+      "resist": 30
+    },
     "features": [
       {
         "damageFactor": 160,
@@ -15442,6 +15462,13 @@
         "supplements": [
           "HP-50%/発動後→射程内他味方"
         ]
+      },
+      {
+        "require": [
+          "武器",
+          "闇マス"
+        ],
+        "damageFactor": 130
       }
     ],
     "isEventUnit": true,
@@ -16653,7 +16680,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 126,
     "unitName": "【ドヴェルグ娘】ベルティオ",
     "unitShortName": "ベルティオ",
@@ -16682,11 +16708,29 @@
       "攻撃力+75",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "トラップシューター",
+      "attack": 55,
+      "resist": 30,
+      "range": 5
+    },
     "isEventUnit": true,
     "situations": [
       {},
       {
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": -1,
+        "require": [
+          "武器",
+          "トラップ特性"
+        ],
+        "target": "全体",
+        "value": 120
       }
     ]
   },
@@ -16728,6 +16772,12 @@
             "value": 40
           }
         }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 120
       },
       {
         "featureName": "skill1-buff",
@@ -17337,11 +17387,24 @@
       "攻撃力+75",
       "物理防御力+90"
     ],
+    "weapon": {
+      "weaponName": "ビッグウェーブ",
+      "hp": 550,
+      "attack": 15,
+      "defense": 10
+    },
     "features": [
       {
         "skill": 1,
         "isConditionalSkillBuff": true,
         "moveSpeedAdd": 250
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "moveCostAdd": -99
       },
       {
         "featureName": "common-charge-attack",
