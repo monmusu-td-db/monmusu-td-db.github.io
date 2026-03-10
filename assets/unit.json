@@ -13186,6 +13186,21 @@
       "物理防御力+90",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "ブライトハープ",
+      "hp": 250,
+      "defense": 10,
+      "resist": 10,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 8
+      }
+    ],
     "isEventUnit": true,
     "costAdd": -1,
     "moveSpeedAdd": 40,
@@ -14910,7 +14925,34 @@
       "攻撃力+75",
       "攻撃速度+15"
     ],
+    "weapon": {
+      "weaponName": "謹賀雷刀",
+      "hp": 400,
+      "attack": 40
+    },
     "features": [
+      {
+        "featureName": "weapon-dot",
+        "isAbility": true,
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "継続ダメージ"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 100
+        },
+        "criChanceAdd": -1000,
+        "interval": 240,
+        "target": "全体",
+        "splash": false,
+        "damageType": "魔法",
+        "supplements": [
+          "{attack*100}dmg/8秒→全体スタン敵"
+        ]
+      },
       {
         "featureName": "flying-attack",
         "isAbility": true,
@@ -14937,6 +14979,14 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "weapon-dot"
+        ]
       },
       {
         "features": [
@@ -14983,6 +15033,11 @@
       "攻撃力+75",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "昇日破魔矢",
+      "attack": 55,
+      "range": 10
+    },
     "features": [
       {
         "supplements": [
@@ -14999,6 +15054,13 @@
         "isConditionalBuff": true,
         "attackSpeedBuff": 200,
         "delayMul": 20
+      },
+      {
+        "featureName": "common-hp-50%",
+        "require": [
+          "武器"
+        ],
+        "attackMul": 150
       },
       {
         "featureName": "10-sec",
@@ -15116,6 +15178,12 @@
       "攻撃力+75",
       "魔法防御力+90"
     ],
+    "weapon": {
+      "weaponName": "ブロウリヤーフ",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -15127,6 +15195,15 @@
           "hp": 113,
           "attack": 113
         }
+      },
+      {
+        "targets": [
+          "風"
+        ],
+        "require": [
+          "武器"
+        ],
+        "cost": -2
       }
     ],
     "features": [
