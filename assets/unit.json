@@ -49097,5 +49097,128 @@
         "value": 200
       }
     ]
+  },
+  {
+    "id": 409,
+    "unitName": "【眠学のシェイプシフター娘】アスタ",
+    "unitShortName": "アスタ/学園",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "光",
+    "hp": 2630,
+    "attack": 609,
+    "defense": 260,
+    "resist": 591,
+    "exSkill1": {
+      "skillName": "クラッキングザブックス",
+      "damageFactor": 180,
+      "targetAdd": 2,
+      "rounds": 3,
+      "duration": 30,
+      "cooldown": 30,
+      "supplements": [
+        "{attack*100}dmg/発動→射程内",
+        "スタン付与100%/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "HPが毎秒3%回復"
+    ],
+    "weapon": {
+      "weaponName": "ボックスバーン",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "damageDebuff": 130
+      },
+      {
+        "skill": 0,
+        "interval": null,
+        "physicalDamageCut": 50,
+        "magicalDamageCut": 50,
+        "damageType": null
+      },
+      {
+        "skill": 0,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "annotations": [
+          "10スタック"
+        ],
+        "attackMul": 400,
+        "rangeAdd": 120,
+        "potentialBonus": {
+          "attackMul": 440
+        }
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "annotations": [
+          "20スタック"
+        ],
+        "attackMul": 700,
+        "rangeAdd": 240,
+        "cooldownReductions": [
+          2
+        ],
+        "potentialBonus": {
+          "attackMul": 780
+        }
+      }
+    ],
+    "costAdd": 3,
+    "hpMul": 200,
+    "rangeAdd": 50,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
   }
 ]
