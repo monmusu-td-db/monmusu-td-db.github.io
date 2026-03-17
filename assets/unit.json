@@ -49220,5 +49220,112 @@
         "value": 130
       }
     ]
+  },
+  {
+    "id": 410,
+    "unitName": "【胸師のミノタウロス娘】シルバ",
+    "unitShortName": "シルバ/学園",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "地",
+    "hp": 2780,
+    "attack": 956,
+    "defense": 233,
+    "resist": 541,
+    "exSkill1": {
+      "skillName": "全力ティーチング",
+      "attackMul": 300,
+      "rangeMul": 220,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "攻撃範囲拡大"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "ミルキーワンド",
+      "hp": 450,
+      "attack": 35
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "スタン無効",
+          "即死無効"
+        ]
+      },
+      {
+        "attackAdd": {
+          "key": "hp-base",
+          "value": 9
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "hp-base",
+            "value": 11
+          }
+        }
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "ノックバック(小)→命中",
+          "スタン付与15%→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "ノックバック(中)→命中",
+          "スタン付与30%→命中"
+        ]
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "即死(低)→命中"
+        ]
+      },
+      {
+        "featureName": "common-skill-regenerate-area",
+        "staticDamage": {
+          "key": "hp-base",
+          "value": 5
+        }
+      }
+    ],
+    "hpMul": 300,
+    "blockAdd": 2,
+    "placement": "両",
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-skill-regenerate-area"
+        ]
+      }
+    ]
   }
 ]
