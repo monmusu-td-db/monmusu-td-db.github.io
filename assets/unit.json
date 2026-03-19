@@ -49099,6 +49099,211 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 408,
+    "unitName": "【工学のノーム娘】ペトラ",
+    "unitShortName": "ペトラ/学園",
+    "rarity": "E",
+    "class": "ガンナー",
+    "element": "地",
+    "hp": 2522,
+    "attack": 865,
+    "defense": 227,
+    "resist": 335,
+    "exSkill1": {
+      "skillName": "ノーム緊急出撃",
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "tkn+2/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "weapon": {
+      "weaponName": "エンジニアピストル",
+      "attack": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 160,
+        "rangeMul": 160
+      },
+      {
+        "featureName": "common-support",
+        "annotations": [
+          "トークン加算バフ"
+        ],
+        "isSupport": true,
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        },
+        "target": "全体",
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 25
+          }
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-support"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-support"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "TODO_DESC": "Lv50:HP1712/ATK:539",
+    "id": 4080001,
+    "parentId": 408,
+    "unitName": "飛行ノームロボ",
+    "unitShortName": "飛行ノームT",
+    "rarity": "C",
+    "element": "地",
+    "cost": 5,
+    "hp": 2027,
+    "attack": 1059,
+    "defense": 0,
+    "resist": 0,
+    "attackSpeed": 90,
+    "delay": 25,
+    "block": 0,
+    "target": 1,
+    "moveSpeed": 160,
+    "damageType": "魔法",
+    "placement": "遠",
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 110
+      },
+      {
+        "attackAdd": {
+          "key": "parent-attack",
+          "value": 20
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "parent-attack",
+            "value": 25
+          }
+        }
+      },
+      {
+        "featureName": "parent-skill1",
+        "isConditionalSkillBuff": true,
+        "parentSkill": 1,
+        "attackMul": 160,
+        "rangeMul": 160
+      }
+    ],
+    "isUnhealable": true,
+    "deployCount": 0,
+    "situations": [
+      {},
+      {
+        "features": [
+          "parent-skill1"
+        ]
+      }
+    ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "TODO_DESC": "Lv50:HP1992/ATK:539",
+    "id": 4080002,
+    "parentId": 408,
+    "unitName": "砲台ノームロボ",
+    "unitShortName": "砲台ノームT",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 3442,
+    "attack": 1059,
+    "defense": 0,
+    "resist": 0,
+    "attackSpeed": 100,
+    "delay": 25,
+    "block": null,
+    "target": 1,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "付",
+    "supplements": [
+      "limit30秒"
+    ],
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 110
+      },
+      {
+        "attackAdd": {
+          "key": "parent-attack",
+          "value": 20
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "parent-attack",
+            "value": 25
+          }
+        }
+      },
+      {
+        "featureName": "parent-skill1",
+        "isConditionalSkillBuff": true,
+        "parentSkill": 1,
+        "attackMul": 160,
+        "rangeMul": 160
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "parent-skill1",
+          "common-token-limit-nodesc"
+        ]
+      }
+    ]
+  },
+  {
     "id": 409,
     "unitName": "【眠学のシェイプシフター娘】アスタ",
     "unitShortName": "アスタ/学園",
