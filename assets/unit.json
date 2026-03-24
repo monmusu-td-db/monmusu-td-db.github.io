@@ -49532,5 +49532,178 @@
         ]
       }
     ]
+  },
+  {
+    "id": 411,
+    "unitName": "【アポカリプスドラゴン娘】エリュート",
+    "unitShortName": "エリュート/進化",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "火",
+    "species": "ドラゴン",
+    "hp": 6903,
+    "attack": 964,
+    "defense": 325,
+    "resist": 142,
+    "exSkill1": {
+      "skillName": "リーサルフレイム",
+      "attackMul": 440,
+      "splash": true,
+      "rangeMul": 170,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "{attack*100}物理Dmg/発動→全体",
+        "敵ATK100%物理Dmg/撃破→全体",
+        "終炎(10秒)/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "インフェルノ",
+      "attack": 80
+    },
+    "features": [
+      {
+        "featureName": "common-ranged",
+        "rounds": 1
+      },
+      {
+        "featureName": "weather-damage",
+        "annotations": [
+          "天候：終炎"
+        ],
+        "isConditionalBuff": true,
+        "damageFactor": 120
+      },
+      {
+        "featureName": "skill1-attack",
+        "annotations": [
+          "発動時攻撃"
+        ],
+        "akill": 1,
+        "target": 8,
+        "interval": null,
+        "range": null
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "annotations": [
+          "発動時追加Dmg"
+        ],
+        "akill": 1,
+        "target": 8,
+        "rounds": 10,
+        "interval": null,
+        "range": null
+      }
+    ],
+    "attackMul": 150,
+    "range": 200,
+    "potentialBonus": {
+      "attackMul": 160
+    },
+    "situations": [
+      {
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "common-melee",
+          "weather-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "weather-damage"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "features": [
+          "common-ranged",
+          "weather-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "weather-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "weather-damage",
+          "skill1-attack"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "weather-damage",
+          "common-extra-field-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "skill": 1,
+        "target": "全体",
+        "duration": 10,
+        "weather": "終炎",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "武器",
+          "天候：終炎",
+          "火属性"
+        ],
+        "target": "全体",
+        "value": 120
+      }
+    ]
   }
 ]
