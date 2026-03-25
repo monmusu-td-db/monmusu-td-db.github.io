@@ -2598,5 +2598,74 @@
     "group": "攻撃",
     "desc": "配置中、マップ上の属性マス1種ごとに全味方の攻撃力+100（最大600）",
     "attackAddBuff": 600
+  },
+  {
+    "name": "ハッピーバレンタイン！",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "回復を受けた時、攻撃力が5秒間8%増加",
+    "attackMul": 8
+  },
+  {
+    "name": "コズミックバリア",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "スキル発動後10秒間、物理魔法攻撃を40%で回避し、受ける物理魔法Dmg20%軽減",
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
+    "physicalDamageCut": 20,
+    "magicalDamageCut": 20
+  },
+  {
+    "name": "被検体P20",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "【改造ペガサス娘】スズをトークンとして使役可能",
+    "isIneffective": true
+  },
+  {
+    "name": "捕獲！霧氷の魔女",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "水属性ユニットに装備時に受ける物理魔法Dmg15%減少　霧氷の魔女を使役可能",
+    "features": [
+      {
+        "require": [
+          "水"
+        ],
+        "physicalDamageCut": 15,
+        "magicalDamageCut": 15
+      }
+    ]
+  },
+  {
+    "name": "捕獲！名家生まれの女僧侶",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "ヒーラー系セット時、スキル時HP35%バリア　名家生まれの女僧侶を使役可能",
+    "isIneffective": true
+  },
+  {
+    "name": "ターゲットフォーカス",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "与えるダメージ1.3倍　攻撃対象数が1体増える度に効果量0.15倍減少（下限1.0倍）",
+    "damageFactor": 30
+  },
+  {
+    "name": "出撃コスト犠牲攻撃強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+25%、代わりに出撃コスト+2",
+    "cost": 2,
+    "attack": 25
+  },
+  {
+    "name": "攻撃犠牲攻撃待機時間短縮",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃後の待機時間を30%短縮\n代わりに攻撃力-7%",
+    "attack": -7,
+    "delayCut": 30
   }
 ]
