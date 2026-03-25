@@ -2866,9 +2866,9 @@ export default class Situation implements TableRow<Keys> {
         return fn(keys.defenseMul);
       case stat.resist:
         return fn(keys.resistMul);
-      case stat.physicalLimit:
+      case stat.physicalDamageCut:
         return fn(keys.physicalDamageCut);
-      case stat.magicalLimit:
+      case stat.magicalDamageCut:
         return fn(keys.magicalDamageCut);
       default:
         return 0;
