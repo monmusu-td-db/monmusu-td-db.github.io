@@ -48106,6 +48106,7 @@
         }
       },
       {
+        "isNotAbility": true,
         "require": [
           "武器"
         ],
@@ -48135,6 +48136,27 @@
         "skill": -1,
         "features": [
           "class-action"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "class-action-base",
+          "common-potential-regenerate-3%"
         ]
       }
     ],
@@ -49414,6 +49436,16 @@
         "skill": 1,
         "features": [
           "attack-mul2"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
         ]
       }
     ],
