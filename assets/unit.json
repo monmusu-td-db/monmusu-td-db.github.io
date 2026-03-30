@@ -49705,5 +49705,155 @@
         "value": 120
       }
     ]
+  },
+  {
+    "id": 412,
+    "unitName": "【ＵＦＯ娘】ユフォラ",
+    "unitShortName": "ユフォラ",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "光",
+    "species": "エイリアン",
+    "hp": 3454,
+    "attack": 0,
+    "defense": 289,
+    "resist": 510,
+    "supplements": [
+      "コスト+5/配置エイリアン"
+    ],
+    "exSkill1": {
+      "skillName": "アクティビティコマンド",
+      "rangeMul": 160,
+      "duration": 40,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-24/発動",
+        "コスト+1/撃破→全体味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "HPが毎秒3%回復"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "エイリアン"
+        ],
+        "hp": 110,
+        "cost": -2,
+        "potentialBonus": {
+          "hp": 112,
+          "cost": -3
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "フライングパラソル",
+      "hp": 350,
+      "resist": 20,
+      "range": 10,
+      "costAdd": -8
+    },
+    "features": [
+      {
+        "isBuffSkill": true,
+        "skill": 1,
+        "damageFactor": 140
+      },
+      {
+        "featureName": "common-regenerate-area",
+        "staticDamage": {
+          "key": "hp",
+          "value": 1
+        },
+        "supplements": [
+          "回復1%/秒→射程内"
+        ]
+      }
+    ],
+    "physicalEvasion": 30,
+    "magicalEvasion": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 0,
+        "proper": true,
+        "features": [
+          "common-regenerate-area"
+        ]
+      },
+      {
+        "skill": 1,
+        "proper": true,
+        "features": [
+          "common-regenerate-area"
+        ]
+      },
+      {
+        "skill": -1,
+        "bottom": true,
+        "hasPotentials": [
+          "HPが毎秒3%回復"
+        ],
+        "features": [
+          "common-potential-regenerate-3%"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 0,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 30
+          },
+          {
+            "type": "magical-evasion",
+            "value": 30
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 30
+          },
+          {
+            "type": "magical-evasion",
+            "value": 30
+          }
+        ]
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "エイリアン"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 140
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "エイリアン以外"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 120
+      }
+    ]
   }
 ]
