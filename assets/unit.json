@@ -49728,6 +49728,7 @@
       },
       {
         "type": "damage-factor",
+        "skill": -1,
         "require": [
           "武器",
           "天候：終炎",
