@@ -49121,7 +49121,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 408,
     "unitName": "【工学のノーム娘】ペトラ",
     "unitShortName": "ペトラ/学園",
@@ -49129,9 +49128,9 @@
     "class": "ガンナー",
     "element": "地",
     "hp": 2522,
-    "attack": 865,
+    "attack": 863,
     "defense": 227,
-    "resist": 335,
+    "resist": 305,
     "exSkill1": {
       "skillName": "ノーム緊急出撃",
       "duration": 30,
