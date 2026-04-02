@@ -49887,5 +49887,131 @@
         "value": 120
       }
     ]
+  },
+  {
+    "TODO_DESC": "extra-attack-interval/field-damage-rounds",
+    "id": 414,
+    "unitName": "【狂風の亜神】ズィズィー",
+    "unitShortName": "ズィズィー",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "species": "ビジター",
+    "hp": 2641,
+    "attack": 988,
+    "defense": 233,
+    "resist": 550,
+    "supplements": [
+      "停止→命中"
+    ],
+    "exSkill1": {
+      "skillName": "死を告げる暴風",
+      "attackMul": 240,
+      "rangeMul": 200,
+      "duration": "永続",
+      "cooldown": 120,
+      "skillFeatures": [
+        {
+          "featureName": "skill1-target-add",
+          "targetAdd": 2
+        }
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃対象数+1"
+    ],
+    "weapon": {
+      "weaponName": "禍風の杖",
+      "attack": 60,
+      "resist": 10,
+      "range": 5
+    },
+    "features": [
+      {
+        "featureName": "extra-attack",
+        "isAbility": true,
+        "annotations": [
+          "狂風"
+        ],
+        "damageFactor": 24,
+        "interval": 99,
+        "target": 2,
+        "splash": false,
+        "damageType": "魔法",
+        "potentialBonus": {
+          "damageFactor": 28
+        }
+      },
+      {
+        "featureName": "extra-attack",
+        "require": [
+          "武器"
+        ],
+        "targetAdd": 1
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageFactor": 20,
+        "splash": false,
+        "rounds": 99
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "skill": 1,
+        "damageFactor": 40
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "skill1-target-add"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "extra-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-attack"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "target": "全体",
+        "supplements": [
+          "編成バフ"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "stan-invalid"
+          }
+        ]
+      }
+    ]
   }
 ]
