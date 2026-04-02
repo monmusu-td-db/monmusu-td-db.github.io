@@ -49889,7 +49889,6 @@
     ]
   },
   {
-    "TODO_DESC": "extra-attack-interval/field-damage-rounds",
     "id": 414,
     "unitName": "【狂風の亜神】ズィズィー",
     "unitShortName": "ズィズィー",
@@ -49902,7 +49901,7 @@
     "defense": 233,
     "resist": 550,
     "supplements": [
-      "停止→命中"
+      "停止(10f)→命中"
     ],
     "exSkill1": {
       "skillName": "死を告げる暴風",
@@ -49938,7 +49937,7 @@
           "狂風"
         ],
         "damageFactor": 24,
-        "interval": 99,
+        "interval": 50,
         "target": 2,
         "splash": false,
         "damageType": "魔法",
@@ -49957,12 +49956,14 @@
         "featureName": "common-extra-field-damage",
         "damageFactor": 20,
         "splash": false,
-        "rounds": 99
+        "interval": 30,
+        "damageType": "貫通"
       },
       {
         "featureName": "common-extra-field-damage",
         "skill": 1,
-        "damageFactor": 40
+        "damageFactor": 40,
+        "damageType": "貫通"
       }
     ],
     "situations": [
