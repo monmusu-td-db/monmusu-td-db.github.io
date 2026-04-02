@@ -50013,5 +50013,183 @@
         ]
       }
     ]
+  },
+  {
+    "id": 415,
+    "unitName": "【クイユポニョン娘】セラディア",
+    "unitShortName": "セラディア",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "光",
+    "species": "ビジター",
+    "moveType": "飛行",
+    "hp": 2544,
+    "attack": 1005,
+    "defense": 237,
+    "resist": 307,
+    "supplements": [
+      "スタン付与10%→命中",
+      "暗闇付与(低)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "ゴールデンストリーム",
+      "attackMul": 200,
+      "splash": true,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "配置時バリア1500"
+    ],
+    "weapon": {
+      "weaponName": "金煌玉銃",
+      "hp": 150,
+      "attack": 40,
+      "range": 10
+    },
+    "features": [
+      {
+        "isConditionalSkillBuff": true,
+        "skill": 1,
+        "physicalDamageCut": 20,
+        "magicalDamageCut": 20
+      },
+      {
+        "featureName": "common-definite",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "annotations": [
+          "スタン or 暗闇特効"
+        ],
+        "conditions": [
+          {
+            "key": "特",
+            "type": "stan"
+          },
+          {
+            "key": "特",
+            "type": "blind"
+          }
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "extra-field-damage",
+        "conditions": [
+          "追"
+        ],
+        "criChanceAdd": -1000,
+        "damageFactor": 50,
+        "target": "命中",
+        "splash": false,
+        "rounds": 2.666667
+      },
+      {
+        "featureName": "common-extra-field-damage-no-ability",
+        "skill": 1,
+        "annotations": [
+          "輝渦"
+        ],
+        "damageFactor": 50,
+        "splash": false,
+        "rounds": 9
+      }
+    ],
+    "rangeAdd": 50,
+    "potentialBonus": {
+      "rangeAdd": 60
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "features": [
+          "common-definite",
+          "extra-field-damage"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "extra-field-damage"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "common-extra-field-damage-no-ability"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 20
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 20
+          }
+        ]
+      }
+    ]
   }
 ]
