@@ -50381,5 +50381,104 @@
         ]
       }
     ]
+  },
+  {
+    "id": 417,
+    "unitName": "【ダゴン娘】パドレラグネ",
+    "unitShortName": "パドレラグネ",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "水",
+    "hp": 4971,
+    "attack": 655,
+    "defense": 502,
+    "resist": 58,
+    "exSkill1": {
+      "skillName": "ディープワン",
+      "attackMul": 240,
+      "splash": true,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "コスト+22/発動",
+        "停止(XX秒)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル初回待ち時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "深海からの号令",
+      "hp": 300,
+      "attack": 50
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "水"
+        ],
+        "hp": 108,
+        "attack": 108
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "停止(XX秒)→命中"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "damageCut": 10
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 130,
+    "attackMul": 120,
+    "blockAdd": 1,
+    "potentialBonus": {
+      "hpMul": 135,
+      "attackMul": 125
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-cut",
+        "skill": -1,
+        "require": [
+          "武器",
+          "水属性"
+        ],
+        "target": "全体",
+        "value": 10
+      }
+    ]
   }
 ]
