@@ -50207,7 +50207,7 @@
     "resist": 562,
     "supplements": [
       "tkn配置/配置",
-      "tkn配置/XX秒"
+      "tkn配置/30秒"
     ],
     "exSkill1": {
       "skillName": "黄衣の招来",
@@ -50299,11 +50299,11 @@
     "unitName": "招来",
     "unitShortName": "招来T",
     "rarity": "C",
-    "cost": 99,
-    "hp": 9999,
-    "attack": 999,
-    "defense": 99,
-    "resist": 99,
+    "cost": 0,
+    "hp": 3445,
+    "attack": 1059,
+    "defense": 0,
+    "resist": 0,
     "attackSpeed": 100,
     "delay": 25,
     "block": null,
@@ -50312,7 +50312,7 @@
     "damageType": "魔法",
     "placement": "付",
     "supplements": [
-      "スタン付与XX%→命中",
+      "スタン付与10%→命中",
       "limit20秒"
     ],
     "features": [
