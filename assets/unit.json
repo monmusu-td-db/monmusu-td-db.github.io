@@ -50397,11 +50397,12 @@
       "skillName": "ディープワン",
       "attackMul": 240,
       "splash": true,
+      "rangeMul": 270,
       "duration": 25,
       "cooldown": 35,
       "supplements": [
         "コスト+22/発動",
-        "停止(XX秒)→命中"
+        "停止(長)→命中"
       ]
     },
     "potentials": [
@@ -50429,7 +50430,7 @@
       {
         "skill": 0,
         "supplements": [
-          "停止(XX秒)→命中"
+          "停止→命中"
         ]
       },
       {
@@ -50437,6 +50438,12 @@
           "武器"
         ],
         "damageCut": 10
+      },
+      {
+        "featureName": "common-extra-field-damage-no-ability",
+        "damageFactor": 50,
+        "splash": false,
+        "rounds": 2
       }
     ],
     "costAdd": 5,
@@ -50465,6 +50472,17 @@
         "skill": 1,
         "features": [
           "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage-no-ability"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage-no-ability"
         ]
       }
     ],
