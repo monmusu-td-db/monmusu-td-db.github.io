@@ -50192,5 +50192,194 @@
         ]
       }
     ]
+  },
+  {
+    "id": 416,
+    "unitName": "【ささやく夜風】エレノワール",
+    "unitShortName": "エレノワール",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "風",
+    "species": "ビジター",
+    "hp": 2761,
+    "attack": 624,
+    "defense": 253,
+    "resist": 562,
+    "supplements": [
+      "tkn配置/配置",
+      "tkn配置/XX秒"
+    ],
+    "exSkill1": {
+      "skillName": "黄衣の招来",
+      "attackMul": 190,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "tkn配置/発動→射程内味方"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "黄風の書物",
+      "attack": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "supplements": [
+          "ATK+100/tkn配置・召喚"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK+130/tkn配置・召喚"
+          ]
+        }
+      },
+      {
+        "featureName": "attack-add",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 2000
+          }
+        ],
+        "attackAdd": 2000,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "+",
+              "value": 2600
+            }
+          ],
+          "attackAdd": 2600
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-add"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-add"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": -1,
+        "require": [
+          "武器",
+          "トークン"
+        ],
+        "target": "全体",
+        "value": 140
+      }
+    ]
+  },
+  {
+    "id": 4160001,
+    "parentId": 416,
+    "unitName": "招来",
+    "unitShortName": "招来T",
+    "rarity": "C",
+    "cost": 99,
+    "hp": 9999,
+    "attack": 999,
+    "defense": 99,
+    "resist": 99,
+    "attackSpeed": 100,
+    "delay": 25,
+    "block": null,
+    "target": 1,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "付",
+    "supplements": [
+      "スタン付与XX%→命中",
+      "limit20秒"
+    ],
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 140
+      },
+      {
+        "featureName": "parent-skill1",
+        "isConditionalSkillBuff": true,
+        "parentSkill": 1,
+        "attackMul": 190,
+        "rangeMul": 160
+      },
+      {
+        "featureName": "attack-add",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 2000
+          }
+        ],
+        "attackAdd": 2000,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "+",
+              "value": 2600
+            }
+          ],
+          "attackAdd": 2600
+        }
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "parent-skill1"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "attack-add"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "parent-skill1",
+          "attack-add"
+        ]
+      }
+    ]
   }
 ]
