@@ -49889,6 +49889,120 @@
     ]
   },
   {
+    "id": 413,
+    "unitName": "【ギルタブルル娘】ズカキナ",
+    "unitShortName": "ズカキナ",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "地",
+    "hp": 6522,
+    "attack": 1026,
+    "defense": 457,
+    "resist": 142,
+    "supplements": [
+      "猛毒付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "キラーサイクル",
+      "attackMul": 340,
+      "target": "射程内",
+      "range": 150,
+      "duration": 15,
+      "cooldown": 30,
+      "supplements": [
+        "即死→命中CRI時毒敵"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スタン耐性+50"
+    ],
+    "weapon": {
+      "weaponName": "サンドシックル",
+      "hp": 200,
+      "attack": 40,
+      "defense": 20
+    },
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criDamageAdd": 40,
+        "criChanceLimitAdd": 20,
+        "potentialBonus": {
+          "criChanceAdd": 25,
+          "criChanceLimitAdd": 25
+        }
+      },
+      {
+        "featureName": "common-definite-poison",
+        "isConditionalBuff": true,
+        "damageFactor": 200
+      },
+      {
+        "featureName": "weapon-dot",
+        "isAbility": true,
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "継続ダメージ"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 10
+        },
+        "criChanceAdd": -1000,
+        "interval": 30,
+        "target": "全体",
+        "splash": false,
+        "damageType": "物理",
+        "supplements": [
+          "{attack*10}dmg/秒→全体毒敵"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "weapon-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "weapon-dot"
+        ]
+      }
+    ]
+  },
+  {
     "id": 414,
     "unitName": "【狂風の亜神】ズィズィー",
     "unitShortName": "ズィズィー",
