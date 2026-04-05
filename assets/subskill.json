@@ -2674,5 +2674,12 @@
     "group": "攻撃",
     "desc": "配置中、配置中の種族人間トークンの最大HP、攻撃、物防、魔防+100%",
     "isIneffective": true
+  },
+  {
+    "name": "コストコンバーター",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "敵撃破時10秒間コスト回復速度アップ",
+    "isIneffective": true
   }
 ]
