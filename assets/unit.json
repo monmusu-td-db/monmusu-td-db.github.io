@@ -23156,8 +23156,8 @@
     "resist": 137,
     "exSkill1": {
       "skillName": "守ってみせる！",
-      "hpMul": 270,
-      "attackMul": 170,
+      "hpMul": 290,
+      "attackMul": 190,
       "attackSpeedBuff": 150,
       "fixedDelay": 11,
       "duration": "永続",
@@ -23180,7 +23180,7 @@
         "require": [
           "武器"
         ],
-        "initialTimeCut": 25
+        "initialTimeCut": 20
       },
       {
         "featureName": "normal",
@@ -23343,7 +23343,7 @@
       "skillName": "ダークメナス",
       "attackMul": 280,
       "targetAdd": 1,
-      "rangeMul": 140,
+      "rangeMul": 160,
       "duration": 40,
       "cooldown": 45,
       "supplements": [
@@ -23393,21 +23393,21 @@
             "value": 1
           }
         ],
-        "attackMul": 120
+        "attackMul": 125
       },
       {
         "featureName": "common-team-buff5",
         "require": [
           "武器"
         ],
-        "attackMul": 200
+        "attackMul": 225
       },
       {
         "featureName": "common-team-buff10",
         "require": [
           "武器"
         ],
-        "attackMul": 300
+        "attackMul": 350
       }
     ],
     "situations": [
@@ -26650,7 +26650,7 @@
     "resist": 106,
     "exSkill1": {
       "skillName": "エンキ神殿へいらっしゃい",
-      "attackMul": 350,
+      "attackMul": 380,
       "splash": true,
       "range": 220,
       "duration": 30,
@@ -26723,8 +26723,8 @@
         "hits": 2
       },
       {
-        "featureName": "token-block",
-        "damageCut": 20
+        "featureName": "token-damage-cut",
+        "damageCut": 30
       }
     ],
     "situations": [
@@ -26774,7 +26774,7 @@
         "skill": 1,
         "features": [
           "token-1hit",
-          "token-block",
+          "token-damage-cut",
           "common-block1-emphasis"
         ]
       },
@@ -26785,7 +26785,7 @@
         "skill": 1,
         "features": [
           "token-2hits",
-          "token-block",
+          "token-damage-cut",
           "common-block1-emphasis"
         ]
       },
@@ -26796,7 +26796,7 @@
         "skill": 1,
         "features": [
           "token-1hit",
-          "token-block",
+          "token-damage-cut",
           "common-block4"
         ]
       },
@@ -26807,7 +26807,7 @@
         "skill": 1,
         "features": [
           "token-2hits",
-          "token-block",
+          "token-damage-cut",
           "common-block4"
         ]
       },
@@ -26818,7 +26818,7 @@
         "skill": 1,
         "features": [
           "token-1hit",
-          "token-block",
+          "token-damage-cut",
           "common-block0"
         ]
       },
@@ -26829,7 +26829,7 @@
         "skill": 1,
         "features": [
           "token-2hits",
-          "token-block",
+          "token-damage-cut",
           "common-block0"
         ]
       },
@@ -26840,7 +26840,7 @@
         "skill": 1,
         "features": [
           "token-1hit",
-          "token-block",
+          "token-damage-cut",
           "common-block1-emphasis"
         ]
       },
@@ -26851,7 +26851,7 @@
         "skill": 1,
         "features": [
           "token-2hits",
-          "token-block",
+          "token-damage-cut",
           "common-block1-emphasis"
         ]
       },
@@ -26862,7 +26862,7 @@
         "skill": 1,
         "features": [
           "token-1hit",
-          "token-block",
+          "token-damage-cut",
           "common-block4"
         ]
       },
@@ -26873,7 +26873,7 @@
         "skill": 1,
         "features": [
           "token-2hits",
-          "token-block",
+          "token-damage-cut",
           "common-block4"
         ]
       },
@@ -26925,6 +26925,7 @@
       }
     ],
     "isUnhealable": true,
+    "deployCount": 0,
     "situations": [
       {
         "proper": true
@@ -26943,6 +26944,7 @@
     "rarity": "L",
     "class": "バード",
     "element": "闇",
+    "species": "悪魔",
     "hp": 3487,
     "attack": 256,
     "defense": 365,
@@ -33410,7 +33412,7 @@
             "value": 20
           }
         ],
-        "hpMul": 160
+        "hpMul": 180
       }
     ],
     "costAdd": 5,
@@ -33636,7 +33638,7 @@
     ],
     "exSkill1": {
       "skillName": "腐敗の旋律",
-      "attackMul": 260,
+      "attackMul": 300,
       "rangeMul": 160,
       "duration": 30,
       "cooldown": 45
@@ -33657,12 +33659,12 @@
         "featureName": "common-dot",
         "staticDamage": {
           "key": "attack",
-          "value": 50
+          "value": 60
         },
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
-            "value": 60
+            "value": 70
           }
         }
       },
@@ -41557,6 +41559,7 @@
     "rarity": "L",
     "class": "ガンナー",
     "element": "風",
+    "species": "悪魔",
     "hp": 2673,
     "attack": 1005,
     "defense": 227,
@@ -41934,6 +41937,7 @@
     "rarity": "L",
     "class": "ブレイダー",
     "element": "水",
+    "species": "ドラゴン",
     "hp": 6034,
     "attack": 963,
     "defense": 463,
@@ -43819,6 +43823,7 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "火",
+    "species": "ドラゴン",
     "hp": 7159,
     "attack": 570,
     "defense": 893,
