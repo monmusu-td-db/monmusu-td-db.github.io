@@ -50760,5 +50760,107 @@
         ]
       }
     ]
+  },
+  {
+    "id": 420,
+    "unitName": "【人形使い】シモアマヅ",
+    "unitShortName": "シモアマヅ",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "闇",
+    "species": "ビジター",
+    "hp": 2785,
+    "attack": 479,
+    "defense": 275,
+    "resist": 491,
+    "supplements": [
+      "ATK+100%(10秒)/5回攻撃"
+    ],
+    "exSkill1": {
+      "skillName": "天衣無縫",
+      "attackMul": 180,
+      "rounds": 5,
+      "rangeMul": 160,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "回避無視100%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRI率/CRI率上限+20%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "闇",
+          "ソーサラー"
+        ],
+        "attack": 112,
+        "potentialBonus": {
+          "attack": 115
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "呪術のお人形さん",
+      "attack": 80
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "criChanceAdd": 30,
+        "criChanceLimitAdd": 30,
+        "penetrationAdd": 50
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 200
+          }
+        ],
+        "attackMul": 200,
+        "supplements": [
+          "ATK+100%(10秒)/5回攻撃"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "duration": 20,
+        "supplements": [
+          "ATK-30%→呪詛敵",
+          "鈍足→呪詛敵",
+          "命中回復敵最大HP1%→呪詛敵"
+        ]
+      }
+    ],
+    "attackMul": 130,
+    "delayMul": 99,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      }
+    ]
   }
 ]
