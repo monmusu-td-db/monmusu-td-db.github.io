@@ -50634,14 +50634,12 @@
     "exSkill1": {
       "skillName": "浮世絵百鬼夜行",
       "attackMul": 240,
-      "attackMotionMul": 276,
-      "rounds": 12,
       "laser": true,
       "rangeMul": 180,
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "スタン付与XX(中)%→命中"
+        "スタン付与20%→命中"
       ]
     },
     "potentials": [
@@ -50683,7 +50681,7 @@
       {
         "featureName": "common-extra-field-damage",
         "damageFactor": 10,
-        "interval": 99,
+        "interval": 30,
         "rounds": 1,
         "laser": false,
         "damageType": "貫通",
@@ -50692,7 +50690,7 @@
         }
       },
       {
-        "featureName": "attack-mul",
+        "featureName": "attack-mul1",
         "isConditionalBuff": true,
         "conditions": [
           {
@@ -50701,6 +50699,17 @@
           }
         ],
         "attackMul": 340
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 1000
+          }
+        ],
+        "attackMul": 1000
       }
     ],
     "situations": [
@@ -50710,13 +50719,24 @@
       },
       {
         "features": [
-          "attack-mul"
+          "attack-mul1"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "attack-mul"
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
         ]
       },
       {
@@ -50733,14 +50753,27 @@
       {
         "features": [
           "common-extra-field-damage",
-          "attack-mul"
+          "attack-mul1"
         ]
       },
       {
         "skill": 1,
         "features": [
           "common-extra-field-damage",
-          "attack-mul"
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul2"
         ]
       }
     ],
