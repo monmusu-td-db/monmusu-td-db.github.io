@@ -47949,6 +47949,7 @@
           "種族特性10"
         ],
         "delayMul": 75,
+        "rounds": 2,
         "rangeMul": 160,
         "supplements": [
           "火傷付与(稀)→命中"
