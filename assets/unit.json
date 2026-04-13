@@ -50617,5 +50617,148 @@
         "value": 10
       }
     ]
+  },
+  {
+    "id": 419,
+    "unitName": "【妖怪を愛する名探偵】セキエン",
+    "unitShortName": "セキエン",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "光",
+    "species": "ビジター",
+    "hp": 2500,
+    "attack": 1005,
+    "defense": 231,
+    "resist": 307,
+    "exSkill1": {
+      "skillName": "浮世絵百鬼夜行",
+      "attackMul": 240,
+      "attackMotionMul": 276,
+      "rounds": 12,
+      "laser": true,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "スタン付与XX(中)%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "require": [
+          "武器"
+        ],
+        "attack": 118,
+        "supplements": [
+          "有属性マス1種毎+6%(最大+18%)"
+        ]
+      }
+    ],
+    "weapon": {
+      "weaponName": "妖怪捕獲銃",
+      "attack": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "supplements": [
+          "ATK-2%→命中 & ATK+減少値"
+        ]
+      },
+      {
+        "skill": 1,
+        "damageDebuff": 120
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageFactor": 10,
+        "interval": 99,
+        "rounds": 1,
+        "laser": false,
+        "damageType": "貫通",
+        "potentialBonus": {
+          "damageFactor": 12
+        }
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 340
+          }
+        ],
+        "attackMul": 340
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "target": "全体",
+        "value": 120
+      },
+      {
+        "type": "attack-mul",
+        "skill": -1,
+        "target": "全体",
+        "value": 140,
+        "supplements": [
+          "有属性マス1種毎(最大+240%)"
+        ]
+      }
+    ]
   }
 ]
