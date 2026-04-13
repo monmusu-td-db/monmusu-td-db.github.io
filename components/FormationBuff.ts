@@ -85,7 +85,7 @@ export default class FormationBuff implements TableRow<Keys> {
         | typeof stat.buffHp
         | typeof stat.buffAttack
         | typeof stat.buffDefense
-        | typeof stat.buffResist
+        | typeof stat.buffResist,
     ) => {
       let key;
       switch (statType) {
@@ -165,13 +165,13 @@ export default class FormationBuff implements TableRow<Keys> {
           const key = Data.FormationBuffRequire.keyOf(buff);
           return FormationBuffUI.getSupplementText(
             key,
-            unit.element.getValue(s)
+            unit.element.getValue(s),
           );
         }),
       item: (s) =>
         FormationBuffUI.getSupplementItems(
-          this.getBuff(s).require,
-          unit.element.getValue(s)
+          this.getBuff(s),
+          unit.element.getValue(s),
         ),
     });
   }
@@ -230,7 +230,7 @@ export default class FormationBuff implements TableRow<Keys> {
         return Data.mapSort(
           rows,
           (target) => target[column].getSortOrder(setting),
-          isReversed
+          isReversed,
         );
       },
     } as const;
@@ -249,7 +249,7 @@ const buffs: readonly FormationBuff[] = (() => {
           id: index++,
           unit,
           buff,
-        })
+        }),
       );
     });
   });

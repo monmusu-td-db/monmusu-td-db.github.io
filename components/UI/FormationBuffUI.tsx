@@ -27,7 +27,7 @@ export default class FormationBuffUI {
 
   static getSupplementText(
     key: Data.FormationBuffRequireKey,
-    element: Data.Element | undefined
+    element: Data.Element | undefined,
   ): string {
     const keys = Data.FormationBuffRequire.keys;
     switch (key) {
@@ -43,14 +43,26 @@ export default class FormationBuffUI {
   }
 
   static getSupplementItems(
-    requests: readonly Data.FormationBuffRequire[],
-    element: Data.Element | undefined
+    buff: Data.FormationBuffValue,
+    element: Data.Element | undefined,
   ): ReactNode {
-    return requests.map((buff) => {
-      const key = Data.FormationBuffRequire.keyOf(buff);
-      return <SupplementItem key={key} requireKey={key} element={element} />;
-    });
+    return (
+      <>
+        <>{getRequirements(buff.require, element)} </>
+        {buff.supplements?.join(" ")}
+      </>
+    );
   }
+}
+
+function getRequirements(
+  requires: readonly Data.FormationBuffRequire[],
+  element: Data.Element | undefined,
+): ReactNode {
+  return requires.map((buff) => {
+    const key = Data.FormationBuffRequire.keyOf(buff);
+    return <SupplementItem key={key} requireKey={key} element={element} />;
+  });
 }
 
 function SupplementItem({

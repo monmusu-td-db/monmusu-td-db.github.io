@@ -938,6 +938,7 @@ export interface FormationBuff {
   readonly criChanceLimitAdd?: number;
   readonly delay?: number;
   readonly moveSpeed?: number;
+  readonly supplements?: readonly string[];
   readonly potentialBonus?: Omit<
     FormationBuff,
     "targets" | "require" | "potentialBonus"

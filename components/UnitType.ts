@@ -221,7 +221,7 @@ interface RawCommonUnit extends RawUnitBase {
     Data.Potential,
     Data.Potential,
     Data.Potential,
-    Data.Potential
+    Data.Potential,
   ];
 
   /** 専用武器データ */
@@ -404,6 +404,9 @@ interface RawFormationBuffFactor {
 
   /** 移動速度加算効果 */
   moveSpeed?: number;
+
+  /** 補足 */
+  supplements?: readonly string[];
 }
 
 /** 特徴データ */
