@@ -50620,6 +50620,120 @@
     ]
   },
   {
+    "id": 418,
+    "unitName": "【四呪首のケルベロス娘】テルル",
+    "unitShortName": "テルル/四呪首",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "火",
+    "hp": 2544,
+    "attack": 973,
+    "defense": 241,
+    "resist": 300,
+    "supplements": [
+      "ATK-{attack-base*10}→命中"
+    ],
+    "exSkill1": {
+      "skillName": "天衣無砲ヘルフレア",
+      "attackMotionMul": 276,
+      "rounds": 12,
+      "laser": true,
+      "rangeMul": 220,
+      "duration": 50,
+      "cooldown": 75,
+      "damageType": "貫通"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル初回待ち時間-12"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "火",
+          "スナイパー"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 113
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "ケルベロスファング弐式",
+      "hp": 50,
+      "attack": 40,
+      "defense": 10,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "isNotAbility": true,
+        "supplements": [
+          "火傷付与(中)→命中"
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 150
+          }
+        ],
+        "attackMul": 150,
+        "supplements": [
+          "ATK+50%(5秒)/5回攻撃"
+        ]
+      },
+      {
+        "featureName": "common-absorb",
+        "annotations": [
+          "種族特性"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 2
+        },
+        "supplements": [
+          "回復2%/命中"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ]
+  },
+  {
     "id": 419,
     "unitName": "【妖怪を愛する名探偵】セキエン",
     "unitShortName": "セキエン",
