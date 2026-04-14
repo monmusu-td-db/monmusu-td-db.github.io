@@ -51044,6 +51044,26 @@
       "射程+15",
       "スキル再使用時間-4秒"
     ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "require": [
+          "武器"
+        ],
+        "attack": 118,
+        "supplements": [
+          "有属性マス1種毎+3%(最大+18%)"
+        ]
+      }
+    ],
+    "weapon": {
+      "weaponName": "ゴーストブラスト",
+      "hp": 100,
+      "attack": 45,
+      "range": 10
+    },
     "features": [
       {
         "skill": 1,
