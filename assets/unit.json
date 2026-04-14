@@ -51010,5 +51010,254 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 421,
+    "unitName": "【真究のペガサス娘】スズ",
+    "unitShortName": "スズ/真究",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "風",
+    "moveType": "飛行",
+    "hp": 2737,
+    "attack": 1027,
+    "defense": 214,
+    "resist": 292,
+    "supplements": [
+      "ATK-2%→命中 & ATK+減少値"
+    ],
+    "exSkill1": {
+      "skillName": "ゴーストウインド",
+      "attackSpeedBuff": 200,
+      "fixedDelay": 1,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "ノックバック→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "damageDebuff": 140
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageFactor": 10,
+        "interval": 30,
+        "damageType": "貫通",
+        "potentialBonus": {
+          "damageFactor": 12
+        }
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 500
+          }
+        ],
+        "attackMul": 500
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 1000
+          }
+        ],
+        "attackMul": 1000
+      },
+      {
+        "featureName": "critical-chance-add",
+        "annotations": [
+          "種族特性"
+        ],
+        "criChanceAdd": 60,
+        "criChanceLimitAdd": 60
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage",
+          "attack-mul2"
+        ]
+      },
+      {
+        "features": [
+          "critical-chance-add"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "critical-chance-add"
+        ]
+      },
+      {
+        "features": [
+          "critical-chance-add",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "critical-chance-add",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "critical-chance-add",
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "critical-chance-add",
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage",
+          "critical-chance-add",
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage",
+          "critical-chance-add",
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "critical-chance-add",
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "critical-chance-add",
+          "attack-mul2"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage",
+          "critical-chance-add",
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage",
+          "critical-chance-add",
+          "attack-mul2"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "target": "全体",
+        "supplements": [
+          "有属性マス1種毎(最大+60%)"
+        ],
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 10
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "type": "damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 140
+      }
+    ]
   }
 ]
