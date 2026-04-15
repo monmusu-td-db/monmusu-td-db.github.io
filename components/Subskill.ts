@@ -36,6 +36,8 @@ interface JsonSubskillFactors {
   damageFactor: number;
   criChanceAdd: number;
   criDamageAdd: number;
+  criChanceLimitAdd: number;
+  criDamageLimitAdd: number;
   penetration: number;
   formationHp: number;
   formationAttack: number;
@@ -93,6 +95,8 @@ const subskillFactorKeys = [
   "damageFactor",
   "criChanceAdd",
   "criDamageAdd",
+  "criChanceLimitAdd",
+  "criDamageLimitAdd",
   "penetration",
   "formationHp",
   "formationAttack",
@@ -141,6 +145,8 @@ class SubskillFactors implements ISubskillFactors {
   readonly damageFactor: number | undefined;
   readonly criChanceAdd: number | undefined;
   readonly criDamageAdd: number | undefined;
+  readonly criChanceLimitAdd: number | undefined;
+  readonly criDamageLimitAdd: number | undefined;
   readonly penetration: number | undefined;
   readonly formationHp: number | undefined;
   readonly formationAttack: number | undefined;
@@ -185,6 +191,8 @@ class SubskillFactors implements ISubskillFactors {
     this.damageFactor = src.damageFactor;
     this.criChanceAdd = src.criChanceAdd;
     this.criDamageAdd = src.criDamageAdd;
+    this.criChanceLimitAdd = src.criChanceLimitAdd;
+    this.criDamageLimitAdd = src.criDamageLimitAdd;
     this.penetration = src.penetration;
     this.formationHp = src.formationHp;
     this.formationAttack = src.formationAttack;

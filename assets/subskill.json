@@ -2681,5 +2681,20 @@
     "group": "支援",
     "desc": "敵撃破時10秒間コスト回復速度アップ",
     "isIneffective": true
+  },
+  {
+    "name": "カラフルパレット",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "配置時、マップ上のマスをランダムで有属性に変更　有属性マス配置時与dmg1.1倍",
+    "damageFactor": 10
+  },
+  {
+    "name": "クリティカルチェイン",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "クリティカルdmg上限+100%　クリティカル時、クリティカルdmg+10%(最大10回)",
+    "criDamageAdd": 100,
+    "criDamageLimitAdd": 100
   }
 ]

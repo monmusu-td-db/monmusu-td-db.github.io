@@ -352,8 +352,12 @@ export default class Situation implements TableRow<Keys> {
         const p = this.unit?.isPotentialApplied(s)
           ? (this.unit?.getPotentialFactor(s, stat.criticalChanceLimit) ?? 0)
           : 0;
+        const subskill = this.getSubskillFactor(s, ssKeys.criChanceLimitAdd);
         const panel = s.criChanceLimitAdd;
-        return Math.min(100, Data.defaultCriChanceLimit + a + p + panel);
+        return Math.min(
+          100,
+          Data.defaultCriChanceLimit + a + p + subskill + panel,
+        );
       },
     });
 
@@ -363,8 +367,9 @@ export default class Situation implements TableRow<Keys> {
         const a =
           (this.getSkill(s)?.criDamageLimitAdd ?? 0) +
           (this.getFeature(s).criDamageLimitAdd ?? 0);
+        const subskill = this.getSubskillFactor(s, ssKeys.criDamageLimitAdd);
         const panel = s.criDamageLimitAdd;
-        return Data.defaultCriDamageLimit + a + panel;
+        return Data.defaultCriDamageLimit + a + subskill + panel;
       },
     });
 
