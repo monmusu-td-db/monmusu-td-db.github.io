@@ -17761,27 +17761,66 @@
         "featureName": "common-extra-damage",
         "staticDamage": {
           "key": "attack",
-          "value": 50
+          "value": 70
         },
         "damageType": "貫通",
         "potentialBonus": {
           "staticDamage": {
             "key": "attack",
-            "value": 65
+            "value": 85
           }
         }
       },
       {
         "featureName": "common-enemy1",
+        "damageFactor": 140
+      },
+      {
+        "featureName": "common-enemy2",
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-enemy3",
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-enemy4",
         "damageFactor": 110
+      },
+      {
+        "featureName": "enemy5",
+        "conditions": [
+          {
+            "key": "敵",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "featureName": "common-definite-stan",
+        "annotations": [
+          "スタン特効"
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "飛行特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "スタン特効",
+          "飛行特効"
+        ]
       }
     ],
     "situations": [
       {},
       {
-        "skill": 1
-      },
-      {
+        "skill": 1,
         "features": [
           "common-enemy1"
         ]
@@ -17789,7 +17828,138 @@
       {
         "skill": 1,
         "features": [
+          "common-enemy2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-enemy4"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "enemy5"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
           "common-enemy1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-enemy2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-enemy3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-enemy4"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "enemy5"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-enemy1"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-enemy2"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-enemy3"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-enemy4"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "enemy5"
         ]
       },
       {

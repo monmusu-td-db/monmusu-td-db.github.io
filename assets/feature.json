@@ -1059,6 +1059,16 @@
     "fixedTarget": 3
   },
   {
+    "featureName": "common-enemy4",
+    "conditions": [
+      {
+        "key": "敵",
+        "value": 4
+      }
+    ],
+    "fixedTarget": 4
+  },
+  {
     "featureName": "common-ability",
     "annotations": [
       "種族特性"
