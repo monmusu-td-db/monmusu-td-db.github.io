@@ -29280,6 +29280,10 @@
     ],
     "features": [
       {
+        "skill": 1,
+        "magicalDamageDebuff": 150
+      },
+      {
         "featureName": "normal",
         "isNotAbility": true,
         "skill": 0,
@@ -29472,6 +29476,14 @@
           "common-definite-male",
           "definite-absorb"
         ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "全体",
+        "value": 150
       }
     ]
   },
