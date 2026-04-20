@@ -29248,9 +29248,9 @@
         }
       }
     ],
-    "attackMul": 60,
+    "attackMul": 70,
     "potentialBonus": {
-      "attackMul": 70
+      "attackMul": 80
     },
     "situations": [
       {},
