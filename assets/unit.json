@@ -22832,7 +22832,6 @@
     ]
   },
   {
-    "TODO_DESC": "ex1攻撃待機時間短縮はおそらく機能していない",
     "id": 184,
     "unitName": "【ナベリウス娘】テルル",
     "unitShortName": "テルル/進化",
@@ -22849,7 +22848,8 @@
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "乱れ撃つわん！",
-      "attackMul": 180,
+      "attackMul": 200,
+      "fixedDelay": 1,
       "rounds": 6,
       "rangeMul": 160,
       "duration": 20,
