@@ -51820,6 +51820,7 @@
         "require": [
           "武器"
         ],
+        "isNotAbility": true,
         "supplements": [
           "スタン無効",
           "即死無効",
@@ -51829,7 +51830,11 @@
       {
         "skill": 0,
         "physicalDamageCut": 30,
-        "magicalDamageCut": 30,
+        "magicalDamageCut": 30
+      },
+      {
+        "skill": 0,
+        "isNotAbility": true,
         "supplements": [
           "反射100%"
         ]
@@ -51840,16 +51845,22 @@
         ],
         "isNotAbility": true,
         "isConditionalSkillBuff": true,
-        "physicalDamageCut": 60,
-        "magicalDamageCut": 60,
         "supplements": [
           "反射200%"
         ]
       },
       {
+        "require": [
+          "スキル"
+        ],
+        "physicalDamageCut": 60,
+        "magicalDamageCut": 60
+      },
+      {
         "featureName": "common-skill-dot",
         "isConditionalSkillBuff": true,
         "damageFactor": 200,
+        "range": null,
         "supplements": [
           "スタン付与20%→命中"
         ]
