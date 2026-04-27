@@ -51465,5 +51465,316 @@
         "value": 140
       }
     ]
+  },
+  {
+    "id": 423,
+    "unitName": "【ワイトロード娘】バロウ",
+    "unitShortName": "バロウ/進化",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "species": "アンデッド",
+    "hp": 2942,
+    "attack": 1044,
+    "defense": 194,
+    "resist": 550,
+    "exSkill1": {
+      "skillName": "ソウルブラスト",
+      "attackMul": 160,
+      "targetAdd": 5,
+      "rangeMul": 260,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRIダメージ+50%"
+    ],
+    "weapon": {
+      "weaponName": "ソウル・レクイエム",
+      "hp": 100,
+      "attack": 70
+    },
+    "features": [
+      {
+        "supplements": [
+          "ATK+15%/敵死亡"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK+18%/敵死亡"
+          ]
+        }
+      },
+      {
+        "supplements": [
+          "tkn配置/3体撃破"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "HP-10%/発動→射程内",
+          "HP0/発動→ソウルtkn"
+        ]
+      },
+      {
+        "featureName": "skill1-buff1",
+        "skill": 1,
+        "annotations": [
+          "ソウルT + 敵1体"
+        ],
+        "criChanceAdd": 15,
+        "criChanceLimitAdd": 15
+      },
+      {
+        "featureName": "skill1-buff2",
+        "skill": 1,
+        "annotations": [
+          "ソウルT + 敵3体"
+        ],
+        "criChanceAdd": 45,
+        "criChanceLimitAdd": 45
+      },
+      {
+        "featureName": "skill1-buff3",
+        "skill": 1,
+        "annotations": [
+          "ソウルT + 敵7体"
+        ],
+        "criChanceAdd": 100,
+        "criChanceLimitAdd": 100
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 5
+          }
+        ],
+        "attackMul": 175,
+        "potentialBonus": {
+          "attackMul": 190
+        }
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 10
+          }
+        ],
+        "attackMul": 250,
+        "potentialBonus": {
+          "attackMul": 280
+        }
+      }
+    ],
+    "situations": [
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-buff1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-buff2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "skill1-buff3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul1",
+          "skill1-buff1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul1",
+          "skill1-buff2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul1",
+          "skill1-buff3"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul2",
+          "skill1-buff1"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul2",
+          "skill1-buff2"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack-mul1",
+          "class-attack-mul2"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul2",
+          "skill1-buff3"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "redeploy-time-cut",
+        "skill": 0,
+        "require": [
+          "武器"
+        ],
+        "target": "射程内",
+        "value": 50
+      },
+      {
+        "type": "redeploy-time-cut",
+        "skill": 1,
+        "require": [
+          "武器"
+        ],
+        "target": "射程内",
+        "value": 50
+      }
+    ]
+  },
+  {
+    "id": 4230001,
+    "parentId": 423,
+    "unitName": "ソウルトークン",
+    "unitShortName": "ソウルT",
+    "rarity": "C",
+    "element": "闇",
+    "cost": 0,
+    "hp": 100,
+    "attack": 0,
+    "defense": 0,
+    "resist": 0,
+    "block": 0,
+    "target": 0,
+    "moveSpeed": 0,
+    "placement": "近",
+    "supplements": [
+      "隠密",
+      "ATK+70%(30秒)/死亡→射程内",
+      "回復5%/秒(30秒)/死亡→射程内"
+    ],
+    "isUnhealable": true,
+    "deployCount": 0,
+    "situations": [
+      {}
+    ]
   }
 ]
