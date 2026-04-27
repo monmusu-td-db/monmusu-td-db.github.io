@@ -57,6 +57,11 @@ export class BaseStat<
                     <T.Positive>{d ? "潜在覚醒" : f.potential}</T.Positive>
                   </T.Plus>
                 </T.Brackets>
+                <T.Multiply enabled={f.potentialMul !== 100}>
+                  <T.Value isPositive={f.potentialMul > 100}>
+                    {d ? "潜在覚醒倍率" : f.potentialMul + sign.PERCENT}
+                  </T.Value>
+                </T.Multiply>
                 {!!f.baseBuff && (
                   <T.Multiply>
                     <T.Value isPositive={f.baseBuff > 100}>

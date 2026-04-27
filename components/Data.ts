@@ -1820,6 +1820,7 @@ const potentialList = [
   { name: "スタン無効", stat: null, value: 1 },
   { name: "回復量20%上昇", stat: null, value: 1 },
   { name: "スキル時自マス変化：闇", stat: null, value: 1 },
+  { name: "最大HP+20%", stat: stat.buffHpMul, value: 20 },
 ] as const satisfies PotentialEffect[];
 export type Potential = (typeof potentialList)[number]["name"];
 export const Potential = {
@@ -2107,6 +2108,7 @@ export interface SkillNameFactors {
 export interface BarrackFactorsBase {
   readonly base: number;
   readonly potential: number;
+  readonly potentialMul: number;
   readonly weaponBase: number;
   readonly weaponUpgrade: number;
   readonly weaponBaseBuff: number | undefined;

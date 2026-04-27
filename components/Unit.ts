@@ -920,6 +920,7 @@ export default class Unit implements TableRow<Keys> {
     const ret: Data.BarrackFactorsBase = {
       base: value,
       potential: this.getPotentialFactor(setting, statType),
+      potentialMul: this.getPotentialMulFactor(setting, statType),
       weaponBase: this.getWeaponBaseFactor(setting, statType),
       weaponUpgrade: this.getWeaponUpgradeFactor(setting, statType),
       weaponBaseBuff: this.getWeaponBaseBuff(setting, statType),
@@ -936,7 +937,8 @@ export default class Unit implements TableRow<Keys> {
 
   private calculateBarrackResult(factors: Data.BarrackFactorsBase): number {
     const a = factors.base + factors.potential;
-    const b = Percent.multiply(a, factors.baseBuff);
+    const potentialAmount = Percent.multiply(a, factors.potentialMul);
+    const b = Percent.multiply(potentialAmount, factors.baseBuff);
     const c = b + factors.baseAdd;
     const d = Percent.sum(factors.subskillMul, factors.weaponBaseBuff);
     const e = Percent.multiply(c, d);
@@ -1017,6 +1019,28 @@ export default class Unit implements TableRow<Keys> {
       this.cachePotentialValues.set(statType, ret);
       return ret;
     }
+  }
+
+  private getPotentialMulFactor(
+    setting: Setting,
+    statType: Data.StatType,
+  ): number {
+    if (!this.isPotentialApplied(setting)) {
+      return 100;
+    }
+
+    let potentialStatType;
+    switch (statType) {
+      case stat.hp:
+        potentialStatType = stat.buffHpMul;
+        break;
+      default:
+        return 100;
+    }
+
+    return (
+      100 + Data.Potential.getEffectValue(potentialStatType, this.potentials)
+    );
   }
 
   private getWeaponBaseFactor(
