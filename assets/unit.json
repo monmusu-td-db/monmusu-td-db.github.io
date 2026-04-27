@@ -51465,5 +51465,129 @@
         "value": 140
       }
     ]
+  },
+  {
+    "id": 424,
+    "unitName": "【ガイアドラゴン娘】ドルセラ",
+    "unitShortName": "ドルセラ/進化",
+    "rarity": "L",
+    "class": "プリースト",
+    "element": "地",
+    "species": "ドラゴン",
+    "hp": 3673,
+    "attack": 740,
+    "defense": 309,
+    "resist": 382,
+    "placement": "両",
+    "supplements": [
+      "引き付け",
+      "HP回復{attack-base*100}/回復"
+    ],
+    "exSkill1": {
+      "skillName": "岩塵竜砂",
+      "hpMul": 180,
+      "attackMul": 260,
+      "targetAdd": 4,
+      "rangeMul": 180,
+      "duration": 50,
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "物理防御力+90",
+      "最大HP+20%"
+    ],
+    "weapon": {
+      "weaponName": "地母竜の神杖",
+      "hp": 300,
+      "attack": 50
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "スタン無効",
+          "即死無効",
+          "石化無効"
+        ]
+      },
+      {
+        "skill": 0,
+        "physicalDamageCut": 30,
+        "magicalDamageCut": 30,
+        "supplements": [
+          "反射100%"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isNotAbility": true,
+        "isConditionalSkillBuff": true,
+        "physicalDamageCut": 60,
+        "magicalDamageCut": 60,
+        "supplements": [
+          "反射200%"
+        ]
+      },
+      {
+        "featureName": "common-skill-dot",
+        "isConditionalSkillBuff": true,
+        "damageFactor": 200,
+        "supplements": [
+          "スタン付与20%→命中"
+        ]
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 200,
+    "blockAdd": 2,
+    "potentialBonus": {
+      "hpMul": 220,
+      "blockAdd": 3
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-skill-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-skill-dot"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "target": "全体",
+        "require": [
+          "自身以外"
+        ],
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 30
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 30
+          }
+        ]
+      }
+    ]
   }
 ]
