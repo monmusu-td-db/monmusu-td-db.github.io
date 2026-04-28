@@ -2578,9 +2578,14 @@ export default class Situation implements TableRow<Keys> {
           ? setting.enemyMagicalDamageCut
           : 0);
 
+    const subSkillDamageDebuff = this.getSubskillFactor(
+      setting,
+      ssKeys.damageDebuff,
+    );
     const damageDebuff = Data.Percent.multiply(
       fea.damageDebuff ?? 100,
       100 + setting.damageDebuff,
+      subSkillDamageDebuff,
     );
     const typeDamageDebuff = (() => {
       switch (damageType) {
@@ -2764,6 +2769,7 @@ export default class Situation implements TableRow<Keys> {
         case keys.physicalDamageCut:
         case keys.magicalDamageCut:
         case keys.fieldBuffFactor:
+        case keys.damageDebuff:
           return 100;
         default:
           return 0;
@@ -2841,6 +2847,7 @@ export default class Situation implements TableRow<Keys> {
       case keys.damageFactor:
       case keys.attackSpeedBuff:
       case keys.fieldBuffFactor:
+      case keys.damageDebuff: // TODO 要検証
         return isStackable
           ? Percent.multiply(100 + r1, 100 + r2)
           : Math.max(100 + r1, 100 + r2);
