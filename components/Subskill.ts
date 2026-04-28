@@ -57,6 +57,8 @@ interface JsonSubskillFactors {
   moveCostCut: number;
   fieldBuffFactor: number;
   damageDebuff: number;
+  defenseDebuff: number;
+  resistDebuff: number;
 
   isHighBeat: boolean;
   isLimitBreak: boolean;
@@ -117,6 +119,8 @@ const subskillFactorKeys = [
   "moveCostCut",
   "fieldBuffFactor",
   "damageDebuff",
+  "defenseDebuff",
+  "resistDebuff",
 
   "isHighBeat",
   "isLimitBreak",
@@ -168,6 +172,8 @@ class SubskillFactors implements ISubskillFactors {
   readonly moveCostCut: number | undefined;
   readonly fieldBuffFactor: number | undefined;
   readonly damageDebuff: number | undefined;
+  readonly defenseDebuff: number | undefined;
+  readonly resistDebuff: number | undefined;
 
   readonly isHighBeat: boolean | undefined;
   readonly isLimitBreak: boolean | undefined;
@@ -215,6 +221,8 @@ class SubskillFactors implements ISubskillFactors {
     this.moveCostCut = src.moveCostCut;
     this.fieldBuffFactor = src.fieldBuffFactor;
     this.damageDebuff = src.damageDebuff;
+    this.defenseDebuff = src.defenseDebuff;
+    this.resistDebuff = src.resistDebuff;
 
     this.isHighBeat = src.isHighBeat;
     this.isLimitBreak = src.isLimitBreak;
