@@ -570,6 +570,7 @@
     "name": "攻撃+物理防御強化",
     "rarity": "E",
     "group": "攻撃",
+    "class": "攻撃+物理防御強化",
     "desc": "攻撃力と物理防御力+17%",
     "isGeneral": true,
     "attack": 17,
@@ -2696,5 +2697,107 @@
     "desc": "クリティカルdmg上限+100%　クリティカル時、クリティカルdmg+10%(最大10回)",
     "criDamageAdd": 100,
     "criDamageLimitAdd": 100
+  },
+  {
+    "name": "撤退時コスト回復 IV",
+    "rarity": "L",
+    "group": "支援",
+    "class": "撤退時コスト回復",
+    "desc": "撤退時のコスト回復量が100%になる",
+    "isGeneral": true,
+    "isIneffective": true,
+    "withdrawCostReturn": 100
+  },
+  {
+    "name": "攻撃+物理防御強化II",
+    "rarity": "L",
+    "group": "攻撃",
+    "class": "攻撃+物理防御強化",
+    "desc": "攻撃力と物理防御力+22%",
+    "isGeneral": true,
+    "attack": 22,
+    "defense": 22
+  },
+  {
+    "name": "うらみつらみ",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "再出撃までの時間を40%短縮　自身死亡時、10秒間敵全体被ダメージ1.2倍",
+    "isGeneral": true,
+    "redeployTimeCut": 40,
+    "damageDebuff": 20
+  },
+  {
+    "name": "俺に触れると火傷するぜ",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "被弾時相手を確率で火傷状態にする　火傷状態の相手からの物理被ダメージ-40%",
+    "isGeneral": true,
+    "physicalDamageCut": 40
+  },
+  {
+    "name": "アースエクステンド",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "編成時地属性モンスター娘のHPと攻撃力+10%",
+    "isGeneral": true,
+    "features": [
+      {
+        "require": [
+          "地"
+        ],
+        "formationHp": 10,
+        "formationAttack": 10
+      }
+    ]
+  },
+  {
+    "name": "ウィルオウィスプ",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "味方死亡時敵全体物防魔防10秒間-5%　ウィルオウィスプトークン使役可能",
+    "isGeneral": true,
+    "defenseDebuff": 5,
+    "resistDebuff": 5
+  },
+  {
+    "name": "4th Anniversaryの寵愛",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "自身の出撃コスト-4　スキル初回発動と再発動までの時間を4秒短縮",
+    "cost": -4,
+    "initialTimeCut": 4,
+    "cooldown": -4
+  },
+  {
+    "name": "カウンターパーティー",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "自身の出撃コスト-10　自身配置後、10秒間コスト回復速度が半減",
+    "cost": -10
+  },
+  {
+    "name": "HP犠牲出撃コスト減少",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "出撃コスト-3、代わりに最大HP-10%",
+    "cost": -3,
+    "hp": -10
+  },
+  {
+    "name": "攻撃犠牲生命力吸収",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "攻撃時、HPが最大値の4%回復、代わりに攻撃力-7%",
+    "absorb": 4,
+    "attack": -7
+  },
+  {
+    "name": "物理防御犠牲HP強化",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "最大HP+30%、代わりに物理防御-7%",
+    "hp": 30,
+    "defense": -7
   }
 ]
