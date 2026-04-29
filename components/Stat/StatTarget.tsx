@@ -87,7 +87,9 @@ export class StatTarget extends StatTooltip<
         if (typeof rounds === "number") {
           return fn(rounds);
         }
-        return rounds.map((r) => fn(r.value));
+        return rounds
+          .map((r) => (r.value !== 0 ? fn(r.value) : undefined))
+          .filter((v) => v !== undefined);
       });
     })();
 
