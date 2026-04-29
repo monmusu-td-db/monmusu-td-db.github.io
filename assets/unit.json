@@ -51467,6 +51467,418 @@
     ]
   },
   {
+    "id": 422,
+    "unitName": "【レッサーデーモン娘】アンティモー",
+    "unitShortName": "アンティモー",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 4212,
+    "attack": 698,
+    "defense": 430,
+    "resist": 73,
+    "supplements": [
+      "スタン付与10%→命中"
+    ],
+    "exSkill1": {
+      "skillName": "デモンソーサラー",
+      "target": 3,
+      "splash": true,
+      "rangeMul": 340,
+      "duration": 20,
+      "cooldown": 35,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+20/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スタンの敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "雷槍スカルちゃん",
+      "attack": 60,
+      "defense": 20
+    },
+    "features": [
+      {
+        "featureName": "common-absorb",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "武器効果"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 1
+        },
+        "supplements": [
+          "回復1%/命中"
+        ]
+      },
+      {
+        "featureName": "extra-damage",
+        "isAbility": true,
+        "conditions": [
+          "追"
+        ],
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 100
+        },
+        "target": "射程内",
+        "splash": false,
+        "wideTarget": false,
+        "rounds": [
+          {
+            "ratio": 4,
+            "value": 0
+          },
+          {
+            "ratio": 1,
+            "value": 1
+          }
+        ],
+        "damageType": "魔法",
+        "supplements": [
+          "スタン付与45%→命中"
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "ダムストー配置中"
+        ],
+        "attackMul": 120,
+        "potentialBonus": {
+          "attackMul": 125
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-definite-stan"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-definite-stan"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-definite-stan"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-stan",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-definite-stan",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-definite-stan",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-definite-stan",
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-dark-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-dark-field"
+        ]
+      },
+      {
+        "features": [
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-dark-field"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-definite-stan",
+          "common-dark-field"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-definite-stan",
+          "common-dark-field"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-definite-stan",
+          "common-dark-field"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-definite-stan",
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-definite-stan",
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "hasPotentials": [
+          "スタンの敵へ与ダメ1.2倍"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-definite-stan",
+          "common-dark-field",
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "common-absorb"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-mul",
+        "skill": -1,
+        "require": [
+          "対象：ダムストー"
+        ],
+        "target": "全体",
+        "value": 120,
+        "potentialBonus": {
+          "value": 125
+        }
+      },
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "闇",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 423,
     "unitName": "【ワイトロード娘】バロウ",
     "unitShortName": "バロウ/進化",
