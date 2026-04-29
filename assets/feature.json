@@ -344,6 +344,16 @@
     ]
   },
   {
+    "featureName": "common-team-buff6",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 6
+      }
+    ]
+  },
+  {
     "featureName": "common-team-buff7",
     "isConditionalBuff": true,
     "conditions": [

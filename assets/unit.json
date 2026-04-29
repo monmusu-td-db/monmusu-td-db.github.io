@@ -51911,5 +51911,344 @@
         ]
       }
     ]
+  },
+  {
+    "id": 425,
+    "unitName": "【ムーンチャイルド娘】ラプルム",
+    "unitShortName": "ラプルム/進化",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "火",
+    "hp": 1911,
+    "attack": 629,
+    "defense": 216,
+    "resist": 725,
+    "placement": "両",
+    "supplements": [
+      "火傷付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "叡智炎陣",
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "tkn5体配置/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "魔法防御力+90",
+      "射程+15",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "すごく叡智な本",
+      "attack": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "火マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "火傷付与追加(中)→命中"
+        ]
+      },
+      {
+        "magicalDamageDebuff": 110
+      },
+      {
+        "skill": 1,
+        "require": [
+          "火マス"
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-team-buff1",
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 200,
+        "rangeMul": 150
+      },
+      {
+        "featureName": "common-team-buff5",
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 600,
+        "rangeMul": 350
+      }
+    ],
+    "deployCount": 0,
+    "costAdd": -4,
+    "hpMul": 80,
+    "potentialBonus": {
+      "costAdd": -7
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1",
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-fire-field"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn",
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1",
+          "common-definite-burn",
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-definite-burn",
+          "common-fire-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": -1,
+        "target": "自分",
+        "element": "火",
+        "supplements": [
+          "配置時"
+        ]
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 0,
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 110
+      }
+    ]
+  },
+  {
+    "id": 4250001,
+    "parentId": 425,
+    "unitName": "ラプルム",
+    "unitShortName": "ラプルム/進化T",
+    "rarity": "C",
+    "class": "コンジャラー",
+    "element": "火",
+    "hp": 1911,
+    "attack": 629,
+    "defense": 216,
+    "resist": 725,
+    "placement": "両",
+    "supplements": [
+      "火傷付与(稀)→命中",
+      "limit60秒"
+    ],
+    "exSkill1": {
+      "skillName": "叡智炎陣",
+      "duration": 25,
+      "cooldown": 35
+    },
+    "features": [
+      {
+        "require": [
+          "火マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "magicalDamageDebuff": 110
+      },
+      {
+        "skill": 1,
+        "require": [
+          "火マス"
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-team-buff1",
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 200,
+        "rangeMul": 150
+      },
+      {
+        "featureName": "common-team-buff5",
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 600,
+        "rangeMul": 350
+      }
+    ],
+    "isUnhealable": true,
+    "deployCount": 0,
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "features": [
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1",
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-fire-field"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn",
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1",
+          "common-definite-burn",
+          "common-fire-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "common-definite-burn",
+          "common-fire-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": -1,
+        "target": "自分",
+        "element": "火",
+        "supplements": [
+          "配置時"
+        ]
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 0,
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 110
+      }
+    ]
   }
 ]
