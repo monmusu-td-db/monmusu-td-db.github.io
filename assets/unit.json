@@ -48685,7 +48685,7 @@
     "buffs": [
       {
         "type": "field-change",
-        "skill": 1,
+        "skill": -1,
         "target": "自分",
         "element": "水",
         "supplements": [
