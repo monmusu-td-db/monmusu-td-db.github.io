@@ -1821,6 +1821,7 @@ const potentialList = [
   { name: "回復量20%上昇", stat: null, value: 1 },
   { name: "スキル時自マス変化：闇", stat: null, value: 1 },
   { name: "最大HP+20%", stat: stat.buffHpMul, value: 20 },
+  { name: "スタンの敵へ与ダメ1.2倍", stat: null, value: 1 },
 ] as const satisfies PotentialEffect[];
 export type Potential = (typeof potentialList)[number]["name"];
 export const Potential = {

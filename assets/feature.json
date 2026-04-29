@@ -544,6 +544,14 @@
     "damageFactor": 120
   },
   {
+    "featureName": "common-definite-stan",
+    "hasPotentials": [
+      "スタンの敵へ与ダメ1.2倍"
+    ],
+    "isConditionalBuff": true,
+    "damageFactor": 120
+  },
+  {
     "featureName": "common-definite-back-attack",
     "conditions": [
       {
