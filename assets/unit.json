@@ -39221,9 +39221,9 @@
       {
         "featureName": "common-definite-freeze",
         "isConditionalBuff": true,
-        "damageFactor": 130,
+        "damageFactor": 150,
         "potentialBonus": {
-          "damageFactor": 140
+          "damageFactor": 160
         }
       }
     ],
