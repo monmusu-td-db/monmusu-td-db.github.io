@@ -34315,7 +34315,8 @@
     "moveType": "ワープ",
     "supplements": [
       "攻撃速度-20%→射程内敵",
-      "鈍足-20%→射程内"
+      "鈍足-20%→射程内",
+      "隠密"
     ],
     "exSkill1": {
       "skillName": "裂糸の挟撃",
@@ -34324,7 +34325,7 @@
       "rounds": 4,
       "range": 240,
       "duration": 20,
-      "cooldown": 40,
+      "cooldown": 30,
       "supplements": [
         "打ち上げ付与/発動→射程内",
         "バリア{attack-base*200}付与/撃破"
