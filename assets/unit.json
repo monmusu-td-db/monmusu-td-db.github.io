@@ -34213,6 +34213,7 @@
     ],
     "features": [
       {
+        "isNotAbility": true,
         "supplements": [
           "スタン時間+20%→全体"
         ],
@@ -34224,6 +34225,7 @@
       },
       {
         "skill": 0,
+        "isNotAbility": true,
         "supplements": [
           "スタン付与10%→命中"
         ]
@@ -34241,6 +34243,12 @@
         "isConditionalSkillBuff": true,
         "skill": 1,
         "damageFactor": 200
+      },
+      {
+        "featureName": "common-dot",
+        "interval": 120,
+        "target": "全体",
+        "damageType": "魔法"
       }
     ],
     "criChanceAdd": 50,
@@ -34297,6 +34305,21 @@
         "features": [
           "common-4hits",
           "common-definite-stan"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-definite-stan",
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "common-dot"
         ]
       }
     ]
