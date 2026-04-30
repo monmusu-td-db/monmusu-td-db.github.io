@@ -39307,7 +39307,7 @@
       "skillName": "サイレントナイト",
       "attackMul": 260,
       "duration": 30,
-      "cooldown": 40,
+      "cooldown": 30,
       "supplements": [
         "HP1%に変動/発動",
         "HP50%に変動/終了"
@@ -39324,7 +39324,7 @@
       {
         "skill": 0,
         "supplements": [
-          "CT-1秒/撃破"
+          "CT-3秒/撃破"
         ]
       },
       {
