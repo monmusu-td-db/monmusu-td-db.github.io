@@ -52686,5 +52686,241 @@
         "value": 110
       }
     ]
+  },
+  {
+    "id": 427,
+    "unitName": "【だいだらぼっち娘】オオヒナ",
+    "unitShortName": "オオヒナ",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 7252,
+    "attack": 920,
+    "defense": 319,
+    "resist": 142,
+    "exSkill1": {
+      "skillName": "地異創撃",
+      "attackMul": 340,
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 15
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "最大HP+20%"
+    ],
+    "weapon": {
+      "weaponName": "大地創造の籠手",
+      "hp": 400,
+      "defense": 40
+    },
+    "features": [
+      {
+        "physicalDamageCut": 30,
+        "magicalDamageCut": 30,
+        "potentialBonus": {
+          "physicalDamageCut": 35,
+          "magicalDamageCut": 35
+        }
+      },
+      {
+        "attackAdd": {
+          "key": "hp-base",
+          "value": 40
+        }
+      },
+      {
+        "featureName": "common-definite-ground",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "地上特効"
+        ],
+        "damageFactor": 200
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "スタン特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "地上特効",
+          "スタン特効"
+        ]
+      },
+      {
+        "featureName": "common-melee",
+        "skill": 1,
+        "annotations": [
+          "ブロック時"
+        ],
+        "damageFactor": 300,
+        "target": 1,
+        "rounds": 1,
+        "splash": true
+      },
+      {
+        "featureName": "common-ranged",
+        "skill": 1,
+        "annotations": [
+          "非ブロック時"
+        ],
+        "target": 8,
+        "rounds": 1,
+        "range": 400
+      }
+    ],
+    "costAdd": 5,
+    "hpMul": 150,
+    "blockAdd": 2,
+    "situations": [
+      {},
+      {
+        "depend": [
+          "class-attack"
+        ],
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-definite"
+        ],
+        "depend": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-definite",
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-ground",
+          "common-melee"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "exclude": [
+          "class-definite",
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-ground",
+          "common-ranged"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "depend": [
+          "class-definite",
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-ground",
+          "common-melee"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "depend": [
+          "class-definite"
+        ],
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-ground",
+          "common-ranged"
+        ]
+      }
+    ]
   }
 ]
