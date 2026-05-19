@@ -53072,6 +53072,96 @@
     ]
   },
   {
+    "id": 429,
+    "unitName": "【からかさ小僧娘】アマササ",
+    "unitShortName": "アマササ",
+    "rarity": "E",
+    "class": "プリースト",
+    "element": "水",
+    "species": "妖怪",
+    "hp": 3788,
+    "attack": 644,
+    "defense": 286,
+    "resist": 400,
+    "exSkill1": {
+      "skillName": "あめあめふれふれ",
+      "attackMul": 240,
+      "targetAdd": 2,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "雨(20秒)/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "配置時に天候：雨（短）"
+    ],
+    "weapon": {
+      "weaponName": "馴染みのからかさ",
+      "attack": 55,
+      "resist": 25
+    },
+    "features": [
+      {
+        "fieldElements": [
+          "水"
+        ]
+      },
+      {
+        "featureName": "weather-rain",
+        "isConditionalBuff": true,
+        "annotations": [
+          "天候：雨"
+        ],
+        "attackMul": 150,
+        "rangeMul": 120
+      },
+      {
+        "featureName": "common-regenerate-all",
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "weather-rain"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "weather-rain"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "require": [
+          "武器"
+        ],
+        "target": "自分",
+        "element": "水",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "TODO_STAT_INFERRED": true,
     "id": 430,
     "unitName": "【隠形鬼娘】ムイ",

@@ -66,6 +66,14 @@
     ]
   },
   {
+    "hasPotentials": [
+      "配置時に天候：雨（短）"
+    ],
+    "supplements": [
+      "雨(10秒)/配置"
+    ]
+  },
+  {
     "featureName": "common-fire-field",
     "fieldElements": [
       "火"
