@@ -53070,5 +53070,118 @@
         "value": 140
       }
     ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 430,
+    "unitName": "【隠形鬼娘】ムイ",
+    "unitShortName": "ムイ",
+    "rarity": "L",
+    "class": "ニンジャ",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 2900,
+    "attack": 570,
+    "defense": 412,
+    "resist": 282,
+    "moveType": "ワープ",
+    "supplements": [
+      "隠密"
+    ],
+    "exSkill1": {
+      "skillName": "影の帳",
+      "attackMul": 240,
+      "laser": true,
+      "rangeMul": 200,
+      "physicalEvasion": 100,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "移動消費コスト-2"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "妖怪"
+        ],
+        "require": [
+          "武器"
+        ],
+        "attack": 116,
+        "supplements": [
+          "水/風/光/闇属性1種毎+4%(最大16%)"
+        ]
+      }
+    ],
+    "weapon": {
+      "weaponName": "隠影十字手裏剣",
+      "attack": 30,
+      "attackSpeed": 10
+    },
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "fieldElements": [
+          "闇"
+        ],
+        "supplements": [
+          "隠密→射程内"
+        ],
+        "deleteSupplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "common-definite-back-attack",
+        "damageFactor": 250,
+        "potentialBonus": {
+          "damageFactor": 270
+        }
+      }
+    ],
+    "moveCostAdd": 5,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "features": [
+          "common-definite-back-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-back-attack"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-buff-add",
+        "skill": 1,
+        "target": "射程内",
+        "element": "闇",
+        "supplements": [
+          "隠密付与"
+        ]
+      }
+    ]
   }
 ]
