@@ -52922,5 +52922,153 @@
         ]
       }
     ]
+  },
+  {
+    "id": 428,
+    "unitName": "【雲外鏡娘】カガミヤ",
+    "unitShortName": "カガミヤ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "光",
+    "species": "妖怪",
+    "hp": 2272,
+    "attack": 486,
+    "defense": 327,
+    "resist": 515,
+    "supplements": [
+      "鈍足→射程内",
+      "攻撃速度減少→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "虚堂懸鏡",
+      "duration": 50,
+      "cooldown": 45,
+      "supplements": [
+        "tkn配置/発動→自分"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "トークン所持数+2"
+    ],
+    "weapon": {
+      "weaponName": "照魔鏡",
+      "attack": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "supplements": [
+          "呪殺15%(ボス無効)→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "呪殺18%(ボス無効)→命中"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "attackMul": 280,
+        "damageDebuff": 150,
+        "rangeMul": 240
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "bottom": true,
+        "skill": 1,
+        "features": [
+          "class-regenerate"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "heal-factor",
+        "skill": 1,
+        "target": "全体",
+        "value": 150
+      }
+    ]
+  },
+  {
+    "id": 4280001,
+    "parentId": 428,
+    "unitName": "鏡像トークン",
+    "unitShortName": "鏡像T",
+    "rarity": "C",
+    "element": "光",
+    "cost": 10,
+    "hp": 2189,
+    "attack": 901,
+    "defense": 215,
+    "resist": 491,
+    "attackSpeed": 100,
+    "delay": 20,
+    "block": null,
+    "target": 5,
+    "range": 265,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "付",
+    "features": [
+      {
+        "magicalDamageDebuff": 140
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackMul": 280,
+        "rangeMul": 240
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {},
+      {
+        "features": [
+          "skill1-buff"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-debuff",
+        "skill": -1,
+        "target": "射程内",
+        "value": 140
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": -1,
+        "target": "射程内",
+        "features": [
+          "skill1-buff"
+        ],
+        "value": 140
+      }
+    ]
   }
 ]
