@@ -79,12 +79,12 @@ export class StatDps<
 
     const typeDamageCutResult = Data.Percent.multiply(
       f.damageCut,
-      f.typeDamageCut
+      f.typeDamageCut,
     );
 
     const typeDamageDebuffResult = Data.Percent.multiply(
       f.damageDebuff,
-      f.typeDamageDebuff
+      f.typeDamageDebuff,
     );
 
     const isDefresValid = f.defres > 0;
@@ -101,7 +101,7 @@ export class StatDps<
 
     const getDamage = (isCritical: boolean) => {
       const damage = isCritical ? "CRI" + damageOrHeal : damageOrHeal;
-      const trueDamage = "貫通" + damage;
+      const trueDamage = isHeal ? damage : "貫通" + damage;
       const detail = isCritical ? f.critical : f.normal;
 
       const getAttackCriDamage = (d: boolean) => {
