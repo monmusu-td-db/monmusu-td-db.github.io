@@ -24487,7 +24487,7 @@
             "value": 49
           }
         ],
-        "damageFactor": 180
+        "damageFactor": 220
       },
       {
         "featureName": "attack-mul",
@@ -24495,18 +24495,18 @@
         "conditions": [
           {
             "key": "*",
-            "value": 200
+            "value": 220
           }
         ],
-        "attackMul": 200,
+        "attackMul": 220,
         "potentialBonus": {
           "conditions": [
             {
               "key": "*",
-              "value": 220
+              "value": 250
             }
           ],
-          "attackMul": 220
+          "attackMul": 250
         }
       }
     ],
