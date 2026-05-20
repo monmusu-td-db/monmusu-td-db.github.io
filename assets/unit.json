@@ -52688,6 +52688,119 @@
     ]
   },
   {
+    "id": 426,
+    "unitName": "【山姥娘】クレハ",
+    "unitShortName": "クレハ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2436,
+    "attack": 436,
+    "defense": 373,
+    "resist": 476,
+    "exSkill1": {
+      "skillName": "山の声",
+      "attackMul": 220,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "魔法ダメージ20%軽減"
+    ],
+    "weapon": {
+      "weaponName": "山護の宝玉",
+      "attack": 30,
+      "resist": 25,
+      "range": 10
+    },
+    "features": [
+      {
+        "fieldBuffFactor": 200
+      },
+      {
+        "attackDebuff": {
+          "key": "attack",
+          "value": 30
+        },
+        "supplements": [
+          "ATK-{attack*30}→射程内"
+        ],
+        "potentialBonus": {
+          "attackDebuff": {
+            "key": "attack",
+            "value": 35
+          },
+          "supplements": [
+            "ATK-{attack*35}→射程内"
+          ]
+        }
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-cut",
+        "skill": 0,
+        "require": [
+          "地マス"
+        ],
+        "target": "射程内",
+        "value": 10
+      },
+      {
+        "type": "damage-cut",
+        "skill": 1,
+        "require": [
+          "地マス"
+        ],
+        "target": "射程内",
+        "value": 10
+      },
+      {
+        "skill": -1,
+        "require": [
+          "武器"
+        ],
+        "target": "射程内",
+        "supplements": [
+          "即時回復効果"
+        ],
+        "effects": [
+          {
+            "type": "poison-invalid"
+          },
+          {
+            "type": "blind-invalid"
+          }
+        ]
+      },
+      {
+        "type": "field-change",
+        "skill": 1,
+        "require": [
+          "地属性"
+        ],
+        "target": "射程内",
+        "element": "地",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 427,
     "unitName": "【だいだらぼっち娘】オオヒナ",
     "unitShortName": "オオヒナ",
