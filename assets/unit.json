@@ -19166,7 +19166,7 @@
     "rounds": 3,
     "exSkill1": {
       "skillName": "奥義ミズグルマ",
-      "attackMul": 120,
+      "attackMul": 160,
       "attackMotionMul": 278,
       "fixedDelay": 1,
       "target": 1,
@@ -19231,6 +19231,7 @@
     "unitShortName": "大蛸T",
     "rarity": "C",
     "element": "水",
+    "species": "妖怪",
     "cost": 9,
     "hp": 3390,
     "attack": 738,
@@ -19242,6 +19243,7 @@
     "placement": "近",
     "features": [],
     "isUnhealable": true,
+    "deployCount": 1,
     "situations": [
       {
         "proper": true
