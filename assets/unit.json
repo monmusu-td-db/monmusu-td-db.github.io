@@ -19865,14 +19865,14 @@
     "moveType": "ワープ",
     "exSkill1": {
       "skillName": "忍法地均し蜘蛛糸縛り",
-      "attackMul": 160,
+      "attackMul": 200,
       "targetAdd": 2,
-      "rangeMul": 160,
+      "rangeMul": 200,
       "duration": 15,
       "cooldown": 45,
       "supplements": [
-        "攻撃速度-50%→射程内",
-        "鈍足-50%→射程内"
+        "攻撃速度-60%→射程内",
+        "鈍足-60%→射程内"
       ]
     },
     "potentials": [
@@ -19883,6 +19883,13 @@
       "HPが毎秒3%回復"
     ],
     "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "攻撃速度-30%→射程内",
+          "鈍足-30%→射程内"
+        ]
+      },
       {
         "require": [
           "地マス"
