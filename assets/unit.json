@@ -19315,11 +19315,25 @@
       "最大HP+600",
       "スタン耐性+50"
     ],
+    "weapon": {
+      "weaponName": "シリコ珠",
+      "hp": 100,
+      "attack": 70
+    },
     "features": [
       {
         "skill": 0,
         "supplements": [
           "即死(低)→命中"
+        ]
+      },
+      {
+        "require": [
+          "水マス",
+          "武器"
+        ],
+        "fieldElements": [
+          "水"
         ]
       },
       {
