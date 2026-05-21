@@ -24713,6 +24713,12 @@
       "攻撃力+75",
       "攻撃対象数+1"
     ],
+    "weapon": {
+      "weaponName": "氷華雪那",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
     "features": [
       {
         "require": [
@@ -24722,6 +24728,15 @@
         "potentialBonus": {
           "damageFactor": 140
         }
+      },
+      {
+        "require": [
+          "水マス",
+          "武器"
+        ],
+        "supplements": [
+          "凍結付与(稀)→命中"
+        ]
       }
     ],
     "situations": [
