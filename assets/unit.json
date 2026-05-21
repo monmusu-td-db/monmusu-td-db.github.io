@@ -19562,10 +19562,15 @@
       "攻撃力+50",
       "物理ダメージ20%軽減"
     ],
+    "weapon": {
+      "weaponName": "金剛・紅鬼灯",
+      "attack": 80
+    },
     "features": [
       {
         "featureName": "common-hp-50%",
         "isConditionalBuff": true,
+        "attackMul": 150,
         "damageFactor": 180
       }
     ],
