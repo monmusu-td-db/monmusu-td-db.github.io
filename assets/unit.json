@@ -24515,7 +24515,20 @@
       "攻撃力+75",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "斬鋼・オニマル",
+      "attack": 50,
+      "defense": 30
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "ACT+2%/秒"
+        ]
+      },
       {
         "featureName": "class-normal",
         "skill": 1,
@@ -24530,6 +24543,13 @@
           "毒無効",
           "スタン無効"
         ]
+      },
+      {
+        "featureName": "class-action",
+        "require": [
+          "武器"
+        ],
+        "rounds": 2
       },
       {
         "featureName": "class-action",
