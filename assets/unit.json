@@ -25087,7 +25087,8 @@
     "resist": 129,
     "supplements": [
       "スタン付与20%→命中",
-      "ACT+5%/被Dmg"
+      "ACT+5%/被Dmg",
+      "蜘蛛糸付与(5秒)→命中"
     ],
     "exSkill1": {
       "skillName": "剛剣・山津波",
@@ -25103,6 +25104,12 @@
       "最大HP+600",
       "攻撃時最大HPの1%回復"
     ],
+    "weapon": {
+      "weaponName": "海斬・トモナギ",
+      "hp": 100,
+      "attack": 50,
+      "defense": 20
+    },
     "features": [
       {
         "featureName": "class-action",
@@ -25122,6 +25129,20 @@
         "potentialBonus": {
           "damageFactor": 260
         }
+      },
+      {
+        "featureName": "common-definite",
+        "isConditionalBuff": true,
+        "annotations": [
+          "蜘蛛糸特効"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "蜘蛛糸特効"
+        ]
       }
     ],
     "hpMul": 130,
@@ -25140,6 +25161,44 @@
         "skill": 1,
         "features": [
           "common-definite-stan"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-definite"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-definite"
         ]
       },
       {
