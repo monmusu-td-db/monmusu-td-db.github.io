@@ -24433,6 +24433,12 @@
       "射程+15",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "疾風袋シナト",
+      "hp": 300,
+      "range": 10,
+      "attackSpeed": 5
+    },
     "features": [
       {
         "supplements": [
@@ -24443,6 +24449,21 @@
             "移動速度+75(7秒)/命中→全体"
           ]
         }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "fieldBuffFactor": 200
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "fieldElements": [
+          "風"
+        ]
       }
     ],
     "isEventUnit": true,
