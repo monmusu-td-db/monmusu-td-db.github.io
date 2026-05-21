@@ -24715,7 +24715,22 @@
       "射程+15",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "ウカノ御櫛",
+      "hp": 250,
+      "defense": 15,
+      "resist": 15,
+      "range": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "コスト+2/妖怪配置"
+        ]
+      },
       {
         "featureName": "skill1-dot",
         "staticDamage": {
