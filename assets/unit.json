@@ -19187,6 +19187,11 @@
       "攻撃力+75",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "ハッショウ・水雨岐",
+      "hp": 200,
+      "attack": 60
+    },
     "features": [
       {
         "featureName": "common-regenerate",
@@ -19220,6 +19225,20 @@
           "common-regenerate"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "武器"
+        ],
+        "skill": -1,
+        "target": "自分",
+        "element": "水",
+        "supplements": [
+          "配置時"
+        ]
+      }
     ]
   },
   {
@@ -19247,6 +19266,20 @@
     "situations": [
       {
         "proper": true
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "武器"
+        ],
+        "skill": -1,
+        "target": "自分",
+        "element": "水",
+        "supplements": [
+          "配置時"
+        ]
       }
     ]
   },
