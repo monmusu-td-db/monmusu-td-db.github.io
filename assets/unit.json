@@ -25075,7 +25075,21 @@
       "最大HP+600",
       "移動消費コスト-2"
     ],
+    "weapon": {
+      "weaponName": "朧月夜",
+      "attack": 60,
+      "defense": 20
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "moveCostAdd": -99,
+        "supplements": [
+          "CT-1秒/2秒(移動中)"
+        ]
+      },
       {
         "skill": 1,
         "moveSpeedAdd": 200,
