@@ -34034,6 +34034,11 @@
       "攻撃力+75",
       "CRI率/CRI率上限+30%"
     ],
+    "weapon": {
+      "weaponName": "名刀・鼻山オロシ",
+      "attack": 70,
+      "defense": 10
+    },
     "features": [
       {
         "require": [
@@ -34047,6 +34052,13 @@
             "ACT+4%/秒"
           ]
         }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "criChanceAdd": 30,
+        "criChanceLimitAdd": 30
       },
       {
         "featureName": "class-action",
