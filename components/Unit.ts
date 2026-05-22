@@ -1376,6 +1376,7 @@ export default class Unit implements TableRow<Keys> {
           case Data.Species.name.fairy:
           case Data.Species.name.goblin:
           case Data.Species.name.kobold:
+          case Data.Species.name.yokai:
             return true;
         }
         return false;
