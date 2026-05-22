@@ -2799,5 +2799,35 @@
     "desc": "最大HP+30%、代わりに物理防御-7%",
     "hp": 30,
     "defense": -7
+  },
+  {
+    "name": "超・双角王者の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "物理防御+40、オーブ装備クラスにセット時追加で魔法防御+60",
+    "defenseAdd": 40,
+    "features": [
+      {
+        "require": [
+          "ハーミット"
+        ],
+        "resistAdd": 60
+      }
+    ]
+  },
+  {
+    "name": "あやかしの契り",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "妖怪にセット時、編成時妖怪の攻撃力10%上昇　配置中、妖怪のクリティカル率7%上昇",
+    "features": [
+      {
+        "require": [
+          "妖怪"
+        ],
+        "formationAttack": 10,
+        "criChanceAdd": 7
+      }
+    ]
   }
 ]
