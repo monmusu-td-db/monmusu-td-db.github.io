@@ -20380,7 +20380,7 @@
         ],
         "staticDamage": {
           "key": "static",
-          "value": 40
+          "value": 80
         },
         "interval": null,
         "target": "全体",
@@ -20388,7 +20388,7 @@
         "potentialBonus": {
           "staticDamage": {
             "key": "static",
-            "value": 60
+            "value": 100
           }
         }
       },
@@ -20413,40 +20413,24 @@
         ]
       },
       {
-        "featureName": "common-definite-yokai",
+        "featureName": "common-support",
+        "isSupport": true,
         "annotations": [
-          "妖怪特効"
+          "種族特性",
+          "妖怪対象加算バフ"
         ],
+        "target": "全体",
         "staticDamage": {
-          "key": "static",
-          "value": 160
+          "key": "attack-base",
+          "value": 30
         },
         "staticDefense": {
-          "key": "static",
-          "value": 160
+          "key": "attack-base",
+          "value": 30
         },
         "staticResist": {
-          "key": "static",
-          "value": 160
-        }
-      },
-      {
-        "featureName": "common-definite-double",
-        "deleteAnnotations": [
-          "妖怪特効",
-          "同属性特効"
-        ],
-        "staticDamage": {
-          "key": "static",
-          "value": 210
-        },
-        "staticDefense": {
-          "key": "static",
-          "value": 210
-        },
-        "staticResist": {
-          "key": "static",
-          "value": 210
+          "key": "attack-base",
+          "value": 30
         }
       }
     ],
@@ -20471,20 +20455,8 @@
       {
         "skill": -1,
         "bottom": true,
-        "isGeneral": false,
         "features": [
-          "class-buff",
-          "common-definite-yokai"
-        ]
-      },
-      {
-        "skill": -1,
-        "bottom": true,
-        "isGeneral": false,
-        "features": [
-          "class-buff-definite",
-          "common-definite-yokai",
-          "common-definite-double"
+          "common-support"
         ]
       },
       {
