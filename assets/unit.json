@@ -20146,6 +20146,7 @@
       }
     ],
     "moveSpeedMul": 200,
+    "moveCostAdd": -1,
     "potentialBonus": {
       "moveSpeedMul": 250
     },
