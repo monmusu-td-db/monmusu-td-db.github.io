@@ -25135,6 +25135,8 @@
       {
         "featureName": "common-charge-attack",
         "isConditionalBuff": true,
+        "physicalDamageCut": 30,
+        "magicalDamageCut": 30,
         "damageFactor": 150
       }
     ],
