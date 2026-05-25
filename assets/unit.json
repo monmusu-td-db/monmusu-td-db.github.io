@@ -19347,9 +19347,9 @@
         ]
       }
     ],
-    "hpMul": 120,
+    "hpMul": 125,
     "potentialBonus": {
-      "hpMul": 130
+      "hpMul": 135
     },
     "situations": [
       {},
