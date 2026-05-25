@@ -19495,10 +19495,10 @@
     ],
     "features": [
       {
-        "physicalDamageCut": 20,
+        "physicalDamageCut": 30,
         "magicalDamageCut": -20,
         "potentialBonus": {
-          "physicalDamageCut": 28
+          "physicalDamageCut": 38
         }
       },
       {
