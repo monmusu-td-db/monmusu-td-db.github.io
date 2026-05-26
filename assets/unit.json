@@ -19409,7 +19409,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 150,
     "unitName": "【烏天狗娘】ヤナギ",
     "unitShortName": "ヤナギ",
@@ -19439,8 +19438,8 @@
       "攻撃力+50",
       "攻撃速度+10"
     ],
-    "physicalEvasion": 25,
-    "magicalEvasion": 25,
+    "physicalEvasion": 40,
+    "magicalEvasion": 40,
     "situations": [
       {},
       {
