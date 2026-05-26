@@ -19706,6 +19706,7 @@
       "攻撃力+50",
       "射程+10"
     ],
+    "rangeAdd": 20,
     "moveCostAdd": 5,
     "situations": [
       {},
