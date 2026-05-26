@@ -19533,7 +19533,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 152,
     "unitName": "【鬼娘】ホヅキ",
     "unitShortName": "ホヅキ",
@@ -19570,8 +19569,15 @@
       {
         "featureName": "common-hp-50%",
         "isConditionalBuff": true,
-        "attackMul": 150,
-        "damageFactor": 180
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-hp-50%",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "attackMul": 150
       }
     ],
     "hpMul": 120,
