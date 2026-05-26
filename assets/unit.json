@@ -19398,7 +19398,7 @@
       "攻撃力+50",
       "攻撃速度+10"
     ],
-    "costAdd": -3,
+    "costAdd": -4,
     "physicalEvasion": 75,
     "magicalEvasion": 75,
     "situations": [
