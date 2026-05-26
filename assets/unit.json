@@ -24657,9 +24657,9 @@
     "exSkill1": {
       "skillName": "キューティ・アイ",
       "fixedDelay": 1,
+      "target": "射程内",
       "duration": "単発",
       "cooldown": 50,
-      "damageType": null,
       "supplements": [
         "スタン付与50%→射程内"
       ]
