@@ -19642,7 +19642,7 @@
       }
     ],
     "costAdd": 8,
-    "hpMul": 150,
+    "hpMul": 180,
     "situations": [
       {
         "features": [
