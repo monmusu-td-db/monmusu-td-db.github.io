@@ -20497,7 +20497,7 @@
     ],
     "exSkill1": {
       "skillName": "驚かせちゃったかしら",
-      "rangeMul": 160,
+      "rangeMul": 180,
       "duration": "単発",
       "cooldown": 45,
       "supplements": [
