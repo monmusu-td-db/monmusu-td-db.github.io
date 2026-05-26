@@ -24691,7 +24691,7 @@
     ],
     "exSkill1": {
       "skillName": "忍法つららの術",
-      "rangeMul": 140,
+      "rangeMul": 180,
       "targetAdd": 1,
       "duration": 20,
       "cooldown": 30,
