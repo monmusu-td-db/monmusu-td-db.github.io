@@ -53589,5 +53589,124 @@
         ]
       }
     ]
+  },
+  {
+    "id": 432,
+    "unitName": "【心婚のさとり娘】マシラ",
+    "unitShortName": "マシラ/嫁",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 2781,
+    "attack": 1013,
+    "defense": 229,
+    "resist": 274,
+    "supplements": [
+      "スタン無効",
+      "石化無効",
+      "回避無視100%",
+      "スタン付与40%→命中"
+    ],
+    "exSkill1": {
+      "skillName": "さとりゾーン",
+      "attackMul": 400,
+      "splash": true,
+      "rangeMul": 200,
+      "physicalEvasion": 80,
+      "magicalEvasion": 80,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "スキル時自マス変化：地"
+    ],
+    "weapon": {
+      "weaponName": "妖銃・土涛",
+      "hp": 200,
+      "attack": 35,
+      "range": 10
+    },
+    "features": [
+      {
+        "criChanceAdd": 30,
+        "criChanceLimitAdd": 30,
+        "criDamageAdd": 30,
+        "criDamageLimitAdd": 30,
+        "potentialBonus": {
+          "criChanceAdd": 40,
+          "criChanceLimitAdd": 40,
+          "criDamageAdd": 40,
+          "criDamageLimitAdd": 40
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "criChanceAdd": 25,
+        "criDamageAdd": 25
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "criChanceAdd": 30,
+        "criDamageAdd": 50
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "潜在覚醒効果"
+        ],
+        "skill": 1,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 25
+          },
+          {
+            "type": "critical-damage-add",
+            "value": 25
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "physical-evasion",
+            "value": 80
+          },
+          {
+            "type": "magical-evasion",
+            "value": 80
+          }
+        ]
+      }
+    ]
   }
 ]
