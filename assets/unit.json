@@ -46820,6 +46820,9 @@
     "buffs": [
       {
         "type": "field-change",
+        "require": [
+          "潜在覚醒効果"
+        ],
         "skill": 1,
         "target": "自分",
         "element": "闇",
