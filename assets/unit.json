@@ -53708,5 +53708,305 @@
         ]
       }
     ]
+  },
+  {
+    "id": 433,
+    "unitName": "【刃愛迅のデーモンロード娘】ダムストー",
+    "unitShortName": "ダムストー/嫁",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "火",
+    "species": "悪魔",
+    "moveType": "飛行",
+    "hp": 4124,
+    "attack": 642,
+    "defense": 402,
+    "resist": 134,
+    "supplements": [
+      "火傷付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "狂喜の大炎海",
+      "target": "射程内",
+      "rangeMul": 160,
+      "duration": 25,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "攻撃速度+15",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "黒剣クラーヌ",
+      "hp": 300,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "悪魔"
+        ],
+        "cost": -2
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "damageFactor": 70
+      },
+      {
+        "rangeAdd": 40
+      },
+      {
+        "featureName": "common-definite-burn",
+        "annotations": [
+          "火傷特効"
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-definite-poison",
+        "annotations": [
+          "毒特効"
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "火傷特効",
+          "毒特効"
+        ]
+      },
+      {
+        "featureName": "common-team-buff3",
+        "isConditionalSkillBuff": true,
+        "annotations": [
+          "味方3体"
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-team-buff6",
+        "isConditionalSkillBuff": true,
+        "annotations": [
+          "味方6体"
+        ],
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-team-buff12",
+        "isConditionalSkillBuff": true,
+        "annotations": [
+          "味方12体"
+        ],
+        "damageFactor": 250
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "rounds": 10
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff3"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff3",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff3",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff3",
+          "common-definite-poison",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff3",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff3",
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff6"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff6",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff6",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff6",
+          "common-definite-poison",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff6",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff6",
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff12"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff12",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff12",
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff12",
+          "common-definite-poison",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff12",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff12",
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "require": [
+          "悪魔"
+        ],
+        "skill": 0,
+        "target": "射程内",
+        "value": 130
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "悪魔"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
   }
 ]

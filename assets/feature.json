@@ -392,6 +392,16 @@
     ]
   },
   {
+    "featureName": "common-team-buff12",
+    "isConditionalBuff": true,
+    "conditions": [
+      {
+        "key": "t",
+        "value": 12
+      }
+    ]
+  },
+  {
     "featureName": "common-team-buff15",
     "isConditionalBuff": true,
     "conditions": [
