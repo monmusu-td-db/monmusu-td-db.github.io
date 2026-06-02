@@ -1125,5 +1125,12 @@
     "annotations": [
       "ダンジョンでの能力値"
     ]
+  },
+  {
+    "featureName": "common-weather-rain",
+    "isConditionalBuff": true,
+    "annotations": [
+      "天候：雨"
+    ]
   }
 ]

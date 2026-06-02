@@ -53591,6 +53591,123 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 431,
+    "unitName": "【契雨のヴォジャノーイ娘】リグラーナ",
+    "unitShortName": "リグラーナ/嫁",
+    "rarity": "E",
+    "class": "ランサー",
+    "element": "水",
+    "hp": 4364,
+    "attack": 677,
+    "defense": 426,
+    "resist": 63,
+    "supplements": [
+      "雨(10秒)/5体撃破"
+    ],
+    "exSkill1": {
+      "skillName": "ウェディングスピア",
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 25,
+      "supplements": [
+        "コスト+15/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル初回待ち時間-12"
+    ],
+    "weapon": {
+      "weaponName": "ケロケロWスピア",
+      "attack": 40,
+      "resist": 15,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "featureName": "common-weather-rain",
+        "isConditionalBuff": true,
+        "attackSpeedBuff": 140,
+        "supplements": [
+          "CT-1秒/2秒"
+        ],
+        "potentialBonus": {
+          "attackSpeedBuff": 150
+        }
+      },
+      {
+        "featureName": "common-regenerate-weapon",
+        "staticDamage": {
+          "key": "hp",
+          "value": 5
+        },
+        "supplements": [
+          "回復5%/秒"
+        ]
+      },
+      {
+        "featureName": "common-skill1-phase1",
+        "criChanceAdd": 5,
+        "criChanceLimitAdd": 5,
+        "criDamageAdd": 5
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-skill1-phase1"
+        ]
+      },
+      {
+        "features": [
+          "common-weather-rain"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-weather-rain"
+        ]
+      },
+      {
+        "features": [
+          "common-skill1-phase1",
+          "common-weather-rain"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": -1,
+        "features": [
+          "common-weather-rain",
+          "common-regenerate-weapon"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "target": "全体",
+        "duration": 10,
+        "weather": "雨",
+        "supplements": [
+          "5体撃破ごと"
+        ]
+      }
+    ]
+  },
+  {
     "id": 432,
     "unitName": "【心婚のさとり娘】マシラ",
     "unitShortName": "マシラ/嫁",
