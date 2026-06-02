@@ -506,13 +506,13 @@
     "damageType": "魔法",
     "placement": "遠",
     "supplements": [
-      "回避無視30%"
+      "回避無視50%"
     ],
     "features": [
       {
         "featureName": "class-no-supplements",
         "deleteSupplements": [
-          "回避無視30%"
+          "回避無視50%"
         ]
       }
     ],
@@ -540,10 +540,10 @@
         "conditions": [
           {
             "key": "*",
-            "value": 150
+            "value": 200
           }
         ],
-        "attackMul": 150
+        "attackMul": 200
       },
       {
         "featureName": "class-attack-mul2",
@@ -551,10 +551,10 @@
         "conditions": [
           {
             "key": "*",
-            "value": 200
+            "value": 300
           }
         ],
-        "attackMul": 200
+        "attackMul": 300
       }
     ],
     "situations": [
