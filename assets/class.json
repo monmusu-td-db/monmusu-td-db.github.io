@@ -644,7 +644,7 @@
     "cost": 17,
     "attackSpeed": 102,
     "delay": 26,
-    "target": 2,
+    "target": 3,
     "range": 216,
     "moveSpeed": 140,
     "damageType": "魔法",

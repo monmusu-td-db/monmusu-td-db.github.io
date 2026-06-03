@@ -33121,7 +33121,7 @@
     "element": "地",
     "species": "ドラゴン",
     "hp": 2860,
-    "attack": 559,
+    "attack": 610,
     "defense": 307,
     "resist": 475,
     "exSkill1": {
@@ -34171,7 +34171,7 @@
     "element": "闇",
     "species": "ドラゴン",
     "hp": 2835,
-    "attack": 587,
+    "attack": 641,
     "defense": 280,
     "resist": 499,
     "supplements": [
@@ -35893,7 +35893,7 @@
     "element": "水",
     "species": "妖怪",
     "hp": 2736,
-    "attack": 605,
+    "attack": 661,
     "defense": 286,
     "resist": 487,
     "supplements": [
@@ -36128,7 +36128,7 @@
     "element": "光",
     "species": "アンデッド",
     "hp": 3108,
-    "attack": 605,
+    "attack": 661,
     "defense": 275,
     "resist": 447,
     "exSkill1": {
@@ -40910,7 +40910,7 @@
     "element": "地",
     "species": "コボルト",
     "hp": 2536,
-    "attack": 465,
+    "attack": 508,
     "defense": 240,
     "resist": 416,
     "supplements": [
@@ -44346,7 +44346,7 @@
     "class": "パペッティア",
     "element": "火",
     "hp": 2860,
-    "attack": 529,
+    "attack": 578,
     "defense": 275,
     "resist": 469,
     "exSkill1": {
@@ -44453,7 +44453,7 @@
     "element": "風",
     "species": "妖精",
     "hp": 3009,
-    "attack": 526,
+    "attack": 574,
     "defense": 294,
     "resist": 499,
     "moveType": "飛行",
@@ -47782,7 +47782,7 @@
     "element": "闇",
     "species": "妖怪",
     "hp": 2959,
-    "attack": 549,
+    "attack": 600,
     "defense": 290,
     "resist": 495,
     "moveType": "隠密",
@@ -51331,7 +51331,7 @@
     "element": "闇",
     "species": "ビジター",
     "hp": 2785,
-    "attack": 479,
+    "attack": 539,
     "defense": 275,
     "resist": 491,
     "supplements": [
