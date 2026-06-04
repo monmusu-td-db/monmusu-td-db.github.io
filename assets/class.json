@@ -799,6 +799,17 @@
           }
         ],
         "attackMul": 240
+      },
+      {
+        "featureName": "class-definite",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "特",
+            "type": "poison"
+          }
+        ],
+        "damageFactor": 120
       }
     ],
     "situations": [
