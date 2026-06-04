@@ -3188,6 +3188,14 @@ export default class Situation implements TableRow<Keys> {
             return fn(cond.shieldKnightRanged) && fn(cond.action);
           case cond.destroyerRanged:
             return fn(cond.destroyerRanged) || features.includes("class-melee");
+          case cond.assassinAttackMul1:
+            return fn(cond.assassinAttackMul1) && !fn(cond.definite);
+          case cond.assassinAttackMul2:
+            return fn(cond.assassinAttackMul2) && !fn(cond.definite);
+          case cond.assassinDefiniteAttackMul1:
+            return fn(cond.assassinDefiniteAttackMul1) && fn(cond.definite);
+          case cond.assassinDefiniteAttackMul2:
+            return fn(cond.assassinDefiniteAttackMul2) && fn(cond.definite);
           case cond.whipperDebuff:
             return (
               (fn(cond.whipperDebuff) || item.isGeneralDefinite) &&

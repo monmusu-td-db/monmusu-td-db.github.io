@@ -5330,25 +5330,25 @@
       },
       {
         "featureName": "common-definite-human",
+        "isConditionalBuff": true,
+        "annotations": [
+          "人間特効"
+        ],
         "damageFactor": 150,
         "potentialBonus": {
           "damageFactor": 160
         }
       },
       {
-        "featureName": "common-definite-human",
-        "require": [
-          "武器"
-        ],
+        "featureName": "class-definite",
+        "isConditionalBuff": true,
         "annotations": [
-          "人間特効"
+          "毒特効"
         ]
       },
       {
-        "featureName": "common-definite-poison",
-        "annotations": [
-          "毒特効"
-        ],
+        "featureName": "class-definite",
+        "isConditionalBuff": true,
         "require": [
           "武器"
         ],
@@ -5415,17 +5415,26 @@
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
           "common-definite-human"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "common-definite-human"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "skill1-extra",
@@ -5433,12 +5442,18 @@
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 2,
         "features": [
           "common-definite-human"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 2,
         "features": [
           "skill2-extra",
@@ -5446,105 +5461,54 @@
         ]
       },
       {
-        "require": [
-          "weapon"
+        "depend": [
+          "class-definite"
         ],
         "features": [
-          "common-definite-poison"
+          "common-definite-double",
+          "common-definite-human"
         ]
       },
       {
-        "require": [
-          "weapon"
+        "depend": [
+          "class-definite"
         ],
         "skill": 1,
         "features": [
-          "common-definite-poison"
+          "common-definite-double",
+          "common-definite-human"
         ]
       },
       {
-        "require": [
-          "weapon"
+        "depend": [
+          "class-definite"
         ],
         "skill": 1,
         "features": [
+          "common-definite-double",
           "skill1-extra",
-          "common-definite-poison"
+          "common-definite-human"
         ]
       },
       {
-        "require": [
-          "weapon"
+        "depend": [
+          "class-definite"
         ],
         "skill": 2,
         "features": [
-          "common-definite-poison"
+          "common-definite-double",
+          "common-definite-human"
         ]
       },
       {
-        "require": [
-          "weapon"
+        "depend": [
+          "class-definite"
         ],
         "skill": 2,
         "features": [
+          "common-definite-double",
           "skill2-extra",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "features": [
-          "common-definite-double",
-          "common-definite-human",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "common-definite-double",
-          "common-definite-human",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "skill1-extra",
-          "common-definite-double",
-          "common-definite-human",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 2,
-        "features": [
-          "common-definite-double",
-          "common-definite-human",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 2,
-        "features": [
-          "skill2-extra",
-          "common-definite-double",
-          "common-definite-human",
-          "common-definite-poison"
+          "common-definite-human"
         ]
       }
     ]
@@ -5647,6 +5611,9 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "dot"
@@ -5656,6 +5623,9 @@
         "skill": 2
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 2,
         "features": [
           "dot"
@@ -5770,7 +5740,11 @@
         ]
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
         "damageFactor": 130
       }
     ],
@@ -5778,23 +5752,6 @@
       {},
       {
         "skill": 1
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "features": [
-          "common-definite-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "common-definite-poison"
-        ]
       }
     ]
   },
@@ -5831,7 +5788,11 @@
         ]
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
         "damageFactor": 130
       }
     ],
@@ -5840,23 +5801,6 @@
       {},
       {
         "skill": 1
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "features": [
-          "common-definite-poison"
-        ]
-      },
-      {
-        "require": [
-          "weapon"
-        ],
-        "skill": 1,
-        "features": [
-          "common-definite-poison"
-        ]
       }
     ]
   },
@@ -9680,11 +9624,17 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
           "common-dot"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "common-dot"
@@ -12063,7 +12013,7 @@
         "rounds": 5
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
         "isConditionalBuff": true,
         "damageFactor": 150,
         "potentialBonus": {
@@ -12121,26 +12071,6 @@
       },
       {
         "features": [
-          "common-melee",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-melee",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 2,
-        "features": [
-          "common-melee",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "features": [
           "common-ranged"
         ]
       },
@@ -12154,26 +12084,6 @@
         "skill": 2,
         "features": [
           "common-ranged"
-        ]
-      },
-      {
-        "features": [
-          "common-ranged",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-ranged",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 2,
-        "features": [
-          "common-ranged",
-          "common-definite-poison"
         ]
       },
       {
@@ -12188,7 +12098,7 @@
         "skill": 2,
         "features": [
           "common-absorb",
-          "common-definite-poison"
+          "class-definite"
         ]
       },
       {
@@ -13334,25 +13244,25 @@
         }
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
         "skill": 0,
         "isConditionalBuff": true,
         "damageFactor": 110
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
         "skill": 1,
         "isConditionalBuff": true,
         "damageFactor": 110
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
         "skill": 2,
         "isConditionalBuff": true,
         "damageFactor": 130
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
         "require": [
           "武器"
         ],
@@ -13371,42 +13281,34 @@
     "situations": [
       {},
       {
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-poison",
+          "common-extra-damage"
+        ]
+      },
+      {
         "skill": 1
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-poison",
+          "common-extra-damage"
+        ]
       },
       {
         "skill": 2
       },
       {
-        "features": [
-          "common-definite-poison"
-        ]
-      },
-      {
-        "features": [
-          "common-definite-poison",
-          "common-extra-damage"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-definite-poison",
-          "common-extra-damage"
-        ]
-      },
-      {
-        "skill": 2,
-        "features": [
-          "common-definite-poison"
-        ]
-      },
-      {
+        "depend": [
+          "class-definite"
+        ],
         "skill": 2,
         "features": [
           "common-definite-poison",
@@ -17161,10 +17063,28 @@
       },
       {
         "featureName": "common-definite-petrify",
+        "isConditionalBuff": true,
+        "annotations": [
+          "石化特効"
+        ],
         "damageFactor": 180,
         "potentialBonus": {
           "damageFactor": 200
         }
+      },
+      {
+        "featureName": "class-definite",
+        "isConditionalBuff": true,
+        "annotations": [
+          "毒特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "毒特効",
+          "石化特効"
+        ]
       }
     ],
     "isEventUnit": true,
@@ -17174,13 +17094,38 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
           "common-definite-petrify"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
+          "common-definite-petrify"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-petrify"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
           "common-definite-petrify"
         ]
       }
@@ -22359,11 +22304,17 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
           "common-support"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "common-support"
@@ -29089,6 +29040,9 @@
         "skill": 1
       },
       {
+        "depend": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "skill1-dot"
@@ -34563,10 +34517,26 @@
       {
         "featureName": "common-definite-air",
         "isConditionalBuff": true,
+        "annotations": [
+          "飛行特効"
+        ],
         "damageFactor": 200,
         "potentialBonus": {
           "damageFactor": 220
         }
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "毒特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "毒特効",
+          "飛行特効"
+        ]
       }
     ],
     "moveCostAdd": 2,
@@ -34576,13 +34546,38 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
           "common-definite-air"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
+          "common-definite-air"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-air"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
           "common-definite-air"
         ]
       }
@@ -36044,11 +36039,17 @@
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
           "common-burn-dot"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "common-burn-dot"
@@ -53878,13 +53879,15 @@
       },
       {
         "featureName": "common-definite-burn",
+        "isConditionalBuff": true,
         "annotations": [
           "火傷特効"
         ],
         "damageFactor": 130
       },
       {
-        "featureName": "common-definite-poison",
+        "featureName": "class-definite",
+        "isConditionalBuff": true,
         "annotations": [
           "毒特効"
         ],
@@ -53938,37 +53941,58 @@
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "features": [
-          "common-definite-poison"
+          "common-definite-burn"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
-          "common-definite-poison"
+          "common-definite-burn"
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
-          "common-definite-poison",
+          "common-definite-burn",
           "common-extra-field-damage"
         ]
       },
       {
+        "depend": [
+          "class-definite"
+        ],
         "features": [
+          "common-definite-double",
           "common-definite-burn"
         ]
       },
       {
+        "depend": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
+          "common-definite-double",
           "common-definite-burn"
         ]
       },
       {
+        "depend": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
+          "common-definite-double",
           "common-definite-burn",
           "common-extra-field-damage"
         ]
@@ -53987,21 +54011,9 @@
         ]
       },
       {
-        "skill": 1,
-        "features": [
-          "common-team-buff3",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-team-buff3",
-          "common-definite-poison",
-          "common-extra-field-damage"
-        ]
-      },
-      {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "common-team-buff3",
@@ -54009,8 +54021,34 @@
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
+          "common-team-buff3",
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-team-buff3",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
           "common-team-buff3",
           "common-definite-burn",
           "common-extra-field-damage"
@@ -54030,21 +54068,9 @@
         ]
       },
       {
-        "skill": 1,
-        "features": [
-          "common-team-buff6",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-team-buff6",
-          "common-definite-poison",
-          "common-extra-field-damage"
-        ]
-      },
-      {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "common-team-buff6",
@@ -54052,8 +54078,34 @@
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
+          "common-team-buff6",
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-team-buff6",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
           "common-team-buff6",
           "common-definite-burn",
           "common-extra-field-damage"
@@ -54073,21 +54125,9 @@
         ]
       },
       {
-        "skill": 1,
-        "features": [
-          "common-team-buff12",
-          "common-definite-poison"
-        ]
-      },
-      {
-        "skill": 1,
-        "features": [
-          "common-team-buff12",
-          "common-definite-poison",
-          "common-extra-field-damage"
-        ]
-      },
-      {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
           "common-team-buff12",
@@ -54095,8 +54135,34 @@
         ]
       },
       {
+        "exclude": [
+          "class-definite"
+        ],
         "skill": 1,
         "features": [
+          "common-team-buff12",
+          "common-definite-burn",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-team-buff12",
+          "common-definite-burn"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
           "common-team-buff12",
           "common-definite-burn",
           "common-extra-field-damage"

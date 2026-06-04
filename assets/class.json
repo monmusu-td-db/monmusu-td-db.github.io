@@ -823,6 +823,23 @@
         "features": [
           "class-attack-mul2"
         ]
+      },
+      {
+        "features": [
+          "class-definite"
+        ]
+      },
+      {
+        "features": [
+          "class-definite",
+          "class-attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "class-definite",
+          "class-attack-mul2"
+        ]
       }
     ]
   },

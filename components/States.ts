@@ -220,6 +220,8 @@ export class FilterCondition {
     "conjurerEnemy2",
     "assassinAttackMul1",
     "assassinAttackMul2",
+    "assassinDefiniteAttackMul1",
+    "assassinDefiniteAttackMul2",
     "ninjaFire",
     "ninjaWater",
     "ninjaWind",
@@ -253,6 +255,8 @@ export class FilterCondition {
     conjurerEnemy2: "本 敵2",
     assassinAttackMul1: "短剣 移動強化1",
     assassinAttackMul2: "短剣 移動強化2",
+    assassinDefiniteAttackMul1: "短剣 特移動強化1",
+    assassinDefiniteAttackMul2: "短剣 特移動強化2",
     ninjaFire: "手裏剣 火マス",
     ninjaWater: "手裏剣 水マス",
     ninjaWind: "手裏剣 風マス",
@@ -275,6 +279,9 @@ export class FilterCondition {
     archer: {
       definite: "対空特効",
       definiteAction: "対空特効&ACT",
+    },
+    assassin: {
+      definite: "毒特効",
     },
     priest: {
       definite: "同一属性特効",
@@ -299,6 +306,8 @@ export class FilterCondition {
     conjurerEnemy2: this.groupKeys.conjurer,
     assassinAttackMul1: this.groupKeys.assassin,
     assassinAttackMul2: this.groupKeys.assassin,
+    assassinDefiniteAttackMul1: this.groupKeys.assassin,
+    assassinDefiniteAttackMul2: this.groupKeys.assassin,
     ninjaFire: this.groupKeys.ninja,
     ninjaWater: this.groupKeys.ninja,
     ninjaWind: this.groupKeys.ninja,
@@ -318,6 +327,7 @@ export class FilterCondition {
   private static readonly definiteList = [
     this.classKey.monk,
     this.classKey.archer,
+    this.classKey.assassin,
     this.classKey.priest,
   ] as const satisfies FilterUnitClass[];
 
@@ -348,6 +358,8 @@ export class FilterCondition {
     conjurerEnemy2: "class-enemy2",
     assassinAttackMul1: "class-attack-mul1",
     assassinAttackMul2: "class-attack-mul2",
+    assassinDefiniteAttackMul1: "class-attack-mul1",
+    assassinDefiniteAttackMul2: "class-attack-mul2",
     ninjaFire: "class-fire-field",
     ninjaWater: "class-water-field",
     ninjaWind: "class-wind-field",
@@ -427,6 +439,8 @@ export class FilterCondition {
           return conjurer;
         case cond.assassinAttackMul1:
         case cond.assassinAttackMul2:
+        case cond.assassinDefiniteAttackMul1:
+        case cond.assassinDefiniteAttackMul2:
           return assassin;
         case cond.ninjaFire:
         case cond.ninjaWater:
@@ -448,7 +462,7 @@ export class FilterCondition {
   }
 
   static getAppliedGroup(
-    className: Data.UnitClassTag | undefined
+    className: Data.UnitClassTag | undefined,
   ): Record<FilterConditionGroup, boolean> {
     const classNameKey = Data.UnitClass.keyOf(className);
     const k = this.groupKeys;
@@ -473,7 +487,7 @@ export class FilterCondition {
   }
 
   private static getReturnObj(
-    fn: (arg: FilterConditionGroup) => boolean
+    fn: (arg: FilterConditionGroup) => boolean,
   ): Record<FilterConditionGroup, boolean> {
     type Ret = Record<FilterConditionGroup, boolean>;
     const ret: Partial<Ret> = {};
@@ -494,7 +508,7 @@ export class FilterCondition {
       isGeneralDefinite: boolean;
       isGeneralAction: boolean;
       isGeneralDefiniteAction: boolean;
-    }
+    },
   ) {
     const k = this.groupKeys;
 
@@ -887,7 +901,7 @@ export function useAllStates() {
   const [query, setQuery] = useState("");
   const [uISetting, dispatchUISetting] = useReducer(
     uISettingReducer,
-    defaultUISetting
+    defaultUISetting,
   );
   const [saveOption, setSaveOption] = useState<SaveStatus>(DEFAULT_SAVE_OPTION);
 
@@ -994,7 +1008,7 @@ type UISettingAction =
 
 function uISettingReducer(
   state: UISetting,
-  action: UISettingAction
+  action: UISettingAction,
 ): UISetting {
   switch (action.type) {
     case UISettingAction.change: {
@@ -1063,7 +1077,7 @@ class Storage {
 
   private static getItem(
     key: StorageKey,
-    isLocal?: boolean
+    isLocal?: boolean,
   ): string | undefined {
     const storage = this.getStorage(isLocal);
     if (storage !== undefined) {
@@ -1079,7 +1093,7 @@ class Storage {
   private static setItem(
     key: StorageKey,
     value: string,
-    isLocal?: boolean
+    isLocal?: boolean,
   ): void {
     const storage = this.getStorage(isLocal);
     if (storage !== undefined) {
@@ -1116,7 +1130,7 @@ class Storage {
   private static setObject(
     key: StorageKey,
     obj: Record<string, unknown>,
-    isLocal: boolean
+    isLocal: boolean,
   ): void {
     const str = JSON.stringify(obj);
     this.setItem(key, str);
@@ -1179,7 +1193,7 @@ class Storage {
     }
     const v = obj as Record<FilterKeys, unknown>;
     return filterKeys.every(
-      (k) => v[k] === undefined || typeof v[k] === "boolean"
+      (k) => v[k] === undefined || typeof v[k] === "boolean",
     );
   }
 
