@@ -864,10 +864,26 @@
           "移動後攻撃待機時間短縮"
         ],
         "delayMul": 80
+      },
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "annotations": [
+          "ウインドリフューズ"
+        ],
+        "attackSpeedBuff": 200,
+        "supplements": [
+          "ノックバック"
+        ]
       }
     ],
     "situations": [
-      {}
+      {},
+      {
+        "features": [
+          "class-action"
+        ]
+      }
     ]
   },
   {

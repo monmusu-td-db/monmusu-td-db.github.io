@@ -6982,7 +6982,7 @@
     "class": "エアスカウト",
     "element": "風",
     "hp": 4465,
-    "attack": 717,
+    "attack": 834,
     "defense": 351,
     "resist": 106,
     "exSkill1": {
@@ -7097,7 +7097,7 @@
     "class": "エアスカウト",
     "element": "風",
     "hp": 4321,
-    "attack": 649,
+    "attack": 755,
     "defense": 348,
     "resist": 103,
     "exSkill1": {
@@ -7888,7 +7888,7 @@
     "class": "エアスカウト",
     "element": "風",
     "hp": 4104,
-    "attack": 626,
+    "attack": 728,
     "defense": 335,
     "resist": 98,
     "exSkill1": {
@@ -8774,7 +8774,7 @@
     "class": "エアスカウト",
     "element": "風",
     "hp": 3960,
-    "attack": 649,
+    "attack": 755,
     "defense": 360,
     "resist": 109,
     "exSkill1": {
@@ -19972,7 +19972,7 @@
     "element": "風",
     "species": "妖怪",
     "hp": 4248,
-    "attack": 626,
+    "attack": 728,
     "defense": 342,
     "resist": 111,
     "exSkill1": {
@@ -23165,7 +23165,7 @@
     "element": "火",
     "species": "ドラゴン",
     "hp": 4465,
-    "attack": 723,
+    "attack": 841,
     "defense": 339,
     "resist": 109,
     "damageType": "魔法",
@@ -29810,7 +29810,7 @@
     "class": "エアスカウト",
     "element": "風",
     "hp": 4321,
-    "attack": 717,
+    "attack": 834,
     "defense": 366,
     "resist": 105,
     "moveType": "飛行",
@@ -30009,7 +30009,7 @@
     "class": "エアスカウト",
     "element": "風",
     "hp": 4141,
-    "attack": 706,
+    "attack": 821,
     "defense": 345,
     "resist": 100,
     "exSkill1": {
@@ -32763,7 +32763,7 @@
       "デミ"
     ],
     "hp": 4501,
-    "attack": 730,
+    "attack": 849,
     "defense": 375,
     "resist": 108,
     "supplements": [
@@ -32812,7 +32812,7 @@
     "class": "エアスカウト",
     "element": "風",
     "hp": 4068,
-    "attack": 660,
+    "attack": 768,
     "defense": 357,
     "resist": 105,
     "exSkill1": {
@@ -38631,7 +38631,7 @@
     "class": "エアスカウト",
     "element": "闇",
     "hp": 4429,
-    "attack": 804,
+    "attack": 935,
     "defense": 335,
     "resist": 110,
     "exSkill1": {
@@ -39947,7 +39947,7 @@
     "element": "風",
     "species": "ビジター",
     "hp": 4393,
-    "attack": 740,
+    "attack": 861,
     "defense": 351,
     "resist": 104,
     "exSkill1": {
@@ -40267,7 +40267,7 @@
     "class": "エアスカウト",
     "element": "地",
     "hp": 4573,
-    "attack": 740,
+    "attack": 861,
     "defense": 342,
     "resist": 102,
     "supplements": [
@@ -46708,7 +46708,7 @@
     "element": "闇",
     "species": "妖怪",
     "hp": 4465,
-    "attack": 729,
+    "attack": 847,
     "defense": 345,
     "resist": 106,
     "exSkill1": {
