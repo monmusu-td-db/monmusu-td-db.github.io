@@ -19862,7 +19862,7 @@
     "element": "地",
     "species": "妖怪",
     "hp": 3074,
-    "attack": 512,
+    "attack": 570,
     "defense": 426,
     "resist": 284,
     "moveType": "ワープ",
@@ -20066,7 +20066,7 @@
     "class": "ニンジャ",
     "element": "風",
     "hp": 2975,
-    "attack": 479,
+    "attack": 533,
     "defense": 404,
     "resist": 279,
     "species": "妖怪",
@@ -20123,7 +20123,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 161,
     "unitName": "【化け狐娘】ツネ",
     "unitShortName": "ツネ",
@@ -20132,7 +20131,7 @@
     "element": "火",
     "species": "妖怪",
     "hp": 2925,
-    "attack": 541,
+    "attack": 492,
     "defense": 393,
     "resist": 264,
     "exSkill1": {
@@ -20206,7 +20205,7 @@
     "element": "光",
     "species": "妖怪",
     "hp": 2727,
-    "attack": 470,
+    "attack": 524,
     "defense": 379,
     "resist": 277,
     "exSkill1": {
@@ -20477,7 +20476,7 @@
     "element": "地",
     "species": "妖怪",
     "hp": 3024,
-    "attack": 454,
+    "attack": 505,
     "defense": 415,
     "resist": 282,
     "moveType": "隠密",
@@ -24646,7 +24645,7 @@
     "element": "水",
     "species": "妖怪",
     "hp": 2975,
-    "attack": 470,
+    "attack": 524,
     "defense": 404,
     "resist": 284,
     "supplements": [
@@ -31118,7 +31117,7 @@
       "アンデッド"
     ],
     "hp": 2999,
-    "attack": 520,
+    "attack": 579,
     "defense": 435,
     "resist": 279,
     "exSkill1": {
@@ -31202,7 +31201,7 @@
       "アンデッド"
     ],
     "hp": 2999,
-    "attack": 520,
+    "attack": 579,
     "defense": 418,
     "resist": 279,
     "exSkill1": {
@@ -31280,7 +31279,7 @@
     "element": "闇",
     "species": "妖怪",
     "hp": 2900,
-    "attack": 479,
+    "attack": 533,
     "defense": 412,
     "resist": 282,
     "exSkill1": {
@@ -39421,7 +39420,7 @@
     "element": "水",
     "species": "ドラゴン",
     "hp": 2851,
-    "attack": 520,
+    "attack": 579,
     "defense": 419,
     "resist": 306,
     "supplements": [
@@ -47974,7 +47973,7 @@
     "class": "ニンジャ",
     "element": "地",
     "hp": 3024,
-    "attack": 500,
+    "attack": 557,
     "defense": 452,
     "resist": 277,
     "supplements": [
@@ -53498,7 +53497,7 @@
     "element": "闇",
     "species": "妖怪",
     "hp": 2900,
-    "attack": 570,
+    "attack": 635,
     "defense": 412,
     "resist": 282,
     "moveType": "ワープ",
