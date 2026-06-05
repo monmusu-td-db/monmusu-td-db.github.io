@@ -1054,7 +1054,7 @@
     "damageType": "物理",
     "placement": "両",
     "supplements": [
-      "DEF-{attack-base*12}(10秒)→命中"
+      "DEF-{attack-base*26}(10秒)→命中"
     ],
     "features": [
       {
@@ -1088,7 +1088,7 @@
         "defenseDebuff": {
           "key": "attack-base",
           "time": 300,
-          "valueAdd": 12
+          "valueAdd": 26
         }
       }
     ],
