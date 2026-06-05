@@ -336,6 +336,7 @@ export class FilterCondition {
     this.classKey.shieldKnight,
     this.classKey.archer,
     this.classKey.conjurer,
+    this.classKey.airScout,
     this.classKey.whipper,
   ] as const satisfies FilterUnitClass[];
 

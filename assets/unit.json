@@ -23241,11 +23241,17 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-action"
+        ],
         "features": [
           "common-dot"
         ]
       },
       {
+        "exclude": [
+          "class-action"
+        ],
         "skill": 1,
         "features": [
           "common-dot"
@@ -38697,11 +38703,17 @@
         "skill": 1
       },
       {
+        "exclude": [
+          "class-action"
+        ],
         "features": [
           "damage-field"
         ]
       },
       {
+        "exclude": [
+          "class-action"
+        ],
         "skill": 1,
         "features": [
           "damage-field"
