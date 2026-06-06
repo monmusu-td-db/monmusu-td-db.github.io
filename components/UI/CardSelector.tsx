@@ -24,6 +24,7 @@ interface Resource {
   name: string;
   rarity: Data.Rarity;
   desc: string;
+  isUltimate?: boolean;
 }
 
 interface Props {
@@ -41,7 +42,8 @@ function Button(props: ButtonProps) {
     "ms-auto me-auto",
     cn("card-button", {
       disabled: props.disabled,
-      "table-c-yellow": src?.rarity === Data.Rarity.L,
+      "table-c-red": src?.isUltimate,
+      "table-c-yellow": src?.rarity === Data.Rarity.L && !src?.isUltimate,
       "table-c-indigo": src?.rarity === Data.Rarity.E,
       "table-c-blue": src?.rarity === Data.Rarity.R,
       "table-c-gray": src?.rarity === Data.Rarity.C || src === undefined,
@@ -49,7 +51,8 @@ function Button(props: ButtonProps) {
   ];
 
   const cardHeaderColor = {
-    "table-c-yellow-300": src?.rarity === Data.Rarity.L,
+    "table-c-red-300": src?.isUltimate,
+    "table-c-yellow-300": src?.rarity === Data.Rarity.L && !src?.isUltimate,
     "table-c-indigo-300": src?.rarity === Data.Rarity.E,
     "table-c-blue-300": src?.rarity === Data.Rarity.R,
     "table-c-gray-400": src?.rarity === Data.Rarity.C,
@@ -101,7 +104,7 @@ function useSelector(onSelect: undefined | ((id: number) => void)) {
       handleClose();
       onSelect?.(id);
     },
-    [onSelect]
+    [onSelect],
   );
   const handleRemove = () => handleSelect(-1);
 
@@ -210,7 +213,7 @@ interface RarityContainerProps extends ItemsProps {
   rarity: Data.Rarity;
 }
 const RarityContainer = memo(function RarityContainer(
-  props: RarityContainerProps
+  props: RarityContainerProps,
 ) {
   const list = props.list.filter((item) => item.rarity === props.rarity);
   if (list.length === 0) {

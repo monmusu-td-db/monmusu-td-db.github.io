@@ -2843,6 +2843,7 @@
     "rarity": "L",
     "group": "攻撃",
     "desc": "自身の与えるダメージと受けるダメージが2倍",
+    "isUltimate": true,
     "damageFactor": 100,
     "physicalDamageCut": -100,
     "magicalDamageCut": -100

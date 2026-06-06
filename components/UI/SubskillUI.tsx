@@ -77,8 +77,8 @@ type ViewHandleKey = (typeof viewHandleKeys)[keyof typeof viewHandleKeys];
 type ViewHandleValue<T extends ViewHandleKey> = T extends 0 | 1
   ? number
   : T extends 2
-  ? HandleCond
-  : boolean;
+    ? HandleCond
+    : boolean;
 
 // Util
 
@@ -126,28 +126,37 @@ function SubskillSelector(props: {
 
         return a && b && c && effective;
       }),
-    [group, isGeneral, rarity, isEffective]
+    [group, isGeneral, rarity, isEffective],
   );
 
   const sortType = s.subskillSortType;
   const sortOrder = s.subskillSortReversed;
 
   const sortedList = useMemo(() => {
-    switch (sortType) {
-      case sortCond.NAME:
-        const fn = (a: Subskill, b: Subskill) => a.name.localeCompare(b.name);
-        if (sortOrder) {
-          return filteredList.toSorted((a, b) => fn(b, a));
-        } else {
-          return filteredList.toSorted(fn);
-        }
-      default:
-        if (sortOrder) {
-          return filteredList.toReversed();
-        } else {
-          return filteredList;
-        }
-    }
+    const ultimateSkillList = filteredList.filter((s) => s.isUltimate);
+    const normalSkillList = filteredList.filter((s) => !s.isUltimate);
+    const sort = (list: readonly Subskill[]) => {
+      switch (sortType) {
+        case sortCond.NAME:
+          const fn = (a: Subskill, b: Subskill) => a.name.localeCompare(b.name);
+          if (sortOrder) {
+            return list.toSorted((a, b) => fn(b, a));
+          } else {
+            return list.toSorted(fn);
+          }
+        default:
+          if (sortOrder) {
+            return list.toReversed();
+          } else {
+            return list;
+          }
+      }
+    };
+
+    const sortedUltimateSkillList = sort(ultimateSkillList);
+    const sortedNormalSkillList = sort(normalSkillList);
+
+    return [...sortedUltimateSkillList, ...sortedNormalSkillList];
   }, [filteredList, sortOrder, sortType]);
   const dSortedList = useDeferredValue(sortedList);
 
@@ -195,7 +204,7 @@ function SubskillSelector(props: {
           }));
       }
     },
-    [onChangeUI]
+    [onChangeUI],
   );
 
   return (
@@ -307,7 +316,7 @@ const TabView = memo(function TabView({
   isEffective: boolean;
   onChange: <T extends ViewHandleKey>(
     key: T,
-    value: ViewHandleValue<T>
+    value: ViewHandleValue<T>,
   ) => void;
 }) {
   const handleRarity = (fn: HandleCond) => onChange(viewHandleKeys.RARITY, fn);
@@ -399,5 +408,5 @@ export default Object.assign(
   {},
   {
     Selector: SubskillSelector,
-  }
+  },
 );
