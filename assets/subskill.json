@@ -2819,7 +2819,7 @@
     "name": "あやかしの契り",
     "rarity": "L",
     "group": "攻撃",
-    "desc": "妖怪にセット時、編成時妖怪の攻撃力10%上昇　配置中、妖怪のクリティカル率7%上昇",
+    "desc": "妖怪にセット時、編成時妖怪の攻撃力10%上昇　配置中、妖怪のCRI率7%上昇",
     "features": [
       {
         "require": [
@@ -2829,5 +2829,22 @@
         "criChanceAdd": 7
       }
     ]
+  },
+  {
+    "name": "トキシックエンゲージリング",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "毒状態の敵へ与えるダメージ1.2倍　毒状態の相手から受ける物理Dmgを40%軽減",
+    "damageFactor": 20,
+    "physicalDamageCut": 40
+  },
+  {
+    "name": "【究極】ダブルダウン",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "自身の与えるダメージと受けるダメージが2倍",
+    "damageFactor": 100,
+    "physicalDamageCut": -100,
+    "magicalDamageCut": -100
   }
 ]
