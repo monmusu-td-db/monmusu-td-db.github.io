@@ -13,7 +13,7 @@ function Selector(props: SelectorProps) {
 
   const list = Beast.getList();
   const filteredList = props.isMain
-    ? list
+    ? list.filter((beast) => !beast.subOnly)
     : list.filter((beast) => beast.id !== setting.mainBeast);
 
   return (
@@ -31,5 +31,5 @@ export default Object.assign(
   {},
   {
     Selector,
-  }
+  },
 );

@@ -3,6 +3,8 @@ import { Enum, Rarity } from "./Data";
 
 interface JsonBeastData extends Partial<JsonBeastFactors> {
   name: string;
+  rarity?: string;
+  subOnly?: boolean;
   desc: string;
   features?: JsonBeastFeature[];
 }
@@ -76,6 +78,7 @@ class Beast {
   readonly name: string;
   readonly rarity: Rarity;
   readonly desc: string;
+  readonly subOnly: boolean;
 
   private readonly factors: BeastFactors;
   private readonly features: BeastFeature[] | undefined;
@@ -83,8 +86,9 @@ class Beast {
   constructor(src: JsonBeastData, id: number) {
     this.id = id;
     this.name = src.name;
-    this.rarity = Rarity.L;
+    this.rarity = Rarity.parse(src.rarity) ?? Rarity.L;
     this.desc = src.desc;
+    this.subOnly = src.subOnly ?? false;
 
     this.factors = new BeastFactors(src);
     this.features = src.features?.map((v) => new BeastFeature(v));
@@ -92,7 +96,7 @@ class Beast {
 
   getFactor(
     key: keyof BeastFactors,
-    types: (string | undefined)[]
+    types: (string | undefined)[],
   ): number | undefined {
     if (this.features !== undefined) {
       for (const f of this.features) {

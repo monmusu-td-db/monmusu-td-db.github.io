@@ -1070,7 +1070,7 @@ export const Rarity = {
   name: rarityName,
   alias: rarityAlias,
 
-  parse(value: string): Rarity | undefined {
+  parse(value: unknown): Rarity | undefined {
     return rarityList.find((v) => v === value);
   },
 

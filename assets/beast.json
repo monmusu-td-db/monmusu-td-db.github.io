@@ -160,5 +160,42 @@
         "attack": 20
       }
     ]
+  },
+  {
+    "name": "【見習い獣神】イグニャ",
+    "rarity": "E",
+    "desc": "編成時、火属性の攻撃力が14%増加、ソーサラーの攻撃力が14%増加、射程+18",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 14
+      },
+      {
+        "targets": [
+          "ソーサラー"
+        ],
+        "attack": 14,
+        "rangeAdd": 18
+      }
+    ]
+  },
+  {
+    "name": "【見習い獣神】デビネア",
+    "rarity": "E",
+    "desc": "編成時、悪魔モンスター娘のHP18%増加、攻撃力24%増加、出撃コスト-2",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "悪魔"
+        ],
+        "hp": 18,
+        "attack": 24,
+        "cost": -2
+      }
+    ]
   }
 ]
