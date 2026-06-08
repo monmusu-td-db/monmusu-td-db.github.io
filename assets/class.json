@@ -31,11 +31,11 @@
         "conditions": [
           {
             "key": "*",
-            "value": 210
+            "value": 240
           }
         ],
-        "attackMul": 210,
-        "minInterval": 100
+        "attackMul": 240,
+        "minInterval": 80
       },
       {
         "featureName": "class-charge2",
@@ -43,11 +43,11 @@
         "conditions": [
           {
             "key": "*",
-            "value": 320
+            "value": 380
           }
         ],
-        "attackMul": 320,
-        "minInterval": 200
+        "attackMul": 380,
+        "minInterval": 160
       },
       {
         "featureName": "class-charge3",
@@ -55,13 +55,13 @@
         "conditions": [
           {
             "key": "*",
-            "value": 430
+            "value": 520
           }
         ],
-        "attackMul": 430,
+        "attackMul": 520,
         "criChanceAdd": 100,
         "criChanceLimitAdd": 50,
-        "minInterval": 300
+        "minInterval": 240
       }
     ],
     "situations": [
