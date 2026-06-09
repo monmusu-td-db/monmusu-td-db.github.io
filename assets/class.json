@@ -157,10 +157,10 @@
         "conditions": [
           {
             "key": "+",
-            "value": 1000
+            "value": 1200
           }
         ],
-        "attackAdd": 1000
+        "attackAdd": 1200
       }
     ],
     "situations": [
