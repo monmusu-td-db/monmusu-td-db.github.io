@@ -261,17 +261,7 @@
     ],
     "features": [
       {
-        "featureName": "class-melee",
-        "conditions": [
-          "近"
-        ],
         "damageCut": 25
-      },
-      {
-        "featureName": "class-ranged",
-        "conditions": [
-          "遠"
-        ]
       },
       {
         "featureName": "class-action",
@@ -285,25 +275,9 @@
       }
     ],
     "situations": [
+      {},
       {
         "features": [
-          "class-melee"
-        ]
-      },
-      {
-        "features": [
-          "class-melee",
-          "class-action"
-        ]
-      },
-      {
-        "features": [
-          "class-ranged"
-        ]
-      },
-      {
-        "features": [
-          "class-ranged",
           "class-action"
         ]
       }

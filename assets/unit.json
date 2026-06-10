@@ -1173,9 +1173,9 @@
     "class": "シールドナイト",
     "element": "地",
     "species": "デミ",
-    "hp": 6310,
-    "attack": 550,
-    "defense": 893,
+    "hp": 6631,
+    "attack": 646,
+    "defense": 1048,
     "resist": 208,
     "exSkill1": {
       "skillName": "戦場の友",
@@ -1484,9 +1484,9 @@
     "rarity": "R",
     "class": "シールドナイト",
     "element": "風",
-    "hp": 5886,
-    "attack": 531,
-    "defense": 834,
+    "hp": 6185,
+    "attack": 623,
+    "defense": 978,
     "resist": 208,
     "moveType": "隠密",
     "exSkill1": {
@@ -1667,9 +1667,9 @@
     "class": "シールドナイト",
     "element": "水",
     "species": "ドラゴン",
-    "hp": 5621,
-    "attack": 521,
-    "defense": 826,
+    "hp": 5906,
+    "attack": 612,
+    "defense": 969,
     "resist": 204,
     "exSkill1": {
       "skillName": "リザードスケイル",
@@ -2062,10 +2062,10 @@
     "class": "シールドナイト",
     "element": "闇",
     "species": "アンデッド",
-    "hp": 6398,
-    "attack": 516,
-    "defense": 834,
-    "resist": 215,
+    "hp": 6408,
+    "attack": 606,
+    "defense": 943,
+    "resist": 195,
     "supplements": [
       "毒無効",
       "スタン耐性+50"
@@ -6116,9 +6116,9 @@
     "class": "シールドナイト",
     "element": "闇",
     "species": "アンデッド",
-    "hp": 6628,
-    "attack": 580,
-    "defense": 930,
+    "hp": 6965,
+    "attack": 681,
+    "defense": 1091,
     "resist": 214,
     "supplements": [
       "毒無効",
@@ -7491,9 +7491,9 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "火",
-    "hp": 6310,
-    "attack": 619,
-    "defense": 923,
+    "hp": 6631,
+    "attack": 727,
+    "defense": 1083,
     "resist": 212,
     "range": 120,
     "exSkill1": {
@@ -7535,7 +7535,7 @@
         ]
       },
       {
-        "featureName": "class-melee",
+        "featureName": "common-melee",
         "require": [
           "武器"
         ],
@@ -7587,166 +7587,130 @@
     ],
     "situations": [
       {
-        "depend": [
-          "class-melee"
-        ],
         "features": [
+          "common-melee",
           "common-block1"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block1"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "features": [
+          "common-melee",
           "common-block1",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block1",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "features": [
+          "common-melee",
           "common-block5"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block7"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "features": [
+          "common-melee",
           "common-block5",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block7",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-ranged"
-        ],
         "features": [
+          "common-ranged",
           "common-block0"
         ]
       },
       {
-        "depend": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-ranged",
           "common-block0"
         ]
       },
       {
-        "depend": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0"
         ]
       },
       {
-        "depend": [
-          "class-ranged"
-        ],
         "features": [
+          "common-ranged",
           "common-block0",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-ranged",
           "common-block0",
           "dot"
         ]
       },
       {
-        "depend": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0",
           "dot"
         ]
@@ -12415,9 +12379,9 @@
     "class": "シールドナイト",
     "element": "水",
     "species": "ドラゴン",
-    "hp": 6363,
-    "attack": 609,
-    "defense": 893,
+    "hp": 6686,
+    "attack": 715,
+    "defense": 1048,
     "resist": 222,
     "exSkill1": {
       "skillName": "ドラゴニックオーラ",
@@ -12582,355 +12546,283 @@
     ],
     "situations": [
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "features": [
+          "common-melee",
           "common-block1"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block1",
           "common-skill1-phase1"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block1",
           "common-skill1-phase2"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block1",
           "common-skill1-phase3"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block1",
           "common-skill1-phase4"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block1",
           "common-skill1-phase5"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1",
           "skill2-0s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1",
           "skill2-2s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1",
           "skill2-4s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1",
           "skill2-6s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1",
           "skill2-12s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block1",
           "skill2-18s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "features": [
+          "common-melee",
           "common-block5"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block5",
           "common-skill1-phase1"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block5",
           "common-skill1-phase2"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block5",
           "common-skill1-phase3"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block5",
           "common-skill1-phase4"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 1,
         "features": [
+          "common-melee",
           "common-block5",
           "common-skill1-phase5"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5",
           "skill2-0s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5",
           "skill2-2s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5",
           "skill2-4s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5",
           "skill2-6s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5",
           "skill2-12s"
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "skill": 2,
         "features": [
+          "common-melee",
           "common-block5",
           "skill2-18s"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "features": [
+          "common-ranged",
           "common-block0"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-ranged",
           "common-block0",
           "common-skill1-phase1"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-ranged",
           "common-block0",
           "common-skill1-phase2"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-ranged",
           "common-block0",
           "common-skill1-phase3"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-ranged",
           "common-block0",
           "common-skill1-phase4"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
+          "common-ranged",
           "common-block0",
           "common-skill1-phase5"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0",
           "skill2-0s"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0",
           "skill2-2s"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0",
           "skill2-4s"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0",
           "skill2-6s"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0",
           "skill2-12s"
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 2,
         "features": [
+          "common-ranged",
           "common-block0",
           "skill2-18s"
         ]
@@ -12944,9 +12836,9 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "光",
-    "hp": 6734,
-    "attack": 580,
-    "defense": 938,
+    "hp": 7077,
+    "attack": 681,
+    "defense": 1100,
     "resist": 208,
     "exSkill1": {
       "skillName": "スターロード",
@@ -13683,16 +13575,15 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 99,
     "unitName": "【スプリガン娘】プリン",
     "unitShortName": "プリン",
     "rarity": "E",
     "class": "シールドナイト",
     "element": "光",
-    "hp": 6256,
-    "attack": 554,
-    "defense": 885,
+    "hp": 6575,
+    "attack": 652,
+    "defense": 1039,
     "resist": 210,
     "exSkill1": {
       "skillName": "グロウアップボディ",
@@ -17299,9 +17190,9 @@
     "rarity": "E",
     "class": "シールドナイト",
     "element": "水",
-    "hp": 6363,
-    "attack": 565,
-    "defense": 834,
+    "hp": 6687,
+    "attack": 664,
+    "defense": 978,
     "resist": 216,
     "moveType": "突進",
     "supplements": [
@@ -21142,9 +21033,9 @@
     "class": "シールドナイト",
     "element": "火",
     "species": "ドラゴン",
-    "hp": 5833,
-    "attack": 550,
-    "defense": 819,
+    "hp": 6129,
+    "attack": 646,
+    "defense": 960,
     "resist": 206,
     "exSkill1": {
       "skillName": "ドラゴンファイア",
@@ -21208,7 +21099,7 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報/再配置時間短縮",
+    "TODO_DESC": "再配置時間短縮",
     "id": 170,
     "unitName": "【スケルトン娘】ペロロス",
     "unitShortName": "ペロロス",
@@ -21216,9 +21107,9 @@
     "class": "シールドナイト",
     "element": "闇",
     "species": "アンデッド",
-    "hp": 4242,
-    "attack": 393,
-    "defense": 841,
+    "hp": 4736,
+    "attack": 462,
+    "defense": 986,
     "resist": 208,
     "exSkill1": {
       "skillName": "反骨精神",
@@ -24047,9 +23938,9 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "水",
-    "hp": 6363,
-    "attack": 614,
-    "defense": 878,
+    "hp": 6687,
+    "attack": 721,
+    "defense": 1030,
     "resist": 224,
     "exSkill1": {
       "skillName": "クリスマスブライニクル",
@@ -24108,10 +23999,8 @@
     "situations": [
       {},
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "features": [
+          "common-melee",
           "common-block3"
         ]
       },
@@ -24124,10 +24013,8 @@
         ]
       },
       {
-        "exclude": [
-          "class-ranged"
-        ],
         "features": [
+          "common-melee",
           "common-block3",
           "common-definite-freeze"
         ]
@@ -26092,9 +25979,9 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "光",
-    "hp": 6469,
-    "attack": 580,
-    "defense": 893,
+    "hp": 6798,
+    "attack": 681,
+    "defense": 1047,
     "resist": 229,
     "moveType": "飛行",
     "exSkill1": {
@@ -29253,17 +29140,16 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 235,
     "unitName": "【ベヒモス娘】デイン",
     "unitShortName": "デイン",
     "rarity": "L",
     "class": "シールドナイト",
     "element": "地",
-    "hp": 6720,
-    "attack": 508,
-    "defense": 952,
-    "resist": 232,
+    "hp": 6519,
+    "attack": 598,
+    "defense": 1117,
+    "resist": 233,
     "exSkill1": {
       "skillName": "ガイアブラスト",
       "attackMul": 360,
@@ -29293,10 +29179,10 @@
     ],
     "isEventUnit": true,
     "costAdd": 3,
-    "hpMul": 120,
+    "hpMul": 130,
     "attackMul": 120,
     "potentialBonus": {
-      "hpMul": 130
+      "hpMul": 140
     },
     "situations": [
       {},
@@ -30408,9 +30294,9 @@
     "class": "シールドナイト",
     "element": "光",
     "species": "エイリアン",
-    "hp": 6999,
-    "attack": 550,
-    "defense": 871,
+    "hp": 7355,
+    "attack": 646,
+    "defense": 1021,
     "resist": 227,
     "exSkill1": {
       "skillName": "メテオバスター",
@@ -32270,9 +32156,9 @@
     "class": "シールドナイト",
     "element": "風",
     "species": "妖精",
-    "hp": 6416,
-    "attack": 614,
-    "defense": 856,
+    "hp": 6742,
+    "attack": 722,
+    "defense": 1004,
     "resist": 227,
     "moveType": "飛行",
     "exSkill1": {
@@ -33647,9 +33533,9 @@
     "class": "シールドナイト",
     "element": "火",
     "species": "ビジター",
-    "hp": 6734,
-    "attack": 635,
-    "defense": 953,
+    "hp": 7077,
+    "attack": 746,
+    "defense": 1118,
     "resist": 191,
     "exSkill1": {
       "skillName": "滅・超爆裂破形態起動！",
@@ -33750,9 +33636,6 @@
     },
     "situations": [
       {
-        "exclude": [
-          "class-melee"
-        ],
         "features": [
           "common-block0"
         ]
@@ -33783,9 +33666,6 @@
         ]
       },
       {
-        "exclude": [
-          "class-melee"
-        ],
         "skill": 1,
         "features": [
           "common-block0"
@@ -33824,9 +33704,6 @@
       {
         "require": [
           "weapon"
-        ],
-        "exclude": [
-          "class-melee"
         ],
         "features": [
           "beat-20",
@@ -33881,9 +33758,6 @@
       {
         "require": [
           "weapon"
-        ],
-        "exclude": [
-          "class-melee"
         ],
         "skill": 1,
         "features": [
@@ -37278,9 +37152,9 @@
     "rarity": "E",
     "class": "シールドナイト",
     "element": "地",
-    "hp": 5674,
-    "attack": 639,
-    "defense": 767,
+    "hp": 5962,
+    "attack": 750,
+    "defense": 899,
     "resist": 229,
     "supplements": [
       "鈍足/被攻撃→対象",
@@ -37324,9 +37198,9 @@
     "class": "シールドナイト",
     "element": "地",
     "cost": 18,
-    "hp": 5674,
-    "attack": 639,
-    "defense": 767,
+    "hp": 5962,
+    "attack": 750,
+    "defense": 899,
     "resist": 229,
     "exSkill1": {
       "skillName": "甘々甘味のちょこれいと",
@@ -39067,9 +38941,9 @@
     "class": "シールドナイト",
     "element": "地",
     "species": "ドラゴン",
-    "hp": 6628,
-    "attack": 639,
-    "defense": 819,
+    "hp": 6965,
+    "attack": 750,
+    "defense": 960,
     "resist": 220,
     "damageType": "魔法",
     "supplements": [
@@ -39100,7 +38974,7 @@
         "damageFactor": 120
       },
       {
-        "featureName": "class-melee",
+        "featureName": "common-melee",
         "magicalDamageDebuff": 120,
         "supplements": [
           "スタン時間+20%→ブロック敵"
@@ -39111,18 +38985,27 @@
       }
     ],
     "situations": [
-      {},
       {
-        "skill": 1
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
       },
       {
         "features": [
+          "common-melee",
           "common-definite-stan"
         ]
       },
       {
         "skill": 1,
         "features": [
+          "common-melee",
           "common-definite-stan"
         ]
       }
@@ -40467,9 +40350,9 @@
     "class": "シールドナイト",
     "element": "光",
     "species": "妖怪",
-    "hp": 6893,
-    "attack": 629,
-    "defense": 834,
+    "hp": 7244,
+    "attack": 739,
+    "defense": 978,
     "resist": 210,
     "exSkill1": {
       "skillName": "金硬爆",
@@ -40495,7 +40378,7 @@
         "magicalDamageCut": 30
       },
       {
-        "featureName": "class-melee",
+        "featureName": "common-melee",
         "isConditionalBuff": true,
         "potentialBonus": {
           "attackDebuff": {
@@ -40536,34 +40419,46 @@
     ],
     "isEventUnit": true,
     "situations": [
-      {},
       {
-        "skill": 1
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
       },
       {
         "features": [
+          "common-melee",
           "attack-mul"
         ]
       },
       {
         "skill": 1,
         "features": [
+          "common-melee",
           "attack-mul"
         ]
       },
       {
         "features": [
+          "common-melee",
           "damage-factor"
         ]
       },
       {
         "skill": 1,
         "features": [
+          "common-melee",
           "damage-factor"
         ]
       },
       {
         "features": [
+          "common-melee",
           "damage-factor",
           "attack-mul"
         ]
@@ -40571,6 +40466,59 @@
       {
         "skill": 1,
         "features": [
+          "common-melee",
+          "damage-factor",
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged",
+          "damage-factor"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "damage-factor"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged",
+          "damage-factor",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
           "damage-factor",
           "attack-mul"
         ]
@@ -40604,9 +40552,9 @@
     "class": "シールドナイト",
     "element": "水",
     "species": "妖怪",
-    "hp": 7106,
-    "attack": 624,
-    "defense": 796,
+    "hp": 7468,
+    "attack": 733,
+    "defense": 933,
     "resist": 214,
     "exSkill1": {
       "skillName": "揺蕩う守護",
@@ -41684,9 +41632,9 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "地",
-    "hp": 6893,
-    "attack": 600,
-    "defense": 863,
+    "hp": 7244,
+    "attack": 704,
+    "defense": 1013,
     "resist": 214,
     "supplements": [
       "コスト回復加速(小)"
@@ -41768,9 +41716,9 @@
     "class": "シールドナイト",
     "element": "地",
     "species": "ビジター",
-    "hp": 7106,
-    "attack": 580,
-    "defense": 878,
+    "hp": 7468,
+    "attack": 681,
+    "defense": 1030,
     "resist": 210,
     "supplements": [
       "回復100%/死亡時(1回のみ)"
@@ -41812,7 +41760,7 @@
         "defenseMul": 300
       },
       {
-        "featureName": "class-melee",
+        "featureName": "common-melee",
         "isConditionalBuff": true,
         "potentialBonus": {
           "attackDebuff": {
@@ -41829,18 +41777,51 @@
     "attackMul": 80,
     "defenseMul": 150,
     "situations": [
-      {},
       {
-        "skill": 1
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
       },
       {
         "features": [
+          "common-melee",
           "defense-mul"
         ]
       },
       {
         "skill": 1,
         "features": [
+          "common-melee",
+          "defense-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged",
+          "defense-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
           "defense-mul"
         ]
       },
@@ -41873,9 +41854,9 @@
     "class": "シールドナイト",
     "element": "地",
     "species": "ビジター",
-    "hp": 7106,
-    "attack": 580,
-    "defense": 878,
+    "hp": 7468,
+    "attack": 681,
+    "defense": 1030,
     "resist": 210,
     "supplements": [
       "回復100%/死亡時(1回のみ)"
@@ -41922,7 +41903,7 @@
         "defenseMul": 300
       },
       {
-        "featureName": "class-melee",
+        "featureName": "common-melee",
         "isConditionalBuff": true,
         "potentialBonus": {
           "attackDebuff": {
@@ -41941,18 +41922,51 @@
     "defenseMul": 150,
     "envHpMul": 130,
     "situations": [
-      {},
       {
-        "skill": 1
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
       },
       {
         "features": [
+          "common-melee",
           "defense-mul"
         ]
       },
       {
         "skill": 1,
         "features": [
+          "common-melee",
+          "defense-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged",
+          "defense-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
           "defense-mul"
         ]
       },
@@ -43090,9 +43104,9 @@
     "class": "シールドナイト",
     "element": "風",
     "species": "ビジター",
-    "hp": 6840,
-    "attack": 604,
-    "defense": 863,
+    "hp": 7188,
+    "attack": 709,
+    "defense": 1012,
     "resist": 214,
     "supplements": [
       "スタン無効"
@@ -43152,7 +43166,7 @@
         }
       },
       {
-        "featureName": "class-melee",
+        "featureName": "common-melee",
         "isConditionalBuff": true,
         "defenseMul": 200,
         "potentialBonus": {
@@ -43161,9 +43175,27 @@
       }
     ],
     "situations": [
-      {},
       {
-        "skill": 1
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
       }
     ]
   },
@@ -44240,9 +44272,9 @@
     "class": "シールドナイト",
     "element": "火",
     "species": "ドラゴン",
-    "hp": 7159,
-    "attack": 570,
-    "defense": 893,
+    "hp": 7524,
+    "attack": 669,
+    "defense": 1047,
     "resist": 208,
     "targetAdd": 2,
     "supplements": [
@@ -44923,9 +44955,9 @@
     "class": "シールドナイト",
     "element": "光",
     "species": "アンデッド",
-    "hp": 6257,
-    "attack": 491,
-    "defense": 930,
+    "hp": 6575,
+    "attack": 577,
+    "defense": 1091,
     "resist": 235,
     "supplements": [
       "毒無効",
