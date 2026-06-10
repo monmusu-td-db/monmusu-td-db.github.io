@@ -3122,7 +3122,6 @@ export default class Situation implements TableRow<Keys> {
         case cond.normal:
         case cond.definiteAction:
         case cond.barbarianAddAct:
-        case cond.shieldKnightRangedAction:
         case cond.whipperDebuffAction:
           return false;
         default:
@@ -3133,7 +3132,6 @@ export default class Situation implements TableRow<Keys> {
       | typeof cond.normal
       | typeof cond.definiteAction
       | typeof cond.barbarianAddAct
-      | typeof cond.shieldKnightRangedAction
       | typeof cond.whipperDebuffAction
     >[];
     type CondKey = (typeof condKeys)[number];
@@ -3167,7 +3165,6 @@ export default class Situation implements TableRow<Keys> {
               fn(filter) &&
               !fn(cond.definite) &&
               !fn(cond.barbarianAttackAdd) &&
-              !fn(cond.shieldKnightRanged) &&
               !fn(cond.whipperDebuff)
             );
           case cond.definiteAction:
@@ -3182,10 +3179,6 @@ export default class Situation implements TableRow<Keys> {
               (fn(cond.barbarianAttackAdd) || item.isGeneralDefinite) &&
               (fn(cond.action) || item.isGeneralDefiniteAction)
             );
-          case cond.shieldKnightRanged:
-            return fn(cond.shieldKnightRanged) && !fn(cond.action);
-          case cond.shieldKnightRangedAction:
-            return fn(cond.shieldKnightRanged) && fn(cond.action);
           case cond.destroyerRanged:
             return fn(cond.destroyerRanged) || features.includes("class-melee");
           case cond.assassinAttackMul1:
