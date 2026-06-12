@@ -381,6 +381,9 @@
     "placement": "近",
     "features": [
       {
+        "damageCut": 15
+      },
+      {
         "featureName": "class-action",
         "isAction": true,
         "annotations": [
