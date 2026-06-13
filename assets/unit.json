@@ -4413,7 +4413,7 @@
     "class": "ハーミット",
     "element": "光",
     "hp": 2355,
-    "attack": 479,
+    "attack": 492,
     "defense": 349,
     "resist": 480,
     "exSkill1": {
@@ -4492,7 +4492,7 @@
     "class": "ハーミット",
     "element": "風",
     "hp": 2417,
-    "attack": 448,
+    "attack": 461,
     "defense": 330,
     "resist": 446,
     "exSkill1": {
@@ -5031,7 +5031,7 @@
     "class": "ハーミット",
     "element": "水",
     "hp": 2314,
-    "attack": 413,
+    "attack": 425,
     "defense": 346,
     "resist": 404,
     "exSkill1": {
@@ -5104,7 +5104,7 @@
     "class": "ハーミット",
     "element": "火",
     "hp": 2148,
-    "attack": 425,
+    "attack": 437,
     "defense": 315,
     "resist": 422,
     "supplements": [
@@ -16011,7 +16011,7 @@
     "element": "水",
     "species": "ビジター",
     "hp": 2520,
-    "attack": 452,
+    "attack": 465,
     "defense": 364,
     "resist": 457,
     "exSkill1": {
@@ -16070,7 +16070,7 @@
     "element": "水",
     "cost": 15,
     "hp": 2520,
-    "attack": 452,
+    "attack": 465,
     "defense": 364,
     "resist": 457,
     "supplements": [
@@ -17819,9 +17819,9 @@
     "class": "ハーミット",
     "element": "水",
     "hp": 2479,
-    "attack": 429,
+    "attack": 441,
     "defense": 394,
-    "resist": 449,
+    "resist": 450,
     "supplements": [
       "スタン無効",
       "毒即時回復"
@@ -19627,7 +19627,7 @@
     "element": "闇",
     "species": "妖怪",
     "hp": 2479,
-    "attack": 456,
+    "attack": 469,
     "defense": 352,
     "resist": 476,
     "exSkill1": {
@@ -19679,7 +19679,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 157,
     "unitName": "【脛こすり娘】ハギ",
     "unitShortName": "ハギ",
@@ -19687,10 +19686,10 @@
     "class": "ハーミット",
     "element": "水",
     "species": "妖怪",
-    "hp": 2292,
-    "attack": 404,
-    "defense": 310,
-    "resist": 422,
+    "hp": 2293,
+    "attack": 417,
+    "defense": 312,
+    "resist": 419,
     "supplements": [
       "雨(4秒)/配置"
     ],
@@ -22465,7 +22464,7 @@
     "element": "闇",
     "species": "デミ",
     "hp": 2438,
-    "attack": 482,
+    "attack": 496,
     "defense": 327,
     "resist": 488,
     "exSkill1": {
@@ -28006,7 +28005,7 @@
     "class": "ハーミット",
     "element": "火",
     "hp": 2479,
-    "attack": 475,
+    "attack": 489,
     "defense": 364,
     "resist": 442,
     "species": "ドラゴン",
@@ -29755,7 +29754,7 @@
     "element": "闇",
     "species": "悪魔",
     "hp": 2500,
-    "attack": 475,
+    "attack": 489,
     "defense": 364,
     "resist": 438,
     "exSkill1": {
@@ -31986,7 +31985,7 @@
     "element": "水",
     "species": "デミ",
     "hp": 3193,
-    "attack": 456,
+    "attack": 469,
     "defense": 339,
     "resist": 450,
     "exSkill1": {
@@ -36124,7 +36123,7 @@
     "element": "光",
     "species": "アンデッド",
     "hp": 2376,
-    "attack": 498,
+    "attack": 512,
     "defense": 358,
     "resist": 446,
     "exSkill1": {
@@ -36757,7 +36756,7 @@
     "element": "地",
     "species": "妖怪",
     "hp": 2686,
-    "attack": 440,
+    "attack": 453,
     "defense": 364,
     "resist": 438,
     "placement": "両",
@@ -38414,7 +38413,7 @@
     "class": "ハーミット",
     "element": "風",
     "hp": 2686,
-    "attack": 440,
+    "attack": 453,
     "defense": 352,
     "resist": 453,
     "block": 0,
@@ -38661,7 +38660,7 @@
     "element": "光",
     "species": "エイリアン",
     "hp": 2376,
-    "attack": 479,
+    "attack": 493,
     "defense": 358,
     "resist": 465,
     "exSkill1": {
@@ -52931,7 +52930,7 @@
     "element": "地",
     "species": "妖怪",
     "hp": 2436,
-    "attack": 436,
+    "attack": 449,
     "defense": 373,
     "resist": 476,
     "exSkill1": {
@@ -53280,7 +53279,7 @@
     "element": "光",
     "species": "妖怪",
     "hp": 2272,
-    "attack": 486,
+    "attack": 500,
     "defense": 327,
     "resist": 515,
     "supplements": [
