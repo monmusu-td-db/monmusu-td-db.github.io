@@ -8,7 +8,7 @@
     "class": "プリースト",
     "element": "火",
     "hp": 3965,
-    "attack": 697,
+    "attack": 782,
     "defense": 284,
     "resist": 414,
     "block": 0,
@@ -4694,7 +4694,7 @@
     "element": "闇",
     "species": "アンデッド",
     "hp": 3738,
-    "attack": 649,
+    "attack": 727,
     "defense": 273,
     "resist": 414,
     "supplements": [
@@ -4909,7 +4909,7 @@
     "class": "プリースト",
     "element": "水",
     "hp": 3510,
-    "attack": 622,
+    "attack": 697,
     "defense": 271,
     "resist": 389,
     "supplements": [
@@ -5209,7 +5209,7 @@
     "class": "プリースト",
     "element": "地",
     "hp": 3673,
-    "attack": 574,
+    "attack": 643,
     "defense": 263,
     "resist": 378,
     "exSkill1": {
@@ -6807,7 +6807,7 @@
     "class": "プリースト",
     "element": "光",
     "hp": 3608,
-    "attack": 660,
+    "attack": 740,
     "defense": 271,
     "resist": 425,
     "supplements": [
@@ -18384,7 +18384,6 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 141,
     "unitName": "【ワイト娘】バロウ",
     "unitShortName": "バロウ",
@@ -18393,9 +18392,9 @@
     "element": "闇",
     "species": "アンデッド",
     "hp": 3933,
-    "attack": 686,
-    "defense": 282,
-    "resist": 429,
+    "attack": 770,
+    "defense": 281,
+    "resist": 428,
     "exSkill1": {
       "skillName": "エナジーコンバート",
       "attackMul": 230,
@@ -21162,7 +21161,7 @@
     "class": "プリースト",
     "element": "水",
     "hp": 3933,
-    "attack": 676,
+    "attack": 758,
     "defense": 276,
     "resist": 443,
     "exSkill1": {
@@ -26482,7 +26481,7 @@
     "class": "プリースト",
     "element": "光",
     "hp": 3283,
-    "attack": 676,
+    "attack": 758,
     "defense": 393,
     "resist": 350,
     "supplements": [
@@ -28229,7 +28228,7 @@
     "element": "火",
     "species": "ビジター",
     "hp": 3575,
-    "attack": 654,
+    "attack": 733,
     "defense": 289,
     "resist": 479,
     "block": 0,
@@ -32562,7 +32561,7 @@
     "class": "プリースト",
     "element": "光",
     "hp": 3965,
-    "attack": 676,
+    "attack": 758,
     "defense": 284,
     "resist": 429,
     "block": 0,
@@ -36296,7 +36295,6 @@
     ]
   },
   {
-    "TODO_DESC": "StatはWiki情報",
     "id": 298,
     "unitName": "【颯明巫フェアリー娘】ネリー",
     "unitShortName": "ネリー/正月",
@@ -36305,7 +36303,7 @@
     "element": "風",
     "species": "妖精",
     "hp": 3478,
-    "attack": 697,
+    "attack": 782,
     "defense": 261,
     "resist": 428,
     "block": 0,
@@ -37994,7 +37992,7 @@
     "class": "プリースト",
     "element": "光",
     "hp": 3998,
-    "attack": 697,
+    "attack": 782,
     "defense": 284,
     "resist": 411,
     "block": 0,
@@ -39160,7 +39158,7 @@
     "element": "光",
     "species": "悪魔",
     "hp": 3900,
-    "attack": 644,
+    "attack": 721,
     "defense": 291,
     "resist": 446,
     "exSkill1": {
@@ -39978,7 +39976,7 @@
     "element": "闇",
     "species": "ビジター",
     "hp": 4225,
-    "attack": 590,
+    "attack": 662,
     "defense": 304,
     "resist": 428,
     "supplements": [
@@ -40085,7 +40083,7 @@
     "element": "地",
     "species": "ドラゴン",
     "hp": 4160,
-    "attack": 633,
+    "attack": 709,
     "defense": 319,
     "resist": 386,
     "placement": "両",
@@ -41166,7 +41164,7 @@
       "デミ"
     ],
     "hp": 4193,
-    "attack": 649,
+    "attack": 728,
     "defense": 296,
     "resist": 403,
     "supplements": [
@@ -43715,7 +43713,7 @@
     "element": "火",
     "species": "ドラゴン",
     "hp": 4128,
-    "attack": 660,
+    "attack": 740,
     "defense": 296,
     "resist": 403,
     "exSkill1": {
@@ -45416,7 +45414,7 @@
     "element": "風",
     "species": "エイリアン",
     "hp": 3575,
-    "attack": 687,
+    "attack": 770,
     "defense": 266,
     "resist": 418,
     "supplements": [
@@ -46644,7 +46642,7 @@
     "element": "水",
     "species": "妖怪",
     "hp": 3835,
-    "attack": 671,
+    "attack": 752,
     "defense": 299,
     "resist": 425,
     "exSkill1": {
@@ -48894,7 +48892,7 @@
     "class": "プリースト",
     "element": "水",
     "hp": 3673,
-    "attack": 569,
+    "attack": 637,
     "defense": 304,
     "resist": 428,
     "block": 0,
@@ -52459,7 +52457,7 @@
     "element": "地",
     "species": "ドラゴン",
     "hp": 3673,
-    "attack": 740,
+    "attack": 830,
     "defense": 309,
     "resist": 382,
     "placement": "両",
@@ -53430,7 +53428,7 @@
     "element": "水",
     "species": "妖怪",
     "hp": 3788,
-    "attack": 644,
+    "attack": 721,
     "defense": 286,
     "resist": 400,
     "exSkill1": {
