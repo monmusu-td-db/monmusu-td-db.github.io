@@ -69,11 +69,16 @@ export class BaseStat<
                     </T.Value>
                   </T.Multiply>
                 )}
-                <T.Plus enabled={f.baseAdd !== 0}>
+                <T.Plus enabled={f.baseAdd > 0}>
                   <T.Value isPositive={f.baseAdd >= 0}>
                     {d ? "加算値" : f.baseAdd}
                   </T.Value>
                 </T.Plus>
+                <T.Minus enabled={f.baseAdd < 0}>
+                  <T.Value isPositive={f.baseAdd >= 0}>
+                    {d ? "加算値" : Math.abs(f.baseAdd)}
+                  </T.Value>
+                </T.Minus>
                 <T.Multiply enabled={ssMulEnabled || !!f.weaponBaseBuff}>
                   <T.Brackets enabled={ssMulEnabled && !!f.weaponBaseBuff}>
                     {ssMulEnabled && (
