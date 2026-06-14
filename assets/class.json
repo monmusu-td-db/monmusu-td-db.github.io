@@ -1105,22 +1105,22 @@
         "isAbility": true,
         "isSupport": true,
         "annotations": [
-          "クラス特性(70秒経過後)"
+          "クラス特性(90秒経過後)"
         ],
         "conditions": [
           "援"
         ],
         "staticDamage": {
           "key": "static",
-          "value": 350
+          "value": 450
         },
         "staticDefense": {
           "key": "static",
-          "value": 350
+          "value": 450
         },
         "staticResist": {
           "key": "static",
-          "value": 350
+          "value": 450
         },
         "target": "射程内"
       }
@@ -1166,15 +1166,15 @@
         ],
         "staticDamage": {
           "key": "static",
-          "value": 120
+          "value": 150
         },
         "staticDefense": {
           "key": "static",
-          "value": 120
+          "value": 150
         },
         "staticResist": {
           "key": "static",
-          "value": 120
+          "value": 150
         },
         "target": "全体",
         "supplements": [
@@ -1198,15 +1198,15 @@
         ],
         "staticDamage": {
           "key": "static",
-          "value": 170
+          "value": 200
         },
         "staticDefense": {
           "key": "static",
-          "value": 170
+          "value": 200
         },
         "staticResist": {
           "key": "static",
-          "value": 170
+          "value": 200
         },
         "target": "全体",
         "supplements": [
