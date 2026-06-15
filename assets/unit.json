@@ -54221,5 +54221,268 @@
         "value": 130
       }
     ]
+  },
+  {
+    "id": 434,
+    "unitName": "【スターリターナー娘】ステラリトラ",
+    "unitShortName": "ステラリトラ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "光",
+    "species": "エイリアン",
+    "hp": 7244,
+    "attack": 710,
+    "defense": 1091,
+    "resist": 195,
+    "range": 150,
+    "exSkill1": {
+      "skillName": "フォトンルーチェ",
+      "attackMul": 340,
+      "fixedDelay": 1,
+      "duration": "単発",
+      "cooldown": 5,
+      "supplements": [
+        "コスト-11/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "物理防御力+90",
+      "光属性マスボーナス3倍"
+    ],
+    "weapon": {
+      "weaponName": "コズミックセイバー",
+      "hp": 250,
+      "attack": 30,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "攻撃速度+10%(5秒)/攻撃"
+        ]
+      },
+      {
+        "featureName": "0-sec",
+        "isConditionalBuff": true,
+        "annotations": [
+          "ショタマター効果"
+        ],
+        "conditions": [
+          {
+            "key": "s",
+            "value": 0
+          }
+        ],
+        "hpMul": 400,
+        "attackMul": 400,
+        "defenseMul": 400,
+        "resistMul": 400,
+        "supplements": [
+          "ショタ効果延長(15秒)/5体撃破",
+          "スタン(5秒)/ショタ終了後→自分"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ショタ効果延長(15秒)/3体撃破",
+            "スタン(5秒)/ショタ終了後→自分"
+          ]
+        }
+      },
+      {
+        "featureName": "60-sec",
+        "isConditionalDebuff": true,
+        "conditions": [
+          {
+            "key": "s",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "featureName": "common-hp-50%",
+        "skill": 1,
+        "damageFactor": 180,
+        "damageType": "回復"
+      },
+      {
+        "featureName": "common-melee",
+        "skill": 1,
+        "damageFactor": 300,
+        "splash": true
+      },
+      {
+        "featureName": "common-ranged",
+        "skill": 1,
+        "rounds": 2,
+        "laser": true,
+        "damageType": "貫通",
+        "supplements": [
+          "スタン付与30%→命中"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "common-hp-100%",
+          "0-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "common-hp-100%",
+          "0-sec"
+        ]
+      },
+      {
+        "features": [
+          "60-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "60-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "common-hp-100%",
+          "60-sec"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "common-hp-100%",
+          "60-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field",
+          "0-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "common-light-field",
+          "0-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "common-hp-100%",
+          "common-light-field",
+          "0-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "common-hp-100%",
+          "common-light-field",
+          "0-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field",
+          "60-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-hp-50%",
+          "common-light-field",
+          "60-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "common-hp-100%",
+          "common-light-field",
+          "60-sec"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "common-hp-100%",
+          "common-light-field",
+          "60-sec"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": -1,
+        "target": "自分",
+        "element": "光",
+        "supplements": [
+          "配置時"
+        ]
+      }
+    ]
   }
 ]
