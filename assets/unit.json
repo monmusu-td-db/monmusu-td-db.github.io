@@ -54484,5 +54484,163 @@
         ]
       }
     ]
+  },
+  {
+    "id": 435,
+    "unitName": "【UFO娘】セリンダ",
+    "unitShortName": "セリンダ",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "風",
+    "species": "エイリアン",
+    "hp": 2177,
+    "attack": 1033,
+    "defense": 239,
+    "resist": 351,
+    "exSkill1": {
+      "skillName": "インビジブルフルバースト",
+      "attackMul": 290,
+      "targetAdd": 2,
+      "rangeMul": 220,
+      "duration": 30,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-17/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRI率/CRI率上限+30%"
+    ],
+    "weapon": {
+      "weaponName": "U・F・D",
+      "attack": 35,
+      "resist": 20,
+      "range": 10
+    },
+    "features": [
+      {
+        "skill": 0,
+        "target": [
+          1,
+          5
+        ],
+        "penetrationAdd": 33
+      },
+      {
+        "supplements": [
+          "ATK+200/配置エイリアン",
+          "-→エイリアン"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK+230/配置エイリアン",
+            "-→エイリアン"
+          ]
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "tkn配置/発動→射程内"
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 200
+          }
+        ],
+        "attackMul": 200
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4350001,
+    "parentId": 435,
+    "unitName": "スフィアドローン",
+    "unitShortName": "SドローンT",
+    "rarity": "C",
+    "element": "風",
+    "species": "エイリアン",
+    "cost": 0,
+    "hp": 2235,
+    "attack": 1184,
+    "defense": 219,
+    "resist": 210,
+    "attackSpeed": 200,
+    "delay": 40,
+    "target": 1,
+    "range": 150,
+    "moveSpeed": 160,
+    "damageType": "物理",
+    "placement": "両",
+    "moveType": "飛行",
+    "supplements": [
+      "被Dmg50%引受→エイリアン",
+      "RES-5%→命中",
+      "攻撃速度+15%(5秒)/攻撃",
+      "火傷無効",
+      "毒無効"
+    ],
+    "features": [
+      {
+        "featureName": "parent-skill1",
+        "parentSkill": 1,
+        "isBuffSkill": true,
+        "attackMul": 290,
+        "rangeMul": 220
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "parent-skill1",
+          "common-token-limit-nodesc"
+        ]
+      }
+    ]
   }
 ]
