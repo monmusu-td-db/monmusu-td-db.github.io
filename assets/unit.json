@@ -30296,13 +30296,13 @@
     "resist": 227,
     "exSkill1": {
       "skillName": "メテオバスター",
-      "attackMul": 340,
-      "resistMul": 340,
+      "attackMul": 440,
+      "resistMul": 440,
       "splash": true,
       "duration": 20,
       "cooldown": 5,
       "supplements": [
-        "コスト-12/発動",
+        "コスト-10/発動",
         "引き付け"
       ]
     },
@@ -30420,7 +30420,7 @@
       "duration": 20,
       "cooldown": 5,
       "supplements": [
-        "コスト-14/発動",
+        "コスト-12/発動",
         "隠密"
       ]
     },
@@ -32770,14 +32770,14 @@
     "resist": 109,
     "exSkill1": {
       "skillName": "ブラインドボルト",
-      "attackMul": 260,
+      "attackMul": 320,
       "target": 5,
       "range": 300,
       "duration": 20,
       "cooldown": 5,
       "damageType": "魔法",
       "supplements": [
-        "コスト-12/発動",
+        "コスト-10/発動",
         "暗闇付与→命中"
       ]
     },
@@ -32814,12 +32814,12 @@
         "damageFactor": 120
       },
       {
-        "featureName": "hp-49%",
-        "currentHp": 49,
+        "featureName": "hp-39%",
+        "currentHp": 39,
         "conditions": [
           {
             "key": "HP",
-            "value": 49
+            "value": 39
           }
         ]
       }
@@ -32838,13 +32838,13 @@
       },
       {
         "features": [
-          "hp-49%"
+          "hp-39%"
         ]
       },
       {
         "skill": 1,
         "features": [
-          "hp-49%"
+          "hp-39%"
         ]
       },
       {
@@ -32896,7 +32896,7 @@
     "element": "闇",
     "species": "エイリアン",
     "hp": 2544,
-    "attack": 1056,
+    "attack": 981,
     "defense": 223,
     "resist": 320,
     "supplements": [
@@ -32904,13 +32904,13 @@
     ],
     "exSkill1": {
       "skillName": "ポイントシュート",
-      "attackMul": 290,
+      "attackMul": 360,
       "rounds": 2,
-      "rangeMul": 200,
+      "rangeMul": 220,
       "duration": 20,
       "cooldown": 5,
       "supplements": [
-        "コスト-16/発動"
+        "コスト-12/発動"
       ]
     },
     "potentials": [
@@ -32931,7 +32931,7 @@
     "features": [
       {
         "skill": 1,
-        "penetrationAdd": 70
+        "penetrationAdd": 80
       }
     ],
     "delayMul": 85,
