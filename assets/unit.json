@@ -54563,12 +54563,74 @@
           }
         ],
         "attackMul": 200
+      },
+      {
+        "featureName": "attack-add1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 1000
+          }
+        ],
+        "attackAdd": 1000,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "+",
+              "value": 1150
+            }
+          ],
+          "attackAdd": 1150
+        }
+      },
+      {
+        "featureName": "attack-add2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "+",
+            "value": 2000
+          }
+        ],
+        "attackAdd": 2000,
+        "potentialBonus": {
+          "conditions": [
+            {
+              "key": "+",
+              "value": 2300
+            }
+          ],
+          "attackAdd": 2300
+        }
       }
     ],
     "situations": [
       {},
       {
         "skill": 1
+      },
+      {
+        "features": [
+          "attack-add1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-add1"
+        ]
+      },
+      {
+        "features": [
+          "attack-add2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-add2"
+        ]
       },
       {
         "require": [
