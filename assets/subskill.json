@@ -2847,5 +2847,27 @@
     "damageFactor": 100,
     "physicalDamageCut": -100,
     "magicalDamageCut": -100
+  },
+  {
+    "name": "HP犠牲再出撃時間短縮",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "再出撃までの時間を55%短縮、代わりに最大HP-10%",
+    "hp": -10,
+    "redeployTimeCut": 55
+  },
+  {
+    "name": "深淵に臨む者",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "ボスへ与えるダメージが1.1倍になるが、ボス以外へ与えるダメージが-10%",
+    "damageFactor": 10
+  },
+  {
+    "name": "グレイテストコスモエナジー",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "配置中、自身の攻撃力+15%、スキルを1回使用するごとに効果量15%上昇(最大150%)",
+    "attackMul": 15
   }
 ]
