@@ -557,6 +557,10 @@ const filterBuffPageKeys = ["filterDisabled"] as const;
 type FilterBuffPage = (typeof filterBuffPageKeys)[number];
 
 const initialFilterObj = [
+  [Data.Rarity.L, true],
+  [Data.Rarity.E, true],
+  [Data.Rarity.R, true],
+  [Data.Rarity.C, true],
   // [Data.UnitClass.key.barbarian, true],
   // [Data.Species.key.undead, true],
   ["filterDisabled", true],
