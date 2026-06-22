@@ -305,6 +305,7 @@
     "rarity": "L",
     "class": "ランサー",
     "element": "水",
+    "species": "海魔",
     "hp": 4819,
     "attack": 671,
     "defense": 481,
@@ -640,6 +641,7 @@
     "rarity": "C",
     "class": "ランサー",
     "element": "水",
+    "species": "海魔",
     "hp": 4098,
     "attack": 585,
     "defense": 451,
@@ -4326,7 +4328,10 @@
     "rarity": "C",
     "class": "コンジャラー",
     "element": "水",
-    "species": "デミ",
+    "species": [
+      "デミ",
+      "海魔"
+    ],
     "hp": 2367,
     "attack": 635,
     "defense": 231,
@@ -4908,6 +4913,7 @@
     "rarity": "R",
     "class": "プリースト",
     "element": "水",
+    "species": "海魔",
     "hp": 3510,
     "attack": 697,
     "defense": 271,
@@ -5030,6 +5036,7 @@
     "rarity": "R",
     "class": "ハーミット",
     "element": "水",
+    "species": "水妖",
     "hp": 2314,
     "attack": 425,
     "defense": 346,
@@ -7266,6 +7273,7 @@
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "水",
+    "species": "海魔",
     "hp": 9114,
     "attack": 1228,
     "defense": 675,
@@ -9243,6 +9251,7 @@
     "rarity": "L",
     "class": "チーフアサシン",
     "element": "水",
+    "species": "海魔",
     "hp": 4582,
     "attack": 617,
     "defense": 420,
@@ -11084,6 +11093,7 @@
     "rarity": "E",
     "class": "バード",
     "element": "水",
+    "species": "海魔",
     "hp": 3429,
     "attack": 286,
     "defense": 347,
@@ -11903,7 +11913,10 @@
     "rarity": "L",
     "class": "チーフアサシン",
     "element": "水",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "海魔"
+    ],
     "hp": 4477,
     "attack": 627,
     "defense": 416,
@@ -12378,7 +12391,10 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "水",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "海魔"
+    ],
     "hp": 6686,
     "attack": 715,
     "defense": 1048,
@@ -13478,6 +13494,7 @@
     "rarity": "L",
     "class": "シャーマン",
     "element": "水",
+    "species": "海魔",
     "hp": 2984,
     "attack": 0,
     "defense": 312,
@@ -17190,6 +17207,7 @@
     "rarity": "E",
     "class": "シールドナイト",
     "element": "水",
+    "species": "海魔",
     "hp": 6687,
     "attack": 664,
     "defense": 978,
@@ -17818,6 +17836,7 @@
     "rarity": "L",
     "class": "ハーミット",
     "element": "水",
+    "species": "水妖",
     "hp": 2479,
     "attack": 441,
     "defense": 394,
@@ -18991,7 +19010,10 @@
     "rarity": "L",
     "class": "ブレイダー",
     "element": "水",
-    "species": "妖怪",
+    "species": [
+      "妖怪",
+      "水妖"
+    ],
     "hp": 6215,
     "attack": 1124,
     "defense": 467,
@@ -19123,7 +19145,10 @@
     "rarity": "E",
     "class": "モンク",
     "element": "水",
-    "species": "妖怪",
+    "species": [
+      "妖怪",
+      "水妖"
+    ],
     "hp": 7185,
     "attack": 813,
     "defense": 322,
@@ -19443,7 +19468,10 @@
     "rarity": "R",
     "class": "ガンナー",
     "element": "水",
-    "species": "妖怪",
+    "species": [
+      "妖怪",
+      "水妖"
+    ],
     "hp": 2587,
     "attack": 848,
     "defense": 219,
@@ -20436,7 +20464,10 @@
     "rarity": "E",
     "class": "デストロイヤー",
     "element": "水",
-    "species": "デミ",
+    "species": [
+      "デミ",
+      "海魔"
+    ],
     "hp": 8965,
     "attack": 1143,
     "defense": 601,
@@ -20821,6 +20852,7 @@
     "rarity": "L",
     "class": "ガンナー",
     "element": "水",
+    "species": "海魔",
     "hp": 2608,
     "attack": 981,
     "defense": 237,
@@ -21159,6 +21191,7 @@
     "rarity": "L",
     "class": "プリースト",
     "element": "水",
+    "species": "海魔",
     "hp": 3933,
     "attack": 758,
     "defense": 276,
@@ -23935,6 +23968,7 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "水",
+    "species": "海魔",
     "hp": 6687,
     "attack": 721,
     "defense": 1030,
@@ -25599,7 +25633,10 @@
     "rarity": "L",
     "class": "ウォーロック",
     "element": "水",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "海魔"
+    ],
     "hp": 2548,
     "attack": 972,
     "defense": 235,
@@ -26304,6 +26341,7 @@
     "rarity": "E",
     "class": "チーフアサシン",
     "element": "水",
+    "species": "水妖",
     "hp": 4054,
     "attack": 607,
     "defense": 416,
@@ -27243,7 +27281,10 @@
     "rarity": "E",
     "class": "バード",
     "element": "水",
-    "species": "悪魔",
+    "species": [
+      "悪魔",
+      "水妖"
+    ],
     "hp": 3487,
     "attack": 297,
     "defense": 335,
@@ -28656,7 +28697,10 @@
     "rarity": "E",
     "class": "デストロイヤー",
     "element": "水",
-    "species": "妖怪",
+    "species": [
+      "妖怪",
+      "水妖"
+    ],
     "hp": 8890,
     "attack": 1143,
     "defense": 628,
@@ -34077,7 +34121,10 @@
     "rarity": "L",
     "class": "ランサー",
     "element": "水",
-    "species": "悪魔",
+    "species": [
+      "悪魔",
+      "海魔"
+    ],
     "hp": 4667,
     "attack": 688,
     "defense": 472,
@@ -38290,6 +38337,7 @@
     "rarity": "E",
     "class": "ウォーロック",
     "element": "水",
+    "species": "水妖",
     "hp": 2594,
     "attack": 996,
     "defense": 208,
@@ -39023,7 +39071,10 @@
     "rarity": "L",
     "class": "コンジャラー",
     "element": "水",
-    "species": "悪魔",
+    "species": [
+      "悪魔",
+      "水妖"
+    ],
     "hp": 2367,
     "attack": 771,
     "defense": 242,
@@ -39608,14 +39659,16 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 330,
     "unitName": "【シーエルフ娘】アズレア",
     "unitShortName": "アズレア",
     "rarity": "E",
     "class": "アーチャー",
     "element": "水",
-    "species": "デミ",
+    "species": [
+      "デミ",
+      "海魔"
+    ],
     "hp": 2569,
     "attack": 692,
     "defense": 298,
@@ -41547,7 +41600,10 @@
     "rarity": "L",
     "class": "ウィッパー",
     "element": "水",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "水妖"
+    ],
     "hp": 4376,
     "attack": 827,
     "defense": 467,
@@ -43360,6 +43416,7 @@
     "rarity": "L",
     "class": "ウィッパー",
     "element": "水",
+    "species": "海魔",
     "hp": 4487,
     "attack": 891,
     "defense": 445,
@@ -43460,7 +43517,10 @@
     "rarity": "L",
     "class": "モンク",
     "element": "水",
-    "species": "デミ",
+    "species": [
+      "デミ",
+      "海魔"
+    ],
     "hp": 6500,
     "attack": 928,
     "defense": 337,
@@ -46300,6 +46360,7 @@
     "rarity": "L",
     "class": "バーバリアン",
     "element": "水",
+    "species": "海魔",
     "hp": 7360,
     "attack": 1189,
     "defense": 470,
@@ -46639,7 +46700,10 @@
     "rarity": "L",
     "class": "プリースト",
     "element": "水",
-    "species": "妖怪",
+    "species": [
+      "妖怪",
+      "水妖"
+    ],
     "hp": 3835,
     "attack": 752,
     "defense": 299,
@@ -50953,6 +51017,7 @@
     "rarity": "L",
     "class": "ランサー",
     "element": "水",
+    "species": "海魔",
     "hp": 4971,
     "attack": 655,
     "defense": 502,
@@ -53622,13 +53687,13 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 431,
     "unitName": "【契雨のヴォジャノーイ娘】リグラーナ",
     "unitShortName": "リグラーナ/嫁",
     "rarity": "E",
     "class": "ランサー",
     "element": "水",
+    "species": "水妖",
     "hp": 4364,
     "attack": 677,
     "defense": 426,

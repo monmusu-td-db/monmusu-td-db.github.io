@@ -1396,6 +1396,8 @@ const species = {
   demon: "悪魔",
   undead: "アンデッド",
   demi: "デミ",
+  marine: "海魔",
+  freshwater: "水妖",
   visitor: "ビジター",
 } as const;
 type SpeciesKey = keyof typeof species;
