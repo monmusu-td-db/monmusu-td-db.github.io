@@ -1,7 +1,7 @@
-/* html:root { */
 /* テスト用 */
-/* --bs-font-sans-serif: "Noto Sans JP"; */
-/* } */
+/* html:root {
+  --bs-font-sans-serif: "Noto Sans JP";
+} */
 
 body {
   /* Chromiumのスクロールバー対策 */
