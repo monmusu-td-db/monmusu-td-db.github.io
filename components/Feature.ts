@@ -24,7 +24,7 @@ const Require = {
 
   isElementApplied(
     requirements: ReadonlySet<Require> | undefined,
-    fieldElements: ReadonlySet<Data.Element>
+    fieldElements: ReadonlySet<Data.Element>,
   ): boolean {
     if (requirements === undefined) {
       return true;
@@ -40,7 +40,7 @@ const Require = {
 
   isElementExcluded(
     excludeList: ReadonlySet<Require> | undefined,
-    fieldElements: ReadonlySet<Data.Element>
+    fieldElements: ReadonlySet<Data.Element>,
   ): boolean {
     if (excludeList === undefined) {
       return false;
@@ -200,7 +200,7 @@ export const Debuff = {
     interval: number,
     attackSpeed: number | undefined,
     defres: number,
-    rounds: number
+    rounds: number,
   ): number | undefined {
     if (obj === undefined || typeof obj === "number") {
       return obj;
@@ -575,7 +575,7 @@ export class Feature {
   private static setValue<T extends keyof CommonFeature>(
     obj: FeatureObject,
     key: T,
-    value: CommonFeature[T]
+    value: CommonFeature[T],
   ): void {
     obj[key] = value;
   }
@@ -585,14 +585,14 @@ export class Feature {
   }
 
   static parseList(
-    src: readonly JsonFeature[]
+    src: readonly JsonFeature[],
   ): readonly Readonly<FeatureOutput>[] {
     return src.map((v) => this.parse(v));
   }
 
   static calculateList(
     src: readonly Readonly<FeatureOutput>[],
-    isPotentialApplied: boolean
+    isPotentialApplied: boolean,
   ): Readonly<FeatureOutputCore> {
     const ret: FeatureObject = {};
     src.forEach((feature) => {
@@ -617,6 +617,9 @@ export class Feature {
 
           case keys.damageFactor:
           case keys.delayMul:
+          case keys.damageDebuff:
+          case keys.physicalDamageDebuff:
+          case keys.magicalDamageDebuff:
             return (ret[key] = Data.Percent.multiply(ret[key], feature[key]));
 
           case keys.damageCut:
@@ -642,7 +645,7 @@ export class Feature {
       if (feature.fieldElements !== undefined) {
         ret.fieldElements = this.unionItems(
           ret.fieldElements,
-          feature.fieldElements
+          feature.fieldElements,
         );
       }
       if (feature.conditions !== undefined) {
@@ -651,13 +654,13 @@ export class Feature {
       if (feature.annotations !== undefined) {
         ret.annotations = this.concatItems(
           ret.annotations,
-          feature.annotations
+          feature.annotations,
         );
       }
       if (feature.deleteAnnotations !== undefined) {
         ret.deleteAnnotations = this.concatItems(
           ret.deleteAnnotations,
-          feature.deleteAnnotations
+          feature.deleteAnnotations,
         );
       }
       {
@@ -696,7 +699,7 @@ export class Feature {
       if (feature.attackDebuffs !== undefined) {
         ret.attackDebuffs = this.concatItems(
           ret.attackDebuffs,
-          feature.attackDebuffs
+          feature.attackDebuffs,
         );
       }
       {
@@ -741,13 +744,13 @@ export class Feature {
       if (feature.deleteSupplements !== undefined) {
         ret.deleteSupplements = this.unionItems(
           ret.deleteSupplements,
-          feature.deleteSupplements
+          feature.deleteSupplements,
         );
       }
     });
     if (ret.annotations !== undefined && ret.deleteAnnotations !== undefined) {
       ret.annotations = ret.annotations.filter(
-        (str) => !ret.deleteAnnotations?.includes(str)
+        (str) => !ret.deleteAnnotations?.includes(str),
       );
     }
     return ret;
@@ -755,7 +758,7 @@ export class Feature {
 
   private static concatItems<T>(
     obj1: T[] | undefined,
-    obj2: readonly T[]
+    obj2: readonly T[],
   ): T[] {
     obj1 ??= [];
     obj2.forEach((v) => obj1.push(v));
@@ -764,7 +767,7 @@ export class Feature {
 
   private static unionItems<T>(
     obj1: Set<T> | undefined,
-    obj2: ReadonlySet<T>
+    obj2: ReadonlySet<T>,
   ): Set<T> {
     obj1 ??= new Set();
     obj2.forEach((v) => obj1.add(v));
@@ -773,7 +776,7 @@ export class Feature {
 
   static getAdditionFactors(
     obj: Readonly<FeatureOutput>,
-    statType: Data.BaseStatType
+    statType: Data.BaseStatType,
   ): readonly AdditionFactor[] | undefined {
     switch (statType) {
       case stat.hp:
