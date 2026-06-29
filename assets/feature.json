@@ -576,6 +576,14 @@
     "damageFactor": 120
   },
   {
+    "featureName": "class-action",
+    "hasPotentials": [
+      "呪詛の敵へ与ダメ1.3倍"
+    ],
+    "isConditionalBuff": true,
+    "damageFactor": 130
+  },
+  {
     "featureName": "common-definite-back-attack",
     "conditions": [
       {

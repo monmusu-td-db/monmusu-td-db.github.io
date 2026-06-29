@@ -1827,6 +1827,7 @@ const potentialList = [
   { name: "スタンの敵へ与ダメ1.2倍", stat: null, value: 1 },
   { name: "配置時に天候：雨（短）", stat: null, value: 1 },
   { name: "スキル時自マス変化：地", stat: null, value: 1 },
+  { name: "呪詛の敵へ与ダメ1.3倍", stat: null, value: 1 },
 ] as const satisfies PotentialEffect[];
 export type Potential = (typeof potentialList)[number]["name"];
 export const Potential = {

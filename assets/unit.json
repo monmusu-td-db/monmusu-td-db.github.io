@@ -54769,5 +54769,130 @@
         ]
       }
     ]
+  },
+  {
+    "id": 437,
+    "unitName": "【媚淫痴のリリス娘】クロミ",
+    "unitShortName": "クロミ/水着",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "闇",
+    "species": "悪魔",
+    "hp": 2760,
+    "attack": 722,
+    "defense": 265,
+    "resist": 471,
+    "moveType": "飛行",
+    "supplements": [
+      "スタン付与20%/4秒"
+    ],
+    "exSkill1": {
+      "skillName": "サマーテンプテーション",
+      "attackMul": 260,
+      "target": "射程内",
+      "rangeMul": 200,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "停止(4秒)→発動",
+        "停止(1秒)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "呪詛の敵へ与ダメ1.3倍"
+    ],
+    "weapon": {
+      "weaponName": "ご主人クンニンギョウ",
+      "resist": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "supplements": [
+          "鈍足-30%→射程内",
+          "攻撃速度-10%(10秒)→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "鈍足-40%→射程内",
+            "攻撃速度-13%(10秒)→命中"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "呪殺男性20%(他10%)→射程内",
+          "-> ボスには無効"
+        ]
+      },
+      {
+        "skill": 1,
+        "magicalDamageDebuff": 300
+      },
+      {
+        "featureName": "common-definite-stan",
+        "isConditionalBuff": true,
+        "magicalDamageDebuff": 150
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "duration": 20,
+        "magicalDamageDebuff": 200,
+        "supplements": [
+          "スタン蓄積10%/魔法被弾"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-stan"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-debuff",
+        "require": [
+          "スタン特効"
+        ],
+        "target": "全体",
+        "value": 150
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "require": [
+          "スタン特効"
+        ],
+        "target": "全体",
+        "value": 150
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "全体",
+        "value": 300
+      }
+    ]
   }
 ]
