@@ -54894,5 +54894,238 @@
         "value": 300
       }
     ]
+  },
+  {
+    "id": 438,
+    "unitName": "【聖夏のアークエンジェル娘】オシュネー",
+    "unitShortName": "オシュネー/水着",
+    "rarity": "L",
+    "class": "チーフアサシン",
+    "element": "光",
+    "hp": 4300,
+    "attack": 672,
+    "defense": 416,
+    "resist": 118,
+    "moveType": "飛行",
+    "supplements": [
+      "スタン無効"
+    ],
+    "exSkill1": {
+      "skillName": "オーバーサンシャイン",
+      "attackMul": 290,
+      "targetAdd": 3,
+      "rangeMul": 180,
+      "duration": 15,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "スタンの敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "シエルグリッター",
+      "attack": 55,
+      "attackSpeed": 5
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "光"
+        ],
+        "attack": 112,
+        "potentialBonus": {
+          "attack": 115
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "スタン付与20%→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "supplements": [
+          "スタン付与30%→命中"
+        ]
+      },
+      {
+        "require": [
+          "光マス"
+        ],
+        "isConditionalBuff": true,
+        "splash": true,
+        "damageType": "魔法"
+      },
+      {
+        "isConditionalSkillBuff": true,
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "配置マス光マス化/発動",
+          "->射程内ランダム5マス変化"
+        ]
+      },
+      {
+        "featureName": "class-definite",
+        "annotations": [
+          "毒特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-stan",
+        "annotations": [
+          "スタン特効"
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "マス変化バフ"
+        ],
+        "attackMul": 200
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "attack-mul",
+          "common-light-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "attack-mul",
+          "common-light-field"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-light-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-light-field"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-stan",
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan",
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-stan",
+          "attack-mul",
+          "common-light-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-stan",
+          "attack-mul",
+          "common-light-field"
+        ]
+      }
+    ]
   }
 ]
