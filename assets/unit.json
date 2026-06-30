@@ -54771,6 +54771,120 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 436,
+    "unitName": "【告夏のバンシー娘】アンセ",
+    "unitShortName": "アンセ/水着",
+    "rarity": "E",
+    "class": "コンジャラー",
+    "element": "水",
+    "species": "アンデッド",
+    "hp": 2674,
+    "attack": 683,
+    "defense": 255,
+    "resist": 605,
+    "exSkill1": {
+      "skillName": "ブーストアラウンド",
+      "rangeMul": 160,
+      "duration": 25,
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "魔法防御力+60",
+      "射程+10",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "ノモルトミ・ヲシ",
+      "hp": 250,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "supplements": [
+          "攻撃速度+5%(5秒)→全体",
+          "->/敵死亡射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "攻撃速度+8%(5秒)→全体",
+            "->/敵死亡射程内"
+          ]
+        }
+      },
+      {
+        "require": [
+          "水マス",
+          "武器"
+        ],
+        "fieldElements": [
+          "闇"
+        ],
+        "rangeAdd": 20
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "スキル効果"
+        ],
+        "conditions": [
+          {
+            "key": "*",
+            "value": 110
+          }
+        ],
+        "attackMul": 110
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "attack-speed-buff",
+        "skill": -1,
+        "target": "全体",
+        "duration": 5,
+        "value": 105,
+        "supplements": [
+          "敵射程内で死亡時"
+        ],
+        "potentialBonus": {
+          "value": 108
+        }
+      },
+      {
+        "type": "attack-mul",
+        "skill": -1,
+        "target": "全体",
+        "supplements": [
+          "敵射程内で死亡時"
+        ],
+        "value": 110,
+        "duration": 20
+      }
+    ]
+  },
+  {
     "id": 437,
     "unitName": "【媚淫痴のリリス娘】クロミ",
     "unitShortName": "クロミ/水着",
