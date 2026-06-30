@@ -49017,86 +49017,7 @@
     ]
   },
   {
-    "TODO_FATAL": "攻撃速度、攻撃間隔",
     "id": 403,
-    "unitName": "【甘創のホワイトラビット娘】ティッカ",
-    "unitShortName": "ティッカ/VT",
-    "rarity": "L",
-    "class": "コンジャラー",
-    "element": "光",
-    "hp": 2717,
-    "attack": 664,
-    "defense": 255,
-    "resist": 621,
-    "supplements": [
-      "鈍足/撃破→射程内"
-    ],
-    "exSkill1": {
-      "skillName": "ドルチェ・ヴィータ",
-      "attackMul": 240,
-      "delayMul": 75,
-      "targetAdd": 1,
-      "rangeMul": 200,
-      "duration": 30,
-      "cooldown": 40,
-      "supplements": [
-        "停止(1秒)/5回攻撃→命中",
-        "停止(0.5秒/ボス)/5回攻撃→命中"
-      ]
-    },
-    "potentials": [
-      "出撃コスト-1",
-      "出撃コスト-1",
-      "射程+15",
-      "射程+15",
-      "スキル再使用時間-4秒"
-    ],
-    "formationBuffs": [
-      {
-        "targets": [
-          "光"
-        ],
-        "hp": 110,
-        "attack": 110,
-        "potentialBonus": {
-          "hp": 113,
-          "attack": 113
-        }
-      }
-    ],
-    "weapon": {
-      "weaponName": "スイートレシピ",
-      "resist": 55,
-      "range": 10
-    },
-    "features": [
-      {
-        "require": [
-          "武器"
-        ],
-        "supplements": [
-          "攻撃速度減少→射程内"
-        ]
-      }
-    ],
-    "moveSpeedMul": 160,
-    "situations": [
-      {},
-      {
-        "skill": 1
-      }
-    ],
-    "buffs": [
-      {
-        "type": "delay-mul",
-        "skill": 1,
-        "target": "射程内",
-        "value": 75
-      }
-    ]
-  },
-  {
-    "id": 404,
     "unitName": "【甘断斧ヴォーパルビースト娘】ラピナス",
     "unitShortName": "ラピナス/VT",
     "rarity": "L",
@@ -49180,6 +49101,85 @@
         "features": [
           "common-definite"
         ]
+      }
+    ]
+  },
+  {
+    "TODO_FATAL": "攻撃速度、攻撃間隔",
+    "id": 404,
+    "unitName": "【甘創のホワイトラビット娘】ティッカ",
+    "unitShortName": "ティッカ/VT",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "光",
+    "hp": 2717,
+    "attack": 664,
+    "defense": 255,
+    "resist": 621,
+    "supplements": [
+      "鈍足/撃破→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ドルチェ・ヴィータ",
+      "attackMul": 240,
+      "delayMul": 75,
+      "targetAdd": 1,
+      "rangeMul": 200,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "停止(1秒)/5回攻撃→命中",
+        "停止(0.5秒/ボス)/5回攻撃→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "光"
+        ],
+        "hp": 110,
+        "attack": 110,
+        "potentialBonus": {
+          "hp": 113,
+          "attack": 113
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "スイートレシピ",
+      "resist": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "攻撃速度減少→射程内"
+        ]
+      }
+    ],
+    "moveSpeedMul": 160,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "delay-mul",
+        "skill": 1,
+        "target": "射程内",
+        "value": 75
       }
     ]
   },
