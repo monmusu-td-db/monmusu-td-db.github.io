@@ -55127,5 +55127,199 @@
         ]
       }
     ]
+  },
+  {
+    "id": 439,
+    "unitName": "【吸夏のチュパカブラ娘】チュピナ",
+    "unitShortName": "チュピナ/水着",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "闇",
+    "species": "エイリアン",
+    "hp": 2571,
+    "attack": 1147,
+    "defense": 194,
+    "resist": 564,
+    "supplements": [
+      "暗闇付与(稀)→命中",
+      "コスト+2/撃破"
+    ],
+    "exSkill1": {
+      "skillName": "アブソーブフル",
+      "attackMul": 360,
+      "targetAdd": 3,
+      "rangeMul": 250,
+      "duration": 45,
+      "cooldown": 20,
+      "damageType": "貫通",
+      "supplements": [
+        "コスト-20/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル時自マス変化：闇"
+    ],
+    "weapon": {
+      "weaponName": "チュパールバリタ",
+      "attack": 80
+    },
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "攻撃後5秒間"
+        ],
+        "isConditionalBuff": true,
+        "attackMul": 150
+      },
+      {
+        "featureName": "heal",
+        "isAbility": true,
+        "staticDamage": {
+          "key": "attack",
+          "value": 12
+        },
+        "target": "射程内",
+        "splash": false,
+        "damageType": "回復",
+        "potentialBonus": {
+          "staticDamage": {
+            "key": "attack",
+            "value": 15
+          }
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-4hits"
+        ]
+      },
+      {
+        "features": [
+          "heal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "heal"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-4hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "attack-mul",
+          "heal"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "attack-mul",
+          "heal"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "潜在覚醒効果"
+        ],
+        "skill": 1,
+        "target": "自分",
+        "element": "闇",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
   }
 ]
