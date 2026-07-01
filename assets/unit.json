@@ -32060,8 +32060,8 @@
     "resist": 450,
     "exSkill1": {
       "skillName": "清涼水分補給",
-      "attackMul": 300,
-      "rangeMul": 160,
+      "attackMul": 320,
+      "rangeMul": 170,
       "duration": 40,
       "cooldown": 50
     },
