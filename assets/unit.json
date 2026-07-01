@@ -10836,9 +10836,9 @@
     ],
     "exSkill1": {
       "skillName": "浜辺の大立ち回りわん！",
-      "attackMul": 250,
+      "attackMul": 270,
       "rounds": 3,
-      "rangeMul": 140,
+      "rangeMul": 150,
       "attackMotionMul": 76,
       "fixedDelay": 5,
       "duration": 25,
@@ -10846,10 +10846,10 @@
     },
     "exSkill2": {
       "skillName": "お縄につくわん！",
-      "attackMul": 300,
+      "attackMul": 320,
       "target": 3,
       "rounds": 3,
-      "rangeMul": 160,
+      "rangeMul": 170,
       "attackMotionMul": 76,
       "duration": 25,
       "cooldown": 30
