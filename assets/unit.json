@@ -31767,8 +31767,8 @@
     ],
     "exSkill1": {
       "skillName": "夏色騎士道",
-      "attackMul": 300,
-      "defenseMul": 300,
+      "attackMul": 320,
+      "defenseMul": 320,
       "blockAdd": 2,
       "duration": 40,
       "cooldown": 30,
