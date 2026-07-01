@@ -10713,7 +10713,8 @@
       {
         "isNotAbility": true,
         "supplements": [
-          "回復100%/死亡時(1回のみ)"
+          "回復100%/死亡時(1回のみ)",
+          "光マス化/復活時"
         ]
       },
       {
@@ -10722,8 +10723,8 @@
         "annotations": [
           "復活後"
         ],
-        "attackMul": 160,
-        "defenseMul": 160,
+        "attackMul": 175,
+        "defenseMul": 175,
         "deleteSupplements": [
           "回復100%/死亡時(1回のみ)"
         ]
@@ -10734,9 +10735,9 @@
         "require": [
           "スキル"
         ],
-        "damageFactor": 140,
+        "damageFactor": 160,
         "potentialBonus": {
-          "damageFactor": 150
+          "damageFactor": 170
         }
       },
       {
@@ -10793,6 +10794,17 @@
         "features": [
           "class-action",
           "revived"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": -1,
+        "target": "自分",
+        "element": "光",
+        "supplements": [
+          "復活時"
         ]
       }
     ]
