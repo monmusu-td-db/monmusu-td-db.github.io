@@ -20875,6 +20875,7 @@
     ],
     "exSkill1": {
       "skillName": "オクタプルショット",
+      "attackMul": 220,
       "attackMotionMul": 150,
       "rounds": 8,
       "rangeMul": 180,
@@ -21056,6 +21057,13 @@
         "supplements": [
           "コスト+1/3秒"
         ]
+      },
+      {
+        "featureName": "skill1-buff",
+        "isBuffSkill": true,
+        "parentSkill": 1,
+        "attackMul": 220,
+        "rangeMul": 180
       }
     ],
     "isUnhealable": true,
@@ -21063,6 +21071,12 @@
     "situations": [
       {
         "proper": true
+      },
+      {
+        "proper": true,
+        "features": [
+          "skill1-buff"
+        ]
       }
     ]
   },
