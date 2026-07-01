@@ -20487,14 +20487,14 @@
     "moveType": "突進",
     "exSkill1": {
       "skillName": "アイスウェーブ",
-      "hpMul": 160,
-      "defenseMul": 160,
+      "hpMul": 170,
+      "defenseMul": 170,
       "duration": "永続",
       "cooldown": 150,
       "skillFeatures": [
         {
           "featureName": "charge-attack",
-          "attackMul": 420,
+          "attackMul": 440,
           "damageType": "魔法"
         }
       ]
@@ -20587,9 +20587,9 @@
       }
     ],
     "isEventUnit": true,
-    "moveSpeedMul": 200,
+    "moveSpeedMul": 250,
     "potentialBonus": {
-      "moveSpeedMul": 250
+      "moveSpeedMul": 300
     },
     "situations": [
       {},
