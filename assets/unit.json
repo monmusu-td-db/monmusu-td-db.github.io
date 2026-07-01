@@ -31985,8 +31985,9 @@
     ],
     "exSkill1": {
       "skillName": "氷結スパイク",
-      "attackMul": 240,
-      "rangeMul": 240,
+      "attackMul": 280,
+      "attackSpeedBuff": 145,
+      "rangeMul": 260,
       "duration": 25,
       "cooldown": 30
     },
@@ -32029,7 +32030,7 @@
       },
       {
         "featureName": "common-definite-freeze",
-        "damageFactor": 200
+        "damageFactor": 220
       }
     ],
     "situations": [
