@@ -16,7 +16,7 @@ import {
   type SetStateAction,
 } from "react";
 import PanelUI from "./PanelUI";
-import type { UISetting } from "../States";
+import { Contexts, type UISetting } from "../States";
 
 // Const
 
@@ -95,6 +95,7 @@ function SubskillSelector(props: {
   onChangeUI: Dispatch<SetStateAction<UISetting>>;
 }) {
   const selector = CardSelector.useSelector(props.onSelect);
+  const setting = Contexts.useSetting();
   const [tab, setTab] = useState<string>(tabs.SELECT);
   const s = props.uiSetting;
   const group = s.subskillGroup;
@@ -124,9 +125,17 @@ function SubskillSelector(props: {
         const c = isGeneral ? item.isGeneral : true;
         const effective = isEffective ? item.isEffective : true;
 
-        return a && b && c && effective;
+        const subskill1 = Subskill.getItem(setting.subskill1);
+        const subskill2 = Subskill.getItem(setting.subskill2);
+        const current = Subskill.getItem(props.id);
+        const ultimateFilter =
+          (subskill1?.isUltimate || subskill2?.isUltimate) &&
+          item.isUltimate &&
+          !current?.isUltimate;
+
+        return a && b && c && effective && !ultimateFilter;
       }),
-    [group, isGeneral, rarity, isEffective],
+    [group, isGeneral, rarity, isEffective, setting],
   );
 
   const sortType = s.subskillSortType;

@@ -2905,5 +2905,21 @@
     "group": "支援",
     "desc": "【改造マーメイド娘】オキシーをトークンとして使役可能",
     "isIneffective": true
+  },
+  {
+    "name": "【究極】パラダイムシフト",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "編成時、味方全体の出撃コスト-3",
+    "isUltimate": true,
+    "cost": -3
+  },
+  {
+    "name": "出撃コスト犠牲HP強化",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "最大HP+30%、代わりに出撃コスト+2",
+    "cost": 2,
+    "hp": 30
   }
 ]
