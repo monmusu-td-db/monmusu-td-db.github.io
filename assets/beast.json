@@ -197,5 +197,42 @@
         "cost": -2
       }
     ]
+  },
+  {
+    "name": "【見習い獣神】ルドーラ",
+    "rarity": "E",
+    "desc": "編成時、ドラゴンモンスター娘の攻撃力20%増加、スキル初回使用時間10%短縮",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "ドラゴン"
+        ],
+        "attack": 20,
+        "initialTimeCut": 10
+      }
+    ]
+  },
+  {
+    "name": "【見習い獣神】ロビーナ",
+    "rarity": "E",
+    "desc": "編成中、風属性の攻撃力+8%、コスト-3　さらにスナイパーの攻撃力+10%、射程+18",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "風"
+        ],
+        "attack": 8,
+        "cost": -3
+      },
+      {
+        "targets": [
+          "スナイパー"
+        ],
+        "attack": 10,
+        "rangeAdd": 18
+      }
+    ]
   }
 ]

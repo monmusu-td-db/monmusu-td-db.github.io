@@ -98,16 +98,26 @@ class Beast {
     key: keyof BeastFactors,
     types: (string | undefined)[],
   ): number | undefined {
+    let amount = 0;
+    let isFactorEnabled = false;
     if (this.features !== undefined) {
       for (const f of this.features) {
         const hasRequirement = f.targets.some((r) => types.includes(r));
         const fac = f[key];
         if (hasRequirement && fac !== undefined) {
-          return fac;
+          isFactorEnabled = true;
+          amount += fac;
         }
       }
     }
-    return this.factors[key];
+    const factor = this.factors[key];
+    if (factor !== undefined) {
+      isFactorEnabled = true;
+      amount += factor;
+    }
+    if (isFactorEnabled) {
+      return amount;
+    }
   }
 
   static getItem(id: number): Beast | undefined {
