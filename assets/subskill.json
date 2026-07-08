@@ -2878,6 +2878,21 @@
     "damageFactor": 60
   },
   {
+    "name": "サマーインザスカイ",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "編成時、飛行モンスター娘ATK+15%　飛行モンスター娘セット時飛行敵Dmg1.5倍",
+    "features": [
+      {
+        "require": [
+          "飛行"
+        ],
+        "formationAttack": 15,
+        "damageFactor": 50
+      }
+    ]
+  },
+  {
     "name": "母なる海の加護",
     "rarity": "L",
     "group": "支援",
@@ -2921,5 +2936,20 @@
     "desc": "最大HP+30%、代わりに出撃コスト+2",
     "cost": 2,
     "hp": 30
+  },
+  {
+    "name": "超・竜騎士の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+650、扇装備クラスにセット時追加で攻撃力+100",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "エアスカウト"
+        ],
+        "attackAdd": 100
+      }
+    ]
   }
 ]

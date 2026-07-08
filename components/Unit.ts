@@ -1441,6 +1441,7 @@ export default class Unit implements TableRow<Keys> {
       Data.UnitClass.baseTagOf(className),
       this.element.getValue(setting),
       ...this.species.getValue(setting),
+      this.moveType.getValue(setting),
     ];
     if (rarity === Data.Rarity.R || rarity === Data.Rarity.C) {
       types.push("R以下");

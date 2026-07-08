@@ -2809,6 +2809,7 @@ export default class Situation implements TableRow<Keys> {
       Data.UnitClass.baseTagOf(className),
       this.unit.element.getValue(setting),
       ...species,
+      this.unit.moveType.getValue(setting),
     ];
     const fnHp = (n: number) => {
       if ((fea.currentHp ?? 100) >= n) {
