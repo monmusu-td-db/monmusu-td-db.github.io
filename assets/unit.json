@@ -55462,5 +55462,125 @@
         ]
       }
     ]
+  },
+  {
+    "id": 441,
+    "unitName": "【ウガルル娘】ガルア",
+    "unitShortName": "ガルア",
+    "rarity": "L",
+    "class": "モンク",
+    "element": "風",
+    "hp": 6671,
+    "attack": 1043,
+    "defense": 319,
+    "resist": 138,
+    "supplements": [
+      "CRI時追加Dmg100%→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "バーストインパクト",
+      "criChanceAdd": 30,
+      "criChanceLimitAdd": 30,
+      "target": 5,
+      "rounds": 1,
+      "range": 230,
+      "duration": 20,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "weapon": {
+      "weaponName": "テンペストクロー",
+      "attack": 40,
+      "defense": 15,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "criChanceAdd": 25,
+        "criChanceLimitAdd": 25,
+        "potentialBonus": {
+          "criChanceAdd": 30,
+          "criChanceLimitAdd": 30
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "criChanceAdd": 30,
+        "criChanceLimitAdd": 30
+      },
+      {
+        "require": [
+          "風マス"
+        ],
+        "criChanceAdd": 20
+      },
+      {
+        "featureName": "field-damage",
+        "isAbility": true,
+        "annotations": [
+          "ダメージフィールド",
+          "スキル発動後20秒間"
+        ],
+        "criChanceAdd": -1000,
+        "interval": 30,
+        "target": "射程内",
+        "damageType": "貫通",
+        "supplements": [
+          "即死(低)→命中"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-wind-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-wind-field"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 1,
+        "features": [
+          "common-wind-field",
+          "field-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "風",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
   }
 ]
