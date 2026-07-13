@@ -55582,5 +55582,374 @@
         ]
       }
     ]
+  },
+  {
+    "id": 442,
+    "unitName": "【クルッル娘】ルルクア",
+    "unitShortName": "ルルクア",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "水",
+    "species": "海魔",
+    "hp": 9861,
+    "attack": 1352,
+    "defense": 559,
+    "resist": 102,
+    "exSkill1": {
+      "skillName": "ヘビーレイン",
+      "target": 5,
+      "splash": true,
+      "range": 350,
+      "duration": 35,
+      "cooldown": 30,
+      "damageType": "魔法",
+      "supplements": [
+        "RES-10%→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "水属性マスボーナス3倍"
+    ],
+    "weapon": {
+      "weaponName": "マグナ・スター",
+      "hp": 300,
+      "attack": 30,
+      "defense": 20
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "海魔"
+        ],
+        "attack": 112,
+        "defense": 110,
+        "potentialBonus": {
+          "attack": 115,
+          "defense": 113
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "splash": true,
+        "damageType": "魔法",
+        "supplements": [
+          "RES-5%→命中"
+        ]
+      },
+      {
+        "featureName": "hp-mul",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 250
+          }
+        ],
+        "hpMul": 250
+      },
+      {
+        "featureName": "common-absorb",
+        "staticDamage": {
+          "key": "hp",
+          "value": 1
+        },
+        "supplements": [
+          "回復1%/命中→海魔"
+        ]
+      },
+      {
+        "featureName": "hp-over-50%",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 100
+          }
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "hp-49%",
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 49
+          }
+        ]
+      },
+      {
+        "featureName": "regenerate-area",
+        "skill": 1,
+        "isAbility": true,
+        "conditions": [
+          "再area"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 3
+        },
+        "interval": 30,
+        "target": "射程内",
+        "splash": false,
+        "rounds": 1,
+        "duration": "常時",
+        "damageType": "再生",
+        "supplements": [
+          "回復3%/秒→射程内海魔"
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "hp-over-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "hp-over-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "hp-over-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "hp-over-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-4hits",
+          "hp-over-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-5hits",
+          "hp-over-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "hp-over-50%",
+          "hp-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "hp-over-50%",
+          "hp-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "hp-over-50%",
+          "hp-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "hp-over-50%",
+          "hp-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-4hits",
+          "hp-over-50%",
+          "hp-mul"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-5hits",
+          "hp-over-50%",
+          "hp-mul"
+        ]
+      },
+      {
+        "features": [
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits",
+          "hp-49%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-5hits",
+          "hp-49%"
+        ]
+      },
+      {
+        "features": [
+          "hp-49%",
+          "hp-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "hp-49%",
+          "hp-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "hp-49%",
+          "hp-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "hp-49%",
+          "hp-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-4hits",
+          "hp-49%",
+          "hp-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-5hits",
+          "hp-49%",
+          "hp-mul"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "hp-mul",
+          "common-absorb"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "regenerate-area"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "hp-mul",
+          "regenerate-area"
+        ]
+      }
+    ]
   }
 ]

@@ -80,6 +80,12 @@
     "fieldBuffFactor": 300
   },
   {
+    "hasPotentials": [
+      "水属性マスボーナス3倍"
+    ],
+    "fieldBuffFactor": 300
+  },
+  {
     "featureName": "common-fire-field",
     "fieldElements": [
       "火"
