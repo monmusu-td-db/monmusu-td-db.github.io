@@ -25,8 +25,12 @@ export class StatCondition extends StatTooltip<readonly Data.ConditionObj[]> {
         return value + s + " ";
       case Data.Condition.key.second:
         return value + keyText + " ";
-      default:
-        return keyText + value + (obj.value !== undefined ? " " : "");
+      default: {
+        const space =
+          obj.value !== undefined ||
+          obj.key === Data.Condition.key.regenerateArea;
+        return keyText + value + (space ? " " : "");
+      }
     }
   }
 
