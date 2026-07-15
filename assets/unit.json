@@ -55464,6 +55464,117 @@
     ]
   },
   {
+    "id": 440,
+    "unitName": "【バシュム娘】ミュザーム",
+    "unitShortName": "ミュザーム",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "水",
+    "hp": 2783,
+    "attack": 647,
+    "defense": 244,
+    "resist": 646,
+    "supplements": [
+      "毒無効"
+    ],
+    "exSkill1": {
+      "skillName": "ポイズンエンチャント",
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 25
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "毒の敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "ヴェノモスブック",
+      "defense": 25,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "supplements": [
+          "回復{max-hp*10}/毒敵死亡時"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "回復{max-hp*13}/毒敵死亡時"
+          ]
+        }
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "猛毒付与(中)→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "猛毒付与(高)→命中",
+          "猛毒付与(稀/射程内味方)→命中"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "毒霧(10秒)/配置"
+        ]
+      },
+      {
+        "featureName": "common-definite-poison",
+        "isConditionalBuff": true,
+        "damageDebuff": 110
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "require": [
+          "毒特効"
+        ],
+        "skill": 0,
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "damage-debuff",
+        "require": [
+          "毒特効"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 110
+      }
+    ]
+  },
+  {
     "id": 441,
     "unitName": "【ウガルル娘】ガルア",
     "unitShortName": "ガルア",
