@@ -2951,5 +2951,14 @@
         "attackAdd": 100
       }
     ]
+  },
+  {
+    "name": "月満つれば則ちかく",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "CRI率上限+50%、CRIダメ+30%、配置時CRI率+100%　CRIごとにCRI率-10%(10回)",
+    "criChanceAdd": 100,
+    "criChanceLimitAdd": 50,
+    "criDamageAdd": 30
   }
 ]
