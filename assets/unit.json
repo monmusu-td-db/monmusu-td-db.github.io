@@ -14106,7 +14106,19 @@
       "射程+15",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "イヴ・フレイム",
+      "hp": 400,
+      "attack": 40
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 5,
+        "cooldownCut": 5
+      },
       {
         "featureName": "common-support",
         "isSupport": true,
@@ -16682,6 +16694,23 @@
       "射程+15",
       "射程+15"
     ],
+    "formationBuffs": [
+      {
+        "require": [
+          "武器"
+        ],
+        "targets": [
+          "ドラゴン"
+        ],
+        "attack": 110
+      }
+    ],
+    "weapon": {
+      "weaponName": "古龍記",
+      "hp": 300,
+      "defense": 25,
+      "range": 10
+    },
     "features": [
       {
         "featureName": "common-regenerate",
@@ -16966,6 +16995,12 @@
       "攻撃力+75",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "トキシックチョーク",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
     "features": [
       {
         "skill": 0,
@@ -16992,11 +17027,27 @@
         }
       },
       {
+        "featureName": "common-definite-petrify",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "damageDebuff": 110
+      },
+      {
         "featureName": "class-definite",
         "isConditionalBuff": true,
         "annotations": [
           "毒特効"
         ]
+      },
+      {
+        "featureName": "class-definite",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "damageDebuff": 110
       },
       {
         "featureName": "common-definite-double",
@@ -17047,6 +17098,46 @@
           "common-definite-double",
           "common-definite-petrify"
         ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "require": [
+          "武器",
+          "毒特効"
+        ],
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "damage-debuff",
+        "skill": 1,
+        "require": [
+          "武器",
+          "毒特効"
+        ],
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "damage-debuff",
+        "require": [
+          "武器",
+          "石化特効"
+        ],
+        "target": "射程内",
+        "value": 110
+      },
+      {
+        "type": "damage-debuff",
+        "skill": 1,
+        "require": [
+          "武器",
+          "石化特効"
+        ],
+        "target": "射程内",
+        "value": 110
       }
     ]
   },
@@ -17144,6 +17235,23 @@
       "射程+15",
       "再出撃時間50%短縮"
     ],
+    "formationBuffs": [
+      {
+        "require": [
+          "武器"
+        ],
+        "targets": [
+          "アンデッド"
+        ],
+        "attack": 110
+      }
+    ],
+    "weapon": {
+      "weaponName": "バンデージ・ウアス",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
     "features": [
       {
         "isConditionalSkillBuff": true,
@@ -17339,7 +17447,23 @@
       "攻撃力+75",
       "移動消費コスト-2"
     ],
+    "weapon": {
+      "weaponName": "デザートメイス",
+      "hp": 200,
+      "attack": 30,
+      "defense": 30
+    },
     "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "地マス化/発動"
+        ]
+      },
       {
         "featureName": "skill1-beat-20",
         "isConditionalBuff": true,
@@ -17443,6 +17567,26 @@
         "features": [
           "skill1-beat-20",
           "class-action"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "field-change",
+        "skill": 2,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "発動時"
         ]
       }
     ]
@@ -18053,7 +18197,24 @@
       "魔法防御力+90",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "ちょっぴり叡智な本",
+      "attack": 35,
+      "resist": 20,
+      "attackSpeed": 5
+    },
     "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "火マス化/発動→自分",
+          "火マス化/発動→tkn"
+        ]
+      },
       {
         "require": [
           "火マス"
@@ -18075,6 +18236,18 @@
       {},
       {
         "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "火",
+        "supplements": [
+          "発動時",
+          "自身と自身のトークンのマスが変化"
+        ]
       }
     ]
   },
@@ -18175,6 +18348,22 @@
       "攻撃力+75",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "ゴーストツォイク",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "闇マス"
+        ],
+        "rangeAdd": 20,
+        "targetAdd": 2
+      }
+    ],
     "isEventUnit": true,
     "physicalEvasion": 40,
     "magicalEvasion": 40,
@@ -18234,6 +18423,11 @@
       "攻撃力+75",
       "HPが毎秒3%回復"
     ],
+    "weapon": {
+      "weaponName": "ライフドロッパー",
+      "attack": 50,
+      "defense": 30
+    },
     "features": [
       {
         "featureName": "class-melee",
@@ -18276,13 +18470,28 @@
           "key": "attack",
           "value": 70
         },
-        "target": "射程内",
-        "range": 999
+        "target": "射程内"
+      },
+      {
+        "featureName": "common-hp-50%",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "damageFactor": 130
       }
     ],
     "hpMul": 120,
     "situations": [
       {},
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-hp-50%"
+        ]
+      },
       {
         "features": [
           "dot"
@@ -18293,12 +18502,30 @@
       },
       {
         "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
         "features": [
           "dot"
         ]
       },
       {
         "skill": 2
+      },
+      {
+        "skill": 2,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-hp-50%"
+        ]
       },
       {
         "skill": 2,
@@ -20506,7 +20733,21 @@
       "攻撃力+75",
       "移動消費コスト-2"
     ],
+    "weapon": {
+      "weaponName": "ポールパイル",
+      "hp": 300,
+      "attack": 30,
+      "defense": 20
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "凍結無効"
+        ]
+      },
       {
         "skill": 1,
         "supplements": [
@@ -21637,9 +21878,30 @@
       "攻撃速度+15",
       "物理攻撃回避40%"
     ],
+    "weapon": {
+      "weaponName": "ヒ・コーキ",
+      "attack": 55,
+      "attackSpeed": 5
+    },
     "features": [
       {
         "damageFactor": 80
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "moveCostAdd": -99
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "移動可"
+        ]
       },
       {
         "featureName": "common-phase1",
