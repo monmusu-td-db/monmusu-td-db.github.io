@@ -2960,5 +2960,27 @@
     "criChanceAdd": 100,
     "criChanceLimitAdd": 50,
     "criDamageAdd": 30
+  },
+  {
+    "name": "捕獲！純粋無垢な女僧侶",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "光属性にセット時攻撃時スタン蓄積(小)　純粋無垢な女僧侶をトークンとして使役可",
+    "isIneffective": true
+  },
+  {
+    "name": "捕獲！砕骨の女剣士",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "ウォリアー系にセット時物理魔法ダメージ10%軽減　砕骨の女剣士を使役可",
+    "features": [
+      {
+        "require": [
+          "ウォリアー"
+        ],
+        "physicalDamageCut": 10,
+        "magicalDamageCut": 10
+      }
+    ]
   }
 ]
