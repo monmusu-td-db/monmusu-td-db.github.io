@@ -93,6 +93,7 @@ type JsonPotentialBonus = Readonly<
     envAttackMul: number;
     envDefenseMul: number;
     envResistMul: number;
+    criChanceAdd: number;
     criDamageAdd: number;
     attackSpeedAdd: number;
     rounds: Data.JsonRound;
@@ -408,10 +409,14 @@ export default class Unit implements TableRow<Keys> {
     this.defense = this.getBaseStat(src, stat.defense);
     this.resist = this.getBaseStat(src, stat.resist);
 
-    const criticalChance = Data.defaultCriChance + (src.criChanceAdd ?? 0);
     this.criticalChance = new Stat.Root({
       statType: stat.criticalChance,
       calculater: (s) => {
+        const potential = this.isPotentialApplied(s)
+          ? src.potentialBonus?.criChanceAdd
+          : undefined;
+        const criticalChance =
+          Data.defaultCriChance + (potential ?? src.criChanceAdd ?? 0);
         const formation = this.getFormationBuffFactor(s, stat.criticalChance);
         return criticalChance + formation;
       },
