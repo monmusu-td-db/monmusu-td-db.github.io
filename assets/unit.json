@@ -56324,5 +56324,377 @@
         ]
       }
     ]
+  },
+  {
+    "id": 444,
+    "unitName": "【恋夏の清姫娘】ナナエ",
+    "unitShortName": "ナナエ/水着",
+    "rarity": "L",
+    "class": "サムライ",
+    "element": "火",
+    "species": "妖怪",
+    "hp": 8752,
+    "attack": 1212,
+    "defense": 693,
+    "resist": 125,
+    "supplements": [
+      "ATK+25%(5秒)/敵死亡→妖怪",
+      "ATK+25%(5秒)/敵死亡→火"
+    ],
+    "exSkill1": {
+      "skillName": "妬獄炎斬",
+      "attackMul": 220,
+      "target": 1,
+      "range": 300,
+      "duration": 15,
+      "cooldown": 45,
+      "supplements": [
+        "火マス化/発動→射程内火"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "物理防御力+90",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "妖怪"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 112
+        }
+      },
+      {
+        "targets": [
+          "火"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 112
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "焔刀・虚実妄炎",
+      "attack": 50,
+      "defense": 30
+    },
+    "features": [
+      {
+        "featureName": "class-action",
+        "skill": 1,
+        "range": 300
+      },
+      {
+        "featureName": "team-buff1",
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "t",
+            "value": 1
+          }
+        ],
+        "attackMul": 105
+      },
+      {
+        "featureName": "common-team-buff5",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "t",
+            "value": 5
+          }
+        ],
+        "attackMul": 125
+      },
+      {
+        "featureName": "common-team-buff10",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "conditions": [
+          {
+            "key": "t",
+            "value": 10
+          }
+        ],
+        "attackMul": 150
+      },
+      {
+        "featureName": "enemy-hp-50%",
+        "isConditionalBuff": true,
+        "annotations": [
+          "敵HP50%以下"
+        ],
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-ranged",
+        "staticDamage": {
+          "key": "attack",
+          "value": 5
+        },
+        "target": "全体"
+      },
+      {
+        "featureName": "common-ranged",
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack",
+          "value": 10
+        }
+      },
+      {
+        "featureName": "common-melee",
+        "staticDamage": {
+          "key": "attack",
+          "value": 10
+        },
+        "target": "ブロック"
+      },
+      {
+        "featureName": "common-melee",
+        "skill": 1,
+        "staticDamage": {
+          "key": "attack",
+          "value": 20
+        }
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "team-buff1"
+        ]
+      },
+      {
+        "features": [
+          "team-buff1",
+          "enemy-hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "team-buff1",
+          "enemy-hp-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5",
+          "enemy-hp-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff5",
+          "enemy-hp-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10",
+          "enemy-hp-50%"
+        ]
+      },
+      {
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-team-buff10",
+          "enemy-hp-50%"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "team-buff1",
+          "common-dot",
+          "common-ranged"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "team-buff1",
+          "common-dot",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "team-buff1",
+          "common-dot",
+          "common-ranged"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "team-buff1",
+          "common-dot",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5",
+          "common-dot",
+          "common-ranged"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5",
+          "common-dot",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5",
+          "common-dot",
+          "common-ranged"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff5",
+          "common-dot",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10",
+          "common-dot",
+          "common-ranged"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10",
+          "common-dot",
+          "common-melee"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10",
+          "common-dot",
+          "common-ranged"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-team-buff10",
+          "common-dot",
+          "common-melee"
+        ]
+      }
+    ]
   }
 ]
