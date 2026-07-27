@@ -56710,5 +56710,148 @@
         ]
       }
     ]
+  },
+  {
+    "id": 445,
+    "unitName": "【浮腕のブリアレオース娘】ラキオン",
+    "unitShortName": "ラキオン/水着",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "水",
+    "species": "デミ",
+    "hp": 6854,
+    "attack": 664,
+    "defense": 1152,
+    "resist": 210,
+    "exSkill1": {
+      "skillName": "激夏風・斬",
+      "attackMul": 200,
+      "attackSpeedBuff": 160,
+      "delayMul": 15,
+      "rounds": 4,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "CRI率/CRI率上限+30%"
+    ],
+    "weapon": {
+      "weaponName": "アイガードン",
+      "attack": 80
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "defenseDebuff": {
+          "valueMul": 10
+        },
+        "supplements": [
+          "DEF-10%(5秒)→命中"
+        ]
+      },
+      {
+        "featureName": "common-ranged",
+        "skill": 1,
+        "range": 480
+      },
+      {
+        "featureName": "common-definite-ground",
+        "isConditionalBuff": true,
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-melee",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "splash": true
+      },
+      {
+        "featureName": "common-ranged",
+        "isConditionalBuff": true,
+        "physicalDamageCut": 40,
+        "magicalDamageCut": 40
+      }
+    ],
+    "criChanceAdd": 30,
+    "criDamageAdd": 50,
+    "range": 120,
+    "potentialBonus": {
+      "criChanceAdd": 40
+    },
+    "situations": [
+      {
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee"
+        ]
+      },
+      {
+        "features": [
+          "common-melee",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-melee",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged"
+        ]
+      },
+      {
+        "features": [
+          "common-ranged",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-ranged",
+          "common-definite-ground"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": -1,
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "physical-damage-cut",
+            "value": 20
+          },
+          {
+            "type": "magical-damage-cut",
+            "value": 20
+          }
+        ]
+      }
+    ]
   }
 ]
