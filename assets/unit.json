@@ -56695,6 +56695,20 @@
           "common-melee"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "require": [
+          "火属性"
+        ],
+        "element": "火",
+        "target": "射程内",
+        "supplements": [
+          "発動時"
+        ]
+      }
     ]
   }
 ]
