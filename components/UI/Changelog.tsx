@@ -13,39 +13,40 @@ interface JsonLog {
 type JsonLogs = JsonLog[];
 
 const LATEST_LOGS_NUMBER = 2;
-const MAX_LOGS_NUMBER = 100;
 
 function Changelog() {
-  const [expand, setExpand] = useState(false);
-  const latestLogs = getLatestLogs(
-    jsonChangelog,
-    expand ? MAX_LOGS_NUMBER : LATEST_LOGS_NUMBER
-  );
+  const [logs, setLogs] = useState(LATEST_LOGS_NUMBER);
+  const latestLogs = getLatestLogs(jsonChangelog, logs);
+
+  function getToggleButton(count: number) {
+    if (logs === count) {
+      return count;
+    }
+    return (
+      <Button
+        variant="link"
+        className="p-0 align-baseline"
+        onClick={() => setLogs(count)}
+      >
+        {count}
+      </Button>
+    );
+  }
 
   return (
     <>
+      <div className="d-flex align-items-end">
+        <h2>更新履歴</h2>
+        <div className="ms-3 mb-2">
+          （{getToggleButton(2)}｜{getToggleButton(20)}｜{getToggleButton(100)}
+          ｜{getToggleButton(500)} 件）
+        </div>
+      </div>
       <ul className="change-log">
         {latestLogs.map((logObj, index) => (
           <ListItem key={index} logObj={logObj} />
         ))}
       </ul>
-      <Button variant="link" onClick={() => setExpand((p) => !p)}>
-        {expand ? (
-          <>
-            折りたたむ
-            <span className="ms-1">
-              <Icon.CaretUpFill />
-            </span>
-          </>
-        ) : (
-          <>
-            …続きを見る
-            <span className="ms-1">
-              <Icon.CaretDownFill />
-            </span>
-          </>
-        )}
-      </Button>
     </>
   );
 }

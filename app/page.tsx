@@ -23,7 +23,6 @@ export default function App() {
     <PageRoot pageType="situation">
       <TablesSituation id="situation" maxRows={100} showIcon />
       <Container className="md-content mt-5">
-        <h2>更新履歴</h2>
         <Changelog />
         <h2>このサイトについて</h2>
         <p>
