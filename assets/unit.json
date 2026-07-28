@@ -56326,6 +56326,140 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 443,
+    "unitName": "【浜駆のケンタウロス娘】エテジア",
+    "unitShortName": "エテジア/水着",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "風",
+    "hp": 2756,
+    "attack": 698,
+    "defense": 293,
+    "resist": 190,
+    "exSkill1": {
+      "skillName": "水風ヴェロス",
+      "criChanceAdd": 15,
+      "criChanceLimitAdd": 15,
+      "rangeMul": 190,
+      "duration": 15,
+      "cooldown": 25,
+      "supplements": [
+        "移動可",
+        "風マス化/撃破→射程内",
+        "水マス化/撃破→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "近接マスに配置可能"
+    ],
+    "weapon": {
+      "weaponName": "白南風",
+      "hp": 400,
+      "attack": 15,
+      "range": 10
+    },
+    "features": [
+      {
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20,
+        "moveSpeedMul": 200
+      },
+      {
+        "require": [
+          "水マス"
+        ],
+        "isConditionalBuff": true,
+        "rounds": 2,
+        "damageType": "魔法"
+      },
+      {
+        "require": [
+          "風マス"
+        ],
+        "isConditionalBuff": true,
+        "rounds": 2,
+        "supplements": [
+          "ノックバック→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル",
+          "水マス"
+        ],
+        "attackSpeedBuff": 150
+      },
+      {
+        "require": [
+          "スキル",
+          "風マス"
+        ],
+        "attackSpeedBuff": 150
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-water-field"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-water-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-wind-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-wind-field"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "射程内",
+        "element": "風",
+        "supplements": [
+          "撃破時",
+          "射程内1マス"
+        ]
+      },
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "射程内",
+        "element": "水",
+        "supplements": [
+          "撃破時",
+          "射程内1マス"
+        ]
+      }
+    ]
+  },
+  {
     "id": 444,
     "unitName": "【恋夏の清姫娘】ナナエ",
     "unitShortName": "ナナエ/水着",
