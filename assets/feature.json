@@ -598,6 +598,16 @@
     "damageFactor": 120
   },
   {
+    "require": [
+      "スキル"
+    ],
+    "hasPotentials": [
+      "スキル中与ダメ1.2倍"
+    ],
+    "isConditionalSkillBuff": true,
+    "damageFactor": 120
+  },
+  {
     "featureName": "common-definite-back-attack",
     "conditions": [
       {

@@ -56853,5 +56853,191 @@
         ]
       }
     ]
+  },
+  {
+    "id": 446,
+    "unitName": "【波色の座敷童娘】ウスコ",
+    "unitShortName": "ウスコ/水着",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "闇",
+    "species": "妖怪",
+    "hp": 2350,
+    "attack": 1021,
+    "defense": 241,
+    "resist": 307,
+    "supplements": [
+      "回復{attack-base*20}/CRI→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "れんぞくすぷらっしゅ",
+      "rangeMul": 180,
+      "duration": 35,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "攻撃速度+15",
+      "スキル中与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "ひゃっこいうぉーたーがん",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "criChanceAdd": 25,
+        "criChanceLimitAdd": 25,
+        "potentialBonus": {
+          "criChanceAdd": 30,
+          "criChanceLimitAdd": 30
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "criChanceAdd": 25,
+        "criChanceLimitAdd": 25
+      },
+      {
+        "isNotAbility": true,
+        "skill": 0,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "isNotAbility": true,
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "featureName": "common-extra-damage",
+        "rounds": [
+          {
+            "ratio": 1024,
+            "value": 0
+          },
+          {
+            "ratio": 768,
+            "value": 1
+          },
+          {
+            "ratio": 576,
+            "value": 2
+          },
+          {
+            "ratio": 432,
+            "value": 3
+          },
+          {
+            "ratio": 324,
+            "value": 4
+          },
+          {
+            "ratio": 243,
+            "value": 5
+          },
+          {
+            "ratio": 729,
+            "value": 6
+          }
+        ]
+      },
+      {
+        "featureName": "damage-factor-500",
+        "isConditionalBuff": true,
+        "annotations": [
+          "ダメージ倍率5倍"
+        ],
+        "damageFactor": 500
+      },
+      {
+        "featureName": "damage-factor-1000",
+        "isConditionalBuff": true,
+        "annotations": [
+          "ダメージ倍率10倍"
+        ],
+        "damageFactor": 1000
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-factor-500",
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-factor-1000",
+          "common-extra-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 0,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 25,
+            "potentialBonus": {
+              "value": 30
+            }
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 25,
+            "potentialBonus": {
+              "value": 30
+            }
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 50,
+            "potentialBonus": {
+              "value": 55
+            }
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 50,
+            "potentialBonus": {
+              "value": 55
+            }
+          }
+        ]
+      }
+    ]
   }
 ]
