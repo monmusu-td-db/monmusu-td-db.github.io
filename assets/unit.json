@@ -54083,6 +54083,7 @@
     "buffs": [
       {
         "type": "weather-change",
+        "skill": -1,
         "target": "全体",
         "duration": 10,
         "weather": "雨",
