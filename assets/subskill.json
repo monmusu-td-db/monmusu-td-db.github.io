@@ -2982,5 +2982,41 @@
         "magicalDamageCut": 10
       }
     ]
+  },
+  {
+    "name": "【究極】エアロボディ",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "自身が95%の確率で物理攻撃を回避",
+    "isUltimate": true,
+    "physicalEvasion": 95
+  },
+  {
+    "name": "残夏の大フィーバー",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "現在のコストが100以上の時、自身のクリティカル率+40%",
+    "criChanceAdd": 40
+  },
+  {
+    "name": "盛夏磐石",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "配置中、同属性味方への物理Dmg-20%　他属性味方への物理Dmg-10%",
+    "physicalDamageCut": 20
+  },
+  {
+    "name": "夏影モノクローム",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "配置時、足元のマスを無属性に変化　無属性マス配置時、与Dmg1.3倍",
+    "features": [
+      {
+        "require": [
+          "無マス"
+        ],
+        "damageFactor": 30
+      }
+    ]
   }
 ]

@@ -2844,6 +2844,9 @@ export default class Situation implements TableRow<Keys> {
     fieldElements.forEach((element) => {
       types.push(`${element}マス`);
     });
+    if (fieldElements.size === 0) {
+      types.push("無マス");
+    }
     const fn = (ss: Subskill | undefined): number | undefined => {
       if (ss === undefined) {
         return;
