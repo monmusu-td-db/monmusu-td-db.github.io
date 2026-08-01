@@ -37,6 +37,7 @@ import SubskillUI from "@/components/UI/SubskillUI";
 import BeastUI from "@/components/UI/BeastUI";
 import { createPortal } from "react-dom";
 import cn from "classnames";
+import Beast from "../Beast";
 
 const ID = "panel";
 const stat = Data.stat;
@@ -169,7 +170,7 @@ function TabFilter({ pageType }: { pageType: PageType }) {
     (nextValue: FilterObject) => {
       dispatchFilter({ type: Contexts.FilterAction.change, nextValue });
     },
-    [dispatchFilter]
+    [dispatchFilter],
   );
   const setting = Contexts.useSetting();
 
@@ -432,7 +433,7 @@ function TabUnit({ pageType }: { pageType: PageType }) {
         updater,
       });
     },
-    [dispatchUISetting]
+    [dispatchUISetting],
   );
 
   return (
@@ -472,11 +473,11 @@ const TabUnitContent = memo(function TabUnitContent({
             uiSetting={uISetting}
             onSelect={useCallback(
               (id) => onChangeSetting({ subskill1: id }),
-              [onChangeSetting]
+              [onChangeSetting],
             )}
             onChangeUI={useCallback(
               (updater) => onChangeUISetting(updater),
-              [onChangeUISetting]
+              [onChangeUISetting],
             )}
           />,
           <SubskillUI.Selector
@@ -485,11 +486,11 @@ const TabUnitContent = memo(function TabUnitContent({
             uiSetting={uISetting}
             onSelect={useCallback(
               (id) => onChangeSetting({ subskill2: id }),
-              [onChangeSetting]
+              [onChangeSetting],
             )}
             onChangeUI={useCallback(
               (updater) => onChangeUISetting(updater),
-              [onChangeUISetting]
+              [onChangeUISetting],
             )}
           />,
         ]}
@@ -670,9 +671,19 @@ const TabFormationContent = memo(function TabFormationContent({
                     subBeast: -1,
                   });
                   break;
-                default:
-                  onChange({ mainBeast: n });
+                default: {
+                  const main = Beast.getItem(n);
+                  const sub = Beast.getItem(setting.subBeast);
+                  if (main?.subOnly && sub?.subOnly) {
+                    onChange({
+                      mainBeast: n,
+                      subBeast: -1,
+                    });
+                  } else {
+                    onChange({ mainBeast: n });
+                  }
                   break;
+                }
               }
             }}
             isMain
@@ -684,7 +695,16 @@ const TabFormationContent = memo(function TabFormationContent({
               if (setting.mainBeast === -1) {
                 onChange({ mainBeast: n });
               } else {
-                onChange({ subBeast: n });
+                const main = Beast.getItem(setting.mainBeast);
+                const sub = Beast.getItem(n);
+                if (main?.subOnly && sub?.subOnly) {
+                  onChange({
+                    mainBeast: n,
+                    subBeast: -1,
+                  });
+                } else {
+                  onChange({ subBeast: n });
+                }
               }
             }}
           />,
@@ -1006,7 +1026,7 @@ const TabOtherContent = memo(function TabOtherContent({
             value={storageOption === Setting.STORAGE_LOCAL ? 0 : 1}
             onChange={(v) =>
               setStorageOption(
-                v === 0 ? Setting.STORAGE_LOCAL : Setting.STORAGE_SESSION
+                v === 0 ? Setting.STORAGE_LOCAL : Setting.STORAGE_SESSION,
               )
             }
           />
@@ -1030,9 +1050,9 @@ function Backdrop({ open, onClose }: PanelProps) {
             })}
             onClick={onClose}
           />,
-          document.body
+          document.body,
         )}
-      </>
+      </>,
     );
   }, [open, onClose]);
 
@@ -1047,7 +1067,7 @@ function useSettingChange() {
     (nextValue: Partial<Setting>) => {
       dispatch({ type: Contexts.SettingAction.change, nextValue });
     },
-    [dispatch]
+    [dispatch],
   );
 
   return [setting, handleChange] as const;
