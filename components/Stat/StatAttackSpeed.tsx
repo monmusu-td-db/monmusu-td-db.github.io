@@ -39,9 +39,15 @@ export function AttackSpeedTooltip({
   const potentialEnabled = f.attackSpeedPotential > 0;
   const weaponEnabled = f.attackSpeedWeapon > 0;
   const agilityEnabled = agilityBuff > 0;
+  const beastEnabled = f.attackSpeedBeastFormationBuff > 100;
   const p =
     abilityEnabled || potentialEnabled || weaponEnabled || agilityEnabled;
   const b = p && (!!f.attackMotionMul || attackSpeedBuff !== 100);
+
+  const attackMotionEnabled = !!f.attackMotionMul;
+  const attackSpeedBuffEnabled = attackSpeedBuff !== 100;
+
+  const beastCol = f.attackSpeedBeastFormationBuff > 100;
   const ammCol = (f.attackMotionMul ?? 100) < 100;
   const asbCol = attackSpeedBuff > 100;
   return (
@@ -52,35 +58,48 @@ export function AttackSpeedTooltip({
             {d ? "攻撃動作速度" : f.attackSpeedResult + sign.FRAME}
           </T.Result>
           <T.Expression>
-            <T.Brackets enabled={b}>
-              {d ? "基礎値" : f.attackSpeedBase + sign.FRAME}
-              <T.Minus enabled={abilityEnabled}>
-                <T.Positive>
-                  {d ? "種族特性" : f.attackSpeedAbility + sign.FRAME}
-                </T.Positive>
-              </T.Minus>
-              <T.Minus enabled={potentialEnabled}>
-                <T.Positive>
-                  {d ? "潜在覚醒" : f.attackSpeedPotential + sign.FRAME}
-                </T.Positive>
-              </T.Minus>
-              <T.Minus enabled={weaponEnabled}>
-                <T.Positive>
-                  {d ? "専用武器" : f.attackSpeedWeapon + sign.FRAME}
-                </T.Positive>
-              </T.Minus>
-              <T.Minus enabled={agilityEnabled}>
-                <T.Positive>
-                  {d ? "基礎攻撃速度バフ" : agilityBuff + sign.FRAME}
-                </T.Positive>
-              </T.Minus>
+            <T.Brackets
+              enabled={
+                beastEnabled && (attackMotionEnabled || attackSpeedBuffEnabled)
+              }
+            >
+              <T.Brackets enabled={b}>
+                {d ? "基礎値" : f.attackSpeedBase + sign.FRAME}
+                <T.Minus enabled={abilityEnabled}>
+                  <T.Positive>
+                    {d ? "種族特性" : f.attackSpeedAbility + sign.FRAME}
+                  </T.Positive>
+                </T.Minus>
+                <T.Minus enabled={potentialEnabled}>
+                  <T.Positive>
+                    {d ? "潜在覚醒" : f.attackSpeedPotential + sign.FRAME}
+                  </T.Positive>
+                </T.Minus>
+                <T.Minus enabled={weaponEnabled}>
+                  <T.Positive>
+                    {d ? "専用武器" : f.attackSpeedWeapon + sign.FRAME}
+                  </T.Positive>
+                </T.Minus>
+                <T.Minus enabled={agilityEnabled}>
+                  <T.Positive>
+                    {d ? "基礎攻撃速度バフ" : agilityBuff + sign.FRAME}
+                  </T.Positive>
+                </T.Minus>
+              </T.Brackets>
+              <T.Divide enabled={beastEnabled}>
+                <T.Value isPositive={beastCol}>
+                  {d
+                    ? "獣神編成バフ倍率"
+                    : f.attackSpeedBeastFormationBuff + sign.PERCENT}
+                </T.Value>
+              </T.Divide>
             </T.Brackets>
-            <T.Multiply enabled={!!f.attackMotionMul}>
+            <T.Multiply enabled={attackMotionEnabled}>
               <T.Value isPositive={ammCol}>
                 {d ? "攻撃モーション倍率" : f.attackMotionMul + sign.PERCENT}
               </T.Value>
             </T.Multiply>
-            <T.Divide enabled={attackSpeedBuff !== 100}>
+            <T.Divide enabled={attackSpeedBuffEnabled}>
               <T.Value isPositive={asbCol}>
                 {d ? "攻撃速度倍率" : attackSpeedBuff + sign.PERCENT}
               </T.Value>

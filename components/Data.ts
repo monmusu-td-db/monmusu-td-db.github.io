@@ -1975,22 +1975,25 @@ export function getAttackSpeedFactors(
 ): AttackSpeedFactors {
   const ability = agilityBuff.base + agilityBuff.ability;
   const weapon = ability + agilityBuff.weapon;
-  const result = weapon + agilityBuff.potential;
+  const potential = weapon + agilityBuff.potential;
+  const result = Percent.multiply(potential, agilityBuff.beastFormationBuff);
 
   const attackSpeedBase = getAttackSpeed(agilityBuff.base);
   const subtotalAbility = getAttackSpeed(ability);
   const subtotalWeapon = getAttackSpeed(weapon);
+  const subtotalPotential = getAttackSpeed(potential);
   const attackSpeedResult = getAttackSpeed(result);
 
   const attackSpeedAbility = attackSpeedBase - subtotalAbility;
   const attackSpeedWeapon = subtotalAbility - subtotalWeapon;
-  const attackSpeedPotential = subtotalWeapon - attackSpeedResult;
+  const attackSpeedPotential = subtotalWeapon - subtotalPotential;
   return {
     attackSpeedAgility: agilityBuff,
     attackSpeedBase,
     attackSpeedAbility,
     attackSpeedWeapon,
     attackSpeedPotential,
+    attackSpeedBeastFormationBuff: agilityBuff.beastFormationBuff,
     attackSpeedResult,
   };
 }
@@ -2000,9 +2003,12 @@ export function getAttackSpeedFactorsSituation(
   agilityBuff: number,
 ): AttackSpeedFactorsSituation {
   const { base, ability, weapon, potential } = factors.attackSpeedAgility;
-  const result = getAttackSpeed(
-    base + ability + weapon + potential + agilityBuff,
+  const agility = base + ability + weapon + potential + agilityBuff;
+  const agilityResult = Percent.multiply(
+    agility,
+    factors.attackSpeedAgility.beastFormationBuff,
   );
+  const result = getAttackSpeed(agilityResult);
   const attackSpeedAgilityBuff = factors.attackSpeedResult - result;
   return {
     ...factors,
@@ -2192,6 +2198,7 @@ export interface AttackSpeedAgility {
   readonly ability: number;
   readonly weapon: number;
   readonly potential: number;
+  readonly beastFormationBuff: number;
 }
 
 export interface AttackSpeedFactors {
@@ -2200,6 +2207,7 @@ export interface AttackSpeedFactors {
   readonly attackSpeedAbility: number;
   readonly attackSpeedWeapon: number;
   readonly attackSpeedPotential: number;
+  readonly attackSpeedBeastFormationBuff: number;
   readonly attackSpeedResult: number;
 }
 
@@ -2394,6 +2402,8 @@ const beastList = [
   "【見習い獣神】デビネア",
   "【見習い獣神】ルドーラ",
   "【見習い獣神】ロビーナ",
+  "【見習い獣神】ガックス",
+  "【見習い獣神】マイミー",
 ] as const;
 export type Beast = (typeof beastList)[number];
 export const Beast = {

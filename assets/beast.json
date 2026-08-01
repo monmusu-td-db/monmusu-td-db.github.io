@@ -164,21 +164,21 @@
   {
     "name": "【見習い獣神】イグニャ",
     "rarity": "E",
-    "desc": "編成時、火属性の攻撃力が14%増加、ソーサラーの攻撃力が14%増加、射程+18",
+    "desc": "編成時、火属性の攻撃力が18%増加、ソーサラーの攻撃力が18%増加、射程+22",
     "subOnly": true,
     "features": [
       {
         "targets": [
           "火"
         ],
-        "attack": 14
+        "attack": 18
       },
       {
         "targets": [
           "ソーサラー"
         ],
-        "attack": 14,
-        "rangeAdd": 18
+        "attack": 18,
+        "rangeAdd": 22
       }
     ]
   },
@@ -201,37 +201,74 @@
   {
     "name": "【見習い獣神】ルドーラ",
     "rarity": "E",
-    "desc": "編成時、ドラゴンモンスター娘の攻撃力20%増加、スキル初回使用時間10%短縮",
+    "desc": "編成時、ドラゴンモンスター娘の攻撃力24%増加、スキル初回使用時間14%短縮",
     "subOnly": true,
     "features": [
       {
         "targets": [
           "ドラゴン"
         ],
-        "attack": 20,
-        "initialTimeCut": 10
+        "attack": 24,
+        "initialTimeCut": 14
       }
     ]
   },
   {
     "name": "【見習い獣神】ロビーナ",
     "rarity": "E",
-    "desc": "編成中、風属性の攻撃力+8%、コスト-3　さらにスナイパーの攻撃力+10%、射程+18",
+    "desc": "編成中、風属性の攻撃力+12%、コスト-3　さらにスナイパーの攻撃力+14%、射程+22",
     "subOnly": true,
     "features": [
       {
         "targets": [
           "風"
         ],
-        "attack": 8,
+        "attack": 12,
         "cost": -3
       },
       {
         "targets": [
           "スナイパー"
         ],
-        "attack": 10,
-        "rangeAdd": 18
+        "attack": 14,
+        "rangeAdd": 22
+      }
+    ]
+  },
+  {
+    "name": "【見習い獣神】ガックス",
+    "rarity": "E",
+    "desc": "編成中、地属性の最大HP24%増加　さらにウォリアーの攻撃力14%増加、コスト-2",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "地"
+        ],
+        "hp": 24
+      },
+      {
+        "targets": [
+          "ウォリアー"
+        ],
+        "cost": -2,
+        "attack": 14
+      }
+    ]
+  },
+  {
+    "name": "【見習い獣神】マイミー",
+    "rarity": "E",
+    "desc": "編成中、アンデッドの攻撃力+24%、攻撃速度+24%、クリティカル率+24%",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "アンデッド"
+        ],
+        "attack": 24,
+        "attackSpeed": 24,
+        "criChance": 24
       }
     ]
   }

@@ -15,6 +15,8 @@ interface JsonBeastFactors {
   attack: number;
   defense: number;
   resist: number;
+  criChance: number;
+  attackSpeed: number;
   delayCut: number;
   rangeAdd: number;
   initialTimeCut: number;
@@ -31,6 +33,8 @@ const beastFactorkeys = [
   "attack",
   "defense",
   "resist",
+  "criChance",
+  "attackSpeed",
   "delayMul",
   "rangeAdd",
   "initialTimeMul",
@@ -45,6 +49,8 @@ class BeastFactors implements Record<BeastFactorKeys, number | undefined> {
   readonly attack: number | undefined;
   readonly defense: number | undefined;
   readonly resist: number | undefined;
+  readonly criChance: number | undefined;
+  readonly attackSpeed: number | undefined;
   readonly delayMul: number | undefined;
   readonly rangeAdd: number | undefined;
   readonly initialTimeMul: number | undefined;
@@ -56,6 +62,8 @@ class BeastFactors implements Record<BeastFactorKeys, number | undefined> {
     this.attack = src.attack;
     this.defense = src.defense;
     this.resist = src.resist;
+    this.criChance = src.criChance;
+    this.attackSpeed = src.attackSpeed;
     this.delayMul = src.delayCut !== undefined ? 100 - src.delayCut : undefined;
     this.rangeAdd = src.rangeAdd;
     this.initialTimeMul =

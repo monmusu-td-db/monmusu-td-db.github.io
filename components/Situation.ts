@@ -300,7 +300,11 @@ export default class Situation implements TableRow<Keys> {
           : 0;
         const subskill = this.getSubskillFactor(s, ssKeys.criChanceAdd);
         const panel = s.criChanceAdd;
-        const result = limit(base + skill + fea + potential + subskill + panel);
+        const beast =
+          this.unit?.getBeastFormationBuffFactor(s, stat.criticalChance) ?? 0;
+        const result = limit(
+          base + skill + fea + potential + subskill + panel + beast,
+        );
 
         const skillColor = getColor(limit(base + skill), limit(base));
         const buffFea = feature.skillBuffs?.criChanceAdd ?? 0;
@@ -2163,6 +2167,7 @@ export default class Situation implements TableRow<Keys> {
       attackSpeedAbility,
       attackSpeedWeapon,
       attackSpeedPotential,
+      attackSpeedBeastFormationBuff,
       attackSpeedAgilityBuff,
       attackSpeedResult: attackSpeed,
     } = Data.getAttackSpeedFactorsSituation(
@@ -2284,6 +2289,7 @@ export default class Situation implements TableRow<Keys> {
       attackSpeedAbility,
       attackSpeedWeapon,
       attackSpeedPotential,
+      attackSpeedBeastFormationBuff,
       attackSpeedAgilityBuff,
       attackMotionMul,
       attackSpeedBuff,

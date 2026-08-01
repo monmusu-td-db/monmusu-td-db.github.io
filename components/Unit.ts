@@ -490,12 +490,17 @@ export default class Unit implements TableRow<Keys> {
             : undefined) ??
           src.attackSpeedAdd ??
           0;
+        const beastFormationBuff = this.getBeastFormationBuffFactor(
+          s,
+          stat.attackSpeed,
+        );
 
         return Data.getAttackSpeedFactors({
           base: attackSpeed,
           ability,
           weapon: this.getWeaponBaseFactor(s, stat.attackSpeed),
           potential: this.getPotentialFactor(s, stat.attackSpeed),
+          beastFormationBuff,
         });
       },
     });
@@ -1284,6 +1289,7 @@ export default class Unit implements TableRow<Keys> {
     const isAdd = (() => {
       switch (key) {
         case keys.cost:
+        case keys.criChance:
         case keys.rangeAdd:
         case keys.moveSpeedAdd:
           return true;
@@ -1350,6 +1356,10 @@ export default class Unit implements TableRow<Keys> {
         case stat.defense:
         case stat.resist:
           return statType;
+        case stat.criticalChance:
+          return keys.criChance;
+        case stat.attackSpeed:
+          return keys.attackSpeed;
         case stat.delay:
           return keys.delayMul;
         case stat.range:
