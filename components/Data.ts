@@ -1398,6 +1398,8 @@ const species = {
   demi: "デミ",
   marine: "海魔",
   freshwater: "水妖",
+  mysterious: "ミステリアス",
+  beast: "獣神",
   visitor: "ビジター",
 } as const;
 type SpeciesKey = keyof typeof species;

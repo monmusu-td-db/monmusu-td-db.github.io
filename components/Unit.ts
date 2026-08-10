@@ -1394,6 +1394,9 @@ export default class Unit implements TableRow<Keys> {
           case Data.Species.name.yokai:
           case Data.Species.name.marine:
           case Data.Species.name.freshwater:
+          case Data.Species.name.mysterious:
+          case Data.Species.name.beast:
+          case Data.Species.name.visitor:
             return true;
         }
         return false;
