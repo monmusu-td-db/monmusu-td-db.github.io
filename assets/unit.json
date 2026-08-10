@@ -57174,5 +57174,303 @@
         ]
       }
     ]
+  },
+  {
+    "id": 447,
+    "unitName": "【パワー娘】パルミエル",
+    "unitShortName": "パルミエル",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "光",
+    "hp": 7077,
+    "attack": 1263,
+    "defense": 458,
+    "resist": 134,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "正しき正義の斬撃",
+      "attackMul": 300,
+      "target": 3,
+      "range": 220,
+      "duration": 45,
+      "cooldown": 45,
+      "damageType": "魔法",
+      "supplements": [
+        "引き付け",
+        "HP0にならない"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 112,
+        "potentialBonus": {
+          "attack": 115
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "悪滅の聖斧",
+      "attack": 80
+    },
+    "features": [
+      {
+        "splash": true,
+        "physicalDamageDebuff": 120,
+        "magicalDamageDebuff": 120,
+        "supplements": [
+          "死亡時復活(20秒後)",
+          "{attack-base*300}魔法dmg/復活時→全体",
+          "->鈍足-50%(5秒)"
+        ]
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "スタン無効",
+          "石化無効"
+        ]
+      },
+      {
+        "featureName": "attack-mul",
+        "isConditionalBuff": true,
+        "annotations": [
+          "配置後/復活後30秒間"
+        ],
+        "conditions": [
+          {
+            "key": "*",
+            "value": 250
+          }
+        ],
+        "hpMul": 250,
+        "attackMul": 250
+      },
+      {
+        "featureName": "common-hp-50%",
+        "isConditionalBuff": true,
+        "attackMul": 120,
+        "attackSpeedBuff": 200,
+        "delayMul": 15
+      },
+      {
+        "featureName": "hp-1%",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 1
+          }
+        ],
+        "currentHp": 1,
+        "attackMul": 240,
+        "attackSpeedBuff": 200,
+        "delayMul": 15
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "common-hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-hp-50%"
+        ]
+      },
+      {
+        "features": [
+          "common-hp-50%",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-hp-50%",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-hp-50%",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-hp-50%",
+          "attack-mul"
+        ]
+      },
+      {
+        "features": [
+          "hp-1%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "hp-1%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "hp-1%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "hp-1%"
+        ]
+      },
+      {
+        "features": [
+          "hp-1%",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "hp-1%",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "hp-1%",
+          "attack-mul"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "hp-1%",
+          "attack-mul"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 0,
+        "supplements": [
+          "命中敵"
+        ],
+        "effects": [
+          {
+            "type": "physical-damage-debuff",
+            "value": 120
+          },
+          {
+            "type": "magical-damage-debuff",
+            "value": 120
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "supplements": [
+          "命中敵"
+        ],
+        "effects": [
+          {
+            "type": "physical-damage-debuff",
+            "value": 120
+          },
+          {
+            "type": "magical-damage-debuff",
+            "value": 120
+          }
+        ]
+      }
+    ]
   }
 ]
