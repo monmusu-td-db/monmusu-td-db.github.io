@@ -13290,6 +13290,19 @@
         "tkn+1/発動"
       ]
     },
+    "exSkill2": {
+      "skillName": "ホーリージャベリン",
+      "attackMul": 180,
+      "target": 3,
+      "range": 250,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "コスト+10/発動",
+        "隠密",
+        "tkn+2/発動"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -13329,12 +13342,21 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "features": [
           "common-team-buff1"
         ]
       },
       {
         "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "common-team-buff1"
         ]
@@ -13346,6 +13368,12 @@
       },
       {
         "skill": 1,
+        "features": [
+          "common-team-buff2"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "common-team-buff2"
         ]
@@ -13944,6 +13972,7 @@
     ]
   },
   {
+    "TODO_DESC": "ex2毒付与間隔",
     "id": 102,
     "unitName": "【アルラウネ娘】ウルネッラ",
     "unitShortName": "ウルネッラ",
@@ -13959,6 +13988,12 @@
       "rangeMul": 220,
       "duration": 10,
       "cooldown": 30
+    },
+    "exSkill2": {
+      "skillName": "妖毒の芳香",
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 40
     },
     "potentials": [
       "出撃コスト-1",
@@ -14001,12 +14036,48 @@
           "DEF-20%→射程内毒状態敵",
           "RES-20%→射程内毒状態敵"
         ]
+      },
+      {
+        "featureName": "common-skill-dot",
+        "skill": 2,
+        "staticDamage": {
+          "key": "attack-base",
+          "value": 100
+        },
+        "supplements": [
+          "猛毒付与/一定間隔→射程内"
+        ]
       }
     ],
     "situations": [
       {},
       {
         "skill": 1
+      },
+      {
+        "exclude": [
+          "class-debuff"
+        ],
+        "skill": 2,
+        "features": [
+          "common-skill-dot"
+        ]
+      },
+      {
+        "depend": [
+          "class-debuff"
+        ],
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "require": [
+          "毒特効"
+        ],
+        "target": "全体",
+        "value": 130
       }
     ]
   },
@@ -15022,6 +15093,12 @@
       "duration": 30,
       "cooldown": 40
     },
+    "exSkill2": {
+      "skillName": "千風一風の加護",
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 45
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -15072,6 +15149,12 @@
         ]
       },
       {
+        "skill": 2,
+        "isBuffSkill": true,
+        "attackMul": 150,
+        "criChanceAdd": 25
+      },
+      {
         "featureName": "common-team-buff1",
         "isConditionalBuff": true,
         "attackMul": 130
@@ -15095,12 +15178,24 @@
         ]
       },
       {
+        "skill": 2,
+        "features": [
+          "common-team-buff0"
+        ]
+      },
+      {
         "features": [
           "common-team-buff1"
         ]
       },
       {
         "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "common-team-buff1"
         ]
@@ -15112,6 +15207,12 @@
       },
       {
         "skill": 1,
+        "features": [
+          "common-team-buff4"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "common-team-buff4"
         ]
@@ -15134,6 +15235,36 @@
             "value": 50
           }
         ]
+      },
+      {
+        "type": "field-change",
+        "skill": 2,
+        "require": [
+          "風属性"
+        ],
+        "element": "風",
+        "target": "射程内",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "attack-mul",
+        "skill": 2,
+        "require": [
+          "風マス"
+        ],
+        "target": "全体",
+        "value": 150
+      },
+      {
+        "type": "critical-chance-add",
+        "skill": 2,
+        "require": [
+          "風マス"
+        ],
+        "target": "全体",
+        "value": 25
       }
     ]
   },
@@ -18666,6 +18797,17 @@
         "敵味方HP-1%/10秒→射程内"
       ]
     },
+    "exSkill2": {
+      "skillName": "鎮魂葬送大合唱",
+      "attackMul": 240,
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 30,
+      "supplements": [
+        "tkn+1/発動",
+        "{attack-base*50}回復→射程内アンデッド"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -18677,6 +18819,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
