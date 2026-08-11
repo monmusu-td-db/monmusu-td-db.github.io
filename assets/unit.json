@@ -13552,6 +13552,17 @@
         "スタン付与50%→命中"
       ]
     },
+    "exSkill2": {
+      "skillName": "昏海ノ多重渦",
+      "attackSpeedBuff": 150,
+      "delayMul": 50,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 35,
+      "supplements": [
+        "大渦配置/発動→水属性"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -13623,12 +13634,43 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "exclude": [
           "class-buff"
         ],
         "skill": 1,
         "features": [
           "skill-dot"
+        ]
+      },
+      {
+        "exclude": [
+          "class-buff"
+        ],
+        "skill": 2,
+        "features": [
+          "skill-dot"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 2,
+        "target": "射程内",
+        "require": [
+          "水属性"
+        ],
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 150
+          },
+          {
+            "type": "delay-mul",
+            "value": 50
+          }
         ]
       }
     ]
@@ -14172,6 +14214,17 @@
         "コスト+1/24f(0.8秒)"
       ]
     },
+    "exSkill2": {
+      "skillName": "聖夜の情愛",
+      "rangeMul": 300,
+      "duration": 25,
+      "cooldown": 40,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+13/発動",
+        "ATK+{attack-base*10}(5秒)/攻撃→射程内"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -14238,12 +14291,24 @@
         ]
       },
       {
+        "skill": 2,
+        "features": [
+          "class-ranged-attack"
+        ]
+      },
+      {
         "features": [
           "common-support"
         ]
       },
       {
         "skill": 1,
+        "features": [
+          "common-support"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "common-support"
         ]
@@ -14375,6 +14440,17 @@
         "tkn+1/3体撃破毎"
       ]
     },
+    "exSkill2": {
+      "skillName": "死霊の餌食",
+      "attackMul": 240,
+      "rounds": 3,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "闇マス化/発動"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -14410,6 +14486,9 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "features": [
           "token-buff"
         ]
@@ -14418,6 +14497,23 @@
         "skill": 1,
         "features": [
           "token-buff"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "token-buff"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 2,
+        "element": "闇",
+        "target": "自分",
+        "supplements": [
+          "発動時"
         ]
       }
     ]
@@ -14948,6 +15044,18 @@
         "HP回復100%/終了時"
       ]
     },
+    "exSkill2": {
+      "skillName": "破魔の祝弓",
+      "rounds": 4,
+      "rangeMul": 140,
+      "duration": 40,
+      "cooldown": 45,
+      "supplements": [
+        "引き付け",
+        "HP1%化/発動",
+        "HP50%化/終了時"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -15048,6 +15156,9 @@
         ]
       },
       {
+        "skill": 2
+      },
+      {
         "features": [
           "common-hp-50%"
         ]
@@ -15070,6 +15181,12 @@
         "skill": 1,
         "features": [
           "20-sec",
+          "common-hp-50%"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
           "common-hp-50%"
         ]
       }
