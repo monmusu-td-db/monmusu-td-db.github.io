@@ -2735,6 +2735,14 @@
       "duration": 20,
       "cooldown": 40
     },
+    "exSkill2": {
+      "skillName": "水勢の如く",
+      "rangeMul": 170,
+      "targetAdd": 1,
+      "rounds": 4,
+      "duration": 20,
+      "cooldown": 45
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -2775,6 +2783,9 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "require": [
           "weapon",
           "no-panel-field-element"
@@ -2790,6 +2801,17 @@
           "no-panel-field-element"
         ],
         "skill": 1,
+        "features": [
+          "common-water-field",
+          "common-earth-field"
+        ]
+      },
+      {
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "skill": 2,
         "features": [
           "common-water-field",
           "common-earth-field"
@@ -21792,6 +21814,18 @@
         "スタン耐性+50"
       ]
     },
+    "exSkill2": {
+      "skillName": "ボーン・Re・ボーン！",
+      "blockAdd": 3,
+      "duration": 45,
+      "cooldown": 55,
+      "supplements": [
+        "スタン耐性+50",
+        "HP0にならない",
+        "引き付け",
+        "99999dmg/スキル後→自分"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -21824,6 +21858,9 @@
         "features": [
           "skill1-hp-25%"
         ]
+      },
+      {
+        "skill": 2
       }
     ]
   },
