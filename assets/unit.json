@@ -9411,11 +9411,23 @@
       "criChanceLimitAdd": 100,
       "fixedDelay": 1,
       "target": 4,
+      "range": 330,
       "duration": "単発",
       "cooldown": 20,
       "supplements": [
         "ノックバック→命中"
       ]
+    },
+    "exSkill2": {
+      "skillName": "疾風の輪舞曲",
+      "attackMul": 340,
+      "criChanceAdd": 100,
+      "criChanceLimitAdd": 100,
+      "fixedDelay": 1,
+      "target": 4,
+      "range": 300,
+      "duration": "単発",
+      "cooldown": 25
     },
     "potentials": [
       "出撃コスト-1",
@@ -9467,6 +9479,21 @@
         "annotations": [
           "スキル発動時"
         ]
+      },
+      {
+        "featureName": "common-phase2",
+        "criDamageAdd": 50,
+        "criDamageLimitAdd": 50
+      },
+      {
+        "featureName": "common-phase3",
+        "criDamageAdd": 100,
+        "criDamageLimitAdd": 100
+      },
+      {
+        "featureName": "common-phase4",
+        "criDamageAdd": 150,
+        "criDamageLimitAdd": 150
       }
     ],
     "potentialBonus": {
@@ -9476,6 +9503,30 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase1"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase2"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase3"
+        ]
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-phase4"
+        ]
       },
       {
         "proper": true,
@@ -9495,6 +9546,13 @@
       {
         "proper": true,
         "skill": 1,
+        "features": [
+          "heal-all"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
         "features": [
           "heal-all"
         ]
@@ -14339,6 +14397,12 @@
       "duration": 15,
       "cooldown": 30
     },
+    "exSkill2": {
+      "skillName": "リンリン！ジングルベル！",
+      "rangeMul": 200,
+      "duration": 15,
+      "cooldown": 30
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -14357,12 +14421,22 @@
         }
       }
     ],
+    "features": [
+      {
+        "skill": 2,
+        "isBuffSkill": true,
+        "damageFactor": 105
+      }
+    ],
     "isEventUnit": true,
     "costAdd": -1,
     "situations": [
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ],
     "buffs": [
@@ -14371,6 +14445,12 @@
         "skill": 1,
         "target": "射程内",
         "value": 15
+      },
+      {
+        "type": "damage-factor",
+        "skill": 2,
+        "target": "射程内",
+        "value": 105
       }
     ]
   },
@@ -14936,6 +15016,20 @@
         "スタン付与80%→命中"
       ]
     },
+    "exSkill2": {
+      "skillName": "電轟全壊",
+      "damageFactor": 600,
+      "fixedDelay": 1,
+      "target": "射程内",
+      "splash": true,
+      "range": 500,
+      "duration": "単発",
+      "cooldown": 25,
+      "damageType": "貫通",
+      "supplements": [
+        "HP-50%/終了後→自分"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -14997,6 +15091,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       },
       {
         "require": [
@@ -18591,6 +18688,18 @@
         "ノックバック/攻撃時→射程内"
       ]
     },
+    "exSkill2": {
+      "skillName": "オーバーポルターン",
+      "physicalEvasion": 15,
+      "magicalEvasion": 15,
+      "rangeMul": 220,
+      "duration": 40,
+      "cooldown": 40,
+      "supplements": [
+        "引き付け",
+        "攻撃対象数+1/回避"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -18625,6 +18734,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
