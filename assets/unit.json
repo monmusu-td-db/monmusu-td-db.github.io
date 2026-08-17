@@ -16238,6 +16238,7 @@
     "exSkill1": {
       "skillName": "余の力を見せてやろう",
       "attackMul": 240,
+      "damageFactor": 200,
       "rounds": 3,
       "rangeMul": 150,
       "duration": 25,
@@ -16344,14 +16345,14 @@
       {
         "featureName": "common-block2",
         "isConditionalBuff": true,
-        "damageFactor": 120,
+        "damageFactor": 125,
         "attackSpeedBuff": 134,
         "delayMul": 80
       },
       {
         "featureName": "common-block3",
         "isConditionalBuff": true,
-        "damageFactor": 130,
+        "damageFactor": 150,
         "attackSpeedBuff": 150,
         "delayMul": 70
       }
@@ -16426,7 +16427,7 @@
     "resist": 457,
     "exSkill1": {
       "skillName": "ドロドロにしてあげる",
-      "attackMul": 180,
+      "attackMul": 220,
       "rangeMul": 160,
       "duration": 20,
       "cooldown": 30,
@@ -16443,9 +16444,10 @@
     ],
     "features": [
       {
-        "physicalDamageCut": 40,
+        "physicalDamageCut": 60,
+        "magicalDamageCut": 20,
         "potentialBonus": {
-          "physicalDamageCut": 50
+          "physicalDamageCut": 70
         }
       },
       {
@@ -16455,8 +16457,31 @@
           "DEF-{attack*20}(スキル中)→射程内",
           "RES-{attack*20}(スキル中)→射程内"
         ]
+      },
+      {
+        "featureName": "regenerate-6%",
+        "isAbility": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          "再"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 6
+        },
+        "interval": 30,
+        "target": "自分",
+        "rounds": 1,
+        "duration": "常時",
+        "damageType": "再生",
+        "supplements": [
+          "回復6%/秒"
+        ]
       }
     ],
+    "hpMul": 120,
     "situations": [
       {},
       {
@@ -16464,8 +16489,9 @@
       },
       {
         "proper": true,
+        "skill": -1,
         "features": [
-          "common-regenerate-3%"
+          "regenerate-6%"
         ]
       }
     ]
@@ -16488,7 +16514,7 @@
     ],
     "exSkill1": {
       "skillName": "ドロドロにしてあげる",
-      "attackMul": 180,
+      "attackMul": 220,
       "rangeMul": 160,
       "duration": 20,
       "cooldown": 30,
@@ -16498,9 +16524,10 @@
     },
     "features": [
       {
-        "physicalDamageCut": 40,
+        "physicalDamageCut": 60,
+        "magicalDamageCut": 20,
         "potentialBonus": {
-          "physicalDamageCut": 50
+          "physicalDamageCut": 70
         }
       },
       {
@@ -16509,6 +16536,28 @@
         "supplements": [
           "DEF-{attack*20}(スキル中)→射程内",
           "RES-{attack*20}(スキル中)→射程内"
+        ]
+      },
+      {
+        "featureName": "regenerate-6%",
+        "isAbility": true,
+        "annotations": [
+          "種族特性"
+        ],
+        "conditions": [
+          "再"
+        ],
+        "staticDamage": {
+          "key": "hp",
+          "value": 6
+        },
+        "interval": 30,
+        "target": "自分",
+        "rounds": 1,
+        "duration": "常時",
+        "damageType": "再生",
+        "supplements": [
+          "回復6%/秒"
         ]
       }
     ],
@@ -16521,8 +16570,9 @@
       },
       {
         "proper": true,
+        "skill": -1,
         "features": [
-          "common-regenerate-3%"
+          "regenerate-6%"
         ]
       }
     ]
@@ -16558,6 +16608,10 @@
     ],
     "features": [
       {
+        "skill": 1,
+        "damageFactor": 120
+      },
+      {
         "featureName": "common-support",
         "isAbility": true,
         "staticDefense": {
@@ -16577,7 +16631,7 @@
         "skill": 1,
         "staticDamage": {
           "key": "static",
-          "value": 2000
+          "value": 3500
         },
         "interval": 60,
         "damageType": "物理"
@@ -16615,6 +16669,14 @@
           "common-support"
         ]
       }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "target": "射程内",
+        "value": 120
+      }
     ]
   },
   {
@@ -16631,7 +16693,7 @@
     "resist": 146,
     "exSkill1": {
       "skillName": "たっぷり遊んであげる♪",
-      "attackMul": 160,
+      "attackMul": 220,
       "attackMotionMul": 150,
       "delayMul": 15,
       "rounds": 5,
@@ -16651,11 +16713,11 @@
         "attackMotionMul": 120,
         "rounds": [
           {
-            "ratio": 3,
+            "ratio": 1,
             "value": 2
           },
           {
-            "ratio": 2,
+            "ratio": 1,
             "value": 5
           }
         ],
@@ -16663,11 +16725,11 @@
           "attackMotionMul": 126,
           "rounds": [
             {
-              "ratio": 12,
+              "ratio": 19,
               "value": 2
             },
             {
-              "ratio": 13,
+              "ratio": 31,
               "value": 5
             }
           ]
@@ -16677,10 +16739,10 @@
         "featureName": "common-absorb",
         "staticDamage": {
           "key": "hp",
-          "value": 4
+          "value": 5
         },
         "supplements": [
-          "回復4%/命中"
+          "回復5%/命中"
         ]
       }
     ],
@@ -16708,7 +16770,7 @@
     "resist": 289,
     "exSkill1": {
       "skillName": "ぬるぬるしよ～♪",
-      "attackMul": 220,
+      "attackMul": 300,
       "splash": true,
       "rangeMul": 140,
       "duration": 30,
@@ -16723,22 +16785,22 @@
     ],
     "features": [
       {
-        "physicalDamageCut": 25,
+        "physicalDamageCut": 30,
         "potentialBonus": {
-          "physicalDamageCut": 32
+          "physicalDamageCut": 37
         }
       },
       {
         "skill": 0,
         "supplements": [
-          "鈍足-20%(3秒)→命中"
+          "鈍足-30%(5秒)→命中"
         ]
       },
       {
         "skill": 1,
         "isConditionalSkillBuff": true,
         "supplements": [
-          "鈍足-40%(3秒)→命中"
+          "鈍足-60%(5秒)→命中"
         ]
       }
     ],
@@ -16770,7 +16832,7 @@
     "resist": 572,
     "exSkill1": {
       "skillName": "火遊びしちゃう♪",
-      "attackMul": 240,
+      "attackMul": 300,
       "splash": true,
       "rangeMul": 150,
       "duration": 30,
@@ -16786,11 +16848,11 @@
     "features": [
       {
         "supplements": [
-          "反射20%"
+          "反射25%"
         ],
         "potentialBonus": {
           "supplements": [
-            "反射25%"
+            "反射30%"
           ]
         }
       }
@@ -16828,7 +16890,7 @@
     ]
   },
   {
-    "TODO_DESC": "Stat/Potential/ex1はWiki情報",
+    "TODO_DESC": "Stat/PotentialはWiki情報",
     "TODO_STAT_INFERRED": true,
     "id": 125,
     "unitName": "【妖狐娘】きつね",
@@ -16843,10 +16905,10 @@
     "resist": 121,
     "exSkill1": {
       "skillName": "分身の術っ！",
-      "attackMul": 160,
+      "attackMul": 260,
       "rounds": 3,
       "rangeMul": 140,
-      "duration": 25,
+      "duration": 30,
       "cooldown": 30
     },
     "potentials": [
@@ -28874,7 +28936,7 @@
     ],
     "exSkill1": {
       "skillName": "守護をもたらしなさい…！",
-      "rangeMul": 170,
+      "rangeMul": 180,
       "duration": 20,
       "cooldown": 30
     },
@@ -28889,8 +28951,8 @@
       {
         "skill": 1,
         "isConditionalSkillBuff": true,
-        "physicalDamageCut": 50,
-        "magicalDamageCut": 50
+        "physicalDamageCut": 70,
+        "magicalDamageCut": 70
       },
       {
         "featureName": "common-regenerate",
@@ -28936,28 +28998,29 @@
         "effects": [
           {
             "type": "physical-damage-cut",
-            "value": 40
+            "value": 50
           },
           {
             "type": "magical-damage-cut",
-            "value": 40
+            "value": 50
           }
         ]
       },
       {
         "skill": 1,
         "require": [
-          "光属性"
+          "光属性",
+          "自身以外"
         ],
         "target": "射程内",
         "effects": [
           {
             "type": "physical-damage-cut",
-            "value": 50
+            "value": 60
           },
           {
             "type": "magical-damage-cut",
-            "value": 50
+            "value": 60
           }
         ]
       }
@@ -28979,7 +29042,7 @@
     "moveType": "飛行",
     "exSkill1": {
       "skillName": "ちょっとした増強剤です",
-      "attackMul": 170,
+      "attackMul": 220,
       "targetAdd": 3,
       "rangeMul": 140,
       "duration": 30,
@@ -29141,7 +29204,7 @@
     "range": 250,
     "exSkill1": {
       "skillName": "ヒルデの秘密兵器…",
-      "attackMul": 260,
+      "attackMul": 320,
       "attackMotionMul": 155,
       "block": 0,
       "laser": true,
@@ -29215,6 +29278,7 @@
     "exSkill1": {
       "skillName": "魔王の暴虐",
       "attackMul": 220,
+      "targetAdd": 1,
       "rounds": 4,
       "rangeMul": 140,
       "duration": 20,
@@ -29266,6 +29330,7 @@
     ],
     "exSkill1": {
       "skillName": "行くぞ！コウモリの嵐！",
+      "attackMul": 130,
       "targetAdd": 3,
       "rounds": 3,
       "rangeMul": 160,
@@ -40474,6 +40539,7 @@
       }
     ],
     "isEventUnit": true,
+    "costAdd": -2,
     "situations": [
       {},
       {
@@ -40514,7 +40580,7 @@
       "duration": 30,
       "cooldown": 40,
       "supplements": [
-        "スタン付与40%→命中"
+        "スタン付与50%→命中"
       ]
     },
     "potentials": [
@@ -40528,7 +40594,7 @@
       {
         "skill": 0,
         "supplements": [
-          "スタン付与10%→命中"
+          "スタン付与20%→命中"
         ]
       },
       {
@@ -40607,10 +40673,10 @@
     "resist": 104,
     "exSkill1": {
       "skillName": "女王嵐舞",
-      "attackMul": 200,
+      "attackMul": 240,
       "splash": true,
       "rangeMul": 180,
-      "duration": 20,
+      "duration": 25,
       "cooldown": 30,
       "supplements": []
     },
@@ -40626,7 +40692,7 @@
         "criChanceLimitAdd": 30,
         "attackSpeedAgilityBuff": 40,
         "supplements": [
-          "CRIダメージ+10%(5秒)/撃破"
+          "CRIダメージ+15%(10秒)/撃破"
         ],
         "potentialBonus": {
           "criChanceLimitAdd": 35
@@ -40756,7 +40822,7 @@
     "exSkill1": {
       "skillName": "アンデットライズ",
       "attackMul": 220,
-      "targetAdd": 2,
+      "targetAdd": 3,
       "rangeMul": 220,
       "duration": 30,
       "cooldown": 40,
