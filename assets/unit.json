@@ -58056,5 +58056,175 @@
         ]
       }
     ]
+  },
+  {
+    "id": 450,
+    "unitName": "【渚の暴君】黒のアリス",
+    "unitShortName": "黒のアリス",
+    "rarity": "L",
+    "class": "ウォーロック",
+    "element": "水",
+    "species": "ビジター",
+    "hp": 2803,
+    "attack": 1068,
+    "defense": 212,
+    "resist": 523,
+    "supplements": [
+      "毒無効",
+      "火傷無効",
+      "暗闇無効",
+      "スタン無効",
+      "凍結無効",
+      "凍結付与(超高)/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "永劫の闇",
+      "attackMul": 200,
+      "rounds": 6,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "暗闇付与(中)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "水属性マスボーナス3倍"
+    ],
+    "weapon": {
+      "weaponName": "潮騒ロッド",
+      "hp": 500,
+      "attack": 20,
+      "resist": 10
+    },
+    "features": [
+      {
+        "isNotAbility": true,
+        "defenseDebuff": {
+          "valueMul": 30
+        },
+        "resistDebuff": {
+          "valueMul": 30
+        },
+        "supplements": [
+          "DEF-30%→射程内",
+          "RES-30%→射程内",
+          "鈍足-30%→射程内"
+        ],
+        "potentialBonus": {
+          "defenseDebuff": {
+            "valueMul": 40
+          },
+          "resistDebuff": {
+            "valueMul": 40
+          },
+          "supplements": [
+            "DEF-40%→射程内",
+            "RES-40%→射程内",
+            "鈍足-40%→射程内"
+          ]
+        }
+      },
+      {
+        "featureName": "weapon-definite",
+        "require": [
+          "武器"
+        ],
+        "isConditionalBuff": true,
+        "annotations": [
+          "専用武器効果"
+        ],
+        "conditions": [
+          {
+            "key": "特",
+            "type": "poison"
+          },
+          {
+            "key": "特",
+            "type": "stan"
+          },
+          {
+            "key": "特",
+            "type": "freeze"
+          },
+          {
+            "key": "特",
+            "type": "burn"
+          },
+          {
+            "key": "特",
+            "type": "blind"
+          }
+        ],
+        "supplements": [
+          "即死(低)→命中"
+        ]
+      },
+      {
+        "featureName": "common-extra-damage",
+        "damageFactor": 30,
+        "attackDebuff": {
+          "key": "enemy-attack",
+          "value": 5
+        },
+        "supplements": [
+          "ATK-5%(5秒)→命中",
+          "猛毒付与(低)→命中",
+          "火傷付与(低)→命中",
+          "凍結付与(低)→命中",
+          "スタン付与10%→命中"
+        ]
+      },
+      {
+        "featureName": "common-extra-damage",
+        "isConditionalSkillBuff": true,
+        "skill": 1,
+        "deleteSupplements": [
+          "猛毒付与(低)→命中",
+          "火傷付与(低)→命中",
+          "凍結付与(低)→命中",
+          "スタン付与10%→命中"
+        ],
+        "supplements": [
+          "猛毒付与(低+)→命中",
+          "火傷付与(低+)→命中",
+          "凍結付与(低+)→命中",
+          "スタン付与20%→命中"
+        ]
+      }
+    ],
+    "attackMul": 112,
+    "situations": [
+      {},
+      {
+        "features": [
+          "common-extra-damage"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-damage"
+        ]
+      },
+      {
+        "features": [
+          "weapon-definite"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "weapon-definite"
+        ]
+      }
+    ]
   }
 ]
