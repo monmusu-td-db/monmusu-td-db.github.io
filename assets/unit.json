@@ -57975,5 +57975,86 @@
         ]
       }
     ]
+  },
+  {
+    "id": 449,
+    "unitName": "【熾天使】ルシフィナ",
+    "unitShortName": "ルシフィナ",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "光",
+    "species": "ビジター",
+    "hp": 2592,
+    "attack": 700,
+    "defense": 315,
+    "resist": 198,
+    "moveType": "飛行",
+    "supplements": [
+      "死亡時復活(20秒後)"
+    ],
+    "weapon": {
+      "weaponName": "明星聖弓",
+      "hp": 200,
+      "attack": 35,
+      "range": 10
+    },
+    "exSkill1": {
+      "skillName": "明けの明星",
+      "attackMul": 300,
+      "rangeMul": 200,
+      "physicalEvasion": 100,
+      "magicalEvasion": 100,
+      "duration": 15,
+      "cooldown": 45,
+      "supplements": [
+        "引き付け",
+        "{attack*500}dmg/回避→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "近接マスに配置可能"
+    ],
+    "features": [
+      {
+        "featureName": "damage-debuff",
+        "annotations": [
+          "種族特性デバフ"
+        ],
+        "damageDebuff": 200,
+        "potentialBonus": {
+          "damageDebuff": 230
+        }
+      },
+      {
+        "featureName": "damage-debuff",
+        "require": [
+          "武器"
+        ],
+        "damageDebuff": 200
+      }
+    ],
+    "physicalEvasion": 30,
+    "magicalEvasion": 30,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "damage-debuff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-debuff"
+        ]
+      }
+    ]
   }
 ]
