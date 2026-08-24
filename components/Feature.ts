@@ -286,8 +286,6 @@ const commonFeature = {
   criChanceLimitAdd: 0,
   criDamageLimitAdd: 0,
   penetrationAdd: 0,
-  defenseDebuff: 0 as number | DefresDebuff,
-  resistDebuff: 0 as number | DefresDebuff,
   damageDebuff: 0,
   physicalDamageDebuff: 0,
   magicalDamageDebuff: 0,
@@ -334,6 +332,8 @@ interface JsonFeatureDiff {
   staticDefense: Data.JsonStaticDamage;
   staticResist: Data.JsonStaticDamage;
   attackDebuff: number | JsonAttackDebuff;
+  defenseDebuff: number | DefresDebuff;
+  resistDebuff: number | DefresDebuff;
   target: Data.JsonTarget;
   fixedTarget: Data.JsonTarget;
   rounds: Data.JsonRound;
@@ -356,6 +356,8 @@ interface FeatureDiff {
   staticDefense: Data.StaticDamage;
   staticResist: Data.StaticDamage;
   attackDebuffs: (number | AttackDebuff)[];
+  defenseDebuffs: (number | DefresDebuff)[];
+  resistDebuffs: (number | DefresDebuff)[];
   target: Data.TargetBase;
   fixedTarget: Data.TargetBase;
   rounds: Data.Rounds;
@@ -374,6 +376,8 @@ interface FeatureOutputDiff {
   attackAdds: readonly AdditionFactor[];
   defenseAdds: readonly AdditionFactor[];
   resistAdds: readonly AdditionFactor[];
+  defenseDebuffs: readonly (number | DefresDebuff)[];
+  resistDebuffs: readonly (number | DefresDebuff)[];
   supplements: ReadonlySet<string>;
   deleteSupplements: ReadonlySet<string>;
 }
@@ -523,6 +527,18 @@ export class Feature {
         (v !== undefined && JsonAttackDebuff.isKvp(v))
       ) {
         ret.attackDebuffs = [v];
+      }
+    }
+    {
+      const v = src.defenseDebuff;
+      if (v !== undefined) {
+        ret.defenseDebuffs = [v];
+      }
+    }
+    {
+      const v = src.resistDebuff;
+      if (v !== undefined) {
+        ret.resistDebuffs = [v];
       }
     }
     {
@@ -701,6 +717,18 @@ export class Feature {
         ret.attackDebuffs = this.concatItems(
           ret.attackDebuffs,
           feature.attackDebuffs,
+        );
+      }
+      if (feature.defenseDebuffs !== undefined) {
+        ret.defenseDebuffs = this.concatItems(
+          ret.defenseDebuffs,
+          feature.defenseDebuffs,
+        );
+      }
+      if (feature.resistDebuffs !== undefined) {
+        ret.resistDebuffs = this.concatItems(
+          ret.resistDebuffs,
+          feature.resistDebuffs,
         );
       }
       {

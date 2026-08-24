@@ -2557,24 +2557,29 @@ export default class Situation implements TableRow<Keys> {
       }
     })();
     const calculateDefresDebuff = (
-      debuffObj: number | DefresDebuff | undefined,
+      debuffObj: readonly (number | DefresDebuff)[] | undefined,
     ) => {
-      return Debuff.calculate(
-        debuffObj,
-        f.deploymentResult,
-        intervalFactor.actualResult!,
-        intervalFactor.base?.attackSpeedResult,
-        baseDefres,
-        round,
-      );
+      let result = 0;
+      debuffObj?.forEach((v) => {
+        result +=
+          Debuff.calculate(
+            v,
+            f.deploymentResult,
+            intervalFactor.actualResult!,
+            intervalFactor.base?.attackSpeedResult,
+            baseDefres,
+            round,
+          ) ?? 0;
+      });
+      return result;
     };
     const feaDefresDebuff = calculateDefresDebuff(
       (() => {
         switch (damageType) {
           case Data.DamageType.physic:
-            return fea.defenseDebuff;
+            return fea.defenseDebuffs;
           case Data.DamageType.magic:
-            return fea.resistDebuff;
+            return fea.resistDebuffs;
         }
       })(),
     );
@@ -2590,13 +2595,13 @@ export default class Situation implements TableRow<Keys> {
         default:
           return;
       }
-      return { valueMul: this.getSubskillFactor(setting, key) };
+      return [{ valueMul: this.getSubskillFactor(setting, key) }];
     })();
     const subSkillDefresDebuff = calculateDefresDebuff(subSkillDefresDebuffObj);
-    const defresDebuff = (feaDefresDebuff ?? 0) + (subSkillDefresDebuff ?? 0);
+    const defresDebuff = feaDefresDebuff + subSkillDefresDebuff;
 
     const minDefres = baseDefres / 2;
-    const d = Math.max(minDefres, baseDefres - (defresDebuff ?? 0));
+    const d = Math.max(minDefres, baseDefres - defresDebuff);
     const isMinDefres = d === minDefres;
     const defres = Math.trunc(d);
 
