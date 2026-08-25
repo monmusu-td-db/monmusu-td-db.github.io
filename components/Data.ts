@@ -498,6 +498,7 @@ export class Condition {
     "light-field": "光マス",
     "dark-field": "闇マス",
     curse: "呪詛",
+    boss:"ボス",
   } as const;
 
   private static readonly keys = getKeys(this.tag);

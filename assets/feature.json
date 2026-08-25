@@ -797,6 +797,15 @@
     ]
   },
   {
+    "featureName": "common-definite-boss",
+    "conditions": [
+      {
+        "key": "特",
+        "type": "boss"
+      }
+    ]
+  },
+  {
     "featureName": "common-definite-double",
     "annotations": [
       "二重特効"

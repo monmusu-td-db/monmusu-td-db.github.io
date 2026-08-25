@@ -58226,5 +58226,132 @@
         ]
       }
     ]
+  },
+  {
+    "id": 451,
+    "unitName": "【アイドル型AI】シンギュラリティ",
+    "unitShortName": "シンギュラリティ",
+    "rarity": "L",
+    "class": "ガンナー",
+    "element": "闇",
+    "species": "ビジター",
+    "hp": 2738,
+    "attack": 1083,
+    "defense": 225,
+    "resist": 261,
+    "supplements": [
+      "バリア{max-hp*30}付与/配置",
+      "バリア{max-hp*30}付与/発動"
+    ],
+    "exSkill1": {
+      "skillName": "次元閉遮式レールガン",
+      "attackMotionMul": 262,
+      "rounds": 12,
+      "laser": true,
+      "rangeMul": 200,
+      "duration": 20,
+      "cooldown": 55,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "闇属性マスボーナス3倍"
+    ],
+    "weapon": {
+      "weaponName": "巨人対抗砲",
+      "hp": 250,
+      "attack": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "resistDebuff": {
+          "valueMul": 5
+        },
+        "supplements": [
+          "RES-5%→命中",
+          "鈍足-5%→命中"
+        ]
+      },
+      {
+        "skill": 0,
+        "rounds": 4
+      },
+      {
+        "isConditionalSkillBuff": true,
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "スキル効果時間+5秒/撃破",
+          "CT-1秒/撃破→非スキル味方"
+        ]
+      },
+      {
+        "isConditionalSkillBuff": true,
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "ATK+10%(10秒)/撃破"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "ATK+13%(10秒)/撃破"
+          ]
+        }
+      },
+      {
+        "featureName": "common-definite-boss",
+        "isConditionalBuff": true,
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-boss"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-boss"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "skill": -1,
+        "require": [
+          "闇属性"
+        ],
+        "target": "全体",
+        "value": 130,
+        "supplements": [
+          "自分以外"
+        ]
+      },
+      {
+        "type": "damage-factor",
+        "skill": -1,
+        "require": [
+          "闇属性以外"
+        ],
+        "target": "全体",
+        "value": 120
+      }
+    ]
   }
 ]
