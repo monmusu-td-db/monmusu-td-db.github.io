@@ -58352,5 +58352,93 @@
         "value": 120
       }
     ]
+  },
+  {
+    "TODO_STAT_INFERRED": true,
+    "id": 452,
+    "unitName": "【フェニックス娘】ミニ",
+    "unitShortName": "ミニ",
+    "rarity": "E",
+    "class": "エアスカウト",
+    "element": "火",
+    "species": "ビジター",
+    "hp": 4104,
+    "attack": 809,
+    "defense": 335,
+    "resist": 105,
+    "supplements": [
+      "火傷無効"
+    ],
+    "exSkill1": {
+      "skillName": "フェニックスブレス",
+      "target": "射程内",
+      "rangeMul": 160,
+      "duration": 20,
+      "cooldown": 25,
+      "supplements": [
+        "回避無視100%"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "射程+15",
+      "スキル初回待ち時間-12"
+    ],
+    "weapon": {
+      "weaponName": "フェニックスウィング",
+      "hp": 200,
+      "attack": 35,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "attackSpeedBuff": 150,
+        "physicalEvasion": 60,
+        "supplements": [
+          "死亡時復活(20秒後/3回)"
+        ],
+        "potentialBonus": {
+          "physicalEvasion": 80
+        }
+      },
+      {
+        "featureName": "common-dot-no-annotation",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "武器効果"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 5
+        }
+      },
+      {
+        "featureName": "common-hp-50%",
+        "isConditionalBuff": true,
+        "damageFactor": 150
+      }
+    ],
+    "moveSpeedMul": 150,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-hp-50%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-50%"
+        ]
+      }
+    ]
   }
 ]
