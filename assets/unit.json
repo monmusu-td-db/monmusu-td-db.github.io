@@ -30699,14 +30699,13 @@
     ]
   },
   {
-    "TODO_STAT_INFERRED": true,
     "id": 241,
     "unitName": "【憧嫁のペガサス娘】スズ",
     "unitShortName": "スズ/嫁",
     "rarity": "E",
     "class": "エアスカウト",
     "element": "風",
-    "hp": 4141,
+    "hp": 4140,
     "attack": 821,
     "defense": 345,
     "resist": 100,
