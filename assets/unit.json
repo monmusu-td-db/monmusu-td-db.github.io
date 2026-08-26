@@ -57976,6 +57976,194 @@
     ]
   },
   {
+    "id": 448,
+    "unitName": "【妖魔】ネリス",
+    "unitShortName": "ネリス",
+    "rarity": "L",
+    "class": "ブレイダー",
+    "element": "闇",
+    "species": "ビジター",
+    "hp": 6215,
+    "attack": 1014,
+    "defense": 492,
+    "resist": 113,
+    "exSkill1": {
+      "skillName": "乱刃・気炎万丈",
+      "attackMul": 300,
+      "fixedDelay": 1,
+      "target": 1,
+      "rounds": 5,
+      "range": 350,
+      "duration": "単発",
+      "cooldown": 45,
+      "supplements": [
+        "火傷付与(高)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃速度+15",
+      "CRIダメージ+50%"
+    ],
+    "weapon": {
+      "weaponName": "魔人剣リベリオン",
+      "hp": 100,
+      "attack": 60,
+      "defense": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "闇マス化/発動"
+        ]
+      },
+      {
+        "require": [
+          "闇マス"
+        ],
+        "attackMul": 150,
+        "potentialBonus": {
+          "attackMul": 165
+        }
+      },
+      {
+        "featureName": "extra-damage",
+        "annotations": [
+          "追加ダメージ"
+        ],
+        "target": "ブロック敵",
+        "damageFactor": 200,
+        "rounds": 1
+      },
+      {
+        "featureName": "skill-extra",
+        "target": "射程内",
+        "damageFactor": 100,
+        "annotations": [
+          "スキル発動時"
+        ],
+        "rounds": 1,
+        "supplements": [
+          "魔法属性化→非ブロック敵"
+        ]
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "depend": [
+          "class-charge"
+        ],
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "skill-extra"
+        ]
+      },
+      {
+        "depend": [
+          "class-charge"
+        ],
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-light-field",
+          "common-dark-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "depend": [
+          "class-charge"
+        ],
+        "features": [
+          "common-light-field",
+          "common-dark-field",
+          "extra-damage"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-light-field",
+          "common-dark-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-light-field",
+          "common-dark-field",
+          "skill-extra"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "depend": [
+          "class-charge"
+        ],
+        "skill": 1,
+        "features": [
+          "common-light-field",
+          "common-dark-field",
+          "extra-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-regenerate-2%"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "require": [
+          "武器"
+        ],
+        "skill": 1,
+        "target": "自分",
+        "element": "闇",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 449,
     "unitName": "【熾天使】ルシフィナ",
     "unitShortName": "ルシフィナ",
