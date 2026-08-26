@@ -1814,6 +1814,7 @@ const potentialList = [
   { name: "HP+600、攻撃力+75", stat: stat.attack, value: 75 },
   { name: "攻撃時スタン蓄積+10", stat: null, value: 10 },
   { name: "攻撃時毒確率+20%", stat: null, value: 1 },
+  { name: "水属性マスボーナス3倍", stat: null, value: 3 },
   { name: "地属性マスボーナス3倍", stat: null, value: 3 },
   { name: "光属性マスボーナス3倍", stat: null, value: 3 },
   { name: "闇属性マスボーナス3倍", stat: null, value: 3 },
