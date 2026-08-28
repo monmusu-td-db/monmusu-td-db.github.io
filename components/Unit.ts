@@ -399,7 +399,11 @@ export default class Unit implements TableRow<Keys> {
           const ss = this.getSubskillFactor(s, ssKeys.cost);
           const weapon =
             (Data.Weapon.isApplied(s) ? this.weapon?.costAdd : undefined) ?? 0;
-          return this.calculateStat(s, stat.cost, cost + ss + weapon);
+          return this.calculateStat(
+            s,
+            stat.cost,
+            cost + ss + weapon,
+          );
         }
       },
     });
@@ -1442,6 +1446,7 @@ export default class Unit implements TableRow<Keys> {
         case ssKeys.formationResist:
         case ssKeys.delayMul:
         case ssKeys.moveSpeed:
+        case ssKeys.costMul:
           return true;
         default:
           return false;
@@ -1509,6 +1514,8 @@ export default class Unit implements TableRow<Keys> {
       case stat.defense:
       case stat.resist:
         return this.getSubskillFactor(setting, statType);
+      case stat.cost:
+        return this.getSubskillFactor(setting, ssKeys.costMul);
       default:
         return 100;
     }
