@@ -271,5 +271,43 @@
         "criChance": 24
       }
     ]
+  },
+  {
+    "name": "【見習い獣神】ガウフー",
+    "rarity": "E",
+    "desc": "編成中、デミの最大HP+14%、攻撃力+14%、物理防御+14%、魔法防御+14%",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "デミ"
+        ],
+        "hp": 14,
+        "attack": 14,
+        "defense": 14,
+        "resist": 14
+      }
+    ]
+  },
+  {
+    "name": "【見習い獣神】ピティス",
+    "rarity": "E",
+    "desc": "編成中、水属性の攻撃力+14%、出撃コスト-2　ヒーラーのスキル初回発動時間-15%",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "水"
+        ],
+        "cost": -2,
+        "attack": 14
+      },
+      {
+        "targets": [
+          "ヒーラー"
+        ],
+        "initialTimeCut": 15
+      }
+    ]
   }
 ]
