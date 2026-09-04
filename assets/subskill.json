@@ -3067,5 +3067,15 @@
     "desc": "出撃コストが倍増するが、与えるダメージ1.4倍（継続ダメージ除く）",
     "costMul": 100,
     "damageFactor": 40
+  },
+  {
+    "name": "【究極】デュアルエレメンタル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "同属性6体以上編成時、全モン娘の最大HP、ATK、RES+15%(2属性で最大30%)",
+    "isUltimate": true,
+    "formationHp": 15,
+    "formationAttack": 15,
+    "formationResist": 15
   }
 ]
