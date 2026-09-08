@@ -58628,5 +58628,151 @@
         ]
       }
     ]
+  },
+  {
+    "id": 453,
+    "unitName": "【ケルピー娘】ストリオーネ",
+    "unitShortName": "ストリオーネ",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "水",
+    "species": "水妖",
+    "hp": 3659,
+    "attack": 712,
+    "defense": 258,
+    "resist": 443,
+    "placement": "両",
+    "supplements": [
+      "バリア{attack*300}付与/移動開始",
+      "バリア{attack*300}付与/移動完了"
+    ],
+    "exSkill1": {
+      "skillName": "暴走ダービー",
+      "attackMul": 200,
+      "rangeMul": 180,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "呪詛の敵へ与ダメ1.3倍"
+    ],
+    "weapon": {
+      "weaponName": "H2ORSE",
+      "hp": 550,
+      "range": 10
+    },
+    "features": [
+      {
+        "skill": 1,
+        "moveCostAdd": -99
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "moveCostAdd": -1,
+        "moveSpeedMul": 250,
+        "potentialBonus": {
+          "moveSpeedMul": 270
+        }
+      },
+      {
+        "featureName": "moving",
+        "annotations": [
+          "移動中"
+        ],
+        "physicalEvasion": 100,
+        "magicalEvasion": 100,
+        "supplements": [
+          "移動可",
+          "呪詛付与(30秒)/秒→射程内"
+        ]
+      },
+      {
+        "featureName": "class-action",
+        "damageDebuff": 150,
+        "duration": 30
+      },
+      {
+        "featureName": "class-action",
+        "damageDebuff": 150
+      },
+      {
+        "featureName": "field-damage",
+        "isAbility": true,
+        "annotations": [
+          "継続ダメージ"
+        ],
+        "damageFactor": 50,
+        "target": 1,
+        "splash": true,
+        "rounds": 5,
+        "damageType": "魔法"
+      }
+    ],
+    "moveCostAdd": -1,
+    "moveSpeedMul": 200,
+    "potentialBonus": {
+      "moveSpeedMul": 220
+    },
+    "situations": [
+      {},
+      {
+        "features": [
+          "moving"
+        ]
+      },
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "moving"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "field-damage"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "field-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "features": [
+          "class-action"
+        ],
+        "target": "射程内",
+        "duration": 30,
+        "value": 150
+      },
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "require": [
+          "水属性"
+        ],
+        "features": [
+          "class-action"
+        ],
+        "target": "射程内",
+        "duration": 30,
+        "value": 150
+      }
+    ]
   }
 ]
