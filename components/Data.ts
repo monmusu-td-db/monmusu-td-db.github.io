@@ -498,7 +498,7 @@ export class Condition {
     "light-field": "光マス",
     "dark-field": "闇マス",
     curse: "呪詛",
-    boss:"ボス",
+    boss: "ボス",
   } as const;
 
   private static readonly keys = getKeys(this.tag);
@@ -2128,6 +2128,7 @@ export interface BarrackFactorsBase {
   readonly base: number;
   readonly potential: number;
   readonly potentialMul: number;
+  readonly cc4Weapon: number;
   readonly weaponBase: number;
   readonly weaponUpgrade: number;
   readonly weaponBaseBuff: number | undefined;

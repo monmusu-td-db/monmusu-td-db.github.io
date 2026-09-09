@@ -20,9 +20,17 @@ interface JsonClass {
   damageType?: Data.JsonDamageType;
   placement: Data.JsonPlacement;
   deployCount?: number;
+  weapon: JsonClassWeapon;
   supplements?: string[];
   features?: JsonFeature[];
   situations?: JsonClassSituations;
+}
+
+interface JsonClassWeapon {
+  hp?: number;
+  attack?: number;
+  defense?: number;
+  resist?: number;
 }
 
 interface JsonClassSituation {
@@ -49,6 +57,7 @@ class Class {
   readonly damageType: Data.DamageType | undefined;
   readonly placement: Data.Placement;
   readonly deployCount: number | undefined;
+  readonly weapon: JsonClassWeapon;
   readonly supplements: ReadonlySet<string>;
   readonly features: readonly Readonly<FeatureOutput>[];
   readonly situations: JsonClassSituations | undefined;
@@ -71,6 +80,7 @@ class Class {
     this.damageType = Data.JsonDamageType.parse(src.damageType) ?? undefined;
     this.placement = Data.JsonPlacement.parse(src.placement);
     this.deployCount = src.deployCount;
+    this.weapon = src.weapon;
     this.supplements = new Set(src.supplements);
     this.features = Feature.parseList(src.features ?? []);
     this.situations = src.situations;

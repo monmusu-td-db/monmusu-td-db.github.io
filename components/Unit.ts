@@ -403,15 +403,16 @@ export default class Unit implements TableRow<Keys> {
             s,
             stat.cost,
             cost + ss + weapon,
+            classData,
           );
         }
       },
     });
 
-    this.hp = this.getBaseStat(src, stat.hp);
-    this.attack = this.getBaseStat(src, stat.attack);
-    this.defense = this.getBaseStat(src, stat.defense);
-    this.resist = this.getBaseStat(src, stat.resist);
+    this.hp = this.getBaseStat(src, classData, stat.hp);
+    this.attack = this.getBaseStat(src, classData, stat.attack);
+    this.defense = this.getBaseStat(src, classData, stat.defense);
+    this.resist = this.getBaseStat(src, classData, stat.resist);
 
     this.criticalChance = new Stat.Root({
       statType: stat.criticalChance,
@@ -556,7 +557,12 @@ export default class Unit implements TableRow<Keys> {
           return;
         }
         const b = src.block ?? classData?.block ?? 1;
-        return this.calculateStat(s, stat.block, b + (src.blockAdd ?? 0));
+        return this.calculateStat(
+          s,
+          stat.block,
+          b + (src.blockAdd ?? 0),
+          classData,
+        );
       },
       isReversed: true,
     });
@@ -625,7 +631,7 @@ export default class Unit implements TableRow<Keys> {
         if (rangeBase === undefined) {
           return;
         }
-        return this.getDeploymentFactors(s, stat.range, rangeBase);
+        return this.getDeploymentFactors(s, stat.range, rangeBase, classData);
       },
     });
 
@@ -903,15 +909,20 @@ export default class Unit implements TableRow<Keys> {
     setting: Setting,
     statType: Data.MainStatType,
     value: T,
+    classData: Class | undefined,
   ): T {
     if (value === undefined) {
       return value;
     }
-    return this.getDeploymentFactors(setting, statType, value)
+    return this.getDeploymentFactors(setting, statType, value, classData)
       .deploymentResult as T;
   }
 
-  private getBaseStat(data: Readonly<JsonUnit>, statType: Data.BaseStatType) {
+  private getBaseStat(
+    data: Readonly<JsonUnit>,
+    classData: Class | undefined,
+    statType: Data.BaseStatType,
+  ) {
     const ret: Stat.Base<number> = new Stat.Base({
       statType: statType,
       calculater: (s) => ret.getFactors(s)?.deploymentResult ?? 0,
@@ -921,7 +932,8 @@ export default class Unit implements TableRow<Keys> {
           return Data.TableClass.unhealable;
         }
       },
-      factors: (s) => this.getDeploymentFactors(s, statType, data[statType]),
+      factors: (s) =>
+        this.getDeploymentFactors(s, statType, data[statType], classData),
     });
     return ret;
   }
@@ -930,11 +942,13 @@ export default class Unit implements TableRow<Keys> {
     setting: Setting,
     statType: Data.MainStatType,
     value: number,
+    classData: Class | undefined,
   ): Data.BarrackFactors {
     const ret: Data.BarrackFactorsBase = {
       base: value,
       potential: this.getPotentialFactor(setting, statType),
       potentialMul: this.getPotentialMulFactor(setting, statType),
+      cc4Weapon: this.getCc4WeaponFactor(statType, classData),
       weaponBase: this.getWeaponBaseFactor(setting, statType),
       weaponUpgrade: this.getWeaponUpgradeFactor(setting, statType),
       weaponBaseBuff: this.getWeaponBaseBuff(setting, statType),
@@ -956,16 +970,23 @@ export default class Unit implements TableRow<Keys> {
     const c = b + factors.baseAdd;
     const d = Percent.sum(factors.subskillMul, factors.weaponBaseBuff);
     const e = Percent.multiply(c, d);
-    return e + factors.subskillAdd + factors.weaponBase + factors.weaponUpgrade;
+    return (
+      e +
+      factors.subskillAdd +
+      factors.cc4Weapon +
+      factors.weaponBase +
+      factors.weaponUpgrade
+    );
   }
 
   private getDeploymentFactors(
     setting: Setting,
     statType: Data.MainStatType,
     value: number,
+    classData: Class | undefined,
   ): Data.DeploymentFactors {
     const ret = {
-      ...this.getBarrackFactors(setting, statType, value),
+      ...this.getBarrackFactors(setting, statType, value, classData),
       formationBuff: this.getFormationBuffFactor(setting, statType),
       environmentBuff: this.getEnvironmentBuffFactor(setting, statType),
       beastFormationBuff: this.getBeastFormationBuffFactor(setting, statType),
@@ -1055,6 +1076,21 @@ export default class Unit implements TableRow<Keys> {
     return (
       100 + Data.Potential.getEffectValue(potentialStatType, this.potentials)
     );
+  }
+
+  private getCc4WeaponFactor(
+    statType: Data.MainStatType,
+    classData: Class | undefined,
+  ): number {
+    switch (statType) {
+      case stat.hp:
+      case stat.attack:
+      case stat.defense:
+      case stat.resist:
+        return classData?.weapon[statType] ?? 0;
+      default:
+        return 0;
+    }
   }
 
   private getWeaponBaseFactor(

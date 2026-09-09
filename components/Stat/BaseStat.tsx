@@ -98,6 +98,9 @@ export class BaseStat<
                     )}
                   </T.Brackets>
                 </T.Multiply>
+                <T.Plus enabled={!!f.cc4Weapon}>
+                  <T.Positive>{d ? "CC4武器" : f.cc4Weapon}</T.Positive>
+                </T.Plus>
                 <T.Plus enabled={!!f.weaponBase}>
                   <T.Positive>{d ? "専用武器" : f.weaponBase}</T.Positive>
                 </T.Plus>
