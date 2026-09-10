@@ -715,15 +715,15 @@
     "cost": 16,
     "attackSpeed": 90,
     "delay": 20,
-    "range": 250,
+    "range": 255,
     "moveSpeed": 160,
     "damageType": "回復",
     "placement": "遠",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 330,
+      "attack": 32,
+      "defense": 42,
+      "resist": 61
     },
     "features": [
       {
@@ -764,15 +764,14 @@
     "attackSpeed": 80,
     "delay": 20,
     "target": "射程内",
-    "range": 273,
+    "range": 280,
     "moveSpeed": 160,
     "damageType": "回復",
     "placement": "遠",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "attack": 42,
+      "defense": 54,
+      "resist": 69
     },
     "features": [
       {
@@ -822,7 +821,7 @@
   {
     "className": "チーフアサシン",
     "cost": 9,
-    "attackSpeed": 142,
+    "attackSpeed": 150,
     "delay": 20,
     "range": 190,
     "moveSpeed": 270,
@@ -830,10 +829,9 @@
     "damageType": "物理",
     "placement": "両",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 360,
+      "attack": 35,
+      "defense": 69
     },
     "supplements": [
       "激毒付与(稀)→命中"
@@ -910,16 +908,15 @@
     "attackSpeed": 100,
     "delay": 25,
     "block": 0,
-    "range": 230,
+    "range": 240,
     "moveSpeed": 350,
     "damageType": "物理",
     "moveType": "飛行",
     "placement": "両",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 495,
+      "attack": 64,
+      "defense": 44
     },
     "supplements": [
       "鈍足(中)→命中"
@@ -956,18 +953,17 @@
   {
     "className": "ニンジャ",
     "cost": 12,
-    "attackSpeed": 138,
+    "attackSpeed": 141,
     "delay": 20,
     "rounds": 3,
-    "range": 200,
+    "range": 205,
     "moveSpeed": 320,
     "damageType": "物理",
     "placement": "両",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "attack": 48,
+      "defense": 67,
+      "resist": 39
     },
     "features": [
       {
@@ -1119,7 +1115,7 @@
   {
     "className": "ウィッパー",
     "cost": 12,
-    "attackSpeed": 112,
+    "attackSpeed": 115,
     "delay": 20,
     "range": 170,
     "splash": true,
@@ -1127,10 +1123,10 @@
     "damageType": "物理",
     "placement": "両",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 180,
+      "attack": 43,
+      "defense": 67,
+      "resist": 39
     },
     "supplements": [
       "DEF-{attack-base*26}(10秒)→命中"
