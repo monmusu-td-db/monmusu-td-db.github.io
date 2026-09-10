@@ -1191,14 +1191,13 @@
     "className": "シャーマン",
     "cost": 18,
     "target": "射程内",
-    "range": 240,
+    "range": 245,
     "moveSpeed": 120,
     "placement": "両",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 180,
+      "defense": 66,
+      "resist": 85
     },
     "supplements": [
       "コスト回復加速"
@@ -1242,15 +1241,15 @@
     "className": "バード",
     "cost": 23,
     "target": "射程内",
-    "range": 265,
+    "range": 280,
     "moveSpeed": 80,
     "placement": "遠",
     "deployCount": 0,
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 350,
+      "attack": 30,
+      "defense": 42,
+      "resist": 39
     },
     "features": [
       {
