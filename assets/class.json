@@ -452,7 +452,7 @@
   {
     "className": "アーチャー",
     "cost": 12,
-    "attackSpeed": 134,
+    "attackSpeed": 140,
     "delay": 25,
     "rounds": [
       {
@@ -464,15 +464,14 @@
         "value": 4
       }
     ],
-    "range": 262,
+    "range": 265,
     "moveSpeed": 160,
     "damageType": "物理",
     "placement": "遠",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "attack": 39,
+      "defense": 67,
+      "resist": 39
     },
     "features": [
       {
@@ -522,16 +521,15 @@
     "cost": 14,
     "attackSpeed": 90,
     "delay": 31,
-    "range": 300,
+    "range": 310,
     "moveSpeed": 160,
     "penetration": 33.3,
     "damageType": "魔法",
     "placement": "遠",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "attack": 79,
+      "defense": 42,
+      "resist": 39
     },
     "supplements": [
       "回避無視50%"
@@ -554,15 +552,15 @@
     "attackSpeed": 85,
     "delay": 26,
     "splash": true,
-    "range": 220,
+    "range": 225,
     "moveSpeed": 140,
     "damageType": "魔法",
     "placement": "遠",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 180,
+      "attack": 36,
+      "defense": 42,
+      "resist": 85
     },
     "features": [
       {
@@ -611,15 +609,14 @@
     "attackSpeed": 90,
     "delay": 26,
     "target": 3,
-    "range": 230,
+    "range": 235,
     "moveSpeed": 140,
     "damageType": "魔法",
     "placement": "遠",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "attack": 30,
+      "defense": 54,
+      "resist": 88
     },
     "supplements": [
       "鈍足-50%→射程内"
@@ -682,18 +679,18 @@
   {
     "className": "パペッティア",
     "cost": 17,
-    "attackSpeed": 102,
+    "attackSpeed": 105,
     "delay": 26,
     "target": 3,
-    "range": 216,
+    "range": 220,
     "moveSpeed": 140,
     "damageType": "魔法",
     "placement": "遠",
     "weapon": {
-      "hp": 0,
-      "attack": 0,
-      "defense": 0,
-      "resist": 0
+      "hp": 300,
+      "attack": 20,
+      "defense": 67,
+      "resist": 39
     },
     "features": [
       {
