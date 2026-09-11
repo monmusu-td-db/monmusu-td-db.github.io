@@ -3077,5 +3077,20 @@
     "formationHp": 15,
     "formationAttack": 15,
     "formationResist": 15
+  },
+  {
+    "name": "影の薄い陰謀",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "魔法攻撃を23%の確率で回避、ソーサラーセット時スタン敵へ与ダメージ1.1倍",
+    "magicalEvasion": 23,
+    "features": [
+      {
+        "require": [
+          "ソーサラー"
+        ],
+        "damageFactor": 10
+      }
+    ]
   }
 ]
