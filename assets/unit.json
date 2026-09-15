@@ -36143,12 +36143,6 @@
     ],
     "features": [
       {
-        "hasPotentials": [
-          "地属性マスボーナス3倍"
-        ],
-        "fieldBuffFactor": 300
-      },
-      {
         "require": [
           "地マス"
         ],
@@ -58772,6 +58766,133 @@
         "target": "射程内",
         "duration": 30,
         "value": 150
+      }
+    ]
+  },
+  {
+    "id": 454,
+    "unitName": "【ヴィーナシアン娘】ルキーナ",
+    "unitShortName": "ルキーナ",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "地",
+    "species": "エイリアン",
+    "hp": 10608,
+    "attack": 1044,
+    "defense": 644,
+    "resist": 107,
+    "exSkill1": {
+      "skillName": "観望する啓明",
+      "attackMul": 220,
+      "target": 5,
+      "range": 300,
+      "splash": true,
+      "duration": 35,
+      "cooldown": 5,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト-16/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "最大HP+600",
+      "地属性マスボーナス3倍"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "地"
+        ],
+        "hp": 110,
+        "attack": 110
+      }
+    ],
+    "weapon": {
+      "weaponName": "太白・弩鈍",
+      "hp": 100,
+      "defense": 30,
+      "resist": 15,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "isNotAbility": true,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "スタン無効",
+          "火傷無効"
+        ]
+      },
+      {
+        "featureName": "class-ranged",
+        "physicalDamageCut": 40,
+        "magicalDamageCut": 40,
+        "potentialBonus": {
+          "physicalDamageCut": 50,
+          "magicalDamageCut": 50
+        }
+      },
+      {
+        "featureName": "class-melee",
+        "supplements": [
+          "攻撃速度-60%→ブロック敵"
+        ]
+      },
+      {
+        "featureName": "common-definite-ground",
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-skill-dot",
+        "isConditionalSkillBuff": true,
+        "skill": 1,
+        "damageFactor": 100,
+        "supplements": [
+          "鈍足-90%→範囲内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-skill-dot"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": -1,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "配置時"
+        ]
       }
     ]
   }
