@@ -58895,5 +58895,137 @@
         ]
       }
     ]
+  },
+  {
+    "id": 455,
+    "unitName": "【フライング・ヒューマノイド娘】シエルナ",
+    "unitShortName": "シエルナ",
+    "rarity": "L",
+    "class": "エアスカウト",
+    "element": "闇",
+    "species": "エイリアン",
+    "hp": 4140,
+    "attack": 881,
+    "defense": 345,
+    "resist": 110,
+    "exSkill1": {
+      "skillName": "code:XX",
+      "attackMul": 200,
+      "rangeMul": 260,
+      "duration": 30,
+      "cooldown": 5,
+      "supplements": [
+        "tkn+3/発動"
+      ]
+    },
+    "weapon": {
+      "weaponName": "X:Fan",
+      "hp": 100,
+      "attack": 45,
+      "range": 10
+    },
+    "supplements": [
+      "物理範囲攻撃/4回攻撃→射程内"
+    ],
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "攻撃対象数+1"
+    ],
+    "features": [
+      {
+        "skill": 1,
+        "isBuffSkill": true,
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-definite-air",
+        "damageFactor": 200,
+        "potentialBonus": {
+          "damageFactor": 230
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 4550001,
+    "parentId": 455,
+    "unitName": "X:Mine",
+    "unitShortName": "X:Mine T",
+    "rarity": "C",
+    "element": "闇",
+    "species": "エイリアン",
+    "cost": 0,
+    "hp": 40,
+    "attack": 5192,
+    "defense": 0,
+    "resist": 0,
+    "target": 0,
+    "range": 120,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "近",
+    "supplements": [
+      "ATK+20%/死亡時→本体&tkn"
+    ],
+    "features": [
+      {
+        "damageFactor": 300,
+        "target": "射程内",
+        "supplements": [
+          "HP0/攻撃→自分",
+          "停止(1秒)→命中"
+        ]
+      },
+      {
+        "featureName": "common-definite-ground",
+        "damageFactor": 200
+      },
+      {
+        "featureName": "parent-skill1",
+        "parentSkill": 1,
+        "isBuffSkill": true,
+        "damageFactor": 150
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "parent-skill1",
+          "common-token-limit-nodesc"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc",
+          "common-definite-ground"
+        ]
+      },
+      {
+        "proper": true,
+        "features": [
+          "parent-skill1",
+          "common-token-limit-nodesc",
+          "common-definite-ground"
+        ]
+      }
+    ]
   }
 ]
