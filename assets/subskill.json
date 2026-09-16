@@ -3092,5 +3092,12 @@
         "damageFactor": 10
       }
     ]
+  },
+  {
+    "name": "気雨壮大宙外之天",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル発動時、15秒間天候：雨にする。天候：雨状態の時、敵撃破時コスト1回復",
+    "isIneffective": true
   }
 ]
