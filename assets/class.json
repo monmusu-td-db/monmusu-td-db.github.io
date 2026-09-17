@@ -1001,19 +1001,13 @@
       {
         "featureName": "class-fire-field",
         "isConditionalBuff": true,
+        "annotations": [
+          "火マス配置時"
+        ],
         "fieldElements": [
           "火"
         ],
         "damageFactor": 140
-      },
-      {
-        "featureName": "class-fire-field",
-        "require": [
-          "パネル無属性"
-        ],
-        "annotations": [
-          "火マス配置時"
-        ]
       },
       {
         "featureName": "class-water-field",
