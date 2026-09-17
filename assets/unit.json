@@ -59027,5 +59027,166 @@
         ]
       }
     ]
+  },
+  {
+    "id": 456,
+    "unitName": "【コズミックモーフ娘】ヴォミラ",
+    "unitShortName": "ヴォミラ",
+    "rarity": "L",
+    "class": "ニンジャ",
+    "element": "闇",
+    "species": "エイリアン",
+    "hp": 2677,
+    "attack": 561,
+    "defense": 458,
+    "resist": 306,
+    "supplements": [
+      "ATK+40%/同属性1体→同属性"
+    ],
+    "exSkill1": {
+      "skillName": "αギミック",
+      "attackMul": 180,
+      "targetAdd": 3,
+      "rangeMul": 180,
+      "duration": 25,
+      "cooldown": 5,
+      "supplements": [
+        "コスト-10/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "30%で貫通攻撃"
+    ],
+    "weapon": {
+      "weaponName": "刻刻棘棘",
+      "hp": 150,
+      "attack": 30,
+      "defense": 15,
+      "resist": 20
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "闇"
+        ],
+        "damageFactor": 120
+      },
+      {
+        "featureName": "common-team-buff1",
+        "attackMul": 140
+      },
+      {
+        "featureName": "common-team-buff5",
+        "attackMul": 300
+      },
+      {
+        "featureName": "common-team-buff10",
+        "attackMul": 500
+      },
+      {
+        "featureName": "skill1-extra",
+        "annotations": [
+          "スキル継続ダメージ"
+        ],
+        "conditions": [
+          "追"
+        ],
+        "damageFactor": 100,
+        "criChanceAdd": -1000,
+        "target": "命中",
+        "splash": true,
+        "rounds": 6,
+        "damageType": "貫通"
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff1"
+        ]
+      },
+      {
+        "skill": 1,
+        "exclude": [
+          "class-fire-field",
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "features": [
+          "common-team-buff1",
+          "skill1-extra"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff5"
+        ]
+      },
+      {
+        "skill": 1,
+        "exclude": [
+          "class-fire-field",
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "features": [
+          "common-team-buff5",
+          "skill1-extra"
+        ]
+      },
+      {
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-team-buff10"
+        ]
+      },
+      {
+        "skill": 1,
+        "exclude": [
+          "class-fire-field",
+          "class-water-field",
+          "class-earth-field"
+        ],
+        "features": [
+          "common-team-buff10",
+          "skill1-extra"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "射程内",
+        "element": "闇",
+        "supplements": [
+          "発動時",
+          "自マス+射程内ランダム2マス",
+          "編成内にある属性が6体以上いる時、その属性に自身の属性とマス書き換えの属性が変化する"
+        ]
+      }
+    ]
   }
 ]
