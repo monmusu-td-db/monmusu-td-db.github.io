@@ -59188,5 +59188,173 @@
         ]
       }
     ]
+  },
+  {
+    "id": 457,
+    "unitName": "【T.O.W.E.R. typeM】ティヴェル",
+    "unitShortName": "ティヴェル",
+    "rarity": "L",
+    "class": "ランサー",
+    "element": "闇",
+    "species": "ビジター",
+    "hp": 4402,
+    "attack": 742,
+    "defense": 485,
+    "resist": 59,
+    "supplements": [
+      "コスト+2/撃破"
+    ],
+    "exSkill1": {
+      "skillName": "パニッシュメントクルス",
+      "attackMul": 320,
+      "target": 5,
+      "duration": 15,
+      "cooldown": 15,
+      "damageType": "魔法",
+      "supplements": [
+        "コスト+10/発動"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "スキル再使用時間-6秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "hp": 110,
+        "attack": 110
+      }
+    ],
+    "weapon": {
+      "weaponName": "Wings of Dimansion",
+      "hp": 250,
+      "attack": 25,
+      "defense": 10,
+      "resist": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "CT-10秒/発動→射程内"
+        ]
+      },
+      {
+        "featureName": "damage-debuff",
+        "annotations": [
+          "ダメージ増加効果"
+        ],
+        "damageDebuff": 150
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "damage-debuff"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "damage-debuff"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-debuff",
+        "skill": -1,
+        "target": "命中",
+        "value": 150
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "自身以外"
+        ],
+        "skill": 1,
+        "target": "射程内",
+        "value": 130
+      }
+    ]
+  },
+  {
+    "id": 4570001,
+    "parentId": 457,
+    "unitName": "アンファンブルトークン",
+    "unitShortName": "アンファンブルT",
+    "rarity": "C",
+    "element": "闇",
+    "species": "ビジター",
+    "cost": 5,
+    "hp": 8000,
+    "attack": 1200,
+    "defense": 300,
+    "resist": 450,
+    "attackSpeed": 100,
+    "delay": 1,
+    "target": 1,
+    "range": 280,
+    "moveSpeed": 0,
+    "damageType": "魔法",
+    "placement": "両",
+    "supplements": [
+      "コスト+2/撃破",
+      "死亡時復活(20秒後)"
+    ],
+    "features": [
+      {
+        "attackAdd": {
+          "key": "parent-attack",
+          "value": 120
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "tkn-blue",
+        "annotations": [
+          "ブル（青）"
+        ]
+      },
+      {
+        "featureName": "tkn-red",
+        "annotations": [
+          "ブル（赤）"
+        ],
+        "damageType": "物理"
+      }
+    ],
+    "isUnhealable": true,
+    "situations": [
+      {
+        "features": [
+          "common-token-limit-nodesc",
+          "tkn-blue"
+        ]
+      },
+      {
+        "features": [
+          "common-token-limit-nodesc",
+          "tkn-red"
+        ]
+      }
+    ]
   }
 ]
