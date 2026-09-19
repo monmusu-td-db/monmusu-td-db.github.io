@@ -59228,7 +59228,11 @@
           "全て"
         ],
         "hp": 110,
-        "attack": 110
+        "attack": 110,
+        "potentialBonus": {
+          "hp": 113,
+          "attack": 113
+        }
       }
     ],
     "weapon": {
