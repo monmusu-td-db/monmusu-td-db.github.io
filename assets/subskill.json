@@ -3099,5 +3099,27 @@
     "group": "支援",
     "desc": "スキル発動時、15秒間天候：雨にする。天候：雨状態の時、敵撃破時コスト1回復",
     "isIneffective": true
+  },
+  {
+    "name": "超・魔導艦の討伐証",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "最大HP+650、こん棒装備クラスにセット時追加で攻撃力+140",
+    "hpAdd": 650,
+    "features": [
+      {
+        "require": [
+          "デストロイヤー"
+        ],
+        "attackAdd": 140
+      }
+    ]
+  },
+  {
+    "name": "被検体G19",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "【改造ガーゴイル娘】ユイルをトークンとして使役可能",
+    "isIneffective": true
   }
 ]
