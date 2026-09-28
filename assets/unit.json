@@ -59360,5 +59360,146 @@
         ]
       }
     ]
+  },
+  {
+    "id": 460,
+    "unitName": "【プロメテウス娘】メテリナ",
+    "unitShortName": "メテリナ",
+    "rarity": "L",
+    "class": "ハーミット",
+    "element": "火",
+    "species": [
+      "デミ",
+      "禁忌"
+    ],
+    "hp": 2438,
+    "attack": 476,
+    "defense": 427,
+    "resist": 545,
+    "supplements": [
+      "火傷付与(稀/射程内火)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "根源の大火",
+      "attackMul": 320,
+      "rangeMul": 220,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "バリア{attack-base*500}付与/発動→射程内",
+        "HP0にならない→射程内他者"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "魔法ダメージ20%軽減"
+    ],
+    "weapon": {
+      "weaponName": "真球・ソレイユ",
+      "hp": 400,
+      "attack": 15,
+      "range": 10
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "hp": 108,
+        "attack": 108
+      },
+      {
+        "targets": [
+          "火"
+        ],
+        "hp": 104,
+        "attack": 104
+      }
+    ],
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "attackSpeedBuff": 120,
+        "delayMul": 90
+      },
+      {
+        "featureName": "common-dot",
+        "staticDamage": {
+          "key": "attack",
+          "value": 200
+        }
+      },
+      {
+        "featureName": "common-dot",
+        "require": [
+          "スキル"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 500
+        }
+      }
+    ],
+    "costAdd": 20,
+    "hpMul": 120,
+    "attackMul": 150,
+    "potentialBonus": {
+      "hpMul": 125,
+      "attackMul": 155
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "common-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-dot"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 0,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 120
+          },
+          {
+            "type": "delay-mul",
+            "value": 80
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 120
+          },
+          {
+            "type": "delay-mul",
+            "value": 80
+          }
+        ]
+      }
+    ]
   }
 ]

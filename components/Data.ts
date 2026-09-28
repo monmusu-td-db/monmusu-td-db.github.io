@@ -1402,6 +1402,7 @@ const species = {
   mysterious: "ミステリアス",
   beast: "獣神",
   visitor: "ビジター",
+  forbidden: "禁忌",
 } as const;
 type SpeciesKey = keyof typeof species;
 const SpeciesKey = Enum(getKeys(species));
