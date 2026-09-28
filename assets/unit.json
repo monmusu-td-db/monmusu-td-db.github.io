@@ -59503,6 +59503,110 @@
     ]
   },
   {
+    "id": 461,
+    "unitName": "【ティアマト娘】ティアマリア",
+    "unitShortName": "ティアマリア",
+    "rarity": "L",
+    "class": "ルーンブレイダー",
+    "element": "水",
+    "species": [
+      "ドラゴン",
+      "海魔",
+      "禁忌"
+    ],
+    "hp": 6670,
+    "attack": 1050,
+    "defense": 412,
+    "resist": 334,
+    "moveType": "飛行",
+    "exSkill1": {
+      "skillName": "大荒海の覇浪",
+      "attackMul": 400,
+      "targetAdd": 2,
+      "laser": true,
+      "rangeMul": 240,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "supplements": [
+      "水毒渦状態付与→命中"
+    ],
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 110
+      },
+      {
+        "targets": [
+          "水"
+        ],
+        "attack": 106
+      }
+    ],
+    "weapon": {
+      "weaponName": "深淵の古龍剣",
+      "attack": 55,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "magicalDamageCut": 70
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "鈍足-30%→射程内"
+        ]
+      },
+      {
+        "featureName": "common-definite",
+        "annotations": [
+          "水毒渦特効"
+        ],
+        "damageFactor": 200
+      },
+      {
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "{attack*100}魔法dmg/発動"
+        ]
+      }
+    ],
+    "costAdd": 15,
+    "attackMul": 150,
+    "rangeAdd": 50,
+    "potentialBonus": {
+      "attackMul": 160
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-cut",
+        "require": [
+          "自身以外"
+        ],
+        "target": "射程内",
+        "value": 130
+      }
+    ]
+  },
+  {
     "id": 462,
     "unitName": "【ハッグ娘】ドルゼフィーダ",
     "unitShortName": "ドルゼフィーダ",

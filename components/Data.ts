@@ -1119,6 +1119,7 @@ export class UnitClass {
     lancer: "ランサー",
     barbarian: "バーバリアン",
     monk: "モンク",
+    runeBlader: "ルーンブレイダー",
     shieldKnight: "シールドナイト",
     destroyer: "デストロイヤー",
     samurai: "サムライ",
@@ -1142,6 +1143,7 @@ export class UnitClass {
     lancer: "槍",
     barbarian: "斧",
     monk: "拳",
+    runeBlader: "魔法剣",
     shieldKnight: "剣盾",
     destroyer: "こん棒",
     samurai: "大太刀",
@@ -1165,6 +1167,7 @@ export class UnitClass {
     lancer: "ヴァルキリー",
     barbarian: "ベルセルク",
     monk: "ゴッドハンド",
+    runeBlader: "フラガラッハ",
     shieldKnight: "バスティオン",
     destroyer: "デモリッシュ",
     samurai: "ショウグン",
@@ -1238,6 +1241,7 @@ export class UnitClass {
       case n.lancer:
       case n.barbarian:
       case n.monk:
+      case n.runeBlader:
         return UnitBaseClass.tag.warrior;
       case n.shieldKnight:
       case n.destroyer:

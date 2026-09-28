@@ -270,6 +270,47 @@
     ]
   },
   {
+    "className": "ルーンブレイダー",
+    "cost": 17,
+    "attackSpeed": 100,
+    "delay": 19,
+    "block": 2,
+    "range": 240,
+    "moveSpeed": 200,
+    "damageType": "魔法",
+    "placement": "近",
+    "weapon": {
+      "hp": 540,
+      "attack": 50,
+      "defense": 66
+    },
+    "features": [
+      {
+        "fieldBuffFactor": 300,
+        "fieldBuffRangeAdd": 50
+      },
+      {
+        "featureName": "class-action",
+        "isAction": true,
+        "isSameElement": true,
+        "annotations": [
+          "エレメンタルシフト"
+        ],
+        "damageFactor": 120,
+        "damageCut": 20,
+        "duration": 60
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-action"
+        ]
+      }
+    ]
+  },
+  {
     "className": "シールドナイト",
     "cost": 23,
     "attackSpeed": 100,

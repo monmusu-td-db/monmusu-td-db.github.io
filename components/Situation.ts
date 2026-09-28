@@ -738,7 +738,7 @@ export default class Situation implements TableRow<Keys> {
         const base = unitFactor?.deploymentResult ?? 0;
         const field = this.getFieldElementFactor(s, stat.range);
         const multiply = Percent.sum(sk?.rangeMul, fea.rangeMul) + field;
-        const addition = fea.rangeAdd ?? 0;
+        const addition = (fea.rangeAdd ?? 0) + this.getFieldBuffRangeAdd(s);
         const calcSubtotal = (
           base: number,
           multiply: number | undefined,
@@ -2737,12 +2737,20 @@ export default class Situation implements TableRow<Keys> {
 
   private getFieldElements(setting: Setting): ReadonlySet<Data.Element> {
     const ret = new Set<Data.Element>();
-    const f = this.getFeature(setting).fieldElements;
+    const feature = this.getFeature(setting);
+    const f = feature.fieldElements;
     if (f !== undefined) {
       for (const el of f) {
         ret.add(el);
       }
     }
+
+    const sameElement = feature.isSameElement;
+    const unitElement = this.unit?.element.getValue(setting);
+    if (sameElement && unitElement) {
+      ret.add(unitElement);
+    }
+
     return this.getFieldElementSetting(setting, ret);
   }
 
@@ -2760,19 +2768,23 @@ export default class Situation implements TableRow<Keys> {
     return elements;
   }
 
-  private getFieldElementFactor(
-    setting: Setting,
-    statType: Data.MainStatType,
-  ): number {
+  private isNotApplyElementFactor(setting: Setting): boolean {
     const f = this.getFieldElements(setting);
     const u = this.unit?.element.getValue(setting);
     const placement = this.unit?.placement.getValue(setting);
-    if (
+    return (
       u === undefined ||
       !f.has(u) ||
       placement === Data.Placement.servant ||
       placement === Data.Placement.target
-    ) {
+    );
+  }
+
+  private getFieldElementFactor(
+    setting: Setting,
+    statType: Data.MainStatType,
+  ): number {
+    if (this.isNotApplyElementFactor(setting)) {
       return 0;
     }
 
@@ -2794,6 +2806,13 @@ export default class Situation implements TableRow<Keys> {
       })(),
       Percent.sum(fea, ss),
     );
+  }
+
+  private getFieldBuffRangeAdd(setting: Setting): number {
+    if (this.isNotApplyElementFactor(setting)) {
+      return 0;
+    }
+    return this.getFeature(setting).fieldBuffRangeAdd ?? 0;
   }
 
   private getSubskillFactor(setting: Setting, key: SubskillFactorKey): number {
