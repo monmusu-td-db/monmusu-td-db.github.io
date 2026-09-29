@@ -59501,5 +59501,116 @@
         ]
       }
     ]
+  },
+  {
+    "id": 462,
+    "unitName": "【ハッグ娘】ドルゼフィーダ",
+    "unitShortName": "ドルゼフィーダ",
+    "rarity": "L",
+    "class": "パペッティア",
+    "element": "闇",
+    "hp": 2835,
+    "attack": 641,
+    "defense": 280,
+    "resist": 499,
+    "supplements": [
+      "石化付与(低)→命中",
+      "凍結付与(低)→命中",
+      "スタン付与10%→命中",
+      "HP-1%→石化/凍結/スタン敵"
+    ],
+    "exSkill1": {
+      "skillName": "妖艶なる凶夢",
+      "attackMul": 200,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 40,
+      "supplements": [
+        "呪詛付与(一定時間)→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "呪詛の敵へ与ダメ1.3倍"
+    ],
+    "weapon": {
+      "weaponName": "霊布人形ソウルメア",
+      "defense": 25,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "magicalEvasion": 80
+      },
+      {
+        "featureName": "class-action",
+        "isConditionalBuff": true,
+        "damageFactor": 140,
+        "supplements": [
+          "一部回復無効化→敵"
+        ],
+        "duration": 30,
+        "potentialBonus": {
+          "damageFactor": 150
+        }
+      },
+      {
+        "featureName": "hp-99%",
+        "isConditionalBuff": true,
+        "currentHp": 99,
+        "conditions": [
+          {
+            "key": "HP",
+            "value": 99
+          }
+        ],
+        "damageDebuff": 200
+      }
+    ],
+    "deployCount": 0,
+    "hpMul": 85,
+    "placement": "両",
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "hp-99%"
+        ]
+      },
+      {
+        "depend": [
+          "class-action"
+        ],
+        "features": [
+          "hp-99%"
+        ],
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "damage-factor",
+        "features": [
+          "class-action"
+        ],
+        "value": 140,
+        "potentialBonus": {
+          "value": 150
+        }
+      }
+    ]
   }
 ]
