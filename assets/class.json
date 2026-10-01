@@ -588,6 +588,69 @@
     ]
   },
   {
+    "className": "スロワー",
+    "cost": 14,
+    "attackSpeed": 110,
+    "delay": 26,
+    "range": 285,
+    "moveSpeed": 160,
+    "damageType": "物理",
+    "placement": "遠",
+    "weapon": {
+      "hp": 230,
+      "attack": 55,
+      "defense": 42,
+      "resist": 39
+    },
+    "supplements": [
+      "鈍足付与30%→命中"
+    ],
+    "features": [
+      {
+        "damageFactor": 120,
+        "laser": true,
+        "rounds": 2
+      },
+      {
+        "featureName": "class-attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 160
+          }
+        ],
+        "attackMul": 160,
+        "attackSpeedBuff": 160
+      },
+      {
+        "featureName": "class-attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 220
+          }
+        ],
+        "attackMul": 220,
+        "attackSpeedBuff": 220
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "features": [
+          "class-attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "class-attack-mul2"
+        ]
+      }
+    ]
+  },
+  {
     "className": "ウォーロック",
     "cost": 22,
     "attackSpeed": 85,

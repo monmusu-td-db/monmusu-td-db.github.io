@@ -1107,6 +1107,16 @@
     ]
   },
   {
+    "featureName": "common-hp-99%",
+    "currentHp": 99,
+    "conditions": [
+      {
+        "key": "HP",
+        "value": 99
+      }
+    ]
+  },
+  {
     "featureName": "common-hp-50%",
     "isConditionalBuff": true,
     "currentHp": 50,

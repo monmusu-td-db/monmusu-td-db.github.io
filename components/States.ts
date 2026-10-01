@@ -190,6 +190,7 @@ export class FilterCondition {
     "blader",
     "barbarian",
     "destroyer",
+    "thrower",
     "warlock",
     "conjurer",
     "assassin",
@@ -211,6 +212,8 @@ export class FilterCondition {
     "barbarianAttackAdd",
     "barbarianAddAct",
     "destroyerRanged",
+    "throwerAttackMul1",
+    "throwerAttackMul2",
     "warlockAttackMul1",
     "warlockAttackMul2",
     "conjurerEnemy1",
@@ -244,6 +247,8 @@ export class FilterCondition {
     barbarianAttackAdd: "斧 被ダメ強化",
     barbarianAddAct: "斧 強化&ACT",
     destroyerRanged: "こん棒 遠距離",
+    throwerAttackMul1: "ブーメラン 攻撃1",
+    throwerAttackMul2: "ブーメラン 攻撃2",
     warlockAttackMul1: "杖 敵撃破5",
     warlockAttackMul2: "杖 敵撃破10",
     conjurerEnemy1: "本 敵1",
@@ -293,6 +298,8 @@ export class FilterCondition {
     barbarianAttackAdd: this.groupKeys.barbarian,
     barbarianAddAct: this.groupKeys.barbarian,
     destroyerRanged: this.groupKeys.destroyer,
+    throwerAttackMul1: this.groupKeys.thrower,
+    throwerAttackMul2: this.groupKeys.thrower,
     warlockAttackMul1: this.groupKeys.warlock,
     warlockAttackMul2: this.groupKeys.warlock,
     conjurerEnemy1: this.groupKeys.conjurer,
@@ -345,6 +352,8 @@ export class FilterCondition {
     bladerCharge3: "class-charge3",
     barbarianAttackAdd: "class-attack-add",
     destroyerRanged: "class-ranged",
+    throwerAttackMul1: "class-attack-mul1",
+    throwerAttackMul2: "class-attack-mul2",
     warlockAttackMul1: "class-attack-mul1",
     warlockAttackMul2: "class-attack-mul2",
     conjurerEnemy1: "class-enemy1",
@@ -377,6 +386,7 @@ export class FilterCondition {
     const blader = fn(eq.blader);
     const barbarian = fn(eq.barbarian);
     const destroyer = fn(eq.destroyer);
+    const thrower = fn(eq.thrower);
     const warlock = fn(eq.warlock);
     const conjurer = fn(eq.conjurer);
     const assassin = fn(eq.assassin);
@@ -396,6 +406,7 @@ export class FilterCondition {
             blader ||
             barbarian ||
             destroyer ||
+            thrower ||
             warlock ||
             conjurer ||
             assassin ||
@@ -419,6 +430,9 @@ export class FilterCondition {
           return barbarian;
         case cond.destroyerRanged:
           return destroyer;
+        case cond.throwerAttackMul1:
+        case cond.throwerAttackMul2:
+          return thrower;
         case cond.warlockAttackMul1:
         case cond.warlockAttackMul2:
           return warlock;

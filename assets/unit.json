@@ -59362,6 +59362,158 @@
     ]
   },
   {
+    "id": 458,
+    "unitName": "【フェンリル娘】エリル",
+    "unitShortName": "エリル",
+    "rarity": "L",
+    "class": "スロワー",
+    "element": "地",
+    "species": "禁忌",
+    "hp": 4019,
+    "attack": 982,
+    "defense": 224,
+    "resist": 118,
+    "supplements": [
+      "回復2%/命中"
+    ],
+    "exSkill1": {
+      "skillName": "修羅をなげうつ",
+      "attackMul": 220,
+      "rangeMul": 160,
+      "duration": 30,
+      "cooldown": 35
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃速度+15",
+      "地属性マスボーナス3倍"
+    ],
+    "weapon": {
+      "weaponName": "去来する黒眼",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "require": [
+          "地マス"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "地マス化/発動"
+        ]
+      },
+      {
+        "featureName": "common-hp-100%",
+        "isConditionalBuff": true,
+        "damageFactor": 130
+      },
+      {
+        "featureName": "common-skill-regenerate",
+        "staticDamage": {
+          "key": "hp",
+          "value": 1
+        }
+      },
+      {
+        "featureName": "beat-50",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 50
+          }
+        ],
+        "damageFactor": 200
+      }
+    ],
+    "costAdd": 15,
+    "attackMul": 140,
+    "potentialBonus": {
+      "attackMul": 150
+    },
+    "situations": [
+      {
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-100%"
+        ]
+      },
+      {
+        "features": [
+          "common-hp-99%"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-99%"
+        ]
+      },
+      {
+        "features": [
+          "common-hp-100%",
+          "beat-50"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-100%",
+          "beat-50"
+        ]
+      },
+      {
+        "features": [
+          "common-hp-99%",
+          "beat-50"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-hp-99%",
+          "beat-50"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 1,
+        "features": [
+          "common-skill-regenerate"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "target": "自分",
+        "element": "地",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
+  },
+  {
     "id": 460,
     "unitName": "【プロメテウス娘】メテリナ",
     "unitShortName": "メテリナ",

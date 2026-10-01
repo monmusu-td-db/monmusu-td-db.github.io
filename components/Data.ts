@@ -1125,6 +1125,7 @@ export class UnitClass {
     samurai: "サムライ",
     archer: "アーチャー",
     gunner: "ガンナー",
+    thrower: "スロワー",
     warlock: "ウォーロック",
     conjurer: "コンジャラー",
     puppeteer: "パペッティア",
@@ -1149,6 +1150,7 @@ export class UnitClass {
     samurai: "大太刀",
     archer: "弓",
     gunner: "銃",
+    thrower: "ブーメラン",
     warlock: "杖",
     conjurer: "本",
     puppeteer: "人形",
@@ -1173,6 +1175,7 @@ export class UnitClass {
     samurai: "ショウグン",
     archer: "サジタリウス",
     gunner: "デュエリスト",
+    thrower: "ジャイロマスター",
     warlock: "アーケインメイジ",
     conjurer: "ディザスター",
     puppeteer: "ルサンチマン",
@@ -1249,6 +1252,7 @@ export class UnitClass {
         return UnitBaseClass.tag.guardian;
       case n.archer:
       case n.gunner:
+      case n.thrower:
         return UnitBaseClass.tag.sniper;
       case n.warlock:
       case n.conjurer:
