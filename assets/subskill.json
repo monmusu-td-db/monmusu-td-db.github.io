@@ -3121,5 +3121,27 @@
     "group": "防御",
     "desc": "【改造ガーゴイル娘】ユイルをトークンとして使役可能",
     "isIneffective": true
+  },
+  {
+    "name": "【究極】ポイズン・プロバイド",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "スキル発動時、全敵に高確率を毒状態にする。配置中、全味方に毒特効1.3倍付与",
+    "isUltimate": true,
+    "damageFactor": 30
+  },
+  {
+    "name": "秋風鳴地",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "スキル発動中、地上敵へのダメージ1.3倍　攻撃時、鈍足-60%(10秒)付与",
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 30
+      }
+    ]
   }
 ]
