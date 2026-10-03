@@ -292,7 +292,7 @@
   {
     "name": "【見習い獣神】ピティス",
     "rarity": "E",
-    "desc": "編成中、水属性の攻撃力+14%、出撃コスト-2　ヒーラーのスキル初回発動時間-15%",
+    "desc": "編成中、水属性の攻撃力+14%、出撃コスト-2　ヒーラーのスキル初回発動時間-19%",
     "subOnly": true,
     "features": [
       {
@@ -306,7 +306,45 @@
         "targets": [
           "ヒーラー"
         ],
-        "initialTimeCut": 15
+        "initialTimeCut": 19
+      }
+    ]
+  },
+  {
+    "name": "【見習い獣神】シャルオン",
+    "rarity": "E",
+    "desc": "編成中、海魔モンスター娘の攻撃力+24%増加　出撃コスト-2、スキル初動19%短縮",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "海魔"
+        ],
+        "cost": -2,
+        "attack": 24,
+        "initialTimeCut": 19
+      }
+    ]
+  },
+  {
+    "name": "【見習い獣神】クロエ",
+    "rarity": "E",
+    "desc": "編成中、闇属性の最大HP+14%、攻撃力14%　スカウトの攻撃速度+24%、射程+24",
+    "subOnly": true,
+    "features": [
+      {
+        "targets": [
+          "闇"
+        ],
+        "hp": 14,
+        "attack": 14
+      },
+      {
+        "targets": [
+          "スカウト"
+        ],
+        "attackSpeed": 24,
+        "range": 24
       }
     ]
   }
