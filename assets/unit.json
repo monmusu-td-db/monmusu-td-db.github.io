@@ -17603,7 +17603,22 @@
       "最大HP+600",
       "攻撃力+75"
     ],
+    "weapon": {
+      "weaponName": "ジャイアントバッグ",
+      "hp": 350,
+      "attack": 35,
+      "defense": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "バリア{max-hp*30}付与/配置",
+          "バリア{max-hp*30}付与/移動"
+        ]
+      },
       {
         "featureName": "class-attack",
         "supplements": [
@@ -19044,7 +19059,20 @@
       "射程+15",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "ウェディングブレイズ",
+      "attack": 70,
+      "range": 5
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "鈍足-30%→射程内"
+        ]
+      },
       {
         "featureName": "common-extra-field-damage",
         "damageFactor": 30,
@@ -19127,6 +19155,25 @@
       "最大HP+600",
       "攻撃力+75",
       "配置時バリア1500"
+    ],
+    "weapon": {
+      "weaponName": "ソウルサクリファイス",
+      "attack": 45,
+      "range": 5,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "HP-2%/発動→射程内",
+          "回復10%/発動→射程内"
+        ]
+      }
     ],
     "situations": [
       {},
@@ -21371,6 +21418,23 @@
       "攻撃力+75",
       "HPが毎秒3%回復"
     ],
+    "formationBuffs": [
+      {
+        "require": [
+          "武器"
+        ],
+        "targets": [
+          "デミ"
+        ],
+        "hp": 110
+      }
+    ],
+    "weapon": {
+      "weaponName": "サマーウッドボウ",
+      "hp": 350,
+      "attack": 20,
+      "range": 10
+    },
     "features": [
       {
         "attackAdd": {
@@ -21810,7 +21874,21 @@
       "攻撃力+50",
       "移動消費コスト-2"
     ],
+    "weapon": {
+      "weaponName": "ドラゴニックシールド",
+      "hp": 300,
+      "attack": 25,
+      "defense": 25
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "fieldElements": [
+          "火"
+        ]
+      },
       {
         "featureName": "fire-field-normal",
         "isConditionalBuff": true,
@@ -23280,6 +23358,12 @@
       "射程+15",
       "スキル初回待ち時間-6秒"
     ],
+    "weapon": {
+      "weaponName": "エルフの黒玉",
+      "attack": 45,
+      "resist": 10,
+      "range": 10
+    },
     "features": [
       {
         "require": [
@@ -23292,6 +23376,18 @@
         "potentialBonus": {
           "attackMul": 130
         }
+      },
+      {
+        "require": [
+          "武器",
+          "闇マス"
+        ],
+        "supplements": [
+          "CT-1秒/3秒"
+        ],
+        "cooldownReductions": [
+          4
+        ]
       }
     ],
     "situations": [
@@ -24956,7 +25052,21 @@
       "攻撃速度+15",
       "スキル初回待ち時間-12"
     ],
+    "weapon": {
+      "weaponName": "ベアミトン",
+      "hp": 150,
+      "attack": 40,
+      "resist": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "attackMul": 150,
+        "targetAdd": 2
+      },
       {
         "skill": 0,
         "isNotAbility": true,
@@ -27010,6 +27120,24 @@
       "最大HP+600",
       "トークン所持数+2"
     ],
+    "formationBuffs": [
+      {
+        "require": [
+          "武器"
+        ],
+        "targets": [
+          "悪魔"
+        ],
+        "attack": 110
+      }
+    ],
+    "weapon": {
+      "weaponName": "強欲商人のポーチ",
+      "hp": 350,
+      "defense": 10,
+      "resist": 10,
+      "range": 10
+    },
     "features": [
       {
         "isNotAbility": true,
@@ -33234,7 +33362,21 @@
       "攻撃力+75",
       "移動消費コスト-2"
     ],
+    "weapon": {
+      "weaponName": "ワイルドランス",
+      "hp": 500,
+      "attack": 20,
+      "defense": 10
+    },
     "features": [
+      {
+        "featureName": "common-charge-attack",
+        "require": [
+          "武器"
+        ],
+        "physicalDamageCut": 70,
+        "magicalDamageCut": 70
+      },
       {
         "featureName": "common-charge-attack",
         "isConditionalBuff": true,
@@ -39132,7 +39274,20 @@
       "射程+15",
       "スキル初回待ち時間-12"
     ],
+    "weapon": {
+      "weaponName": "ケロケロット",
+      "attack": 55,
+      "range": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "雨(10秒)/5体撃破"
+        ]
+      },
       {
         "skill": 1,
         "isConditionalBuff": true,
