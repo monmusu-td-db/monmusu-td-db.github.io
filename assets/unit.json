@@ -60112,5 +60112,177 @@
         }
       }
     ]
+  },
+  {
+    "id": 464,
+    "unitName": "【魔戯猫グリマルキン娘】ルネルカ",
+    "unitShortName": "ルネルカ/Hw",
+    "rarity": "L",
+    "class": "ルーンブレイダー",
+    "element": "火",
+    "hp": 6225,
+    "attack": 1061,
+    "defense": 419,
+    "resist": 358,
+    "supplements": [
+      "ATK+30%(30秒)/火傷付与"
+    ],
+    "exSkill1": {
+      "skillName": "マジックブレイズ",
+      "attackMul": 220,
+      "targetAdd": 2,
+      "rangeMul": 220,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "射程+15",
+      "攻撃速度+15",
+      "スキル中与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "ニャンダーブレイド",
+      "hp": 200,
+      "attack": 30,
+      "resist": 30
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "火傷付与(稀)→命中"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "magicalDamageDebuff": 150,
+        "supplements": [
+          "火傷付与(稀+)→命中"
+        ]
+      },
+      {
+        "featureName": "attack-mul1",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 130
+          }
+        ],
+        "attackMul": 130
+      },
+      {
+        "featureName": "attack-mul2",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "*",
+            "value": 160
+          }
+        ],
+        "attackMul": 160
+      },
+      {
+        "featureName": "common-definite-burn",
+        "magicalDamageDebuff": 150,
+        "potentialBonus": {
+          "magicalDamageDebuff": 170
+        }
+      },
+      {
+        "featureName": "common-definite-burn",
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 130
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "attack-mul2"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn",
+          "attack-mul1"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn",
+          "attack-mul1"
+        ]
+      },
+      {
+        "features": [
+          "common-definite-burn",
+          "attack-mul2"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn",
+          "attack-mul2"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "magical-damage-debuff",
+        "require": [
+          "火傷敵"
+        ],
+        "target": "全体",
+        "value": 150,
+        "potentialBonus": {
+          "value": 170
+        }
+      },
+      {
+        "type": "magical-damage-debuff",
+        "skill": 1,
+        "target": "射程内",
+        "value": 150
+      }
+    ]
   }
 ]

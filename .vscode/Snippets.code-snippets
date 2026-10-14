@@ -25,14 +25,17 @@
       "    $13,",
       "    $14",
       "  ],",
+      "  \"weapon\": {",
+      "    \"weaponName\": \"$15\"",
+      "  },",
       "  \"situations\": [",
       "    {},",
       "    {",
       "      \"skill\": 1",
       "    }",
       "  ]",
-      "},"
-    ]
+      "},",
+    ],
   },
   "サブスキルテンプレート": {
     "scope": "json",
@@ -44,8 +47,8 @@
       "\"rarity\": $2,",
       "\"group\": $3,",
       "\"desc\": \"$4\"$5",
-      "},"
-    ]
+      "},",
+    ],
   },
   "unitSituation1": {
     "scope": "json",
@@ -57,8 +60,8 @@
       "  {",
       "    \"skill\": 1",
       "  }",
-      "]"
-    ]
+      "]",
+    ],
   },
   "unitSituation2": {
     "scope": "json",
@@ -73,14 +76,14 @@
       "  {",
       "    \"skill\": 2",
       "  }",
-      "]"
-    ]
+      "]",
+    ],
   },
   "tokenSituation": {
     "scope": "json",
     "prefix": "token situation",
     "description": "token situation",
-    "body": ["\"situations\": [", "  {", "    \"proper\": true", "  }", "]"]
+    "body": ["\"situations\": [", "  {", "    \"proper\": true", "  }", "]"],
   },
   "changelog": {
     "scope": "json",
@@ -90,7 +93,7 @@
       "{",
       "  \"date\": \"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\",",
       "  \"desc\": \"$1\"",
-      "},"
-    ]
-  }
+      "},",
+    ],
+  },
 }
