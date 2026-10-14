@@ -60284,5 +60284,231 @@
         "value": 150
       }
     ]
+  },
+  {
+    "id": 465,
+    "unitName": "【夜戯のアラクネ娘】カヅネ",
+    "unitShortName": "カヅネ/Hw",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "地",
+    "hp": 2709,
+    "attack": 713,
+    "defense": 395,
+    "resist": 229,
+    "moveType": "ワープ",
+    "moveCostAdd": 5,
+    "exSkill1": {
+      "skillName": "白繭の絡矢",
+      "attackMul": 260,
+      "rangeMul": 180,
+      "targetAdd": 2,
+      "duration": 30,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル再使用時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "夜渡り隠弓",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "攻撃速度-20%→射程内",
+          "鈍足-20%→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "攻撃速度-25%→射程内",
+            "鈍足-25%→射程内"
+          ]
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "攻撃速度-40%→射程内",
+          "鈍足-40%→射程内"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "攻撃速度-50%→射程内",
+            "鈍足-50%→射程内"
+          ]
+        }
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "require": [
+          "武器",
+          "スキル"
+        ],
+        "supplements": [
+          "隠密"
+        ]
+      },
+      {
+        "skill": 1,
+        "splash": true
+      },
+      {
+        "featureName": "normal",
+        "annotations": [
+          "通常攻撃"
+        ],
+        "rounds": [
+          {
+            "ratio": 8,
+            "value": 1
+          },
+          {
+            "ratio": 4,
+            "value": 4
+          },
+          {
+            "ratio": 3,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "featureName": "special-attack",
+        "annotations": [
+          "範囲攻撃"
+        ],
+        "splash": true,
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 1
+          },
+          {
+            "ratio": 1,
+            "value": 4
+          },
+          {
+            "ratio": 12,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageType": "物理"
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "skill": 0,
+        "annotations": [
+          "範囲攻撃"
+        ],
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 4
+          },
+          {
+            "ratio": 1,
+            "value": 16
+          },
+          {
+            "ratio": 12,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "skill": 1,
+        "rounds": [
+          {
+            "ratio": 2,
+            "value": 4
+          },
+          {
+            "ratio": 1,
+            "value": 16
+          }
+        ]
+      }
+    ],
+    "situations": [
+      {
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "features": [
+          "special-attack"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits"
+        ]
+      },
+      {
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-1hit",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-2hits",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-3hits",
+          "common-extra-field-damage"
+        ]
+      }
+    ]
   }
 ]
