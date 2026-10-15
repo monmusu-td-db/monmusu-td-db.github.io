@@ -1409,8 +1409,9 @@ const species = {
   freshwater: "水妖",
   mysterious: "ミステリアス",
   beast: "獣神",
-  visitor: "ビジター",
+  evolution: "進化",
   forbidden: "禁忌",
+  visitor: "ビジター",
 } as const;
 type SpeciesKey = keyof typeof species;
 const SpeciesKey = Enum(getKeys(species));

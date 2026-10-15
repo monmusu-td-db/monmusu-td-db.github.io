@@ -18185,6 +18185,7 @@
     "rarity": "L",
     "class": "アーチャー",
     "element": "光",
+    "species": "進化",
     "hp": 2872,
     "attack": 653,
     "defense": 309,
@@ -18438,7 +18439,10 @@
     "rarity": "L",
     "class": "ハーミット",
     "element": "水",
-    "species": "水妖",
+    "species": [
+      "水妖",
+      "進化"
+    ],
     "hp": 2479,
     "attack": 441,
     "defense": 394,
@@ -23609,7 +23613,10 @@
     "rarity": "L",
     "class": "ガンナー",
     "element": "闇",
-    "species": "悪魔",
+    "species": [
+      "悪魔",
+      "進化"
+    ],
     "hp": 2673,
     "attack": 1021,
     "defense": 229,
@@ -23693,6 +23700,7 @@
     "rarity": "L",
     "class": "バード",
     "element": "地",
+    "species": "進化",
     "hp": 3719,
     "attack": 292,
     "defense": 380,
@@ -23952,7 +23960,10 @@
     "rarity": "L",
     "class": "エアスカウト",
     "element": "火",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "進化"
+    ],
     "hp": 4465,
     "attack": 841,
     "defense": 339,
@@ -30146,7 +30157,10 @@
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "地",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "進化"
+    ],
     "hp": 9861,
     "attack": 1313,
     "defense": 612,
@@ -30283,6 +30297,7 @@
     "rarity": "L",
     "class": "ウォーロック",
     "element": "地",
+    "species": "進化",
     "hp": 2641,
     "attack": 1036,
     "defense": 257,
@@ -30404,7 +30419,10 @@
     "rarity": "L",
     "class": "コンジャラー",
     "element": "闇",
-    "species": "悪魔",
+    "species": [
+      "悪魔",
+      "進化"
+    ],
     "hp": 2542,
     "attack": 753,
     "defense": 244,
@@ -31546,7 +31564,10 @@
     "rarity": "L",
     "class": "デストロイヤー",
     "element": "地",
-    "species": "妖怪",
+    "species": [
+      "妖怪",
+      "進化"
+    ],
     "hp": 9786,
     "attack": 1243,
     "defense": 633,
@@ -31944,7 +31965,8 @@
     "element": "水",
     "species": [
       "妖怪",
-      "アンデッド"
+      "アンデッド",
+      "進化"
     ],
     "hp": 2999,
     "attack": 579,
@@ -35186,6 +35208,7 @@
     "rarity": "L",
     "class": "ウォーロック",
     "element": "光",
+    "species": "進化",
     "hp": 2710,
     "attack": 1004,
     "defense": 222,
@@ -35332,6 +35355,7 @@
     "rarity": "L",
     "class": "チーフアサシン",
     "element": "地",
+    "species": "進化",
     "hp": 4089,
     "attack": 647,
     "defense": 442,
@@ -35440,7 +35464,10 @@
     "rarity": "L",
     "class": "チーフアサシン",
     "element": "光",
-    "species": "ミステリアス",
+    "species": [
+      "ミステリアス",
+      "進化"
+    ],
     "hp": 4512,
     "attack": 617,
     "defense": 445,
@@ -40230,6 +40257,7 @@
     "rarity": "L",
     "class": "ガンナー",
     "element": "地",
+    "species": "進化",
     "hp": 2651,
     "attack": 981,
     "defense": 239,
@@ -40284,7 +40312,10 @@
     "rarity": "L",
     "class": "ニンジャ",
     "element": "水",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "進化"
+    ],
     "hp": 2851,
     "attack": 579,
     "defense": 419,
@@ -40394,7 +40425,10 @@
     "rarity": "L",
     "class": "ウィッパー",
     "element": "闇",
-    "species": "アンデッド",
+    "species": [
+      "アンデッド",
+      "進化"
+    ],
     "hp": 4156,
     "attack": 913,
     "defense": 471,
@@ -40506,7 +40540,10 @@
     "rarity": "L",
     "class": "ブレイダー",
     "element": "光",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "進化"
+    ],
     "hp": 5383,
     "attack": 1161,
     "defense": 459,
@@ -45956,7 +45993,10 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "光",
-    "species": "アンデッド",
+    "species": [
+      "アンデッド",
+      "進化"
+    ],
     "hp": 6575,
     "attack": 577,
     "defense": 1091,
@@ -46053,7 +46093,10 @@
     "rarity": "L",
     "class": "モンク",
     "element": "闇",
-    "species": "アンデッド",
+    "species": [
+      "アンデッド",
+      "進化"
+    ],
     "hp": 6671,
     "attack": 949,
     "defense": 337,
@@ -46143,7 +46186,10 @@
     "rarity": "L",
     "class": "サムライ",
     "element": "闇",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "進化"
+    ],
     "hp": 8085,
     "attack": 1558,
     "defense": 576,
@@ -46314,7 +46360,10 @@
     "rarity": "L",
     "class": "アーチャー",
     "element": "水",
-    "species": "デミ",
+    "species": [
+      "デミ",
+      "進化"
+    ],
     "hp": 2779,
     "attack": 669,
     "defense": 331,
@@ -50795,7 +50844,10 @@
     "rarity": "L",
     "class": "コンジャラー",
     "element": "光",
-    "species": "ミステリアス",
+    "species": [
+      "ミステリアス",
+      "進化"
+    ],
     "hp": 2630,
     "attack": 712,
     "defense": 260,
@@ -51036,7 +51088,10 @@
     "rarity": "L",
     "class": "モンク",
     "element": "火",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "進化"
+    ],
     "hp": 7014,
     "attack": 964,
     "defense": 325,
@@ -53159,7 +53214,10 @@
     "rarity": "L",
     "class": "ウォーロック",
     "element": "闇",
-    "species": "アンデッド",
+    "species": [
+      "アンデッド",
+      "進化"
+    ],
     "hp": 2942,
     "attack": 1044,
     "defense": 194,
@@ -53470,7 +53528,10 @@
     "rarity": "L",
     "class": "プリースト",
     "element": "地",
-    "species": "ドラゴン",
+    "species": [
+      "ドラゴン",
+      "進化"
+    ],
     "hp": 3673,
     "attack": 830,
     "defense": 309,
@@ -53605,6 +53666,7 @@
     "rarity": "L",
     "class": "コンジャラー",
     "element": "火",
+    "species": "進化",
     "hp": 1911,
     "attack": 735,
     "defense": 216,
@@ -55843,7 +55905,10 @@
     "rarity": "L",
     "class": "パペッティア",
     "element": "闇",
-    "species": "悪魔",
+    "species": [
+      "悪魔",
+      "進化"
+    ],
     "hp": 2760,
     "attack": 722,
     "defense": 265,
@@ -57515,7 +57580,10 @@
     "rarity": "L",
     "class": "シールドナイト",
     "element": "水",
-    "species": "デミ",
+    "species": [
+      "デミ",
+      "進化"
+    ],
     "hp": 6854,
     "attack": 664,
     "defense": 1152,
