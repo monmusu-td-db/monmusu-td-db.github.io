@@ -23626,6 +23626,9 @@
       "duration": 20,
       "cooldown": 35
     },
+    "supplements": [
+      "ATK-{attack-base*4}→命中"
+    ],
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -23633,15 +23636,22 @@
       "攻撃力+75",
       "近接マスに配置可能"
     ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "悪魔"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 112
+        }
+      }
+    ],
     "features": [
       {
         "attackDebuff": {
           "key": "attack-base",
           "value": 18
-        },
-        "damageFactor": 80,
-        "potentialBonus": {
-          "damageFactor": 90
         }
       },
       {
@@ -30336,9 +30346,9 @@
             "type": "petrify"
           }
         ],
-        "damageFactor": 145,
+        "damageFactor": 160,
         "potentialBonus": {
-          "damageFactor": 155
+          "damageFactor": 170
         }
       },
       {
@@ -30349,12 +30359,13 @@
       {
         "featureName": "common-definite-double",
         "isConditionalBuff": true,
-        "damageFactor": 145,
+        "damageFactor": 160,
         "potentialBonus": {
-          "damageFactor": 155
+          "damageFactor": 170
         }
       }
     ],
+    "rangeAdd": 25,
     "situations": [
       {},
       {
@@ -35232,7 +35243,7 @@
         "featureName": "common-definite-stan",
         "isConditionalSkillBuff": true,
         "skill": 1,
-        "damageFactor": 200
+        "damageFactor": 230
       },
       {
         "featureName": "common-dot",
@@ -35333,11 +35344,11 @@
     ],
     "exSkill1": {
       "skillName": "裂糸の挟撃",
-      "attackMul": 160,
+      "attackMul": 280,
       "target": "射程内",
       "rounds": 4,
       "range": 240,
-      "duration": 20,
+      "duration": 25,
       "cooldown": 30,
       "supplements": [
         "打ち上げ付与/発動→射程内",
@@ -35436,7 +35447,7 @@
     "resist": 115,
     "exSkill1": {
       "skillName": "ジャックインザボックス",
-      "attackMul": 240,
+      "attackMul": 280,
       "targetAdd": 2,
       "rounds": 3,
       "duration": 20,
@@ -35469,7 +35480,7 @@
         "require": [
           "スキル"
         ],
-        "damageFactor": 120
+        "damageFactor": 130
       }
     ],
     "costAdd": 10,
@@ -40501,11 +40512,11 @@
     "defense": 459,
     "resist": 121,
     "supplements": [
-      "バリア{attack-base*100}付与/5体撃破→他者"
+      "バリア{attack-base*150}付与/5体撃破→全体"
     ],
     "exSkill1": {
       "skillName": "ジュエリーフラッシュ",
-      "attackMul": 280,
+      "attackMul": 360,
       "attackMotionMul": 205,
       "fixedDelay": 1,
       "target": 5,
@@ -40513,7 +40524,7 @@
       "duration": "単発",
       "cooldown": 30,
       "supplements": [
-        "バリア{attack-base*100}付与/発動"
+        "バリア{attack-base*150}付与/発動→全体"
       ]
     },
     "potentials": [
@@ -40528,18 +40539,18 @@
         "targets": [
           "ドラゴン"
         ],
-        "attack": 108,
+        "attack": 112,
         "potentialBonus": {
-          "attack": 110
+          "attack": 114
         }
       },
       {
         "targets": [
           "光"
         ],
-        "attack": 108,
+        "attack": 112,
         "potentialBonus": {
-          "attack": 110
+          "attack": 114
         }
       }
     ],
