@@ -1409,6 +1409,7 @@ const species = {
   freshwater: "水妖",
   mysterious: "ミステリアス",
   beast: "獣神",
+  primitive: "魔獣",
   evolution: "進化",
   forbidden: "禁忌",
   visitor: "ビジター",
