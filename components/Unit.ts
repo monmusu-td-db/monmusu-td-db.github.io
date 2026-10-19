@@ -1436,6 +1436,7 @@ export default class Unit implements TableRow<Keys> {
           case Data.Species.name.freshwater:
           case Data.Species.name.mysterious:
           case Data.Species.name.beast:
+          case Data.Species.name.primitive:
           case Data.Species.name.visitor:
             return true;
         }
