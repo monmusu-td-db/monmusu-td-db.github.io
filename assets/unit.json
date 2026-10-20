@@ -60258,6 +60258,93 @@
     ]
   },
   {
+    "TODO_STAT_INFERRED": true,
+    "id": 463,
+    "unitName": "【戯触のローパー娘】ネル",
+    "unitShortName": "ネル/Hw",
+    "rarity": "E",
+    "class": "ウォーロック",
+    "element": "水",
+    "species": "ミステリアス",
+    "hp": 2571,
+    "attack": 949,
+    "defense": 202,
+    "resist": 478,
+    "supplements": [
+      "触手付与(5秒)/配置→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "ぬるっぬるの黒魔術",
+      "attackMul": 220,
+      "rangeMul": 160,
+      "duration": 15,
+      "cooldown": 40,
+      "supplements": [
+        "暗闇付与(低)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "水属性マスボーナス3倍"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "ミステリアス"
+        ],
+        "attack": 107,
+        "potentialBonus": {
+          "attack": 109
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "ジャックルスタッフ",
+      "attack": 25,
+      "resist": 30,
+      "range": 10
+    },
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "触手付与(5秒)/発動→射程内"
+        ]
+      },
+      {
+        "featureName": "common-definite",
+        "annotations": [
+          "触手特効"
+        ],
+        "damageFactor": 150
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      }
+    ]
+  },
+  {
     "id": 464,
     "unitName": "【魔戯猫グリマルキン娘】ルネルカ",
     "unitShortName": "ルネルカ/Hw",
