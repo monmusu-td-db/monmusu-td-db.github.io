@@ -60764,8 +60764,8 @@
       "skillName": "荒嵐急射",
       "attackMul": 140,
       "criDamageAdd": 100,
-      "attackMotionMul": 30,
-      "attackSpeedBuff": 125,
+      "attackMotionMul": 40,
+      "attackSpeedBuff": 200,
       "delayMul": 5,
       "rangeMul": 180,
       "duration": 20,
@@ -60850,8 +60850,8 @@
     "features": [
       {
         "criChanceLimitAdd": 50,
-        "attackMotionMul": 30,
-        "attackSpeedBuff": 125,
+        "attackMotionMul": 50,
+        "attackSpeedBuff": 200,
         "delayMul": 5
       }
     ],
