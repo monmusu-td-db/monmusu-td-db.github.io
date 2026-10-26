@@ -589,7 +589,7 @@
   },
   {
     "className": "スロワー",
-    "cost": 14,
+    "cost": 13,
     "attackSpeed": 110,
     "delay": 26,
     "range": 285,
@@ -617,11 +617,11 @@
         "conditions": [
           {
             "key": "*",
-            "value": 160
+            "value": 190
           }
         ],
-        "attackMul": 160,
-        "attackSpeedBuff": 160
+        "attackMul": 190,
+        "attackSpeedBuff": 190
       },
       {
         "featureName": "class-attack-mul2",
@@ -629,11 +629,11 @@
         "conditions": [
           {
             "key": "*",
-            "value": 220
+            "value": 280
           }
         ],
-        "attackMul": 220,
-        "attackSpeedBuff": 220
+        "attackMul": 280,
+        "attackSpeedBuff": 280
       }
     ],
     "situations": [

@@ -60742,5 +60742,88 @@
         ]
       }
     ]
+  },
+  {
+    "id": 468,
+    "unitName": "【フェネクス娘】アテエル",
+    "unitShortName": "アテエル/進化",
+    "rarity": "L",
+    "class": "スロワー",
+    "element": "火",
+    "species": [
+      "悪魔",
+      "進化"
+    ],
+    "hp": 4218,
+    "attack": 776,
+    "defense": 255,
+    "resist": 161,
+    "block": 0,
+    "moveType": "飛行",
+    "supplements": [
+      "HP0にならない",
+      "火傷付与(稀)→命中",
+      "現在HP-1%/X秒→全体火傷敵"
+    ],
+    "exSkill1": {
+      "skillName": "闇炎の猛襲",
+      "attackMul": 180,
+      "targetAdd": 2,
+      "rangeMul": 160,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "火傷付与/発動→全体"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃力+75",
+      "攻撃対象数+1"
+    ],
+    "weapon": {
+      "weaponName": "獄久の炎",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "{attack-base*25}回復/攻撃→射程内"
+        ]
+      },
+      {
+        "featureName": "common-definite-burn",
+        "isConditionalBuff": true,
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 170
+        }
+      }
+    ],
+    "targetAdd": 1,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      }
+    ]
   }
 ]
