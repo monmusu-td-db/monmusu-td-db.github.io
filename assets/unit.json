@@ -60744,6 +60744,129 @@
     ]
   },
   {
+    "id": 467,
+    "unitName": "【ライトニンググリフォン娘】クリフォ",
+    "unitShortName": "クリフォ/進化",
+    "rarity": "L",
+    "class": "アーチャー",
+    "element": "風",
+    "hp": 2709,
+    "attack": 703,
+    "defense": 395,
+    "resist": 232,
+    "block": 0,
+    "moveType": "飛行",
+    "species": [
+      "魔獣",
+      "進化"
+    ],
+    "exSkill1": {
+      "skillName": "荒嵐急射",
+      "attackMul": 140,
+      "criDamageAdd": 100,
+      "attackMotionMul": 30,
+      "attackSpeedBuff": 125,
+      "delayMul": 5,
+      "rangeMul": 180,
+      "duration": 20,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "CRIダメージ+50%"
+    ],
+    "weapon": {
+      "weaponName": "秘弓嵐穿",
+      "attack": 55,
+      "range": 10
+    },
+    "features": [
+      {
+        "criChanceAdd": 100,
+        "criChanceLimitAdd": 50,
+        "supplements": [
+          "DEF-{attack-base*5}/CRI→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "DEF-{attack-base*6}/CRI→命中"
+          ]
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "ノックバック(小)→命中"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "tkn2体配置/発動→射程内"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ]
+  },
+  {
+    "id": 4670001,
+    "parentId": 467,
+    "unitName": "暴嵐",
+    "unitShortName": "暴嵐T",
+    "rarity": "C",
+    "element": "風",
+    "species": [
+      "魔獣",
+      "進化"
+    ],
+    "cost": 0,
+    "hp": 2490,
+    "attack": 945,
+    "defense": 298,
+    "resist": 248,
+    "attackSpeed": 100,
+    "delay": 40,
+    "target": 1,
+    "range": 450,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "近",
+    "supplements": [
+      "limit20秒"
+    ],
+    "features": [
+      {
+        "criChanceLimitAdd": 50,
+        "attackMotionMul": 30,
+        "attackSpeedBuff": 125,
+        "delayMul": 5
+      }
+    ],
+    "isUnhealable": true,
+    "criChanceAdd": 100,
+    "criDamageAdd": 100,
+    "situations": [
+      {
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
+    ]
+  },
+  {
     "id": 468,
     "unitName": "【フェネクス娘】アテエル",
     "unitShortName": "アテエル/進化",
