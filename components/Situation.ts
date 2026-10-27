@@ -2804,7 +2804,8 @@ export default class Situation implements TableRow<Keys> {
             return 0;
         }
       })(),
-      Percent.sum(fea, ss),
+      fea,
+      ss,
     );
   }
 
