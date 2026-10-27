@@ -54635,6 +54635,29 @@
         "supplements": [
           "発動時"
         ]
+      },
+      {
+        "type": "weather-change",
+        "skill": -1,
+        "target": "全体",
+        "duration": 20,
+        "weather": "雨",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "weather-change",
+        "skill": -1,
+        "require": [
+          "潜在覚醒効果"
+        ],
+        "target": "全体",
+        "duration": 10,
+        "weather": "雨",
+        "supplements": [
+          "配置時"
+        ]
       }
     ]
   },
@@ -56613,6 +56636,19 @@
         "skill": 1,
         "target": "射程内",
         "value": 110
+      },
+      {
+        "type": "weather-change",
+        "skill": -1,
+        "require": [
+          "武器"
+        ],
+        "target": "全体",
+        "duration": 10,
+        "weather": "毒霧",
+        "supplements": [
+          "配置時"
+        ]
       }
     ]
   },
@@ -61136,7 +61172,7 @@
       },
       {
         "type": "weather-change",
-        "skill": -1,
+        "skill": 1,
         "target": "全体",
         "duration": 20,
         "weather": "艶夜",

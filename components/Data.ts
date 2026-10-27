@@ -2082,12 +2082,18 @@ const weatherName = {
   rain: "雨",
   blizzard: "吹雪",
   heatWave: "熱波",
+  fire: "終炎",
+  poisonFog: "毒霧",
+  night: "艶夜",
 } as const;
 type WeatherKey = keyof typeof weatherName;
 const weatherColor = {
   rain: tableColor.blue,
   blizzard: tableColor.blue900,
   heatWave: tableColor.red,
+  fire: tableColor.red900,
+  poisonFog: tableColor.indigo,
+  night: tableColor.indigo,
 } as const satisfies Record<WeatherKey, TableColor>;
 export type Weather = (typeof weatherName)[WeatherKey];
 export const Weather = {
