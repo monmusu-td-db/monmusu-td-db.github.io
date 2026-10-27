@@ -47876,12 +47876,6 @@
     },
     "features": [
       {
-        "hasPotentials": [
-          "闇属性マスボーナス3倍"
-        ],
-        "fieldBuffFactor": 300
-      },
-      {
         "require": [
           "武器"
         ],

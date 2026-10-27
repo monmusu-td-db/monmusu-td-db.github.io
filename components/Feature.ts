@@ -638,6 +638,7 @@ export class Feature {
           case keys.damageDebuff:
           case keys.physicalDamageDebuff:
           case keys.magicalDamageDebuff:
+          case keys.fieldBuffFactor:
             return (ret[key] = Data.Percent.multiply(ret[key], feature[key]));
 
           case keys.damageCut:
