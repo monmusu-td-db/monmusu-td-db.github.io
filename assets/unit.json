@@ -60948,5 +60948,208 @@
         ]
       }
     ]
+  },
+  {
+    "TODO_DESC": "Stat/PotentialはWiki情報",
+    "id": 469,
+    "unitName": "【バエル娘】ペッシェ",
+    "unitShortName": "ペッシェ/進化",
+    "rarity": "L",
+    "class": "ルーンブレイダー",
+    "element": "闇",
+    "species": [
+      "悪魔",
+      "進化"
+    ],
+    "hp": 5635,
+    "attack": 996,
+    "defense": 362,
+    "resist": 358,
+    "supplements": [
+      "艶夜(20秒)/発動"
+    ],
+    "exSkill1": {
+      "skillName": "常夜の誘い",
+      "attackMul": 300,
+      "rangeMul": 240,
+      "duration": 30,
+      "cooldown": 45
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "闇属性マスボーナス3倍"
+    ],
+    "weapon": {
+      "weaponName": "ノクターンエッジ",
+      "defense": 30,
+      "resist": 25,
+      "range": 10
+    },
+    "formationBuffs": [
+      {
+        "targets": [
+          "悪魔"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 113
+        }
+      },
+      {
+        "targets": [
+          "闇"
+        ],
+        "attack": 110,
+        "potentialBonus": {
+          "attack": 113
+        }
+      }
+    ],
+    "features": [
+      {
+        "skill": 0,
+        "supplements": [
+          "敵dmg-35%→射程内"
+        ]
+      },
+      {
+        "skill": 1,
+        "isConditionalSkillBuff": true,
+        "supplements": [
+          "敵dmg-70%→射程内"
+        ]
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "damageFactor": 100,
+        "rounds": 9,
+        "supplements": [
+          "DEF-10→命中",
+          "鈍足-70%→命中"
+        ]
+      },
+      {
+        "featureName": "weather-night",
+        "isConditionalBuff": true,
+        "annotations": [
+          "天候：艶夜"
+        ],
+        "damageDebuff": 130,
+        "supplements": [
+          "敵射程-50%→全体"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "features": [
+          "weather-night"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "weather-night"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "weather-night",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-dark-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "common-dark-field",
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "features": [
+          "weather-night",
+          "common-dark-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "weather-night",
+          "common-dark-field"
+        ]
+      },
+      {
+        "require": [
+          "no-panel-field-element"
+        ],
+        "skill": 1,
+        "features": [
+          "weather-night",
+          "common-dark-field",
+          "common-extra-field-damage"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-change",
+        "skill": 1,
+        "element": "闇",
+        "target": "自分",
+        "supplements": [
+          "発動時"
+        ]
+      },
+      {
+        "type": "weather-change",
+        "skill": -1,
+        "target": "全体",
+        "duration": 20,
+        "weather": "艶夜",
+        "supplements": [
+          "発動時"
+        ]
+      }
+    ]
   }
 ]
