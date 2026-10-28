@@ -60774,6 +60774,110 @@
     ]
   },
   {
+    "id": 466,
+    "unitName": "【ベルグリシ娘】メロン",
+    "unitShortName": "メロン/進化",
+    "rarity": "L",
+    "class": "バーバリアン",
+    "element": "風",
+    "hp": 7361,
+    "attack": 1059,
+    "defense": 508,
+    "resist": 140,
+    "species": [
+      "デミ",
+      "進化"
+    ],
+    "moveType": "ワープ",
+    "moveCostAdd": 2,
+    "exSkill1": {
+      "skillName": "ジャイアントスラッシュ",
+      "hpMul": 160,
+      "attackMul": 240,
+      "target": "射程内",
+      "rounds": 2,
+      "range": 150,
+      "duration": 20,
+      "cooldown": 40,
+      "supplements": [
+        "即死→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "攻撃時最大HPの1%回復"
+    ],
+    "weapon": {
+      "weaponName": "ラブリーアックス",
+      "hp": 400,
+      "attack": 15,
+      "defense": 25
+    },
+    "features": [
+      {
+        "attackAdd": {
+          "key": "hp-base",
+          "value": 10
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "スタン無効",
+          "即死無効"
+        ]
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "supplements": [
+          "移動可"
+        ]
+      },
+      {
+        "featureName": "extra-damage",
+        "annotations": [
+          "配置/移動完了時"
+        ],
+        "damageFactor": 200,
+        "interval": null,
+        "target": "射程内",
+        "rounds": 1,
+        "range": 150
+      }
+    ],
+    "isEventUnit": true,
+    "costAdd": 5,
+    "hpMul": 150,
+    "blockAdd": 1,
+    "potentialBonus": {
+      "hpMul": 160
+    },
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "extra-damage"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "extra-damage"
+        ]
+      }
+    ]
+  },
+  {
     "id": 467,
     "unitName": "【ライトニンググリフォン娘】クリフォ",
     "unitShortName": "クリフォ/進化",
