@@ -3150,5 +3150,44 @@
     "group": "攻撃",
     "desc": "発動時、15秒間天候：闇にする。配置中&天候闇時敵射程-30%、敵被ダメージ1.1倍",
     "damageDebuff": 10
+  },
+  {
+    "name": "狂獣魔気",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "魔獣セット時魔獣のHPと攻撃力+7%、スキル中魔獣のCRI率、CRIダメージ+10%",
+    "features": [
+      {
+        "require": [
+          "魔獣"
+        ],
+        "formationHp": 7,
+        "formationAttack": 7
+      },
+      {
+        "require": [
+          "魔獣",
+          "スキル"
+        ],
+        "criChanceAdd": 10,
+        "criDamageAdd": 10
+      }
+    ]
+  },
+  {
+    "name": "4.5th Anniversaryの武慈",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "初回配置後45秒間、攻撃力と攻撃速度が45%上昇、攻撃後の待機時間が-45%減少",
+    "attackMul": 45,
+    "attackSpeedBuff": 45,
+    "delayCut": 45
+  },
+  {
+    "name": "水飛竜の討伐証",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "水属性マスに配置中、\n3秒毎にスキル準備時間-1秒",
+    "isWyvern": true
   }
 ]

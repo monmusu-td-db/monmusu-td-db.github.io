@@ -2499,6 +2499,9 @@ export default class Situation implements TableRow<Keys> {
     if (this.isRecharge(setting)) {
       value -= Math.trunc(value / 2);
     }
+    if (this.isWyvern(setting)) {
+      value -= Math.trunc(value / 3);
+    }
     if (this.isHighBeat(setting)) {
       value -= Math.trunc(value / 4);
     }
@@ -2954,6 +2957,9 @@ export default class Situation implements TableRow<Keys> {
     );
   }
 
+  private isWyvern(setting: Setting): boolean {
+    return !!this.getSubskillFactor(setting, ssKeys.isWyvern);
+  }
   private isRecharge(setting: Setting): boolean {
     return !!this.getSubskillFactor(setting, ssKeys.isRecharge);
   }
