@@ -3189,5 +3189,70 @@
     "group": "支援",
     "desc": "水属性マスに配置中、\n3秒毎にスキル準備時間-1秒",
     "isWyvern": true
+  },
+  {
+    "name": "【究極】エーテルボディ",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "自身が95%の確率で魔法攻撃を回避",
+    "isUltimate": true,
+    "magicalEvasion": 95
+  },
+  {
+    "name": "【究極】オーバークリティカル",
+    "rarity": "L",
+    "group": "攻撃",
+    "desc": "自身のCRI率+50%　CRI時CRIダメージ+5%(20回/最大100%)　死亡撤退後も継続",
+    "isUltimate": true,
+    "criChanceAdd": 50,
+    "criDamageAdd": 100
+  },
+  {
+    "name": "魔法防御強化+物理攻撃回避",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "魔法防御力+17%、物理攻撃を20%の確率で回避",
+    "resist": 17,
+    "physicalEvasion": 20
+  },
+  {
+    "name": "魔法防御強化+出撃コスト減少",
+    "rarity": "E",
+    "group": "防御",
+    "desc": "魔法防御力+17%、出撃コスト-1",
+    "resist": 17,
+    "cost": -1
+  },
+  {
+    "name": "移動コスト犠牲リジェネレーション",
+    "rarity": "E",
+    "group": "支援",
+    "desc": "HPが1秒ごとに120回復する　代わりに移動コスト+3",
+    "moveCostCut": -3,
+    "regenerate": 120
+  },
+  {
+    "name": "クリティカル+攻撃間隔短縮",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "クリティカル率+22%\n攻撃間隔を20%短縮",
+    "criChanceAdd": 22,
+    "delayCut": 20
+  },
+  {
+    "name": "移動速度犠牲攻撃強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "攻撃力+25%、代わりに移動速度-30%",
+    "attack": 25,
+    "moveSpeed": -30
+  },
+  {
+    "name": "物理防御犠牲クリティカル率強化",
+    "rarity": "E",
+    "group": "攻撃",
+    "desc": "クリティカル率+28%、代わりに物理防御力-7%",
+    "criChanceAdd": 28,
+    "defense": -7
   }
 ]
