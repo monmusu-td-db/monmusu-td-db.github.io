@@ -2426,8 +2426,12 @@ const beastList = [
   "【見習い獣神】ロビーナ",
   "【見習い獣神】ガックス",
   "【見習い獣神】マイミー",
+  "【見習い獣神】ガウフー",
+  "【見習い獣神】ピティス",
   "【見習い獣神】シャルオン",
   "【見習い獣神】クロエ",
+  "【見習い獣神】リオ",
+  "【見習い獣神】コヨミ",
 ] as const;
 export type Beast = (typeof beastList)[number];
 export const Beast = {
