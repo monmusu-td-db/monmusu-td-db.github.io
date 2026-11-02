@@ -30,10 +30,7 @@ const TYPE_CC1 = "cc1";
 const TYPE_CC4 = "cc4";
 const TYPE_EQUIPMENT = "equipment";
 const DEFAULT_CLASS_NAME_TYPE = TYPE_EQUIPMENT;
-export type ClassNameTypeStatus =
-  | typeof TYPE_CC1
-  | typeof TYPE_CC4
-  | typeof TYPE_EQUIPMENT;
+export type ClassNameTypeStatus = typeof TYPE_CC1 | typeof TYPE_CC4 | typeof TYPE_EQUIPMENT;
 
 // Utilities
 
@@ -69,12 +66,6 @@ class Valid {
 
   static isCooldownCut(value: unknown): boolean {
     return typeof value === "number" && value >= 0 && value <= 100;
-  }
-
-  static isBeast(value: unknown): boolean {
-    return (
-      Valid.isNumber(value) && value >= -1 && value < Data.Beast.list.length
-    );
   }
 
   static isEnemyDefense(value: unknown): boolean {
@@ -319,10 +310,7 @@ export class FilterCondition {
     bardBuff: this.groupKeys.bard,
     bardBuffDefinite: this.groupKeys.bard,
     bardDebuff: this.groupKeys.bard,
-  } as const satisfies Record<
-    FilterConditionKeyExcludeNormal,
-    FilterConditionGroup
-  >;
+  } as const satisfies Record<FilterConditionKeyExcludeNormal, FilterConditionGroup>;
 
   private static readonly definiteList = [
     this.classKey.monk,
@@ -372,9 +360,7 @@ export class FilterCondition {
     bardBuff: "class-buff",
     bardBuffDefinite: "class-buff-definite",
     bardDebuff: "class-debuff",
-  } as const satisfies Partial<
-    Record<FilterConditionKeyExcludeNormal, string | string[]>
-  >;
+  } as const satisfies Partial<Record<FilterConditionKeyExcludeNormal, string | string[]>>;
 
   static getVisibleItems(filter: Filter): FilterConditionKey[] {
     const eq = this.classKey;
@@ -579,15 +565,11 @@ const initialFilterObj = [
   // [Data.Species.key.undead, true],
   ["filterDisabled", true],
 ] as const satisfies [FilterKeys, boolean][];
-const initialFilter: ReadonlyMap<FilterKeys, boolean> = new Map<
-  FilterKeys,
-  boolean
->(initialFilterObj);
+const initialFilter: ReadonlyMap<FilterKeys, boolean> = new Map<FilterKeys, boolean>(
+  initialFilterObj,
+);
 // const initialFilter = new Map<FilterKeys, boolean>();
-const defaultFilter: ReadonlyMap<FilterKeys, boolean> = new Map<
-  FilterKeys,
-  boolean
->();
+const defaultFilter: ReadonlyMap<FilterKeys, boolean> = new Map<FilterKeys, boolean>();
 export type FilterKeys =
   | FilterRarity
   | FilterElement
@@ -715,12 +697,9 @@ const defaultSettingFormation = {
   typeBonus: TYPE_ENABLED,
   sameElement: 8,
 } as const satisfies SettingFormation;
-const settingFormationValidation: Record<
-  keyof SettingFormation,
-  ValidationFunc
-> = {
-  mainBeast: Valid.isBeast,
-  subBeast: Valid.isBeast,
+const settingFormationValidation: Record<keyof SettingFormation, ValidationFunc> = {
+  mainBeast: Valid.isNumber,
+  subBeast: Valid.isNumber,
   possBuffAmount: (v) => Valid.isNumber(v) && v >= -1 && v <= 10,
   possBuffLevel: (v) => Valid.isNumber(v) && v > 0 && v <= 45,
   formationHp: Valid.isMul,
@@ -790,10 +769,7 @@ const settingOtherValidation: Record<keyof SettingOther, ValidationFunc> = {
   classNameType: Valid.isClassNameTypeStatus,
 } as const satisfies Record<keyof SettingOther, ValidationFunc>;
 
-export type Setting = SettingUnit &
-  SettingFormation &
-  SettingEnemy &
-  SettingOther;
+export type Setting = SettingUnit & SettingFormation & SettingEnemy & SettingOther;
 
 const defaultSetting = {
   ...defaultSettingUnit,
@@ -905,10 +881,7 @@ export function useAllStates() {
   const [filter, dispatchFilter] = useReducer(filterReducer, defaultFilter);
   const [setting, dispatchSetting] = useReducer(settingReducer, defaultSetting);
   const [query, setQuery] = useState("");
-  const [uISetting, dispatchUISetting] = useReducer(
-    uISettingReducer,
-    defaultUISetting,
-  );
+  const [uISetting, dispatchUISetting] = useReducer(uISettingReducer, defaultUISetting);
   const [saveOption, setSaveOption] = useState<SaveStatus>(DEFAULT_SAVE_OPTION);
 
   const [init, setInit] = useState(false);
@@ -922,6 +895,7 @@ export function useAllStates() {
       type: SettingAction.change,
       nextValue: Storage.getSetting(),
     });
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuery(Storage.getQuery());
     dispatchUISetting({
       type: UISettingAction.change,
@@ -1012,10 +986,7 @@ type UISettingAction =
       updater: SetStateAction<UISetting>;
     };
 
-function uISettingReducer(
-  state: UISetting,
-  action: UISettingAction,
-): UISetting {
+function uISettingReducer(state: UISetting, action: UISettingAction): UISetting {
   switch (action.type) {
     case UISettingAction.change: {
       return { ...state, ...action.nextValue };
@@ -1081,10 +1052,7 @@ class Storage {
     }
   }
 
-  private static getItem(
-    key: StorageKey,
-    isLocal?: boolean,
-  ): string | undefined {
+  private static getItem(key: StorageKey, isLocal?: boolean): string | undefined {
     const storage = this.getStorage(isLocal);
     if (storage !== undefined) {
       try {
@@ -1092,20 +1060,20 @@ class Storage {
         if (item !== null) {
           return item;
         }
-      } catch {}
+      } catch {
+        // empty
+      }
     }
   }
 
-  private static setItem(
-    key: StorageKey,
-    value: string,
-    isLocal?: boolean,
-  ): void {
+  private static setItem(key: StorageKey, value: string, isLocal?: boolean): void {
     const storage = this.getStorage(isLocal);
     if (storage !== undefined) {
       try {
         storage.setItem(key, value);
-      } catch {}
+      } catch {
+        // empty
+      }
     }
   }
 
@@ -1114,7 +1082,9 @@ class Storage {
     if (storage !== undefined) {
       try {
         storage.removeItem(key);
-      } catch {}
+      } catch {
+        // empty
+      }
     }
   }
 
@@ -1198,9 +1168,7 @@ class Storage {
       return false;
     }
     const v = obj as Record<FilterKeys, unknown>;
-    return filterKeys.every(
-      (k) => v[k] === undefined || typeof v[k] === "boolean",
-    );
+    return filterKeys.every((k) => v[k] === undefined || typeof v[k] === "boolean");
   }
 
   static getQuery(): string {
