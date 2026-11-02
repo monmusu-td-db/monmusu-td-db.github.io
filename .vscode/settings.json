@@ -1,5 +1,15 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports.ts": "explicit",
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.useFlatConfig": true,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  },
+  "js/ts.preferences.autoImportFileExcludePatterns": [],
+  "prettier.printWidth": 95
 }

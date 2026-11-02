@@ -1,10 +1,9 @@
 "use client";
 
 import jsonChangelog from "@/assets/changelog.json";
-import "./Changelog.css";
-import Icon from "./Icon";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import "./Changelog.css";
 
 interface JsonLog {
   date: string;
@@ -23,11 +22,7 @@ function Changelog() {
       return count;
     }
     return (
-      <Button
-        variant="link"
-        className="p-0 align-baseline"
-        onClick={() => setLogs(count)}
-      >
+      <Button variant="link" className="p-0 align-baseline" onClick={() => setLogs(count)}>
         {count}
       </Button>
     );
@@ -38,8 +33,8 @@ function Changelog() {
       <div className="d-flex align-items-end">
         <h2>更新履歴</h2>
         <div className="ms-3 mb-2">
-          （{getToggleButton(2)}｜{getToggleButton(20)}｜{getToggleButton(100)}
-          ｜{getToggleButton(500)} 件）
+          （{getToggleButton(2)}｜{getToggleButton(20)}｜{getToggleButton(100)}｜
+          {getToggleButton(500)} 件）
         </div>
       </div>
       <ul className="change-log">

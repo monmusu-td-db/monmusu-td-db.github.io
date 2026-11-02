@@ -1,6 +1,6 @@
 "use client";
 
-import "./StatTable.css";
+import cn from "classnames";
 import {
   memo,
   useCallback,
@@ -13,14 +13,13 @@ import {
   type RefObject,
 } from "react";
 import { Table } from "react-bootstrap";
+import * as Data from "../Data";
+import Situation from "../Situation";
 import type { StatRoot } from "../Stat/StatRoot";
 import { Contexts, Setting, type States } from "../States";
-import TooltipControl, { type TooltipEventHandlers } from "./TooltipControl";
-import cn from "classnames";
+import InfoAlert from "./InfoAlert";
 import Panel from "./Panel";
-import * as Data from "../Data";
-import TableStyle from "./TableStyle";
-import Situation from "../Situation";
+import "./StatTable.css";
 import type {
   StatTableProps,
   TableData,
@@ -28,7 +27,8 @@ import type {
   TableRow,
   TableSource,
 } from "./StatTableUtil";
-import InfoAlert from "./InfoAlert";
+import TableStyle from "./TableStyle";
+import TooltipControl, { type TooltipEventHandlers } from "./TooltipControl";
 
 //
 // Types
@@ -84,15 +84,10 @@ function StatTable<T extends string>({
       sort,
       toggleSort,
     }),
-    [src, states, sort, toggleSort]
+    [src, states, sort, toggleSort],
   );
   const dValues = useDeferredValue(values);
-  const {
-    src: dSrc,
-    states: dStates,
-    sort: dSort,
-    toggleSort: dToggleSort,
-  } = dValues;
+  const { src: dSrc, states: dStates, sort: dSort, toggleSort: dToggleSort } = dValues;
   const isPending = dValues !== values;
 
   useEffect(() => {
@@ -108,13 +103,9 @@ function StatTable<T extends string>({
 
   return (
     <div
-      className={cn(
-        "stat-table-wrapper d-flex justify-content-center",
-        className,
-        {
-          pending: isPending,
-        }
-      )}
+      className={cn("stat-table-wrapper d-flex justify-content-center", className, {
+        pending: isPending,
+      })}
     >
       <TableControl
         src={dSrc}
@@ -167,7 +158,7 @@ function TableControl_<T extends string>({
         }
       });
     },
-    [maxRows, maxLength]
+    [maxRows, maxLength],
   );
 
   const sortedList = useMemo(() => {
@@ -181,17 +172,12 @@ function TableControl_<T extends string>({
       const prevSortedList =
         !prevSort || !prevSort.column
           ? filteredList
-          : src.sort(
-              states.setting,
-              filteredList,
-              prevSort.column,
-              prevSort.isReversed
-            );
+          : src.sort(states.setting, filteredList, prevSort.column, prevSort.isReversed);
       ret = src.sort(
         states.setting,
         prevSortedList,
         currentSort.column,
-        currentSort.isReversed
+        currentSort.isReversed,
       );
     }
     return ret;
@@ -215,16 +201,11 @@ function TableControl_<T extends string>({
       data,
       handlers,
     }),
-    [sort, states, data, handlers]
+    [sort, states, data, handlers],
   );
   const deferredCond = useDeferredValue(cond);
   const isPending = cond !== deferredCond;
-  const {
-    sort: dSort,
-    states: dStates,
-    data: dData,
-    handlers: dHandlers,
-  } = deferredCond;
+  const { sort: dSort, states: dStates, data: dData, handlers: dHandlers } = deferredCond;
 
   useEffect(() => {
     if (isPending) {
@@ -252,12 +233,7 @@ function TableControl_<T extends string>({
   return (
     <TooltipControl cond={tooltipCond} setting={dStates.setting}>
       <TableStyle headers={dData.headers} id={id} />
-      <Table
-        striped
-        size="sm"
-        id={id}
-        className={cn("stat-table", { pending: isPending })}
-      >
+      <Table striped size="sm" id={id} className={cn("stat-table", { pending: isPending })}>
         <Caption tableData={dData} showIcon={showIcon} />
         <Header
           headers={dData.headers}
@@ -279,9 +255,7 @@ function TableControl_<T extends string>({
 }
 
 type HandleSort<T extends string> = (column: T) => void;
-function useSort<T extends string>(
-  src: TableSource<T>
-): [SortHistory<T>, HandleSort<T>] {
+function useSort<T extends string>(src: TableSource<T>): [SortHistory<T>, HandleSort<T>] {
   const [sort, setSort] = useState<SortHistory<T>>([
     {
       column: src.headers[0]?.id,
@@ -311,7 +285,7 @@ function useSort<T extends string>(
         }
       });
     },
-    [src.headers]
+    [src.headers],
   );
 
   return [sort, handleToggle];
@@ -330,14 +304,12 @@ function Header_<T extends string>({
   onClick: HandleSort<T>;
 }) {
   const sortColor = Data.TableColor.getSelector(
-    sort[0].isReversed
-      ? Data.tableColorAlias.negative
-      : Data.tableColorAlias.positive
+    sort[0].isReversed ? Data.tableColorAlias.negative : Data.tableColorAlias.positive,
   );
   const prevSortColor = Data.TableColor.getSelector(
     sort[1]?.isReversed
       ? Data.tableColorAlias.negativeWeak
-      : Data.tableColorAlias.positiveWeak
+      : Data.tableColorAlias.positiveWeak,
   );
 
   return (
@@ -438,7 +410,7 @@ function Body_<T extends string>({
           observer.disconnect();
         }
       },
-      { rootMargin: "50px 50px 50px 50px" }
+      { rootMargin: "50px 50px 50px 50px" },
     );
 
     observer.observe(element);
@@ -451,14 +423,12 @@ function Body_<T extends string>({
     <tbody>
       {tableData.rows.map((row, index) => {
         let separator;
-        if (
-          row instanceof Situation &&
-          TableStyle.isBorderEnabled(sortColumn)
-        ) {
+        if (row instanceof Situation && TableStyle.isBorderEnabled(sortColumn)) {
           const id = row.unitId.getValue(setting);
           if (id !== previousId && previousId !== undefined) {
             separator = true;
           }
+          // eslint-disable-next-line react-hooks/immutability
           previousId = id;
         }
 
@@ -469,12 +439,7 @@ function Body_<T extends string>({
             key={row.id}
             className={separator ? "separator" : undefined}
           >
-            <Row
-              headers={tableData.headers}
-              row={row}
-              setting={setting}
-              handlers={handlers}
-            />
+            <Row headers={tableData.headers} row={row} setting={setting} handlers={handlers} />
           </tr>
         );
       })}
@@ -512,12 +477,7 @@ const Row = memo(function Row({
   handlers: TooltipEventHandlers;
 }) {
   return headers.map((col) => (
-    <Cell
-      key={col.id}
-      stat={row[col.id]}
-      setting={setting}
-      handlers={handlers}
-    />
+    <Cell key={col.id} stat={row[col.id]} setting={setting} handlers={handlers} />
   ));
 });
 

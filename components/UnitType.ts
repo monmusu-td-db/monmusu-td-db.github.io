@@ -1,10 +1,5 @@
 import type * as Data from "./Data";
-import type {
-  AttackDebuff,
-  DefresDebuff,
-  FeatureRequire,
-  RawAdditionFactor,
-} from "./Feature";
+import type { AttackDebuff, DefresDebuff, FeatureRequire, RawAdditionFactor } from "./Feature";
 import type { BuffTargetTag, BuffTypeTag } from "./InBattleBuff";
 import type { SituationRequire } from "./Situation";
 
@@ -734,7 +729,7 @@ interface RawSituation {
    * ユニット固有の状況
    *
    * (クラス状況の影響を受けない)
-   * 　*/
+   */
   proper: boolean;
 
   /**
@@ -873,11 +868,11 @@ type RawCondition = Data.ConditionTag | RawConditionKvp | RawConditionKeyType;
 
 export default units;
 export type {
-  RawUnit,
-  RawUnitData,
-  RawUnits,
-  RawUnitFactors,
-  RawSituations,
   RawBuff,
   RawBuffFactor,
+  RawSituations,
+  RawUnit,
+  RawUnitData,
+  RawUnitFactors,
+  RawUnits,
 };

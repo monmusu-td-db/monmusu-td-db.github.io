@@ -1,7 +1,19 @@
 "use client";
 
-import "./Panel.css";
 import * as Data from "@/components/Data";
+import {
+  Contexts,
+  Filter,
+  FilterCondition,
+  FilterUnitClass,
+  Setting,
+  type FilterObject,
+  type UISetting,
+} from "@/components/States";
+import BeastUI from "@/components/UI/BeastUI";
+import PanelUI from "@/components/UI/PanelUI";
+import SubskillUI from "@/components/UI/SubskillUI";
+import cn from "classnames";
 import {
   createContext,
   memo,
@@ -12,32 +24,11 @@ import {
   type ReactNode,
   type SetStateAction,
 } from "react";
-import {
-  Button,
-  Col,
-  Collapse,
-  Container,
-  Form,
-  Nav,
-  Row,
-  Tab,
-} from "react-bootstrap";
-import SearchInput from "./SearchInput";
-import PanelUI from "@/components/UI/PanelUI";
-import {
-  FilterCondition,
-  FilterUnitClass,
-  Setting,
-  Contexts,
-  Filter,
-  type FilterObject,
-  type UISetting,
-} from "@/components/States";
-import SubskillUI from "@/components/UI/SubskillUI";
-import BeastUI from "@/components/UI/BeastUI";
+import { Button, Col, Collapse, Container, Form, Nav, Row, Tab } from "react-bootstrap";
 import { createPortal } from "react-dom";
-import cn from "classnames";
 import Beast from "../Beast";
+import "./Panel.css";
+import SearchInput from "./SearchInput";
 
 const ID = "panel";
 const stat = Data.stat;
@@ -66,9 +57,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
     switch (tab) {
       case tabs.FILTER:
         dispatchFilter({
-          type: isBuff
-            ? Contexts.FilterAction.buffPageReset
-            : Contexts.FilterAction.reset,
+          type: isBuff ? Contexts.FilterAction.buffPageReset : Contexts.FilterAction.reset,
         });
         break;
       case tabs.UNIT:
@@ -92,14 +81,9 @@ function Panel({ open, onClose, pageType }: PanelProps) {
         <section id={ID} className="bg-body-tertiary panel">
           <Container fluid="sm" className="pb-2">
             <SearchInput className="d-block d-md-none my-2" />
-            <Tab.Container
-              activeKey={tab}
-              onSelect={(t) => setTab(t ?? tabs.FILTER)}
-            >
+            <Tab.Container activeKey={tab} onSelect={(t) => setTab(t ?? tabs.FILTER)}>
               <Row as="header">
-                <div className="h4 col-12 col-sm-3 text-center pt-1">
-                  各種設定
-                </div>
+                <div className="h4 col-12 col-sm-3 text-center pt-1">各種設定</div>
                 <Nav
                   variant="underline"
                   className="panel-header col-12 col-sm-9 ps-3 pe-3 me-auto ms-auto mb-2"
@@ -143,11 +127,7 @@ function Panel({ open, onClose, pageType }: PanelProps) {
             </Tab.Container>
             <footer className="my-3">
               <div className="d-flex justify-content-end">
-                <Button
-                  variant="secondary"
-                  onClick={handleReset}
-                  className="me-3"
-                >
+                <Button variant="secondary" onClick={handleReset} className="me-3">
                   リセット
                 </Button>
                 <Button variant="primary" onClick={onClose}>
@@ -252,9 +232,7 @@ const TabFilterContent = memo(function TabFilterContent({
           })}
         </PanelUI.FormCheckboxGroup>
       </PanelUI.FormGroup>
-      <PanelUI.FormGroup
-        label={Data.StatType.headerNameOf(stat.className, setting)}
-      >
+      <PanelUI.FormGroup label={Data.StatType.headerNameOf(stat.className, setting)}>
         <PanelUI.FormCheckboxGroup>
           {FilterUnitClass.keys.map((k) => {
             let label;
@@ -771,8 +749,7 @@ const TabFormationContent = memo(function TabFormationContent({
             value={setting.typeBonus === Setting.TYPE_ENABLED ? 0 : 1}
             onChange={(v) =>
               onChange({
-                typeBonus:
-                  v === 0 ? Setting.TYPE_ENABLED : Setting.TYPE_DISABLED,
+                typeBonus: v === 0 ? Setting.TYPE_ENABLED : Setting.TYPE_DISABLED,
               })
             }
           />
@@ -897,11 +874,7 @@ function TabOther({ isSituation }: { isSituation: boolean }) {
   const [setting, handleChange] = useSettingChange();
 
   return (
-    <TabOtherContent
-      setting={setting}
-      onChange={handleChange}
-      isSituation={isSituation}
-    />
+    <TabOtherContent setting={setting} onChange={handleChange} isSituation={isSituation} />
   );
 }
 
@@ -1025,9 +998,7 @@ const TabOtherContent = memo(function TabOtherContent({
             items={["する", "しない"]}
             value={storageOption === Setting.STORAGE_LOCAL ? 0 : 1}
             onChange={(v) =>
-              setStorageOption(
-                v === 0 ? Setting.STORAGE_LOCAL : Setting.STORAGE_SESSION,
-              )
+              setStorageOption(v === 0 ? Setting.STORAGE_LOCAL : Setting.STORAGE_SESSION)
             }
           />
         </Col>
@@ -1040,6 +1011,7 @@ function Backdrop({ open, onClose }: PanelProps) {
   const [item, setItem] = useState<ReactNode>();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setItem(
       <>
         {createPortal(

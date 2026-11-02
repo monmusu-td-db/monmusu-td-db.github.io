@@ -1,10 +1,5 @@
 "use client";
 
-import "./PanelUI.css";
-import { Col, Form, Modal, Nav, Row, Tab, ToggleButton } from "react-bootstrap";
-import * as Data from "../Data";
-import CardSelector from "./CardSelector";
-import Subskill from "../Subskill";
 import {
   memo,
   useCallback,
@@ -15,8 +10,13 @@ import {
   type ReactNode,
   type SetStateAction,
 } from "react";
-import PanelUI from "./PanelUI";
+import { Col, Form, Modal, Nav, Row, Tab, ToggleButton } from "react-bootstrap";
+import * as Data from "../Data";
 import { Contexts, type UISetting } from "../States";
+import Subskill from "../Subskill";
+import CardSelector from "./CardSelector";
+import PanelUI from "./PanelUI";
+import "./PanelUI.css";
 
 // Const
 
@@ -108,12 +108,9 @@ function SubskillSelector(props: {
       list.filter((item) => {
         const a =
           group === 0 ||
-          (isChecked(groupCond.ATTACK, group) &&
-            item.group === groupTexts.ATTACK) ||
-          (isChecked(groupCond.DEFENSE, group) &&
-            item.group === groupTexts.DEFENSE) ||
-          (isChecked(groupCond.SUPPORT, group) &&
-            item.group === groupTexts.SUPPORT);
+          (isChecked(groupCond.ATTACK, group) && item.group === groupTexts.ATTACK) ||
+          (isChecked(groupCond.DEFENSE, group) && item.group === groupTexts.DEFENSE) ||
+          (isChecked(groupCond.SUPPORT, group) && item.group === groupTexts.SUPPORT);
 
         const b =
           rarity === 0 ||
@@ -135,7 +132,7 @@ function SubskillSelector(props: {
 
         return a && b && c && effective && !ultimateFilter;
       }),
-    [group, isGeneral, rarity, isEffective, setting],
+    [props.id, group, isGeneral, rarity, isEffective, setting],
   );
 
   const sortType = s.subskillSortType;
@@ -146,13 +143,14 @@ function SubskillSelector(props: {
     const normalSkillList = filteredList.filter((s) => !s.isUltimate);
     const sort = (list: readonly Subskill[]) => {
       switch (sortType) {
-        case sortCond.NAME:
+        case sortCond.NAME: {
           const fn = (a: Subskill, b: Subskill) => a.name.localeCompare(b.name);
           if (sortOrder) {
             return list.toSorted((a, b) => fn(b, a));
           } else {
             return list.toSorted(fn);
           }
+        }
         default:
           if (sortOrder) {
             return list.toReversed();
@@ -224,17 +222,12 @@ function SubskillSelector(props: {
         onHide={selector.handleClose}
         onShow={() => setTab(tabs.SELECT)}
       >
-        <Tab.Container
-          activeKey={tab}
-          onSelect={(t) => setTab(t ?? tabs.SELECT)}
-        >
+        <Tab.Container activeKey={tab} onSelect={(t) => setTab(t ?? tabs.SELECT)}>
           <Modal.Header className="pb-2">
             <Row className="col">
               <Col xs={10} sm={11}>
                 <Row className="gy-2 gx-2 gx-sm-3">
-                  <Modal.Title className="col-8 col-md-4">
-                    {labelTexts.HEADER}
-                  </Modal.Title>
+                  <Modal.Title className="col-8 col-md-4">{labelTexts.HEADER}</Modal.Title>
                   <CardSelector.RemoveButton onClick={selector.handleRemove} />
                   <Col xs={12} md={5} className="d-flex align-items-center">
                     <Row className="gx-1 col">
@@ -248,18 +241,14 @@ function SubskillSelector(props: {
                       <HeaderButton
                         id={groups.DEFENSE}
                         checked={isChecked(groupCond.DEFENSE, group)}
-                        onClick={() =>
-                          handleGroup((v) => v ^ groupCond.DEFENSE)
-                        }
+                        onClick={() => handleGroup((v) => v ^ groupCond.DEFENSE)}
                       >
                         {groupTexts.DEFENSE}
                       </HeaderButton>
                       <HeaderButton
                         id={groups.SUPPORT}
                         checked={isChecked(groupCond.SUPPORT, group)}
-                        onClick={() =>
-                          handleGroup((v) => v ^ groupCond.SUPPORT)
-                        }
+                        onClick={() => handleGroup((v) => v ^ groupCond.SUPPORT)}
                       >
                         {groupTexts.SUPPORT}
                       </HeaderButton>
@@ -323,10 +312,7 @@ const TabView = memo(function TabView({
   rarity: number;
   isGeneral: boolean;
   isEffective: boolean;
-  onChange: <T extends ViewHandleKey>(
-    key: T,
-    value: ViewHandleValue<T>,
-  ) => void;
+  onChange: <T extends ViewHandleKey>(key: T, value: ViewHandleValue<T>) => void;
 }) {
   const handleRarity = (fn: HandleCond) => onChange(viewHandleKeys.RARITY, fn);
 

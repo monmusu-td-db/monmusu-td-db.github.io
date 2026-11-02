@@ -13,7 +13,7 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
         <Fragment key={item}>
           {i > 0 && " "}
           <span>{this.getDecoratedItem(item)}</span>
-        </Fragment>
+        </Fragment>,
       );
       i++;
     }
@@ -56,7 +56,7 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
 
   static filter(
     target: ReadonlySet<string>,
-    filter: ReadonlySet<string> | undefined
+    filter: ReadonlySet<string> | undefined,
   ): ReadonlySet<string> {
     if (filter === undefined) {
       return target;
@@ -74,12 +74,12 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
   static parse(
     value: ReadonlySet<string>,
     atkFactor: Data.ActualAttackFactors | undefined,
-    hpFactor: Data.ActualHpFactors | undefined
+    hpFactor: Data.ActualHpFactors | undefined,
   ): ReadonlySet<string> {
     const ret = new Set<string>();
     for (const str of value) {
       ret.add(
-        str.replaceAll(/\{([^\{\}])*\}/g, (match) => {
+        str.replaceAll(/\{([^{}])*\}/g, (match) => {
           match = match.slice(1, match.length - 1);
           const [key, value] = match.split("*");
           return (
@@ -98,7 +98,7 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
               }
             })()?.toString() ?? ""
           );
-        })
+        }),
       );
     }
     return ret;
@@ -106,7 +106,7 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
 
   static getDamageCut(
     phyFactor: Data.DamageCutFactors,
-    magFactor: Data.DamageCutFactors
+    magFactor: Data.DamageCutFactors,
   ): ReadonlySet<string> | undefined {
     const phy = phyFactor.supplement;
     const mag = magFactor.supplement;
@@ -143,7 +143,7 @@ export class StatSupplement extends StatRoot<ReadonlySet<string>> {
 
   static getEvasion(
     phyValue: number,
-    magValue: number
+    magValue: number,
   ): ReadonlySet<string> | undefined {
     if (phyValue <= 0 && magValue <= 0) {
       return;

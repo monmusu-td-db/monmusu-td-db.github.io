@@ -20,9 +20,10 @@ export class StatCondition extends StatTooltip<readonly Data.ConditionObj[]> {
     const keyText = Data.Condition.text[obj.key];
     const value = (obj.value ?? "").toString();
     switch (obj.key) {
-      case Data.Condition.key.hit:
+      case Data.Condition.key.hit: {
         const s = (obj.value ?? 0) > 1 ? keyText + "s" : keyText;
         return value + s + " ";
+      }
       case Data.Condition.key.second:
         return value + keyText + " ";
       default: {
