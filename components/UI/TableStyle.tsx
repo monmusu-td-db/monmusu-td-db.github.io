@@ -83,6 +83,7 @@ const TableStyle = memo(function TableStyle({
       case stat.moveCost:
       case stat.damageType:
       case stat.placement:
+      case stat.hasWeapon:
       case stat.buffTarget:
       case stat.buffRange:
       case stat.buffFieldChange:
@@ -154,12 +155,8 @@ const TableStyle = memo(function TableStyle({
     }
   });
 
-  const getSelector = (
-    index: number | readonly number[],
-    end: string = ""
-  ): string => {
-    const fn = (index: number) =>
-      `#${id}.stat-table>tbody>tr>td:nth-child(${index + 1})`;
+  const getSelector = (index: number | readonly number[], end: string = ""): string => {
+    const fn = (index: number) => `#${id}.stat-table>tbody>tr>td:nth-child(${index + 1})`;
     let ret: string;
     if (typeof index === "number") {
       ret = index === -1 ? "" : fn(index) + end;
@@ -178,8 +175,7 @@ const TableStyle = memo(function TableStyle({
       return `${selector}{${props}}`;
     }
   };
-  const getIndex = (statType: string) =>
-    headers.findIndex((col) => col.id === statType);
+  const getIndex = (statType: string) => headers.findIndex((col) => col.id === statType);
   const supSelector = getSelector(getIndex(stat.supplements), ">span");
 
   return (

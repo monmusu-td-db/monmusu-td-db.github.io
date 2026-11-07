@@ -129,10 +129,7 @@
   color: color-mix(
     in srgb,
     var(--bs-red) 75%,
-    var(
-      --bs-table-color-state,
-      var(--bs-table-color-type, var(--bs-table-color))
-    )
+    var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)))
   );
 }
 
@@ -194,7 +191,8 @@ th.situationId,
 th.element,
 th.range,
 th.moveSpeed,
-th.placement {
+th.placement,
+th.hasWeapon {
   width: 2rem;
 }
 

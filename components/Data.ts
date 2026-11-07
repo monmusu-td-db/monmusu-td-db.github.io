@@ -15,9 +15,7 @@ export const MAX_POSS_BUFF_LEVEL = 45;
 
 // Util
 
-export function getKeys<T extends Record<string, unknown>>(
-  obj: T,
-): readonly (keyof T)[] {
+export function getKeys<T extends Record<string, unknown>>(obj: T): readonly (keyof T)[] {
   return Object.keys(obj);
 }
 
@@ -73,9 +71,7 @@ export class Percent {
   }
 
   static sum(...values: (number | undefined)[]) {
-    return values
-      .map((v) => (v === undefined ? 100 : v))
-      .reduce((a, c) => a + c - 100, 100);
+    return values.map((v) => (v === undefined ? 100 : v)).reduce((a, c) => a + c - 100, 100);
   }
 
   static max(...values: (number | undefined)[]): number {
@@ -219,10 +215,7 @@ export const TableColor = {
     }
   },
 
-  valueCompare(
-    v1: number | undefined,
-    v2: number | undefined = 0,
-  ): TableColor | undefined {
+  valueCompare(v1: number | undefined, v2: number | undefined = 0): TableColor | undefined {
     if (v1 !== undefined) {
       if (v1 > v2) {
         return tableColorAlias.positive;
@@ -258,10 +251,7 @@ export const TableColor = {
     }
   },
 
-  getColorFromLines(
-    lines: TableColorLines,
-    value: number,
-  ): TableColor | undefined {
+  getColorFromLines(lines: TableColorLines, value: number): TableColor | undefined {
     for (let i = 0; i < lines.length - 1; i++) {
       if (value < lines[i]![0]) {
         return lines[i]![1];
@@ -331,12 +321,7 @@ export const StatType = {
   },
 } as const;
 
-export const baseStatList = [
-  stat.hp,
-  stat.attack,
-  stat.defense,
-  stat.resist,
-] as const;
+export const baseStatList = [stat.hp, stat.attack, stat.defense, stat.resist] as const;
 const baseStatName = {
   hp: "HP",
   attack: "攻撃力",
@@ -512,9 +497,7 @@ export class Condition {
     if (list === undefined) {
       return;
     }
-    return list
-      .map((item) => this.parse(item))
-      .filter((item) => item !== undefined);
+    return list.map((item) => this.parse(item)).filter((item) => item !== undefined);
   }
 
   private static parse(src: JsonCondition): ConditionBaseObj | undefined {
@@ -594,9 +577,7 @@ export class Condition {
     return this.keys.findIndex((k) => k === obj.key);
   }
 
-  private static isDefiniteDescKey(
-    key: unknown,
-  ): key is ConditionDefiniteDescKey {
+  private static isDefiniteDescKey(key: unknown): key is ConditionDefiniteDescKey {
     return this.definiteKeys.findIndex((k) => k === key) !== -1;
   }
 
@@ -668,8 +649,7 @@ export const JsonStaticDamage = {
     }
     if (staticDamageKeyList.findIndex((k) => k === src.key) !== -1) {
       if (
-        (src.key !== staticDamage.TIME &&
-          src.key !== staticDamage.TIME_ATTACK_BASE) ||
+        (src.key !== staticDamage.TIME && src.key !== staticDamage.TIME_ATTACK_BASE) ||
         src.time !== undefined
       ) {
         return src as StaticDamage;
@@ -705,10 +685,7 @@ export const StaticDamage = {
       case staticDamage.ATTACK_BASE:
       case staticDamage.DEFENSE_BASE:
       case staticDamage.RESIST_BASE:
-        return (
-          "配置前" +
-          StatType.nameOf(StaticDamage.baseStatTypeOf(key) as BaseStatType)
-        );
+        return "配置前" + StatType.nameOf(StaticDamage.baseStatTypeOf(key) as BaseStatType);
       case staticDamage.STATIC:
         return "固定値";
       case staticDamage.TIME:
@@ -723,9 +700,7 @@ export type Round = {
   readonly value: number;
 };
 export const Round = {
-  average<T extends Rounds | undefined>(
-    rounds: T,
-  ): number | Extract<T, undefined> {
+  average<T extends Rounds | undefined>(rounds: T): number | Extract<T, undefined> {
     if (rounds === undefined) {
       return undefined as Extract<T, undefined>;
     }
@@ -753,9 +728,7 @@ export const Round = {
 export type Rounds = number | readonly Round[];
 export type JsonRound = number | readonly Round[];
 export const JsonRound = {
-  parse<T extends JsonRound | undefined>(
-    value: T,
-  ): Rounds | Extract<T, undefined> {
+  parse<T extends JsonRound | undefined>(value: T): Rounds | Extract<T, undefined> {
     if (typeof value === "number") {
       return value;
     }
@@ -826,10 +799,7 @@ export const JsonSkill = {
     return ret;
   },
 } as const;
-function parseSkill(
-  skill: Partial<SkillBase>,
-  jsonSkill: Partial<JsonSkill>,
-): void {
+function parseSkill(skill: Partial<SkillBase>, jsonSkill: Partial<JsonSkill>): void {
   const c = Condition.parseList(jsonSkill.conditions);
   if (c !== undefined) {
     skill.conditions = c;
@@ -865,9 +835,7 @@ interface SkillFeatureDiff {
 type SkillFeature = SkillFeatureDiff & Partial<Omit<Skill, "features">>;
 type JsonSkillFeature = SkillFeatureDiff & Partial<Omit<JsonSkill, "features">>;
 const JsonSkillFeature = {
-  parse(
-    value: readonly JsonSkillFeature[] | undefined,
-  ): readonly SkillFeature[] | undefined {
+  parse(value: readonly JsonSkillFeature[] | undefined): readonly SkillFeature[] | undefined {
     if (value === undefined) {
       return;
     }
@@ -894,10 +862,7 @@ const JsonSkillFeature = {
   },
 };
 
-export type RawDuration =
-  | number
-  | typeof Duration.infinity
-  | typeof Duration.single;
+export type RawDuration = number | typeof Duration.infinity | typeof Duration.single;
 export type RawDurationFeature = RawDuration | typeof Duration.always;
 export type JsonDuration = number | string;
 export const JsonDuration = {
@@ -940,10 +905,7 @@ export interface FormationBuff {
   readonly delay?: number;
   readonly moveSpeed?: number;
   readonly supplements?: readonly string[];
-  readonly potentialBonus?: Omit<
-    FormationBuff,
-    "targets" | "require" | "potentialBonus"
-  >;
+  readonly potentialBonus?: Omit<FormationBuff, "targets" | "require" | "potentialBonus">;
 }
 export const FormationBuff = {
   all: "全て",
@@ -1217,9 +1179,7 @@ export class UnitClass {
     return this.entries.find((kvp) => kvp[1] === value)?.[0];
   }
 
-  static equipmentNameOf(
-    value: UnitClassTag | undefined,
-  ): UnitEquipmentName | undefined {
+  static equipmentNameOf(value: UnitClassTag | undefined): UnitEquipmentName | undefined {
     const key = this.keyOf(value);
     if (key === undefined) {
       return;
@@ -1235,9 +1195,7 @@ export class UnitClass {
     return this.cc4Name[key];
   }
 
-  static baseTagOf(
-    value: UnitClassTag | undefined,
-  ): UnitBaseClassTag | undefined {
+  static baseTagOf(value: UnitClassTag | undefined): UnitBaseClassTag | undefined {
     const n = this.tag;
     switch (value) {
       case n.blader:
@@ -1351,9 +1309,7 @@ export const Element = {
     return elementValues.find((v) => v === value);
   },
 
-  parseElements(
-    arr: readonly string[] | undefined,
-  ): ReadonlySet<Element> | undefined {
+  parseElements(arr: readonly string[] | undefined): ReadonlySet<Element> | undefined {
     if (arr === undefined) {
       return;
     }
@@ -1434,16 +1390,12 @@ export const Species = {
     if (Array.isArray(value)) {
       return value.map((v) => Species.find(v)).filter((v) => v !== undefined);
     } else {
-      return [Species.find(value as string | undefined)].filter(
-        (v) => v !== undefined,
-      );
+      return [Species.find(value as string | undefined)].filter((v) => v !== undefined);
     }
   },
 
   getKeys(list: readonly Species[]): readonly SpeciesKey[] {
-    const ret = list
-      .map((v) => Species.keyOf(v))
-      .filter((v) => v !== undefined);
+    const ret = list.map((v) => Species.keyOf(v)).filter((v) => v !== undefined);
     if (ret.length > 0) {
       return ret;
     } else {
@@ -1455,14 +1407,8 @@ export const Species = {
     return speciesEntries.find((v) => v[1] === value)?.[0];
   },
 
-  isSpecies(
-    value: unknown,
-  ): value is Exclude<Species, typeof species.speciesNone> {
-    return (
-      speciesValues.findIndex(
-        (v) => v === value && v !== species.speciesNone,
-      ) !== -1
-    );
+  isSpecies(value: unknown): value is Exclude<Species, typeof species.speciesNone> {
+    return speciesValues.findIndex((v) => v === value && v !== species.speciesNone) !== -1;
   },
 
   indexOf(value: readonly Species[]): number | undefined {
@@ -1582,11 +1528,8 @@ const moveTypeColor: Record<MoveTypeKey, TableColor | undefined> = {
 } as const;
 
 type MoveTypeFilterKey = `movetype-${MoveTypeKey}`;
-const getMoveTypeFilterKey = (key: MoveTypeKey): MoveTypeFilterKey =>
-  `movetype-${key}`;
-const moveTypeFilterKeys = getKeys(moveType).map((key) =>
-  getMoveTypeFilterKey(key),
-);
+const getMoveTypeFilterKey = (key: MoveTypeKey): MoveTypeFilterKey => `movetype-${key}`;
+const moveTypeFilterKeys = getKeys(moveType).map((key) => getMoveTypeFilterKey(key));
 export type MoveType = (typeof moveType)[MoveTypeKey];
 export const MoveType = {
   ...moveType,
@@ -1628,10 +1571,7 @@ export const damageType = {
   absorb: "吸収",
   none: "なし",
 } as const;
-export const damageTypeColor: Record<
-  keyof typeof damageType,
-  TableColor | undefined
-> = {
+export const damageTypeColor: Record<keyof typeof damageType, TableColor | undefined> = {
   physic: tableColor.blue,
   magic: tableColor.green,
   true: tableColor.red,
@@ -1659,9 +1599,7 @@ export const DamageType = {
     if (value === undefined) {
       return this.keys.none;
     }
-    return getEntries(damageType).find(
-      (v) => v[1] === value,
-    )?.[0] as DamageTypeKey;
+    return getEntries(damageType).find((v) => v[1] === value)?.[0] as DamageTypeKey;
   },
 
   colorOf(value: DamageType | undefined): TableColor | undefined {
@@ -1764,15 +1702,11 @@ export const Placement = {
 export type JsonPotentials = string[];
 export const JsonPotentials = {
   parse(value: readonly string[] = []): readonly (Potential | undefined)[] {
-    return value
-      .slice(0, 5)
-      .map((p) => potentialList.find((v) => v.name === p)?.name);
+    return value.slice(0, 5).map((p) => potentialList.find((v) => v.name === p)?.name);
   },
 
   toSet(src: Readonly<JsonPotentials> = []): Set<Potential> {
-    const ret = src.filter(
-      (str) => Potential.list.find((v) => v.name === str) !== undefined,
-    );
+    const ret = src.filter((str) => Potential.list.find((v) => v.name === str) !== undefined);
     return new Set(ret as Potential[]);
   },
 } as const;
@@ -1850,15 +1784,11 @@ export type Potential = (typeof potentialList)[number]["name"];
 export const Potential = {
   list: potentialList,
 
-  getEffectValue(
-    statType: StatType,
-    potentials: readonly (Potential | undefined)[],
-  ): number {
+  getEffectValue(statType: StatType, potentials: readonly (Potential | undefined)[]): number {
     return potentials
       .map((p) => {
         return (
-          potentialList.find((src) => src.stat === statType && src.name === p)
-            ?.value ?? 0
+          potentialList.find((src) => src.stat === statType && src.name === p)?.value ?? 0
         );
       })
       .reduce((a: number, c) => a + c, 0);
@@ -1872,9 +1802,7 @@ export const Potential = {
     potentials.forEach((p) => {
       if (
         p !== undefined &&
-        potentialList.findIndex(
-          (src) => src.stat === statType && src.name === p,
-        ) !== -1
+        potentialList.findIndex((src) => src.stat === statType && src.name === p) !== -1
       ) {
         ret.add(p);
       }
@@ -1915,6 +1843,10 @@ export const Weapon = {
 
   isApplied({ weapon }: Setting): boolean {
     return weapon === "all" || weapon === "partial";
+  },
+
+  hasWeaponText(has: boolean) {
+    return has ? "〇" : "";
   },
 } as const;
 
@@ -1985,9 +1917,7 @@ export function getAttackSpeed<T extends number | undefined>(
   return Math.round(4000 / (value - (value * V1 - V2)));
 }
 
-export function getAttackSpeedFactors(
-  agilityBuff: AttackSpeedAgility,
-): AttackSpeedFactors {
+export function getAttackSpeedFactors(agilityBuff: AttackSpeedAgility): AttackSpeedFactors {
   const ability = agilityBuff.base + agilityBuff.ability;
   const weapon = ability + agilityBuff.weapon;
   const potential = weapon + agilityBuff.potential;
@@ -2258,8 +2188,7 @@ export interface ActualIntervalFactors {
   readonly base: IntervalBaseFactors | undefined;
   readonly actualResult: number | undefined;
 }
-export interface IntervalBaseFactors
-  extends AttackSpeedInBattleFactors, DelayFactors {
+export interface IntervalBaseFactors extends AttackSpeedInBattleFactors, DelayFactors {
   readonly delayResult: number;
   readonly skillColor: TableColor | undefined;
   readonly buffColor: TableColor | undefined;

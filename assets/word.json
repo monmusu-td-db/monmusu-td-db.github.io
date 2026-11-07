@@ -32,6 +32,7 @@
     "penetration": "貫通率",
     "damageType": "攻撃属性",
     "placement": "配置タイプ",
+    "hasWeapon": "専用武器",
     "exSkill1": "EXスキル1",
     "exSkill2": "EXスキル2",
     "potentials": "潜在覚醒",
