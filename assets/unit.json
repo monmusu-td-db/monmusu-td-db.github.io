@@ -6772,6 +6772,12 @@
       "射程+15",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "ささがに神楽",
+      "hp": 300,
+      "resist": 25,
+      "range": 10
+    },
     "features": [
       {
         "skill": 0,
@@ -6828,6 +6834,18 @@
             "攻撃速度-75%→射程内"
           ]
         }
+      },
+      {
+        "require": [
+          "武器",
+          "地マス"
+        ],
+        "supplements": [
+          "CT-1秒/3秒"
+        ],
+        "cooldownReductions": [
+          4
+        ]
       }
     ],
     "situations": [
@@ -38576,12 +38594,44 @@
         }
       }
     ],
+    "weapon": {
+      "weaponName": "焦燼弓",
+      "attack": 5,
+      "range": 10,
+      "attackSpeed": 10
+    },
     "features": [
       {
         "require": [
           "火マス"
         ],
         "criChanceAdd": 20
+      },
+      {
+        "featureName": "class-definite",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "飛行特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-stan",
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "スタン特効"
+        ],
+        "damageFactor": 150
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "スタン特効",
+          "飛行特効"
+        ]
       }
     ],
     "isEventUnit": true,
@@ -38606,6 +38656,110 @@
         "features": [
           "common-fire-field"
         ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-stan"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-fire-field"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-stan",
+          "common-fire-field"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-stan"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-stan"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-fire-field"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 1,
+        "require": [
+          "weapon",
+          "no-panel-field-element"
+        ],
+        "features": [
+          "common-definite-double",
+          "common-definite-stan",
+          "common-fire-field"
+        ]
       }
     ],
     "buffs": [
@@ -38620,6 +38774,26 @@
           "配置時",
           "戦闘中一回のみ"
         ]
+      },
+      {
+        "type": "damage-factor",
+        "skill": 0,
+        "require": [
+          "火属性",
+          "スタン特効"
+        ],
+        "target": "射程内",
+        "value": 150
+      },
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "require": [
+          "火属性",
+          "スタン特効"
+        ],
+        "target": "射程内",
+        "value": 150
       }
     ]
   },
