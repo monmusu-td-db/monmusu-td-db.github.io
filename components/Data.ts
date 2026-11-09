@@ -1825,7 +1825,6 @@ export type Weapon = Readonly<{
   hpMul?: number;
   attackMul?: number;
   moveSpeedMul?: number;
-  upgradeValue?: number;
 }>;
 export const Weapon = {
   isKey(key: string): key is keyof Weapon {
@@ -2329,6 +2328,17 @@ export interface MoveSpeedFactors {
   readonly addition: number;
   readonly subskillAdd: number;
   readonly result: number;
+}
+
+export interface WeaponFactors {
+  readonly name: string;
+  readonly hp?: number;
+  readonly attack?: number;
+  readonly defense?: number;
+  readonly resist?: number;
+  readonly attackSpeed?: number;
+  readonly block?: number;
+  readonly range?: number;
 }
 
 // Setting
