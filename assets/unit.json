@@ -61569,5 +61569,130 @@
         "value": 200
       }
     ]
+  },
+  {
+    "id": 471,
+    "unitName": "【バハムート娘】ゼルレギア",
+    "unitShortName": "ゼルレギア",
+    "rarity": "L",
+    "class": "コンジャラー",
+    "element": "光",
+    "species": [
+      "ドラゴン",
+      "禁忌"
+    ],
+    "moveType": "飛行",
+    "hp": 2454,
+    "attack": 795,
+    "defense": 244,
+    "resist": 596,
+    "block": 0,
+    "exSkill1": {
+      "skillName": "マジェスティプレス",
+      "attackMul": 300,
+      "attackMotionMul": 240,
+      "target": 1,
+      "laser": true,
+      "rounds": 12,
+      "rangeMul": 280,
+      "duration": "永続",
+      "cooldown": 120,
+      "damageType": "魔法"
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "スキル初回待ち時間-12"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "全て"
+        ],
+        "attack": 112
+      },
+      {
+        "targets": [
+          "光"
+        ],
+        "attack": 104
+      }
+    ],
+    "weapon": {
+      "weaponName": "覇道の書",
+      "attack": 30,
+      "defense": 10,
+      "resist": 15,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 150,
+        "supplements": [
+          "移動可"
+        ]
+      },
+      {
+        "featureName": "dot",
+        "annotations": [
+          "継続ダメージ"
+        ],
+        "interval": 120,
+        "target": "射程内",
+        "damageType": "魔法"
+      },
+      {
+        "featureName": "dot",
+        "skill": 0,
+        "damageFactor": 30
+      },
+      {
+        "featureName": "dot",
+        "require": [
+          "スキル"
+        ],
+        "damageFactor": 60,
+        "rounds": 1,
+        "laser": false
+      }
+    ],
+    "costAdd": 15,
+    "attackMul": 130,
+    "rangeAdd": 70,
+    "potentialBonus": {
+      "attackMul": 135
+    },
+    "situations": [
+      {},
+      {
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2"
+        ],
+        "skill": 1
+      },
+      {
+        "proper": true,
+        "features": [
+          "dot"
+        ]
+      },
+      {
+        "proper": true,
+        "exclude": [
+          "class-enemy1",
+          "class-enemy2"
+        ],
+        "skill": 1,
+        "features": [
+          "dot"
+        ]
+      }
+    ]
   }
 ]
