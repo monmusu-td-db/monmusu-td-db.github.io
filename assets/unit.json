@@ -61459,5 +61459,115 @@
         ]
       }
     ]
+  },
+  {
+    "id": 470,
+    "unitName": "【ヴィーヴル娘】オルフェリアーヌ",
+    "unitShortName": "オルフェリアーヌ",
+    "rarity": "L",
+    "class": "シャーマン",
+    "element": "闇",
+    "species": "ドラゴン",
+    "hp": 3139,
+    "attack": 0,
+    "defense": 378,
+    "resist": 564,
+    "supplements": [
+      "バリア{max-hp*50}付与/配置→射程内",
+      "敵射程-10%→射程内"
+    ],
+    "exSkill1": {
+      "skillName": "麗しき共鳴",
+      "rangeMul": 300,
+      "damageFactor": 200,
+      "duration": 20,
+      "cooldown": 35,
+      "supplements": [
+        "バリア{max-hp*50}付与/発動→射程内"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "射程+15",
+      "スキル再使用時間-4秒"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "ドラゴン"
+        ],
+        "costAdd": -2,
+        "attack": 107,
+        "potentialBonus": {
+          "attack": 110
+        }
+      }
+    ],
+    "weapon": {
+      "weaponName": "赤薔薇の竜枝",
+      "hp": 400,
+      "resist": 15,
+      "range": 10
+    },
+    "features": [
+      {
+        "physicalEvasion": 20,
+        "magicalEvasion": 20
+      },
+      {
+        "isNotAbility": true,
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "コスト+2/ドラゴン配置"
+        ]
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 0,
+        "target": "射程内",
+        "value": 20,
+        "effects": [
+          {
+            "type": "physical-evasion"
+          },
+          {
+            "type": "magical-evasion"
+          }
+        ]
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "value": 20,
+        "effects": [
+          {
+            "type": "physical-evasion"
+          },
+          {
+            "type": "magical-evasion"
+          }
+        ]
+      },
+      {
+        "type": "damage-factor",
+        "skill": 1,
+        "require": [
+          "ドラゴン特性"
+        ],
+        "target": "全体",
+        "value": 200
+      }
+    ]
   }
 ]
