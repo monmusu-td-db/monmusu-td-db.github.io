@@ -15872,6 +15872,16 @@
       "duration": 11,
       "cooldown": 35
     },
+    "exSkill2": {
+      "skillName": "mode:DrillRocket",
+      "attackMul": 400,
+      "defenseMul": 400,
+      "attackMotionMul": 205,
+      "laser": true,
+      "range": 280,
+      "duration": 21,
+      "cooldown": 40
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -15916,6 +15926,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
@@ -16168,6 +16181,17 @@
       "duration": 40,
       "cooldown": 50
     },
+    "exSkill2": {
+      "skillName": "焔炎煉獄",
+      "hpMul": 350,
+      "attackMul": 260,
+      "target": 1,
+      "duration": 40,
+      "cooldown": 50,
+      "supplements": [
+        "火傷付与(高)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -16233,6 +16257,14 @@
           "value": 50
         },
         "range": 150
+      },
+      {
+        "featureName": "damage-cut",
+        "annotations": [
+          "火傷敵ダメージ軽減"
+        ],
+        "physicalDamageCut": 50,
+        "magicalDamageCut": 50
       }
     ],
     "situations": [
@@ -16243,6 +16275,15 @@
       },
       {
         "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "damage-cut"
+        ]
       },
       {
         "proper": true,
@@ -16260,6 +16301,13 @@
       {
         "proper": true,
         "skill": 1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
         "features": [
           "class-action"
         ]
@@ -19672,6 +19720,16 @@
         }
       ]
     },
+    "exSkill2": {
+      "skillName": "ラーヴァスフィア",
+      "attackMul": 250,
+      "target": 1,
+      "rounds": 1,
+      "range": 250,
+      "duration": 15,
+      "cooldown": 35,
+      "damageType": "魔法"
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -19729,6 +19787,13 @@
           "スタン特効",
           "地上特効"
         ]
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "skill": 2,
+        "rounds": 9,
+        "damageFactor": 100,
+        "damageType": "魔法"
       }
     ],
     "costAdd": 5,
@@ -19757,6 +19822,15 @@
       },
       {
         "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
+        "features": [
+          "common-extra-field-damage"
+        ]
       },
       {
         "exclude": [
@@ -19796,6 +19870,15 @@
           "class-attack"
         ],
         "skill": 1,
+        "features": [
+          "deploy-attack"
+        ]
+      },
+      {
+        "exclude": [
+          "class-attack"
+        ],
+        "skill": 2,
         "features": [
           "deploy-attack"
         ]
@@ -22080,6 +22163,19 @@
         "バリア{attack-base*500}/発動→射程内水マス"
       ]
     },
+    "exSkill2": {
+      "skillName": "聖魚の慈愛",
+      "rangeMul": 180,
+      "duration": 25,
+      "cooldown": 40,
+      "supplements": [
+        "水マス化/発動→射程内1マス",
+        "水マス化/発動→自マス",
+        "火傷無効→射程内",
+        "毒無効→射程内",
+        "暗闇無効→射程内"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -22112,6 +22208,9 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "proper": true,
         "skill": -1,
         "features": [
@@ -22128,6 +22227,16 @@
         "supplements": [
           "発動時",
           "射程内ランダムで1マス変化"
+        ]
+      },
+      {
+        "type": "field-change",
+        "skill": 2,
+        "target": "射程内",
+        "element": "水",
+        "supplements": [
+          "発動時",
+          "自マス+射程内ランダム1マス"
         ]
       }
     ]

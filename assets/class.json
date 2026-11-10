@@ -231,6 +231,7 @@
         "target": "射程内",
         "rounds": 1,
         "splash": false,
+        "laser": false,
         "range": 200,
         "damageType": "物理",
         "supplements": [
