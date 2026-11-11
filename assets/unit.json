@@ -22294,12 +22294,26 @@
       "射程+15",
       "スキル初回待ち時間-6秒"
     ],
+    "weapon": {
+      "weaponName": "怒恋承弩鯉将",
+      "hp": 50,
+      "attack": 50,
+      "range": 10
+    },
     "features": [
       {
         "magicalDamageCut": 30,
         "potentialBonus": {
           "magicalDamageCut": 40
         }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "HP回復1%/回復→海魔"
+        ]
       },
       {
         "featureName": "common-regenerate-all",
