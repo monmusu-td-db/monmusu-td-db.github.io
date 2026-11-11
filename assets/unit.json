@@ -17209,6 +17209,16 @@
       "duration": 20,
       "cooldown": 40
     },
+    "exSkill2": {
+      "skillName": "始祖竜の寵愛",
+      "attackSpeedBuff": 200,
+      "delayMul": 50,
+      "criChanceAdd": 25,
+      "criDamageAdd": 25,
+      "rangeMul": 170,
+      "duration": 25,
+      "cooldown": 45
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -17302,6 +17312,9 @@
         ]
       },
       {
+        "skill": 2
+      },
+      {
         "proper": true,
         "features": [
           "common-regenerate"
@@ -17337,6 +17350,13 @@
       },
       {
         "proper": true,
+        "skill": 2,
+        "features": [
+          "regenerate-area"
+        ]
+      },
+      {
+        "proper": true,
         "features": [
           "class-action",
           "regenerate-area"
@@ -17348,6 +17368,50 @@
         "features": [
           "class-action",
           "regenerate-area"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": 2,
+        "features": [
+          "class-action",
+          "regenerate-area"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "skill": 2,
+        "require": [
+          "ドラゴン特性"
+        ],
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "attack-speed-buff",
+            "value": 200
+          },
+          {
+            "type": "delay-mul",
+            "value": 50
+          }
+        ]
+      },
+      {
+        "skill": 2,
+        "require": [
+          "ドラゴン特性"
+        ],
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 25
+          },
+          {
+            "type": "critical-damage-add",
+            "value": 25
+          }
         ]
       }
     ]
@@ -17510,6 +17574,17 @@
       "duration": 15,
       "cooldown": 40
     },
+    "exSkill2": {
+      "skillName": "デスチョーク",
+      "attackMul": 150,
+      "target": 5,
+      "rangeMul": 160,
+      "duration": 25,
+      "cooldown": 35,
+      "supplements": [
+        "猛毒付与(中)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -17535,6 +17610,15 @@
         "isConditionalSkillBuff": true,
         "supplements": [
           "石化付与20%→命中"
+        ]
+      },
+      {
+        "skill": 2,
+        "supplements": [
+          "石化付与10%→命中"
+        ],
+        "deleteSupplements": [
+          "激毒付与(稀)→命中"
         ]
       },
       {
@@ -17577,6 +17661,11 @@
           "毒特効",
           "石化特効"
         ]
+      },
+      {
+        "featureName": "class-definite",
+        "skill": 2,
+        "damageFactor": 150
       }
     ],
     "isEventUnit": true,
@@ -17584,6 +17673,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       },
       {
         "exclude": [
@@ -17598,6 +17690,15 @@
           "class-definite"
         ],
         "skill": 1,
+        "features": [
+          "common-definite-petrify"
+        ]
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 2,
         "features": [
           "common-definite-petrify"
         ]
@@ -17616,6 +17717,16 @@
           "class-definite"
         ],
         "skill": 1,
+        "features": [
+          "common-definite-double",
+          "common-definite-petrify"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 2,
         "features": [
           "common-definite-double",
           "common-definite-petrify"
@@ -22747,9 +22858,14 @@
       "duration": 15,
       "cooldown": 30,
       "supplements": [
-        "CT-2秒/撃破",
-        "移動可"
+        "CT-2秒/撃破"
       ]
+    },
+    "exSkill2": {
+      "skillName": "ソニックドライヴ",
+      "attackMul": 420,
+      "duration": 15,
+      "cooldown": 30
     },
     "potentials": [
       "出撃コスト-1",
@@ -22758,18 +22874,38 @@
       "攻撃力+75",
       "移動消費コスト-2"
     ],
+    "weapon": {
+      "weaponName": "Wind Dive",
+      "attack": 80
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "ATK+50%(5秒)/回避"
+        ]
+      },
       {
         "skill": 0,
         "physicalEvasion": 40,
         "magicalEvasion": 40
       },
       {
+        "skill": 2,
+        "moveCostAdd": -99
+      },
+      {
+        "isConditionalSkillBuff": true,
         "require": [
           "スキル"
         ],
         "physicalEvasion": 80,
-        "magicalEvasion": 80
+        "magicalEvasion": 80,
+        "supplements": [
+          "移動可"
+        ]
       },
       {
         "skill": 1,
@@ -22785,6 +22921,14 @@
         "potentialBonus": {
           "damageFactor": 250
         }
+      },
+      {
+        "featureName": "common-charge-attack",
+        "isConditionalSkillBuff": true,
+        "skill": 2,
+        "supplements": [
+          "スキル効果時間+3秒/撃破"
+        ]
       }
     ],
     "moveSpeedMul": 250,
@@ -22795,12 +22939,21 @@
         "skill": 1
       },
       {
+        "skill": 2
+      },
+      {
         "features": [
           "common-charge-attack"
         ]
       },
       {
         "skill": 1,
+        "features": [
+          "common-charge-attack"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "common-charge-attack"
         ]
@@ -22833,6 +22986,17 @@
       "duration": 20,
       "cooldown": 40
     },
+    "exSkill2": {
+      "skillName": "モルデュ・オーラベスク",
+      "attackMul": 130,
+      "target": 5,
+      "rangeMul": 250,
+      "duration": 15,
+      "cooldown": 35,
+      "supplements": [
+        "バインド(3秒)→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -22840,8 +23004,34 @@
       "攻撃力+75",
       "トークン所持数+1"
     ],
+    "weapon": {
+      "weaponName": "While Trap",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
     "features": [
       {
+        "require": [
+          "武器"
+        ],
+        "supplements": [
+          "鈍足-30%→射程内"
+        ]
+      },
+      {
+        "skill": 0,
+        "supplements": [
+          "バインド(1秒)→命中"
+        ],
+        "potentialBonus": {
+          "supplements": [
+            "バインド(1.3秒)→命中"
+          ]
+        }
+      },
+      {
+        "skill": 1,
         "supplements": [
           "バインド(1秒)→命中"
         ],
@@ -22861,6 +23051,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
