@@ -6639,6 +6639,14 @@
         "即死(低)→命中"
       ]
     },
+    "exSkill2": {
+      "skillName": "パワフルウィールド",
+      "attackMul": 170,
+      "laser": true,
+      "range": 350,
+      "duration": 15,
+      "cooldown": 35
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -6667,6 +6675,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
@@ -6678,6 +6689,7 @@
     "rarity": "E",
     "class": "バーバリアン",
     "element": "光",
+    "species": "魔獣",
     "hp": 7077,
     "attack": 1105,
     "defense": 462,
@@ -6691,6 +6703,14 @@
       "supplements": [
         "即死(低)→命中"
       ]
+    },
+    "exSkill2": {
+      "skillName": "パワフルウィールド",
+      "attackMul": 170,
+      "laser": true,
+      "range": 350,
+      "duration": 15,
+      "cooldown": 35
     },
     "potentials": [
       "出撃コスト-1",
@@ -6731,6 +6751,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
@@ -8285,6 +8308,21 @@
       "duration": "単発",
       "cooldown": 35
     },
+    "exSkill2": {
+      "skillName": "アにゃカルト・ガッシュ",
+      "attackMul": 440,
+      "fixedDelay": 1,
+      "target": 1,
+      "splash": true,
+      "rounds": 2,
+      "range": 350,
+      "duration": "単発",
+      "cooldown": 15,
+      "damageType": "魔法",
+      "supplements": [
+        "スタン付与50%→命中"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -8342,6 +8380,12 @@
       },
       {
         "skill": 1,
+        "features": [
+          "normal"
+        ]
+      },
+      {
+        "skill": 2,
         "features": [
           "normal"
         ]
@@ -17775,6 +17819,7 @@
     ]
   },
   {
+    "TODO_FATAL": "ex2射程が不明",
     "id": 130,
     "unitName": "【転校生ジャイアント娘】メロン",
     "unitShortName": "メロン/学園",
@@ -17795,6 +17840,17 @@
       "cooldown": 40,
       "supplements": [
         "ノックバック→命中",
+        "即死(中)→命中"
+      ]
+    },
+    "exSkill2": {
+      "skillName": "メガトンバッグ",
+      "hpMul": 130,
+      "attackMul": 200,
+      "target": "射程内",
+      "duration": 20,
+      "cooldown": 45,
+      "supplements": [
         "即死(中)→命中"
       ]
     },
@@ -17826,6 +17882,28 @@
         "supplements": [
           "即死(超高)→命中"
         ]
+      },
+      {
+        "featureName": "class-definite",
+        "skill": 2,
+        "annotations": [
+          "スタン特効"
+        ]
+      },
+      {
+        "featureName": "common-definite-ground",
+        "skill": 2,
+        "annotations": [
+          "対地特効"
+        ],
+        "damageFactor": 200
+      },
+      {
+        "featureName": "common-definite-double",
+        "deleteAnnotations": [
+          "スタン特効",
+          "対地特効"
+        ]
       }
     ],
     "costAdd": 5,
@@ -17839,6 +17917,28 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
+      },
+      {
+        "exclude": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-ground"
+        ]
+      },
+      {
+        "depend": [
+          "class-definite"
+        ],
+        "skill": 2,
+        "features": [
+          "common-definite-ground",
+          "common-definite-double"
+        ]
       }
     ]
   },
@@ -19264,6 +19364,15 @@
       "duration": 10,
       "cooldown": 25
     },
+    "exSkill2": {
+      "skillName": "竜炎紅蓮乱れ咲き",
+      "attackMul": 330,
+      "fixedDelay": 1,
+      "target": 6,
+      "rangeMul": 200,
+      "duration": "単発",
+      "cooldown": 15
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -19307,6 +19416,11 @@
         "featureName": "common-extra-field-damage",
         "skill": 1,
         "rounds": 11
+      },
+      {
+        "featureName": "common-extra-field-damage",
+        "skill": 2,
+        "rounds": 11
       }
     ],
     "situations": [
@@ -19321,6 +19435,15 @@
       },
       {
         "skill": 1,
+        "features": [
+          "common-extra-field-damage"
+        ]
+      },
+      {
+        "skill": 2
+      },
+      {
+        "skill": 2,
         "features": [
           "common-extra-field-damage"
         ]
