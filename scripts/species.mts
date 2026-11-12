@@ -6,6 +6,7 @@ const file = fs.readFileSync("./assets/unit.json", {
 const jsonUnits: JsonUnit[] = JSON.parse(file);
 interface JsonUnit {
   id: number;
+  parentId?: number;
   species?: string | string[];
   cost?: number;
   hp: number;
@@ -13,10 +14,9 @@ interface JsonUnit {
 
 const SPECIES_NAME = "魔獣";
 const targetIds = new Set([
-  2, 5, 11, 16, 20, 22, 33, 40, 48, 50, 52, 54, 58, 62, 63, 66, 67, 69, 82, 85,
-  86, 90, 93, 104, 116, 132, 135, 183, 184, 191, 193, 203, 232, 241, 249, 269,
-  274, 300, 329, 336, 355, 391, 396, 399, 403, 405, 410, 413, 418, 421, 441,
-  458, 459, 464,
+  2, 5, 11, 16, 20, 22, 33, 40, 48, 50, 52, 54, 58, 62, 63, 66, 67, 69, 82, 85, 86, 90, 93,
+  104, 116, 132, 135, 183, 184, 191, 193, 203, 232, 241, 249, 269, 274, 300, 329, 336, 355,
+  391, 396, 399, 403, 405, 410, 413, 418, 421, 441, 458, 459, 464,
 ]);
 
 const species = {
@@ -42,7 +42,7 @@ const species = {
 const speciesValues: string[] = Object.values(species);
 
 const result = jsonUnits.map((unit) => {
-  if (!targetIds.has(unit.id)) {
+  if (!targetIds.has(unit.id) && (unit.parentId == null || !targetIds.has(unit.parentId))) {
     return unit;
   }
   if (!unit.species) {
@@ -67,9 +67,7 @@ const result = jsonUnits.map((unit) => {
 
 result.forEach((unit) => {
   if (Array.isArray(unit.species)) {
-    unit.species.sort(
-      (a, b) => speciesValues.indexOf(a) - speciesValues.indexOf(b),
-    );
+    unit.species.sort((a, b) => speciesValues.indexOf(a) - speciesValues.indexOf(b));
   }
 });
 
