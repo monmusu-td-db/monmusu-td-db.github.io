@@ -22109,7 +22109,20 @@
       "射程+15",
       "攻撃時最大HPの1%回復"
     ],
+    "weapon": {
+      "weaponName": "クラケシューター",
+      "hp": 250,
+      "defense": 15,
+      "resist": 15,
+      "range": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "cooldownCut": 7
+      },
       {
         "featureName": "15-sec",
         "isConditionalBuff": true,
@@ -22412,7 +22425,25 @@
       "物理防御力+60",
       "再出撃時間50%短縮"
     ],
+    "weapon": {
+      "weaponName": "ヘイボーン",
+      "hp": 600,
+      "defense": 10,
+      "resist": 10
+    },
     "features": [
+      {
+        "require": [
+          "武器",
+          "闇マス"
+        ],
+        "cooldownReductions": [
+          5
+        ],
+        "supplements": [
+          "CT-1秒/4秒"
+        ]
+      },
       {
         "featureName": "skill1-hp-25%",
         "currentHp": 25,
@@ -22597,7 +22628,18 @@
       "攻撃力+75",
       "スキル再使用時間-4秒"
     ],
+    "weapon": {
+      "weaponName": "アタシサマ無双",
+      "hp": 500,
+      "attack": 30
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "damageFactor": 150
+      },
       {
         "skill": 1,
         "isBuffSkill": true,
@@ -22778,6 +22820,15 @@
         "supplements": [
           "配置中のゴブリン族1体毎"
         ]
+      },
+      {
+        "type": "damage-factor",
+        "require": [
+          "ゴブリン特性"
+        ],
+        "skill": -1,
+        "target": "全体",
+        "value": 150
       }
     ]
   },
@@ -24043,6 +24094,13 @@
       "射程+15",
       "再出撃時間50%短縮"
     ],
+    "weapon": {
+      "weaponName": "まとい",
+      "attack": 30,
+      "defense": 20,
+      "resist": 5,
+      "range": 10
+    },
     "features": [
       {
         "supplements": [
@@ -24053,6 +24111,12 @@
             "バインド(3秒)/配置→射程内"
           ]
         }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "initialTimeCut": 10
       }
     ],
     "isEventUnit": true,
@@ -27406,6 +27470,13 @@
       "攻撃力+75",
       "射程+15"
     ],
+    "weapon": {
+      "weaponName": "ドラグニックアギト",
+      "attack": 10,
+      "resist": 20,
+      "range": 10,
+      "attackSpeed": 5
+    },
     "formationBuffs": [
       {
         "targets": [
@@ -27433,6 +27504,14 @@
         ],
         "isConditionalSkillBuff": true,
         "attackMul": 108
+      },
+      {
+        "require": [
+          "武器",
+          "火マス"
+        ],
+        "physicalEvasion": 60,
+        "magicalEvasion": 60
       }
     ],
     "isEventUnit": true,
@@ -27509,7 +27588,19 @@
         }
       }
     ],
+    "weapon": {
+      "weaponName": "不滅天翼",
+      "hp": 600,
+      "defense": 20
+    },
     "features": [
+      {
+        "require": [
+          "武器",
+          "光マス"
+        ],
+        "fieldBuffFactor": 300
+      },
       {
         "skill": 0,
         "require": [
@@ -32460,7 +32551,21 @@
       "攻撃速度+15",
       "CRI率/CRI率上限+30%"
     ],
+    "weapon": {
+      "weaponName": "無我骨骨",
+      "hp": 500,
+      "attack": 10,
+      "defense": 20
+    },
     "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "criChanceAdd": 20,
+        "criChanceLimitAdd": 20,
+        "criDamageAdd": 20
+      },
       {
         "featureName": "normal",
         "supplements": [
@@ -32716,9 +32821,25 @@
       "攻撃速度+15",
       "物理攻撃回避40%"
     ],
+    "weapon": {
+      "weaponName": "スニークキラー",
+      "hp": 50,
+      "attack": 60,
+      "defense": 10,
+      "resist": 5
+    },
     "features": [
       {
         "attackMul": 70
+      },
+      {
+        "require": [
+          "武器",
+          "闇属性"
+        ],
+        "supplements": [
+          "隠密"
+        ]
       },
       {
         "featureName": "common-definite-back-attack",
