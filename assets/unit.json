@@ -713,7 +713,7 @@
         ],
         "isConditionalBuff": true,
         "cooldownReductions": [
-          4
+          5
         ],
         "supplements": [
           "CT-1秒/4秒"
@@ -815,7 +815,7 @@
           "地マス"
         ],
         "cooldownReductions": [
-          4
+          5
         ],
         "supplements": [
           "CT-1秒/4秒"
@@ -10135,7 +10135,7 @@
           "武器"
         ],
         "cooldownReductions": [
-          4
+          5
         ],
         "supplements": [
           "CT-1秒/4秒"
