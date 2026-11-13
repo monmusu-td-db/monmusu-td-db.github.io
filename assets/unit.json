@@ -5756,6 +5756,19 @@
         "tkn+1/発動"
       ]
     },
+    "exSkill2": {
+      "skillName": "どくどくたけたけ",
+      "fixedDelay": 1,
+      "target": "射程内",
+      "rangeMul": 170,
+      "duration": "単発",
+      "cooldown": 20,
+      "damageType": "魔法",
+      "supplements": [
+        "tkn+2/発動",
+        "毒霧(5秒)/発動"
+      ]
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -5791,6 +5804,21 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "skill": 2,
+        "target": "全体",
+        "duration": 5,
+        "weather": "毒霧",
+        "supplements": [
+          "発動時"
+        ]
       }
     ]
   },
@@ -5817,6 +5845,18 @@
       "cooldown": 10,
       "damageType": "魔法"
     },
+    "exSkill2": {
+      "skillName": "どくどくたけたけ",
+      "fixedDelay": 1,
+      "target": "射程内",
+      "rangeMul": 170,
+      "duration": "単発",
+      "cooldown": 20,
+      "damageType": "魔法",
+      "supplements": [
+        "毒霧(5秒)/発動"
+      ]
+    },
     "features": [
       {
         "require": [
@@ -5840,6 +5880,21 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
+      }
+    ],
+    "buffs": [
+      {
+        "type": "weather-change",
+        "skill": 2,
+        "target": "全体",
+        "duration": 5,
+        "weather": "毒霧",
+        "supplements": [
+          "発動時"
+        ]
       }
     ]
   },
@@ -7953,6 +8008,14 @@
         "ノックバック(大)→命中"
       ]
     },
+    "exSkill2": {
+      "skillName": "旋風",
+      "fixedDelay": 1,
+      "target": 5,
+      "rangeMul": 170,
+      "duration": "単発",
+      "cooldown": 10
+    },
     "potentials": [
       "出撃コスト-1",
       "出撃コスト-1",
@@ -7985,6 +8048,9 @@
       {},
       {
         "skill": 1
+      },
+      {
+        "skill": 2
       }
     ]
   },
