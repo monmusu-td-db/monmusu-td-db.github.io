@@ -3282,5 +3282,12 @@
         "physicalDamageCut": 20
       }
     ]
+  },
+  {
+    "name": "豊穣ツケ払い",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "スキル準備時間2秒ごとに1秒短縮、配置時、コスト回復速度が30秒間50%に減少",
+    "isFertile": true
   }
 ]

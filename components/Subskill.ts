@@ -1,5 +1,5 @@
-import * as Data from "./Data";
 import jsonSubskill from "@/assets/subskill.json";
+import * as Data from "./Data";
 
 interface JsonSubskill extends Partial<JsonSubskillFactors> {
   name: string;
@@ -68,6 +68,7 @@ interface JsonSubskillFactors {
   isLifeBlock: boolean;
   isDullahanSoul: boolean;
   isWyvern: boolean;
+  isFertile: boolean;
 }
 
 const group = {
@@ -132,6 +133,7 @@ const subskillFactorKeys = [
   "isLifeBlock",
   "isDullahanSoul",
   "isWyvern",
+  "isFertile",
 ] as const;
 const subskillFactor = Data.Enum(subskillFactorKeys);
 export type SubskillFactorKey = (typeof subskillFactorKeys)[number];
@@ -187,6 +189,7 @@ class SubskillFactors implements ISubskillFactors {
   readonly isLifeBlock: boolean | undefined;
   readonly isDullahanSoul: boolean | undefined;
   readonly isWyvern: boolean | undefined;
+  readonly isFertile: boolean | undefined;
 
   constructor(src: Partial<JsonSubskillFactors>) {
     this.cost = src.cost;
@@ -238,6 +241,7 @@ class SubskillFactors implements ISubskillFactors {
     this.isLifeBlock = src.isLifeBlock;
     this.isDullahanSoul = src.isDullahanSoul;
     this.isWyvern = src.isWyvern;
+    this.isFertile = src.isFertile;
   }
 }
 
@@ -287,8 +291,7 @@ class Subskill {
   ): SubskillFactors[T] {
     if (this.features !== undefined) {
       for (const f of this.features) {
-        const hasRequirement =
-          f.require?.every((r) => types.includes(r)) ?? true;
+        const hasRequirement = f.require?.every((r) => types.includes(r)) ?? true;
         const isExcluded = f.exclude?.some((r) => types.includes(r));
         const fac = f[key];
         if (hasRequirement && !isExcluded && fac !== undefined) {
@@ -310,10 +313,7 @@ class Subskill {
     return list;
   }
 
-  static isStackable(
-    obj1: Subskill | undefined,
-    obj2: Subskill | undefined,
-  ): boolean {
+  static isStackable(obj1: Subskill | undefined, obj2: Subskill | undefined): boolean {
     if (
       obj1?.id === obj2?.id ||
       (obj1?.className !== undefined && obj1?.className === obj2?.className)
@@ -328,8 +328,6 @@ class Subskill {
   }
 }
 
-const list: Subskill[] = jsonSubskill.map(
-  (item, index) => new Subskill(item, index),
-);
+const list: Subskill[] = jsonSubskill.map((item, index) => new Subskill(item, index));
 
 export default Subskill;
