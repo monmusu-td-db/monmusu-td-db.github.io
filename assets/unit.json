@@ -62582,5 +62582,104 @@
         ]
       }
     ]
+  },
+  {
+    "id": 474,
+    "unitName": "【輪入道娘】カンリネ",
+    "unitShortName": "カンリネ",
+    "rarity": "L",
+    "class": "ニンジャ",
+    "element": "火",
+    "species": "妖怪",
+    "hp": 3074,
+    "attack": 725,
+    "defense": 475,
+    "resist": 343,
+    "supplements": [
+      "火傷付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "業火輪断",
+      "attackMul": 500,
+      "damageFactor": 200,
+      "laser": true,
+      "rounds": 1,
+      "rangeMul": 240,
+      "duration": 30,
+      "cooldown": 40
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "射程+15",
+      "火傷の敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "爆炎大車輪",
+      "attack": 55,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "require": [
+          "武器"
+        ],
+        "deleteSupplements": [
+          "火傷付与(稀)→命中"
+        ],
+        "supplements": [
+          "火傷付与(稀+)→命中"
+        ]
+      },
+      {
+        "require": [
+          "火マス"
+        ],
+        "fieldBuffFactor": 200
+      },
+      {
+        "featureName": "common-definite-burn",
+        "require": [
+          "スキル"
+        ],
+        "physicalDamageDebuff": 200
+      },
+      {
+        "featureName": "common-definite-burn",
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 170
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-burn"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-burn"
+        ]
+      }
+    ],
+    "buffs": [
+      {
+        "type": "physical-damage-debuff",
+        "skill": 1,
+        "require": [
+          "火傷敵"
+        ],
+        "target": "全体",
+        "value": 200
+      }
+    ]
   }
 ]
