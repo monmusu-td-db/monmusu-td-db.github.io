@@ -57943,6 +57943,13 @@
           "hp-mul",
           "regenerate-area"
         ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
       }
     ]
   },
@@ -60008,6 +60015,13 @@
         "skill": 1,
         "features": [
           "common-skill-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
         ]
       }
     ],
@@ -62546,6 +62560,29 @@
         "features": [
           "beat-30",
           "weapon-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "beat-15",
+          "class-action"
+        ]
+      },
+      {
+        "proper": true,
+        "skill": -1,
+        "features": [
+          "beat-30",
+          "class-action"
         ]
       }
     ]
