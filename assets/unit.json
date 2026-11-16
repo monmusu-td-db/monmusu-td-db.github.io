@@ -62324,5 +62324,263 @@
         ]
       }
     ]
+  },
+  {
+    "id": 473,
+    "unitName": "【がしゃどくろ娘】ツガリ",
+    "unitShortName": "ツガリ",
+    "rarity": "L",
+    "class": "デストロイヤー",
+    "element": "闇",
+    "species": [
+      "妖怪",
+      "アンデッド"
+    ],
+    "hp": 10666,
+    "attack": 1264,
+    "defense": 645,
+    "resist": 109,
+    "supplements": [
+      "死亡時復活"
+    ],
+    "exSkill1": {
+      "skillName": "大骸将の墓縛",
+      "attackMul": 300,
+      "range": 450,
+      "duration": 40,
+      "cooldown": 50,
+      "supplements": [
+        "HP0にならない",
+        "バインド(3.5秒)→命中"
+      ]
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "攻撃力+75",
+      "スキル再使用時間-6秒"
+    ],
+    "weapon": {
+      "weaponName": "骨塊の魔槌",
+      "attack": 20,
+      "defense": 30,
+      "resist": 30
+    },
+    "features": [
+      {
+        "featureName": "weapon-dot",
+        "isAbility": true,
+        "require": [
+          "武器"
+        ],
+        "annotations": [
+          "継続ダメージ"
+        ],
+        "staticDamage": {
+          "key": "attack",
+          "value": 50
+        },
+        "interval": 30,
+        "target": "射程内",
+        "splash": false,
+        "range": null,
+        "damageType": "貫通"
+      },
+      {
+        "featureName": "beat-15",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 15
+          }
+        ],
+        "hpMul": 250,
+        "attackMul": 250
+      },
+      {
+        "featureName": "beat-30",
+        "isConditionalBuff": true,
+        "conditions": [
+          {
+            "key": "倒",
+            "value": 30
+          }
+        ],
+        "hpMul": 400,
+        "attackMul": 400
+      },
+      {
+        "featureName": "common-definite",
+        "isConditionalBuff": true,
+        "annotations": [
+          "HP60%以上敵"
+        ],
+        "damageFactor": 150,
+        "potentialBonus": {
+          "damageFactor": 170
+        }
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite"
+        ]
+      },
+      {
+        "features": [
+          "beat-15"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-15"
+        ]
+      },
+      {
+        "features": [
+          "common-definite",
+          "beat-15"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "beat-15"
+        ]
+      },
+      {
+        "features": [
+          "beat-30"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "beat-30"
+        ]
+      },
+      {
+        "features": [
+          "common-definite",
+          "beat-30"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite",
+          "beat-30"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "weapon-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "weapon-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-15",
+          "weapon-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-15",
+          "weapon-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "features": [
+          "beat-30",
+          "weapon-dot"
+        ]
+      },
+      {
+        "proper": true,
+        "require": [
+          "weapon"
+        ],
+        "skill": 1,
+        "features": [
+          "beat-30",
+          "weapon-dot"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4730001,
+    "parentId": 473,
+    "unitName": "大怨念トークン",
+    "unitShortName": "大怨念T",
+    "rarity": "C",
+    "cost": 0,
+    "hp": 11940,
+    "attack": 4972,
+    "defense": 298,
+    "resist": 447,
+    "attackSpeed": 56,
+    "delay": 25,
+    "block": null,
+    "target": 1,
+    "splash": true,
+    "range": 450,
+    "moveSpeed": 0,
+    "damageType": "物理",
+    "placement": "付",
+    "isUnhealable": true,
+    "supplements": [
+      "limit40秒"
+    ],
+    "situations": [
+      {
+        "proper": true,
+        "features": [
+          "common-token-limit-nodesc"
+        ]
+      }
+    ]
   }
 ]
