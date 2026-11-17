@@ -62340,6 +62340,98 @@
     ]
   },
   {
+    "id": 472,
+    "unitName": "【大百足娘】ネリカ",
+    "unitShortName": "ネリカ",
+    "rarity": "L",
+    "class": "シールドナイト",
+    "element": "地",
+    "species": "妖怪",
+    "hp": 6909,
+    "attack": 710,
+    "defense": 1048,
+    "resist": 216,
+    "supplements": [
+      "毒付与(稀)→命中"
+    ],
+    "exSkill1": {
+      "skillName": "大顎の毒剣",
+      "attackMul": 220,
+      "defenseMul": 170,
+      "duration": 30,
+      "cooldown": 50
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "最大HP+600",
+      "物理防御力+90",
+      "毒の敵へ与ダメ1.2倍"
+    ],
+    "weapon": {
+      "weaponName": "蟲刃・ハエマト",
+      "hp": 400,
+      "attack": 10,
+      "defense": 30
+    },
+    "features": [
+      {
+        "attackAdd": {
+          "key": "defense",
+          "value": 60
+        },
+        "potentialBonus": {
+          "attackAdd": {
+            "key": "defense",
+            "value": 70
+          }
+        }
+      },
+      {
+        "require": [
+          "武器"
+        ],
+        "physicalDamageCut": 15
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "deleteSupplements": [
+          "毒付与(稀)→命中"
+        ],
+        "supplements": [
+          "毒付与(稀+)→命中"
+        ]
+      },
+      {
+        "featureName": "common-definite-poison",
+        "isConditionalSkillBuff": true,
+        "skill": 1,
+        "damageFactor": 200,
+        "damageCut": 50
+      }
+    ],
+    "isEventUnit": true,
+    "situations": [
+      {},
+      {
+        "skill": 1
+      },
+      {
+        "features": [
+          "common-definite-poison"
+        ]
+      },
+      {
+        "skill": 1,
+        "features": [
+          "common-definite-poison"
+        ]
+      }
+    ]
+  },
+  {
     "id": 473,
     "unitName": "【がしゃどくろ娘】ツガリ",
     "unitShortName": "ツガリ",
