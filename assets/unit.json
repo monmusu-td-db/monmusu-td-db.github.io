@@ -62718,5 +62718,107 @@
         "value": 200
       }
     ]
+  },
+  {
+    "id": 475,
+    "unitName": "【風鬼娘】フウカ",
+    "unitShortName": "フウカ",
+    "rarity": "L",
+    "class": "スロワー",
+    "element": "風",
+    "species": "妖怪",
+    "hp": 3735,
+    "attack": 843,
+    "defense": 209,
+    "resist": 113,
+    "exSkill1": {
+      "skillName": "つむじ風一閃",
+      "attackMul": 220,
+      "attackSpeedBuff": 120,
+      "delayMul": 80,
+      "rangeMul": 180,
+      "physicalEvasion": 100,
+      "magicalEvasion": 100,
+      "duration": 20,
+      "cooldown": 30
+    },
+    "potentials": [
+      "出撃コスト-1",
+      "出撃コスト-1",
+      "攻撃力+75",
+      "攻撃速度+15",
+      "CRIダメージ+50%"
+    ],
+    "formationBuffs": [
+      {
+        "targets": [
+          "妖怪"
+        ],
+        "require": [
+          "武器"
+        ],
+        "attack": 116,
+        "supplements": [
+          "水/風/光/闇属性1種毎+4%(最大16%)"
+        ]
+      }
+    ],
+    "weapon": {
+      "weaponName": "黒鉄の大風車",
+      "attack": 30,
+      "range": 10,
+      "attackSpeed": 5
+    },
+    "features": [
+      {
+        "criChanceAdd": 30,
+        "criChanceLimitAdd": 30,
+        "supplements": [
+          "ATK+10%/CRI時"
+        ],
+        "potentialBonus": {
+          "criChanceAdd": 40,
+          "criChanceLimitAdd": 40
+        }
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "fieldElements": [
+          "風"
+        ],
+        "criChanceAdd": 30,
+        "criChanceLimitAdd": 30
+      }
+    ],
+    "situations": [
+      {},
+      {
+        "skill": 1
+      }
+    ],
+    "buffs": [
+      {
+        "type": "field-buff-add",
+        "skill": 1,
+        "target": "射程内",
+        "element": "風"
+      },
+      {
+        "skill": 1,
+        "target": "射程内",
+        "effects": [
+          {
+            "type": "critical-chance-add",
+            "value": 30
+          },
+          {
+            "type": "critical-chance-limit-add",
+            "value": 30
+          }
+        ]
+      }
+    ]
   }
 ]
