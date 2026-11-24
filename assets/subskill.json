@@ -3289,5 +3289,34 @@
     "group": "支援",
     "desc": "スキル準備時間2秒ごとに1秒短縮、配置時、コスト回復速度が30秒間50%に減少",
     "isFertile": true
+  },
+  {
+    "name": "【究極】ゴーストリスポーン",
+    "rarity": "L",
+    "group": "支援",
+    "desc": "セット時、自身の出撃コスト-15\n再出撃までの時間を50%短縮（重複不可）",
+    "isUltimate": true,
+    "cost": -15,
+    "redeployTimeCut": 50
+  },
+  {
+    "name": "エレメンタルヴェール",
+    "rarity": "L",
+    "group": "防御",
+    "desc": "同属性マス配置中魔法Dmg-20%、同属性マス配置+スキル中魔法Dmg-30%に強化",
+    "features": [
+      {
+        "require": [
+          "非スキル"
+        ],
+        "magicalDamageCut": 20
+      },
+      {
+        "require": [
+          "スキル"
+        ],
+        "magicalDamageCut": 30
+      }
+    ]
   }
 ]
